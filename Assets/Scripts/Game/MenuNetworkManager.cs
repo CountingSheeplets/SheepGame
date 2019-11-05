@@ -33,6 +33,7 @@ public class MenuNetworkManager : Singleton<MenuNetworkManager>
         EventManager.TriggerEvent(EventName.Input.Network.PlayerLeft(), GameMessage.Write().WithOwner(leftOwner));
         Destroy(leftOwner.gameObject);
     }
+
 	private void OnDestroy(){
 		if (AirConsole.instance != null){
 			AirConsole.instance.onConnect -= OnConnect;

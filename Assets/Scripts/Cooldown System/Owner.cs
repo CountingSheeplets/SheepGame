@@ -8,6 +8,7 @@ public class Owner : MonoBehaviour
     public string ownerName = "";
     public bool isHero = false;
     public float teamId = 0;
+    public bool ready = false;
 
     [BitMask(typeof(OwnerType))]
     public OwnerType ownerType;
@@ -71,25 +72,50 @@ public class Owner : MonoBehaviour
             return true;
         else return false;
     }
-    public override bool Equals(System.Object obj)
+    public bool EqualsByValue(System.Object obj)
     {
-        return Equals(obj as Owner);
+        return EqualsByValue(obj as Owner);
     }
-    public bool Equals(Owner obj)
+        //use this instead of override obj, cause that is needed still to compare same component!
+    public bool EqualsByValue(Owner obj)
     {
+            //Debug.Log("ReferenceEquals:null:"+ReferenceEquals(null, obj));
         if (ReferenceEquals(null, obj)) return false;
+            //Debug.Log("ReferenceEquals:this:"+ReferenceEquals(this, obj));
         if (ReferenceEquals(this, obj)) return true;
+            //Debug.Log("GetType():this:"+ReferenceEquals(this, obj));
         if (obj.GetType() != this.GetType()) return false;
         Owner c = obj as Owner;
-        if ((System.Object)c == null)
+        if ((System.Object)c == null){
+            //Debug.Log("obj is null, false");
             return false;
-        return ((ownerType & c.ownerType) != 0 && ownerId == c.ownerId && teamId == c.teamId);
+        }
+       // Debug.Log("passed all, proper checking..."+((ownerType & c.ownerType) != 0 && ownerName == c.ownerName && teamId == c.teamId)+" vs "+c);
+        return ((ownerType & c.ownerType) != 0 && ownerName == c.ownerName && teamId == c.teamId);
     }
-    public override int GetHashCode(){
+    //are these needed?:
+    public bool IsInListByType(List<Owner> list){
+        foreach(Owner b in list){
+            if (EqualsByValue(b)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public Owner InListByType(List<Owner> list){
+        foreach(Owner b in list){
+            if (EqualsByValue(b)){
+
+                return b;
+            }
+        }
+        return null;
+    }
+/*     public override int GetHashCode(){
         return (int)ownerType; //or perhaps just 0?
-    }
+    } */
     public override string ToString(){
-        return ownerType+"-"+ownerId+"-"+teamId;
+        return ownerType+"-"+ownerId+"-"+teamId+"-"+ownerName;
     }
 }
 public enum OwnerType{

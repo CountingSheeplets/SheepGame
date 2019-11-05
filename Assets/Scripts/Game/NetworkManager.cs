@@ -9,14 +9,15 @@ public class NetworkManager : Singleton<NetworkManager>
 	void Awake (){
 		AirConsole.instance.onMessage += OnSwipe;
 		AirConsole.instance.onMessage += OnBack;
-        AirConsole.instance.onMessage += OnOpenKingUpgrades;
-        AirConsole.instance.onMessage += OnOpenSheepUpgrades;
+		AirConsole.instance.onMessage += OnOpenKingUpgrades;
+		AirConsole.instance.onMessage += OnOpenSheepUpgrades;
 	}
     void OnSwipe(int from, JToken message){
 			Debug.Log ("int from: " + from+"   "+message);
-			if (message ["data"]["element"] != null) {
+			if (message ["data"]!= null)
+			if (message ["data"]["direction"]!= null) {
 					if (message ["element"].ToString () == "swipe-field") {
-									Swipe newSwipe = new Swipe(message["data"]["element"]);
+									Swipe newSwipe = new Swipe(message["data"]["direction"]);
 									EventManager.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe));
 				}
 			}

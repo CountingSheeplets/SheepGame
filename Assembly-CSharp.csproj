@@ -226,9 +226,11 @@
      <Compile Include="Assets\Scripts\Cooldown System\IMarker.cs" />
      <Compile Include="Assets\Scripts\Cooldown System\Owner.cs" />
      <Compile Include="Assets\Scripts\Game\ArenaManager.cs" />
+     <Compile Include="Assets\Scripts\Game\FieldTile.cs" />
      <Compile Include="Assets\Scripts\Game\MenuNetworkManager.cs" />
      <Compile Include="Assets\Scripts\Game\NetworkManager.cs" />
      <Compile Include="Assets\Scripts\Game\Playfield.cs" />
+     <Compile Include="Assets\Scripts\Game\ReadyNetworkManager.cs" />
      <Compile Include="Assets\Scripts\Game\Swipe.cs" />
      <Compile Include="Assets\Scripts\General\BitMaskAttribute.cs" />
      <Compile Include="Assets\Scripts\General\ManagerInstantiater.cs" />

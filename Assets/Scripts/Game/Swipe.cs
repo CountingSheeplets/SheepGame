@@ -12,10 +12,10 @@ public class Swipe
     public Vector2 vector;
 
     public Swipe(JToken message){
-		distance = (float)message ["direction"]["distance"];
-		angle = (float)message ["direction"]["angle"];
-		degree = (int)message ["direction"]["degree"];
-		speed = (int)message ["direction"]["speed"];
-		vector = new Vector2 ((float)message ["data"]["x"], -(float)message ["data"]["y"]);
+		distance = (float)message ["distance"];
+		angle = (float)message ["angle"];
+		degree = (int)message ["degree"];
+		speed = (int)message ["speed"];
+		vector = new Vector2 ((float)message ["x"], -(float)message ["y"]);
     }
 }

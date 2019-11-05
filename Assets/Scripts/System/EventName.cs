@@ -56,7 +56,12 @@ public class EventName
             public static string Destroyed() { return "System_Building_Destroyed"; }
             public static List<string> Get() { return new List<string> { Destroyed(), Built()}; }          
         }
+        public class Environment{
+            public static string SetField() { return "System_SetField"; }
+            public static string AdjustField() { return "System_AdjustField"; }
+            public static List<string> Get() { return new List<string> { SetField(), AdjustField()}; }          
         //public static string MapLayoutChanged() { return "MapLayoutChanged"; }
+        }
 
         //public static string NextScene() { return "NextScene"; }
         //public static string LoadScene() { return "LoadScene"; }
@@ -65,7 +70,7 @@ public class EventName
             //MapLayoutChanged(),
             //NextScene(), LoadScene(),s
              SceneLoaded()
-            }.Concat(Economy.Get()).Concat(Sheep.Get()).Concat(Cooldown.Get()).ToList(); }
+            }.Concat(Economy.Get()).Concat(Sheep.Get()).Concat(Cooldown.Get()).Concat(Environment.Get()).ToList(); }
     }
     public class AI
     {
