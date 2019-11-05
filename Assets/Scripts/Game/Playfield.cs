@@ -15,14 +15,16 @@ public class Playfield : MonoBehaviour
     public GameObject fieldTilePrefab;
     public GameObject fenceTilePrefab;
     public List<FieldTile> fieldTiles = new List<FieldTile>();
+    public List<FenceTile> fenceTiles = new List<FenceTile>();
     public int currentHitpoints = 0;
+    public bool generateFence = true;
     public Playfield Init(){
         GameObject newPlayfieldGO = Instantiate(gameObject);
         Playfield playfield = newPlayfieldGO.GetComponent<Playfield>();
         return playfield;
     }
 
-    void Awake(){
+    void Start(){
         //EventManager.StartListening(EventName.Input.Swipe(), OnSwipe);
         EventManager.StartListening(EventName.Input.StartGame(), OnStart);
         EventManager.StartListening(EventName.System.Environment.SetField(), OnSetField);
@@ -49,12 +51,14 @@ public class Playfield : MonoBehaviour
         }
         //generate fences around field:
         //Vector2 offset = new Vector2(-(size.x+1)/2, (size.y+1)/2);
-        for(int i = 0;i < (gridSize.x + 2 + gridSize.y)*2; i++){
-            GameObject newTileGO = Instantiate(fenceTilePrefab, Vector2.zero, Quaternion.identity, transform);
-            newTileGO.transform.localPosition = sp.ThisPoint() * tileSize;
-            sp.Next();
-            newTileGO.transform.localScale = tileScale;
-        }
+        if(generateFence)
+            for(int i = 0;i < (gridSize.x + 2 + gridSize.y)*2; i++){
+                GameObject newTileGO = Instantiate(fenceTilePrefab, Vector2.zero, Quaternion.identity, transform);
+                newTileGO.transform.localPosition = sp.ThisPoint() * tileSize;
+                sp.Next();
+                newTileGO.transform.localScale = tileScale;
+                fenceTiles.Add(newTileGO.GetComponent<FenceTile>());
+            }
         SetHitpointsTo(99);
     }
     void OnSetField(GameMessage msg){

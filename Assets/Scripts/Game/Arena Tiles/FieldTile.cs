@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieldTile : MonoBehaviour
+public class FieldTile : BaseTile
 {
     public Color activeCol;
     public Color passiveCol;

@@ -225,12 +225,14 @@
      <Compile Include="Assets\Scripts\Cooldown System\CooldownMarkerManager.cs" />
      <Compile Include="Assets\Scripts\Cooldown System\IMarker.cs" />
      <Compile Include="Assets\Scripts\Cooldown System\Owner.cs" />
+     <Compile Include="Assets\Scripts\Game\Arena Tiles\BaseTile.cs" />
+     <Compile Include="Assets\Scripts\Game\Arena Tiles\EmptyTile.cs" />
+     <Compile Include="Assets\Scripts\Game\Arena Tiles\FenceTile.cs" />
+     <Compile Include="Assets\Scripts\Game\Arena Tiles\FieldTile.cs" />
      <Compile Include="Assets\Scripts\Game\ArenaManager.cs" />
-     <Compile Include="Assets\Scripts\Game\FieldTile.cs" />
-     <Compile Include="Assets\Scripts\Game\MenuNetworkManager.cs" />
-     <Compile Include="Assets\Scripts\Game\NetworkManager.cs" />
+     <Compile Include="Assets\Scripts\Game\ArenaPreset.cs" />
      <Compile Include="Assets\Scripts\Game\Playfield.cs" />
-     <Compile Include="Assets\Scripts\Game\ReadyNetworkManager.cs" />
+     <Compile Include="Assets\Scripts\Game\PresetSocket.cs" />
      <Compile Include="Assets\Scripts\Game\Swipe.cs" />
      <Compile Include="Assets\Scripts\General\BitMaskAttribute.cs" />
      <Compile Include="Assets\Scripts\General\ManagerInstantiater.cs" />
@@ -239,6 +241,9 @@
      <Compile Include="Assets\Scripts\Helper\Generate.cs" />
      <Compile Include="Assets\Scripts\Helper\InitializeListeners.cs" />
      <Compile Include="Assets\Scripts\Helper\ReadOnlyAttribute.cs" />
+     <Compile Include="Assets\Scripts\Network\MenuNetworkManager.cs" />
+     <Compile Include="Assets\Scripts\Network\NetworkManager.cs" />
+     <Compile Include="Assets\Scripts\Network\ReadyNetworkManager.cs" />
      <Compile Include="Assets\Scripts\System\Base Classes\Singleton.cs" />
      <Compile Include="Assets\Scripts\System\CustomHelperClasses.cs" />
      <Compile Include="Assets\Scripts\System\EventChain.cs" />
@@ -250,6 +255,7 @@
      <Compile Include="Assets\Scripts\System\Types\BuildingType.cs" />
      <Compile Include="Assets\Scripts\System\Types\FactionType.cs" />
      <Compile Include="Assets\Scripts\System\UnityGameEvent.cs" />
+     <Compile Include="Assets\Scripts\Testing\TestEvents.cs" />
      <None Include="Assets\AirConsole\README.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/carro/Desktop/Unity/Sheep Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

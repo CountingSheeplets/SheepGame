@@ -5,19 +5,24 @@ using System.Linq;
 public class ArenaManager : MonoBehaviour
 {
     public List<Playfield> playfields = new List<Playfield>();
+    public List<ArenaPreset> presets = new List<ArenaPreset>();
     public GameObject playfieldPrefab;
+    public int emptySpacesBetweenFields = 1;
     bool gameStarted = false;
 
     void Start()
     {
+        presets.AddRange(GetComponentsInChildren<ArenaPreset>());
         EventManager.StartListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
         EventManager.StartListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
         EventManager.StartListening(EventName.Input.StartGame(), OnStartGame);
+        EventManager.StartListening(EventName.System.Player.Defeated(), OnPlayerDefeated);
     }
     void OnDestroy(){
         EventManager.StopListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
         EventManager.StopListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
         EventManager.StopListening(EventName.Input.StartGame(), OnStartGame);
+        EventManager.StopListening(EventName.System.Player.Defeated(), OnPlayerDefeated);
     }
 
     void OnPlayerJoined(GameMessage msg){
@@ -33,27 +38,48 @@ public class ArenaManager : MonoBehaviour
         }
         ArrangeFields();
     }
-    void OnStartGame(GameMessage msg){gameStarted = true;}
+    void OnStartGame(GameMessage msg){
+        gameStarted = true;
+        ArrangeFields();
+    }
     void OnPlayerLeft(GameMessage msg){
         //destroy arena if game has not started yet, if started, leave?
         if(!gameStarted){
-            Debug.Log(msg.owner);
-            Debug.Log(playfields.Count);
-            Playfield pl = playfields.Where(x=>x.GetComponent<Owner>().EqualsByValue(msg.owner)).FirstOrDefault();
-            playfields.Remove(pl);
-            Debug.Log(pl.gameObject.name);
-            if(pl != null)
-                Destroy(pl.gameObject);
+            RemoveField(msg.owner);
         }
     }
-
+    void RemoveField(Owner owner){
+        Debug.Log(owner);
+        Debug.Log(playfields.Count);
+        Playfield pl = playfields.Where(x=>x.GetComponent<Owner>().EqualsByValue(owner)).FirstOrDefault();
+        playfields.Remove(pl);
+        Debug.Log(pl.gameObject.name);
+        if(pl != null)
+            Destroy(pl.gameObject);
+    }
+    void OnPlayerDefeated(GameMessage msg){
+        RemoveField(msg.owner);
+        ArrangeFields();
+    }
     void ArrangeFields(){
-        if(playfields.Count>1){
-            for(int i = 0; i < playfields.Count; i++){
-                int incX = Mathf.FloorToInt(playfieldPrefab.GetComponent<Playfield>().fieldSize.x+2);
-                int offsetX = -(incX * playfields.Count)/2;
-                playfields[i].transform.position = new Vector2(offsetX + i * incX, 0);
-            }
+        List<ArenaPreset> availablePresets = presets.Where(x=>x.presetSize == playfields.Count).ToList();
+        List<PresetSocket> sockets = new List<PresetSocket>(availablePresets[Random.Range(0, availablePresets.Count-1)].sockets);
+        List<Playfield> leftoverFields = new List<Playfield>(playfields);
+        bool hasFence = leftoverFields[0].generateFence;
+        for(int i = 0; i < playfields.Count; i++){
+            int rS = Random.Range(0, sockets.Count-1);
+            int rF = Random.Range(0, leftoverFields.Count-1);
+
+            Playfield p = playfieldPrefab.GetComponent<Playfield>();
+            float fieldWidth = p.fieldSize.x; 
+            fieldWidth += emptySpacesBetweenFields * p.tileSize;
+            if(hasFence)
+                fieldWidth += 2f * p.tileSize;
+            Vector2 offset = sockets[rS].transform.position;
+
+            leftoverFields[rF].transform.position = offset * fieldWidth;
+            leftoverFields.RemoveAt(rF);
+            sockets.RemoveAt(rS);
         }
     }
 }

@@ -62,7 +62,10 @@ public class EventName
             public static List<string> Get() { return new List<string> { SetField(), AdjustField()}; }          
         //public static string MapLayoutChanged() { return "MapLayoutChanged"; }
         }
-
+        public class Player{
+            public static string Defeated() { return "System_Defeated"; }
+            public static List<string> Get() { return new List<string> { Defeated()}; }          
+        }
         //public static string NextScene() { return "NextScene"; }
         //public static string LoadScene() { return "LoadScene"; }
         public static string SceneLoaded() { return "SceneLoaded"; }

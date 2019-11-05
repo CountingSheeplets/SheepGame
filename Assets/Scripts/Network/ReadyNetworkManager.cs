@@ -18,7 +18,7 @@ public class ReadyNetworkManager : MonoBehaviour
 				if (message ["data"]["pressed"]!= null) {
 					bool ready = (bool)(message["data"]["pressed"]);
 					//check if all ready then start
-        			List<Owner> owners = new List<Owner>(GetComponentsInChildren<Owner>());
+					List<Owner> owners = new List<Owner>(GetComponentsInChildren<Owner>());
 					Owner readyOwner = owners.Where(x=>x.ownerId == from).FirstOrDefault();
 					if(readyOwner == null)
 						return;

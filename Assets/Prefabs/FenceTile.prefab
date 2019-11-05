@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 234851954953041764}
   - component: {fileID: 1649209650603197152}
+  - component: {fileID: 4569624871724631233}
   m_Layer: 0
   m_Name: FenceTile
   m_TagString: Untagged
@@ -80,3 +81,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4569624871724631233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3521382541257471907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7590b1d4d3432d649b02a1e9601566e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
