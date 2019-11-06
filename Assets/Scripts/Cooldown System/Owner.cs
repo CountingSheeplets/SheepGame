@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Owner : MonoBehaviour
 {
-    public float ownerId = 0;
+    public string ownerId = "";
+    public int deviceId = 0;
     public string ownerName = "";
     public bool isHero = false;
     public float teamId = 0;
     public bool ready = false;
+    public bool connected = false;
 
     [BitMask(typeof(OwnerType))]
     public OwnerType ownerType;
@@ -17,13 +19,18 @@ public class Owner : MonoBehaviour
         ownerName = newOwner.ownerName;
         teamId = newOwner.teamId;
         ownerType = newOwner.ownerType;
+        if(IsPlayer())
+            connected = true;
         return this;
     }
-    public void Create(int id, string nm, bool hero){
+    public void Create(string id, string nm, bool hero, int devId){
         ownerId = id;
         ownerName = nm;
         isHero = hero;
         ownerType = OwnerType.Player;
+        deviceId = devId;
+        if(IsPlayer())
+            connected = true;
     }
     public void AddMask(OwnerType[] newTypes){
         ownerType.Set(newTypes);

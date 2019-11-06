@@ -16,7 +16,12 @@ public class EventName
     }
     public class Input
     {
-        public class Button{
+        public class KingAbilities{
+            public static string SpawnSheep() { return "KingAbilities_SpawnSheep"; }
+            public static string BuyLawn() { return "KingAbilities_BuyLawn"; }
+            public static List<string> Get() { return new List<string> { SpawnSheep(),BuyLawn() }; }          
+        }
+        public class SheepUpgrades{
             public static string None() { return null; }
             public static List<string> Get() { return new List<string> { None() }; }          
         }
@@ -34,8 +39,10 @@ public class EventName
         public static List<string> Get() { return new List<string> {
             StartGame(),
             Swipe()
-            }.Concat(Button.Get())
+            }.Concat(KingAbilities.Get())
+                .Concat(SheepUpgrades.Get())
                 .Concat(Menus.Get())
+                .Concat(Network.Get())
                 .ToList(); }
     }
     public class System
@@ -52,9 +59,8 @@ public class EventName
             public static List<string> Get() { return new List<string> { Tick(), Ended(), PostEnd()}; }          
         }
         public class Sheep{
-            public static string Built() { return "System_Sheep_Built"; }
-            public static string Destroyed() { return "System_Building_Destroyed"; }
-            public static List<string> Get() { return new List<string> { Destroyed(), Built()}; }          
+            public static string Kill() { return "System_Sheep_Kill"; }
+            public static List<string> Get() { return new List<string> { Kill()}; }          
         }
         public class Environment{
             public static string SetField() { return "System_SetField"; }

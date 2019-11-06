@@ -229,10 +229,14 @@
      <Compile Include="Assets\Scripts\Game\Arena Tiles\EmptyTile.cs" />
      <Compile Include="Assets\Scripts\Game\Arena Tiles\FenceTile.cs" />
      <Compile Include="Assets\Scripts\Game\Arena Tiles\FieldTile.cs" />
+     <Compile Include="Assets\Scripts\Game\Arena\FieldCorners.cs" />
      <Compile Include="Assets\Scripts\Game\ArenaManager.cs" />
      <Compile Include="Assets\Scripts\Game\ArenaPreset.cs" />
      <Compile Include="Assets\Scripts\Game\Playfield.cs" />
      <Compile Include="Assets\Scripts\Game\PresetSocket.cs" />
+     <Compile Include="Assets\Scripts\Game\Sheep\SheepSpawn.cs" />
+     <Compile Include="Assets\Scripts\Game\Sheep\SheepThrow.cs" />
+     <Compile Include="Assets\Scripts\Game\Sheep\SheepUnit.cs" />
      <Compile Include="Assets\Scripts\Game\Swipe.cs" />
      <Compile Include="Assets\Scripts\General\BitMaskAttribute.cs" />
      <Compile Include="Assets\Scripts\General\ManagerInstantiater.cs" />
@@ -241,8 +245,10 @@
      <Compile Include="Assets\Scripts\Helper\Generate.cs" />
      <Compile Include="Assets\Scripts\Helper\InitializeListeners.cs" />
      <Compile Include="Assets\Scripts\Helper\ReadOnlyAttribute.cs" />
+     <Compile Include="Assets\Scripts\Network\KingButtonsNetwork.cs" />
      <Compile Include="Assets\Scripts\Network\MenuNetworkManager.cs" />
      <Compile Include="Assets\Scripts\Network\NetworkManager.cs" />
+     <Compile Include="Assets\Scripts\Network\OwnersManager.cs" />
      <Compile Include="Assets\Scripts\Network\ReadyNetworkManager.cs" />
      <Compile Include="Assets\Scripts\System\Base Classes\Singleton.cs" />
      <Compile Include="Assets\Scripts\System\CustomHelperClasses.cs" />

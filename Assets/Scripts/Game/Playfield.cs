@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class Playfield : MonoBehaviour
 {
-    public Vector2 gridSize;
-    public float tileSize = 0.5f;
-    public Vector2 tileScale;
-    public Vector2 fieldSize {
-        get{
-            return gridSize * tileSize;
-        }
-    }
+    public FieldCorners fieldCorners;
+
     public GameObject fieldTilePrefab;
     public GameObject fenceTilePrefab;
     public List<FieldTile> fieldTiles = new List<FieldTile>();
     public List<FenceTile> fenceTiles = new List<FenceTile>();
     public int currentHitpoints = 0;
     public bool generateFence = true;
+    public Transform fieldParent;
+    public Transform fenceParent;
+
     public Playfield Init(){
         GameObject newPlayfieldGO = Instantiate(gameObject);
         Playfield playfield = newPlayfieldGO.GetComponent<Playfield>();
@@ -25,6 +22,8 @@ public class Playfield : MonoBehaviour
     }
 
     void Start(){
+        fieldCorners = new FieldCorners(ArenaManager.fieldSize);
+        //Debug.Log("object set: fieldCorners..."+fieldCorners);
         //EventManager.StartListening(EventName.Input.Swipe(), OnSwipe);
         EventManager.StartListening(EventName.Input.StartGame(), OnStart);
         EventManager.StartListening(EventName.System.Environment.SetField(), OnSetField);
@@ -42,27 +41,27 @@ public class Playfield : MonoBehaviour
     void OnStart(GameMessage msg){
         //generate field area:
         Spiral sp = new Spiral();
-        for(int i = 0;i < gridSize.x*gridSize.y; i++){
-            GameObject newTileGO = Instantiate(fieldTilePrefab, Vector2.zero, Quaternion.identity, transform);
-            newTileGO.transform.localPosition = sp.ThisPoint() * tileSize;
+        for(int i = 0;i < ArenaManager.GridSize * ArenaManager.GridSize; i++){
+            GameObject newTileGO = Instantiate(fieldTilePrefab, Vector2.zero, Quaternion.identity, fieldParent);
+            newTileGO.transform.localPosition = sp.ThisPoint() * ArenaManager.TileSize;
             sp.Next();
-            newTileGO.transform.localScale = tileScale;
+            newTileGO.transform.localScale = ArenaManager.TileScale;
             fieldTiles.Add(newTileGO.GetComponent<FieldTile>());
         }
         //generate fences around field:
         //Vector2 offset = new Vector2(-(size.x+1)/2, (size.y+1)/2);
         if(generateFence)
-            for(int i = 0; i < (gridSize.x + 2 + gridSize.y) * 2; i++){
-                if((i+1) % (gridSize.x + 1) != 0) {
-                    GameObject newTileGO = Instantiate(fenceTilePrefab, Vector2.zero, Quaternion.identity, transform);
-                    newTileGO.transform.localPosition = sp.ThisPoint() * tileSize;
-                    newTileGO.transform.localScale = tileScale;
-                    Vector3 rotateBy = new Vector3(0, 0, 90f * Mathf.FloorToInt(i / (gridSize.x + 1)));
+            for(int i = 0; i < (ArenaManager.GridSize + 2 + ArenaManager.GridSize) * 2; i++){
+                if((i+1) % (ArenaManager.GridSize + 1) != 0) {
+                    GameObject newTileGO = Instantiate(fenceTilePrefab, Vector2.zero, Quaternion.identity, fenceParent);
+                    newTileGO.transform.localPosition = sp.ThisPoint() * ArenaManager.TileSize;
+                    newTileGO.transform.localScale = ArenaManager.TileScale;
+                    Vector3 rotateBy = new Vector3(0, 0, 90f * Mathf.FloorToInt(i / (ArenaManager.GridSize + 1)));
                     //Debug.Log("rotateBy "+rotateBy);
                     newTileGO.transform.Rotate(rotateBy, Space.World);
                     fenceTiles.Add(newTileGO.GetComponent<FenceTile>());
                 } else {
-                    Debug.Log("SP: "+sp.ThisPoint()+" i:"+ i+"  %="+(i % (gridSize.x + 1) ));
+                    //Debug.Log("SP: "+sp.ThisPoint()+" i:"+ i+"  %="+(i % (ArenaManager.GridSize + 1) ));
                 }
                 sp.Next();
             }
