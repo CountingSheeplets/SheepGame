@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSize: {x: 11, y: 11}
-  tileSize: 0.2
-  tileScale: {x: 1.25, y: 1.25}
+  tileSize: 0.4
+  tileScale: {x: 2.5, y: 2.5}
   fieldTilePrefab: {fileID: 7275534280682011853, guid: 4455b47641ba4f04c996f03bae849cdc,
     type: 3}
   fenceTilePrefab: {fileID: 3521382541257471907, guid: ecd564f7d2b574a488b89b248c354baa,
@@ -54,6 +54,7 @@ MonoBehaviour:
   fieldTiles: []
   fenceTiles: []
   currentHitpoints: 0
+  generateFence: 1
 --- !u!114 &1142689301254014044
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -52,14 +52,21 @@ public class Playfield : MonoBehaviour
         //generate fences around field:
         //Vector2 offset = new Vector2(-(size.x+1)/2, (size.y+1)/2);
         if(generateFence)
-            for(int i = 0;i < (gridSize.x + 2 + gridSize.y)*2; i++){
-                GameObject newTileGO = Instantiate(fenceTilePrefab, Vector2.zero, Quaternion.identity, transform);
-                newTileGO.transform.localPosition = sp.ThisPoint() * tileSize;
+            for(int i = 0; i < (gridSize.x + 2 + gridSize.y) * 2; i++){
+                if((i+1) % (gridSize.x + 1) != 0) {
+                    GameObject newTileGO = Instantiate(fenceTilePrefab, Vector2.zero, Quaternion.identity, transform);
+                    newTileGO.transform.localPosition = sp.ThisPoint() * tileSize;
+                    newTileGO.transform.localScale = tileScale;
+                    Vector3 rotateBy = new Vector3(0, 0, 90f * Mathf.FloorToInt(i / (gridSize.x + 1)));
+                    //Debug.Log("rotateBy "+rotateBy);
+                    newTileGO.transform.Rotate(rotateBy, Space.World);
+                    fenceTiles.Add(newTileGO.GetComponent<FenceTile>());
+                } else {
+                    Debug.Log("SP: "+sp.ThisPoint()+" i:"+ i+"  %="+(i % (gridSize.x + 1) ));
+                }
                 sp.Next();
-                newTileGO.transform.localScale = tileScale;
-                fenceTiles.Add(newTileGO.GetComponent<FenceTile>());
             }
-        SetHitpointsTo(99);
+        SetHitpointsTo(55);
     }
     void OnSetField(GameMessage msg){
         if(msg.owner.EqualsByValue(GetComponent<Owner>()));
