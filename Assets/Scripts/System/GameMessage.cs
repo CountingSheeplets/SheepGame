@@ -65,4 +65,14 @@ public class GameMessage
         swipe = value;
         return this;
     }
+    public Playfield playfield;
+    public GameMessage WithPlayfield(Playfield value){
+        playfield = value;
+        return this;
+    }
+    public SheepUnit sheepUnit;
+    public GameMessage WithSheepUnit(SheepUnit value){
+        sheepUnit = value;
+        return this;
+    }
 }

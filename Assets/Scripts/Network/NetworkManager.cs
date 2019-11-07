@@ -15,14 +15,14 @@ public class NetworkManager : Singleton<NetworkManager>
     }
     void OnSwipe(int from, JToken message)
     {
-        Debug.Log("int from: " + from + "   " + message);
         if (message["data"] != null)
             if (message["data"]["direction"] != null)
             {
+                Debug.Log("int from: " + from + "   " + message);
                 if (message["element"].ToString() == "swipe-field")
                 {
                     Swipe newSwipe = new Swipe(message["data"]["direction"]);
-                    EventManager.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe));
+                    EventManager.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(OwnersManager.GetOwner(from)));
                 }
             }
     }

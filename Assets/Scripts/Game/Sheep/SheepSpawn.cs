@@ -15,10 +15,13 @@ public class SheepSpawn : MonoBehaviour
 
     void OnSheepSpawn(GameMessage msg){
         if(msg.owner.EqualsByValue(myOwner)){
-            GameObject newSheep = Instantiate(sheepPrefab, sheepParent);
+            GameObject newSheepGO = Instantiate(sheepPrefab, sheepParent);
             float rnd1 = Random.Range(-Mathf.FloorToInt(ArenaManager.GridSize/2),Mathf.CeilToInt(ArenaManager.GridSize/2)) * ArenaManager.TileSize;
             float rnd2 = Random.Range(-Mathf.FloorToInt(ArenaManager.GridSize/2),Mathf.CeilToInt(ArenaManager.GridSize/2)) * ArenaManager.TileSize;
-            newSheep.transform.localPosition = new Vector2(rnd1,rnd2);
+            newSheepGO.transform.localPosition = new Vector2(rnd1,rnd2);
+            SheepUnit sheep = newSheepGO.GetComponent<SheepUnit>();
+            sheep.owner = myOwner;
+            EventManager.TriggerEvent(EventName.System.Sheep.Spawned(), GameMessage.Write().WithSheepUnit(sheep));
         }
     }
 }

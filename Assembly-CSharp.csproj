@@ -234,6 +234,7 @@
      <Compile Include="Assets\Scripts\Game\ArenaPreset.cs" />
      <Compile Include="Assets\Scripts\Game\Playfield.cs" />
      <Compile Include="Assets\Scripts\Game\PresetSocket.cs" />
+     <Compile Include="Assets\Scripts\Game\Sheep\SheepFly.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepSpawn.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepThrow.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepUnit.cs" />

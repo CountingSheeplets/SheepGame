@@ -11,11 +11,20 @@ public class Swipe
     public int speed;
     public Vector2 vector;
 
-    public Swipe(JToken message){
-		distance = (float)message ["distance"];
-		angle = (float)message ["angle"];
-		degree = (int)message ["degree"];
-		speed = (int)message ["speed"];
-		vector = new Vector2 ((float)message ["x"], -(float)message ["y"]);
+    public Swipe(JToken message)
+    {
+        distance = (float)message["distance"];
+        angle = (float)message["angle"];
+        degree = (int)message["degree"];
+        speed = (int)message["speed"];
+        vector = new Vector2((float)message["x"], -(float)message["y"]);
+    }
+    public override string ToString(){
+        return "Swipe():"+
+        "distance="+distance+" "+
+        "angle="+angle+" "+
+        "degree="+degree+" "+
+        "speed="+speed+" "+
+        "vector="+vector;
     }
 }

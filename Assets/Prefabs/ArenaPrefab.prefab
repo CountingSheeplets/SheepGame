@@ -132,10 +132,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownerId: 0
+  deviceId: 0
   ownerName: 
   isHero: 0
   teamId: 0
   ready: 0
+  connected: 0
   ownerType: 0
 --- !u!114 &1418346512571528453
 MonoBehaviour:
@@ -164,6 +166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a57693c143b582b4a86557bb31bd406c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sheepReadyToBeThrown: {fileID: 0}
+  throwStrength: 1
+  flySpeed: 1
 --- !u!1 &8291182087161254146
 GameObject:
   m_ObjectHideFlags: 0

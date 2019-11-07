@@ -97,4 +97,12 @@ public class ArenaManager : Singleton<ArenaManager>
             sockets.RemoveAt(rS);
         }
     }
+    public static Playfield GetPlayfieldForPoint(Vector2 point){
+        foreach(Playfield playfield in Instance.playfields){
+            if(playfield.fieldCorners.IsWithinField(point))
+                return playfield;
+        }
+        Debug.Log("Not in any playfield");
+        return null;
+    }
 }

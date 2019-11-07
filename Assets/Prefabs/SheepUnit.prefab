@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8682445679790357489}
   - component: {fileID: 2285501096330132476}
   - component: {fileID: 6737529950380635000}
+  - component: {fileID: 2397903250103437727}
   m_Layer: 0
   m_Name: SheepUnit
   m_TagString: Untagged
@@ -93,3 +94,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9fc73731f3a6934db483e69a6e940be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2397903250103437727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6195520508007395971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3bfb99c210755f4fa5c116800d2a8f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: {x: 0, y: 0}

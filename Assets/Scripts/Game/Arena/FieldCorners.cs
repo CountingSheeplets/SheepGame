@@ -32,6 +32,7 @@ public class FieldCorners
     }
 
     public bool IsWithinField(Vector2 point){
+        Debug.Log("checking point: "+point+ " vs me: "+this);
         if(point.x > TopLeft.x && point.y < TopLeft.y &&
             point.x < TopRight.x && point.y < TopRight.y &&
             point.x > BottomLeft.x && point.y > BottomLeft.y &&
