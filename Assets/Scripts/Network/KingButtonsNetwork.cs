@@ -14,16 +14,15 @@ public class KingButtonsNetwork : MonoBehaviour
     {
         Debug.Log("int from: " + from + "   " + message);
         if (message["data"] != null)
-                Debug.Log("contains...");
             if   (message["element"].ToString().Contains("king-upgrade"))
             {
                 if (message["data"]["upgrade"] != null)
                 {
-                Debug.Log("cases...");
                     Owner triggerOwner = OwnersManager.GetOwner(from);
                     if(triggerOwner == null)
                         return;
-                    int upgrade = (int)message["data"]["upgrade"];
+                    int upgrade = 0;
+                    int.TryParse((string)message["data"]["upgrade"], out upgrade);
                     switch(upgrade){
                         case 1:
                             EventManager.TriggerEvent(EventName.Input.KingAbilities.SpawnSheep(), GameMessage.Write().WithOwner(triggerOwner));
