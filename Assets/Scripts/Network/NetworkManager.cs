@@ -18,7 +18,7 @@ public class NetworkManager : Singleton<NetworkManager>
         if (message["data"] != null)
             if (message["data"]["direction"] != null)
             {
-                Debug.Log("int from: " + from + "   " + message);
+                //Debug.Log("int from: " + from + "   " + message);
                 if (message["element"].ToString() == "swipe-field")
                 {
                     Swipe newSwipe = new Swipe(message["data"]["direction"]);

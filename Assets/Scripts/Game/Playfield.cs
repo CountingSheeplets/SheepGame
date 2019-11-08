@@ -94,6 +94,9 @@ public class Playfield : MonoBehaviour
                 fieldTiles[currentHitpoints - i].SetState(false);
             }
     }
+    public override string ToString(){
+        return "["+gameObject.name+"]";
+    }
     
 }
 public class Spiral

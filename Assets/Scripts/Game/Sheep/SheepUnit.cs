@@ -6,15 +6,11 @@ public class SheepUnit : MonoBehaviour
 {
     public Owner owner;
     public bool canBeThrown = true;
+    public Playfield currentPlayfield;
+    public bool isReadying;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
