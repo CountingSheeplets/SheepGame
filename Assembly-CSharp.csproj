@@ -230,6 +230,7 @@
      <Compile Include="Assets\Scripts\Game\Arena Tiles\FenceTile.cs" />
      <Compile Include="Assets\Scripts\Game\Arena Tiles\FieldTile.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\FieldCorners.cs" />
+     <Compile Include="Assets\Scripts\Game\Arena\Vortex.cs" />
      <Compile Include="Assets\Scripts\Game\ArenaManager.cs" />
      <Compile Include="Assets\Scripts\Game\ArenaPreset.cs" />
      <Compile Include="Assets\Scripts\Game\Playfield.cs" />
@@ -238,6 +239,7 @@
      <Compile Include="Assets\Scripts\Game\Sheep\SheepFly.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepRun.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepSpawn.cs" />
+     <Compile Include="Assets\Scripts\Game\Sheep\SheepSwim.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepThrow.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepUnit.cs" />
      <Compile Include="Assets\Scripts\Game\Swipe.cs" />

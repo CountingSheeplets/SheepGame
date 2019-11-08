@@ -78,7 +78,9 @@ public class ArenaManager : Singleton<ArenaManager>
     }
     void ArrangeFields(){
         List<ArenaPreset> availablePresets = presets.Where(x=>x.presetSize == playfields.Count).ToList();
-        List<PresetSocket> sockets = new List<PresetSocket>(availablePresets[Random.Range(0, availablePresets.Count-1)].sockets);
+        ArenaPreset randomPreset = availablePresets[Random.Range(0, availablePresets.Count-1)];
+        randomPreset.SelectThisPreset();
+        List<PresetSocket> sockets = new List<PresetSocket>(randomPreset.playfieldSockets);
         List<Playfield> leftoverFields = new List<Playfield>(playfields);
         for(int i = 0; i < playfields.Count; i++){
             int rS = Random.Range(0, sockets.Count-1);

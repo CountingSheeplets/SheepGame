@@ -174,5 +174,17 @@ public static class ExtensionMethods
         }
         return (OwnerType)outputType;
     }
-
+    //Transform extentions"
+    public static Transform FindNearest(this List<Transform> transformList, Transform target){
+        if(transformList.Count == 0)
+            return null;
+        Transform nearest = transformList[0];
+        foreach(Transform tr in transformList){
+            float prevDistance = (nearest.transform.position - target.position).magnitude;
+            float thisDistance = (tr.position - target.position).magnitude;
+            if (thisDistance < prevDistance)
+                nearest = tr;
+        }
+        return nearest;
+    }
 }
