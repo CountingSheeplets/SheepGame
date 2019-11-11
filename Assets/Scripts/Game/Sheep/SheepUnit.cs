@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 public class SheepUnit : MonoBehaviour
 {
     public Owner owner;
@@ -9,15 +8,14 @@ public class SheepUnit : MonoBehaviour
     public Playfield currentPlayfield;
     public bool isReadying;
     public bool isSwimming = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        EventManager.StartListening(EventName.System.Sheep.Land(), OnLand);
+
+    void Start(){
+        EventManager.StartListening(EventName.System.Sheep.Kill(), OnKill);
     }
-    void OnLand(GameMessage msg){
+
+    void OnKill(GameMessage msg){
         if(msg.sheepUnit == this){
-            Transform nearestVortex = FindObjectsOfType<Vortex>().Select(x=>x.transform).ToList().FindNearest(transform);
-            GetComponent<SheepSwim>().StartSwiming(0.25f, nearestVortex.position);
+            Destroy(gameObject);
         }
     }
 }

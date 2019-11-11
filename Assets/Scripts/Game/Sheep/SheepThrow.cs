@@ -14,12 +14,14 @@ public class SheepThrow : MonoBehaviour
         EventManager.StartListening(EventName.System.Sheep.Spawned(), OnSpawn);
         EventManager.StartListening(EventName.System.Sheep.Land(), OnLand);
         EventManager.StartListening(EventName.System.Sheep.ReadyToLaunch(), OnReady);
+        EventManager.StartListening(EventName.System.Sheep.Kill(), OnKill);
     }
     void OnDestroy(){
         EventManager.StopListening(EventName.Input.Swipe(), OnSwipe);
         EventManager.StopListening(EventName.System.Sheep.Spawned(), OnSpawn);
         EventManager.StopListening(EventName.System.Sheep.Land(), OnLand);
         EventManager.StopListening(EventName.System.Sheep.ReadyToLaunch(), OnReady);
+        EventManager.StopListening(EventName.System.Sheep.Kill(), OnKill);
     }
 
     void OnSwipe(GameMessage msg)
@@ -46,6 +48,11 @@ public class SheepThrow : MonoBehaviour
                 sheeps.Add(msg.sheepUnit);
                 TryReadyNewSheep();
             }
+    }
+    void OnKill(GameMessage msg){
+        if(msg.sheepUnit && sheeps.Contains(msg.sheepUnit)){
+            sheeps.Remove(msg.sheepUnit);
+        }
     }
     void OnLand(GameMessage msg){
         if(msg.playfield == GetComponentInParent<Playfield>()){

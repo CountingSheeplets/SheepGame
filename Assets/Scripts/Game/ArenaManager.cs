@@ -20,14 +20,16 @@ public class ArenaManager : Singleton<ArenaManager>
     }
 
     public List<Playfield> playfields = new List<Playfield>();
+    public List<Vortex> currentVortexes = new List<Vortex>();
     public List<ArenaPreset> presets = new List<ArenaPreset>();
     public GameObject playfieldPrefab;
+    public GameObject vortexPrefab;
     public int emptySpacesBetweenFields = 1;
     bool gameStarted = false;
 
     void Start()
     {
-        presets.AddRange(GetComponentsInChildren<ArenaPreset>());
+        presets.AddRange(GetComponentsInChildren<ArenaPreset>(true));
         EventManager.StartListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
         EventManager.StartListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
         EventManager.StartListening(EventName.Input.StartGame(), OnStartGame);
@@ -51,11 +53,10 @@ public class ArenaManager : Singleton<ArenaManager>
             newField.transform.parent = transform;
             newField.gameObject.name = "Playfield:"+newOwner.ownerName;
         }
-        ArrangeFields();
     }
     void OnStartGame(GameMessage msg){
         gameStarted = true;
-        ArrangeFields();
+        RearrangeArena();
     }
     void OnPlayerLeft(GameMessage msg){
         //destroy arena if game has not started yet, if started, leave?
@@ -74,30 +75,55 @@ public class ArenaManager : Singleton<ArenaManager>
     }
     void OnPlayerDefeated(GameMessage msg){
         RemoveField(msg.owner);
-        ArrangeFields();
+        RearrangeArena();
     }
-    void ArrangeFields(){
+    void RearrangeArena(){
         List<ArenaPreset> availablePresets = presets.Where(x=>x.presetSize == playfields.Count).ToList();
         ArenaPreset randomPreset = availablePresets[Random.Range(0, availablePresets.Count-1)];
         randomPreset.SelectThisPreset();
+        ArrangeFields(randomPreset);
+        RemoveVortexes();
+        AddVortexes(randomPreset);
+    }
+    void ArrangeFields(ArenaPreset randomPreset){
         List<PresetSocket> sockets = new List<PresetSocket>(randomPreset.playfieldSockets);
         List<Playfield> leftoverFields = new List<Playfield>(playfields);
+        Playfield p = playfieldPrefab.GetComponent<Playfield>();
+        float fieldWidth = fieldSize.x + emptySpacesBetweenFields * _tileSize;
+
         for(int i = 0; i < playfields.Count; i++){
             int rS = Random.Range(0, sockets.Count-1);
             int rF = Random.Range(0, leftoverFields.Count-1);
-
-            Playfield p = playfieldPrefab.GetComponent<Playfield>();
-            float fieldWidth = fieldSize.x; 
-            fieldWidth += emptySpacesBetweenFields * _tileSize;
-
             Vector2 offset = sockets[rS].transform.position;
-
             leftoverFields[rF].transform.position = offset * fieldWidth;
             if(leftoverFields[rF].fieldCorners !=null)
                 leftoverFields[rF].fieldCorners.Recenter(offset * fieldWidth);
             leftoverFields.RemoveAt(rF);
             sockets.RemoveAt(rS);
         }
+    }
+    void AddVortexes(ArenaPreset randomPreset){
+        List<PresetSocket> vortexSockets = new List<PresetSocket>(randomPreset.vortexSockets);
+        float fieldWidth = fieldSize.x + emptySpacesBetweenFields * _tileSize;
+        for(int i = 0; i < vortexSockets.Count; i++){
+            GameObject newVortex = Instantiate(vortexPrefab);
+            newVortex.transform.parent = transform;
+            newVortex.transform.Rotate(new Vector3(0, 0, Random.Range(0, 360)));
+            currentVortexes.Add(newVortex.GetComponent<Vortex>());
+            Vector2 offset = vortexSockets[i].transform.position;
+            newVortex.transform.position = offset * fieldWidth; 
+        }
+        Debug.Log("AddVortexes:"+currentVortexes.Count);
+    }
+    void RemoveVortexes(){
+        if(currentVortexes.Count > 0)
+            for(int i = currentVortexes.Count - 1; i>=0; i--){
+                Animator anim = currentVortexes[i].GetComponent<Animator>();
+                anim.SetBool("close", true);
+                Destroy(currentVortexes[i].gameObject, 2);
+                currentVortexes.RemoveAt(i);
+                Debug.Log("RemoveVortexes:"+currentVortexes.Count);
+            }
     }
     public static Playfield GetPlayfieldForPoint(Vector2 point){
         foreach(Playfield playfield in Instance.playfields){
