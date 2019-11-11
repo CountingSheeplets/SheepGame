@@ -63,7 +63,8 @@ public class EventName
             public static string Land() { return "System_Sheep_Land"; }
             public static string ReadyToLaunch() { return "System_Sheep_ReadyToLaunch"; }
             public static string Kill() { return "System_Sheep_Kill"; }
-            public static List<string> Get() { return new List<string> { Spawned(), Land(), ReadyToLaunch(), Kill()}; }          
+            public static string Roam() { return "System_Sheep_Roam"; }
+            public static List<string> Get() { return new List<string> { Spawned(), Land(), ReadyToLaunch(), Kill(), Roam()}; }          
         }
         public class Environment{
             public static string SetField() { return "System_SetField"; }

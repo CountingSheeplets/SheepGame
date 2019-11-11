@@ -63,8 +63,10 @@ public class SheepThrow : MonoBehaviour
     }
     void OnReady(GameMessage msg){
         if(msg.sheepUnit != null){
-            if(msg.sheepUnit.currentPlayfield == GetComponentInParent<Playfield>())
+            if(msg.sheepUnit.currentPlayfield == GetComponentInParent<Playfield>()){
                 sheepReadyToBeThrown = msg.sheepUnit;
+                sheepReadyToBeThrown.isReadyToFly = true;
+            }
         }
     } 
     void TryReadyNewSheep(){

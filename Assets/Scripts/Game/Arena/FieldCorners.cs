@@ -40,6 +40,15 @@ public class FieldCorners
             return true;
         return false;
     }
+    public bool IsWithinField(Vector2 point, float radius){
+        Debug.Log("checking point: "+point+ " vs me: "+this);
+        if(point.x > TopLeft.x + radius && point.y < TopLeft.y - radius &&
+            point.x < TopRight.x - radius && point.y < TopRight.y - radius &&
+            point.x > BottomLeft.x + radius && point.y > BottomLeft.y + radius &&
+            point.x < BottomRight.x - radius && point.y > BottomRight.y + radius)
+            return true;
+        return false;
+    }
     public override string ToString() {
         return
         " TopLeft:"+TopLeft+

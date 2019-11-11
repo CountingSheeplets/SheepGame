@@ -34,7 +34,7 @@ public class SheepSwim : BaseUnitMove
         //trigger ready to jump/launch animation
         Debug.Log("post swimming, drowning at:"+(Vector2)(transform.position));
 
-        GetComponent<SheepUnit>().isSwimming = false;
+        //GetComponent<SheepUnit>().isSwimming = false; //uncomment this, if unit would not die, but do smth else
         Playfield playfield = GetComponent<SheepUnit>().currentPlayfield;
         EventManager.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(GetComponent<SheepUnit>()));
     }

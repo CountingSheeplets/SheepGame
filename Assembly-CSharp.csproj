@@ -237,6 +237,8 @@
      <Compile Include="Assets\Scripts\Game\PresetSocket.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\BaseUnitMove.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepFly.cs" />
+     <Compile Include="Assets\Scripts\Game\Sheep\SheepRoam.cs" />
+     <Compile Include="Assets\Scripts\Game\Sheep\SheepRoamManager.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepRun.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepSpawn.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepSwim.cs" />

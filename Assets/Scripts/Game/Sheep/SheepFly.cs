@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class SheepFly : BaseUnitMove
 {
-
+    SheepUnit sheep;
     public void StartFlying(float speed, Vector2 _destination){
+        if(!sheep)
+            sheep = GetComponent<SheepUnit>();
         Debug.Log("StartFlying to:"+destination);
+        sheep.isFlying = true;
+        sheep.isReadyToFly = false;
         destination = _destination;
         //run animation;
 
@@ -14,6 +18,7 @@ public class SheepFly : BaseUnitMove
  }
 
     public  override void PostMoveAction(){
+        GetComponent<SheepUnit>().isFlying = false;
         //trigger to play Land animation
         Debug.Log("fly eneded, landing at:"+(Vector2)(transform.position));
 

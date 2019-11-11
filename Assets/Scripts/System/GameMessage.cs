@@ -75,4 +75,9 @@ public class GameMessage
         sheepUnit = value;
         return this;
     }
+    public float floatMessage;
+    public GameMessage WithFloatMessage(float value){
+        floatMessage = value;
+        return this;
+    }
 }
