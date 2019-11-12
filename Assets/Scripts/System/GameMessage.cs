@@ -49,7 +49,11 @@ public class GameMessage
         owner = value;
         return this;
     }
-
+    public Owner targetOwner;
+    public GameMessage WithTargetOwner(Owner value){
+        targetOwner = value;
+        return this;
+    }
     public int intMessage;
     public GameMessage WithIntMessage(int value){
         intMessage = value;
@@ -73,6 +77,11 @@ public class GameMessage
     public SheepUnit sheepUnit;
     public GameMessage WithSheepUnit(SheepUnit value){
         sheepUnit = value;
+        return this;
+    }
+    public KingUnit kingUnit;
+    public GameMessage WithKingUnit(KingUnit value){
+        kingUnit = value;
         return this;
     }
     public float floatMessage;

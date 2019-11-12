@@ -19,7 +19,10 @@ public class ArenaManager : Singleton<ArenaManager>
         }
     }
 
-    public List<Playfield> playfields = new List<Playfield>();
+    private List<Playfield> playfields = new List<Playfield>();
+    public List<Playfield> GetPlayfields{
+        get{return playfields;}
+    }
     public List<Vortex> currentVortexes = new List<Vortex>();
     public List<ArenaPreset> presets = new List<ArenaPreset>();
     public GameObject playfieldPrefab;
@@ -65,11 +68,10 @@ public class ArenaManager : Singleton<ArenaManager>
         }
     }
     void RemoveField(Owner owner){
-        Debug.Log(owner);
-        Debug.Log(playfields.Count);
+        //Debug.Log(owner);
+        //Debug.Log(playfields.Count);
         Playfield pl = playfields.Where(x=>x.GetComponent<Owner>().EqualsByValue(owner)).FirstOrDefault();
         playfields.Remove(pl);
-        Debug.Log(pl.gameObject.name);
         if(pl != null)
             Destroy(pl.gameObject);
     }
@@ -125,12 +127,19 @@ public class ArenaManager : Singleton<ArenaManager>
                 Debug.Log("RemoveVortexes:"+currentVortexes.Count);
             }
     }
-    public static Playfield GetPlayfieldForPoint(Vector2 point){
+    public static Playfield GetPlayfield(Vector2 point){
         foreach(Playfield playfield in Instance.playfields){
             if(playfield.fieldCorners.IsWithinField(point))
                 return playfield;
         }
         Debug.Log("Not in any playfield");
+        return null;
+    }
+    public static Playfield GetPlayfield(Owner owner){
+        foreach(Playfield pf in Instance.playfields){
+            if(pf.GetComponent<Owner>().EqualsByValue(owner))
+                return pf;
+        }
         return null;
     }
 }

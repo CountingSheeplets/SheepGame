@@ -7,16 +7,27 @@ using System.Linq;
 public class OwnersManager : Singleton<OwnersManager>
 {
     List<Owner> owners = new List<Owner>();
+    public GameObject ownerTilePrefab;
+    public Transform ownerPanelContainer;
     public static List<Owner> GetOwners(){
         return Instance.owners;
     }
-
+    void Start()
+    {
+        EventManager.StartListening(EventName.Input.StartGame(), OnStartGame);
+    }
+    void OnDestroy(){
+        EventManager.StopListening(EventName.Input.StartGame(), OnStartGame);
+    }
+    void OnStartGame(GameMessage msg){
+        foreach(Owner owner in owners)
+            owner.gameObject.SetActive(false);
+    }
     public static Owner TryCreateOwner(int device_id){
         Owner candidateOwner = Instance.owners.Where(x=>x.ownerId == AirConsole.instance.GetUID(device_id)).FirstOrDefault();
         if(candidateOwner == null){
-            GameObject go = new GameObject();
+            GameObject go = Instantiate(Instance.ownerTilePrefab, Instance.ownerPanelContainer);
             string nicknameOfJoined = AirConsole.instance.GetNickname (device_id);
-            go.transform.parent = Instance.gameObject.transform;
             Owner newOwner = go.AddComponent<Owner>();
             Instance.owners.Add(newOwner);
             newOwner.Create(AirConsole.instance.GetUID(device_id), nicknameOfJoined, MenuNetworkManager.Instance.premiumIds.Contains(device_id), device_id);
@@ -31,7 +42,6 @@ public class OwnersManager : Singleton<OwnersManager>
             return candidateOwner;
         }
     }
-
     public static Owner GetOwner(int device_id){
         return Instance.owners.Where(x=>x.deviceId == device_id).FirstOrDefault();
     }

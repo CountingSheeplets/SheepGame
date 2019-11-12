@@ -12,7 +12,6 @@ public class KingButtonsNetwork : MonoBehaviour
     }
     void OnButtonClick(int from, JToken message)
     {
-        Debug.Log("int from: " + from + "   " + message);
         if (message["data"] != null)
             if   (message["element"].ToString().Contains("king-upgrade"))
             {

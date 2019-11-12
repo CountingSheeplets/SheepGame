@@ -74,7 +74,7 @@ public class EventManager : Singleton<EventManager>
         if (Instance == null) return;
         List<string> ignoreList = new List<string>();
         if (Instance.enableDebugging == true){
-            ignoreList.Add(EventName.System.Cooldown.Tick());
+            ignoreList.Add(EventName.System.Sheep.Roam());
             //ignoreList.Add(EventName.System.BaseTargetUpdate());
         }
         UnityGameEvent thisEvent = null;

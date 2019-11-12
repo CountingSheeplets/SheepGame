@@ -35,10 +35,11 @@ public class EventName
             public static List<string> Get() { return new List<string> { PlayerJoined(),PlayerLeft() }; }
         }
         public static string Swipe() { return "Input_Swipe"; }
+        public static string ChangeHat() { return "King_ChangeHat"; }
         public static string StartGame() { return "StartGame"; }
         public static List<string> Get() { return new List<string> {
             StartGame(),
-            Swipe()
+            Swipe(), ChangeHat()
             }.Concat(KingAbilities.Get())
                 .Concat(SheepUpgrades.Get())
                 .Concat(Menus.Get())
@@ -57,6 +58,12 @@ public class EventName
             public static string Ended() { return "Cooldown_Ended"; }
             public static string PostEnd() { return "Cooldown_PostEnd"; }
             public static List<string> Get() { return new List<string> { Tick(), Ended(), PostEnd()}; }          
+        }
+        public class King{
+            public static string Spawned() { return "System_King_Spawned"; }
+            public static string Killed() { return "System_King_Killed"; }
+            public static string Hit() { return "System_King_Hit"; }
+            public static List<string> Get() { return new List<string> { Hit(), Spawned(), Killed()}; }          
         }
         public class Sheep{
             public static string Spawned() { return "System_Sheep_Spawned"; }
@@ -83,7 +90,7 @@ public class EventName
             //MapLayoutChanged(),
             //NextScene(), LoadScene(),s
              SceneLoaded()
-            }.Concat(Economy.Get()).Concat(Sheep.Get()).Concat(Cooldown.Get()).Concat(Environment.Get()).ToList(); }
+            }.Concat(Economy.Get()).Concat(King.Get()).Concat(Sheep.Get()).Concat(Cooldown.Get()).Concat(Environment.Get()).ToList(); }
     }
     public class AI
     {

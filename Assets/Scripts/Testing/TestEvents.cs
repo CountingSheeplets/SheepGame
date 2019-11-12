@@ -15,7 +15,7 @@ public class TestEvents : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.D)){
             Debug.Log("Defeat Random Player...");
-            List<Owner> owners = new List<Owner>(GetComponentsInChildren<Owner>());
+            List<Owner> owners = OwnersManager.GetOwners();
             EventManager.TriggerEvent(EventName.System.Player.Defeated(), GameMessage.Write().WithOwner(owners[Random.Range(0, owners.Count-1)]));
         }
     }

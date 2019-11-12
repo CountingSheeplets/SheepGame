@@ -13,11 +13,16 @@ public class MenuNetworkManager : Singleton<MenuNetworkManager>
 		AirConsole.instance.onConnect += OnConnect;
         AirConsole.instance.onPremium += OnPremium;
         AirConsole.instance.onDisconnect += OnDisconnect;
+        AirConsole.instance.onMessage += OnSelectHatClick;
     }
     void OnConnect(int device_id){
 		Owner owner = OwnersManager.TryCreateOwner(device_id);
-		if(owner)
+		if(owner){
+            //then add hero model to the Owner as Child:
+			KingModelManager.TryCreateHeroModel(owner);
+			//then anounce the new owner
         	EventManager.TriggerEvent(EventName.Input.Network.PlayerJoined(), GameMessage.Write().WithOwner(owner));
+		}
 		else
 			Debug.LogError("OnConnect returned null Owner!");
     }
@@ -34,6 +39,7 @@ public class MenuNetworkManager : Singleton<MenuNetworkManager>
 			AirConsole.instance.onConnect -= OnConnect;
             AirConsole.instance.onPremium -= OnPremium;
 			AirConsole.instance.onDisconnect -= OnDisconnect;
+            AirConsole.instance.onMessage -= OnSelectHatClick;
 		}
 	}
 	void OnPremium(int device_id){
@@ -63,5 +69,25 @@ public class MenuNetworkManager : Singleton<MenuNetworkManager>
 		//Log to on-screen Console
 		Debug.Log("Loaded persistentData: " + data + " \n \n");
 	}
-
+    void OnSelectHatClick(int from, JToken message)
+    {
+        Debug.Log("int from: " + from + "   " + message);
+        if (message["data"] != null){
+			Owner owner = OwnersManager.GetOwner(from);
+            if   (message["element"].ToString().Contains("previous-king-hat"))
+            {
+				Owner triggerOwner = OwnersManager.GetOwner(from);
+				if(triggerOwner == null)
+					return;
+				EventManager.TriggerEvent(EventName.Input.ChangeHat(), GameMessage.Write().WithIntMessage(-1).WithOwner(owner));
+            }
+			if   (message["element"].ToString().Contains("next-king-hat"))
+            {
+				Owner triggerOwner = OwnersManager.GetOwner(from);
+				if(triggerOwner == null)
+					return;
+				EventManager.TriggerEvent(EventName.Input.ChangeHat(), GameMessage.Write().WithIntMessage(1).WithOwner(owner));
+            }
+		}
+    }
 }
