@@ -17,10 +17,21 @@ public class KingUnit : MonoBehaviour
     public bool isUsingAbility = false;
     public bool isRoaming = false;
     public float radius = 0.5f;
-    private float health = 100f;
+    [SerializeField]
+    private float maxHealth = 100f;
+    [SerializeField]
+    private float currentDamage = 0f;
     public float GetHealth {
-        get {return health;}
+        get {return maxHealth-currentDamage;}
     }
+    public float GetMaxHealth {
+        get {return maxHealth;}
+    }
+    public float GetDamage {
+        get {return currentDamage;}
+    }
+    public delegate void OnReceivedDamage(float dmg);
+    public OnReceivedDamage onReceivedDamage;
 
     void Start(){
         EventManager.StartListening(EventName.System.King.Hit(), OnHit);
@@ -30,15 +41,18 @@ public class KingUnit : MonoBehaviour
     }
 
     void OnHit(GameMessage msg){
-        DealDamage(10);
-        TryDie(msg.owner, owner);
+        if(msg.kingUnit == this){
+            DealDamage(10);
+            onReceivedDamage(10);
+            TryDie(msg.owner, owner);
+        }
     }
 
     public void DealDamage(float amount){
-        health -= amount;
+        currentDamage += amount;
     }
     void TryDie(Owner killer, Owner eliminated){
-        if(health <= 0){
+        if(GetHealth <= 0){
             //show die animation
 
             //then remove king

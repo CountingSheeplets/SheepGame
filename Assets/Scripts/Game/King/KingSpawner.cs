@@ -22,7 +22,7 @@ public class KingSpawner : MonoBehaviour
             KingUnit newKing = newKingGO.GetComponent<KingUnit>();
             newKing.owner = owner;
             newKingGO.transform.parent = ArenaManager.GetPlayfield(owner).transform;
-            newKingGO.transform.position = Vector3.zero;
+            newKingGO.transform.localPosition = Vector3.zero;
             GameObject newKingModelGO = Instantiate(KingModelManager.GetHeroModel(owner.ownerId));
             newKingModelGO.transform.parent = newKingGO.transform;
             newKingModelGO.transform.localPosition = Vector3.zero;

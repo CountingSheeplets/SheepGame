@@ -234,6 +234,7 @@
      <Compile Include="Assets\Scripts\Game\ArenaManager.cs" />
      <Compile Include="Assets\Scripts\Game\ArenaPreset.cs" />
      <Compile Include="Assets\Scripts\Game\King\HatChanger.cs" />
+     <Compile Include="Assets\Scripts\Game\King\KingHealthBar.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingModelManager.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingRoam.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingSpawner.cs" />
