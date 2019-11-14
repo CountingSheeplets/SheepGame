@@ -4,7 +4,7 @@ using UnityEngine;
 using Newtonsoft.Json.Linq;
 using NDream.AirConsole;
 using System.Linq;
-public class KingButtonsNetwork : MonoBehaviour
+public class KingButtonsNetworkHandler : MonoBehaviour
 {
     void Awake()
     {
@@ -17,17 +17,17 @@ public class KingButtonsNetwork : MonoBehaviour
             {
                 if (message["data"]["upgrade"] != null)
                 {
-                    Owner triggerOwner = OwnersManager.GetOwner(from);
+                    Owner triggerOwner = OwnersCoordinator.GetOwner(from);
                     if(triggerOwner == null)
                         return;
                     int upgrade = 0;
                     int.TryParse((string)message["data"]["upgrade"], out upgrade);
                     switch(upgrade){
                         case 1:
-                            EventManager.TriggerEvent(EventName.Input.KingAbilities.SpawnSheep(), GameMessage.Write().WithOwner(triggerOwner));
+                            EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.SpawnSheep(), GameMessage.Write().WithOwner(triggerOwner));
                             break;
                         case 2:
-                            EventManager.TriggerEvent(EventName.Input.KingAbilities.BuyLawn(), GameMessage.Write().WithOwner(triggerOwner));
+                            EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.BuyLawn(), GameMessage.Write().WithOwner(triggerOwner));
                         break;
                         case 3:
                         break;

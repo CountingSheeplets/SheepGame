@@ -14,10 +14,10 @@ public class SheepUnit : MonoBehaviour
     public float radius = 0.5f;
 
     void Start(){
-        EventManager.StartListening(EventName.System.Sheep.Kill(), OnKill);
+        EventCoordinator.StartListening(EventName.System.Sheep.Kill(), OnKill);
     }
     void OnDestroy(){
-        EventManager.StopListening(EventName.System.Sheep.Kill(), OnKill);
+        EventCoordinator.StopListening(EventName.System.Sheep.Kill(), OnKill);
     }
     void OnKill(GameMessage msg){
         if(msg.sheepUnit == this){

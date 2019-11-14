@@ -71,7 +71,6 @@ GameObject:
   - component: {fileID: 2392307331080380785}
   - component: {fileID: 7377706836281408523}
   - component: {fileID: 1142689301254014044}
-  - component: {fileID: 1418346512571528453}
   - component: {fileID: 4906597521204094191}
   m_Layer: 0
   m_Name: ArenaPrefab
@@ -119,6 +118,7 @@ MonoBehaviour:
   generateFence: 1
   fieldParent: {fileID: 5350862721687316760}
   fenceParent: {fileID: 8497541845933457712}
+  sheepParent: {fileID: 1382152317661773300}
 --- !u!114 &1142689301254014044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,21 +139,6 @@ MonoBehaviour:
   ready: 0
   connected: 0
   ownerType: 0
---- !u!114 &1418346512571528453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8023144983768244914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4091ab03536228846802d13fe53600fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sheepPrefab: {fileID: 6195520508007395971, guid: df46430e556633045a77f7dd556bb858,
-    type: 3}
-  sheepParent: {fileID: 1382152317661773300}
 --- !u!114 &4906597521204094191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,9 +151,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a57693c143b582b4a86557bb31bd406c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sheepReadyToBeThrown: {fileID: 0}
+  sheeps: []
   throwStrength: 1
   flySpeed: 1
+  sheepReadyToBeThrown: {fileID: 0}
 --- !u!1 &8291182087161254146
 GameObject:
   m_ObjectHideFlags: 0

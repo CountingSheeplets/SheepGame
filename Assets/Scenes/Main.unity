@@ -792,8 +792,8 @@ GameObject:
   - component: {fileID: 438182125}
   - component: {fileID: 438182123}
   - component: {fileID: 438182126}
+  - component: {fileID: 438182128}
   - component: {fileID: 438182124}
-  - component: {fileID: 438182127}
   m_Layer: 0
   m_Name: Network
   m_TagString: Untagged
@@ -894,7 +894,7 @@ MonoBehaviour:
   ownerTilePrefab: {fileID: 3073671230903088887, guid: 5cc2b7de37adb3e4c8fe589bc9f8859a,
     type: 3}
   ownerPanelContainer: {fileID: 1667946004}
---- !u!114 &438182127
+--- !u!114 &438182128
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -903,12 +903,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 438182119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aabb0118822876443a3d66ec2b5d7066, type: 3}
+  m_Script: {fileID: 11500000, guid: 8dee144a64214c04db6267e0f1a07449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _persistent: 0
-  defaultModel: {fileID: 14870952057999063, guid: 97eb3035789d1ab4dac88c24b48ca2d4,
-    type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,6 +1206,7 @@ Transform:
   m_Children:
   - {fileID: 1708926916}
   - {fileID: 438182120}
+  - {fileID: 1492470313}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2029,6 +2027,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1492470312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1492470313}
+  - component: {fileID: 1492470316}
+  - component: {fileID: 1492470315}
+  - component: {fileID: 1492470314}
+  m_Layer: 0
+  m_Name: Sheep
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1492470313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492470312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 817108758}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1492470314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492470312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4091ab03536228846802d13fe53600fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1492470315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492470312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead516d97babb3b4fba025d52d60dbca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  sheeps: []
+--- !u!114 &1492470316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492470312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be43d5ca0b112a242951979f3307f37d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  sheepPrefab: {fileID: 6195520508007395971, guid: df46430e556633045a77f7dd556bb858,
+    type: 3}
 --- !u!1 &1532596427
 GameObject:
   m_ObjectHideFlags: 0
@@ -2419,9 +2491,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1708926916}
   - component: {fileID: 1708926917}
+  - component: {fileID: 1708926921}
   - component: {fileID: 1708926918}
   - component: {fileID: 1708926920}
   - component: {fileID: 1708926919}
+  - component: {fileID: 1708926922}
   m_Layer: 0
   m_Name: Arena
   m_TagString: Untagged
@@ -2463,7 +2537,6 @@ MonoBehaviour:
   _gridSize: 11
   _tileSize: 0.4
   _tileScale: {x: 2.5, y: 2.5}
-  playfields: []
   currentVortexes: []
   presets: []
   playfieldPrefab: {fileID: 8023144983768244914, guid: 12b7d692ddef63c45a257c78ddab0c54,
@@ -2496,9 +2569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066c129c748498749b402dfb2d11abc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kings: []
-  kingUnitPrefab: {fileID: 4932373932008650664, guid: 686e934c667b85e489da4763f7e85ab8,
-    type: 3}
 --- !u!114 &1708926920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2513,6 +2583,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kings: []
   hitRange: 0.2
+--- !u!114 &1708926921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708926915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06920fa742f782b4e9fe436347fb3f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1708926922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708926915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d0a1cf60211414b8bc0e60bb6f2085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  defaultModel: {fileID: 14870952057999063, guid: 97eb3035789d1ab4dac88c24b48ca2d4,
+    type: 3}
+  kingUnitPrefab: {fileID: 4932373932008650664, guid: 686e934c667b85e489da4763f7e85ab8,
+    type: 3}
 --- !u!1 &1713199692
 GameObject:
   m_ObjectHideFlags: 0

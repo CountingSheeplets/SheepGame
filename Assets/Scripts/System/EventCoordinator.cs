@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 [ExecuteInEditMode]
-public class EventManager : Singleton<EventManager>
+public class EventCoordinator : Singleton<EventCoordinator>
 {
     public bool enableDebugging;
 

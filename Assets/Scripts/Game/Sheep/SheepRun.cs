@@ -21,7 +21,7 @@ public class SheepRun : BaseUnitMove
         //trigger Land game event
         GetComponent<SheepUnit>().isReadying = false;
         Playfield playfield = GetComponent<SheepUnit>().currentPlayfield;
-        EventManager.TriggerEvent(EventName.System.Sheep.ReadyToLaunch(), GameMessage.Write().WithSheepUnit(GetComponent<SheepUnit>()).WithPlayfield(playfield));
+        EventCoordinator.TriggerEvent(EventName.System.Sheep.ReadyToLaunch(), GameMessage.Write().WithSheepUnit(GetComponent<SheepUnit>()).WithPlayfield(playfield));
         //this is listened by Sheep Throw!
     }
 }

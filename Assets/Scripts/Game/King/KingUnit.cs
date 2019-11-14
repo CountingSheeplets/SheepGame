@@ -34,10 +34,10 @@ public class KingUnit : MonoBehaviour
     public OnReceivedDamage onReceivedDamage;
 
     void Start(){
-        EventManager.StartListening(EventName.System.King.Hit(), OnHit);
+        EventCoordinator.StartListening(EventName.System.King.Hit(), OnHit);
     }
     void OnDestroy(){
-        EventManager.StopListening(EventName.System.King.Hit(), OnHit);
+        EventCoordinator.StopListening(EventName.System.King.Hit(), OnHit);
     }
 
     void OnHit(GameMessage msg){
@@ -56,7 +56,7 @@ public class KingUnit : MonoBehaviour
             //show die animation
 
             //then remove king
-            EventManager.TriggerEvent(EventName.System.King.Killed(), GameMessage.Write().WithKingUnit(this).WithOwner(killer).WithTargetOwner(eliminated));
+            EventCoordinator.TriggerEvent(EventName.System.King.Killed(), GameMessage.Write().WithKingUnit(this).WithOwner(killer).WithTargetOwner(eliminated));
             Destroy(gameObject, 2f); //destroy GO after animations have played out
             Destroy(this); //destroy this instantly, so that wouldnt interfere with other mechanics
         }

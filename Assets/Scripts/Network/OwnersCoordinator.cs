@@ -4,7 +4,7 @@ using UnityEngine;
 using NDream.AirConsole;
 using System.Linq;
 
-public class OwnersManager : Singleton<OwnersManager>
+public class OwnersCoordinator : Singleton<OwnersCoordinator>
 {
     List<Owner> owners = new List<Owner>();
     public GameObject ownerTilePrefab;
@@ -12,17 +12,7 @@ public class OwnersManager : Singleton<OwnersManager>
     public static List<Owner> GetOwners(){
         return Instance.owners;
     }
-    void Start()
-    {
-        EventManager.StartListening(EventName.Input.StartGame(), OnStartGame);
-    }
-    void OnDestroy(){
-        EventManager.StopListening(EventName.Input.StartGame(), OnStartGame);
-    }
-    void OnStartGame(GameMessage msg){
-        foreach(Owner owner in owners)
-            owner.gameObject.SetActive(false);
-    }
+
     public static Owner TryCreateOwner(int device_id){
         Owner candidateOwner = Instance.owners.Where(x=>x.ownerId == AirConsole.instance.GetUID(device_id)).FirstOrDefault();
         if(candidateOwner == null){
@@ -30,7 +20,7 @@ public class OwnersManager : Singleton<OwnersManager>
             string nicknameOfJoined = AirConsole.instance.GetNickname (device_id);
             Owner newOwner = go.AddComponent<Owner>();
             Instance.owners.Add(newOwner);
-            newOwner.Create(AirConsole.instance.GetUID(device_id), nicknameOfJoined, MenuNetworkManager.Instance.premiumIds.Contains(device_id), device_id);
+            newOwner.Create(AirConsole.instance.GetUID(device_id), nicknameOfJoined, MenuNetworkHandler.Instance.premiumIds.Contains(device_id), device_id);
             go.name = newOwner.ownerName;
             return newOwner;
         } else {
@@ -50,7 +40,7 @@ public class OwnersManager : Singleton<OwnersManager>
         Owner leftOwner = GetOwner(device_id);
         if(leftOwner == null)
             return null;
-        EventManager.TriggerEvent(EventName.Input.Network.PlayerLeft(), GameMessage.Write().WithOwner(leftOwner));
+        EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerLeft(), GameMessage.Write().WithOwner(leftOwner));
         leftOwner.connected = false;
         return leftOwner;
     }

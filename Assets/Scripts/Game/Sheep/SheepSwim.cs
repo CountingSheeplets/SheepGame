@@ -7,10 +7,10 @@ public class SheepSwim : BaseUnitMove
 {
     void Start()
     {
-        EventManager.StartListening(EventName.System.Sheep.Land(), OnLand);
+        EventCoordinator.StartListening(EventName.System.Sheep.Land(), OnLand);
     }
     void OnDestroy(){
-        EventManager.StopListening(EventName.System.Sheep.Land(), OnLand);
+        EventCoordinator.StopListening(EventName.System.Sheep.Land(), OnLand);
     }
     public void StartSwiming(float speed, Vector2 _destination){
         Debug.Log("StartSwiming");
@@ -36,6 +36,6 @@ public class SheepSwim : BaseUnitMove
 
         //GetComponent<SheepUnit>().isSwimming = false; //uncomment this, if unit would not die, but do smth else
         Playfield playfield = GetComponent<SheepUnit>().currentPlayfield;
-        EventManager.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(GetComponent<SheepUnit>()));
+        EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(GetComponent<SheepUnit>()));
     }
 }

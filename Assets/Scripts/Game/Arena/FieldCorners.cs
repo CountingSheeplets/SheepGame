@@ -32,7 +32,7 @@ public class FieldCorners
     }
 
     public bool IsWithinField(Vector2 point){
-        Debug.Log("checking point: "+point+ " vs me: "+this);
+        //Debug.Log("checking point: "+point+ " vs me: "+this);
         if(point.x > TopLeft.x && point.y < TopLeft.y &&
             point.x < TopRight.x && point.y < TopRight.y &&
             point.x > BottomLeft.x && point.y > BottomLeft.y &&
@@ -41,7 +41,7 @@ public class FieldCorners
         return false;
     }
     public bool IsWithinField(Vector2 point, float radius){
-        Debug.Log("checking point: "+point+ " vs me: "+this);
+        //Debug.Log("checking point: "+point+ " vs me: "+this);
         if(point.x > TopLeft.x + radius && point.y < TopLeft.y - radius &&
             point.x < TopRight.x - radius && point.y < TopRight.y - radius &&
             point.x > BottomLeft.x + radius && point.y > BottomLeft.y + radius &&

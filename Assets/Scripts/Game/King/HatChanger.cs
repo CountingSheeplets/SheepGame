@@ -9,10 +9,10 @@ public class HatChanger : MonoBehaviour
     int currentHatIndex = 0; //0 = default
     void Start()
     {
-        EventManager.StartListening(EventName.Input.ChangeHat(), OnChangeHat);
+        EventCoordinator.StartListening(EventName.Input.ChangeHat(), OnChangeHat);
     }
     void OnDestroy(){
-        EventManager.StopListening(EventName.Input.ChangeHat(), OnChangeHat);
+        EventCoordinator.StopListening(EventName.Input.ChangeHat(), OnChangeHat);
     }
     void OnChangeHat(GameMessage msg)
     {

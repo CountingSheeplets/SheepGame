@@ -14,6 +14,7 @@ public class Playfield : MonoBehaviour
     public bool generateFence = true;
     public Transform fieldParent;
     public Transform fenceParent;
+    public Transform sheepParent; // used by SheepFactory
 
     public Playfield Init(){
         GameObject newPlayfieldGO = Instantiate(gameObject);
@@ -22,18 +23,18 @@ public class Playfield : MonoBehaviour
     }
 
     void Start(){
-        fieldCorners = new FieldCorners(ArenaManager.fieldSize);
+        fieldCorners = new FieldCorners(ArenaCoordinator.fieldSize);
         //Debug.Log("object set: fieldCorners..."+fieldCorners);
         //EventManager.StartListening(EventName.Input.Swipe(), OnSwipe);
-        EventManager.StartListening(EventName.Input.StartGame(), OnStart);
-        EventManager.StartListening(EventName.System.Environment.SetField(), OnSetField);
-        EventManager.StartListening(EventName.System.Environment.AdjustField(), OnAdjustField);
+        EventCoordinator.StartListening(EventName.Input.StartGame(), OnStart);
+        EventCoordinator.StartListening(EventName.System.Environment.SetField(), OnSetField);
+        EventCoordinator.StartListening(EventName.System.Environment.AdjustField(), OnAdjustField);
     }
     void OnDestroy(){
         //EventManager.StopListening(EventName.Input.Swipe(), OnSwipe);
-        EventManager.StopListening(EventName.Input.StartGame(), OnStart);
-        EventManager.StopListening(EventName.System.Environment.SetField(), OnSetField);
-        EventManager.StopListening(EventName.System.Environment.AdjustField(), OnAdjustField);
+        EventCoordinator.StopListening(EventName.Input.StartGame(), OnStart);
+        EventCoordinator.StopListening(EventName.System.Environment.SetField(), OnSetField);
+        EventCoordinator.StopListening(EventName.System.Environment.AdjustField(), OnAdjustField);
     }
 /*     void OnSwipe(GameMessage msg){
         Debug.Log("swiping:"+msg.swipe.vector);
@@ -41,22 +42,22 @@ public class Playfield : MonoBehaviour
     void OnStart(GameMessage msg){
         //generate field area:
         Spiral sp = new Spiral();
-        for(int i = 0;i < ArenaManager.GridSize * ArenaManager.GridSize; i++){
+        for(int i = 0;i < ArenaCoordinator.GridSize * ArenaCoordinator.GridSize; i++){
             GameObject newTileGO = Instantiate(fieldTilePrefab, Vector2.zero, Quaternion.identity, fieldParent);
-            newTileGO.transform.localPosition = sp.ThisPoint() * ArenaManager.TileSize;
+            newTileGO.transform.localPosition = sp.ThisPoint() * ArenaCoordinator.TileSize;
             sp.Next();
-            newTileGO.transform.localScale = ArenaManager.TileScale;
+            newTileGO.transform.localScale = ArenaCoordinator.TileScale;
             fieldTiles.Add(newTileGO.GetComponent<FieldTile>());
         }
         //generate fences around field:
         //Vector2 offset = new Vector2(-(size.x+1)/2, (size.y+1)/2);
         if(generateFence)
-            for(int i = 0; i < (ArenaManager.GridSize + 2 + ArenaManager.GridSize) * 2; i++){
-                if((i+1) % (ArenaManager.GridSize + 1) != 0) {
+            for(int i = 0; i < (ArenaCoordinator.GridSize + 2 + ArenaCoordinator.GridSize) * 2; i++){
+                if((i+1) % (ArenaCoordinator.GridSize + 1) != 0) {
                     GameObject newTileGO = Instantiate(fenceTilePrefab, Vector2.zero, Quaternion.identity, fenceParent);
-                    newTileGO.transform.localPosition = sp.ThisPoint() * ArenaManager.TileSize;
-                    newTileGO.transform.localScale = ArenaManager.TileScale;
-                    Vector3 rotateBy = new Vector3(0, 0, 90f * Mathf.FloorToInt(i / (ArenaManager.GridSize + 1)));
+                    newTileGO.transform.localPosition = sp.ThisPoint() * ArenaCoordinator.TileSize;
+                    newTileGO.transform.localScale = ArenaCoordinator.TileScale;
+                    Vector3 rotateBy = new Vector3(0, 0, 90f * Mathf.FloorToInt(i / (ArenaCoordinator.GridSize + 1)));
                     //Debug.Log("rotateBy "+rotateBy);
                     newTileGO.transform.Rotate(rotateBy, Space.World);
                     fenceTiles.Add(newTileGO.GetComponent<FenceTile>());
@@ -68,7 +69,7 @@ public class Playfield : MonoBehaviour
         SetHitpointsTo(55);
     }
     void OnSetField(GameMessage msg){
-        if(msg.owner.EqualsByValue(GetComponent<Owner>()));
+        if(msg.owner.EqualsByValue(GetComponent<Owner>()))
             SetHitpointsTo(msg.intMessage);
     }
     public void SetHitpointsTo(int hitpoints){
@@ -81,7 +82,7 @@ public class Playfield : MonoBehaviour
         }
     }
     void OnAdjustField(GameMessage msg){
-        if(msg.owner.EqualsByValue(GetComponent<Owner>()));
+        if(msg.owner.EqualsByValue(GetComponent<Owner>()))
             AdjustHitPoints(msg.intMessage);
     }
     public void AdjustHitPoints(int amount){

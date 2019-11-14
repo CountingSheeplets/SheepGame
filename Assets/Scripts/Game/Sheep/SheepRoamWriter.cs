@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SheepRoamManager : MonoBehaviour
+public class SheepRoamWriter : MonoBehaviour
 {
     public float roamInterval = 1f;
     float roamProbability = 0.25f;
@@ -19,7 +19,7 @@ public class SheepRoamManager : MonoBehaviour
         counter+=Time.deltaTime;
         if(counter > roamInterval){
             counter = 0;
-            EventManager.TriggerEvent(EventName.System.Sheep.Roam(), GameMessage.Write().WithFloatMessage(roamProbability));
+            EventCoordinator.TriggerEvent(EventName.System.Sheep.Roam(), GameMessage.Write().WithFloatMessage(roamProbability));
         }
     }
 }

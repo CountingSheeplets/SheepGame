@@ -5,7 +5,7 @@ using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 using System.Linq;
 
-public class ReadyNetworkManager : MonoBehaviour
+public class ReadyNetworkHandler : MonoBehaviour
 {
     void Awake()
     {
@@ -18,7 +18,7 @@ public class ReadyNetworkManager : MonoBehaviour
             if (message["element"].ToString() == "ready-button")
             {
                 bool ready = (bool)(message["data"]["pressed"]);
-                Owner readyOwner = OwnersManager.GetOwner(from);
+                Owner readyOwner = OwnersCoordinator.GetOwner(from);
                 if (readyOwner == null)
                     return;
                 else
@@ -29,14 +29,14 @@ public class ReadyNetworkManager : MonoBehaviour
     }
     void TryStart()
     {
-        foreach (Owner owner in OwnersManager.GetOwners())
+        foreach (Owner owner in OwnersCoordinator.GetOwners())
         {
             if (owner.ready == false)
             {
                 return;
             }
         }
-        EventManager.TriggerEvent(EventName.Input.StartGame(), GameMessage.Write());
+        EventCoordinator.TriggerEvent(EventName.Input.StartGame(), GameMessage.Write());
         var data = new Dictionary<string, string> { { "show_view_id", "view-0" } };
         AirConsole.instance.Broadcast(data);
     }

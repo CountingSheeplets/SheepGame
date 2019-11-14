@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-public class ArenaManager : Singleton<ArenaManager>
-{[SerializeField]
-    int _gridSize;
+public class ArenaCoordinator : Singleton<ArenaCoordinator>
+{
+    [SerializeField]
+    int _gridSize = 11;
     public static int GridSize {get {return Instance._gridSize;}}
     [SerializeField]
     float _tileSize = 0.5f;
     public static float TileSize {get {return Instance._tileSize;}}
     [SerializeField]
-    Vector2 _tileScale;
+    Vector2 _tileScale = new Vector2(2.5f,2.5f);
     public static Vector2 TileScale {get {return Instance._tileScale;}}
     public static Vector2 fieldSize {
         get{
@@ -20,72 +21,48 @@ public class ArenaManager : Singleton<ArenaManager>
     }
 
     private List<Playfield> playfields = new List<Playfield>();
-    public List<Playfield> GetPlayfields{
-        get{return playfields;}
+    public static List<Playfield> GetPlayfields{
+        get{return Instance.playfields;}
     }
     public List<Vortex> currentVortexes = new List<Vortex>();
     public List<ArenaPreset> presets = new List<ArenaPreset>();
     public GameObject playfieldPrefab;
     public GameObject vortexPrefab;
     public int emptySpacesBetweenFields = 1;
-    bool gameStarted = false;
 
-    void Start()
-    {
+    void Start(){
         presets.AddRange(GetComponentsInChildren<ArenaPreset>(true));
-        EventManager.StartListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
-        EventManager.StartListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
-        EventManager.StartListening(EventName.Input.StartGame(), OnStartGame);
-        EventManager.StartListening(EventName.System.Player.Defeated(), OnPlayerDefeated);
     }
-    void OnDestroy(){
-        EventManager.StopListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
-        EventManager.StopListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
-        EventManager.StopListening(EventName.Input.StartGame(), OnStartGame);
-        EventManager.StopListening(EventName.System.Player.Defeated(), OnPlayerDefeated);
-    }
-
-    void OnPlayerJoined(GameMessage msg){
+    public static Playfield GetOrCreateField(Owner owner){
         //check if there is not already a player who has an arena under his name
-        if(playfields.Where(x=>x.GetComponent<Owner>().EqualsByValue(msg.owner)).FirstOrDefault() == null){
-            //, if not then create
-            GameObject newFieldGO = Instantiate(playfieldPrefab);
+        Playfield hasPlayfield = ArenaCoordinator.GetPlayfields.Where(x=>x.GetComponent<Owner>().EqualsByValue(owner)).FirstOrDefault();
+        if(hasPlayfield == null){
+            GameObject newFieldGO = Instantiate(Instance.playfieldPrefab);
             Playfield newField = newFieldGO.GetComponent<Playfield>();
-            Owner newOwner = newField.GetComponent<Owner>().Create(msg.owner);
-            playfields.Add(newField);
-            newField.transform.parent = transform;
+            Owner newOwner = newField.GetComponent<Owner>().Create(owner);
+            Instance.playfields.Add(newField);
+            newField.transform.parent = Instance.transform;
             newField.gameObject.name = "Playfield:"+newOwner.ownerName;
-        }
+            return newField;
+        } else
+        return hasPlayfield;
     }
-    void OnStartGame(GameMessage msg){
-        gameStarted = true;
-        RearrangeArena();
-    }
-    void OnPlayerLeft(GameMessage msg){
-        //destroy arena if game has not started yet, if started, leave?
-        if(!gameStarted){
-            RemoveField(msg.owner);
-        }
-    }
-    void RemoveField(Owner owner){
+    public static void RemoveField(Owner owner){
         //Debug.Log(owner);
         //Debug.Log(playfields.Count);
-        Playfield pl = playfields.Where(x=>x.GetComponent<Owner>().EqualsByValue(owner)).FirstOrDefault();
-        playfields.Remove(pl);
+        Playfield pl = Instance.playfields.Where(x=>x.GetComponent<Owner>().EqualsByValue(owner)).FirstOrDefault();
+        Instance.playfields.Remove(pl);
         if(pl != null)
             Destroy(pl.gameObject);
     }
-    void OnPlayerDefeated(GameMessage msg){
-        RemoveField(msg.owner);
-        RearrangeArena();
-    }
-    void RearrangeArena(){
-        List<ArenaPreset> availablePresets = presets.Where(x=>x.presetSize == playfields.Count).ToList();
+
+    public static void RearrangeArena(){
+        List<ArenaPreset> availablePresets = Instance.presets.Where(x=>x.presetSize == Instance.playfields.Count).ToList();
         ArenaPreset randomPreset = availablePresets[Random.Range(0, availablePresets.Count-1)];
         randomPreset.SelectThisPreset();
-        ArrangeFields(randomPreset);
-        RemoveVortexes();
-        AddVortexes(randomPreset);
+        Instance.ArrangeFields(randomPreset);
+        Instance.RemoveVortexes();
+        Instance.AddVortexes(randomPreset);
     }
     void ArrangeFields(ArenaPreset randomPreset){
         List<PresetSocket> sockets = new List<PresetSocket>(randomPreset.playfieldSockets);

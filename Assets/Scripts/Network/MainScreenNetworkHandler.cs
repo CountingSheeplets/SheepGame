@@ -4,7 +4,7 @@ using UnityEngine;
 using Newtonsoft.Json.Linq;
 using NDream.AirConsole;
 
-public class NetworkManager : Singleton<NetworkManager>
+public class MainScreenNetworkHandler : Singleton<MainScreenNetworkHandler>
 {
     void Awake()
     {
@@ -22,7 +22,7 @@ public class NetworkManager : Singleton<NetworkManager>
                 if (message["element"].ToString() == "swipe-field")
                 {
                     Swipe newSwipe = new Swipe(message["data"]["direction"]);
-                    EventManager.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(OwnersManager.GetOwner(from)));
+                    EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(OwnersCoordinator.GetOwner(from)));
                 }
             }
     }

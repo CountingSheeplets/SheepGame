@@ -7,7 +7,7 @@ public class SheepSalto : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EventManager.StartListening(EventName.System.King.Hit(), OnKingHit);
+        EventCoordinator.StartListening(EventName.System.King.Hit(), OnKingHit);
     }
     void OnKingHit(GameMessage msg)
     {

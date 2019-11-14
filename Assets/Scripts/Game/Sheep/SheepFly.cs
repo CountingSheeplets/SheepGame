@@ -23,8 +23,8 @@ public class SheepFly : BaseUnitMove
         Debug.Log("fly eneded, landing at:"+(Vector2)(transform.position));
 
         //trigger Land game event, listened by sheep throw
-        Playfield newPlayfield = ArenaManager.GetPlayfield(transform.position);
+        Playfield newPlayfield = ArenaCoordinator.GetPlayfield(transform.position);
         GetComponent<SheepUnit>().currentPlayfield = newPlayfield;
-        EventManager.TriggerEvent(EventName.System.Sheep.Land(), GameMessage.Write().WithSheepUnit(GetComponent<SheepUnit>()).WithPlayfield(newPlayfield));
+        EventCoordinator.TriggerEvent(EventName.System.Sheep.Land(), GameMessage.Write().WithSheepUnit(GetComponent<SheepUnit>()).WithPlayfield(newPlayfield));
     }
 }

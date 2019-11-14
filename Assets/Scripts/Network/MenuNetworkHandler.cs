@@ -5,7 +5,7 @@ using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 using System.Linq;
 
-public class MenuNetworkManager : Singleton<MenuNetworkManager>
+public class MenuNetworkHandler : Singleton<MenuNetworkHandler>
 {
     public List<int> premiumIds = new List<int>();
     void Awake()
@@ -16,20 +16,20 @@ public class MenuNetworkManager : Singleton<MenuNetworkManager>
         AirConsole.instance.onMessage += OnSelectHatClick;
     }
     void OnConnect(int device_id){
-		Owner owner = OwnersManager.TryCreateOwner(device_id);
+		Owner owner = OwnersCoordinator.TryCreateOwner(device_id);
 		if(owner){
             //then add hero model to the Owner as Child:
-			KingModelManager.TryCreateHeroModel(owner);
+			KingFactory.TryCreateHeroModel(owner);
 			//then anounce the new owner
-        	EventManager.TriggerEvent(EventName.Input.Network.PlayerJoined(), GameMessage.Write().WithOwner(owner));
+        	EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerJoined(), GameMessage.Write().WithOwner(owner));
 		}
 		else
 			Debug.LogError("OnConnect returned null Owner!");
     }
     void OnDisconnect(int device_id){
-		Owner owner = OwnersManager.DisconnectOwner(device_id);
+		Owner owner = OwnersCoordinator.DisconnectOwner(device_id);
 		if(owner)
-        	EventManager.TriggerEvent(EventName.Input.Network.PlayerLeft(), GameMessage.Write().WithOwner(owner));
+        	EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerLeft(), GameMessage.Write().WithOwner(owner));
 		else
 			Debug.LogError("OnDisconnect returned null Owner!");
     }
@@ -73,20 +73,20 @@ public class MenuNetworkManager : Singleton<MenuNetworkManager>
     {
         Debug.Log("int from: " + from + "   " + message);
         if (message["data"] != null){
-			Owner owner = OwnersManager.GetOwner(from);
+			Owner owner = OwnersCoordinator.GetOwner(from);
             if   (message["element"].ToString().Contains("previous-king-hat"))
             {
-				Owner triggerOwner = OwnersManager.GetOwner(from);
+				Owner triggerOwner = OwnersCoordinator.GetOwner(from);
 				if(triggerOwner == null)
 					return;
-				EventManager.TriggerEvent(EventName.Input.ChangeHat(), GameMessage.Write().WithIntMessage(-1).WithOwner(owner));
+				EventCoordinator.TriggerEvent(EventName.Input.ChangeHat(), GameMessage.Write().WithIntMessage(-1).WithOwner(owner));
             }
 			if   (message["element"].ToString().Contains("next-king-hat"))
             {
-				Owner triggerOwner = OwnersManager.GetOwner(from);
+				Owner triggerOwner = OwnersCoordinator.GetOwner(from);
 				if(triggerOwner == null)
 					return;
-				EventManager.TriggerEvent(EventName.Input.ChangeHat(), GameMessage.Write().WithIntMessage(1).WithOwner(owner));
+				EventCoordinator.TriggerEvent(EventName.Input.ChangeHat(), GameMessage.Write().WithIntMessage(1).WithOwner(owner));
             }
 		}
     }

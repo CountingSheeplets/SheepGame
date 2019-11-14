@@ -21,11 +21,11 @@ public class CooldownManager : Singleton<CooldownManager>
             if (cdg.IsGroupOnCooldown()){
                 cdg.ReduceCooldownInGroup(Time.deltaTime);
                 if (cdg.HasCooldownTicked(cdTickInterval)){
-                    EventManager.TriggerEvent(EventName.System.Cooldown.Tick(), GameMessage.Write().WithCooldownGroup(cdg));
+                    EventCoordinator.TriggerEvent(EventName.System.Cooldown.Tick(), GameMessage.Write().WithCooldownGroup(cdg));
                 }
             }
             if (cdg.HasCooldownEnded()){
-                EventManager.TriggerEvent(EventName.System.Cooldown.Ended(), GameMessage.Write().WithCooldownGroup(cdg));
+                EventCoordinator.TriggerEvent(EventName.System.Cooldown.Ended(), GameMessage.Write().WithCooldownGroup(cdg));
             }
         }
     }
@@ -41,7 +41,7 @@ public class CooldownManager : Singleton<CooldownManager>
         } else {
             //show cooldown fail UI message:
             //Debug.Log(ability + " on CD:  " +group.currentCooldown);
-            EventManager.TriggerEvent(EventName.UI.ShowCooldownNotReady(), GameMessage.Write().WithCooldownGroup(group));
+            EventCoordinator.TriggerEvent(EventName.UI.ShowCooldownNotReady(), GameMessage.Write().WithCooldownGroup(group));
             return false;
         }
         //if (ability != GhostManager.ghost.GetBase())

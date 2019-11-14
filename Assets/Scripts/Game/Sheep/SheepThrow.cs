@@ -10,18 +10,18 @@ public class SheepThrow : MonoBehaviour
     public SheepUnit sheepReadyToBeThrown;
     void Start()
     {
-        EventManager.StartListening(EventName.Input.Swipe(), OnSwipe);
-        EventManager.StartListening(EventName.System.Sheep.Spawned(), OnSpawn);
-        EventManager.StartListening(EventName.System.Sheep.Land(), OnLand);
-        EventManager.StartListening(EventName.System.Sheep.ReadyToLaunch(), OnReady);
-        EventManager.StartListening(EventName.System.Sheep.Kill(), OnKill);
+        EventCoordinator.StartListening(EventName.Input.Swipe(), OnSwipe);
+        EventCoordinator.StartListening(EventName.System.Sheep.Spawned(), OnSpawn);
+        EventCoordinator.StartListening(EventName.System.Sheep.Land(), OnLand);
+        EventCoordinator.StartListening(EventName.System.Sheep.ReadyToLaunch(), OnReady);
+        EventCoordinator.StartListening(EventName.System.Sheep.Kill(), OnKill);
     }
     void OnDestroy(){
-        EventManager.StopListening(EventName.Input.Swipe(), OnSwipe);
-        EventManager.StopListening(EventName.System.Sheep.Spawned(), OnSpawn);
-        EventManager.StopListening(EventName.System.Sheep.Land(), OnLand);
-        EventManager.StopListening(EventName.System.Sheep.ReadyToLaunch(), OnReady);
-        EventManager.StopListening(EventName.System.Sheep.Kill(), OnKill);
+        EventCoordinator.StopListening(EventName.Input.Swipe(), OnSwipe);
+        EventCoordinator.StopListening(EventName.System.Sheep.Spawned(), OnSpawn);
+        EventCoordinator.StopListening(EventName.System.Sheep.Land(), OnLand);
+        EventCoordinator.StopListening(EventName.System.Sheep.ReadyToLaunch(), OnReady);
+        EventCoordinator.StopListening(EventName.System.Sheep.Kill(), OnKill);
     }
 
     void OnSwipe(GameMessage msg)
