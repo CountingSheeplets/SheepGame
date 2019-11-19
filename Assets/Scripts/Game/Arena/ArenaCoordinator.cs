@@ -40,6 +40,7 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator>
             GameObject newFieldGO = Instantiate(Instance.playfieldPrefab);
             Playfield newField = newFieldGO.GetComponent<Playfield>();
             Owner newOwner = newField.GetComponent<Owner>().Create(owner);
+            newField.owner = owner;
             Instance.playfields.Add(newField);
             newField.transform.parent = Instance.transform;
             newField.gameObject.name = "Playfield:"+newOwner.ownerName;

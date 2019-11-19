@@ -233,6 +233,7 @@
      <Compile Include="Assets\Scripts\Game\Arena\ArenaCoordinator.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\ArenaPreset.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\FieldCorners.cs" />
+     <Compile Include="Assets\Scripts\Game\Arena\Playfield.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\PresetSocket.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\Vortex.cs" />
      <Compile Include="Assets\Scripts\Game\King\HatChanger.cs" />
@@ -241,10 +242,14 @@
      <Compile Include="Assets\Scripts\Game\King\KingHealthBar.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingRoam.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingUnit.cs" />
-     <Compile Include="Assets\Scripts\Game\Playfield.cs" />
+     <Compile Include="Assets\Scripts\Game\PlayerProfile\PlayerProfile.cs" />
+     <Compile Include="Assets\Scripts\Game\PlayerProfile\PlayerProfileController.cs" />
+     <Compile Include="Assets\Scripts\Game\PlayerProfile\PlayerProfileCoordinator.cs" />
+     <Compile Include="Assets\Scripts\Game\PlayerProfile\PlayerProfileFactory.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\BaseUnitMove.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepController.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepCoordinator.cs" />
+     <Compile Include="Assets\Scripts\Game\Sheep\SheepEat.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepEatWriter.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepFactory.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepFly.cs" />
@@ -255,6 +260,7 @@
      <Compile Include="Assets\Scripts\Game\Sheep\SheepSalto.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepSwim.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepThrow.cs" />
+     <Compile Include="Assets\Scripts\Game\Sheep\SheepTypes.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepUnit.cs" />
      <Compile Include="Assets\Scripts\Game\Swipe.cs" />
      <Compile Include="Assets\Scripts\General\BitMaskAttribute.cs" />

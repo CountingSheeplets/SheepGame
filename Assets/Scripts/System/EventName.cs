@@ -49,9 +49,10 @@ public class EventName
     public class System
     {
         public class Economy{
+            public static string EatGrass() { return "Economy_EatGrass"; }
             public static string IncomeTick() { return "Economy_IncomeTick"; }
             public static string CoinChange() { return "Economy_CoinChange"; }
-            public static List<string> Get() { return new List<string> { IncomeTick(), CoinChange()}; }          
+            public static List<string> Get() { return new List<string> { IncomeTick(), CoinChange(), EatGrass()}; }          
         }
         public class Cooldown{
             public static string Tick() { return "Cooldown_Tick"; }

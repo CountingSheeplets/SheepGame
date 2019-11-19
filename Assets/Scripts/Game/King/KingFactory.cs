@@ -37,5 +37,6 @@ public class KingFactory : Singleton<KingFactory>
 /*     public static void DestroyKing(KingUnit king){
         Instance.kings.Remove(king);
         Destroy(king);
+        Create a die king sprite animation with a small lifetime
     } */
 }

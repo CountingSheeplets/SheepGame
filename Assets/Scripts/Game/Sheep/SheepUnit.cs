@@ -12,6 +12,8 @@ public class SheepUnit : MonoBehaviour
     public bool isSwimming = false;
     public bool isRoaming = false;
     public float radius = 0.5f;
+    [BitMask(typeof(SheepType))]
+    public SheepType sheepType;
 
     void Start(){
         EventCoordinator.StartListening(EventName.System.Sheep.Kill(), OnKill);

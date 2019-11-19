@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Playfield : MonoBehaviour
 {
+    public Owner owner;
+    
     public FieldCorners fieldCorners;
 
     public GameObject fieldTilePrefab;
     public GameObject fenceTilePrefab;
     public List<FieldTile> fieldTiles = new List<FieldTile>();
     public List<FenceTile> fenceTiles = new List<FenceTile>();
-    public int currentHitpoints = 0;
+    public float currentHitpoints = 0f;
     public bool generateFence = true;
     public Transform fieldParent;
     public Transform fenceParent;
@@ -72,6 +74,9 @@ public class Playfield : MonoBehaviour
         if(msg.owner.EqualsByValue(GetComponent<Owner>()))
             SetHitpointsTo(msg.intMessage);
     }
+    public float GetHitpoints(){
+        return currentHitpoints;
+    }
     public void SetHitpointsTo(int hitpoints){
         currentHitpoints = hitpoints;
         for(int i = fieldTiles.Count-1; i>=hitpoints; i-- ){
@@ -85,15 +90,17 @@ public class Playfield : MonoBehaviour
         if(msg.owner.EqualsByValue(GetComponent<Owner>()))
             AdjustHitPoints(msg.intMessage);
     }
-    public void AdjustHitPoints(int amount){
+    public float AdjustHitPoints(float amount){
         if(amount > 0)
-            for(int i = 0; i < amount; i++ ){
-                fieldTiles[currentHitpoints + i].SetState(false);
+            for(int i = 0; i < Mathf.FloorToInt(currentHitpoints+amount) - Mathf.FloorToInt(currentHitpoints); i++ ){
+                fieldTiles[Mathf.CeilToInt(currentHitpoints+amount) + i].SetState(false);
             }
         if(amount < 0)
-            for(int i = 0; i < Mathf.Abs(amount); i++ ){
-                fieldTiles[currentHitpoints - i].SetState(false);
+            for(int i = 0; i < Mathf.FloorToInt(currentHitpoints) - Mathf.FloorToInt(currentHitpoints+amount); i++ ){
+                fieldTiles[Mathf.CeilToInt(currentHitpoints+amount) - i].SetState(false);
             }
+        currentHitpoints+=amount;
+        return currentHitpoints;
     }
     public override string ToString(){
         return "["+gameObject.name+"]";

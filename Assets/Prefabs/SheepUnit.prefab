@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2285501096330132476}
   - component: {fileID: 6737529950380635000}
   - component: {fileID: 2397903250103437727}
+  - component: {fileID: 1390822323850748576}
   - component: {fileID: 8428747763076860831}
   - component: {fileID: 5256840377385684018}
   - component: {fileID: 6896828739701191601}
@@ -107,6 +108,7 @@ MonoBehaviour:
   isSwimming: 0
   isRoaming: 0
   radius: 0.5
+  sheepType: 0
 --- !u!114 &2397903250103437727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +127,18 @@ MonoBehaviour:
   distanceTraveled: 0
   myScale: {x: 0, y: 0, z: 0}
   midScale: 2
+--- !u!114 &1390822323850748576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6195520508007395971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e487dca1dbaac5343934449e8ec67865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8428747763076860831
 MonoBehaviour:
   m_ObjectHideFlags: 0
