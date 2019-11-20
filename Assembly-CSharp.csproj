@@ -238,6 +238,7 @@
      <Compile Include="Assets\Scripts\Game\Arena\Vortex.cs" />
      <Compile Include="Assets\Scripts\Game\King\HatChanger.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingController.cs" />
+     <Compile Include="Assets\Scripts\Game\King\KingCoordinator.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingFactory.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingHealthBar.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingRoam.cs" />
@@ -246,6 +247,7 @@
      <Compile Include="Assets\Scripts\Game\PlayerProfile\PlayerProfileController.cs" />
      <Compile Include="Assets\Scripts\Game\PlayerProfile\PlayerProfileCoordinator.cs" />
      <Compile Include="Assets\Scripts\Game\PlayerProfile\PlayerProfileFactory.cs" />
+     <Compile Include="Assets\Scripts\Game\PlayerProfile\PlayerProfileNetworkWriter.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\BaseUnitMove.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepController.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepCoordinator.cs" />

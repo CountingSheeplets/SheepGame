@@ -8,6 +8,6 @@ public class ManagerInstantiater : MonoBehaviour
     void Start()
     {
         //GhostManager.TriggerInstantiate();
-        EventCoordinator.TriggerEvent(EventName.System.SceneLoaded(), GameMessage.Write());
+        //EventCoordinator.TriggerEvent(EventName.System.SceneLoaded(), GameMessage.Write());
     }
 }

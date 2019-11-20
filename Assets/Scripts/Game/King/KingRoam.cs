@@ -14,7 +14,7 @@ public class KingRoam : BaseUnitMove
         EventCoordinator.StopListening(EventName.System.Sheep.Roam(), OnRoam);
     }
     public void StartWalking(float speed, Vector2 _destination){
-        Debug.Log("King Roam...");
+        //Debug.Log("King Roam...");
         destination = _destination;
         king.isRoaming = true;
         //walk animation;

@@ -70,14 +70,19 @@ public class SheepThrow : MonoBehaviour
         }
     } 
     void TryReadyNewSheep(){
+        Debug.Log("TryReadyNewSheep");
         if(!SheepIsReadying() && sheepReadyToBeThrown == null){
             SheepUnit availableSheep = GetNextSheep();
-            if(availableSheep != null)
+            Debug.Log("GetNextSheep:"+availableSheep);
+            if(availableSheep != null){
+                Debug.Log("availableSheep.currentPlayfield:"+availableSheep.currentPlayfield);
                 if(availableSheep.currentPlayfield != null){
                     availableSheep.GetComponent<SheepRun>().StartRunning(1f, availableSheep.currentPlayfield.fieldCorners.Center);
                 }
-            else
+            } else
                 Debug.Log("cant run, non null");
+        } else {
+            Debug.Log("IsReadying or already ready...");
         }
     }
     SheepUnit GetNextSheep(){

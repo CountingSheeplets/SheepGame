@@ -93,11 +93,11 @@ public class Playfield : MonoBehaviour
     public float AdjustHitPoints(float amount){
         if(amount > 0)
             for(int i = 0; i < Mathf.FloorToInt(currentHitpoints+amount) - Mathf.FloorToInt(currentHitpoints); i++ ){
-                fieldTiles[Mathf.CeilToInt(currentHitpoints+amount) + i].SetState(false);
+                fieldTiles[Mathf.CeilToInt(currentHitpoints) + i].SetState(true);
             }
         if(amount < 0)
             for(int i = 0; i < Mathf.FloorToInt(currentHitpoints) - Mathf.FloorToInt(currentHitpoints+amount); i++ ){
-                fieldTiles[Mathf.CeilToInt(currentHitpoints+amount) - i].SetState(false);
+                fieldTiles[Mathf.CeilToInt(currentHitpoints) - i].SetState(false);
             }
         currentHitpoints+=amount;
         return currentHitpoints;
@@ -105,7 +105,6 @@ public class Playfield : MonoBehaviour
     public override string ToString(){
         return "["+gameObject.name+"]";
     }
-    
 }
 public class Spiral
 {

@@ -16,7 +16,13 @@ public class SheepEat : MonoBehaviour
     }
     void OnEat(GameMessage msg)
     {
-        PlayerProfileCoordinator.ModifyPlayerGrass(sheep.currentPlayfield.owner, CalculateEatAmount(msg.floatMessage));
+        Owner owner = sheep.currentPlayfield.owner;
+        if(owner.EqualsByValue(GetComponentInParent<Playfield>().owner))
+            return;
+        float eatAmount = CalculateEatAmount(msg.floatMessage);
+        PlayerProfileCoordinator.ModifyPlayerGrass(sheep.currentPlayfield.owner, -eatAmount);
+        float moneyAmount = eatAmount / 2f;
+        PlayerProfileCoordinator.GetProfile(owner).AddMoney(moneyAmount);
     }
 
     float CalculateEatAmount(float baseAmount){
@@ -24,5 +30,10 @@ public class SheepEat : MonoBehaviour
 
         //then return final value:
         return baseAmount;
+    }
+    float CalculateMoneyReward(float eatAmount){
+        //do math here how money income is calculated depending on sheep eating
+
+        return eatAmount * 5f;
     }
 }

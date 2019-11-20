@@ -7,14 +7,12 @@ public class PlayerProfile
     public Owner owner;
 
     public Playfield playfield;
-    public float GetGrass{
-        get{
-            if (playfield != null)
-                return playfield.GetHitpoints();
-            else{
-                Debug.LogWarning("playfield = null, in player profile: "+owner);
-                return 0;
-            }
+    public float GetGrass(){
+        if (playfield != null)
+            return playfield.GetHitpoints();
+        else{
+            Debug.LogWarning("playfield = null, in player profile: "+owner);
+            return 0;
         }
     }
     public float ModifyGrass(float amount){
@@ -27,14 +25,12 @@ public class PlayerProfile
     }
 
     public KingUnit kingUnit;
-    public float GetHealth{
-        get{
-            if(kingUnit != null)
-                return kingUnit.GetHealth;
-            else{
-                Debug.LogWarning("kingUnit = null, in player profile: "+owner);
-                return 0;
-            }
+    public float GetHealth(){
+        if(kingUnit != null)
+            return kingUnit.GetHealth;
+        else{
+            Debug.LogWarning("kingUnit = null, in player profile: "+owner);
+            return 0;
         }
     }
 
@@ -66,4 +62,13 @@ public class PlayerProfile
 
     public int highScore;
     public int score;
+
+    public string Print(){
+        string output = "";
+        output += "HP:"+GetHealth() + " ||| ";
+        output += "GR:"+GetGrass() + " ||| ";
+        output += "$$:"+GetMoney() + " ||| ";
+        output += owner;// + " ||| ";
+        return output;
+    }
 }

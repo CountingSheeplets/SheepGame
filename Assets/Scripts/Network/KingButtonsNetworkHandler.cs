@@ -27,7 +27,7 @@ public class KingButtonsNetworkHandler : MonoBehaviour
                             EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.SpawnSheep(), GameMessage.Write().WithOwner(triggerOwner));
                             break;
                         case 2:
-                            EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.BuyLawn(), GameMessage.Write().WithOwner(triggerOwner));
+                            EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.BuyGrass(), GameMessage.Write().WithOwner(triggerOwner));
                         break;
                         case 3:
                         break;

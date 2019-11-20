@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class EventChain : MonoBehaviour {
     void Start () {
-        //EventManager.Attach(EventName.Input.FactionSelected(), UpdateTalentTree);
+        EventCoordinator.Attach(EventName.Input.StartGame(), OnStartGame);
         //last attached:
         //EventManager.Attach(EventName.System.BaseTargetUpdate(), PostTargetUpdate);
         //EventManager.Attach(EventName.System.PostTargetUpdate(), GraphicsTargetUpdate);
     }
-
-    void UpdateTalentTree(GameMessage msg)
+    void OnDestroy() {
+        EventCoordinator.Detach(EventName.Input.StartGame(), OnStartGame);
+    }
+    void OnStartGame(GameMessage msg)
     {
-        //EventManager.TriggerEvent(EventName.UI.UpdateTalentTree(), msg);
+        EventCoordinator.TriggerEvent(EventName.System.Environment.Initialized(), msg);
     }
 
 }

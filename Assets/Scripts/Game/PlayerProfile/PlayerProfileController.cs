@@ -6,20 +6,43 @@ public class PlayerProfileController : MonoBehaviour
 {
     void Start()
     {
-        EventCoordinator.StartListening(EventName.Input.StartGame(), OnStartGame);
+        EventCoordinator.StartListening(EventName.System.Environment.Initialized(), OnInitialized);
+        EventCoordinator.StartListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
+        EventCoordinator.StartListening(EventName.Input.KingAbilities.BuyGrass(), OnPlayerBuyGrass);
+        
     }
     void OnDestroy(){
-        EventCoordinator.StopListening(EventName.Input.StartGame(), OnStartGame);
+        EventCoordinator.StopListening(EventName.System.Environment.Initialized(), OnInitialized);
+        EventCoordinator.StopListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
+        EventCoordinator.StopListening(EventName.Input.KingAbilities.BuyGrass(), OnPlayerBuyGrass);
     }
 
-    void OnStartGame(GameMessage msg){
+    void OnInitialized(GameMessage msg){
         //On start game - Modify all profiles to include King and Playfield
-
+        Debug.Log("OnInitialized");
+        foreach(Owner owner in OwnersCoordinator.GetOwners())
+            owner.GetPlayerProfile().Modify(owner.GetKing(), owner.GetPlayfield());
+        foreach(Owner owner in OwnersCoordinator.GetOwners())
+            Debug.Log(owner.GetPlayerProfile().Print());
     }
 
-    void OnPlayerJoint(GameMessage msg){
-        //here create profiles initially:
-        PlayerProfile profile = new PlayerProfile().Create(msg.owner);
-        //profileCoordinator.AddProfile(profile);
+    void OnPlayerJoined(GameMessage msg){
+        PlayerProfileCoordinator.AddProfile(msg.owner);
+    }
+
+    void OnPlayerBuyGrass(GameMessage msg){
+        //Use PriceCoordinator here to get price
+        float price = 5f;
+        PlayerProfile profile = PlayerProfileCoordinator.GetProfile(msg.owner);
+        if(price < profile.GetMoney()){
+            profile.AddMoney(-price);
+            //send msg that money is lower now
+            profile.ModifyGrass(2f);
+            //send msg that grass is increased
+            Debug.Log("Grasss bought!");
+        } else {
+            //Send Msg that not enough
+            Debug.Log("Cannto buy, not anough money");
+        }
     }
 }

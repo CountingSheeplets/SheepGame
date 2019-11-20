@@ -35,6 +35,15 @@ public class Owner : MonoBehaviour
     public void AddMask(OwnerType[] newTypes){
         ownerType.Set(newTypes);
     }
+    public KingUnit GetKing(){
+        return KingCoordinator.GetKing(this);
+    }
+    public Playfield GetPlayfield(){
+        return ArenaCoordinator.GetPlayfield(this);
+    }
+    public PlayerProfile GetPlayerProfile(){
+        return PlayerProfileCoordinator.GetProfile(this);
+    }
     public bool IsMine(){
         //int mask = 0x01 | 12345;
         /*/if ((mask & ownerType) == mask) {

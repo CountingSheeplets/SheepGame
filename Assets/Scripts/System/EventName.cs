@@ -18,8 +18,8 @@ public class EventName
     {
         public class KingAbilities{
             public static string SpawnSheep() { return "KingAbilities_SpawnSheep"; }
-            public static string BuyLawn() { return "KingAbilities_BuyLawn"; }
-            public static List<string> Get() { return new List<string> { SpawnSheep(),BuyLawn() }; }          
+            public static string BuyGrass() { return "KingAbilities_BuyLawn"; }
+            public static List<string> Get() { return new List<string> { SpawnSheep(),BuyGrass() }; }          
         }
         public class SheepUpgrades{
             public static string None() { return null; }
@@ -75,9 +75,10 @@ public class EventName
             public static List<string> Get() { return new List<string> { Spawned(), Land(), ReadyToLaunch(), Kill(), Roam()}; }          
         }
         public class Environment{
+            public static string Initialized() {return "System_Initialized";}
             public static string SetField() { return "System_SetField"; }
             public static string AdjustField() { return "System_AdjustField"; }
-            public static List<string> Get() { return new List<string> { SetField(), AdjustField()}; }          
+            public static List<string> Get() { return new List<string> {Initialized(), SetField(), AdjustField()}; }          
         //public static string MapLayoutChanged() { return "MapLayoutChanged"; }
         }
         public class Player{
@@ -86,11 +87,11 @@ public class EventName
         }
         //public static string NextScene() { return "NextScene"; }
         //public static string LoadScene() { return "LoadScene"; }
-        public static string SceneLoaded() { return "SceneLoaded"; }
+        //public static string SceneLoaded() { return "SceneLoaded"; }
         public static List<string> Get() { return new List<string> {
             //MapLayoutChanged(),
             //NextScene(), LoadScene(),s
-             SceneLoaded()
+             //SceneLoaded()
             }.Concat(Economy.Get()).Concat(King.Get()).Concat(Sheep.Get()).Concat(Cooldown.Get()).Concat(Environment.Get()).ToList(); }
     }
     public class AI
