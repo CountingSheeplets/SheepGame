@@ -4,9 +4,14 @@ using UnityEngine;
 public class SheepUnit : MonoBehaviour
 {
     public Owner owner;
-    public bool canBeThrown = true;
+    public bool canBeThrown {
+        get{
+            Debug.Log("isReadying:"+isReadying+"  isReadyToFly:"+isReadyToFly+"   isFlying:"+isFlying+"   "+isSwimming);
+            return (!isReadying && !isReadyToFly && !isFlying && !isSwimming);
+        }
+    }
     public Playfield currentPlayfield;
-    public bool isReadying;
+    public bool isReadying = false;
     public bool isReadyToFly = false;
     public bool isFlying = false;
     public bool isSwimming = false;

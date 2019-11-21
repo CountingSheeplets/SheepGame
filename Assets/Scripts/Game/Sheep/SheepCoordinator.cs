@@ -11,6 +11,10 @@ public class SheepCoordinator : Singleton<SheepCoordinator>
         Instance.sheeps.Add(sheep);
         return sheep;
     }
+    public static void DestroySheep(SheepUnit sheep){
+        Instance.sheeps.Remove(sheep);
+        SheepFactory.DestroySheep(sheep);
+    }
 
     public static int GetSheepInField(Playfield playfield, SheepType typeMask){
         int count = 0;
@@ -27,5 +31,7 @@ public class SheepCoordinator : Singleton<SheepCoordinator>
         }
         return count;
     }
-
+    public static List<SheepUnit> GetSheeps(){
+        return Instance.sheeps;
+    }
 }

@@ -16,6 +16,8 @@ public class SheepEat : MonoBehaviour
     }
     void OnEat(GameMessage msg)
     {
+        if(sheep.currentPlayfield == null)
+            return;
         Owner owner = sheep.currentPlayfield.owner;
         if(owner.EqualsByValue(GetComponentInParent<Playfield>().owner))
             return;

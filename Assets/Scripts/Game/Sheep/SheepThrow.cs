@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SheepThrow : MonoBehaviour
 {
-    public List<SheepUnit> sheeps = new List<SheepUnit>();
+    public List<SheepUnit> throwableSheep = new List<SheepUnit>();
     public float throwStrength;
     public float flySpeed = 1f;
     public SheepUnit sheepReadyToBeThrown;
@@ -32,8 +32,9 @@ public class SheepThrow : MonoBehaviour
                 Debug.Log(msg.swipe);
                 Vector2 destination = msg.swipe.vector * msg.swipe.distance * throwStrength / 10f + (Vector2)fly.transform.position;
                 Debug.Log("fly.destination:"+destination);
-                sheeps.Remove(sheepReadyToBeThrown);
+                throwableSheep.Remove(sheepReadyToBeThrown);
                 fly.StartFlying(flySpeed, destination);
+                sheepReadyToBeThrown.currentPlayfield = null;
                 sheepReadyToBeThrown = null;
             } else {
                 //show animation/sign that no sheep ready to be thrown
@@ -43,34 +44,37 @@ public class SheepThrow : MonoBehaviour
         }
     }
     void OnSpawn(GameMessage msg){
-        if(msg.sheepUnit)
-            if(msg.sheepUnit.owner == GetComponent<Owner>()){
-                sheeps.Add(msg.sheepUnit);
+        Debug.Log("sheepSpawned:"+msg.sheepUnit);
+        if(msg.sheepUnit){
+            Debug.Log("msg.sheepUnit.owner:"+msg.sheepUnit.owner+" vs "+GetComponent<Owner>());
+            if(msg.sheepUnit.owner.EqualsByValue(GetComponent<Owner>())){
+                throwableSheep.Add(msg.sheepUnit);
                 TryReadyNewSheep();
             }
+        }
     }
     void OnKill(GameMessage msg){
-        if(msg.sheepUnit && sheeps.Contains(msg.sheepUnit)){
-            sheeps.Remove(msg.sheepUnit);
+        if(msg.sheepUnit && throwableSheep.Contains(msg.sheepUnit)){
+            throwableSheep.Remove(msg.sheepUnit);
         }
     }
     void OnLand(GameMessage msg){
-        if(msg.playfield == GetComponentInParent<Playfield>()){
+        if(msg.playfield == GetComponent<Playfield>()){
             Debug.Log(msg.playfield+"-adding new sheep on Land:"+msg.sheepUnit.gameObject.name);
-            sheeps.Add(msg.sheepUnit);
+            throwableSheep.Add(msg.sheepUnit);
             TryReadyNewSheep();
         }
     }
     void OnReady(GameMessage msg){
         if(msg.sheepUnit != null){
-            if(msg.sheepUnit.currentPlayfield == GetComponentInParent<Playfield>()){
+            if(msg.sheepUnit.currentPlayfield == GetComponent<Playfield>()){
                 sheepReadyToBeThrown = msg.sheepUnit;
                 sheepReadyToBeThrown.isReadyToFly = true;
             }
         }
     } 
     void TryReadyNewSheep(){
-        Debug.Log("TryReadyNewSheep");
+        Debug.Log("throwableSheep:"+throwableSheep.Count);
         if(!SheepIsReadying() && sheepReadyToBeThrown == null){
             SheepUnit availableSheep = GetNextSheep();
             Debug.Log("GetNextSheep:"+availableSheep);
@@ -86,14 +90,14 @@ public class SheepThrow : MonoBehaviour
         }
     }
     SheepUnit GetNextSheep(){
-        foreach(SheepUnit sheep in sheeps){
+        foreach(SheepUnit sheep in throwableSheep){
             if(sheep.canBeThrown)
                 return sheep;
         }
         return null;
     }
     bool SheepIsReadying(){
-        foreach(SheepUnit sheep in sheeps){
+        foreach(SheepUnit sheep in throwableSheep){
             if(sheep.isReadying)
                 return true;
         }

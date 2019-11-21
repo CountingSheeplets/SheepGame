@@ -97,7 +97,7 @@ public class Playfield : MonoBehaviour
             }
         if(amount < 0)
             for(int i = 0; i < Mathf.FloorToInt(currentHitpoints) - Mathf.FloorToInt(currentHitpoints+amount); i++ ){
-                fieldTiles[Mathf.CeilToInt(currentHitpoints) - i].SetState(false);
+                fieldTiles[Mathf.FloorToInt(currentHitpoints) - i].SetState(false);
             }
         currentHitpoints+=amount;
         return currentHitpoints;
