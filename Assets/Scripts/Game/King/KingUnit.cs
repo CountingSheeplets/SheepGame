@@ -42,6 +42,7 @@ public class KingUnit : MonoBehaviour
 
     void OnHit(GameMessage msg){
         if(msg.kingUnit == this){
+            //if target owner == damaged owner. throw msg "king is starving!"
             DealDamage(10);
             onReceivedDamage(10);
             TryDie(msg.owner, owner);

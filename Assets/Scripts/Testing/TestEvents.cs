@@ -21,5 +21,9 @@ public class TestEvents : MonoBehaviour
                 sheep = sheeps[Random.Range(0, sheeps.Count-1)];
             EventCoordinator.TriggerEvent(EventName.System.King.Hit(), GameMessage.Write().WithKingUnit(kings[Random.Range(0, kings.Count-1)]).WithSheepUnit(sheep).WithOwner(owners[Random.Range(0, owners.Count-1)]));
         }
+        if(Input.GetKeyDown(KeyCode.B)){
+            Debug.Log("Fake eat grass...");
+            EventCoordinator.TriggerEvent(EventName.System.Economy.EatGrass(), GameMessage.Write().WithFloatMessage(10f));
+        }
     }
 }

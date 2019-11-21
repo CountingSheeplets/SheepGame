@@ -12,7 +12,7 @@ public class PlayerProfileCoordinator : Singleton<PlayerProfileCoordinator>
     }
 
     public static PlayerProfile GetProfile(Owner owner){
-        return Instance.profiles.Where(x => x.owner = owner).FirstOrDefault();
+        return Instance.profiles.Where(x => x.owner.EqualsByValue(owner)).FirstOrDefault();
     }
 
     public static PlayerProfile AddProfile(Owner owner){

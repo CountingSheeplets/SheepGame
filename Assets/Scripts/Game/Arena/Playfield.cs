@@ -93,13 +93,17 @@ public class Playfield : MonoBehaviour
     public float AdjustHitPoints(float amount){
         if(amount > 0)
             for(int i = 0; i < Mathf.FloorToInt(currentHitpoints+amount) - Mathf.FloorToInt(currentHitpoints); i++ ){
-                fieldTiles[Mathf.CeilToInt(currentHitpoints) + i].SetState(true);
+                if(Mathf.CeilToInt(currentHitpoints) + i < fieldTiles.Count)
+                    fieldTiles[Mathf.CeilToInt(currentHitpoints) + i].SetState(true);
             }
         if(amount < 0)
             for(int i = 0; i < Mathf.FloorToInt(currentHitpoints) - Mathf.FloorToInt(currentHitpoints+amount); i++ ){
-                fieldTiles[Mathf.FloorToInt(currentHitpoints) - i].SetState(false);
+                if(Mathf.FloorToInt(currentHitpoints) - i >=0)
+                    fieldTiles[Mathf.FloorToInt(currentHitpoints) - i].SetState(false);
             }
         currentHitpoints+=amount;
+        if(currentHitpoints < 0)
+            currentHitpoints = 0;
         return currentHitpoints;
     }
     public override string ToString(){

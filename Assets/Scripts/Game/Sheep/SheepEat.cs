@@ -22,8 +22,12 @@ public class SheepEat : MonoBehaviour
         if(owner.EqualsByValue(GetComponentInParent<Playfield>().owner))
             return;
         float eatAmount = CalculateEatAmount(msg.floatMessage);
-        PlayerProfileCoordinator.ModifyPlayerGrass(sheep.currentPlayfield.owner, -eatAmount);
-        float moneyAmount = eatAmount / 2f;
+        float totalGrass = PlayerProfileCoordinator.ModifyPlayerGrass(sheep.currentPlayfield.owner, -eatAmount);
+        
+        float multiplier = 1;
+        if(totalGrass <=0)
+            multiplier = 2;//PriceManager multipliers.NoGrass()
+        float moneyAmount = eatAmount / 2f * multiplier;
         PlayerProfileCoordinator.GetProfile(owner).AddMoney(moneyAmount);
     }
 
