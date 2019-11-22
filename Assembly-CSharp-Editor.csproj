@@ -60,6 +60,12 @@
      <Compile Include="Assets\AirConsole\scripts\editor\PostBuildProcess.cs" />
      <Compile Include="Assets\AirConsole\scripts\editor\SettingWindow.cs" />
      <Compile Include="Assets\AirConsole\scripts\editor\WebListener.cs" />
+     <Compile Include="Assets\Scripts\DragonBones\Editor\AssetProcess.cs" />
+     <Compile Include="Assets\Scripts\DragonBones\Editor\DragonBonesIcons.cs" />
+     <Compile Include="Assets\Scripts\DragonBones\Editor\PickJsonDataWindow.cs" />
+     <Compile Include="Assets\Scripts\DragonBones\Editor\ShowSlotsWindow.cs" />
+     <Compile Include="Assets\Scripts\DragonBones\Editor\UnityArmatureEditor.cs" />
+     <Compile Include="Assets\Scripts\DragonBones\Editor\UnityEditor.cs" />
      <Compile Include="Assets\Scripts\Editor\EditorExtension.cs" />
      <Compile Include="Assets\Scripts\Editor\NamedAttributeEditor.cs" />
      <Compile Include="Assets\Scripts\Helper\Editor\FindMissingScriptsRecursively.cs" />

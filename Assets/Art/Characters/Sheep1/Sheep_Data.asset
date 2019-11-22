@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ce7cd6b0968094988214e92c4167e8, type: 3}
+  m_Name: Sheep_Data
+  m_EditorClassIdentifier: 
+  dataName: Sheep
+  dragonBonesJSON: {fileID: 4900000, guid: a77686acca1a0ec42b9f3e456b8f3b50, type: 3}
+  textureAtlas:
+  - textureAtlasJSON: {fileID: 4900000, guid: 2548c10f722d4dd4993d84f56985b405, type: 3}
+    texture: {fileID: 2800000, guid: b6e9f93d0ba4f144481f2dfa4242fef2, type: 3}
+    material: {fileID: 2100000, guid: ebe0149d82bbce0488e09375706f6c67, type: 2}
+    uiMaterial: {fileID: 0}

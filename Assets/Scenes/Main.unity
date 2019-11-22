@@ -2334,6 +2334,8 @@ MonoBehaviour:
   _persistent: 0
   sheepPrefab: {fileID: 6195520508007395971, guid: df46430e556633045a77f7dd556bb858,
     type: 3}
+  sheepModel: {fileID: 4752428876539736029, guid: ea947cf8acc1ac044959c1a83949387d,
+    type: 3}
 --- !u!114 &1492470317
 MonoBehaviour:
   m_ObjectHideFlags: 0

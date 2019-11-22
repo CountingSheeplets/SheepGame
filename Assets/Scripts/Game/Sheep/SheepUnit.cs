@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DragonBones;
+
 public class SheepUnit : MonoBehaviour
 {
     public Owner owner;
@@ -19,6 +21,7 @@ public class SheepUnit : MonoBehaviour
     public float radius = 0.5f;
     [BitMask(typeof(SheepType))]
     public SheepType sheepType;
+    public UnityArmatureComponent armature;
 
     void Start(){
         EventCoordinator.StartListening(EventName.System.Sheep.Kill(), OnKill);

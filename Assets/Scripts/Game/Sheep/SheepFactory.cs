@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DragonBones;
 
 public class SheepFactory : Singleton<SheepFactory>
 {
     public GameObject sheepPrefab;
+    public GameObject sheepModel;
 
     public static SheepUnit CreateSheep(Owner owner){
         Playfield playfield = ArenaCoordinator.GetPlayfield(owner);
@@ -17,6 +19,10 @@ public class SheepFactory : Singleton<SheepFactory>
         sheep.owner = owner;
         sheep.currentPlayfield = playfield;
 
+        GameObject newSheepModel = Instantiate(Instance.sheepModel);
+        newSheepModel.transform.parent = newSheepGO.transform;
+        newSheepModel.transform.localPosition = Vector3.zero;
+        sheep.armature = newSheepModel.GetComponent<UnityArmatureComponent>();
         return sheep;
     }
 
