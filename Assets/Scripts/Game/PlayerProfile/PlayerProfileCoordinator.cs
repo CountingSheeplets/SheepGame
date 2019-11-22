@@ -27,4 +27,14 @@ public class PlayerProfileCoordinator : Singleton<PlayerProfileCoordinator>
         Instance.profiles.Remove(profile);
         return profile;
     }
+
+    public static int GetAliveTeamCount(){
+        List<float> teams = new List<float>();
+        foreach(PlayerProfile profile in Instance.profiles){
+            float id = profile.owner.teamId;
+            if(!teams.Contains(id))
+                teams.Add(id);
+        }
+        return teams.Count;
+    }
 }

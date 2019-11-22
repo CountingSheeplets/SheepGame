@@ -82,8 +82,9 @@ public class EventName
         //public static string MapLayoutChanged() { return "MapLayoutChanged"; }
         }
         public class Player{
+            public static string Victorious() { return "System_Victorious"; }
             public static string Defeated() { return "System_Defeated"; }
-            public static List<string> Get() { return new List<string> { Defeated()}; }          
+            public static List<string> Get() { return new List<string> { Victorious(),Defeated()}; }          
         }
         //public static string NextScene() { return "NextScene"; }
         //public static string LoadScene() { return "LoadScene"; }

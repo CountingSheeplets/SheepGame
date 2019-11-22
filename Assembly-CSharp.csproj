@@ -246,6 +246,7 @@
      <Compile Include="Assets\Scripts\Game\King\KingHealthBar.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingRoam.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingUnit.cs" />
+     <Compile Include="Assets\Scripts\Game\PlayerProfile\PlayerEliminationHandler.cs" />
      <Compile Include="Assets\Scripts\Game\PlayerProfile\PlayerProfile.cs" />
      <Compile Include="Assets\Scripts\Game\PlayerProfile\PlayerProfileController.cs" />
      <Compile Include="Assets\Scripts\Game\PlayerProfile\PlayerProfileCoordinator.cs" />

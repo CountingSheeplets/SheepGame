@@ -17,6 +17,16 @@ public class PriceCoordinator : Singleton<PriceCoordinator>
             Instance.priceAttributes.Remove(owner);
         else Debug.Log("no Such PRiceAttribute!");
     }
+    public static int GetLevel(Owner owner, string priceName){
+        PriceAttribute attr = Instance.GetAttribute(owner);
+        if(attr != null)
+        {
+            PriceBase pBase = attr.GetPriceBase(priceName);
+            if(pBase != null)
+                return pBase.level;
+        }
+        return 0;
+    }
     public static void IncreaseLevel(Owner owner, string priceName){
         PriceAttribute attr = Instance.GetAttribute(owner);
         if(attr != null)

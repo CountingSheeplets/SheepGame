@@ -15,7 +15,11 @@ public class PriceAttribute
     
     public PriceAttribute(PriceScriptable priceScriptable){
         foreach(NamedPriceAttribute attr in priceScriptable.attributes){
-            priceBases.Add(attr.attributeName, new PriceBase(attr.priceBase));
+            if(!priceBases.ContainsKey(attr.attributeName))
+                priceBases.Add(attr.attributeName, new PriceBase(attr.priceBase));
+            else {
+                Debug.LogError("there are duplicate names in ScriptableObject, where prices are set up. Remove a duplicate, or change it to a unique name");
+            }
         }
     }
 }

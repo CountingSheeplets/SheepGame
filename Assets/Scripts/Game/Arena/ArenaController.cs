@@ -34,6 +34,9 @@ public class ArenaController : MonoBehaviour
     void OnPlayerDefeated(GameMessage msg){
         ArenaCoordinator.RemoveField(msg.owner);
         ArenaCoordinator.RearrangeArena();
+
+        if(PlayerProfileCoordinator.GetAliveTeamCount() == 1)
+            EventCoordinator.TriggerEvent(EventName.System.Player.Victorious(), GameMessage.Write());
     }
 
     void OnPlayerJoined(GameMessage msg){

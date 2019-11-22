@@ -27,10 +27,17 @@ public class PriceName
             }//.Concat(KingAbilities.Get())
                 .ToList(); }
     }
+    public class Player
+    {
+        public static string KingElimStar() { return "Player_KingElimStar"; }
+        public static string KingElimGold() { return "Player_KingElimGold"; }
+        public static List<string> Get() { return new List<string> { KingElimStar(), KingElimGold()}; }
+    }
     public static List<string> Get()
     {
         return new List<string> { }.Concat(Sheep.Get())
                                     .Concat(King.Get())
+                                    .Concat(Player.Get())
                                     .Where(s => !string.IsNullOrEmpty(s)).Distinct().ToList();
     }
 }

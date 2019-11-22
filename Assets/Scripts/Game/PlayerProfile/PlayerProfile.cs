@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerProfile
 {
+    public bool isAlive = false;
     public Owner owner;
 
     public Playfield playfield;
