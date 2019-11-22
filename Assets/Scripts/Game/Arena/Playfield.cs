@@ -78,28 +78,36 @@ public class Playfield : MonoBehaviour
         return currentHitpoints;
     }
     public void SetHitpointsTo(int hitpoints){
-        currentHitpoints = hitpoints;
-        for(int i = fieldTiles.Count-1; i>=hitpoints; i-- ){
+        if(hitpoints > fieldTiles.Count-1)
+            currentHitpoints = fieldTiles.Count -1;
+        else
+            currentHitpoints = hitpoints;
+
+        for(int i = fieldTiles.Count-1; i>=currentHitpoints; i-- ){
             fieldTiles[i].SetState(false);
         }
-        for(int i = hitpoints-1; i>=0; i-- ){
+        for(int i = Mathf.FloorToInt(currentHitpoints-1); i>=0; i-- ){
             fieldTiles[i].SetState(true);
         }
     }
     void OnAdjustField(GameMessage msg){
-        if(msg.owner.EqualsByValue(GetComponent<Owner>()))
-            AdjustHitPoints(msg.intMessage);
+        if(msg.owner.EqualsByValue(GetComponent<Owner>())){
+            AdjustHitPoints(msg.floatMessage);
+        }
     }
     public float AdjustHitPoints(float amount){
+        if(amount + currentHitpoints > fieldTiles.Count-1)
+            amount = fieldTiles.Count - 1 - currentHitpoints;
+
         if(amount > 0)
             for(int i = 0; i < Mathf.FloorToInt(currentHitpoints+amount) - Mathf.FloorToInt(currentHitpoints); i++ ){
-                if(Mathf.CeilToInt(currentHitpoints) + i < fieldTiles.Count)
-                    fieldTiles[Mathf.CeilToInt(currentHitpoints) + i].SetState(true);
+                if(Mathf.CeilToInt(currentHitpoints - 1) + i < fieldTiles.Count)
+                    fieldTiles[Mathf.CeilToInt(currentHitpoints-1) + i].SetState(true);
             }
         if(amount < 0)
             for(int i = 0; i < Mathf.FloorToInt(currentHitpoints) - Mathf.FloorToInt(currentHitpoints+amount); i++ ){
-                if(Mathf.FloorToInt(currentHitpoints) - i >=0)
-                    fieldTiles[Mathf.FloorToInt(currentHitpoints) - i].SetState(false);
+                if(Mathf.FloorToInt(currentHitpoints) - i >=1)
+                    fieldTiles[Mathf.FloorToInt(currentHitpoints-1) - i].SetState(false);
             }
         currentHitpoints+=amount;
         if(currentHitpoints < 0)

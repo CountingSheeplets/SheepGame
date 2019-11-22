@@ -236,6 +236,8 @@
      <Compile Include="Assets\Scripts\Game\Arena\Playfield.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\PresetSocket.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\Vortex.cs" />
+     <Compile Include="Assets\Scripts\Game\King\Ability Handlers\BuyGrassHandler.cs" />
+     <Compile Include="Assets\Scripts\Game\King\Ability Handlers\BuySheepHandler.cs" />
      <Compile Include="Assets\Scripts\Game\King\HatChanger.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingController.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingCoordinator.cs" />
@@ -249,8 +251,14 @@
      <Compile Include="Assets\Scripts\Game\PlayerProfile\PlayerProfileCoordinator.cs" />
      <Compile Include="Assets\Scripts\Game\PlayerProfile\PlayerProfileFactory.cs" />
      <Compile Include="Assets\Scripts\Game\PlayerProfile\PlayerProfileNetworkWriter.cs" />
+     <Compile Include="Assets\Scripts\Game\Price\NamedPriceAttribute.cs" />
+     <Compile Include="Assets\Scripts\Game\Price\PriceAttribute.cs" />
+     <Compile Include="Assets\Scripts\Game\Price\PriceBase.cs" />
+     <Compile Include="Assets\Scripts\Game\Price\PriceController.cs" />
+     <Compile Include="Assets\Scripts\Game\Price\PriceCoordinator.cs" />
+     <Compile Include="Assets\Scripts\Game\Price\PriceName.cs" />
+     <Compile Include="Assets\Scripts\Game\Price\PriceScriptable.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\BaseUnitMove.cs" />
-     <Compile Include="Assets\Scripts\Game\Sheep\SheepController.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepCoordinator.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepEat.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepEatWriter.cs" />
@@ -272,6 +280,10 @@
      <Compile Include="Assets\Scripts\Helper\DebugHelper.cs" />
      <Compile Include="Assets\Scripts\Helper\Generate.cs" />
      <Compile Include="Assets\Scripts\Helper\InitializeListeners.cs" />
+     <Compile Include="Assets\Scripts\Helper\PriceScriptable EditrUI\NamedPriceAttributeDrawerUIE.cs" />
+     <Compile Include="Assets\Scripts\Helper\PriceScriptable EditrUI\StringInList\MyBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Helper\PriceScriptable EditrUI\StringInList\PropertyDrawersHelper.cs" />
+     <Compile Include="Assets\Scripts\Helper\PriceScriptable EditrUI\StringInList\StringInListDrawer.cs" />
      <Compile Include="Assets\Scripts\Helper\ReadOnlyAttribute.cs" />
      <Compile Include="Assets\Scripts\Network\KingButtonsNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\MainScreenNetworkHandler.cs" />

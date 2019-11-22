@@ -8,13 +8,11 @@ public class PlayerProfileController : MonoBehaviour
     {
         EventCoordinator.StartListening(EventName.System.Environment.Initialized(), OnInitialized);
         EventCoordinator.StartListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
-        EventCoordinator.StartListening(EventName.Input.KingAbilities.BuyGrass(), OnPlayerBuyGrass);
         
     }
     void OnDestroy(){
         EventCoordinator.StopListening(EventName.System.Environment.Initialized(), OnInitialized);
         EventCoordinator.StopListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
-        EventCoordinator.StopListening(EventName.Input.KingAbilities.BuyGrass(), OnPlayerBuyGrass);
     }
 
     void OnInitialized(GameMessage msg){
@@ -28,21 +26,6 @@ public class PlayerProfileController : MonoBehaviour
 
     void OnPlayerJoined(GameMessage msg){
         PlayerProfileCoordinator.AddProfile(msg.owner);
-    }
-
-    void OnPlayerBuyGrass(GameMessage msg){
-        //Use PriceCoordinator here to get price
-        float price = 5f;
-        PlayerProfile profile = PlayerProfileCoordinator.GetProfile(msg.owner);
-        if(price < profile.GetMoney()){
-            profile.AddMoney(-price);
-            //send msg that money is lower now
-            profile.ModifyGrass(2f);
-            //send msg that grass is increased
-            Debug.Log("Grasss bought!");
-        } else {
-            //Send Msg that not enough
-            Debug.Log("Cannto buy, not anough money");
-        }
+        PlayerProfileCoordinator.GetProfile(msg.owner).AddMoney(100f);
     }
 }
