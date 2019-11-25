@@ -11,8 +11,11 @@ public class BaseUnitMove : MonoBehaviour
     public float distanceTraveled;
     public Vector3 myScale;
     public float midScale = 2f;
+    public AnimatorContainer animator;
 
     public void MoveToDestination(float speed, float _midScale){
+        if(animator == null)
+            animator = GetComponentInChildren<AnimatorContainer>();
         midScale = _midScale;
         moveSpeed = speed;
         myScale = transform.localScale;

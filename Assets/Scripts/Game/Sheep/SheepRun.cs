@@ -11,17 +11,16 @@ public class SheepRun : BaseUnitMove
         //Debug.Log("StartRunning");
         destination = _destination;
         sheep.isReadying = true;
-        //run animation;
-        sheep.armature.animation.FadeIn("Walk1", 0.25f, -1);
-
         //move the transform to destination
         MoveToDestination(speed, 0f);
+        //run animation;
+        animator.FadeIn(destination, AnimatorContainer.Animation.Walk);
 }
 
     public  override void PostMoveAction(){
         //trigger ready to jump/launch animation
         Debug.Log("run eneded, stopping at:"+(Vector2)(transform.position));
-        sheep.armature.animation.FadeIn("Idle1", 0.25f, -1);
+        animator.FadeIn(destination, AnimatorContainer.Animation.Idle);
 
         //trigger Land game event
         sheep.isReadying = false;

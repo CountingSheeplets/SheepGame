@@ -273,6 +273,7 @@
      <Compile Include="Assets\Scripts\DragonBones\Scripts\unity\UnitySlot.cs" />
      <Compile Include="Assets\Scripts\DragonBones\Scripts\unity\UnityTextureAtlasData.cs" />
      <Compile Include="Assets\Scripts\DragonBones\Scripts\unity\UnityUGUIDisplay.cs" />
+     <Compile Include="Assets\Scripts\Game\AnimatorContainer.cs" />
      <Compile Include="Assets\Scripts\Game\Arena Tiles\BaseTile.cs" />
      <Compile Include="Assets\Scripts\Game\Arena Tiles\EmptyTile.cs" />
      <Compile Include="Assets\Scripts\Game\Arena Tiles\FenceTile.cs" />

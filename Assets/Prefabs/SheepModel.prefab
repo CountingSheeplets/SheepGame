@@ -2741,6 +2741,7 @@ GameObject:
   - component: {fileID: 6382079816888436687}
   - component: {fileID: 8998635725330698373}
   - component: {fileID: 4225301303989476482}
+  - component: {fileID: 8902794336556871364}
   m_Layer: 0
   m_Name: SheepModel
   m_TagString: Untagged
@@ -2847,10 +2848,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unityData: {fileID: 11400000, guid: ac8b9fb23e21c8248b30491111740023, type: 2}
   armatureName: Sheep
-  armatureBaseName: 
+  armatureBaseName: Sheep
   isUGUI: 0
   debugDraw: 0
-  animationName: Idle4
+  animationName: Idle3
   _playTimes: 0
   _timeScale: 1
   _sortingMode: 0
@@ -2945,6 +2946,20 @@ MonoBehaviour:
   - eyes81
   - ears81
   dirty: 0
+--- !u!114 &8902794336556871364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4752428876539736029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32cc3e11f2db03f45a3592b2306adec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armature: {fileID: 8998635725330698373}
+  prevAngle: 0
 --- !u!1 &4863749938509803705
 GameObject:
   m_ObjectHideFlags: 0

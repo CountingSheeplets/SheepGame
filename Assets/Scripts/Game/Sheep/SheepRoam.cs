@@ -7,27 +7,31 @@ public class SheepRoam : BaseUnitMove
     SheepUnit sheep;
     void Start()
     {
-        sheep = GetComponent<SheepUnit>();
         EventCoordinator.StartListening(EventName.System.Sheep.Roam(), OnRoam);
     }
     void OnDestroy(){
         EventCoordinator.StopListening(EventName.System.Sheep.Roam(), OnRoam);
     }
     public void StartWalking(float speed, Vector2 _destination){
+        if(sheep == null)
+            sheep = GetComponent<SheepUnit>();
         destination = _destination;
         sheep.isRoaming = true;
-        //walk animation;
-
         //move the transform to destination
         MoveToDestination(speed, 0f);
+        //walk animation;
+        animator.FadeIn(destination, AnimatorContainer.Animation.Walk);
     }
     void OnRoam(GameMessage msg){
-        if(!sheep.isSwimming && !sheep.isReadying && !sheep.isReadyToFly && !sheep.isFlying){
+        if(sheep == null)
+            sheep = GetComponent<SheepUnit>();
+        if(!sheep.isSwimming && !sheep.isReadying && !sheep.isReadyToFly && !sheep.isFlying && !sheep.isRoaming){
             float roll = Random.Range(0, 1f);
             if(roll < msg.floatMessage){
                 Vector2 targetPosition = RoamTarget();
-                if(targetPosition != Vector2.zero)
+                if(targetPosition != Vector2.zero){
                     StartWalking(0.3f, targetPosition);
+                }
             }
         }
     }
@@ -56,6 +60,6 @@ public class SheepRoam : BaseUnitMove
     public override void PostMoveAction(){
         sheep.isRoaming = false;
         //trigger eat grass animation
-        
+        animator.FadeIn(destination, AnimatorContainer.Animation.Idle);
     }
 }

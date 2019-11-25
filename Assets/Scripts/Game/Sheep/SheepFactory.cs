@@ -22,7 +22,6 @@ public class SheepFactory : Singleton<SheepFactory>
         GameObject newSheepModel = Instantiate(Instance.sheepModel);
         newSheepModel.transform.parent = newSheepGO.transform;
         newSheepModel.transform.localPosition = Vector3.zero;
-        sheep.armature = newSheepModel.GetComponent<UnityArmatureComponent>();
         return sheep;
     }
 

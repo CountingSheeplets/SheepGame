@@ -15,14 +15,20 @@ public class PlayerProfileNetworkWriter : MonoBehaviour
         if(counter > sendInterval){
             counter = 0;
             foreach(Owner owner in OwnersCoordinator.GetOwners())
-                SendProfile(owner.GetPlayerProfile());
+                if(SendProfile(owner.GetPlayerProfile())){
+                    Debug.Log("Cant Send. profile not found for owner:"+owner);
+                };
         }
     }
 
-    void SendProfile(PlayerProfile profile){
+    bool SendProfile(PlayerProfile profile){
+        if(profile == null){
+            return false;
+        }
         var data = new Dictionary<string, float> { { "health", profile.GetHealth() },
                                                     { "money", profile.GetMoney() },
                                                     { "grass", Mathf.FloorToInt(profile.GetGrass())} };
         AirConsole.instance.Message(profile.owner.deviceId, data);
+        return true;
     }
 }
