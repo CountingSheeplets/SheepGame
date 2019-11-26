@@ -19,7 +19,7 @@ public class PriceController : MonoBehaviour
         PriceCoordinator.IncreaseLevel(msg.sheepUnit.owner, PriceName.King.BuySheep());
     }
     void OnSheepKill(GameMessage msg){
-        PriceCoordinator.IncreaseLevel(msg.owner, PriceName.King.BuySheep());
+        PriceCoordinator.DecreaseLevel(msg.sheepUnit.owner, PriceName.King.BuySheep());
     }
     void OnStartGame(GameMessage msg){
         List<Owner> owners = OwnersCoordinator.GetOwners();

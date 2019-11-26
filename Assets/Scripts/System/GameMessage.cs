@@ -89,4 +89,9 @@ public class GameMessage
         floatMessage = value;
         return this;
     }
+    public PlayerProfile playerProfile;
+    public GameMessage WithPlayerProfile(PlayerProfile value){
+        playerProfile = value;
+        return this;
+    }
 }

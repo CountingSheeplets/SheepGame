@@ -8,16 +8,21 @@ public class PlayerProfileNetworkWriter : MonoBehaviour
     public float sendInterval = 1f;
     float counter;
 
-    // Update is called once per frame
     void Update()
     {
         counter+=Time.deltaTime;
         if(counter > sendInterval){
             counter = 0;
-            foreach(Owner owner in OwnersCoordinator.GetOwners())
-                if(SendProfile(owner.GetPlayerProfile())){
+            foreach(Owner owner in OwnersCoordinator.GetOwners()){
+                PlayerProfile profile = owner.GetPlayerProfile();
+                if(SendProfile(profile)){
+                    EventCoordinator.TriggerEvent(EventName.System.Player.ProfileUpdate(), GameMessage.Write().WithPlayerProfile(profile));
+                }else{
                     Debug.Log("Cant Send. profile not found for owner:"+owner);
-                };
+                }
+            }
+            CardCanvasCoordinator.Sort();
+            EventCoordinator.TriggerEvent(EventName.System.Player.PlayerCardsSorted(), GameMessage.Write());
         }
     }
 

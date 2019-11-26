@@ -6,7 +6,7 @@ public class PlayerProfile
 {
     public bool isAlive = false;
     public Owner owner;
-
+    public Sprite playerAvatarImage;
     public Playfield playfield;
     public float GetGrass(){
         if (playfield != null)
@@ -72,4 +72,15 @@ public class PlayerProfile
         output += owner;// + " ||| ";
         return output;
     }
+
+    public IEnumerator DisplayUrlPicture (string url) {
+		// Start a download of the given URL
+		WWW www = new WWW (url);
+		
+		// Wait for download to complete
+		yield return www;
+		
+		// assign texture
+        playerAvatarImage = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0, 0));
+	}
 }

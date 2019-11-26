@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using NDream.AirConsole;
 
 public class PlayerProfileCoordinator : Singleton<PlayerProfileCoordinator>
 {
@@ -16,9 +17,10 @@ public class PlayerProfileCoordinator : Singleton<PlayerProfileCoordinator>
     }
 
     public static PlayerProfile AddProfile(Owner owner){
-        Debug.Log("adding a profile");
+        //Debug.Log("adding a profile");
         PlayerProfile profile = new PlayerProfile().Create(owner);
         Instance.profiles.Add(profile);
+        GetPlayerAvatarIcon(owner);
         return profile;
     }
 
@@ -36,5 +38,9 @@ public class PlayerProfileCoordinator : Singleton<PlayerProfileCoordinator>
                 teams.Add(id);
         }
         return teams.Count;
+    }
+    public static void GetPlayerAvatarIcon(Owner owner){
+		string urlOfProfilePic = AirConsole.instance.GetProfilePicture (owner.deviceId, 512);
+        Instance.StartCoroutine(GetProfile(owner).DisplayUrlPicture(urlOfProfilePic));
     }
 }
