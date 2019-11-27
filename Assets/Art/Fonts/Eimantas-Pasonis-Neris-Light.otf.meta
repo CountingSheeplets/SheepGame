@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 516be5dd854a4e4488e69c2e17e24b80
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Neris
+  fontNames:
+  - Neris
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 24454341e385fed4e9a9b4df76bb2752, type: 3}
+  - {fileID: 12800000, guid: 3130b11c26527604bab8f45a0909fdfd, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

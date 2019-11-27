@@ -15,6 +15,7 @@ public class PlayerCard : MonoBehaviour
 
     public TextMeshProUGUI playerName;
     public Image playerAvatarImage;
+    public Image playerColorBackground;
 
     public Owner owner;
     public Transform targetCardGhost;
@@ -69,6 +70,7 @@ public class PlayerCard : MonoBehaviour
     void OnStartGame(GameMessage msg){
         gameStarted = true;
         playerAvatarImage.sprite = owner.GetPlayerProfile().playerAvatarImage;
+        playerColorBackground.color = owner.GetPlayerProfile().playerColor;
         playerName.text = owner.ownerName;
         ApplyTransforms();
     }

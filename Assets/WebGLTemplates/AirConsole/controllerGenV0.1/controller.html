@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta content='width=device-width, initial-scale=1, maximum-scale=1 user-scalable=0' name='viewport'>
+  <title>AirConsole Controller</title>
+  <link href='https://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+  <!-- AirConsole-Controls -->
+  <link rel="stylesheet" type="text/css" href="airconsole-controls/button/button.css">
+  <link rel="stylesheet" type="text/css" href="airconsole-controls/dpad/dpad.css">
+  <!-- Styles -->
+  <link rel="stylesheet" type="text/css" href="controller/styles/styles.css">
+  <link rel="stylesheet" type="text/css" href="controller/styles/controls.css">
+</head>
+<body>
+
+  <div id="controller-container">
+
+    <!-- REPLACE_HERE START -->
+
+    <div id="view-0" class="view" style="display: none;">
+      <div id="view-0-section-0" class="section horizontal " style="height: 24.5%;">
+      <div id="king-upgrades-button" class="button-150-300 button-element element">
+    <div class="button-text">King</div>
+  </div>
+  <div id="sheep-upgrades-button" class="button-150-300 button-element element">
+    <div class="button-text">Sheep</div>
+  </div>
+  </div>
+      <div id="view-0-section-1" class="section " style="height: 24.5%;">
+      <div id="swipe-field" class="swipe-area button-300-300 element swipe-field">
+    <div class="button-text">SWIPE ANALOG</div>
+  </div>
+  </div>
+  </div>
+  <div id="view-1" class="view" style="display: none;">
+      <div id="view-1-section-0" class="section horizontal " style="height: 24.5%;">
+      <div id="king-upgrade-1" class="button-150-300 button-element element">
+    <div class="button-text">Upgrade1</div>
+  </div>
+  <div id="king-upgrade-2" class="button-150-300 button-element element">
+    <div class="button-text">Upgrade2</div>
+  </div>
+  </div>
+      <div id="view-1-section-1" class="section horizontal " style="height: 24.5%;">
+      <div id="king-upgrade-3" class="button-150-300 button-element element">
+    <div class="button-text">Upgrade3</div>
+  </div>
+  <div id="king-upgrade-4" class="button-150-300 button-element element">
+    <div class="button-text">Upgrade4</div>
+  </div>
+  </div>
+      <div id="view-1-section-3" class="section horizontal " style="height: 24.5%;">
+      <div id="king-upgrade-5" class="button-150-300 button-element element">
+    <div class="button-text">Upgrade5</div>
+  </div>
+  <div id="king-upgrade-6" class="button-150-300 button-element element">
+    <div class="button-text">Upgrade6</div>
+  </div>
+  </div>
+      <div id="view-1-section-4" class="section " style="height: 24.5%;">
+      <div id="king-upgrade-back" class="button-300-150 button-element element">
+    <div class="button-text">Back</div>
+  </div>
+  </div>
+  </div>
+  <div id="view-2" class="view" style="display: none;">
+      <div id="view-2-section-0" class="section " style="height: 24.5%;">
+      <div id="ready-button" class="button-300-300 button-element element">
+    <div class="button-text">Ready</div>
+  </div>
+  </div>
+      <div id="view-2-section-1" class="section horizontal " style="height: 24.5%;">
+      <div id="previous-king-hat" class="button-150-300 button-element element">
+    <div class="button-text">Previous Hat</div>
+  </div>
+  <div id="next-king-hat" class="button-150-300 button-element element">
+    <div class="button-text">Next Hat</div>
+  </div>
+  </div>
+  </div>
+  <div id="view-3" class="view" style="display: flex;">
+      <div id="view-3-section-0" class="section horizontal " style="height: 24.5%;">
+      <div id="sheep-upgrade-1" class="button-150-300 button-element element">
+    <div class="button-text">Upgrade1</div>
+  </div>
+  <div id="sheep-upgrade-2" class="button-150-300 button-element element">
+    <div class="button-text">Upgrade2</div>
+  </div>
+  </div>
+      <div id="view-3-section-1" class="section horizontal " style="height: 24.5%;">
+      <div id="sheep-upgrade-3" class="button-150-300 button-element element">
+    <div class="button-text">Upgrade3</div>
+  </div>
+  <div id="sheep-upgrade-4" class="button-150-300 button-element element">
+    <div class="button-text">Upgrade4</div>
+  </div>
+  </div>
+      <div id="view-3-section-2" class="section horizontal " style="height: 24.5%;">
+      <div id="sheep-upgrade-5" class="button-150-300 button-element element">
+    <div class="button-text">Upgrade5</div>
+  </div>
+  <div id="sheep-upgrade-6" class="button-150-300 button-element element">
+    <div class="button-text">Upgrade6</div>
+  </div>
+  </div>
+      <div id="view-3-section-3" class="section " style="height: 24.5%;">
+      <div id="sheep-upgrade-back" class="button-300-300 button-element element">
+    <div class="button-text">Back</div>
+  </div>
+  </div>
+  </div>
+
+  <script type="text/javascript">
+    var ctrl_data = '{"orientation":"portrait","selected_view_id":"view-2","views":[{"id":"view-0","sections":[{"id":"view-0-section-0","elements":[{"id":"king-upgrades-button","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-0-section-0-element-0","css_classes":"button-150-300","view_action":{"target":null,"view_id":null},"label":"King","send_onrelease":false,"message_data":[]}},{"id":"sheep-upgrades-button","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-0-section-0-element-1","css_classes":"button-150-300","view_action":{"target":null,"view_id":null},"label":"Sheep","send_onrelease":false,"message_data":[]}}],"classes":["horizontal"]},{"id":"view-0-section-1","elements":[{"id":"swipe-field","key":"swipe_analog","name":"Swipe Analog","tmpl":"swipe_analog","constructor_fn":"SwipeAnalogElement","options":{"constructor_args":{"slider_vertical":false},"attr_id":"view-0-section-1-element-0","css_classes":"swipe-field","view_action":{"target":null,"view_id":null}}}],"classes":[]}]},{"id":"view-1","sections":[{"id":"view-1-section-0","elements":[{"id":"king-upgrade-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-0-element-0","css_classes":"button-150-300","view_action":{"target":null,"view_id":null},"label":"Upgrade1","send_onrelease":false,"message_data":[{"key":"upgrade","value":"1"}]}},{"id":"king-upgrade-2","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-0-element-1","css_classes":"button-150-300","view_action":{"target":null,"view_id":null},"label":"Upgrade2","send_onrelease":false,"message_data":[{"key":"upgrade","value":"2"}]}}],"classes":["horizontal"]},{"id":"view-1-section-1","elements":[{"id":"king-upgrade-3","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-1-element-0","css_classes":"button-150-300","view_action":{"target":null,"view_id":null},"label":"Upgrade3","send_onrelease":false,"message_data":[{"key":"upgrade","value":"3"}]}},{"id":"king-upgrade-4","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-1-element-1","css_classes":"button-150-300","view_action":{"target":null,"view_id":null},"label":"Upgrade4","send_onrelease":false,"message_data":[{"key":"upgrade","value":"4"}]}}],"classes":["horizontal"]},{"id":"view-1-section-3","elements":[{"id":"king-upgrade-5","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-3-element-0","css_classes":"button-150-300","view_action":{"target":null,"view_id":null},"label":"Upgrade5","send_onrelease":false,"message_data":[{"key":"upgrade","value":"5"}]}},{"id":"king-upgrade-6","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-3-element-1","css_classes":"button-150-300","view_action":{"target":null,"view_id":null},"label":"Upgrade6","send_onrelease":false,"message_data":[{"key":"upgrade","value":"6"}]}}],"classes":["horizontal"]},{"id":"view-1-section-4","elements":[{"id":"king-upgrade-back","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-1-section-4-element-0","css_classes":"button-300-150","view_action":{"target":null,"view_id":null},"label":"Back","send_onrelease":false,"message_data":[]}}],"classes":[]}]},{"id":"view-2","sections":[{"id":"view-2-section-0","elements":[{"id":"ready-button","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-2-section-0-element-0","css_classes":"button-300-300","view_action":{"target":null,"view_id":null},"label":"Ready","send_onrelease":false,"message_data":[]}}],"classes":[]},{"id":"view-2-section-1","elements":[{"id":"previous-king-hat","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-2-section-1-element-0","css_classes":"button-150-300","view_action":{"target":null,"view_id":null},"label":"Previous Hat","send_onrelease":false,"message_data":[]}},{"id":"next-king-hat","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-2-section-1-element-1","css_classes":"button-150-300","view_action":{"target":null,"view_id":null},"label":"Next Hat","send_onrelease":false,"message_data":[]}}],"classes":["horizontal"]}]},{"id":"view-3","sections":[{"id":"view-3-section-0","elements":[{"id":"sheep-upgrade-1","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-3-section-0-element-0","css_classes":"button-150-300","view_action":{"target":null,"view_id":null},"label":"Upgrade1","send_onrelease":false,"message_data":[{"key":"sheep","value":"1"}]}},{"id":"sheep-upgrade-2","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-3-section-0-element-1","css_classes":"button-150-300","view_action":{"target":null,"view_id":null},"label":"Upgrade2","send_onrelease":false,"message_data":[{"key":"sheep","value":"2"}]}}],"classes":["horizontal"]},{"id":"view-3-section-1","elements":[{"id":"sheep-upgrade-3","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-3-section-1-element-0","css_classes":"button-150-300","view_action":{"target":null,"view_id":null},"label":"Upgrade3","send_onrelease":false,"message_data":[{"key":"sheep","value":"3"}]}},{"id":"sheep-upgrade-4","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-3-section-1-element-1","css_classes":"button-150-300","view_action":{"target":null,"view_id":null},"label":"Upgrade4","send_onrelease":false,"message_data":[{"key":"sheep","value":"4"}]}}],"classes":["horizontal"]},{"id":"view-3-section-2","elements":[{"id":"sheep-upgrade-5","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-3-section-2-element-0","css_classes":"button-150-300","view_action":{"target":null,"view_id":null},"label":"Upgrade5","send_onrelease":false,"message_data":[{"key":"sheep","value":"5"}]}},{"id":"sheep-upgrade-6","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-3-section-2-element-1","css_classes":"button-150-300","view_action":{"target":null,"view_id":null},"label":"Upgrade6","send_onrelease":false,"message_data":[{"key":"sheep","value":"6"}]}}],"classes":["horizontal"]},{"id":"view-3-section-3","elements":[{"id":"sheep-upgrade-back","key":"button","name":"Button","tmpl":"button","constructor_fn":"ButtonElement","options":{"constructor_args":{},"attr_id":"view-3-section-3-element-0","css_classes":"button-300-300","view_action":{"target":null,"view_id":null},"label":"Back","send_onrelease":false,"message_data":[]}}],"classes":[]}]}]}';
+  </script>
+  
+    <!-- REPLACE_HERE END -->
+
+  </div>
+
+  <!-- 3rd Party Libs -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript" src="controller/libs/handlebars-v4.0.5.js"></script>
+  <!-- AIRCONSOLE -->
+  <script type="text/javascript" src="https://www.airconsole.com/api/airconsole-latest.js"></script>
+  <script type="text/javascript" src="controller/libs/airconsole_view_manager.js"></script>
+  <!-- AIRCONSOLE CONTROLS -->
+  <script type="text/javascript" src="airconsole-controls/button/button.js"></script>
+  <script type="text/javascript" src="airconsole-controls/dpad/dpad.js"></script>
+  <script type="text/javascript" src="airconsole-controls/swipe-analog/swipe-analog.js"></script>
+  <script type="text/javascript" src="airconsole-controls/swipe-digital/swipe-digital.js"></script>
+  <!-- GENERATOR -->
+  <script type="text/javascript" src="controller/js/controller_generator.js"></script>
+  <script type="text/javascript" src="controller/js/main.js"></script>
+</body>
+</html>

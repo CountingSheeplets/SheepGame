@@ -32,7 +32,14 @@ public class PlayerProfileNetworkWriter : MonoBehaviour
         }
         var data = new Dictionary<string, float> { { "health", profile.GetHealth() },
                                                     { "money", profile.GetMoney() },
-                                                    { "grass", Mathf.FloorToInt(profile.GetGrass())} };
+                                                    { "grass", Mathf.FloorToInt(profile.GetGrass())},
+                                                    { "crowns", profile.GetStarCount()},
+
+                                                    { "priceGrass", PriceCoordinator.GetPrice(profile.owner, PriceName.King.BuyGrass())},
+                                                    { "priceSheep", PriceCoordinator.GetPrice(profile.owner, PriceName.King.BuySheep())},
+                                                    { "priceCharge", PriceCoordinator.GetPrice(profile.owner, PriceName.King.Charge())},
+                                                    { "priceUpgrade1", PriceCoordinator.GetPrice(profile.owner, PriceName.Sheep.ToMini())},
+                                                    { "priceUpgrade2", PriceCoordinator.GetPrice(profile.owner, PriceName.Sheep.ToKnight())} };
         AirConsole.instance.Message(profile.owner.deviceId, data);
         return true;
     }

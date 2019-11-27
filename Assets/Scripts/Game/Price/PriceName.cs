@@ -9,7 +9,8 @@ public class PriceName
     {
         public static string BuySheep() { return "King_BuySheep"; }
         public static string BuyGrass() { return "King_BuyGrass"; }
-        public static List<string> Get() { return new List<string> { BuySheep(), BuyGrass()}; }
+        public static string Charge() { return "King_Charge"; }
+        public static List<string> Get() { return new List<string> { BuySheep(), BuyGrass(), Charge()}; }
     }
     public class Sheep
     {

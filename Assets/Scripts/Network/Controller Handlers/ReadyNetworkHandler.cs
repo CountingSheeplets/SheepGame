@@ -37,7 +37,7 @@ public class ReadyNetworkHandler : MonoBehaviour
             }
         }
         EventCoordinator.TriggerEvent(EventName.Input.StartGame(), GameMessage.Write());
-        var data = new Dictionary<string, string> { { "show_view_id", "view-0" } };
+        var data = new Dictionary<string, string> { { "show_view_id", "view-1" } };
         AirConsole.instance.Broadcast(data);
     }
     private void OnDestroy()

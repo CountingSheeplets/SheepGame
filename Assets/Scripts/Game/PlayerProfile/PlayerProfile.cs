@@ -6,6 +6,7 @@ public class PlayerProfile
 {
     public bool isAlive = false;
     public Owner owner;
+    public Color playerColor;
     public Sprite playerAvatarImage;
     public Playfield playfield;
     public float GetGrass(){

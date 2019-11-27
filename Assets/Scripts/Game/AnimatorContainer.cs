@@ -14,6 +14,13 @@ public class AnimatorContainer : MonoBehaviour
         string animation = animationEnum.ToString();
         Debug.Log("anim:"+animation+dirNum);
         armature.animation.FadeIn(animation+dirNum, 0.0f, -1);
+
+    }
+    public void ChangeHat(int index){
+        var displays = armature.armature.GetSlot("head7").displayList;
+        int currentIndex = armature.armature.GetSlot("head7").displayIndex;
+        armature.armature.GetSlot("head7")._SetDisplayIndex(index);
+        armature.armature.GetSlot("head7")._SetColor(new ColorTransform());
     }
 
     FacingDirection GetAnimEnum(Vector2 target){
