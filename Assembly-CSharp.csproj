@@ -363,7 +363,6 @@
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\Scripts\DragonBones\Resources\Shaders\DB_BlendMode_Grab.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
-     <None Include="Assets\WebGLTemplates\AirConsole\font-web-kit\generator_config.txt" />
      <None Include="Assets\AirConsole\README.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
      <None Include="Assets\Scripts\DragonBones\Resources\Shaders\DB_BlendMode_UIGrab.shader" />

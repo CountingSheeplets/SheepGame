@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "CustomFont";
-  src: url("font-web-kit/Eimantas-Paskonis-Neris-Black.otf") format("opentype");
+  font-family: "NerisBlack";
+  src: url("NerisBlack.otf") format("opentype");
 }
 
 html {
@@ -12,7 +12,7 @@ body {
   padding: 0;
   margin: 0;
   height: 100%;
-  font-family: sans-serif;
+  font-family: 'NerisBlack',sans-serif;
   -ms-user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -49,6 +49,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   padding: 0 1%;
+/*   background-color: rgba(255,255,255,0);
+  background-blend-mode: multiply; */
 }
 
 .section.horizontal {
@@ -65,8 +67,66 @@ body {
 
 .element {
   align-items: stretch;
+  outline:none;
+  border: none;
 /*  flex-grow: 1;
   flex-basis: auto;
   align-items: stretch;
   margin: auto;*/
+}
+/* background images for views: */
+.view1-background {
+  background-image: url(background-icons.png);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+/* color settings to tint to player color */
+.color0 {
+  background-color: #00AAFF;
+  background-blend-mode: multiply;
+}
+.color1 {
+  background-color: #FF0000;
+  background-blend-mode: multiply;
+}
+.color2 {
+  background-color: #FFFF00;
+  background-blend-mode: multiply;
+}
+/* .background-tint0 {
+  background-color: rgba(200,0,255,0.4);
+  background-blend-mode: multiply;
+} */
+.overlay {
+/*   background-image: url(background-player-color.png); */
+/*   background-image: 
+    linear-gradient( rgba(0,100,255,.3), rgba(0,100,255,.3) ),
+    url(background-player-color.png); */
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+/*   background-blend-mode: multiply; */
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#blend-mask-overlay {
+  -webkit-mask-image: url(background-player-color.png);
+  background-color: #f00;
+  background-blend-mode: multiply;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+/*   background-blend-mode: multiply; */
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+#view1-healthbar {
+
 }

@@ -10,7 +10,7 @@
 }
 
 .button-300-150.button-active .button-text {
-    color: black;
+    color: white;
 }
 
 .button-150-300 {
@@ -25,7 +25,7 @@
 }
 
 .button-150-300.button-active .button-text {
-    color: black;
+    color: green;
 }
 
 .button-300-300 {
@@ -44,23 +44,29 @@
 }
 
 .button-80 {
-    background-image: url('button-80.png');
+    background-image: url('mygtukas-80.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+/*     background-color: rgba(150, 150, 150, 0); */
+    opacity: 0.2;
+    background-blend-mode: multiply;
 }
 
 .button-80.button-active {
-    background-image: url('button-80-active.png');
+    background-image: url('mygtukas-80-active.png');
+/*     background-color: rgba(250, 250, 250, 0); */
+    background-blend-mode: multiply;
+    opacity: 0.5;
 }
 
 .button-80.button-active .button-text {
-    color: black;
+    color: green;
 }
 
 
 .button-80 .button-text {
-    color: white;
+    color: black;
 }
 
 .button-text {
@@ -69,6 +75,6 @@
     margin-top: -0.5em;
     position: absolute;
     text-align: center;
-    color: white;
+    color: black;
 }
 
