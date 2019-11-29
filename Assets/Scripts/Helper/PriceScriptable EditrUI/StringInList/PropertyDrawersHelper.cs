@@ -22,5 +22,8 @@ public static class PropertyDrawersHelper {
   public static string[] AllPriceNames(){
     return PriceName.Get().ToArray();
   }
+  public static string[] AllScoreNames(){
+    return ScoreName.Get().ToArray();
+  }
   #endif
 }

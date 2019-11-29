@@ -308,6 +308,12 @@
      <Compile Include="Assets\Scripts\Game\Price\PriceCoordinator.cs" />
      <Compile Include="Assets\Scripts\Game\Price\PriceName.cs" />
      <Compile Include="Assets\Scripts\Game\Price\PriceScriptable.cs" />
+     <Compile Include="Assets\Scripts\Game\Scores\PlayerScores.cs" />
+     <Compile Include="Assets\Scripts\Game\Scores\Score.cs" />
+     <Compile Include="Assets\Scripts\Game\Scores\ScoreCoordinator.cs" />
+     <Compile Include="Assets\Scripts\Game\Scores\ScoreHandler.cs" />
+     <Compile Include="Assets\Scripts\Game\Scores\ScoreName.cs" />
+     <Compile Include="Assets\Scripts\Game\Scores\ScoreScriptable.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\BaseUnitMove.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepCoordinator.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepEat.cs" />
@@ -365,6 +371,7 @@
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\AirConsole\README.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+     <None Include="Assets\WebGLTemplates\React Controller\robots.txt" />
      <None Include="Assets\Scripts\DragonBones\Resources\Shaders\DB_BlendMode_UIGrab.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />

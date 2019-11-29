@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd1cea918df769458b791b66e851e6c, type: 3}
+  m_Name: Dr. Baaah
+  m_EditorClassIdentifier: 
+  scoreName: Dr. Baaah
+  reward: 1
+  description: a single player achievement in each match for whoever got most 2nd
+    tier upgrades through all game.
+  rewardDelta: 0
