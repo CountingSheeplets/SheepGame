@@ -34,6 +34,7 @@ public class SheepThrow : MonoBehaviour
                 Debug.Log("fly.destination:"+destination);
                 throwableSheep.Remove(sheepReadyToBeThrown);
                 fly.StartFlying(flySpeed, destination);
+                sheepReadyToBeThrown.lastHandler = msg.owner;
                 sheepReadyToBeThrown.currentPlayfield = null;
                 sheepReadyToBeThrown = null;
             } else {

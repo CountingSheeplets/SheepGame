@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NDream.AirConsole;
+using Newtonsoft.Json.Linq;
 
 public class TestEvents : MonoBehaviour
 {
@@ -24,6 +26,9 @@ public class TestEvents : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.B)){
             Debug.Log("Fake eat grass...");
             EventCoordinator.TriggerEvent(EventName.System.Economy.EatGrass(), GameMessage.Write().WithFloatMessage(10f));
+        }
+        if(Input.GetKeyDown(KeyCode.S)){
+            NetworkCoordinator.SendShowViewAll("match");
         }
     }
 }

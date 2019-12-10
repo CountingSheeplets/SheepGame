@@ -26,8 +26,8 @@ public class PlayerProfileCoordinator : Singleton<PlayerProfileCoordinator>
         else
             profile.playerColor = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
         //send assigned data
-        var data = new Dictionary<string, string> { { "color", ColorUtility.ToHtmlStringRGBA(profile.playerColor)}};
-        AirConsole.instance.Message(owner.deviceId, data);
+        NetworkCoordinator.SendColor(owner.deviceId, "#"+ColorUtility.ToHtmlStringRGBA(profile.playerColor).Substring(0, 6));
+        NetworkCoordinator.SendName(owner.deviceId, profile.owner.ownerName);
 
         Instance.profiles.Add(profile);
         GetPlayerAvatarIcon(owner);

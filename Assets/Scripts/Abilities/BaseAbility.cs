@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 public enum AbilityType{
-    sheep,
-    king,
-    upgrade,
-    action,
-    purchase
+    sheep = 0x01,
+    king = 0x02,
+    upgrade = 0x04,
+    action = 0x08,
+    purchase = 0x10,
 }
 public class BaseAbility : MonoBehaviour
 {

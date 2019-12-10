@@ -12,19 +12,19 @@ public class BuyResourceNetworkHandler : MonoBehaviour
     }
     void OnButtonClick(int from, JToken message)
     {
-        if (message["data"] != null){
+/*         if (message["data"] != null){ */
             Owner triggerOwner = OwnersCoordinator.GetOwner(from);
             if(triggerOwner == null)
                 return;
-            if   (message["element"].ToString().Contains("buy-sheep"))
+            if   (message["element"].ToString().Contains("buySheep"))
             {
                 EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.SpawnSheep(), GameMessage.Write().WithOwner(triggerOwner));
             }
-            if   (message["element"].ToString().Contains("buy-grass"))
+            if   (message["element"].ToString().Contains("buyGrass"))
             {
                 EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.BuyGrass(), GameMessage.Write().WithOwner(triggerOwner));
             }
-        }
+/*         } */
     }
 
     private void OnDestroy()

@@ -19,7 +19,7 @@ public class ScoreCoordinator : Singleton<ScoreCoordinator>
     }
 
     public static void IncreaseScoreCounter(Owner owner, string scoreName, int amount){
-        Score score = Instance.GetPlayerScore(owner, scoreName);
+        Score score = GetPlayerScore(owner, scoreName);
         if(score != null)
         {
             score.counter += amount;
@@ -41,10 +41,17 @@ public class ScoreCoordinator : Singleton<ScoreCoordinator>
         else
             return null;
     }
-    public Score GetPlayerScore(Owner owner, string scoreName){
-        if(scores.ContainsKey(owner))
-            return scores[owner].GetScore(scoreName);
+    public static Score GetPlayerScore(Owner owner, string scoreName){
+        if(Instance.scores.ContainsKey(owner))
+            return Instance.scores[owner].GetScore(scoreName);
         else
             return null;
+    }
+    public static Dictionary<Owner, Score> GetScore(string scoreName){
+        Dictionary<Owner, Score> scoresDict = new Dictionary<Owner, Score>();
+        foreach(KeyValuePair<Owner, PlayerScores> pair in Instance.scores){
+            scoresDict.Add(pair.Key, pair.Value.GetScore(scoreName));
+        } 
+        return scoresDict;
     }
 }

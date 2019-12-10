@@ -40,7 +40,7 @@ public class PlayerProfileNetworkWriter : MonoBehaviour
                                                     { "priceCharge", PriceCoordinator.GetPrice(profile.owner, PriceName.King.Charge())},
                                                     { "priceUpgrade1", PriceCoordinator.GetPrice(profile.owner, PriceName.Sheep.ToMini())},
                                                     { "priceUpgrade2", PriceCoordinator.GetPrice(profile.owner, PriceName.Sheep.ToKnight())} };
-        AirConsole.instance.Message(profile.owner.deviceId, data);
+        NetworkCoordinator.SendPlayerProfile(profile.owner.deviceId, data);
         return true;
     }
 }

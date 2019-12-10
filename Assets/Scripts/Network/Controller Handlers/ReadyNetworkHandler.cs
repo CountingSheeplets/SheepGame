@@ -17,12 +17,13 @@ public class ReadyNetworkHandler : MonoBehaviour
         if (message["element"] != null)
             if (message["element"].ToString() == "ready-button")
             {
-                bool ready = (bool)(message["data"]["pressed"]);
+                bool ready = (bool)(message["pressed"]);
                 Owner readyOwner = OwnersCoordinator.GetOwner(from);
                 if (readyOwner == null)
                     return;
                 else
                     readyOwner.ready = ready;
+                NetworkCoordinator.SendConfirmReady(from);
                 TryStart();
                 Debug.Log("Ready:" + readyOwner);
             }
@@ -37,8 +38,7 @@ public class ReadyNetworkHandler : MonoBehaviour
             }
         }
         EventCoordinator.TriggerEvent(EventName.Input.StartGame(), GameMessage.Write());
-        var data = new Dictionary<string, string> { { "show_view_id", "view-1" } };
-        AirConsole.instance.Broadcast(data);
+        NetworkCoordinator.SendShowViewAll("match");
     }
     private void OnDestroy()
     {

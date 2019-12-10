@@ -12,16 +12,14 @@ public class SwipeNetworkHandler : Singleton<SwipeNetworkHandler>
     }
     void OnSwipe(int from, JToken message)
     {
-        if (message["data"] != null)
-            if (message["data"]["direction"] != null)
-            {
-                //Debug.Log("int from: " + from + "   " + message);
-                if (message["element"].ToString() == "swipe-field")
-                {
-                    Swipe newSwipe = new Swipe(message["data"]["direction"]);
-                    EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(OwnersCoordinator.GetOwner(from)));
-                }
+        if (message["element"].ToString() == "swipe"){
+            var data = message["data"];
+            Debug.Log("int from: " + from + "   " + data);
+            if (data != null){
+                Swipe newSwipe = new Swipe(data);
+                EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(OwnersCoordinator.GetOwner(from)));
             }
+        }
     }
     private void OnDestroy()
     {

@@ -12,16 +12,12 @@ public class KingAbilityNetworkHandler : MonoBehaviour
     }
     void OnButtonClick(int from, JToken message)
     {
-        if (message["data"] != null)
-            if   (message["element"].ToString().Contains("king-smash"))
+            if   (message["element"].ToString().Contains("smite"))
             {
-                if (message["data"]["upgrade"] != null)
-                {
-                    Owner triggerOwner = OwnersCoordinator.GetOwner(from);
-                    if(triggerOwner == null)
-                        return;
-                    EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.Smash(), GameMessage.Write().WithOwner(triggerOwner));
-                }
+                Owner triggerOwner = OwnersCoordinator.GetOwner(from);
+                if(triggerOwner == null)
+                    return;
+                EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.Smash(), GameMessage.Write().WithOwner(triggerOwner));
             }
     }
 

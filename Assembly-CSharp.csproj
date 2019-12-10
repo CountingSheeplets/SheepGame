@@ -334,6 +334,8 @@
      <Compile Include="Assets\Scripts\Game\UI\CardCanvasCoordinator.cs" />
      <Compile Include="Assets\Scripts\Game\UI\PlayerCard.cs" />
      <Compile Include="Assets\Scripts\General\BitMaskAttribute.cs" />
+     <Compile Include="Assets\Scripts\General\GameState.cs" />
+     <Compile Include="Assets\Scripts\General\GameStateView.cs" />
      <Compile Include="Assets\Scripts\General\ManagerInstantiater.cs" />
      <Compile Include="Assets\Scripts\Helper\CollectionHelper.cs" />
      <Compile Include="Assets\Scripts\Helper\DebugHelper.cs" />
@@ -345,12 +347,15 @@
      <Compile Include="Assets\Scripts\Helper\PriceScriptable EditrUI\StringInList\StringInListDrawer.cs" />
      <Compile Include="Assets\Scripts\Helper\ReadOnlyAttribute.cs" />
      <Compile Include="Assets\Scripts\MiniJSON.cs" />
+     <Compile Include="Assets\Scripts\Network\Controller Handlers\BackButtonNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\BuyResourceNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\KingAbilityNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\MenuNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\ReadyNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\SwipeNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\UpgradeInfoNetworkHandler.cs" />
+     <Compile Include="Assets\Scripts\Network\NetworkCoordinator.cs" />
+     <Compile Include="Assets\Scripts\Network\NetworkObject.cs" />
      <Compile Include="Assets\Scripts\Network\OwnersController.cs" />
      <Compile Include="Assets\Scripts\Network\OwnersCoordinator.cs" />
      <Compile Include="Assets\Scripts\System\Base Classes\Singleton.cs" />
@@ -371,7 +376,7 @@
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\AirConsole\README.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-     <None Include="Assets\WebGLTemplates\React Controller\robots.txt" />
+     <None Include="Assets\WebGLTemplates\AirConsole\robots.txt" />
      <None Include="Assets\Scripts\DragonBones\Resources\Shaders\DB_BlendMode_UIGrab.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />

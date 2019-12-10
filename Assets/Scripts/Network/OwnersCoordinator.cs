@@ -27,8 +27,11 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator>
             candidateOwner.deviceId = device_id;
             candidateOwner.connected = true;
             Debug.Log("Reconnect succesfull!");
-            var data = new Dictionary<string, string> { { "show_view_id", "view-0" } };
-            AirConsole.instance.Message(device_id, data);
+            if((GameStateView.GetGameState() & GameState.started) != 0)
+                NetworkCoordinator.SendShowView(device_id, "match");
+            else {
+                NetworkCoordinator.SendShowView(device_id, "menu");
+            }
             return candidateOwner;
         }
     }

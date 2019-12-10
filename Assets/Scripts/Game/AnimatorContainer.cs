@@ -12,7 +12,7 @@ public class AnimatorContainer : MonoBehaviour
         
         string dirNum = EnumToAnimNum(GetAnimEnum(target));
         string animation = animationEnum.ToString();
-        Debug.Log("anim:"+animation+dirNum);
+       // Debug.Log("anim:"+animation+dirNum);
         armature.animation.FadeIn(animation+dirNum, 0.0f, -1);
 
     }

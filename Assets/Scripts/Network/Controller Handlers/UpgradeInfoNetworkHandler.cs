@@ -7,7 +7,6 @@ public class UpgradeInfoNetworkHandler : MonoBehaviour
 {
     void Awake()
     {
-        AirConsole.instance.onMessage += OnBack;
         AirConsole.instance.onMessage += OnOpenUpgradeInfo;
     }
 
@@ -15,40 +14,27 @@ public class UpgradeInfoNetworkHandler : MonoBehaviour
     {
         if (message["element"] != null)
         {
-            if (message["element"].ToString() == "info-A")
+            if (message["element"].ToString() == "upgrade1")
             {
                 //load data on ability A:
-
+                NetworkCoordinator.SendUpgradeData(from, "upgrade1");
                 //send to show view for info:
-                var data = new Dictionary<string, string> { { "show_view_id", "view-2" } };
-                AirConsole.instance.Message(from, data);
+                NetworkCoordinator.SendShowView(from, "upgrade");
             }
-            if (message["element"].ToString() == "info-B")
+            if (message["element"].ToString() == "upgrade2")
             {
                 //load data on ability B:
-
+                NetworkCoordinator.SendUpgradeData(from, "upgrade2");
                 //send to show view for info:
-                var data = new Dictionary<string, string> { { "show_view_id", "view-2" } };
-                AirConsole.instance.Message(from, data);
+                NetworkCoordinator.SendShowView(from, "upgrade");
             }
         }
     }
-    void OnBack(int from, JToken message)
-    {
-        if (message["element"] != null)
-        {
-            if (message["element"].ToString() == "info-back")
-            {
-                var data = new Dictionary<string, string> { { "show_view_id", "view-1" } };
-                AirConsole.instance.Message(from, data);
-            }
-        }
-    }
+
     private void OnDestroy()
     {
         if (AirConsole.instance != null)
         {
-            AirConsole.instance.onMessage -= OnBack;
             AirConsole.instance.onMessage -= OnOpenUpgradeInfo;
         }
     }
