@@ -14,13 +14,15 @@ public class SheepRun : BaseUnitMove
         //move the transform to destination
         MoveToDestination(speed, 0f);
         //run animation;
-        animator.FadeIn(destination, AnimatorContainer.Animation.Walk);
+        //animator.FadeIn(destination, AnimatorContainer.Animation.Walk);
+        animator.WalkTo(destination);
 }
 
     public  override void PostMoveAction(){
         //trigger ready to jump/launch animation
         Debug.Log("run eneded, stopping at:"+(Vector2)(transform.position));
-        animator.FadeIn(destination, AnimatorContainer.Animation.Idle);
+        //animator.FadeIn(destination, AnimatorContainer.Animation.Idle);
+        animator.StopWalking();
 
         //trigger Land game event
         sheep.isReadying = false;

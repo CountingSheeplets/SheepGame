@@ -20,7 +20,8 @@ public class SheepRoam : BaseUnitMove
         //move the transform to destination
         MoveToDestination(speed, 0f);
         //walk animation;
-        animator.FadeIn(destination, AnimatorContainer.Animation.Walk);
+        //animator.FadeIn(destination, AnimatorContainer.Animation.Walk);
+        animator.WalkTo(destination);
     }
     void OnRoam(GameMessage msg){
         if(sheep == null)
@@ -60,6 +61,7 @@ public class SheepRoam : BaseUnitMove
     public override void PostMoveAction(){
         sheep.isRoaming = false;
         //trigger eat grass animation
-        animator.FadeIn(destination, AnimatorContainer.Animation.Idle);
+        //animator.FadeIn(destination, AnimatorContainer.Animation.Idle);
+        animator.StopWalking();
     }
 }

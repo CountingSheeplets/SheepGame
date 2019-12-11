@@ -70,6 +70,8 @@
      <Compile Include="Assets\Scripts\Editor\NamedAttributeEditor.cs" />
      <Compile Include="Assets\Scripts\Helper\Editor\FindMissingScriptsRecursively.cs" />
      <Compile Include="Assets\Scripts\Helper\Editor\ReadOnlyPropertyDrawer.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\SkeletonUtility Modules\Editor\SkeletonRagdoll2DInspector.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\SkeletonUtility Modules\Editor\SkeletonRagdollInspector.cs" />
  <Reference Include="UnityEditor.TestRunner">
  <HintPath>C:/Users/carro/Desktop/Unity/Sheep Game/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
@@ -669,6 +671,14 @@
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{480D52DB-725D-5E43-36D8-BC0294618833}</Project>
       <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-unity.csproj">
+      <Project>{6330FDA9-5028-A906-87B3-C89CE5E0C9E2}</Project>
+      <Name>spine-unity</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-unity-editor.csproj">
+      <Project>{8A8C0E52-81E4-2030-044D-A9EB152ACBA4}</Project>
+      <Name>spine-unity-editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
