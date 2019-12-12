@@ -36,6 +36,13 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator>
         NetworkObject newNetObj = new NetworkObject("ready", "1");
         SendObject(deviceId, newNetObj);
     }
+    public static void SendPlayerScores(int deviceId, bool win, List<Score> scores){
+        JObject json = new JObject();
+        json["type"] = "playerScores";
+        json["value"] = win.ToString();
+        json["scores"] = JToken.FromObject(scores);
+        AirConsole.instance.Message(deviceId, json);
+    }
 //general functions:
     static void SendObject(int deviceId, NetworkObject networkObject){
         JToken data = JToken.FromObject(networkObject.PrepairedNetworkObject());

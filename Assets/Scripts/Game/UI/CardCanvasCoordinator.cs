@@ -29,8 +29,10 @@ public class CardCanvasCoordinator : Singleton<CardCanvasCoordinator>
         return newCard;
     }
     public static void RemovePlayerCard(Owner owner){
-        Destroy(Instance.cards[owner].gameObject);
-        Instance.cards.Remove(owner);
+        if(Instance.cards.ContainsKey(owner)){
+            Destroy(Instance.cards[owner].gameObject);
+            Instance.cards.Remove(owner);
+        }
     }
 
     public static void Sort(){

@@ -1,10 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using NDream.AirConsole;
-using Newtonsoft.Json.Linq;
 
-public class OwnersController : MonoBehaviour
+public class GameNameStartReader : MonoBehaviour
 {
     void Start()
     {
@@ -13,10 +11,8 @@ public class OwnersController : MonoBehaviour
     void OnDestroy(){
         EventCoordinator.StopListening(EventName.Input.StartGame(), OnStartGame);
     }
-    void OnStartGame(GameMessage msg){
-        foreach(Owner owner in OwnersCoordinator.GetOwners())
-            owner.gameObject.SetActive(false);
+    void OnStartGame(GameMessage msg)
+    {
+        gameObject.SetActive(true);
     }
-    //void OnResetGame?
-    //setActive = true?
 }

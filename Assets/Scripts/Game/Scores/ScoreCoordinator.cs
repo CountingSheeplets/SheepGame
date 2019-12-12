@@ -26,7 +26,7 @@ public class ScoreCoordinator : Singleton<ScoreCoordinator>
         }
     }
     public static void GetTotalPlayerScores(Owner owner){
-        PlayerScores scores = Instance.GetPlayerScore(owner);
+        PlayerScores scores = GetPlayerScore(owner);
         int total = 0;
         if(scores != null){
             foreach(Score score in scores.scores){
@@ -35,9 +35,9 @@ public class ScoreCoordinator : Singleton<ScoreCoordinator>
         }
     }
 
-    public PlayerScores GetPlayerScore(Owner owner){
-        if(scores.ContainsKey(owner))
-            return scores[owner];
+    public static PlayerScores GetPlayerScore(Owner owner){
+        if(Instance.scores.ContainsKey(owner))
+            return Instance.scores[owner];
         else
             return null;
     }

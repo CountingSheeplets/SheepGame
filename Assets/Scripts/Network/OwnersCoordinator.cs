@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NDream.AirConsole;
 using System.Linq;
+using TMPro;
 
 public class OwnersCoordinator : Singleton<OwnersCoordinator>
 {
@@ -22,10 +23,12 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator>
             Instance.owners.Add(newOwner);
             newOwner.Create(AirConsole.instance.GetUID(device_id), nicknameOfJoined, MenuNetworkHandler.Instance.premiumIds.Contains(device_id), device_id);
             go.name = newOwner.ownerName;
+            go.GetComponentInChildren<TextMeshProUGUI>().text = newOwner.ownerName;
             return newOwner;
         } else {
             candidateOwner.deviceId = device_id;
             candidateOwner.connected = true;
+            candidateOwner.gameObject.SetActive(true);
             Debug.Log("Reconnect succesfull!");
             if((GameStateView.GetGameState() & GameState.started) != 0)
                 NetworkCoordinator.SendShowView(device_id, "match");
@@ -45,6 +48,7 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator>
             return null;
         EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerLeft(), GameMessage.Write().WithOwner(leftOwner));
         leftOwner.connected = false;
+        leftOwner.gameObject.SetActive(false);
         return leftOwner;
     }
 }
