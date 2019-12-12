@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7056408887665106342}
   - component: {fileID: 1552117275892751136}
   - component: {fileID: 3497233817960155967}
+  - component: {fileID: 293561376707075438}
   m_Layer: 0
   m_Name: KingSprite
   m_TagString: Untagged
@@ -100,6 +101,19 @@ MonoBehaviour:
   - {fileID: 2268946639775547054, guid: 59bb559bc6fe5fb4b8a79d310164a0a9, type: 3}
   - {fileID: 7443788575505569696, guid: 177174ac626482741a2b559bc7de855e, type: 3}
   - {fileID: 3495239265867744328, guid: 6c1340df2bc63774b8b1b2764ade6304, type: 3}
+--- !u!114 &293561376707075438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14870952057999063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cb38b8465b7384cb78f3d72e923d79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetColoredSprite: {fileID: 1552117275892751136}
 --- !u!1 &2498335309115259868
 GameObject:
   m_ObjectHideFlags: 0

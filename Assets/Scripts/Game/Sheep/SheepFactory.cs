@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DragonBones;
+using Spine.Unity;
 
 public class SheepFactory : Singleton<SheepFactory>
 {
@@ -22,6 +22,14 @@ public class SheepFactory : Singleton<SheepFactory>
         GameObject newSheepModel = Instantiate(Instance.sheepModel);
         newSheepModel.transform.parent = newSheepGO.transform;
         newSheepModel.transform.localPosition = Vector3.zero;
+        //set color:
+        SpineContainer container = newSheepModel.GetComponent<SpineContainer>();
+        SkeletonMecanim skMecanim = container.GetComponent<SkeletonMecanim>();
+        foreach(Spine.Slot slot in skMecanim.skeleton.Slots){
+            if(slot.Data.Name.Contains("BLOB")){
+                slot.SetColor(owner.GetPlayerProfile().playerColor);
+            }
+        }
         return sheep;
     }
 

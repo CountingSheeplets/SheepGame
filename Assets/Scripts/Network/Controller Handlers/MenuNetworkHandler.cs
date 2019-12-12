@@ -18,10 +18,10 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler>
     void OnConnect(int device_id){
 		Owner owner = OwnersCoordinator.TryCreateOwner(device_id);
 		if(owner){
-            //then add hero model to the Owner as Child:
-			KingFactory.TryCreateHeroModel(owner);
 			//then anounce the new owner
         	EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerJoined(), GameMessage.Write().WithOwner(owner));
+			//then add hero model to the Owner as Child:
+			KingFactory.TryCreateHeroModel(owner);
 		}
 		else
 			Debug.LogError("OnConnect returned null Owner!");

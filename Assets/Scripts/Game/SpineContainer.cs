@@ -14,17 +14,19 @@ public class SpineContainer : MonoBehaviour
 
     public void WalkTo(Vector2 target){
         if(anim == null) anim = GetComponent<Animator>();
+        anim.ResetTrigger("stop");
         string dirNum = EnumToAnimNum(GetAnimEnum(target));
         string animation = "to"+dirNum.ToString();
 
         Debug.Log("new anim set to:"+animation);
         foreach(string animName in GetAnimPath(animation)){
-            Debug.Log("anim trigger:"+animName);
+            //Debug.Log("anim trigger:"+animName);
             anim.SetTrigger(animName);
         }
         currentPoint = animation;
     }
     public void StopWalking(){
+        Debug.Log("stopping");
         anim.SetTrigger("stop");
     }
 

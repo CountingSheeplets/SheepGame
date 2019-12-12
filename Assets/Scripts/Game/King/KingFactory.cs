@@ -10,6 +10,7 @@ public class KingFactory : Singleton<KingFactory>
 
     public static GameObject TryCreateHeroModel(Owner owner){
         GameObject newHero = Instantiate(GetHeroModel(owner.ownerId));
+        newHero.GetComponentInChildren<KingModel>().ChangeColor(PlayerProfileCoordinator.GetProfile(owner).playerColor);
         newHero.transform.parent = owner.gameObject.transform;
         newHero.transform.localPosition = Vector3.zero;
         return newHero;
@@ -29,6 +30,7 @@ public class KingFactory : Singleton<KingFactory>
         newKingGO.transform.parent = ArenaCoordinator.GetPlayfield(owner).transform;
         newKingGO.transform.localPosition = Vector3.zero;
         GameObject newKingModelGO = Instantiate(GetHeroModel(owner.ownerId));
+        newKingModelGO.GetComponentInChildren<KingModel>().ChangeColor(PlayerProfileCoordinator.GetProfile(owner).playerColor);
         newKingModelGO.transform.parent = newKingGO.transform;
         newKingModelGO.transform.localPosition = Vector3.zero;
         //Instance.kings.Add(newKing);
