@@ -18,7 +18,7 @@ public class SpineContainer : MonoBehaviour
         string dirNum = EnumToAnimNum(GetAnimEnum(target));
         string animation = "to"+dirNum.ToString();
 
-        Debug.Log("new anim set to:"+animation);
+        //Debug.Log("new anim set to:"+animation);
         foreach(string animName in GetAnimPath(animation)){
             //Debug.Log("anim trigger:"+animName);
             anim.SetTrigger(animName);
@@ -26,7 +26,7 @@ public class SpineContainer : MonoBehaviour
         currentPoint = animation;
     }
     public void StopWalking(){
-        Debug.Log("stopping");
+        //Debug.Log("stopping");
         anim.SetTrigger("stop");
     }
 
@@ -35,7 +35,7 @@ public class SpineContainer : MonoBehaviour
         int currentIndex = pathPoints.FindIndex(a => a == currentPoint);
         int nextIndex = pathPoints.FindIndex(a => a == nextAnim);
         int counterClock = clockDir(currentIndex, nextIndex, pathPoints.Count);
-        Debug.Log("current:"+currentIndex+" next:"+nextIndex+" dir:"+counterClock);
+        //Debug.Log("current:"+currentIndex+" next:"+nextIndex+" dir:"+counterClock);
         if(currentIndex == nextIndex){
             output.Add(pathPoints[currentIndex]);
             return output;

@@ -6,260 +6,260 @@ filter: Linear,Linear
 repeat: none
 BLOB all
   rotate: false
-  xy: 2, 1417
+  xy: 1, 1423
   size: 599, 622
   orig: 599, 622
   offset: 0, 0
   index: -1
 Layer 2
   rotate: false
-  xy: 1080, 1159
-  size: 252, 325
+  xy: 1079, 1163
+  size: 254, 327
   orig: 254, 327
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 ears 1
   rotate: true
-  xy: 1321, 570
+  xy: 1320, 572
   size: 295, 255
   orig: 295, 255
   offset: 0, 0
   index: -1
 ears 2
   rotate: false
-  xy: 372, 128
+  xy: 371, 134
   size: 408, 93
   orig: 408, 93
   offset: 0, 0
   index: -1
 ears 6
   rotate: false
-  xy: 2, 4
+  xy: 1, 10
   size: 290, 67
   orig: 290, 67
   offset: 0, 0
   index: -1
 ears 7
   rotate: false
-  xy: 541, 645
+  xy: 540, 651
   size: 221, 173
   orig: 221, 173
   offset: 0, 0
   index: -1
 ears 8
   rotate: false
-  xy: 407, 3
+  xy: 408, 7
   size: 146, 81
   orig: 146, 81
   offset: 0, 0
   index: -1
 eyes 1
   rotate: false
-  xy: 541, 319
-  size: 177, 162
+  xy: 540, 321
+  size: 179, 164
   orig: 179, 164
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 eyes 2
   rotate: false
-  xy: 555, 9
-  size: 183, 117
+  xy: 556, 13
+  size: 185, 119
   orig: 186, 120
-  offset: 1, 2
+  offset: 0, 1
   index: -1
 eyes 8
   rotate: true
-  xy: 294, 3
-  size: 68, 111
+  xy: 293, 7
+  size: 70, 113
   orig: 70, 113
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 fleece  1
   rotate: false
-  xy: 2, 223
+  xy: 1, 229
   size: 537, 595
   orig: 537, 595
   offset: 0, 0
   index: -1
 fleece  2
   rotate: false
-  xy: 2, 820
+  xy: 1, 826
   size: 537, 595
   orig: 537, 595
   offset: 0, 0
   index: -1
 fleece  6
   rotate: false
-  xy: 782, 223
+  xy: 781, 229
   size: 537, 595
   orig: 537, 595
   offset: 0, 0
   index: -1
 fleece  7
   rotate: false
-  xy: 541, 820
+  xy: 540, 826
   size: 537, 595
   orig: 537, 595
   offset: 0, 0
   index: -1
 fleece  8
   rotate: false
-  xy: 603, 1486
+  xy: 602, 1492
   size: 537, 553
   orig: 537, 553
   offset: 0, 0
   index: -1
 gogles 2
   rotate: false
-  xy: 740, 28
-  size: 209, 98
+  xy: 743, 32
+  size: 211, 100
   orig: 212, 100
-  offset: 2, 1
+  offset: 1, 0
   index: -1
 gogles 8
   rotate: false
-  xy: 1077, 23
-  size: 108, 110
+  xy: 1084, 25
+  size: 110, 112
   orig: 110, 112
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 googles 1
   rotate: false
-  xy: 541, 483
-  size: 182, 160
+  xy: 540, 487
+  size: 184, 162
   orig: 184, 162
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 head 1
   rotate: false
-  xy: 1080, 867
-  size: 268, 290
+  xy: 1079, 869
+  size: 270, 292
   orig: 270, 292
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 head 6
   rotate: false
-  xy: 1187, 54
-  size: 167, 167
+  xy: 1576, 401
+  size: 169, 169
   orig: 169, 169
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 head 7
   rotate: false
-  xy: 1187, 54
-  size: 167, 167
+  xy: 1576, 401
+  size: 169, 169
   orig: 169, 169
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 head8
   rotate: true
-  xy: 1356, 15
+  xy: 1356, 17
   size: 257, 241
   orig: 257, 241
   offset: 0, 0
   index: -1
 mounth 1
   rotate: false
-  xy: 541, 226
-  size: 105, 91
+  xy: 781, 134
+  size: 107, 93
   orig: 107, 93
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 mounth 2
   rotate: false
-  xy: 951, 2
-  size: 124, 129
+  xy: 956, 1
+  size: 126, 131
   orig: 127, 131
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 mounth 8
   rotate: false
-  xy: 648, 226
-  size: 105, 91
+  xy: 890, 134
+  size: 107, 93
   orig: 107, 93
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 pegs 1
   rotate: false
-  xy: 1321, 274
+  xy: 1320, 276
   size: 254, 294
   orig: 412, 294
   offset: 158, 0
   index: -1
 pegs 2
   rotate: false
-  xy: 2, 73
+  xy: 1, 79
   size: 368, 148
   orig: 368, 148
   offset: 0, 0
   index: -1
 tail base 1
   rotate: true
-  xy: 956, 138
-  size: 83, 79
+  xy: 999, 142
+  size: 85, 81
   orig: 87, 82
-  offset: 2, 1
+  offset: 1, 0
   index: -1
 tail base 2
   rotate: true
-  xy: 720, 398
-  size: 83, 59
+  xy: 1162, 142
+  size: 85, 61
   orig: 87, 61
-  offset: 2, 1
+  offset: 1, 0
   index: -1
 tail base 6
   rotate: true
-  xy: 1577, 459
-  size: 109, 103
+  xy: 1196, 29
+  size: 111, 105
   orig: 113, 107
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 tail base 7
-  rotate: true
-  xy: 782, 131
-  size: 90, 86
+  rotate: false
+  xy: 540, 231
+  size: 92, 88
   orig: 94, 89
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 tail base 8
   rotate: true
-  xy: 870, 133
-  size: 88, 84
+  xy: 634, 229
+  size: 90, 86
   orig: 90, 86
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 tail fleece 1
   rotate: false
-  xy: 725, 583
-  size: 54, 60
+  xy: 721, 423
+  size: 56, 62
   orig: 58, 64
-  offset: 2, 2
+  offset: 1, 1
   index: -1
 tail fleece 2
   rotate: false
-  xy: 372, 86
-  size: 54, 40
+  xy: 371, 90
+  size: 56, 42
   orig: 58, 43
-  offset: 2, 1
+  offset: 1, 0
   index: -1
 tail fleece 6
   rotate: false
-  xy: 1037, 135
-  size: 76, 86
+  xy: 1082, 139
+  size: 78, 88
   orig: 78, 89
-  offset: 1, 2
+  offset: 0, 1
   index: -1
 tail fleece 7
   rotate: false
-  xy: 1115, 152
-  size: 65, 69
+  xy: 1225, 156
+  size: 67, 71
   orig: 67, 72
-  offset: 1, 1
+  offset: 0, 0
   index: -1
 tail fleece 8
   rotate: false
-  xy: 720, 333
-  size: 58, 63
+  xy: 1294, 162
+  size: 60, 65
   orig: 61, 66
-  offset: 1, 1
+  offset: 0, 0
   index: -1

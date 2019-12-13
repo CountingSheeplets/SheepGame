@@ -21,8 +21,10 @@ public class ReadyNetworkHandler : MonoBehaviour
                 Owner readyOwner = OwnersCoordinator.GetOwner(from);
                 if (readyOwner == null)
                     return;
-                else
+                else{
                     readyOwner.ready = ready;
+                    readyOwner.GetComponent<PlayerOwnerTile>().Ready();
+                }
                 NetworkCoordinator.SendConfirmReady(from);
                 TryStart();
                 Debug.Log("Ready:" + readyOwner);

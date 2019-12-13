@@ -281,6 +281,7 @@
      <Compile Include="Assets\Scripts\Game\Arena\ArenaController.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\ArenaCoordinator.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\ArenaPreset.cs" />
+     <Compile Include="Assets\Scripts\Game\Arena\Ballista.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\FieldCorners.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\Playfield.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\PresetSocket.cs" />
@@ -338,6 +339,7 @@
      <Compile Include="Assets\Scripts\Game\UI\GameNameStartReader.cs" />
      <Compile Include="Assets\Scripts\Game\UI\OwnerTileResizer.cs" />
      <Compile Include="Assets\Scripts\Game\UI\PlayerCard.cs" />
+     <Compile Include="Assets\Scripts\Game\UI\PlayerOwnerTile.cs" />
      <Compile Include="Assets\Scripts\General\BitMaskAttribute.cs" />
      <Compile Include="Assets\Scripts\General\GameState.cs" />
      <Compile Include="Assets\Scripts\General\GameStateView.cs" />
