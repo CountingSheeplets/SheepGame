@@ -14,7 +14,7 @@ public class SwipeNetworkHandler : Singleton<SwipeNetworkHandler>
     {
         if (message["element"].ToString() == "swipe"){
             var data = message["data"];
-            Debug.Log("int from: " + from + "   " + data);
+            Debug.Log("from: " + from + "   msg:" + message);
             if (data != null){
                 Swipe newSwipe = new Swipe(data);
                 EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(OwnersCoordinator.GetOwner(from)));

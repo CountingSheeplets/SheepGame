@@ -64,9 +64,10 @@ public class EventName
         public class King{
             public static string Spawned() { return "System_King_Spawned"; }
             public static string Smashed() { return "System_King_Smashed"; }
+            public static string SmashReset() { return "System_King_SmashReset"; }
             public static string Killed() { return "System_King_Killed"; }
             public static string Hit() { return "System_King_Hit"; }
-            public static List<string> Get() { return new List<string> { Hit(), Spawned(), Smashed(), Killed()}; }          
+            public static List<string> Get() { return new List<string> { Hit(), Spawned(), Smashed(), SmashReset(), Killed()}; }          
         }
         public class Sheep{
             public static string Spawned() { return "System_Sheep_Spawned"; }

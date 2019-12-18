@@ -53,7 +53,7 @@ public class PriceCoordinator : Singleton<PriceCoordinator>
             if(pBase != null)
                 return pBase.basePrice + pBase.increment * pBase.level;
         }
-        return 9999999f;
+        return 999f;
     }
     public PriceAttribute GetAttribute(Owner owner){
         if(priceAttributes.ContainsKey(owner))

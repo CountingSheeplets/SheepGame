@@ -37,7 +37,7 @@ public class PlayerProfileNetworkWriter : MonoBehaviour
 
                                                     { "priceGrass", PriceCoordinator.GetPrice(profile.owner, PriceName.King.BuyGrass())},
                                                     { "priceSheep", PriceCoordinator.GetPrice(profile.owner, PriceName.King.BuySheep())},
-                                                    { "priceCharge", PriceCoordinator.GetPrice(profile.owner, PriceName.King.Charge())},
+                                                    { "priceSmash", PriceCoordinator.GetPrice(profile.owner, PriceName.King.Smash())},
                                                     { "priceUpgrade1", PriceCoordinator.GetPrice(profile.owner, PriceName.Sheep.ToMini())},
                                                     { "priceUpgrade2", PriceCoordinator.GetPrice(profile.owner, PriceName.Sheep.ToKnight())} };
         NetworkCoordinator.SendPlayerProfile(profile.owner.deviceId, data);

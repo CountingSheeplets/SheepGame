@@ -48,3 +48,8 @@ MonoBehaviour:
       basePrice: 25
       increment: -5
       level: 0
+  - attributeName: King_Smash
+    priceBase:
+      basePrice: 1
+      increment: 1
+      level: 0

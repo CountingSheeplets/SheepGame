@@ -8,7 +8,7 @@ public class SheepFly : BaseUnitMove
     public void StartFlying(float speed, Vector2 _destination){
         if(!sheep)
             sheep = GetComponent<SheepUnit>();
-        Debug.Log("StartFlying to:"+destination);
+        Debug.Log("StartFlying to:"+_destination);
         sheep.isFlying = true;
         sheep.isReadyToFly = false;
         destination = _destination;

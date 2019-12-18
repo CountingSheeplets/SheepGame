@@ -15,8 +15,15 @@ public class SheepCoordinator : Singleton<SheepCoordinator>
         Instance.sheeps.Remove(sheep);
         SheepFactory.DestroySheep(sheep);
     }
-
-    public static int GetSheepInField(Playfield playfield, SheepType typeMask){
+    public static List<SheepUnit>  GetSheepInField(Playfield playfield){
+        List<SheepUnit> sheeps = new List<SheepUnit>();
+        foreach(SheepUnit sheep in Instance.sheeps){
+            if(sheep.currentPlayfield == playfield)
+                sheeps.Add(sheep);
+        }
+        return sheeps;
+    }
+    public static int GetSheepInFieldByType(Playfield playfield, SheepType typeMask){
         int count = 0;
         foreach(SheepUnit sheep in Instance.sheeps){
             if(sheep.currentPlayfield == playfield)

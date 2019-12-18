@@ -1983,6 +1983,7 @@ GameObject:
   - component: {fileID: 470012887}
   - component: {fileID: 470012889}
   - component: {fileID: 470012888}
+  - component: {fileID: 470012890}
   m_Layer: 0
   m_Name: KingAbilities
   m_TagString: Untagged
@@ -2028,6 +2029,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f74c145aca805428efc7a1a5f6a67c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &470012890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470012886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e7658f047840ce4abeba7587053ea24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smashers: []
 --- !u!1 &472995007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2689,7 +2703,7 @@ GameObject:
   m_Component:
   - component: {fileID: 621026288}
   m_Layer: 0
-  m_Name: Info (view 2)
+  m_Name: Upgrade Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4350,7 +4364,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 45.2
+  m_fontSize: 28.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6658,6 +6672,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1390060351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1390060352}
+  m_Layer: 0
+  m_Name: Score Info
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1390060352
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390060351}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1888063660}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1409053814
 GameObject:
@@ -9245,6 +9289,7 @@ Transform:
   - {fileID: 331891876}
   - {fileID: 621026288}
   - {fileID: 623132465}
+  - {fileID: 1390060352}
   m_Father: {fileID: 438182120}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

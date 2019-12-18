@@ -29,6 +29,7 @@ public class Owner : MonoBehaviour
         isHero = hero;
         ownerType = OwnerType.Player;
         deviceId = devId;
+        teamId = OwnersCoordinator.GetOwners().Count;
         if(IsPlayer())
             connected = true;
     }

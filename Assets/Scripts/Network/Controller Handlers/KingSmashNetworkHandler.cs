@@ -4,7 +4,7 @@ using UnityEngine;
 using Newtonsoft.Json.Linq;
 using NDream.AirConsole;
 using System.Linq;
-public class KingAbilityNetworkHandler : MonoBehaviour
+public class KingSmashNetworkHandler : MonoBehaviour
 {
     void Awake()
     {
@@ -12,7 +12,7 @@ public class KingAbilityNetworkHandler : MonoBehaviour
     }
     void OnButtonClick(int from, JToken message)
     {
-            if   (message["element"].ToString().Contains("smite"))
+            if   (message["element"].ToString().Contains("smash"))
             {
                 Owner triggerOwner = OwnersCoordinator.GetOwner(from);
                 if(triggerOwner == null)

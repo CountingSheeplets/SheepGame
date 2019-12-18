@@ -61,7 +61,15 @@ public class PlayerProfile
         starCount = amount;
         return starCount;
     }
-
+    public bool Buy(string priceName){
+        float price = PriceCoordinator.GetPrice(owner, priceName);
+        if(price < GetMoney()){
+            AddMoney(-price);
+            return true;
+        }
+        Debug.Log("Cannto buy ["+priceName+"], not anough money. Need ["+price+"], Have ["+GetMoney()+"]");
+        return false;  
+    }
     public int highScore;
     public int score;
 
