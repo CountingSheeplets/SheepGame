@@ -2151,36 +2151,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472995007}
   m_CullTransparentMesh: 0
---- !u!1 &479845960
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 479845961}
-  m_Layer: 0
-  m_Name: SheepUpgrades
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &479845961
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 479845960}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 817108758}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &510728778
 GameObject:
   m_ObjectHideFlags: 0
@@ -3724,6 +3694,7 @@ GameObject:
   - component: {fileID: 817108757}
   - component: {fileID: 817108759}
   - component: {fileID: 817108761}
+  - component: {fileID: 817108762}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -3759,7 +3730,6 @@ Transform:
   - {fileID: 1492470313}
   - {fileID: 752291658}
   - {fileID: 470012887}
-  - {fileID: 479845961}
   - {fileID: 1705232090}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -3812,6 +3782,104 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _persistent: 0
   currentState: 0
+--- !u!114 &817108762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817108756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a208dafa4358bbb458f8e122d9db4e0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  flySpeeds:
+  - speed: 1
+    sheepType: 0
+  - speed: 2
+    sheepType: 1
+  - speed: 1
+    sheepType: 2
+  - speed: 1
+    sheepType: 3
+  - speed: 0.7
+    sheepType: 4
+  - speed: 1
+    sheepType: 5
+  - speed: 1
+    sheepType: 6
+  - speed: 1
+    sheepType: 7
+  runSpeeds:
+  - speed: 1
+    sheepType: 0
+  - speed: 2
+    sheepType: 1
+  - speed: 1
+    sheepType: 2
+  - speed: 1
+    sheepType: 3
+  - speed: 0.3
+    sheepType: 4
+  - speed: 1
+    sheepType: 5
+  - speed: 0.15
+    sheepType: 6
+  - speed: 1
+    sheepType: 7
+  roamSpeeds:
+  - speed: 0.3
+    sheepType: 0
+  - speed: 0.6
+    sheepType: 1
+  - speed: 0.3
+    sheepType: 2
+  - speed: 0.3
+    sheepType: 3
+  - speed: 0.3
+    sheepType: 4
+  - speed: 0.3
+    sheepType: 5
+  - speed: 0.2
+    sheepType: 6
+  - speed: 0.3
+    sheepType: 7
+  swimSpeeds:
+  - speed: 0.2
+    sheepType: 0
+  - speed: 0.1
+    sheepType: 1
+  - speed: 0.2
+    sheepType: 2
+  - speed: 0.2
+    sheepType: 3
+  - speed: 0.2
+    sheepType: 4
+  - speed: 0.2
+    sheepType: 5
+  - speed: 0.3
+    sheepType: 6
+  - speed: 0.2
+    sheepType: 7
+  knockbackSpeeds:
+  - speed: 2
+    sheepType: 0
+  - speed: 2
+    sheepType: 1
+  - speed: 2
+    sheepType: 2
+  - speed: 2
+    sheepType: 3
+  - speed: 2
+    sheepType: 4
+  - speed: 2
+    sheepType: 5
+  - speed: 0.3
+    sheepType: 6
+  - speed: 2
+    sheepType: 7
 --- !u!1 &821751043
 GameObject:
   m_ObjectHideFlags: 0
@@ -4364,7 +4432,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 28.8
+  m_fontSize: 34.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8207,7 +8275,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817108758}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1705232091
 MonoBehaviour:

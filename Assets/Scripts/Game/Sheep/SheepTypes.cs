@@ -5,10 +5,11 @@ using UnityEngine;
 public enum SheepType
 {
     None = 0,
-    Simple = 1,
-    Slow = 2,
-    Fast = 4,
-    Armored = 8,
-    Mole = 16,
-    Flying = 32
+    Small = 1,
+    Bouncy = 2,
+    Greedy = 3,// 4,
+    Armored = 4,// 8,
+    Trench = 5,// 16,
+    Tank = 6,// 32
+    King = 7
 }

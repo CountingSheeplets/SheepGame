@@ -343,6 +343,7 @@
      <Compile Include="Assets\Scripts\Game\UI\OwnerTileResizer.cs" />
      <Compile Include="Assets\Scripts\Game\UI\PlayerCard.cs" />
      <Compile Include="Assets\Scripts\Game\UI\PlayerOwnerTile.cs" />
+     <Compile Include="Assets\Scripts\Game\Upgrades\SpeedBucket.cs" />
      <Compile Include="Assets\Scripts\General\BitMaskAttribute.cs" />
      <Compile Include="Assets\Scripts\General\GameState.cs" />
      <Compile Include="Assets\Scripts\General\GameStateView.cs" />

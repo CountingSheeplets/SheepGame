@@ -29,8 +29,8 @@ public class KingSmash : MonoBehaviour
     }
 
     void AnimateSmash(){
-
     }
+    
     void Update(){
         for(int i=0; i < destinations.Count;i++)
             Debug.DrawLine(initPos[i], destinations[i], king.owner.GetPlayerProfile().playerColor);
@@ -40,11 +40,13 @@ public class KingSmash : MonoBehaviour
         initPos.Clear();
         List<SheepUnit> sheepWithinRange = SheepCoordinator.GetSheepInField(king.myPlayfield).Where(x => (x.GetComponent<Transform>().position-transform.position).magnitude <= hitRange).ToList();
         foreach(SheepUnit sheep in sheepWithinRange){
+            if(sheep.sheepType == SheepType.Tank)
+                continue;
             SheepFly fly = sheep.GetComponent<SheepFly>();
             Vector2 destination = GetDestinatinoVector(sheep.transform);
             destinations.Add(destination);
             initPos.Add(sheep.transform.position);
-            fly.StartFlying(knockFlySpeed, destination);
+            fly.StartFlying(SpeedBucket.GetKnockbackSpeed(sheep.sheepType), destination);
         }
     }
     Vector2 GetDestinatinoVector(Transform sheepTr){

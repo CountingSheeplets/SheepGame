@@ -33,7 +33,7 @@ public class SheepThrow : MonoBehaviour
                 Vector2 destination = msg.swipe.vector * msg.swipe.distance * throwStrength / 10f + (Vector2)fly.transform.position;
                 Debug.Log("fly.destination:"+destination);
                 throwableSheep.Remove(sheepReadyToBeThrown);
-                fly.StartFlying(flySpeed, destination);
+                fly.StartFlying(SpeedBucket.GetFlySpeed(sheepReadyToBeThrown.sheepType), destination);
                 sheepReadyToBeThrown.lastHandler = msg.owner;
                 sheepReadyToBeThrown.currentPlayfield = null;
                 sheepReadyToBeThrown = null;
@@ -82,7 +82,7 @@ public class SheepThrow : MonoBehaviour
             if(availableSheep != null){
                 Debug.Log("availableSheep.currentPlayfield:"+availableSheep.currentPlayfield);
                 if(availableSheep.currentPlayfield != null){
-                    availableSheep.GetComponent<SheepRun>().StartRunning(1f, availableSheep.currentPlayfield.fieldCorners.Center);
+                    availableSheep.GetComponent<SheepRun>().StartRunning(SpeedBucket.GetRunSpeed(sheepReadyToBeThrown.sheepType), availableSheep.currentPlayfield.fieldCorners.Center);
                 }
             } else
                 Debug.Log("cant run, non null");
@@ -93,6 +93,17 @@ public class SheepThrow : MonoBehaviour
     SheepUnit GetNextSheep(){
         foreach(SheepUnit sheep in throwableSheep){
             if(sheep.canBeThrown)
+                if(!sheep.skippedByTrenching && sheep.sheepType == SheepType.Trench){
+                    sheep.skippedByTrenching = true;
+                    //here animate sheep trenching!!! burrow sheep
+                    
+                    //trigger animation
+                    continue;
+                }
+                if(sheep.skippedByTrenching && sheep.sheepType == SheepType.Trench){
+                    sheep.skippedByTrenching = false;
+                    return sheep;
+                }
                 return sheep;
         }
         return null;

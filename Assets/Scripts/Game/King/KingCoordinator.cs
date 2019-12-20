@@ -23,6 +23,13 @@ public class KingCoordinator : Singleton<KingCoordinator>
     void OnKill(GameMessage msg){
         kings.Remove(msg.kingUnit);
     }
+    public static KingUnit GetKing(Playfield playfield){
+        foreach(KingUnit king in Instance.kings){
+            if(king.owner.GetPlayfield() == playfield)
+                return king;
+        }
+        return null;
+    }
     public static KingUnit GetKing(Owner owner){
         foreach(KingUnit king in Instance.kings){
             if(king.owner == owner)

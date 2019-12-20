@@ -5,28 +5,30 @@ using System.Linq;
 
 public class SheepSwim : BaseUnitMove
 {
+    SheepUnit sheep;
     void Start()
     {
+        if(sheep == null) sheep = GetComponent<SheepUnit>();
         EventCoordinator.StartListening(EventName.System.Sheep.Land(), OnLand);
     }
     void OnDestroy(){
         EventCoordinator.StopListening(EventName.System.Sheep.Land(), OnLand);
     }
     public void StartSwiming(float speed, Vector2 _destination){
-        Debug.Log("StartSwiming");
+        //Debug.Log("StartSwiming");
         destination = _destination;
-        GetComponent<SheepUnit>().isSwimming = true;
+        sheep.isSwimming = true;
         //swim animation;
 
         //move the transform to destination
         MoveToDestination(speed, 0.25f);
     }
     void OnLand(GameMessage msg){
-        Debug.Log("OnLand:StartSwiming:"+gameObject.name);
-        if(msg.sheepUnit == GetComponent<SheepUnit>()){
+        //Debug.Log("OnLand:StartSwiming:"+gameObject.name);
+        if(msg.sheepUnit == sheep){
             if(msg.playfield == null){
                 Transform nearestVortex = FindObjectsOfType<Vortex>().Select(x=>x.transform).ToList().FindNearest(transform);
-                GetComponent<SheepSwim>().StartSwiming(0.25f, nearestVortex.position);
+                GetComponent<SheepSwim>().StartSwiming(SpeedBucket.GetSwimSpeed(sheep.sheepType), nearestVortex.position);
             }
         }
     }

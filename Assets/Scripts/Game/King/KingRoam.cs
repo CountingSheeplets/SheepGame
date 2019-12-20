@@ -13,14 +13,14 @@ public class KingRoam : BaseUnitMove
     void OnDestroy(){
         EventCoordinator.StopListening(EventName.System.Sheep.Roam(), OnRoam);
     }
-    public void StartWalking(float speed, Vector2 _destination){
+    public void StartWalking(Vector2 _destination){
         //Debug.Log("King Roam...");
         destination = _destination;
         king.isRoaming = true;
         //walk animation;
 
         //move the transform to destination
-        MoveToDestination(speed, 0f);
+        MoveToDestination(SpeedBucket.GetRoamSpeed(SheepType.King), 0f);
     }
     void OnRoam(GameMessage msg){
         if(!king.isRoaming && !king.isUsingAbility){
@@ -28,7 +28,7 @@ public class KingRoam : BaseUnitMove
             if(roll < msg.floatMessage){
                 Vector2 targetPosition = RoamTarget();
                 if(targetPosition != Vector2.zero)
-                    StartWalking(0.3f, targetPosition);
+                    StartWalking(targetPosition);
             }
         }
     }

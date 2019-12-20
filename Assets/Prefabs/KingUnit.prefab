@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f87db03d28e68634092bf08960affb0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sheepType: 7
   owner: {fileID: 0}
   canBeThrown: 1
   isUsingAbility: 0
@@ -97,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141c51e349431394eb661ebf5213e3d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destinations: []
+  initPos: []
   hitRange: 2
   flyDistance: 2
   knockFlySpeed: 2

@@ -12,13 +12,13 @@ public class SheepRoam : BaseUnitMove
     void OnDestroy(){
         EventCoordinator.StopListening(EventName.System.Sheep.Roam(), OnRoam);
     }
-    public void StartWalking(float speed, Vector2 _destination){
+    public void StartWalking(Vector2 _destination){
         if(sheep == null)
             sheep = GetComponent<SheepUnit>();
         destination = _destination;
         sheep.isRoaming = true;
         //move the transform to destination
-        MoveToDestination(speed, 0f);
+        MoveToDestination(SpeedBucket.GetRoamSpeed(sheep.sheepType), 0f);
         //walk animation;
         //animator.FadeIn(destination, AnimatorContainer.Animation.Walk);
         animator.WalkTo(destination);
@@ -31,7 +31,7 @@ public class SheepRoam : BaseUnitMove
             if(roll < msg.floatMessage){
                 Vector2 targetPosition = RoamTarget();
                 if(targetPosition != Vector2.zero){
-                    StartWalking(0.3f, targetPosition);
+                    StartWalking(targetPosition);
                 }
             }
         }

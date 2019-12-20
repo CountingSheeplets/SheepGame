@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KingUnit : MonoBehaviour
 {
+    public SheepType sheepType;
     public Owner owner;
     public bool canBeThrown = true;
     private Playfield _myPlayfield;

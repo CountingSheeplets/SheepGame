@@ -5,6 +5,8 @@ using UnityEngine;
 public class SheepEat : MonoBehaviour
 {
     SheepUnit sheep;
+    public float bonusEatIfSheepIsSmall = 0.1f;
+    public float bonusMoneyIfIsGreedy = 0.15f;
     void Start()
     {
         sheep = GetComponent<SheepUnit>();
@@ -27,13 +29,15 @@ public class SheepEat : MonoBehaviour
         float multiplier = 1;
         if(totalGrass <=0)
             multiplier = 2;//PriceManager multipliers.NoGrass()
-        float moneyAmount = eatAmount / 2f * multiplier;
+        float moneyAmount = (eatAmount + bonusMoneyIfIsGreedy) / 2f * multiplier;
         PlayerProfileCoordinator.GetProfile(owner).AddMoney(moneyAmount);
     }
 
     float CalculateEatAmount(float baseAmount){
         //do math here, like faster eating sheep, slower eating sheep etc.
-
+        if(sheep.sheepType == SheepType.Small){
+            return baseAmount + bonusEatIfSheepIsSmall;
+        }
         //then return final value:
         return baseAmount;
     }
