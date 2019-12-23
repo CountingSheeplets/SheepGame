@@ -23,8 +23,9 @@ public class EventName
             public static List<string> Get() { return new List<string> { SpawnSheep(),BuyGrass(),Smash() }; }          
         }
         public class SheepUpgrades{
-            public static string None() { return null; }
-            public static List<string> Get() { return new List<string> { None() }; }          
+            public static string A() { return "SheepUpgrades_A"; }
+            public static string B() { return "SheepUpgrades_B"; }
+            public static List<string> Get() { return new List<string> { A(), B() }; }          
         }
         public class Menus{
             public static string None() { return null; }

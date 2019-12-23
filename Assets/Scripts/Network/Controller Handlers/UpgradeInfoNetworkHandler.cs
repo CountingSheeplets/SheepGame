@@ -14,19 +14,33 @@ public class UpgradeInfoNetworkHandler : MonoBehaviour
     {
         if (message["element"] != null)
         {
-            if (message["element"].ToString() == "upgrade1")
-            {
-                //load data on ability A:
-                NetworkCoordinator.SendUpgradeData(from, "upgrade1");
+            if((bool)message["pressed"] == false){
+                SheepUnit sheep = OwnersCoordinator.GetOwner(from).GetPlayfield().GetComponent<SheepThrow>().sheepReadyToBeThrown;
+                if(sheep){
+                    if (message["element"].ToString() == "upgrade1")
+                    {
+                        NetworkCoordinator.SendUpgradeData(from, UpgradeBucket.GetNextUpgradeA(sheep.sheepType));
+                    }
+                    if (message["element"].ToString() == "upgrade2")
+                    {
+                        NetworkCoordinator.SendUpgradeData(from, UpgradeBucket.GetNextUpgradeB(sheep.sheepType));
+                    }
+                } else 
+                    NetworkCoordinator.SendUpgradeData(from, new UpgradeProperty());
                 //send to show view for info:
                 NetworkCoordinator.SendShowView(from, "upgrade");
-            }
-            if (message["element"].ToString() == "upgrade2")
-            {
-                //load data on ability B:
-                NetworkCoordinator.SendUpgradeData(from, "upgrade2");
-                //send to show view for info:
-                NetworkCoordinator.SendShowView(from, "upgrade");
+            } else {
+                Owner owner = OwnersCoordinator.GetOwner(from);
+                if(owner != null){
+                    if (message["element"].ToString() == "upgrade1")
+                    {
+                        EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrades.A(), GameMessage.Write().WithOwner(owner));
+                    }
+                    if (message["element"].ToString() == "upgrade2")
+                    {
+                        EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrades.B(), GameMessage.Write().WithOwner(owner));
+                    }
+                }
             }
         }
     }

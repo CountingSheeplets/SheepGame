@@ -12,20 +12,18 @@ public class PriceName
         public static string Smash() { return "King_Smash"; }
         public static List<string> Get() { return new List<string> { BuySheep(), BuyGrass(), Smash()}; }
     }
-    public class Sheep
+    public class SheepUpgrade
     {
-/*         public class KingAbilities{
-            public static string SpawnSheep() { return "KingAbilities_SpawnSheep"; }
-            public static string BuyGrass() { return "KingAbilities_BuyLawn"; }
-            public static List<string> Get() { return new List<string> { SpawnSheep(),BuyGrass() }; }          
-        } */
-        public static string ToKnight() { return "Sheep_ToKnight"; }
-        public static string ToMini() { return "Sheep_ToMini"; }
-        public static string ToSpikey() { return "Sheep_ToSpikey"; }
+        public static string Small() { return "SheepUpgrade_Small"; }
+        public static string Bouncy() { return "SheepUpgrade_Bouncy"; }
+        public static string Greedy() { return "SheepUpgrade_Greedy"; }
+        public static string Armored() { return "SheepUpgrade_Armored"; }
+        public static string Trench() { return "SheepUpgrade_Trench"; }
+        public static string Tank() { return "SheepUpgrade_Tank"; }
         public static List<string> Get() { return new List<string> {
-            ToKnight(),
-            ToMini(), ToSpikey()
-            }//.Concat(KingAbilities.Get())
+            Small(), Bouncy(), Greedy(),
+            Armored(), Trench(), Tank() 
+            }
                 .ToList(); }
     }
     public class Player
@@ -36,7 +34,7 @@ public class PriceName
     }
     public static List<string> Get()
     {
-        return new List<string> { }.Concat(Sheep.Get())
+        return new List<string> { }.Concat(SheepUpgrade.Get())
                                     .Concat(King.Get())
                                     .Concat(Player.Get())
                                     .Where(s => !string.IsNullOrEmpty(s)).Distinct().ToList();

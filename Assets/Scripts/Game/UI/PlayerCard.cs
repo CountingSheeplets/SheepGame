@@ -46,7 +46,7 @@ public class PlayerCard : MonoBehaviour
 
     void OnProfileUpdate(GameMessage msg){
         if(owner.EqualsByValue(msg.playerProfile.owner)){
-            crownCount.text = Mathf.FloorToInt(msg.playerProfile.GetStarCount()).ToString();
+            crownCount.text = Mathf.FloorToInt(msg.playerProfile.GetStars()).ToString();
             moneyCount.text = Mathf.FloorToInt(msg.playerProfile.GetMoney()).ToString();
             kingHealthText.text = Mathf.FloorToInt(msg.playerProfile.GetHealth()).ToString();
 

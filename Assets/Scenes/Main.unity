@@ -2433,7 +2433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56fd0c8f81fdcec418c1a19506f8f7d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sendInterval: 2
 --- !u!1 &533683396
 GameObject:
   m_ObjectHideFlags: 0
@@ -3384,8 +3383,10 @@ GameObject:
   - component: {fileID: 752291658}
   - component: {fileID: 752291660}
   - component: {fileID: 752291659}
+  - component: {fileID: 752291662}
+  - component: {fileID: 752291661}
   m_Layer: 0
-  m_Name: Prices
+  m_Name: Buckets(Prices, Upgrades, Speeds)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3431,6 +3432,156 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287239f8104b5064d8bac9c31c18781c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &752291661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752291657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d7007343fdece442a3845ea253a08b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  upgrades:
+  - slot: 0
+    upgradeDisplayName: Small and Fast
+    upgradeCodeName: SheepUpgrade_Small
+    upgradeDescription: Does everything faster.
+    sheepTypeInput: 0
+    sheepTypeOutput: 1
+  - slot: 1
+    upgradeDisplayName: Bouncy
+    upgradeCodeName: SheepUpgrade_Bouncy
+    upgradeDescription: Moves slower to launch location.
+    sheepTypeInput: 0
+    sheepTypeOutput: 4
+  - slot: 0
+    upgradeDisplayName: Greedy
+    upgradeCodeName: SheepUpgrade_Greedy
+    upgradeDescription: After landing anywhere on the enemy field bounces towards
+      and hits the king.
+    sheepTypeInput: 1
+    sheepTypeOutput: 2
+  - slot: 1
+    upgradeDisplayName: Armored
+    upgradeCodeName: SheepUpgrade_Armored
+    upgradeDescription: Grass that it eats, gives more money.
+    sheepTypeInput: 1
+    sheepTypeOutput: 3
+  - slot: 0
+    upgradeDisplayName: Trench Veteran
+    upgradeCodeName: SheepUpgrade_Trench
+    upgradeDescription: When it's turn to be thrown, it burrows underground postponing
+      its duty by a turn.
+    sheepTypeInput: 4
+    sheepTypeOutput: 5
+  - slot: 1
+    upgradeDisplayName: Tank
+    upgradeCodeName: SheepUpgrade_Tank
+    upgradeDescription: Move even slower, cannot be Smited.
+    sheepTypeInput: 4
+    sheepTypeOutput: 6
+--- !u!114 &752291662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752291657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a208dafa4358bbb458f8e122d9db4e0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  flySpeeds:
+  - speed: 1
+    sheepType: 0
+  - speed: 2
+    sheepType: 1
+  - speed: 1
+    sheepType: 2
+  - speed: 1
+    sheepType: 3
+  - speed: 0.7
+    sheepType: 4
+  - speed: 1
+    sheepType: 5
+  - speed: 1
+    sheepType: 6
+  - speed: 1
+    sheepType: 7
+  runSpeeds:
+  - speed: 1
+    sheepType: 0
+  - speed: 2
+    sheepType: 1
+  - speed: 1
+    sheepType: 2
+  - speed: 1
+    sheepType: 3
+  - speed: 0.3
+    sheepType: 4
+  - speed: 1
+    sheepType: 5
+  - speed: 0.15
+    sheepType: 6
+  - speed: 1
+    sheepType: 7
+  roamSpeeds:
+  - speed: 0.3
+    sheepType: 0
+  - speed: 0.6
+    sheepType: 1
+  - speed: 0.3
+    sheepType: 2
+  - speed: 0.3
+    sheepType: 3
+  - speed: 0.3
+    sheepType: 4
+  - speed: 0.3
+    sheepType: 5
+  - speed: 0.2
+    sheepType: 6
+  - speed: 0.3
+    sheepType: 7
+  swimSpeeds:
+  - speed: 0.2
+    sheepType: 0
+  - speed: 0.1
+    sheepType: 1
+  - speed: 0.2
+    sheepType: 2
+  - speed: 0.2
+    sheepType: 3
+  - speed: 0.2
+    sheepType: 4
+  - speed: 0.2
+    sheepType: 5
+  - speed: 0.3
+    sheepType: 6
+  - speed: 0.2
+    sheepType: 7
+  knockbackSpeeds:
+  - speed: 2
+    sheepType: 0
+  - speed: 2
+    sheepType: 1
+  - speed: 2
+    sheepType: 2
+  - speed: 2
+    sheepType: 3
+  - speed: 2
+    sheepType: 4
+  - speed: 2
+    sheepType: 5
+  - speed: 0.3
+    sheepType: 6
+  - speed: 2
+    sheepType: 7
 --- !u!1 &761747014
 GameObject:
   m_ObjectHideFlags: 0
@@ -3694,7 +3845,6 @@ GameObject:
   - component: {fileID: 817108757}
   - component: {fileID: 817108759}
   - component: {fileID: 817108761}
-  - component: {fileID: 817108762}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -3782,104 +3932,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _persistent: 0
   currentState: 0
---- !u!114 &817108762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817108756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a208dafa4358bbb458f8e122d9db4e0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _persistent: 0
-  flySpeeds:
-  - speed: 1
-    sheepType: 0
-  - speed: 2
-    sheepType: 1
-  - speed: 1
-    sheepType: 2
-  - speed: 1
-    sheepType: 3
-  - speed: 0.7
-    sheepType: 4
-  - speed: 1
-    sheepType: 5
-  - speed: 1
-    sheepType: 6
-  - speed: 1
-    sheepType: 7
-  runSpeeds:
-  - speed: 1
-    sheepType: 0
-  - speed: 2
-    sheepType: 1
-  - speed: 1
-    sheepType: 2
-  - speed: 1
-    sheepType: 3
-  - speed: 0.3
-    sheepType: 4
-  - speed: 1
-    sheepType: 5
-  - speed: 0.15
-    sheepType: 6
-  - speed: 1
-    sheepType: 7
-  roamSpeeds:
-  - speed: 0.3
-    sheepType: 0
-  - speed: 0.6
-    sheepType: 1
-  - speed: 0.3
-    sheepType: 2
-  - speed: 0.3
-    sheepType: 3
-  - speed: 0.3
-    sheepType: 4
-  - speed: 0.3
-    sheepType: 5
-  - speed: 0.2
-    sheepType: 6
-  - speed: 0.3
-    sheepType: 7
-  swimSpeeds:
-  - speed: 0.2
-    sheepType: 0
-  - speed: 0.1
-    sheepType: 1
-  - speed: 0.2
-    sheepType: 2
-  - speed: 0.2
-    sheepType: 3
-  - speed: 0.2
-    sheepType: 4
-  - speed: 0.2
-    sheepType: 5
-  - speed: 0.3
-    sheepType: 6
-  - speed: 0.2
-    sheepType: 7
-  knockbackSpeeds:
-  - speed: 2
-    sheepType: 0
-  - speed: 2
-    sheepType: 1
-  - speed: 2
-    sheepType: 2
-  - speed: 2
-    sheepType: 3
-  - speed: 2
-    sheepType: 4
-  - speed: 2
-    sheepType: 5
-  - speed: 0.3
-    sheepType: 6
-  - speed: 2
-    sheepType: 7
 --- !u!1 &821751043
 GameObject:
   m_ObjectHideFlags: 0
@@ -4432,7 +4484,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 34.9
+  m_fontSize: 44.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

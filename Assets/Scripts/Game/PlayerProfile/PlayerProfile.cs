@@ -18,9 +18,23 @@ public class PlayerProfile
         }
     }
     public float ModifyGrass(float amount){
-        if (playfield != null)
-            return playfield.AdjustHitPoints(amount);
-        else{
+        if (playfield != null){
+            float adjustedAmount = playfield.AdjustHitPoints(amount);
+            SetDirty();
+            return adjustedAmount;
+        }else{
+            Debug.LogWarning("playfield = null, in player profile: "+owner);
+            return 0;
+        }
+    }
+    public float FillGrass(){
+        if (playfield != null){
+            float prevHitpoints = playfield.currentHitpoints;
+            float amount = playfield.AdjustHitPoints(500);
+            playfield.AdjustHitPoints(amount);
+            SetDirty();
+            return prevHitpoints - playfield.currentHitpoints;
+        }else{
             Debug.LogWarning("playfield = null, in player profile: "+owner);
             return 0;
         }
@@ -42,29 +56,34 @@ public class PlayerProfile
     }
     public float AddMoney(float amount){
         money += amount;
+        SetDirty();
         return money;
     }
     public float SetMoney(float amount){
         money = amount;
+        SetDirty();
         return money;
     }
 
-    public int starCount;
-    public int GetStarCount(){
-        return starCount;
+    public int crownCount;
+    public int GetStars(){
+        return crownCount;
     }
-    public int AddStarCount(int amount){
-        starCount += amount;
-        return starCount;
+    public int AddCrowns(int amount){
+        crownCount += amount;
+        SetDirty();
+        return crownCount;
     }
-    public int SetStarCount(int amount){
-        starCount = amount;
-        return starCount;
+    public int SetCrowns(int amount){
+        crownCount = amount;
+        SetDirty();
+        return crownCount;
     }
     public bool Buy(string priceName){
         float price = PriceCoordinator.GetPrice(owner, priceName);
         if(price < GetMoney()){
             AddMoney(-price);
+            SetDirty();
             return true;
         }
         Debug.Log("Cannto buy ["+priceName+"], not anough money. Need ["+price+"], Have ["+GetMoney()+"]");
@@ -83,7 +102,7 @@ public class PlayerProfile
     }
 
     public IEnumerator DisplayUrlPicture (string url) {
-		// Start a download of the given URL
+		// Crownt a download of the given URL
 		WWW www = new WWW (url);
 		
 		// Wait for download to complete
@@ -92,4 +111,7 @@ public class PlayerProfile
 		// assign texture
         playerAvatarImage = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0, 0));
 	}
+    public void SetDirty(){
+        EventCoordinator.TriggerEvent(EventName.System.Player.ProfileUpdate(), GameMessage.Write().WithPlayerProfile(this).WithOwner(owner));
+    }
 }

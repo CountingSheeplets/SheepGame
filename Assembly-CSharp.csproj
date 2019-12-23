@@ -286,6 +286,7 @@
      <Compile Include="Assets\Scripts\Game\Arena\FieldCorners.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\Playfield.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\PresetSocket.cs" />
+     <Compile Include="Assets\Scripts\Game\Arena\SheepUpgrade.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\Vortex.cs" />
      <Compile Include="Assets\Scripts\Game\King\Ability Handlers\BuyGrassHandler.cs" />
      <Compile Include="Assets\Scripts\Game\King\Ability Handlers\BuySheepHandler.cs" />
@@ -344,6 +345,7 @@
      <Compile Include="Assets\Scripts\Game\UI\PlayerCard.cs" />
      <Compile Include="Assets\Scripts\Game\UI\PlayerOwnerTile.cs" />
      <Compile Include="Assets\Scripts\Game\Upgrades\SpeedBucket.cs" />
+     <Compile Include="Assets\Scripts\Game\Upgrades\UpgradeBucket.cs" />
      <Compile Include="Assets\Scripts\General\BitMaskAttribute.cs" />
      <Compile Include="Assets\Scripts\General\GameState.cs" />
      <Compile Include="Assets\Scripts\General\GameStateView.cs" />

@@ -31,9 +31,10 @@ public class SheepThrow : MonoBehaviour
                 SheepFly fly = sheepReadyToBeThrown.gameObject.GetComponent<SheepFly>();
                 Debug.Log(msg.swipe);
                 Vector2 destination = msg.swipe.vector * msg.swipe.distance * throwStrength / 10f + (Vector2)fly.transform.position;
-                Debug.Log("fly.destination:"+destination);
                 throwableSheep.Remove(sheepReadyToBeThrown);
-                fly.StartFlying(SpeedBucket.GetFlySpeed(sheepReadyToBeThrown.sheepType), destination);
+                float speed = SpeedBucket.GetFlySpeed(sheepReadyToBeThrown.sheepType);
+                Debug.Log("speed fly:"+speed);
+                fly.StartFlying(speed, destination);
                 sheepReadyToBeThrown.lastHandler = msg.owner;
                 sheepReadyToBeThrown.currentPlayfield = null;
                 sheepReadyToBeThrown = null;

@@ -20,7 +20,7 @@ public class PlayerEliminationHandler : MonoBehaviour
             PriceCoordinator.IncreaseLevel(msg.owner, PriceName.Player.KingElimStar());
 
         int starReward = Mathf.FloorToInt(PriceCoordinator.GetPrice(msg.owner, PriceName.Player.KingElimStar()));
-        PlayerProfileCoordinator.GetProfile(msg.owner).AddStarCount(starReward);
+        PlayerProfileCoordinator.GetProfile(msg.owner).AddCrowns(starReward);
 
         float moneyReward = PriceCoordinator.GetPrice(msg.owner, PriceName.Player.KingElimGold());
         PlayerProfileCoordinator.GetProfile(msg.owner).AddMoney(moneyReward);

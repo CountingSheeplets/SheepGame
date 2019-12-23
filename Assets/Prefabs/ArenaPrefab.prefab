@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 7377706836281408523}
   - component: {fileID: 1142689301254014044}
   - component: {fileID: 4906597521204094191}
+  - component: {fileID: 7518835110973820340}
   m_Layer: 0
   m_Name: ArenaPrefab
   m_TagString: Untagged
@@ -281,6 +282,19 @@ MonoBehaviour:
   throwStrength: 1
   flySpeed: 1
   sheepReadyToBeThrown: {fileID: 0}
+--- !u!114 &7518835110973820340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8023144983768244914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cabb14aac05385449d31a0c2ca5014a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheepThrow: {fileID: 4906597521204094191}
 --- !u!1 &8291182087161254146
 GameObject:
   m_ObjectHideFlags: 0

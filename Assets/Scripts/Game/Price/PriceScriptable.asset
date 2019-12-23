@@ -13,20 +13,20 @@ MonoBehaviour:
   m_Name: PriceScriptable
   m_EditorClassIdentifier: 
   attributes:
-  - attributeName: Sheep_ToKnight
+  - attributeName: King_Smash
     priceBase:
-      basePrice: 4
+      basePrice: 1
       increment: 1
       level: 0
-  - attributeName: Sheep_ToMini
+  - attributeName: Player_KingElimGold
     priceBase:
-      basePrice: 3
-      increment: 2
+      basePrice: 25
+      increment: -5
       level: 0
-  - attributeName: Sheep_ToSpikey
+  - attributeName: Player_KingElimStar
     priceBase:
-      basePrice: 5
-      increment: 2
+      basePrice: 1
+      increment: 1
       level: 0
   - attributeName: King_BuySheep
     priceBase:
@@ -43,13 +43,33 @@ MonoBehaviour:
       basePrice: 1
       increment: 1
       level: 0
-  - attributeName: Player_KingElimGold
+  - attributeName: SheepUpgrade_Small
     priceBase:
-      basePrice: 25
-      increment: -5
+      basePrice: 10
+      increment: 5
       level: 0
-  - attributeName: King_Smash
+  - attributeName: SheepUpgrade_Bouncy
     priceBase:
-      basePrice: 1
-      increment: 1
+      basePrice: 40
+      increment: 5
+      level: 0
+  - attributeName: SheepUpgrade_Greedy
+    priceBase:
+      basePrice: 55
+      increment: 5
+      level: 0
+  - attributeName: SheepUpgrade_Armored
+    priceBase:
+      basePrice: 20
+      increment: 5
+      level: 0
+  - attributeName: SheepUpgrade_Trench
+    priceBase:
+      basePrice: 35
+      increment: 5
+      level: 0
+  - attributeName: SheepUpgrade_Tank
+    priceBase:
+      basePrice: 30
+      increment: 5
       level: 0

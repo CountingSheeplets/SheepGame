@@ -30,7 +30,7 @@ public class SheepEat : MonoBehaviour
         if(totalGrass <=0)
             multiplier = 2;//PriceManager multipliers.NoGrass()
         float moneyAmount = (eatAmount + bonusMoneyIfIsGreedy) / 2f * multiplier;
-        PlayerProfileCoordinator.GetProfile(owner).AddMoney(moneyAmount);
+        PlayerProfileCoordinator.GetProfile(GetComponentInParent<Playfield>().owner).AddMoney(moneyAmount);
     }
 
     float CalculateEatAmount(float baseAmount){

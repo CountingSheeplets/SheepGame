@@ -20,9 +20,11 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator>
         SendObjectAll(newNetObj);
     }
 
-    public static void SendUpgradeData(int deviceId, string upgradeName){
-        NetworkObject newNetObj = new NetworkObject("upgrade", upgradeName);
-        SendObject(deviceId, newNetObj);
+    public static void SendUpgradeData(int deviceId, UpgradeProperty upgrade){
+        JObject json = new JObject();
+        json["type"] = "upgrade";
+        json["upgrade"] = JToken.FromObject(upgrade);
+        AirConsole.instance.Message(deviceId, json);
     }
     public static void SendColor(int deviceId, string colorHex){
         NetworkObject newNetObj = new NetworkObject("playerColor", colorHex);

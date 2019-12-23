@@ -5,25 +5,19 @@ using NDream.AirConsole;
 
 public class PlayerProfileNetworkWriter : MonoBehaviour
 {
-    public float sendInterval = 1f;
-    float counter;
-
-    void Update()
+    void Start(){
+        EventCoordinator.StartListening(EventName.System.Player.ProfileUpdate(), OnProfileUpdate);
+    }
+    void OnDestroy(){
+        EventCoordinator.StopListening(EventName.System.Player.ProfileUpdate(), OnProfileUpdate);
+    }
+    void OnProfileUpdate(GameMessage msg)
     {
-        counter+=Time.deltaTime;
-        if(counter > sendInterval){
-            counter = 0;
-            foreach(Owner owner in OwnersCoordinator.GetOwners()){
-                PlayerProfile profile = owner.GetPlayerProfile();
-                if(SendProfile(profile)){
-                    EventCoordinator.TriggerEvent(EventName.System.Player.ProfileUpdate(), GameMessage.Write().WithPlayerProfile(profile));
-                }else{
-                    Debug.Log("Cant Send. profile not found for owner:"+owner);
-                }
-            }
-            CardCanvasCoordinator.Sort();
-            EventCoordinator.TriggerEvent(EventName.System.Player.PlayerCardsSorted(), GameMessage.Write());
+        if(!SendProfile(msg.playerProfile)){
+            Debug.Log("Cant Send. profile not found for owner:"+msg.owner);
         }
+        CardCanvasCoordinator.Sort();
+        EventCoordinator.TriggerEvent(EventName.System.Player.PlayerCardsSorted(), GameMessage.Write());
     }
 
     bool SendProfile(PlayerProfile profile){
@@ -33,13 +27,13 @@ public class PlayerProfileNetworkWriter : MonoBehaviour
         var data = new Dictionary<string, float> { { "health", profile.GetHealth() },
                                                     { "money", profile.GetMoney() },
                                                     { "grass", Mathf.FloorToInt(profile.GetGrass())},
-                                                    { "crowns", profile.GetStarCount()},
+                                                    { "crowns", profile.GetStars()},
 
                                                     { "priceGrass", PriceCoordinator.GetPrice(profile.owner, PriceName.King.BuyGrass())},
                                                     { "priceSheep", PriceCoordinator.GetPrice(profile.owner, PriceName.King.BuySheep())},
                                                     { "priceSmash", PriceCoordinator.GetPrice(profile.owner, PriceName.King.Smash())},
-                                                    { "priceUpgrade1", PriceCoordinator.GetPrice(profile.owner, PriceName.Sheep.ToMini())},
-                                                    { "priceUpgrade2", PriceCoordinator.GetPrice(profile.owner, PriceName.Sheep.ToKnight())} };
+                                                    { "priceUpgrade1", PriceCoordinator.GetPrice(profile.owner, PriceName.SheepUpgrade.Small())},
+                                                    { "priceUpgrade2", PriceCoordinator.GetPrice(profile.owner, PriceName.SheepUpgrade.Armored())} };
         NetworkCoordinator.SendPlayerProfile(profile.owner.deviceId, data);
         return true;
     }
