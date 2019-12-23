@@ -82,29 +82,34 @@ public class SheepThrow : MonoBehaviour
             if(availableSheep != null){
                 Debug.Log("availableSheep.currentPlayfield:"+availableSheep.currentPlayfield);
                 if(availableSheep.currentPlayfield != null){
-                    availableSheep.GetComponent<SheepRun>().StartRunning(SpeedBucket.GetRunSpeed(sheepReadyToBeThrown.sheepType), availableSheep.currentPlayfield.fieldCorners.Center);
+                    //Debug.Log("sheeprun:"+availableSheep.GetComponent<SheepRun>());
+                    //Debug.Log(" at speed:"+SpeedBucket.GetRunSpeed(availableSheep.sheepType));
+                    availableSheep.GetComponent<SheepRun>().StartRunning(SpeedBucket.GetRunSpeed(availableSheep.sheepType), availableSheep.currentPlayfield.fieldCorners.Center);
                 }
             } else
-                Debug.Log("cant run, non null");
+                Debug.Log("cant run, its null");
         } else {
             Debug.Log("IsReadying or already ready...");
         }
     }
     SheepUnit GetNextSheep(){
         foreach(SheepUnit sheep in throwableSheep){
-            if(sheep.canBeThrown)
-                if(!sheep.skippedByTrenching && sheep.sheepType == SheepType.Trench){
-                    sheep.skippedByTrenching = true;
-                    //here animate sheep trenching!!! burrow sheep
-                    
-                    //trigger animation
-                    continue;
-                }
-                if(sheep.skippedByTrenching && sheep.sheepType == SheepType.Trench){
-                    sheep.skippedByTrenching = false;
-                    return sheep;
+            if(sheep.canBeThrown){
+                if(sheep.sheepType == SheepType.Trench){
+                    if(!sheep.skippedByTrenching){
+                        sheep.skippedByTrenching = true;
+                        //here animate sheep trenching!!! burrow sheep
+                        
+                        //trigger animation
+                        continue;
+                    }
+                    if(sheep.skippedByTrenching){
+                        sheep.skippedByTrenching = false;
+                        return sheep;
+                    }
                 }
                 return sheep;
+            }
         }
         return null;
     }

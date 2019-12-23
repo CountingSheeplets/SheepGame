@@ -13,16 +13,16 @@ public class SpeedBucket : Singleton<SpeedBucket>
         return GetSpeed(SpeedType.fly, sheepType);
     }
     public static float GetRunSpeed(SheepType sheepType){
-        return GetSpeed(SpeedType.fly, sheepType);
+        return GetSpeed(SpeedType.run, sheepType);
     }
     public static float GetRoamSpeed(SheepType sheepType){
-        return GetSpeed(SpeedType.fly, sheepType);
+        return GetSpeed(SpeedType.roam, sheepType);
     }
     public static float GetSwimSpeed(SheepType sheepType){
-        return GetSpeed(SpeedType.fly, sheepType);
+        return GetSpeed(SpeedType.swim, sheepType);
     }        
     public static float GetKnockbackSpeed(SheepType sheepType){
-        return GetSpeed(SpeedType.fly, sheepType);
+        return GetSpeed(SpeedType.knockback, sheepType);
     }    
     public static float GetSpeed (SpeedType speedType, SheepType sheepType){
         switch(speedType){
