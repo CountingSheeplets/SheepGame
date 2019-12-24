@@ -3446,44 +3446,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _persistent: 0
   upgrades:
-  - slot: 0
+  - priceUpgrade: 0
+    slot: 0
     upgradeDisplayName: Small and Fast
     upgradeCodeName: SheepUpgrade_Small
     upgradeDescription: Does everything faster.
     sheepTypeInput: 0
     sheepTypeOutput: 1
-  - slot: 1
+  - priceUpgrade: 0
+    slot: 1
     upgradeDisplayName: Bouncy
     upgradeCodeName: SheepUpgrade_Bouncy
     upgradeDescription: Moves slower to launch location.
     sheepTypeInput: 0
     sheepTypeOutput: 4
-  - slot: 0
+  - priceUpgrade: 0
+    slot: 0
     upgradeDisplayName: Greedy
     upgradeCodeName: SheepUpgrade_Greedy
     upgradeDescription: After landing anywhere on the enemy field bounces towards
       and hits the king.
     sheepTypeInput: 1
     sheepTypeOutput: 2
-  - slot: 1
+  - priceUpgrade: 0
+    slot: 1
     upgradeDisplayName: Armored
     upgradeCodeName: SheepUpgrade_Armored
     upgradeDescription: Grass that it eats, gives more money.
     sheepTypeInput: 1
     sheepTypeOutput: 3
-  - slot: 0
+  - priceUpgrade: 0
+    slot: 0
     upgradeDisplayName: Trench Veteran
     upgradeCodeName: SheepUpgrade_Trench
     upgradeDescription: When it's turn to be thrown, it burrows underground postponing
       its duty by a turn.
     sheepTypeInput: 4
     sheepTypeOutput: 5
-  - slot: 1
+  - priceUpgrade: 0
+    slot: 1
     upgradeDisplayName: Tank
     upgradeCodeName: SheepUpgrade_Tank
     upgradeDescription: Move even slower, cannot be Smited.
     sheepTypeInput: 4
     sheepTypeOutput: 6
+  - priceUpgrade: 0
+    slot: 0
+    upgradeDisplayName: None
+    upgradeCodeName: King_BuySheep
+    upgradeDescription: None
+    sheepTypeInput: 0
+    sheepTypeOutput: 0
 --- !u!114 &752291662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9387,6 +9400,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1888063660}
   - component: {fileID: 1888063661}
+  - component: {fileID: 1888063662}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -9423,6 +9437,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 882f4c1d8a55f2e43a7f3eb1786a17ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+--- !u!114 &1888063662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888063659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 173f24dceffe5be41b4b0a55a53fa813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1889179702

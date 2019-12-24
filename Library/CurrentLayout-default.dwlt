@@ -114,7 +114,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 494}
   m_MaxSize: {x: 18008, y: 14044}
   vertical: 0
-  controlID: 161
+  controlID: 57
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_MinSize: {x: 436, y: 494}
   m_MaxSize: {x: 14006, y: 14044}
   vertical: 1
-  controlID: 134
+  controlID: 58
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_MinSize: {x: 436, y: 272}
   m_MaxSize: {x: 14006, y: 10022}
   vertical: 0
-  controlID: 135
+  controlID: 133
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -322,7 +322,7 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 194}
   m_MaxSize: {x: 4002, y: 8044}
   vertical: 1
-  controlID: 162
+  controlID: 160
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -486,9 +486,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 1aa90000
-      m_LastClickedID: 43290
-      m_ExpandedIDs: deb6fdff02a900001aa90000
+      m_SelectedIDs: 6c2a0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 6afbffff2c440000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -567,16 +567,16 @@ MonoBehaviour:
   m_ShowContextualTools: 0
   m_WindowGUID: 0a4f2ebd53fcebb4399435c8ad1d686c
   m_Gizmos: 0
-  m_SceneIsLit: 0
+  m_SceneIsLit: 1
   m_SceneLighting: 1
   m_2DMode: 1
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.069459304, y: -0.31355342, z: -5.4785156}
+    m_Target: {x: -6.746362, y: -0.1170065, z: -39.652832}
     speed: 2
-    m_Value: {x: 0.069459304, y: -0.31355342, z: -5.4785156}
+    m_Value: {x: -6.746362, y: -0.1170065, z: -39.652832}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -590,7 +590,7 @@ MonoBehaviour:
     showSkybox: 0
     showFlares: 0
     showImageEffects: 0
-    showParticleSystems: 1
+    showParticleSystems: 0
   grid:
     xGrid:
       m_Target: 0
@@ -609,9 +609,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 9.737874
+    m_Target: 2.7728992
     speed: 2
-    m_Value: 9.737874
+    m_Value: 2.7728992
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1096,7 +1096,7 @@ MonoBehaviour:
     height: 352
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
-    m_NameFilter: 
+    m_NameFilter: netw
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -1108,20 +1108,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Game/Arena
+    - Assets/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/Game/Arena
+  - Assets/Prefabs
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\carro\Desktop\Unity\Sheep Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 333}
-    m_SelectedIDs: 923d0000
-    m_LastClickedID: 15762
-    m_ExpandedIDs: 00000000b632000054340000963600000a370000d0370000d437000046380000723800007a380000e238000054390000b2390000c8390000143a0000c23c0000c43c00008a3d0000163e0000543e00005e3f0000d83f000018400000a64000004c48000000ca9a3b
+    scrollPos: {x: 0, y: 93}
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 00000000ba3200005c340000a236000016370000e2370000e63700005a3800008838000090380000fa3800006c390000cc390000e6390000323a0000ea3c0000ec3c0000b23d0000403e0000803e0000983f000058400000e84000009848000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1149,7 +1149,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b632000054340000963600000a370000d0370000d437000046380000723800007a380000e238000054390000b2390000c8390000143a0000843a0000c23c0000c43c00008a3d0000163e0000543e0000963e00005e3f000018400000a64000004c480000
+    m_ExpandedIDs: 00000000ba3200005c340000a236000016370000e2370000e63700005a3800008838000090380000fa3800006c390000cc390000e6390000323a0000ea3c0000ec3c0000b23d0000403e0000803e0000983f000058400000e840000098480000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1204,7 +1204,7 @@ MonoBehaviour:
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 16
   m_SkipHiddenPackages: 0
-  m_DirectoriesAreaWidth: 192
+  m_DirectoriesAreaWidth: 156
 --- !u!114 &23
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1233,7 +1233,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 43290
+  m_LastSelectedObjectID: 17424
 --- !u!114 &24
 MonoBehaviour:
   m_ObjectHideFlags: 52

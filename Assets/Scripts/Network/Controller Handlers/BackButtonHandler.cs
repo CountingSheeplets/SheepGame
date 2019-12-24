@@ -4,9 +4,8 @@ using UnityEngine;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 
-public class BackButtonNetworkHandler : MonoBehaviour
+public class BackButtonHandler : MonoBehaviour
 {
-    string currentViewState = "menu";
     void Start()
     {
         AirConsole.instance.onMessage += OnBack;
@@ -18,17 +17,13 @@ public class BackButtonNetworkHandler : MonoBehaviour
         {
             if (message["element"].ToString() == "view" && message["value"].ToString() == "back")
             {
-                string viewToSet = "menu";
-                if(currentViewState == "upgrade")
+                string viewToSet = ControllerView.currentViewStates[from];
+                if(ControllerView.currentViewStates[from] == "upgrade")
                     viewToSet = "match";
-                if(currentViewState == "details")
+                if(ControllerView.currentViewStates[from] == "details")
                     viewToSet = "post";
                     
                 NetworkCoordinator.SendShowView(from, viewToSet);
-            } else {
-                if (message["element"].ToString() == "view"){
-                    currentViewState = message["value"].ToString();
-                }
             }
         }
     }

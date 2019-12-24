@@ -22,8 +22,16 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator>
 
     public static void SendUpgradeData(int deviceId, UpgradeProperty upgrade){
         JObject json = new JObject();
-        json["type"] = "upgrade";
+        json["type"] = "upgradeData";
         json["upgrade"] = JToken.FromObject(upgrade);
+        AirConsole.instance.Message(deviceId, json);
+    }
+    public static void SendUpgradeButtons(int deviceId, SheepUnit sheep){
+        JObject json = new JObject();
+        json["type"] = "upgradeButtons";
+        //čia bucket neturi None sheeptype ir duoda null paprastai aviai
+        json["upgradeA"] = UpgradeBucket.GetNextUpgradeA(sheep).sheepTypeOutput.ToString();
+        json["upgradeB"] = UpgradeBucket.GetNextUpgradeB(sheep).sheepTypeOutput.ToString();
         AirConsole.instance.Message(deviceId, json);
     }
     public static void SendColor(int deviceId, string colorHex){

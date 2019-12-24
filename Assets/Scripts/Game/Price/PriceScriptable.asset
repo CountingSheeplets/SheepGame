@@ -38,10 +38,10 @@ MonoBehaviour:
       basePrice: 1
       increment: 1
       level: 0
-  - attributeName: Player_KingElimStar
+  - attributeName: SheepUpgrade_Tank
     priceBase:
-      basePrice: 1
-      increment: 1
+      basePrice: 30
+      increment: 5
       level: 0
   - attributeName: SheepUpgrade_Small
     priceBase:
@@ -66,10 +66,5 @@ MonoBehaviour:
   - attributeName: SheepUpgrade_Trench
     priceBase:
       basePrice: 35
-      increment: 5
-      level: 0
-  - attributeName: SheepUpgrade_Tank
-    priceBase:
-      basePrice: 30
       increment: 5
       level: 0

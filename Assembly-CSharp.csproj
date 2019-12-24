@@ -346,6 +346,7 @@
      <Compile Include="Assets\Scripts\Game\UI\PlayerOwnerTile.cs" />
      <Compile Include="Assets\Scripts\Game\Upgrades\SpeedBucket.cs" />
      <Compile Include="Assets\Scripts\Game\Upgrades\UpgradeBucket.cs" />
+     <Compile Include="Assets\Scripts\Game\Upgrades\UpgradeNetworkWriter.cs" />
      <Compile Include="Assets\Scripts\General\BitMaskAttribute.cs" />
      <Compile Include="Assets\Scripts\General\GameState.cs" />
      <Compile Include="Assets\Scripts\General\GameStateView.cs" />
@@ -360,8 +361,9 @@
      <Compile Include="Assets\Scripts\Helper\PriceScriptable EditrUI\StringInList\StringInListDrawer.cs" />
      <Compile Include="Assets\Scripts\Helper\ReadOnlyAttribute.cs" />
      <Compile Include="Assets\Scripts\MiniJSON.cs" />
-     <Compile Include="Assets\Scripts\Network\Controller Handlers\BackButtonNetworkHandler.cs" />
+     <Compile Include="Assets\Scripts\Network\Controller Handlers\BackButtonHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\BuyResourceNetworkHandler.cs" />
+     <Compile Include="Assets\Scripts\Network\Controller Handlers\ControllerView.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\KingSmashNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\MenuNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\ReadyNetworkHandler.cs" />
