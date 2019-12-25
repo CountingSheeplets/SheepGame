@@ -22,11 +22,11 @@ public class EventName
             public static string Smash() { return "KingAbilities_Smash"; }
             public static List<string> Get() { return new List<string> { SpawnSheep(),BuyGrass(),Smash() }; }          
         }
-        public class SheepUpgrades{
-            public static string A() { return "SheepUpgrades_A"; }
-            public static string B() { return "SheepUpgrades_B"; }
+/*         public class SheepUpgrade{
+            public static string A() { return "SheepUpgrade_A"; }
+            public static string B() { return "SheepUpgrade_B"; }
             public static List<string> Get() { return new List<string> { A(), B() }; }          
-        }
+        } */
         public class Menus{
             public static string None() { return null; }
             public static List<string> Get() { return new List<string> { None() }; }
@@ -36,14 +36,15 @@ public class EventName
             public static string PlayerLeft() { return "PlayerLeft"; }
             public static List<string> Get() { return new List<string> { PlayerJoined(),PlayerLeft() }; }
         }
+        public static string SheepUpgrade() { return "Input_SheepUpgrade"; }
         public static string Swipe() { return "Input_Swipe"; }
         public static string ChangeHat() { return "King_ChangeHat"; }
         public static string StartGame() { return "StartGame"; }
         public static List<string> Get() { return new List<string> {
-            StartGame(),
+            StartGame(), SheepUpgrade(),
             Swipe(), ChangeHat()
             }.Concat(KingAbilities.Get())
-                .Concat(SheepUpgrades.Get())
+                //.Concat(SheepUpgrade.Get())
                 .Concat(Menus.Get())
                 .Concat(Network.Get())
                 .ToList(); }

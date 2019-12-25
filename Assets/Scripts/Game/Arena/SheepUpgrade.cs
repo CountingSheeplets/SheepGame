@@ -10,32 +10,30 @@ public class SheepUpgrade : MonoBehaviour
     void Start()
     {
         if(sheepThrow == null) sheepThrow = GetComponent<SheepThrow>();
-        EventCoordinator.StartListening(EventName.Input.SheepUpgrades.A(), OnUpgradeA);
-        EventCoordinator.StartListening(EventName.Input.SheepUpgrades.B(), OnUpgradeB);
+        EventCoordinator.StartListening(EventName.Input.SheepUpgrade(), OnUpgrade);
         EventCoordinator.StartListening(EventName.System.Sheep.ReadyToLaunch(), OnReadyToLaunch);
     }
     void OnDestroy()
     {
-        EventCoordinator.StopListening(EventName.Input.SheepUpgrades.A(), OnUpgradeA);
-        EventCoordinator.StopListening(EventName.Input.SheepUpgrades.B(), OnUpgradeB);
+        EventCoordinator.StopListening(EventName.Input.SheepUpgrade(), OnUpgrade);
         EventCoordinator.StopListening(EventName.System.Sheep.ReadyToLaunch(), OnReadyToLaunch);
     }
-    void OnUpgradeA(GameMessage msg)
+    void OnUpgrade(GameMessage msg)
     {
         SheepUnit sheep = sheepThrow.sheepReadyToBeThrown;
         if(sheep != null){
-            UpgradeProperty upgrade = UpgradeBucket.GetNextUpgradeA(sheep);
-            if(msg.owner.GetPlayerProfile().Buy(upgrade.upgradeCodeName)){
-                sheep.sheepType = upgrade.sheepTypeOutput;
+            UpgradeProperty upgrade = new UpgradeProperty();
+            switch(msg.upgradeType){
+                case UpgradeType.A:
+                    upgrade = UpgradeBucket.GetNextUpgradeA(sheep);
+                    break;
+                case UpgradeType.B:
+                    upgrade = UpgradeBucket.GetNextUpgradeB(sheep);
+                    break;
             }
-        }
-    }
-    void OnUpgradeB(GameMessage msg)
-    {
-        SheepUnit sheep = sheepThrow.sheepReadyToBeThrown;
-        if(sheep != null){
-            UpgradeProperty upgrade = UpgradeBucket.GetNextUpgradeB(sheep);
+            if (upgrade == null) return;
             if(msg.owner.GetPlayerProfile().Buy(upgrade.upgradeCodeName)){
+                Debug.Log("upgrading to:"+upgrade.sheepTypeOutput.ToString());
                 sheep.sheepType = upgrade.sheepTypeOutput;
             }
         }

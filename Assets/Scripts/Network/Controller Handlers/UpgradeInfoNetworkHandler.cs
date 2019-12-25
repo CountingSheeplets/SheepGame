@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 using NDream.AirConsole;
 public class UpgradeInfoNetworkHandler : MonoBehaviour
 {
+    UpgradeType upgradeType;
     void Awake()
     {
         AirConsole.instance.onMessage += OnOpenUpgradeInfo;
@@ -19,27 +20,22 @@ public class UpgradeInfoNetworkHandler : MonoBehaviour
                 if(sheep){
                     if (message["element"].ToString() == "upgrade1")
                     {
+                        upgradeType = UpgradeType.A;
                         NetworkCoordinator.SendUpgradeData(from, UpgradeBucket.GetNextUpgradeA(sheep));
                     }
                     if (message["element"].ToString() == "upgrade2")
                     {
+                        upgradeType = UpgradeType.B;
                         NetworkCoordinator.SendUpgradeData(from, UpgradeBucket.GetNextUpgradeB(sheep));
                     }
-                } else 
-                    NetworkCoordinator.SendUpgradeData(from, new UpgradeProperty());
-                //send to show view for info:
-                NetworkCoordinator.SendShowView(from, "upgrade");
+                    //send to show view for info:
+                    NetworkCoordinator.SendShowView(from, "upgrade");
+                }
             } else {
-                Owner owner = OwnersCoordinator.GetOwner(from);
-                if(owner != null){
-                    if (message["element"].ToString() == "upgrade1")
-                    {
-                        EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrades.A(), GameMessage.Write().WithOwner(owner));
-                        NetworkCoordinator.SendShowView(from, "match");
-                    }
-                    if (message["element"].ToString() == "upgrade2")
-                    {
-                        EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrades.B(), GameMessage.Write().WithOwner(owner));
+                if(message["element"].ToString() == "upgrade" && (bool)message["pressed"] == true){
+                    Owner owner = OwnersCoordinator.GetOwner(from);
+                    if(owner != null){
+                        EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(owner).WithUpgradeType(upgradeType));
                         NetworkCoordinator.SendShowView(from, "match");
                     }
                 }

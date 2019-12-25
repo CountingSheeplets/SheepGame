@@ -94,4 +94,9 @@ public class GameMessage
         playerProfile = value;
         return this;
     }
+    public UpgradeType upgradeType;
+    public GameMessage WithUpgradeType(UpgradeType value){
+        upgradeType = value;
+        return this;
+    }
 }

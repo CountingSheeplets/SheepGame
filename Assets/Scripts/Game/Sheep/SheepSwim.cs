@@ -28,7 +28,10 @@ public class SheepSwim : BaseUnitMove
         if(msg.sheepUnit == sheep){
             if(msg.playfield == null){
                 Transform nearestVortex = FindObjectsOfType<Vortex>().Select(x=>x.transform).ToList().FindNearest(transform);
-                GetComponent<SheepSwim>().StartSwiming(SpeedBucket.GetSwimSpeed(sheep.sheepType), nearestVortex.position);
+                if(nearestVortex != null)
+                    GetComponent<SheepSwim>().StartSwiming(SpeedBucket.GetSwimSpeed(sheep.sheepType), nearestVortex.position);
+                else
+                    EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(GetComponent<SheepUnit>()));
             }
         }
     }

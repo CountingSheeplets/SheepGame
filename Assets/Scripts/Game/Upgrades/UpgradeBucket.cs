@@ -8,18 +8,21 @@ public class UpgradeBucket : Singleton<UpgradeBucket>
     public static UpgradeProperty GetCurrentUpgrade(SheepUnit sheep){
          UpgradeProperty upgrade = Instance.upgrades
             .Where(x=> x.sheepTypeOutput == sheep.sheepType).FirstOrDefault();
+        if (upgrade == null) return null;
         upgrade.priceUpgrade = PriceCoordinator.GetPrice(sheep.owner, upgrade.upgradeCodeName);
         return upgrade;
     }
     public static UpgradeProperty GetNextUpgradeA(SheepUnit sheep){
         UpgradeProperty upgrade = Instance.upgrades.Where(x=>x.slot == UpgradeType.A)
             .Where(x=> x.sheepTypeInput == sheep.sheepType).FirstOrDefault();
+        if (upgrade == null) return null;
         upgrade.priceUpgrade = PriceCoordinator.GetPrice(sheep.owner, upgrade.upgradeCodeName);
         return upgrade;
     }
     public static UpgradeProperty GetNextUpgradeB(SheepUnit sheep){
         UpgradeProperty upgrade = Instance.upgrades.Where(x=>x.slot == UpgradeType.B)
             .Where(x=> x.sheepTypeInput == sheep.sheepType).FirstOrDefault();
+        if (upgrade == null) return null;
         upgrade.priceUpgrade = PriceCoordinator.GetPrice(sheep.owner, upgrade.upgradeCodeName);
         return upgrade;
     }
