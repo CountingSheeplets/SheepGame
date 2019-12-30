@@ -32,20 +32,22 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator>
         //čia bucket neturi None sheeptype ir duoda null paprastai aviai
         UpgradeProperty upgradeA = UpgradeBucket.GetNextUpgradeA(sheep);
         UpgradeProperty upgradeB = UpgradeBucket.GetNextUpgradeB(sheep);
-        string icon = "";
-        float price = 0;
+        string iconA = "";
+        float priceA = 0;
+        string iconB = "";
+        float priceB = 0;
         if(upgradeA != null){
-            icon = upgradeA.sheepTypeOutput.ToString();
-            price = PriceCoordinator.GetPrice(sheep.owner, upgradeA.upgradeCodeName);
-            json["upgradeA_icon"] = icon;
-            json["upgradeA_price"] = price;
+            iconA = upgradeA.sheepTypeOutput.ToString();
+            priceA = PriceCoordinator.GetPrice(sheep.owner, upgradeA.upgradeCodeName);
         }
         if(upgradeB != null){
-            icon = upgradeB.sheepTypeOutput.ToString();
-            price = PriceCoordinator.GetPrice(sheep.owner, upgradeB.upgradeCodeName);
-            json["upgradeB_icon"] = icon;
-            json["upgradeB_price"] = price;
+            iconB = upgradeB.sheepTypeOutput.ToString();
+            priceB = PriceCoordinator.GetPrice(sheep.owner, upgradeB.upgradeCodeName);
         }
+        json["upgradeA_icon"] = iconA;
+        json["upgradeB_icon"] = iconB;
+        json["upgradeA_price"] = priceA;
+        json["upgradeB_price"] = priceB;
         AirConsole.instance.Message(deviceId, json);
     }
     public static void SendColor(int deviceId, string colorHex){

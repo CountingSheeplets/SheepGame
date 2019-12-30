@@ -286,6 +286,7 @@
      <Compile Include="Assets\Scripts\Game\Arena\FieldCorners.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\Playfield.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\PresetSocket.cs" />
+     <Compile Include="Assets\Scripts\Game\Arena\SheepThrow.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\SheepUpgrade.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\Vortex.cs" />
      <Compile Include="Assets\Scripts\Game\King\Ability Handlers\BuyGrassHandler.cs" />
@@ -328,12 +329,12 @@
      <Compile Include="Assets\Scripts\Game\Sheep\SheepFactory.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepFly.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepHeadbutHandler.cs" />
+     <Compile Include="Assets\Scripts\Game\Sheep\SheepLaunchController.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepRoam.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepRoamWriter.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepRun.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepSalto.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepSwim.cs" />
-     <Compile Include="Assets\Scripts\Game\Sheep\SheepThrow.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepTypes.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepUnit.cs" />
      <Compile Include="Assets\Scripts\Game\SpineContainer.cs" />

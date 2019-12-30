@@ -2400,6 +2400,7 @@ GameObject:
   m_Component:
   - component: {fileID: 532607749}
   - component: {fileID: 532607750}
+  - component: {fileID: 532607751}
   m_Layer: 0
   m_Name: Writers
   m_TagString: Untagged
@@ -2431,6 +2432,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56fd0c8f81fdcec418c1a19506f8f7d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &532607751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532607748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6bccf79d23a2e943873279bb75bc98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &533683396
@@ -4497,7 +4510,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 44.3
+  m_fontSize: 37.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

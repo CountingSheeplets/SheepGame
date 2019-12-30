@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.498d002a.chunk.css",
-    "main.js": "/static/js/main.ab2f0616.chunk.js",
-    "main.js.map": "/static/js/main.ab2f0616.chunk.js.map",
+    "main.js": "/static/js/main.5b6b0e2b.chunk.js",
+    "main.js.map": "/static/js/main.5b6b0e2b.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.90329f9f.js",
     "runtime-main.js.map": "/static/js/runtime-main.90329f9f.js.map",
     "static/js/2.ad45be14.chunk.js": "/static/js/2.ad45be14.chunk.js",
     "static/js/2.ad45be14.chunk.js.map": "/static/js/2.ad45be14.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.888959889c635c9acc94bcbd43689690.js": "/precache-manifest.888959889c635c9acc94bcbd43689690.js",
+    "precache-manifest.8506c2ae824a09688ecd490c3858fd9e.js": "/precache-manifest.8506c2ae824a09688ecd490c3858fd9e.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.498d002a.chunk.css.map": "/static/css/main.498d002a.chunk.css.map",
     "static/media/NerisBlack.otf": "/static/media/NerisBlack.b3ed728b.otf",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.90329f9f.js",
     "static/js/2.ad45be14.chunk.js",
     "static/css/main.498d002a.chunk.css",
-    "static/js/main.ab2f0616.chunk.js"
+    "static/js/main.5b6b0e2b.chunk.js"
   ]
 }

@@ -6,6 +6,7 @@ public class UpgradeBucket : Singleton<UpgradeBucket>
 {
     public List<UpgradeProperty> upgrades = new List<UpgradeProperty>();
     public static UpgradeProperty GetCurrentUpgrade(SheepUnit sheep){
+        if (sheep == null) return null;
          UpgradeProperty upgrade = Instance.upgrades
             .Where(x=> x.sheepTypeOutput == sheep.sheepType).FirstOrDefault();
         if (upgrade == null) return null;
@@ -13,6 +14,7 @@ public class UpgradeBucket : Singleton<UpgradeBucket>
         return upgrade;
     }
     public static UpgradeProperty GetNextUpgradeA(SheepUnit sheep){
+        if (sheep == null) return null;
         UpgradeProperty upgrade = Instance.upgrades.Where(x=>x.slot == UpgradeType.A)
             .Where(x=> x.sheepTypeInput == sheep.sheepType).FirstOrDefault();
         if (upgrade == null) return null;
@@ -20,6 +22,7 @@ public class UpgradeBucket : Singleton<UpgradeBucket>
         return upgrade;
     }
     public static UpgradeProperty GetNextUpgradeB(SheepUnit sheep){
+        if (sheep == null) return null;
         UpgradeProperty upgrade = Instance.upgrades.Where(x=>x.slot == UpgradeType.B)
             .Where(x=> x.sheepTypeInput == sheep.sheepType).FirstOrDefault();
         if (upgrade == null) return null;
