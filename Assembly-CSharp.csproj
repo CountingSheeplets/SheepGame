@@ -360,6 +360,7 @@
      <Compile Include="Assets\Scripts\Helper\PriceScriptable EditrUI\StringInList\MyBehaviour.cs" />
      <Compile Include="Assets\Scripts\Helper\PriceScriptable EditrUI\StringInList\PropertyDrawersHelper.cs" />
      <Compile Include="Assets\Scripts\Helper\PriceScriptable EditrUI\StringInList\StringInListDrawer.cs" />
+     <Compile Include="Assets\Scripts\Helper\RandomSprite.cs" />
      <Compile Include="Assets\Scripts\Helper\ReadOnlyAttribute.cs" />
      <Compile Include="Assets\Scripts\MiniJSON.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\BackButtonHandler.cs" />

@@ -62,6 +62,7 @@ public class Playfield : MonoBehaviour
                     Vector3 rotateBy = new Vector3(0, 0, 90f * Mathf.FloorToInt(i / (ArenaCoordinator.GridSize + 1)));
                     //Debug.Log("rotateBy "+rotateBy);
                     newTileGO.transform.Rotate(rotateBy, Space.World);
+                    newTileGO.GetComponentInChildren<SpriteRenderer>().transform.Rotate(-rotateBy, Space.World);
                     fenceTiles.Add(newTileGO.GetComponent<FenceTile>());
                 } else {
                     //Debug.Log("SP: "+sp.ThisPoint()+" i:"+ i+"  %="+(i % (ArenaManager.GridSize + 1) ));
