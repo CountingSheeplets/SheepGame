@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd1cea918df769458b791b66e851e6c, type: 3}
   m_Name: The Culling
   m_EditorClassIdentifier: 
-  scoreName: Get that action
-  reward: 0
-  description: 
-  rewardDelta: 0
+  scoreName: The Culling
+  reward: 1
+  description: per 150 sheep eliminated (including your own sheep).
+  rewardDelta: 150
+  scoreType: 0

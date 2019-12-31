@@ -16,4 +16,5 @@ MonoBehaviour:
   reward: 2
   description: a single player achievement, for whoever upgraded all of his sheep
     that were alive at the moment of his elimination.
-  rewardDelta: 0
+  rewardDelta: 1
+  scoreType: 2

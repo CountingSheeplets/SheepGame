@@ -29,7 +29,7 @@ public class PlayerEliminationHandler : MonoBehaviour
             PriceCoordinator.IncreaseLevel(msg.owner, PriceName.Player.KingElimGold());
         PriceCoordinator.IncreaseLevel(msg.owner, PriceName.Player.KingElimGold());
 
-        EventCoordinator.TriggerEvent(EventName.System.Player.Defeated(), msg);
+        EventCoordinator.TriggerEvent(EventName.System.Player.Eliminated(), msg);
 
         spreeOwner = msg.owner;
     }

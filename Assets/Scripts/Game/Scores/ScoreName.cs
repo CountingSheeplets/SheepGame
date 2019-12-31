@@ -7,11 +7,11 @@ public class ScoreName : MonoBehaviour
 {
     public class Achievement
     {
-        public static string GetthatAction() { return "Get that action"; }
+        public static string GetThatAction() { return "Get that action"; }
         public static string Education() { return "Higher Education"; }
         public static string Baaah() { return "Dr. Baaah"; }
         public static string Paladin() { return "Paladin"; }
-        public static List<string> Get() { return new List<string> { GetthatAction(), Education(), Baaah(), Paladin()}; }
+        public static List<string> Get() { return new List<string> { GetThatAction(), Education(), Baaah(), Paladin()}; }
     }
     public class Counter
     {

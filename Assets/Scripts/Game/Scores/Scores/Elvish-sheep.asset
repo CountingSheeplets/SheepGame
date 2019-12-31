@@ -16,3 +16,4 @@ MonoBehaviour:
   reward: 1
   description: per 50 direct hits onto enemy king
   rewardDelta: 50
+  scoreType: 1

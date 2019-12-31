@@ -1,13 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 public class KingSmash : MonoBehaviour
 {
     public List<Vector2> destinations = new List<Vector2>();
     public List<Vector2> initPos = new List<Vector2>();
     Owner owner;
-    public float hitRange;
     public float flyDistance = 2f;
     public float knockFlySpeed = 2f;
     KingUnit king;
@@ -24,7 +22,7 @@ public class KingSmash : MonoBehaviour
     {
         if(owner.EqualsByValue (msg.owner)){
             AnimateSmash();
-            SendSheepFly();
+            SendSheepFly(msg.sheepUnits);
         }
     }
 
@@ -35,13 +33,10 @@ public class KingSmash : MonoBehaviour
         for(int i=0; i < destinations.Count;i++)
             Debug.DrawLine(initPos[i], destinations[i], king.owner.GetPlayerProfile().playerColor);
     }
-    void SendSheepFly(){
+    void SendSheepFly(List<SheepUnit> sheeps){
         destinations.Clear();
         initPos.Clear();
-        List<SheepUnit> sheepWithinRange = SheepCoordinator.GetSheepInField(king.myPlayfield).Where(x => (x.GetComponent<Transform>().position-transform.position).magnitude <= hitRange).ToList();
-        foreach(SheepUnit sheep in sheepWithinRange){
-            if(sheep.sheepType == SheepType.Tank)
-                continue;
+        foreach(SheepUnit sheep in sheeps){
             SheepFly fly = sheep.GetComponent<SheepFly>();
             Vector2 destination = GetDestinatinoVector(sheep.transform);
             destinations.Add(destination);

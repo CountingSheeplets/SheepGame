@@ -16,3 +16,4 @@ MonoBehaviour:
   reward: 1
   description: per 500 earned coins
   rewardDelta: 500
+  scoreType: 1

@@ -15,4 +15,5 @@ MonoBehaviour:
   scoreName: Get that action
   reward: 1
   description: once per match to each player who eliminate at least one opponent king.
-  rewardDelta: 0
+  rewardDelta: 1
+  scoreType: 0

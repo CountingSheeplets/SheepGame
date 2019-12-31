@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class PlayerCard : MonoBehaviour
 {
     public bool gameStarted = false;
+    public bool isEliminated = false;
     public GameObject disconnectedImage;
+    public GameObject eliminatedImage;
     
     public TextMeshProUGUI crownCount;
     public TextMeshProUGUI moneyCount;
@@ -29,6 +31,7 @@ public class PlayerCard : MonoBehaviour
         EventCoordinator.StartListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
         EventCoordinator.StartListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
         EventCoordinator.StartListening(EventName.System.Player.PlayerCardsSorted(), OnSorted);
+        EventCoordinator.StartListening(EventName.System.Player.Eliminated(), OnEliminated);
         //init by copying ghost:
         myRectTr = GetComponent<RectTransform>();
         ghostRectTr = targetCardGhost.GetComponent<RectTransform>();
@@ -42,9 +45,12 @@ public class PlayerCard : MonoBehaviour
         EventCoordinator.StopListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
         EventCoordinator.StopListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
         EventCoordinator.StopListening(EventName.System.Player.PlayerCardsSorted(), OnSorted);
+        EventCoordinator.StopListening(EventName.System.Player.Eliminated(), OnEliminated);
     }
 
     void OnProfileUpdate(GameMessage msg){
+        if(isEliminated)
+            return;
         if(owner.EqualsByValue(msg.playerProfile.owner)){
             crownCount.text = Mathf.FloorToInt(msg.playerProfile.GetStars()).ToString();
             moneyCount.text = Mathf.FloorToInt(msg.playerProfile.GetMoney()).ToString();
@@ -92,5 +98,13 @@ public class PlayerCard : MonoBehaviour
 		    yield return null;
         }
         yield return null;
+    }
+
+    void OnEliminated(GameMessage msg){
+        if(owner == msg.owner){
+            //transform.SetAsLastSibling();
+            eliminatedImage.SetActive(true);
+            isEliminated = true;
+        }
     }
 }

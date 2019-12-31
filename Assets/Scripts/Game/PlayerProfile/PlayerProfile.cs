@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerProfile
 {
-    public bool isAlive = false;
+    public bool isAlive = true;
     public Owner owner;
     public Color playerColor;
     public Sprite playerAvatarImage;
@@ -51,11 +51,18 @@ public class PlayerProfile
     }
 
     float money;
+    float earnedMoney;
+
     public float GetMoney(){
         return money;
     }
+    public float GetMoneyEarned(){
+        return earnedMoney;
+    }
     public float AddMoney(float amount){
         money += amount;
+        if(amount > 0)
+            earnedMoney+=amount;
         SetDirty();
         return money;
     }

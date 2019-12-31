@@ -7,6 +7,7 @@ public class SheepUpgrade : MonoBehaviour
     public SheepThrow sheepThrow;
     public SheepType typeA;
     public SheepType typeB;
+    public int tier2UpgradeCount;
     void Start()
     {
         if(sheepThrow == null) sheepThrow = GetComponent<SheepThrow>();
@@ -35,6 +36,9 @@ public class SheepUpgrade : MonoBehaviour
             if(msg.owner.GetPlayerProfile().Buy(upgrade.upgradeCodeName)){
                 Debug.Log("upgrading to:"+upgrade.sheepTypeOutput.ToString());
                 sheep.sheepType = upgrade.sheepTypeOutput;
+                if(upgrade.sheepTypeOutput != (SheepType.Small) && upgrade.sheepTypeOutput != (SheepType.Armored)){
+                    tier2UpgradeCount++;
+                }
             }
         }
     }

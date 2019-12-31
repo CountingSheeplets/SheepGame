@@ -321,7 +321,10 @@
      <Compile Include="Assets\Scripts\Game\Scores\ScoreHandler.cs" />
      <Compile Include="Assets\Scripts\Game\Scores\ScoreName.cs" />
      <Compile Include="Assets\Scripts\Game\Scores\ScoreNetworkWriter.cs" />
+     <Compile Include="Assets\Scripts\Game\Scores\ScoreRow.cs" />
+     <Compile Include="Assets\Scripts\Game\Scores\ScoreScreenController.cs" />
      <Compile Include="Assets\Scripts\Game\Scores\ScoreScriptable.cs" />
+     <Compile Include="Assets\Scripts\Game\Scores\ScoreType.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\BaseUnitMove.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepCoordinator.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepEat.cs" />
@@ -345,6 +348,7 @@
      <Compile Include="Assets\Scripts\Game\UI\OwnerTileResizer.cs" />
      <Compile Include="Assets\Scripts\Game\UI\PlayerCard.cs" />
      <Compile Include="Assets\Scripts\Game\UI\PlayerOwnerTile.cs" />
+     <Compile Include="Assets\Scripts\Game\UI\TextSideScroll.cs" />
      <Compile Include="Assets\Scripts\Game\Upgrades\SpeedBucket.cs" />
      <Compile Include="Assets\Scripts\Game\Upgrades\UpgradeBucket.cs" />
      <Compile Include="Assets\Scripts\Game\Upgrades\UpgradeNetworkWriter.cs" />

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class SheepCoordinator : Singleton<SheepCoordinator>
 {
@@ -37,6 +38,9 @@ public class SheepCoordinator : Singleton<SheepCoordinator>
                 }
         }
         return count;
+    }
+    public static List<SheepUnit> GetSheeps(Owner owner){
+        return Instance.sheeps.Where(x=> x.owner == owner).ToList();
     }
     public static List<SheepUnit> GetSheeps(){
         return Instance.sheeps;

@@ -11,7 +11,7 @@ public class TestEvents : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.D)){
             Debug.Log("Defeat Random Player...");
             List<Owner> owners = OwnersCoordinator.GetOwners();
-            EventCoordinator.TriggerEvent(EventName.System.Player.Defeated(), GameMessage.Write().WithOwner(owners[Random.Range(0, owners.Count-1)]));
+            EventCoordinator.TriggerEvent(EventName.System.Player.Eliminated(), GameMessage.Write().WithOwner(owners[Random.Range(0, owners.Count-1)]));
         }
         if(Input.GetKeyDown(KeyCode.A)){
             Debug.Log("Fake Hit a random King with random sheep...");
@@ -29,6 +29,21 @@ public class TestEvents : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.S)){
             NetworkCoordinator.SendShowViewAll("match");
+        }
+
+        if(Input.GetKeyDown(KeyCode.KeypadPlus)){
+            foreach(Owner owner in OwnersCoordinator.GetOwners()){
+                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Achievement.Baaah(), 5);
+                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Achievement.Education(), 5);
+                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Achievement.GetThatAction(), 5);
+                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Achievement.Paladin(), 5);
+
+                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Counter.Angry(), 500);
+                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Counter.Culling(), 500);
+                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Counter.Elvish(), 500);
+                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Counter.Merchant(), 3000);
+                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Counter.Shepherd(), 3000);
+            }
         }
     }
 }

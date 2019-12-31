@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class KingSmiteHandler : MonoBehaviour
 {
+    public float hitRange = 1f;
     public List<Owner> smashers = new List<Owner>();
     void Start()
     {
@@ -22,10 +24,20 @@ public class KingSmiteHandler : MonoBehaviour
         PlayerProfile profile = PlayerProfileCoordinator.GetProfile(msg.owner);
         if(profile.Buy(PriceName.King.Smash())){
             PriceCoordinator.IncreaseLevel(msg.owner, PriceName.King.Smash());
-            EventCoordinator.TriggerEvent(EventName.System.King.Smashed(), GameMessage.Write().WithOwner(msg.owner));
+            KingUnit king = msg.owner.GetKing();
+            List<SheepUnit> sheepWithinRange = SheepCoordinator.GetSheepInField(king.myPlayfield)
+                .Where(x => (x.GetComponent<Transform>().position-transform.position).magnitude <= hitRange)
+                .Where(x => x.sheepType == SheepType.Tank)
+                .ToList();
+            EventCoordinator.TriggerEvent(EventName.System.King.Smashed(),
+                GameMessage.Write()
+                    .WithOwner(msg.owner)
+                    .WithSheepUnits(sheepWithinRange)
+                    .WithKingUnit(king)
+                );
         }
-        Debug.Log("smashers: "+smashers.Count+"  alive:"+PlayerProfileCoordinator.GetAliveTeamCount());
-        if(smashers.Count >= PlayerProfileCoordinator.GetAliveTeamCount()){
+        Debug.Log("smashers: "+smashers.Count+"  alive:"+PlayerProfileCoordinator.GetAliveOwners().Count);
+        if(smashers.Count >= PlayerProfileCoordinator.GetAliveOwners().Count){
             EventCoordinator.TriggerEvent(EventName.System.King.SmashReset(), GameMessage.Write());
             smashers.Clear();
         }

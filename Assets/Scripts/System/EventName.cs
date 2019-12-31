@@ -5,9 +5,9 @@ public class EventName
 {
     public class UI
     {
-        public static string None() { return null; }
+        public static string ShowScoreScreen() { return "UI_ShowScoreScreen"; }
         public static string ShowCooldownNotReady() { return "ShowCooldownNotReady"; }
-        public static List<string> Get() { return new List<string> { None(), ShowCooldownNotReady()}; }
+        public static List<string> Get() { return new List<string> { ShowScoreScreen(), ShowCooldownNotReady()}; }
     }
     public class Editor
     {
@@ -84,15 +84,15 @@ public class EventName
             public static string Initialized() {return "System_Initialized";}
             public static string SetField() { return "System_SetField"; }
             public static string AdjustField() { return "System_AdjustField"; }
-            public static List<string> Get() { return new List<string> {Initialized(), SetField(), AdjustField()}; }          
+            public static string EndMatch() { return "System_EndMatch"; }
+            public static List<string> Get() { return new List<string> {Initialized(), SetField(), AdjustField(), EndMatch()}; }          
         //public static string MapLayoutChanged() { return "MapLayoutChanged"; }
         }
         public class Player{
             public static string ProfileUpdate() { return "System_ProfileUpdate"; }
             public static string PlayerCardsSorted() { return "System_PlayerCardsSorted"; }
-            public static string Victorious() { return "System_Victorious"; }
-            public static string Defeated() { return "System_Defeated"; }
-            public static List<string> Get() { return new List<string> { ProfileUpdate(),PlayerCardsSorted(),Victorious(),Defeated()}; }          
+            public static string Eliminated() { return "System_Eliminated"; }
+            public static List<string> Get() { return new List<string> { ProfileUpdate(),PlayerCardsSorted(),Eliminated()}; }          
         }
         //public static string NextScene() { return "NextScene"; }
         //public static string LoadScene() { return "LoadScene"; }

@@ -12,13 +12,13 @@ public class ArenaController : MonoBehaviour
         EventCoordinator.StartListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
         EventCoordinator.StartListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
         EventCoordinator.StartListening(EventName.Input.StartGame(), OnStartGame);
-        EventCoordinator.StartListening(EventName.System.Player.Defeated(), OnPlayerDefeated);
+        EventCoordinator.StartListening(EventName.System.Player.Eliminated(), OnPlayerDefeated);
     }
     void OnDestroy(){
         EventCoordinator.StopListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
         EventCoordinator.StopListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
         EventCoordinator.StopListening(EventName.Input.StartGame(), OnStartGame);
-        EventCoordinator.StopListening(EventName.System.Player.Defeated(), OnPlayerDefeated);
+        EventCoordinator.StopListening(EventName.System.Player.Eliminated(), OnPlayerDefeated);
     }
 
     void OnStartGame(GameMessage msg){
@@ -34,9 +34,6 @@ public class ArenaController : MonoBehaviour
     void OnPlayerDefeated(GameMessage msg){
         ArenaCoordinator.RemoveField(msg.owner);
         ArenaCoordinator.RearrangeArena();
-
-        if(PlayerProfileCoordinator.GetAliveTeamCount() == 1)
-            EventCoordinator.TriggerEvent(EventName.System.Player.Victorious(), GameMessage.Write());
     }
 
     void OnPlayerJoined(GameMessage msg){

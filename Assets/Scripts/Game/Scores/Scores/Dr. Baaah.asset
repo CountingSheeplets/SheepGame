@@ -16,4 +16,5 @@ MonoBehaviour:
   reward: 1
   description: a single player achievement in each match for whoever got most 2nd
     tier upgrades through all game.
-  rewardDelta: 0
+  rewardDelta: 1
+  scoreType: 2

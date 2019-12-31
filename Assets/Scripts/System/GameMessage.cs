@@ -99,4 +99,9 @@ public class GameMessage
         upgradeType = value;
         return this;
     }
+    public List<SheepUnit> sheepUnits;
+    public GameMessage WithSheepUnits(List<SheepUnit> value){
+        sheepUnits = value;
+        return this;
+    }
 }

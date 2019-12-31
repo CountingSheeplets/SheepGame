@@ -37,6 +37,7 @@ public class Playfield : MonoBehaviour
         EventCoordinator.StopListening(EventName.Input.StartGame(), OnStart);
         EventCoordinator.StopListening(EventName.System.Environment.SetField(), OnSetField);
         EventCoordinator.StopListening(EventName.System.Environment.AdjustField(), OnAdjustField);
+        ScoreCoordinator.SetTechTier2Counts(owner, GetComponent<SheepUpgrade>().tier2UpgradeCount);
     }
 /*     void OnSwipe(GameMessage msg){
         Debug.Log("swiping:"+msg.swipe.vector);

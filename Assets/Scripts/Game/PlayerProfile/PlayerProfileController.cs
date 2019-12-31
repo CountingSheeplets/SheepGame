@@ -8,11 +8,13 @@ public class PlayerProfileController : MonoBehaviour
     {
         EventCoordinator.StartListening(EventName.System.Environment.Initialized(), OnInitialized);
         EventCoordinator.StartListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
+        EventCoordinator.StartListening(EventName.System.Player.Eliminated(), OnPlayerDefeated);
         
     }
     void OnDestroy(){
         EventCoordinator.StopListening(EventName.System.Environment.Initialized(), OnInitialized);
         EventCoordinator.StopListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
+        EventCoordinator.StopListening(EventName.System.Player.Eliminated(), OnPlayerDefeated);
     }
 
     void OnInitialized(GameMessage msg){
@@ -27,5 +29,8 @@ public class PlayerProfileController : MonoBehaviour
     void OnPlayerJoined(GameMessage msg){
         PlayerProfileCoordinator.AddProfile(msg.owner);
         PlayerProfileCoordinator.GetProfile(msg.owner).AddMoney(100f);
+    }
+    void OnPlayerDefeated(GameMessage msg){
+        //msg.owner.GetPlayerProfile().isAlive = false;
     }
 }

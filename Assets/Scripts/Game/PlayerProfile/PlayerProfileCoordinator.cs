@@ -40,15 +40,25 @@ public class PlayerProfileCoordinator : Singleton<PlayerProfileCoordinator>
         return profile;
     }
 
-    public static int GetAliveTeamCount(){
+    public static List<float> GetAliveTeams(){
         List<float> teams = new List<float>();
         foreach(PlayerProfile profile in Instance.profiles){
             float id = profile.owner.teamId;
             if(!teams.Contains(id))
                 teams.Add(id);
         }
-        return teams.Count;
+        return teams;
     }
+    public static List<Owner> GetAliveOwners(){
+        List<Owner> owners = new List<Owner>();
+        foreach(PlayerProfile profile in Instance.profiles){
+            Owner owner = profile.owner;
+            if(!owners.Contains(owner) && profile.isAlive)
+                owners.Add(owner);
+        }
+        return owners;
+    }
+
     public static void GetPlayerAvatarIcon(Owner owner){
 		string urlOfProfilePic = AirConsole.instance.GetProfilePicture (owner.deviceId, 512);
         Instance.StartCoroutine(GetProfile(owner).DisplayUrlPicture(urlOfProfilePic));

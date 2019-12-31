@@ -16,3 +16,4 @@ MonoBehaviour:
   reward: 1
   description: per 300 sheep hired.
   rewardDelta: 300
+  scoreType: 1

@@ -25,9 +25,10 @@ public class PlayerProfileNetworkWriter : MonoBehaviour
     }
 
     bool SendProfile(PlayerProfile profile){
-        if(profile == null){
+        if(profile == null)
             return false;
-        }
+        if(!profile.isAlive)
+            return false;
         var data = new Dictionary<string, float>{ { "health", profile.GetHealth() },
                                                     { "money", profile.GetMoney() },
                                                     { "grass", Mathf.FloorToInt(profile.GetGrass())},
