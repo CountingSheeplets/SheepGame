@@ -32,9 +32,10 @@ public class EventName
             public static List<string> Get() { return new List<string> { None() }; }
         }
         public class Network{
+            public static string View() { return "View"; }
             public static string PlayerJoined() { return "PlayerJoined"; }
             public static string PlayerLeft() { return "PlayerLeft"; }
-            public static List<string> Get() { return new List<string> { PlayerJoined(),PlayerLeft() }; }
+            public static List<string> Get() { return new List<string> {View(), PlayerJoined(),PlayerLeft() }; }
         }
         public static string SheepUpgrade() { return "Input_SheepUpgrade"; }
         public static string Swipe() { return "Input_Swipe"; }
@@ -78,7 +79,8 @@ public class EventName
             public static string ReadyToLaunch() { return "System_Sheep_ReadyToLaunch"; }
             public static string Kill() { return "System_Sheep_Kill"; }
             public static string Roam() { return "System_Sheep_Roam"; }
-            public static List<string> Get() { return new List<string> { Spawned(), Launch(), Land(), ReadyToLaunch(), Kill(), Roam()}; }          
+            public static string Upgraded() { return "System_Sheep_Upgraded"; }
+            public static List<string> Get() { return new List<string> { Spawned(), Launch(), Land(), ReadyToLaunch(), Kill(), Roam(), Upgraded()}; }          
         }
         public class Environment{
             public static string Initialized() {return "System_Initialized";}

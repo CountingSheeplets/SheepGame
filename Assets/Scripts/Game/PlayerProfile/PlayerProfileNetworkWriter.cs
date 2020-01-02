@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class PlayerProfileNetworkWriter : MonoBehaviour
 {
-    bool gameStarted;
     void Start(){
         EventCoordinator.StartListening(EventName.System.Player.ProfileUpdate(), OnProfileUpdate);
-        EventCoordinator.StartListening(EventName.Input.StartGame(), OnStart);
     }
     void OnDestroy(){
         EventCoordinator.StopListening(EventName.System.Player.ProfileUpdate(), OnProfileUpdate);
-        EventCoordinator.StopListening(EventName.Input.StartGame(), OnStart);
     }
-    void OnStart(GameMessage msg){ gameStarted = true;}
     void OnProfileUpdate(GameMessage msg)
     {
-        if(!gameStarted) return;
+        if(GameStateView.GetGameState() != GameState.started) return;
         if(!SendProfile(msg.playerProfile)){
             Debug.Log("Cant Send. profile not found for owner:"+msg.owner);
         }

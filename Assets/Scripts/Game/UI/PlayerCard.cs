@@ -5,7 +5,6 @@ using TMPro;
 using UnityEngine.UI;
 public class PlayerCard : MonoBehaviour
 {
-    public bool gameStarted = false;
     public bool isEliminated = false;
     public GameObject disconnectedImage;
     public GameObject eliminatedImage;
@@ -64,17 +63,18 @@ public class PlayerCard : MonoBehaviour
     }
 
     void OnPlayerJoined(GameMessage msg){
-        if(gameStarted && owner.EqualsByValue(msg.owner)){
-            disconnectedImage.SetActive(false);
-        }
+        if((GameStateView.GetGameState() & GameState.started) != 0)
+            if(owner.EqualsByValue(msg.owner)){
+                disconnectedImage.SetActive(false);
+            }
     }
     void OnPlayerLeft(GameMessage msg){
-        if(gameStarted && owner.EqualsByValue(msg.owner)){
-            disconnectedImage.SetActive(true);
-        }
+        if((GameStateView.GetGameState() & GameState.started) != 0)
+            if(owner.EqualsByValue(msg.owner)){
+                disconnectedImage.SetActive(true);
+            }
     }
     void OnStartGame(GameMessage msg){
-        gameStarted = true;
         playerAvatarImage.sprite = owner.GetPlayerProfile().playerAvatarImage;
         playerColorBackground.color = owner.GetPlayerProfile().playerColor;
         playerName.text = owner.ownerName;
@@ -101,7 +101,7 @@ public class PlayerCard : MonoBehaviour
     }
 
     void OnEliminated(GameMessage msg){
-        if(owner == msg.targetOwner){
+        if(owner.EqualsByValue( msg.targetOwner)){
             //transform.SetAsLastSibling();
             eliminatedImage.SetActive(true);
             isEliminated = true;

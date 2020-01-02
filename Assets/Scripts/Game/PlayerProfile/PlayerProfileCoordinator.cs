@@ -25,9 +25,7 @@ public class PlayerProfileCoordinator : Singleton<PlayerProfileCoordinator>
             profile.playerColor = Instance.colors[Instance.profiles.Count];
         else
             profile.playerColor = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
-        //send assigned data
-        NetworkCoordinator.SendColor(owner.deviceId, "#"+ColorUtility.ToHtmlStringRGBA(profile.playerColor).Substring(0, 6));
-        NetworkCoordinator.SendName(owner.deviceId, profile.owner.ownerName);
+
 
         Instance.profiles.Add(profile);
         GetPlayerAvatarIcon(owner);

@@ -27,8 +27,14 @@ public class PlayerProfileController : MonoBehaviour
     }
 
     void OnPlayerJoined(GameMessage msg){
-        PlayerProfileCoordinator.AddProfile(msg.owner);
-        PlayerProfileCoordinator.GetProfile(msg.owner).AddMoney(100f);
+        PlayerProfile profile = PlayerProfileCoordinator.GetProfile(msg.owner);
+        if(profile == null){
+            profile = PlayerProfileCoordinator.AddProfile(msg.owner);
+            profile.AddMoney(100f);
+        }
+        //send assigned data
+        NetworkCoordinator.SendColor(msg.owner.deviceId, "#"+ColorUtility.ToHtmlStringRGBA(profile.playerColor).Substring(0, 6));
+        NetworkCoordinator.SendName(msg.owner.deviceId, profile.owner.ownerName);
     }
     void OnPlayerDefeated(GameMessage msg){
         msg.targetOwner.GetPlayerProfile().isAlive = false;

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Higher Education
   m_EditorClassIdentifier: 
   scoreName: Higher Education
-  reward: 2
-  description: a single player achievement, for whoever upgraded all of his sheep
-    that were alive at the moment of his elimination.
+  reward: 1
+  description: for players who upgraded all of his sheep that were alive at the moment
+    of his elimination.
   rewardDelta: 1
   scoreType: 2

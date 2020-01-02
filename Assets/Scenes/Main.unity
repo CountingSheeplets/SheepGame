@@ -2227,46 +2227,46 @@ MonoBehaviour:
   upgrades:
   - priceUpgrade: 0
     slot: 0
-    upgradeDisplayName: Small and Fast
+    upgradeDisplayName: small and Fast
     upgradeCodeName: SheepUpgrade_Small
-    upgradeDescription: Does everything faster.
+    upgradeDescription: does everything faster
     sheepTypeInput: 0
     sheepTypeOutput: 1
   - priceUpgrade: 0
     slot: 1
-    upgradeDisplayName: Bouncy
+    upgradeDisplayName: bouncy
     upgradeCodeName: SheepUpgrade_Bouncy
-    upgradeDescription: Moves slower to launch location.
-    sheepTypeInput: 0
-    sheepTypeOutput: 4
+    upgradeDescription: after landing anywhere on the enemy field bounces towards
+      the king
+    sheepTypeInput: 1
+    sheepTypeOutput: 2
   - priceUpgrade: 0
     slot: 0
     upgradeDisplayName: Greedy
     upgradeCodeName: SheepUpgrade_Greedy
-    upgradeDescription: After landing anywhere on the enemy field bounces towards
-      and hits the king.
-    sheepTypeInput: 1
-    sheepTypeOutput: 2
-  - priceUpgrade: 0
-    slot: 1
-    upgradeDisplayName: Armored
-    upgradeCodeName: SheepUpgrade_Armored
-    upgradeDescription: Grass that it eats, gives more money.
+    upgradeDescription: eating grass gives more coins
     sheepTypeInput: 1
     sheepTypeOutput: 3
   - priceUpgrade: 0
+    slot: 1
+    upgradeDisplayName: armored
+    upgradeCodeName: SheepUpgrade_Armored
+    upgradeDescription: moves slower to launch location
+    sheepTypeInput: 0
+    sheepTypeOutput: 4
+  - priceUpgrade: 0
     slot: 0
-    upgradeDisplayName: Trench Veteran
+    upgradeDisplayName: trench veteran
     upgradeCodeName: SheepUpgrade_Trench
-    upgradeDescription: When it's turn to be thrown, it burrows underground postponing
-      its duty by a turn.
+    upgradeDescription: before being thrown, it burrows underground postponing its
+      duty by a turn
     sheepTypeInput: 4
     sheepTypeOutput: 5
   - priceUpgrade: 0
     slot: 1
     upgradeDisplayName: Tank
     upgradeCodeName: SheepUpgrade_Tank
-    upgradeDescription: Move even slower, cannot be Smited.
+    upgradeDescription: move even slower, cannot be Smited
     sheepTypeInput: 4
     sheepTypeOutput: 6
   - priceUpgrade: 0
@@ -5762,7 +5762,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1889179705}
-  gameStarted: 0
 --- !u!114 &1889179707
 MonoBehaviour:
   m_ObjectHideFlags: 0

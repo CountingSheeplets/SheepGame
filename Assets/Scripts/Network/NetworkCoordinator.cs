@@ -12,8 +12,13 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator>
     }
 
     public static void SendShowView(int deviceId, string view){
-        NetworkObject newNetObj = new NetworkObject("changeView", view);
-        SendObject(deviceId, newNetObj);
+        //NetworkObject newNetObj = new NetworkObject("changeView", view);
+        JObject json = new JObject();
+        json["type"] = "changeView";
+        json["value"] = view;
+        Debug.Log("AirConsole-Send:"+json);
+        AirConsole.instance.Message(deviceId, json);
+        //SendObject(deviceId, newNetObj);
     }
     public static void SendShowViewAll(string view){
         NetworkObject newNetObj = new NetworkObject("changeView", view);

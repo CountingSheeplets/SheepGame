@@ -57,7 +57,9 @@ public class ScoreCoordinator : Singleton<ScoreCoordinator>
         return scoresDict;
     }
     public static void SetTechTier2Counts(Owner owner, int techCount){
-        Instance.techTier2Counts[owner] = techCount;
+        if(owner)
+            if(Instance)
+                Instance.techTier2Counts[owner] = techCount;
     }
     public static void CalculateTier2TechCounts(){
         if(Instance.techTier2Counts.Count==0)

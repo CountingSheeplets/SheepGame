@@ -18,11 +18,14 @@ public class ControllerView : Singleton<ControllerView>
         if (message["element"] != null)
         {
             if (message["element"].ToString() == "view"){
-                if(currentViewStates.ContainsKey(from))
-                    previousViewStates[from] = currentViewStates[from];
-                else
-                    previousViewStates[from] = message["value"].ToString();
+                if(previousViewStates.ContainsKey(from))
+                    if(previousViewStates[from] != currentViewStates[from])
+                        previousViewStates[from] = currentViewStates[from];
+
                 currentViewStates[from] = message["value"].ToString();
+                if(!previousViewStates.ContainsKey(from))
+                    previousViewStates[from] = currentViewStates[from];
+                EventCoordinator.TriggerEvent(EventName.Input.Network.View(), GameMessage.Write().WithOwner(OwnersCoordinator.GetOwner(from)));
             }
         }
     }

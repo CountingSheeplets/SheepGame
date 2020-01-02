@@ -8,9 +8,11 @@ public class SheepUpgrade : MonoBehaviour
     public SheepType typeA;
     public SheepType typeB;
     public int tier2UpgradeCount;
+    Owner owner;
     void Start()
     {
         if(sheepThrow == null) sheepThrow = GetComponent<SheepThrow>();
+        if(owner == null) owner = GetComponent<Playfield>().owner;
         EventCoordinator.StartListening(EventName.Input.SheepUpgrade(), OnUpgrade);
         EventCoordinator.StartListening(EventName.System.Sheep.ReadyToLaunch(), OnReadyToLaunch);
     }
@@ -21,6 +23,8 @@ public class SheepUpgrade : MonoBehaviour
     }
     void OnUpgrade(GameMessage msg)
     {
+        if(!owner.EqualsByValue(msg.owner))
+            return;
         SheepUnit sheep = sheepThrow.sheepReadyToBeThrown;
         if(sheep != null){
             UpgradeProperty upgrade = new UpgradeProperty();
@@ -39,6 +43,7 @@ public class SheepUpgrade : MonoBehaviour
                 if(upgrade.sheepTypeOutput != (SheepType.Small) && upgrade.sheepTypeOutput != (SheepType.Armored)){
                     tier2UpgradeCount++;
                 }
+                EventCoordinator.TriggerEvent(EventName.System.Sheep.Upgraded(), msg.WithSheepUnit(sheep));
             }
         }
     }

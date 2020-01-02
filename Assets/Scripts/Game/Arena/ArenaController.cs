@@ -5,8 +5,6 @@ using System.Linq;
 
 public class ArenaController : MonoBehaviour
 {
-    bool gameStarted = false;
-
     void Start()
     {
         EventCoordinator.StartListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
@@ -24,14 +22,12 @@ public class ArenaController : MonoBehaviour
     }
 
     void OnStartGame(GameMessage msg){
-        gameStarted = true;
        ArenaCoordinator.RearrangeArena();
     }
     void OnPlayerLeft(GameMessage msg){
         //destroy a playfield if game has not started yet, if started, leave?
-        if(!gameStarted){
+        if((GameStateView.GetGameState() & GameState.started) == 0)
             ArenaCoordinator.RemoveField(msg.owner);
-        }
     }
     void OnPlayerDefeated(GameMessage msg){
         ArenaCoordinator.RemoveField(msg.targetOwner);

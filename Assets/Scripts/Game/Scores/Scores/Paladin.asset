@@ -17,4 +17,4 @@ MonoBehaviour:
   description: a single player achievement, for player who smashed most sheep in a
     single hit per match.
   rewardDelta: 1
-  scoreType: 1
+  scoreType: 2

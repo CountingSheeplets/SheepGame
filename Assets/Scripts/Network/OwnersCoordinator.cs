@@ -17,6 +17,7 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator>
     public static Owner TryCreateOwner(int device_id){
         Owner candidateOwner = Instance.owners.Where(x=>x.ownerId == AirConsole.instance.GetUID(device_id)).FirstOrDefault();
         if(candidateOwner == null){
+            Debug.Log("didnt find owner, creating new one!");
             GameObject go = Instantiate(Instance.ownerTilePrefab, Instance.ownerPanelContainer);
             string nicknameOfJoined = AirConsole.instance.GetNickname (device_id);
             Owner newOwner = go.AddComponent<Owner>();
@@ -28,13 +29,14 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator>
         } else {
             candidateOwner.deviceId = device_id;
             candidateOwner.connected = true;
-            candidateOwner.gameObject.SetActive(true);
             Debug.Log("Reconnect succesfull!");
             if((GameStateView.GetGameState() & GameState.started) != 0)
                 NetworkCoordinator.SendShowView(device_id, "match");
             else {
                 NetworkCoordinator.SendShowView(device_id, "menu");
             }
+            if(GameStateView.GetGameState() != GameState.started)
+                candidateOwner.gameObject.SetActive(true);
             return candidateOwner;
         }
     }

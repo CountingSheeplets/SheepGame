@@ -8,31 +8,23 @@ public class BackButtonHandler : MonoBehaviour
 {
     void Start()
     {
-        AirConsole.instance.onMessage += OnBack;
+        EventCoordinator.StartListening(EventName.Input.Network.View(), OnView);
     }
 
-    void OnBack(int from, JToken message)
+    void OnView(GameMessage msg)
     {
-        if (message["element"] != null)
+        if (ControllerView.currentViewStates[msg.owner.deviceId] == "back")
         {
-            if (message["element"].ToString() == "view" && message["value"].ToString() == "back")
-            {
-                string viewToSet = ControllerView.currentViewStates[from];
-                if(ControllerView.currentViewStates[from] == "upgrade")
-                    viewToSet = "match";
-                if(ControllerView.currentViewStates[from] == "details")
-                    viewToSet = "post";
-                    
-                NetworkCoordinator.SendShowView(from, viewToSet);
-            }
+            string viewToSet = "";
+            string prev = ControllerView.previousViewStates[msg.owner.deviceId];
+            if(prev == "upgrade")
+                viewToSet = "match";
+            NetworkCoordinator.SendShowView(msg.owner.deviceId, viewToSet);
         }
     }
 
-    private void OnDestroy()
+    void OnDestroy()
     {
-        if (AirConsole.instance != null)
-        {
-            AirConsole.instance.onMessage -= OnBack;
-        }
+        EventCoordinator.StartListening(EventName.Input.Network.View(), OnView);
     }
 }
