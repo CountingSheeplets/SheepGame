@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameStateView : Singleton<GameStateView>
 {
-    [BitMask(typeof(AbilityType))]
+    [BitMask(typeof(GameState))]
     public GameState currentState;
     public static GameState GetGameState(){return Instance.currentState;}
     void Start()
