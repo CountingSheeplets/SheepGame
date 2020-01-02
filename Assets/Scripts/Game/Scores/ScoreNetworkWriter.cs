@@ -14,16 +14,11 @@ public class ScoreNetworkWriter : MonoBehaviour
         EventCoordinator.StopListening(EventName.System.Player.Eliminated(), OnLost);
     }
     void OnWin(GameMessage msg){
-        OnPlayerOut(true, msg);
+        PlayerScores playerScores = ScoreCoordinator.GetPlayerScores(msg.owner);
+        NetworkCoordinator.SendPlayerScores(msg.owner.deviceId, true, playerScores.scores);
     }
     void OnLost(GameMessage msg){
-        OnPlayerOut(false, msg);
-    }
-    void OnPlayerOut(bool win, GameMessage msg)
-    {
-        PlayerScores playerScores = ScoreCoordinator.GetPlayerScores(msg.owner);
-        //Debug.Log(msg.owner);
-        //Debug.Log(playerScores);
-        NetworkCoordinator.SendPlayerScores(msg.owner.deviceId, win, playerScores.scores);
+        PlayerScores playerScores = ScoreCoordinator.GetPlayerScores(msg.targetOwner);
+        NetworkCoordinator.SendPlayerScores(msg.targetOwner.deviceId, false, playerScores.scores);
     }
 }

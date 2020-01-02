@@ -22,10 +22,10 @@ public class EventChain : MonoBehaviour {
         EventCoordinator.TriggerEvent(EventName.UI.ShowScoreScreen(), msg);
     }
     void OnPlayerEliminated(GameMessage msg){
-        msg.owner.GetPlayerProfile().isAlive = false;
+        msg.targetOwner.GetPlayerProfile().isAlive = false;
         List<Owner> owners = PlayerProfileCoordinator.GetAliveOwners();
         Debug.Log("alive owners: "+owners.Count);
-        if(owners.Count == 1)
+        if(owners.Count <= 1)
             EventCoordinator.TriggerEvent(EventName.System.Environment.EndMatch(), GameMessage.Write().WithOwner(owners[0]));
     }
 }

@@ -31,6 +31,6 @@ public class PlayerProfileController : MonoBehaviour
         PlayerProfileCoordinator.GetProfile(msg.owner).AddMoney(100f);
     }
     void OnPlayerDefeated(GameMessage msg){
-        //msg.owner.GetPlayerProfile().isAlive = false;
+        msg.targetOwner.GetPlayerProfile().isAlive = false;
     }
 }

@@ -11,7 +11,7 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator>
     public GameObject ownerTilePrefab;
     public Transform ownerPanelContainer;
     public static List<Owner> GetOwners(){
-        return Instance.owners;
+        return Instance.owners;//when getting this, it shoulnt be able to change (but only wont change if instance into a new List),else the original will also change...
     }
 
     public static Owner TryCreateOwner(int device_id){
@@ -46,6 +46,7 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator>
         Owner leftOwner = GetOwner(device_id);
         if(leftOwner == null)
             return null;
+        Debug.Log("disconnecting an owner..");
         EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerLeft(), GameMessage.Write().WithOwner(leftOwner));
         leftOwner.connected = false;
         leftOwner.gameObject.SetActive(false);

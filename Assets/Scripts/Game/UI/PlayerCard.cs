@@ -101,7 +101,7 @@ public class PlayerCard : MonoBehaviour
     }
 
     void OnEliminated(GameMessage msg){
-        if(owner == msg.owner){
+        if(owner == msg.targetOwner){
             //transform.SetAsLastSibling();
             eliminatedImage.SetActive(true);
             isEliminated = true;

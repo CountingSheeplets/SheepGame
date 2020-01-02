@@ -10,8 +10,11 @@ public class TestEvents : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.D)){
             Debug.Log("Defeat Random Player...");
-            List<Owner> owners = OwnersCoordinator.GetOwners();
-            EventCoordinator.TriggerEvent(EventName.System.Player.Eliminated(), GameMessage.Write().WithOwner(owners[Random.Range(0, owners.Count-1)]));
+            List<Owner> owners = new List<Owner>(OwnersCoordinator.GetOwners());
+            Owner killer = owners[Random.Range(0, owners.Count-1)];
+            owners.Remove(killer);
+            Owner killed = owners[Random.Range(0, owners.Count-1)];
+            EventCoordinator.TriggerEvent(EventName.System.Player.Eliminated(), GameMessage.Write().WithOwner(killer).WithTargetOwner(killed));
         }
         if(Input.GetKeyDown(KeyCode.A)){
             Debug.Log("Fake Hit a random King with random sheep...");
@@ -33,16 +36,16 @@ public class TestEvents : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.KeypadPlus)){
             foreach(Owner owner in OwnersCoordinator.GetOwners()){
-                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Achievement.Baaah(), 5);
-                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Achievement.Education(), 5);
-                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Achievement.GetThatAction(), 5);
-                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Achievement.Paladin(), 5);
+                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Achievement.Baaah(), 1);
+                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Achievement.Education(), 1);
+                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Achievement.GetThatAction(), 1);
+                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Achievement.Paladin(), 1);
 
-                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Counter.Angry(), 500);
-                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Counter.Culling(), 500);
-                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Counter.Elvish(), 500);
-                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Counter.Merchant(), 3000);
-                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Counter.Shepherd(), 3000);
+                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Counter.Angry(), 1);
+                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Counter.Culling(), 150);
+                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Counter.Elvish(), 50);
+                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Counter.Merchant(), 500);
+                ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Counter.Shepherd(), 300);
             }
         }
     }

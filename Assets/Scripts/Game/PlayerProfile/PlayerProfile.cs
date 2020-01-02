@@ -13,7 +13,7 @@ public class PlayerProfile
         if (playfield != null)
             return playfield.GetHitpoints();
         else{
-            Debug.LogWarning("playfield = null, in player profile: "+owner);
+            //Debug.LogWarning("playfield = null, in player profile: "+owner);   //Sort() calls this
             return 0;
         }
     }
@@ -45,7 +45,7 @@ public class PlayerProfile
         if(kingUnit != null)
             return kingUnit.GetHealth;
         else{
-            Debug.LogWarning("kingUnit = null, in player profile: "+owner);
+            //Debug.LogWarning("kingUnit = null, in player profile: "+owner);   //Sort() calls this
             return 0;
         }
     }
@@ -119,6 +119,7 @@ public class PlayerProfile
         playerAvatarImage = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0, 0));
 	}
     public void SetDirty(){
-        EventCoordinator.TriggerEvent(EventName.System.Player.ProfileUpdate(), GameMessage.Write().WithPlayerProfile(this).WithOwner(owner));
+        if(isAlive)
+            EventCoordinator.TriggerEvent(EventName.System.Player.ProfileUpdate(), GameMessage.Write().WithPlayerProfile(this).WithOwner(owner));
     }
 }

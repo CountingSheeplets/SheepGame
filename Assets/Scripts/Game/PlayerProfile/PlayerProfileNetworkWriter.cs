@@ -27,7 +27,7 @@ public class PlayerProfileNetworkWriter : MonoBehaviour
     bool SendProfile(PlayerProfile profile){
         if(profile == null)
             return false;
-        if(!profile.isAlive)
+        if(!profile.isAlive) //also should be if(profile.isDirty)
             return false;
         var data = new Dictionary<string, float>{ { "health", profile.GetHealth() },
                                                     { "money", profile.GetMoney() },
