@@ -59,6 +59,8 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator>
 
     public static void RearrangeArena(){
         List<ArenaPreset> availablePresets = Instance.presets.Where(x=>x.presetSize == Instance.playfields.Count).ToList();
+        if(availablePresets.Count <= 0)
+            Debug.LogError("Zero Arena Presets found for this player amount! Exiting...");
         ArenaPreset randomPreset = availablePresets[Random.Range(0, availablePresets.Count-1)];
         randomPreset.SelectThisPreset();
         Instance.ArrangeFields(randomPreset);

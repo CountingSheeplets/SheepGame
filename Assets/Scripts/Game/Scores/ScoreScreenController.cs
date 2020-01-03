@@ -30,8 +30,9 @@ public class ScoreScreenController : MonoBehaviour
             ScoreRow row = newScoreRow.GetComponent<ScoreRow>();
             scoreRows.Add(row);
             row.InitScoreRow(owner.ownerName, owner.GetPlayerProfile().playerColor, scores);
+            row.eliminatedPlace = owner.GetPlayerProfile().eliminatedPlace;
         }
-        scoreRows.OrderBy(go => go.total.text).ToArray();
+        scoreRows.OrderByDescending(row => row.eliminatedPlace).ToArray();
         for (int i = 0; i < scoreRows.Count; i++)
         {
             if(first){

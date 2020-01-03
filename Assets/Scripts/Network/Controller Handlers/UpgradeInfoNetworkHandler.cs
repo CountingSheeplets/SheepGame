@@ -15,8 +15,12 @@ public class UpgradeInfoNetworkHandler : MonoBehaviour
     {
         if (message["element"] != null && message["pressed"] != null)
         {
+            Owner triggerOwner = OwnersCoordinator.GetOwner(from);
+            if(triggerOwner == null || !triggerOwner.GetPlayerProfile().isAlive)
+                return;
+
             if((bool)message["pressed"] == false && message["element"].ToString().Contains("upgrade")){
-                SheepUnit sheep = OwnersCoordinator.GetOwner(from).GetPlayfield().GetComponent<SheepThrow>().sheepReadyToBeThrown;
+                SheepUnit sheep = triggerOwner.GetPlayfield().GetComponent<SheepThrow>().sheepReadyToBeThrown;
                 if(sheep){
                     if (message["element"].ToString() == "upgrade1")
                     {
@@ -33,11 +37,8 @@ public class UpgradeInfoNetworkHandler : MonoBehaviour
                 }
             } else {
                 if(message["element"].ToString() == "upgrade" && (bool)message["pressed"] == true){
-                    Owner owner = OwnersCoordinator.GetOwner(from);
-                    if(owner != null){
-                        EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(owner).WithUpgradeType(upgradeType));
-                        NetworkCoordinator.SendShowView(from, "match");
-                    }
+                    EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(triggerOwner).WithUpgradeType(upgradeType));
+                    NetworkCoordinator.SendShowView(from, "match");
                 }
             }
         }

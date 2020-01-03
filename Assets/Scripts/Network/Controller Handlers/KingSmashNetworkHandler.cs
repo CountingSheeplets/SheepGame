@@ -15,7 +15,7 @@ public class KingSmashNetworkHandler : MonoBehaviour
             if   (message["element"].ToString().Contains("smash"))
             {
                 Owner triggerOwner = OwnersCoordinator.GetOwner(from);
-                if(triggerOwner == null)
+                if(triggerOwner == null || !triggerOwner.GetPlayerProfile().isAlive)
                     return;
                 EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.Smash(), GameMessage.Write().WithOwner(triggerOwner));
             }

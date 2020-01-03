@@ -5,6 +5,7 @@ using System.Linq;
 
 public class ScoreHandler : MonoBehaviour
 {
+    int eliminiatedPlayerCount = 0;
     public Dictionary<Owner, int> sheepsSmited = new Dictionary<Owner, int>();
     void Start()
     {
@@ -27,13 +28,15 @@ public class ScoreHandler : MonoBehaviour
     }
 
     void OnPlayerDefeated(GameMessage msg){
+        eliminiatedPlayerCount++;
+        msg.targetOwner.GetPlayerProfile().eliminatedPlace = eliminiatedPlayerCount;
+
         ScoreCoordinator.IncreaseScoreCounter(msg.owner, ScoreName.Counter.Angry(), 1);
         if(ScoreCoordinator.GetPlayerScore(msg.owner, ScoreName.Achievement.GetThatAction()).counter == 0)
             ScoreCoordinator.IncreaseScoreCounter(msg.owner, ScoreName.Achievement.GetThatAction(), 1);
-        ScoreCoordinator.IncreaseScoreCounter(msg.owner, ScoreName.Counter.Merchant(), (int)msg.owner.GetPlayerProfile().GetMoneyEarned());
-        if(SheepCoordinator.GetSheeps(msg.owner).Where(x=>x.sheepType == SheepType.None).ToList().Count == 0)
-            ScoreCoordinator.IncreaseScoreCounter(msg.owner, ScoreName.Achievement.Education(), 1);
-
+        ScoreCoordinator.IncreaseScoreCounter(msg.targetOwner, ScoreName.Counter.Merchant(), (int)msg.owner.GetPlayerProfile().GetMoneyEarned());
+        if(SheepCoordinator.GetSheeps(msg.targetOwner).Where(x=>x.sheepType == SheepType.None).ToList().Count == 0)
+            ScoreCoordinator.IncreaseScoreCounter(msg.targetOwner, ScoreName.Achievement.Education(), 1);
     }
 
     void OnSheepSpawn(GameMessage msg){

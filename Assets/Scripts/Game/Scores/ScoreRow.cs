@@ -10,7 +10,7 @@ public class ScoreRow : MonoBehaviour
     public TextMeshProUGUI military;
     public TextMeshProUGUI technology;
     public TextMeshProUGUI total;
-
+    public int eliminatedPlace = 0;
     public void InitScoreRow(string _playerName, Color _playerColor, PlayerScores scores){
         playerName.text = _playerName;
         GetComponent<Image>().color = _playerColor;

@@ -14,7 +14,7 @@ public class BuyResourceNetworkHandler : MonoBehaviour
     {
 /*         if (message["data"] != null){ */
             Owner triggerOwner = OwnersCoordinator.GetOwner(from);
-            if(triggerOwner == null)
+            if(triggerOwner == null || !triggerOwner.GetPlayerProfile().isAlive)
                 return;
             if   (message["element"].ToString().Contains("buySheep"))
             {

@@ -5,10 +5,13 @@ using UnityEngine;
 public class PlayerProfile
 {
     public bool isAlive = true;
+    public int eliminatedPlace = 0;
+
     public Owner owner;
     public Color playerColor;
     public Sprite playerAvatarImage;
     public Playfield playfield;
+
     public float GetGrass(){
         if (playfield != null)
             return playfield.GetHitpoints();
