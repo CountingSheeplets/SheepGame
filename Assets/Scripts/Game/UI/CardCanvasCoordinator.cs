@@ -33,6 +33,14 @@ public class CardCanvasCoordinator : Singleton<CardCanvasCoordinator>
             Destroy(Instance.cards[owner].gameObject);
             Instance.cards.Remove(owner);
         }
+        //Instance.ClearInvalidCards();
+    }
+
+    public void ClearInvalidCards(){
+        foreach(Owner owner in cards.Keys){
+            if(!owner.IsInListByType(OwnersCoordinator.GetOwners()))
+                RemovePlayerCard(owner);
+        }
     }
 
     public static void Sort(){

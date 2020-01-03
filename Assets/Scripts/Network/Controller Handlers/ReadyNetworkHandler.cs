@@ -23,19 +23,18 @@ public class ReadyNetworkHandler : MonoBehaviour
                     return;
                 else{
                     readyOwner.ready = ready;
-                    readyOwner.GetComponent<PlayerOwnerTile>().Ready();
                 }
-                NetworkCoordinator.SendConfirmReady(from);
-                TryStart();
+                TryStart(GameMessage.Write());
                 Debug.Log("Ready:" + readyOwner);
             }
     }
-    void TryStart()
+    void TryStart(GameMessage msg)
     {
         foreach (Owner owner in OwnersCoordinator.GetOwners())
         {
             if (owner.ready == false)
             {
+                Debug.Log("player not ready:"+owner);
                 return;
             }
         }

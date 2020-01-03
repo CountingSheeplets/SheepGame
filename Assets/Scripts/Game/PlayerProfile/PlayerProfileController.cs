@@ -8,12 +8,14 @@ public class PlayerProfileController : MonoBehaviour
     {
         EventCoordinator.StartListening(EventName.System.Environment.Initialized(), OnInitialized);
         EventCoordinator.StartListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
+        EventCoordinator.StartListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
         EventCoordinator.StartListening(EventName.System.Player.Eliminated(), OnPlayerDefeated);
         
     }
     void OnDestroy(){
         EventCoordinator.StopListening(EventName.System.Environment.Initialized(), OnInitialized);
         EventCoordinator.StopListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
+        EventCoordinator.StopListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
         EventCoordinator.StopListening(EventName.System.Player.Eliminated(), OnPlayerDefeated);
     }
 
@@ -35,6 +37,9 @@ public class PlayerProfileController : MonoBehaviour
         //send assigned data
         NetworkCoordinator.SendColor(msg.owner.deviceId, "#"+ColorUtility.ToHtmlStringRGBA(profile.playerColor).Substring(0, 6));
         NetworkCoordinator.SendName(msg.owner.deviceId, profile.owner.ownerName);
+    }
+    void OnPlayerLeft(GameMessage msg){
+        PlayerProfileCoordinator.RemoveProfile(msg.owner);
     }
     void OnPlayerDefeated(GameMessage msg){
         msg.targetOwner.GetPlayerProfile().isAlive = false;

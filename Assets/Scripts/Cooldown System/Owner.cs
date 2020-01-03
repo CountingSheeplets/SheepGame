@@ -9,8 +9,17 @@ public class Owner : MonoBehaviour
     public string ownerName = "";
     public bool isHero = false;
     public float teamId = 0;
-    public bool ready = false;
     public bool connected = false;
+    bool _ready = false;
+    public bool ready {
+        get{ return _ready;}
+        set{ _ready = value;
+            PlayerOwnerTile tile = GetComponent<PlayerOwnerTile>();
+            if(tile != null)
+			    tile.Ready(value);
+            NetworkCoordinator.SendConfirmReady(deviceId, value);
+        }
+    }
 
     [BitMask(typeof(OwnerType))]
     public OwnerType ownerType;

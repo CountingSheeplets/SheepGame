@@ -63,9 +63,14 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator>
         NetworkObject newNetObj = new NetworkObject("playerName", playerName);
         SendObject(deviceId, newNetObj);
     }
-    public static void SendConfirmReady(int deviceId){
+    public static void SendConfirmReady(int deviceId, bool value){
+        JObject json = new JObject();
+        json["type"] = "ready";
+        int valInt = value ? 1 : 0;
+        json["value"] = valInt;
+        
+        AirConsole.instance.Message(deviceId, json);
         NetworkObject newNetObj = new NetworkObject("ready", "1");
-        SendObject(deviceId, newNetObj);
     }
     public static void SendPlayerScores(int deviceId, bool win, List<Score> scores){
         JObject json = new JObject();

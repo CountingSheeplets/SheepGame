@@ -45,6 +45,7 @@ public class PlayerCard : MonoBehaviour
         EventCoordinator.StopListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
         EventCoordinator.StopListening(EventName.System.Player.PlayerCardsSorted(), OnSorted);
         EventCoordinator.StopListening(EventName.System.Player.Eliminated(), OnEliminated);
+        Destroy(targetCardGhost.gameObject);
     }
 
     void OnProfileUpdate(GameMessage msg){

@@ -48,16 +48,18 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator>
         Owner leftOwner = GetOwner(device_id);
         if(leftOwner == null)
             return null;
-        if((GameStateView.GetGameState() & GameState.started) == 0){
+
+        Debug.Log("DisconnectOwner GetGameState:"+(int)GameStateView.GetGameState());
+        
+        if((GameStateView.GetGameState() & GameState.started) != 0){
             Debug.Log("disconnecting an owner..");
-            EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerLeft(), GameMessage.Write().WithOwner(leftOwner));
             leftOwner.connected = false;
             leftOwner.gameObject.SetActive(false);
-            return leftOwner;
         } else {
+            Debug.Log("destroying an owner..");
             Instance.owners.Remove(leftOwner);
-            Destroy(leftOwner);
-            return null;
+            Destroy(leftOwner.gameObject);
         }
+            return leftOwner;
     }
 }

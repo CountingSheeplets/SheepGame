@@ -25,6 +25,6 @@ public class BackButtonHandler : MonoBehaviour
 
     void OnDestroy()
     {
-        EventCoordinator.StartListening(EventName.Input.Network.View(), OnView);
+        EventCoordinator.StopListening(EventName.Input.Network.View(), OnView);
     }
 }

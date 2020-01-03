@@ -28,10 +28,13 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler>
     }
     void OnDisconnect(int device_id){
 		Owner owner = OwnersCoordinator.DisconnectOwner(device_id);
-		if(owner)
-        	EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerLeft(), GameMessage.Write().WithOwner(owner));
-		else
-			Debug.LogError("OnDisconnect returned null Owner!");
+		if(!owner)
+			Debug.LogWarning("OnDisconnect returned null Owner! Nothing to disconnect...");
+        EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerLeft(), GameMessage.Write().WithOwner(owner));
+
+		foreach(Owner stayingOwner in OwnersCoordinator.GetOwners()){
+			stayingOwner.ready = false;
+		}
     }
 
 	private void OnDestroy(){
