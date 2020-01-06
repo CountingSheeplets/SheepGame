@@ -18,6 +18,8 @@ public class Playfield : MonoBehaviour
     public Transform fenceParent;
     public Transform sheepParent; // used by SheepFactory
 
+    public bool isAnimating = false;
+    
     public Playfield Init(){
         GameObject newPlayfieldGO = Instantiate(gameObject);
         Playfield playfield = newPlayfieldGO.GetComponent<Playfield>();

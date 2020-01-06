@@ -83,12 +83,14 @@ public class EventName
             public static List<string> Get() { return new List<string> { Spawned(), Launch(), Land(), ReadyToLaunch(), Kill(), Roam(), Upgraded()}; }          
         }
         public class Environment{
-            public static string Initialized() {return "System_Initialized";}
-            public static string SetField() { return "System_SetField"; }
-            public static string AdjustField() { return "System_AdjustField"; }
-            public static string EndMatch() { return "System_EndMatch"; }
-            public static List<string> Get() { return new List<string> {Initialized(), SetField(), AdjustField(), EndMatch()}; }          
-        //public static string MapLayoutChanged() { return "MapLayoutChanged"; }
+            public static string Initialized() {return "System_Environment_Initialized";}
+            public static string SetField() { return "System_Environment_SetField"; }
+            public static string AdjustField() { return "System_Environment_AdjustField"; }
+            public static string EndMatch() { return "System_Environment_EndMatch"; }
+            public static string ArenaAnimating() {return "System_Environment_ArenaAnimating";}
+            public static string PlayfieldAnimated() { return "System_Environment_PlayfieldAnimated"; }
+            public static string ArenaAnimated() { return "System_Environment_ArenaAnimated"; }
+            public static List<string> Get() { return new List<string> {Initialized(), SetField(), AdjustField(), EndMatch(), ArenaAnimating(), PlayfieldAnimated(), ArenaAnimated() }; }          
         }
         public class Player{
             public static string ProfileUpdate() { return "System_ProfileUpdate"; }

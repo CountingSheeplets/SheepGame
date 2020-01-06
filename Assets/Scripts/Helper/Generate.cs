@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Reflection;
+using System.Linq;
 public static class Generate {
 
     public static string uniqueID()
@@ -65,5 +66,12 @@ public static class Generate {
             //Debug.Log(property);
         }
         return property;
+    }
+    private static System.Random random = new System.Random();
+    public static string RandomString(int length)
+    {
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        return new string(Enumerable.Repeat(chars, length)
+        .Select(s => s[random.Next(s.Length)]).ToArray());
     }
 }

@@ -10,6 +10,7 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator>
     List<Owner> owners = new List<Owner>();
     public GameObject ownerTilePrefab;
     public Transform ownerPanelContainer;
+    int counter = 0;
     public static List<Owner> GetOwners(){
         return Instance.owners;//when getting this, it shoulnt be able to change (but only wont change if instance into a new List),else the original will also change...
     }
@@ -43,7 +44,21 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator>
     public static Owner GetOwner(int device_id){
         return Instance.owners.Where(x=>x.deviceId == device_id).FirstOrDefault();
     }
-
+    public static Owner GetRandomOwner(){
+        return Instance.owners[Random.Range(0, Instance.owners.Count-1)];
+    }
+    public static Owner CreateEmptyOwner(){
+        Instance.counter++;
+        int device_id = Instance.counter;
+        GameObject go = Instantiate(Instance.ownerTilePrefab, Instance.ownerPanelContainer);
+        string nicknameOfJoined = Generate.RandomString(10);
+        Owner newOwner = go.AddComponent<Owner>();
+        Instance.owners.Add(newOwner);
+        newOwner.Create(device_id.ToString(), nicknameOfJoined, true, device_id);
+        go.name = newOwner.ownerName;
+        go.GetComponentInChildren<TextMeshProUGUI>().text = newOwner.ownerName;
+        return newOwner;
+    }
     public static Owner DisconnectOwner(int device_id){
         Owner leftOwner = GetOwner(device_id);
         if(leftOwner == null)

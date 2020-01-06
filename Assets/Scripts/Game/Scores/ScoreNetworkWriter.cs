@@ -16,14 +16,14 @@ public class ScoreNetworkWriter : MonoBehaviour
     }
     void OnWin(GameMessage msg){
         PlayerScores playerScores = ScoreCoordinator.GetPlayerScores(msg.owner);
-        NetworkCoordinator.SendPlayerScores(msg.owner.deviceId, true, playerScores.scores);
+        NetworkCoordinator.SendPlayerScores(msg.owner.deviceId, true, playerScores.scores, ScoreCoordinator.GetTotalPlayerScores(msg.owner));
     }
     void OnEliminated(GameMessage msg){
         if(!eliminatedOwners.Contains(msg.targetOwner))
             eliminatedOwners.Add(msg.targetOwner);
         foreach(Owner owner in eliminatedOwners){
             PlayerScores playerScores = ScoreCoordinator.GetPlayerScores(owner);
-            NetworkCoordinator.SendPlayerScores(owner.deviceId, false, playerScores.scores);
+            NetworkCoordinator.SendPlayerScores(owner.deviceId, false, playerScores.scores, ScoreCoordinator.GetTotalPlayerScores(msg.targetOwner));
         }
     }
 }

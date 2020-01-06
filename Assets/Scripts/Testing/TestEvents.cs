@@ -34,7 +34,7 @@ public class TestEvents : MonoBehaviour
             NetworkCoordinator.SendShowViewAll("match");
         }
 
-        if(Input.GetKeyDown(KeyCode.KeypadPlus)){
+        if(Input.GetKeyDown(KeyCode.KeypadMultiply)){
             foreach(Owner owner in OwnersCoordinator.GetOwners()){
                 ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Achievement.Baaah(), 1);
                 ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Achievement.Education(), 1);
@@ -48,5 +48,6 @@ public class TestEvents : MonoBehaviour
                 ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Counter.Shepherd(), 300);
             }
         }
+
     }
 }

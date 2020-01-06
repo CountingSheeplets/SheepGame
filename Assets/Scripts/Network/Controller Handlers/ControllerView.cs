@@ -10,7 +10,8 @@ public class ControllerView : Singleton<ControllerView>
     public static Dictionary<int, string> previousViewStates = new Dictionary<int, string>();
     void Start()
     {
-        AirConsole.instance.onMessage += OnViewMessage;
+        if(AirConsole.instance != null)
+            AirConsole.instance.onMessage += OnViewMessage;
     }
 
     void OnViewMessage(int from, JToken message)

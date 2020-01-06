@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 public class ArenaCoordinator : Singleton<ArenaCoordinator>
 {
+    public float playfieldArrangeFloatSpeedConstant = 5f;
     [SerializeField]
     int _gridSize = 11;
     public static int GridSize {get {return Instance._gridSize;}}
@@ -77,7 +78,9 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator>
             int rS = Random.Range(0, sockets.Count-1);
             int rF = Random.Range(0, leftoverFields.Count-1);
             Vector2 offset = sockets[rS].transform.position;
-            leftoverFields[rF].transform.position = offset * fieldWidth;
+            //leftoverFields[rF].transform.position = offset * fieldWidth;
+            ArenaFloat pFloat = leftoverFields[rF].GetComponent<ArenaFloat>();
+            pFloat.StartFloating(playfieldArrangeFloatSpeedConstant, offset * fieldWidth);
             if(leftoverFields[rF].fieldCorners !=null)
                 leftoverFields[rF].fieldCorners.Recenter(offset * fieldWidth);
             leftoverFields.RemoveAt(rF);

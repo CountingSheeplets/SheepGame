@@ -8,7 +8,7 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator>
 {
     public static void SendPlayerProfile(int deviceId, Dictionary<string, float> profileData){
         NetworkObject newNetObj = new NetworkObject("playerProfile", profileData);
-        SendObject(deviceId, newNetObj);
+        TrySendObject(deviceId, newNetObj);
     }
 
     public static void SendShowView(int deviceId, string view){
@@ -17,19 +17,18 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator>
         json["type"] = "changeView";
         json["value"] = view;
         Debug.Log("AirConsole-Send:"+json);
-        AirConsole.instance.Message(deviceId, json);
-        //SendObject(deviceId, newNetObj);
+        TrySend(deviceId, json);
     }
     public static void SendShowViewAll(string view){
         NetworkObject newNetObj = new NetworkObject("changeView", view);
-        SendObjectAll(newNetObj);
+        TrySendObjectAll(newNetObj);
     }
 
     public static void SendUpgradeData(int deviceId, UpgradeProperty upgrade){
         JObject json = new JObject();
         json["type"] = "upgradeData";
         json["upgrade"] = JToken.FromObject(upgrade);
-        AirConsole.instance.Message(deviceId, json);
+        TrySend(deviceId, json);
     }
     public static void SendUpgradeButtons(int deviceId, SheepUnit sheep){
         JObject json = new JObject();
@@ -53,40 +52,47 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator>
         json["upgradeB_icon"] = iconB;
         json["upgradeA_price"] = priceA;
         json["upgradeB_price"] = priceB;
-        AirConsole.instance.Message(deviceId, json);
+        TrySend(deviceId, json);
     }
     public static void SendColor(int deviceId, string colorHex){
         NetworkObject newNetObj = new NetworkObject("playerColor", colorHex);
-        SendObject(deviceId, newNetObj);
+        TrySendObject(deviceId, newNetObj);
     }
     public static void SendName(int deviceId, string playerName){
         NetworkObject newNetObj = new NetworkObject("playerName", playerName);
-        SendObject(deviceId, newNetObj);
+        TrySendObject(deviceId, newNetObj);
     }
     public static void SendConfirmReady(int deviceId, bool value){
         JObject json = new JObject();
         json["type"] = "ready";
         int valInt = value ? 1 : 0;
         json["value"] = valInt;
-        
-        AirConsole.instance.Message(deviceId, json);
-        NetworkObject newNetObj = new NetworkObject("ready", "1");
+        TrySend(deviceId, json);
     }
-    public static void SendPlayerScores(int deviceId, bool win, List<Score> scores){
+    public static void SendPlayerScores(int deviceId, bool win, List<Score> scores, int totalScore){
         JObject json = new JObject();
         json["type"] = "playerScores";
         json["value"] = win.ToString();
         json["scores"] = JToken.FromObject(scores);
-        AirConsole.instance.Message(deviceId, json);
+        json["total"] = totalScore;
+        TrySend(deviceId, json);
     }
 //general functions:
-    static void SendObject(int deviceId, NetworkObject networkObject){
-        JToken data = JToken.FromObject(networkObject.PrepairedNetworkObject());
-        AirConsole.instance.Message(deviceId, data);
+    static void TrySendObject(int deviceId, NetworkObject networkObject){
+        if(AirConsole.instance != null){
+            JToken data = JToken.FromObject(networkObject.PrepairedNetworkObject());
+            AirConsole.instance.Message(deviceId, data);
+        }
     }
-    static void SendObjectAll(NetworkObject networkObject){
-        JToken data = JToken.FromObject(networkObject.PrepairedNetworkObject());
-        AirConsole.instance.Broadcast(data);
+    static void TrySendObjectAll(NetworkObject networkObject){
+        if(AirConsole.instance != null){
+            JToken data = JToken.FromObject(networkObject.PrepairedNetworkObject());
+            AirConsole.instance.Broadcast(data);
+        }
     }
 
+    static void TrySend(int deviceId, JObject json){
+        if(AirConsole.instance != null)
+            AirConsole.instance.Message(deviceId, json);
+    }
 }

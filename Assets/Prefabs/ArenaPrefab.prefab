@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 1142689301254014044}
   - component: {fileID: 4906597521204094191}
   - component: {fileID: 7518835110973820340}
+  - component: {fileID: 5341466570603118328}
   m_Layer: 0
   m_Name: ArenaPrefab
   m_TagString: Untagged
@@ -265,7 +266,6 @@ MonoBehaviour:
   ownerName: 
   isHero: 0
   teamId: 0
-  ready: 0
   connected: 0
   ownerType: 0
 --- !u!114 &4906597521204094191
@@ -297,6 +297,27 @@ MonoBehaviour:
   sheepThrow: {fileID: 4906597521204094191}
   typeA: 0
   typeB: 0
+  tier2UpgradeCount: 0
+--- !u!114 &5341466570603118328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8023144983768244914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d510e2a5cf57f54e966708a7f9051c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: {x: 0, y: 0}
+  totalDistance: 0
+  distanceLeft: 0
+  distanceTraveled: 0
+  myScale: {x: 0, y: 0, z: 0}
+  midScale: -0.5
+  animator: {fileID: 0}
+  sheep: {fileID: 0}
 --- !u!1 &8291182087161254146
 GameObject:
   m_ObjectHideFlags: 0

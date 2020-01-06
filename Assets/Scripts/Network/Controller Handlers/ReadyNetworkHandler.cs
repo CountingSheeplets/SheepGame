@@ -9,7 +9,8 @@ public class ReadyNetworkHandler : MonoBehaviour
 {
     void Awake()
     {
-        AirConsole.instance.onMessage += OnReady;
+        if(AirConsole.instance != null)
+            AirConsole.instance.onMessage += OnReady;
     }
 
     void OnReady(int from, JToken message)

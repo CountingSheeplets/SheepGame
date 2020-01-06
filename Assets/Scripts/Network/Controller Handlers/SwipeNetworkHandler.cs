@@ -8,7 +8,8 @@ public class SwipeNetworkHandler : Singleton<SwipeNetworkHandler>
 {
     void Awake()
     {
-        AirConsole.instance.onMessage += OnSwipe;
+        if(AirConsole.instance != null)
+            AirConsole.instance.onMessage += OnSwipe;
     }
     void OnSwipe(int from, JToken message)
     {

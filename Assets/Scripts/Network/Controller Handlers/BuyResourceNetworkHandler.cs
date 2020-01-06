@@ -8,7 +8,8 @@ public class BuyResourceNetworkHandler : MonoBehaviour
 {
     void Awake()
     {
-        AirConsole.instance.onMessage += OnButtonClick;
+        if(AirConsole.instance != null)
+            AirConsole.instance.onMessage += OnButtonClick;
     }
     void OnButtonClick(int from, JToken message)
     {

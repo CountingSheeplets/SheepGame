@@ -8,7 +8,8 @@ public class UpgradeInfoNetworkHandler : MonoBehaviour
     UpgradeType upgradeType;
     void Awake()
     {
-        AirConsole.instance.onMessage += OnOpenUpgradeInfo;
+        if(AirConsole.instance != null)
+            AirConsole.instance.onMessage += OnOpenUpgradeInfo;
     }
 
     void OnOpenUpgradeInfo(int from, JToken message)

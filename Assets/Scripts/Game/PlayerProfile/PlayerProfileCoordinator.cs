@@ -58,6 +58,8 @@ public class PlayerProfileCoordinator : Singleton<PlayerProfileCoordinator>
     }
 
     public static void GetPlayerAvatarIcon(Owner owner){
+        if(AirConsole.instance == null)
+            return;
 		string urlOfProfilePic = AirConsole.instance.GetProfilePicture (owner.deviceId, 512);
         Instance.StartCoroutine(GetProfile(owner).DisplayUrlPicture(urlOfProfilePic));
     }

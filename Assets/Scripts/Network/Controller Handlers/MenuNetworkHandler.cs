@@ -10,6 +10,8 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler>
     public List<int> premiumIds = new List<int>();
     void Awake()
     {
+        if(AirConsole.instance == null)
+			return;
 		AirConsole.instance.onConnect += OnConnect;
         AirConsole.instance.onPremium += OnPremium;
         AirConsole.instance.onDisconnect += OnDisconnect;

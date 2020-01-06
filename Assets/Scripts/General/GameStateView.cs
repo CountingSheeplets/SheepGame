@@ -10,15 +10,24 @@ public class GameStateView : Singleton<GameStateView>
     void Start()
     {
         EventCoordinator.StartListening(EventName.Input.StartGame(), OnStartGame);
+        EventCoordinator.StartListening(EventName.System.Environment.ArenaAnimating(), OnArenaAnimating);
+        EventCoordinator.StartListening(EventName.System.Environment.ArenaAnimated(), OnArenaAnimated);
     }
     void OnDestroy(){
         EventCoordinator.StopListening(EventName.Input.StartGame(), OnStartGame);
+        EventCoordinator.StopListening(EventName.System.Environment.ArenaAnimating(), OnArenaAnimating);
+        EventCoordinator.StopListening(EventName.System.Environment.ArenaAnimated(), OnArenaAnimated);
     }
     void OnStartGame(GameMessage msg){
         // Set a bit at position to 1.
         currentState |= GameState.started;
     }
-
+    void OnArenaAnimated(GameMessage msg){
+        currentState |= GameState.arenaAnimating;
+    }
+    void OnArenaAnimating(GameMessage msg){
         // Set a bit at position to 0.
+        currentState |= (0 << (int)GameState.arenaAnimating);
+    }
         //return value & ~(1 << position);
 }

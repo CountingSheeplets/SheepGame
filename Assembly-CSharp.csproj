@@ -279,8 +279,10 @@
      <Compile Include="Assets\Scripts\Game\Arena Tiles\EmptyTile.cs" />
      <Compile Include="Assets\Scripts\Game\Arena Tiles\FenceTile.cs" />
      <Compile Include="Assets\Scripts\Game\Arena Tiles\FieldTile.cs" />
+     <Compile Include="Assets\Scripts\Game\Arena\ArenaAnimationHandler.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\ArenaController.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\ArenaCoordinator.cs" />
+     <Compile Include="Assets\Scripts\Game\Arena\ArenaFloat.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\ArenaPreset.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\Ballista.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\FieldCorners.cs" />
@@ -390,6 +392,7 @@
      <Compile Include="Assets\Scripts\System\Types\BuildingType.cs" />
      <Compile Include="Assets\Scripts\System\Types\FactionType.cs" />
      <Compile Include="Assets\Scripts\System\UnityGameEvent.cs" />
+     <Compile Include="Assets\Scripts\Testing\ArenaControllerTest.cs" />
      <Compile Include="Assets\Scripts\Testing\TestEvents.cs" />
      <Compile Include="Assets\Spine Examples\Other Examples\Animation Tester\SpineAnimationTesterTool.cs" />
      <Compile Include="Assets\Spine Examples\Scripts\AttackSpineboy.cs" />
