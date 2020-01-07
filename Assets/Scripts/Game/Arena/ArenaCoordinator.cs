@@ -65,6 +65,9 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator>
         ArenaPreset randomPreset = availablePresets[Random.Range(0, availablePresets.Count-1)];
         randomPreset.SelectThisPreset();
         Instance.ArrangeFields(randomPreset);
+
+        EventCoordinator.TriggerEvent(EventName.System.Environment.ArenaAnimating(), GameMessage.Write());
+
         Instance.RemoveVortexes();
         Instance.AddVortexes(randomPreset);
     }
@@ -79,7 +82,7 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator>
             int rF = Random.Range(0, leftoverFields.Count-1);
             Vector2 offset = sockets[rS].transform.position;
             //leftoverFields[rF].transform.position = offset * fieldWidth;
-            ArenaFloat pFloat = leftoverFields[rF].GetComponent<ArenaFloat>();
+            FieldFloat pFloat = leftoverFields[rF].GetComponent<FieldFloat>();
             pFloat.StartFloating(playfieldArrangeFloatSpeedConstant, offset * fieldWidth);
             if(leftoverFields[rF].fieldCorners !=null)
                 leftoverFields[rF].fieldCorners.Recenter(offset * fieldWidth);

@@ -20,14 +20,15 @@ public class GameStateView : Singleton<GameStateView>
     }
     void OnStartGame(GameMessage msg){
         // Set a bit at position to 1.
-        currentState |= GameState.started;
+        FlagsHelper.Set(ref currentState, GameState.started);
+        //currentState |= GameState.started;
     }
     void OnArenaAnimated(GameMessage msg){
-        currentState |= GameState.arenaAnimating;
+        // Set a bit at position to 0.
+        FlagsHelper.Unset(ref currentState, GameState.arenaAnimating);
     }
     void OnArenaAnimating(GameMessage msg){
-        // Set a bit at position to 0.
-        currentState |= (0 << (int)GameState.arenaAnimating);
+        FlagsHelper.Set(ref currentState, GameState.arenaAnimating);
+        //currentState |= GameState.arenaAnimating;
     }
-        //return value & ~(1 << position);
 }

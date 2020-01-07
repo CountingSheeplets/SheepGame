@@ -5,8 +5,8 @@ using UnityEngine;
 public class ArenaControllerTest : MonoBehaviour
 {
     void Update(){
-        if((GameStateView.GetGameState() & GameState.arenaAnimating) != 0)
-            Debug.Log("is animating...");
+/*         if((GameStateView.GetGameState() & GameState.arenaAnimating) != 0)
+            Debug.Log("is animating..."); */
 
         if(Input.GetKeyDown(KeyCode.KeypadPlus)){
             Owner owner = OwnersCoordinator.CreateEmptyOwner();

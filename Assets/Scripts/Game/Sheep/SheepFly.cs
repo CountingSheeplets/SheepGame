@@ -24,7 +24,8 @@ public class SheepFly : BaseUnitMove
 
         //trigger Land game event, listened by sheep throw
         Playfield newPlayfield = ArenaCoordinator.GetPlayfield(transform.position);
-        GetComponent<SheepUnit>().currentPlayfield = newPlayfield;
+        sheep.currentPlayfield = newPlayfield;
+        sheep.ResetContainer();
         EventCoordinator.TriggerEvent(EventName.System.Sheep.Land(), GameMessage.Write().WithSheepUnit(GetComponent<SheepUnit>()).WithPlayfield(newPlayfield));
     }
 }

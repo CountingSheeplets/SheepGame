@@ -282,10 +282,10 @@
      <Compile Include="Assets\Scripts\Game\Arena\ArenaAnimationHandler.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\ArenaController.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\ArenaCoordinator.cs" />
-     <Compile Include="Assets\Scripts\Game\Arena\ArenaFloat.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\ArenaPreset.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\Ballista.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\FieldCorners.cs" />
+     <Compile Include="Assets\Scripts\Game\Arena\FieldFloat.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\Playfield.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\PresetSocket.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\SheepThrow.cs" />
@@ -328,6 +328,7 @@
      <Compile Include="Assets\Scripts\Game\Scores\ScoreScriptable.cs" />
      <Compile Include="Assets\Scripts\Game\Scores\ScoreType.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\BaseUnitMove.cs" />
+     <Compile Include="Assets\Scripts\Game\Sheep\SheepController.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepCoordinator.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepEat.cs" />
      <Compile Include="Assets\Scripts\Game\Sheep\SheepEatWriter.cs" />
@@ -360,6 +361,7 @@
      <Compile Include="Assets\Scripts\General\ManagerInstantiater.cs" />
      <Compile Include="Assets\Scripts\Helper\CollectionHelper.cs" />
      <Compile Include="Assets\Scripts\Helper\DebugHelper.cs" />
+     <Compile Include="Assets\Scripts\Helper\FlagsHelper.cs" />
      <Compile Include="Assets\Scripts\Helper\Generate.cs" />
      <Compile Include="Assets\Scripts\Helper\InitializeListeners.cs" />
      <Compile Include="Assets\Scripts\Helper\PriceScriptable EditrUI\NamedPriceAttributeDrawerUIE.cs" />

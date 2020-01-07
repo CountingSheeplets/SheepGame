@@ -38,5 +38,11 @@ public class SheepUnit : MonoBehaviour
             Destroy(gameObject, 1f);
         }
     }
-
+    public void ResetContainer(){
+        if(isFlying || isSwimming)
+            transform.parent = SheepCoordinator.Instance.transform;
+        else
+            if(currentPlayfield != null)
+                transform.parent = currentPlayfield.sheepParent;
+    }
 }

@@ -13,13 +13,14 @@ public class BaseUnitMove : MonoBehaviour
     public float midScale = 2f;
     //public AnimatorContainer animator;
     public SpineContainer animator;
-
+    void Awake(){
+        myScale = transform.localScale;
+    }
     public void MoveToDestination(float speed, float _midScale){
         if(animator == null)
             animator = GetComponentInChildren<SpineContainer>();
         midScale = _midScale;
         moveSpeed = speed;
-        myScale = transform.localScale;
         StartCoroutine(Move());
     }
 

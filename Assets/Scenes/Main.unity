@@ -4527,7 +4527,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 37.9
+  m_fontSize: 43.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7039,6 +7039,7 @@ GameObject:
   - component: {fileID: 1492470315}
   - component: {fileID: 1492470317}
   - component: {fileID: 1492470314}
+  - component: {fileID: 1492470318}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -7119,6 +7120,18 @@ MonoBehaviour:
   eatInterval: 1
   baseEatValue: 0.05
   incrementalEatValue: 0.05
+--- !u!114 &1492470318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492470312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133345fdf17b0de43b702997bb274f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1507347765
 GameObject:
   m_ObjectHideFlags: 0
@@ -8142,6 +8155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 0
+  playfieldArrangeFloatSpeedConstant: 5
   _gridSize: 11
   _tileSize: 0.4
   _tileScale: {x: 2.5, y: 2.5}

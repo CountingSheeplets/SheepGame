@@ -14,6 +14,7 @@ public class ArenaAnimationHandler : MonoBehaviour
             allAnimationsFinished = true;
             if(playfield.isAnimating)
                 allAnimationsFinished = false;
+            Debug.Log("playfield check:"+playfield.isAnimating);
         }
         if(allAnimationsFinished){
             EventCoordinator.TriggerEvent(EventName.System.Environment.ArenaAnimated(), GameMessage.Write());

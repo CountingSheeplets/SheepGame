@@ -20,6 +20,7 @@ public class SheepLaunchController : MonoBehaviour
         Vector2 destination = msg.swipe.vector * msg.swipe.distance * throwStrength / 10f + (Vector2)fly.transform.position;
         float speed = SpeedBucket.GetFlySpeed(sheep.sheepType);
         Debug.Log("speed fly:"+speed);
-        fly.StartFlying(speed, destination);  
+        fly.StartFlying(speed, destination); 
+        sheep.ResetContainer(); 
     }
 }
