@@ -53,9 +53,14 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator>
         //Debug.Log(owner);
         //Debug.Log(playfields.Count);
         Playfield pl = Instance.playfields.Where(x=>x.GetComponent<Owner>().EqualsByValue(owner)).FirstOrDefault();
+
+
         Instance.playfields.Remove(pl);
         if(pl != null)
             Destroy(pl.gameObject);
+        //Animate Arena Destruction
+
+        
     }
 
     public static void RearrangeArena(){

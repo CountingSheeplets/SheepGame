@@ -61,7 +61,6 @@ public class ArenaControllerTest : MonoBehaviour
         ArenaCoordinator.RemoveField(msg.owner);
         //drown all sheep which are swimming intantly:
 
-
         //wait for a delay, untill animations end (1f?) then Trigger a Rearrangement:
         ArenaCoordinator.RearrangeArena();
     }

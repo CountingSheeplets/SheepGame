@@ -10,6 +10,7 @@ public class Playfield : MonoBehaviour
 
     public GameObject fieldTilePrefab;
     public GameObject fenceTilePrefab;
+    public GameObject backgroundSprite;
     public List<FieldTile> fieldTiles = new List<FieldTile>();
     public List<FenceTile> fenceTiles = new List<FenceTile>();
     public float currentHitpoints = 0f;
@@ -45,6 +46,8 @@ public class Playfield : MonoBehaviour
         Debug.Log("swiping:"+msg.swipe.vector);
     } */
     void OnStart(GameMessage msg){
+        //adjust background size:
+        backgroundSprite.transform.localScale = ArenaCoordinator.TileScale * ArenaCoordinator.GridSize;
         //generate field area:
         Spiral sp = new Spiral();
         for(int i = 0;i < ArenaCoordinator.GridSize * ArenaCoordinator.GridSize; i++){

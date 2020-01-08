@@ -8,10 +8,6 @@ public class FieldTile : BaseTile
     public Color passiveCol;
     public SpriteRenderer mySprite;
     public void SetState(bool state){
-        if(state){
-            mySprite.color = activeCol;
-        } else {
-            mySprite.color = passiveCol;
-        }
+        mySprite.enabled = state;
     }
 }
