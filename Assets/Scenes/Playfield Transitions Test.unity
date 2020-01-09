@@ -3669,6 +3669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _persistent: 0
   playfieldFadeTime: 2
+  playfieldFadeNoiseTiling: {x: 0.5, y: 0.5}
   playfieldFadeProportion: 1
   playfieldGridSize: 11
   playfieldTileSize: 0.5
@@ -4555,7 +4556,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 38.2
+  m_fontSize: 31.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7130,7 +7131,7 @@ MonoBehaviour:
   _persistent: 0
   sheepPrefab: {fileID: 6195520508007395971, guid: df46430e556633045a77f7dd556bb858,
     type: 3}
-  sheepModel: {fileID: 1892945999680373961, guid: 937871ad371975c40a79cdb16ed448e6,
+  sheepModel: {fileID: 7639751366884189362, guid: 4aba2ae0d808f9e45999265597d4557d,
     type: 3}
 --- !u!114 &1492470317
 MonoBehaviour:

@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class ConstantsBucket : Singleton<ConstantsBucket>
 {
-    [Header("Arena")]
+    [Header("Arena Destruction")]
     [Tooltip("Time between 0 and whatever. Higher number - longer time.")]
     [SerializeField] float playfieldFadeTime = 2f;
     public static float PlayfieldFadeTime{        get{return Instance.playfieldFadeTime;}    }
+    [Tooltip("This determines how coarse is the noise factor when playfield background fades")]
+    [SerializeField] Vector2 playfieldFadeNoiseTiling = new Vector2(1f, 1f);
+    public static Vector2 PlayfieldFadeNoiseTiling{        get{return Instance.playfieldFadeNoiseTiling;}    }
     [Range(0,1)]
     [SerializeField] float playfieldFadeProportion = 1f;
     public static float PlayfieldFadeProportion{get{return Instance.playfieldFadeProportion;}}
+    [Header("Arena Generation")]
     [SerializeField] int playfieldGridSize = 11;
     public static int GridSize {get {return Instance.playfieldGridSize;}}
     [SerializeField] float playfieldTileSize = 0.5f;

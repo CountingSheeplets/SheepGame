@@ -26,7 +26,8 @@ public class SheepFactory : Singleton<SheepFactory>
         SpineContainer container = newSheepModel.GetComponent<SpineContainer>();
         SkeletonMecanim skMecanim = container.GetComponent<SkeletonMecanim>();
         foreach(Spine.Slot slot in skMecanim.skeleton.Slots){
-            if(slot.Data.Name.Contains("BLOB")){
+            if(slot.Data.Name.Contains("Color")){
+                Debug.Log("setting color of component: "+slot.Data.Name+"  to:"+owner.GetPlayerProfile().playerColor);
                 slot.SetColor(owner.GetPlayerProfile().playerColor);
             }
         }

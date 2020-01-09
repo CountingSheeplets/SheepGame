@@ -18,7 +18,8 @@ public class BackgroundTileFade : MonoBehaviour
     }
     public void StartFading(){
         if(rend == null) rend = GetComponent<SpriteRenderer>();
-            rend.material.SetFloat("_FadeProportion", ConstantsBucket.PlayfieldFadeProportion);
+        rend.material.SetFloat("_FadeProportion", ConstantsBucket.PlayfieldFadeProportion);
+        rend.material.SetVector("_GradientTiling", ConstantsBucket.PlayfieldFadeNoiseTiling);
         isClone = true;
         StartCoroutine(Fade());
     }

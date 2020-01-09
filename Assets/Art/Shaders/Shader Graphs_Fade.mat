@@ -30,6 +30,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_3D5C2CCC: 2
-    - _FadeLevel: 2
+    - _FadeLevel: 0.753
     - _FadeProportion: 1
-    m_Colors: []
+    m_Colors:
+    - _GradientTiling: {r: 0.1, g: 0.01, b: 0, a: 0}
