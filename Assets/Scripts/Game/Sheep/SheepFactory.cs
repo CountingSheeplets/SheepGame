@@ -27,8 +27,10 @@ public class SheepFactory : Singleton<SheepFactory>
         SkeletonMecanim skMecanim = container.GetComponent<SkeletonMecanim>();
         foreach(Spine.Slot slot in skMecanim.skeleton.Slots){
             if(slot.Data.Name.Contains("Color")){
-                Debug.Log("setting color of component: "+slot.Data.Name+"  to:"+owner.GetPlayerProfile().playerColor);
-                slot.SetColor(owner.GetPlayerProfile().playerColor);
+                Color newColor = owner.GetPlayerProfile().playerColor;
+                newColor.a = slot.GetColor().a;
+                Debug.Log("setting color of component: "+slot.Data.Name+"  to:"+newColor);
+                slot.SetColor(newColor);
             }
         }
         return sheep;
