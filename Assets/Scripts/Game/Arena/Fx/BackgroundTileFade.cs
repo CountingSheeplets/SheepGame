@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BackgroundTileFade : MonoBehaviour
 {
-    public float fadeTime = 2f;
     SpriteRenderer rend;
     bool isClone = false;
 
@@ -19,15 +18,16 @@ public class BackgroundTileFade : MonoBehaviour
     }
     public void StartFading(){
         if(rend == null) rend = GetComponent<SpriteRenderer>();
+            rend.material.SetFloat("_FadeProportion", ConstantsBucket.PlayfieldFadeProportion);
         isClone = true;
         StartCoroutine(Fade());
     }
     IEnumerator Fade(){
         float startTime = Time.time;
         float delta = 0;
-        while(delta < fadeTime){
+        while(delta < ConstantsBucket.PlayfieldFadeTime){
             delta = Time.time - startTime;
-            rend.material.SetFloat("_FadeLevel", fadeTime-delta);
+            rend.material.SetFloat("_FadeLevel", ConstantsBucket.PlayfieldFadeTime-delta);
             yield return null;
         }
         Destroy(gameObject);
