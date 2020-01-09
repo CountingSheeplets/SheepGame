@@ -25,9 +25,10 @@ public class BackgroundTileFade : MonoBehaviour
     IEnumerator Fade(){
         float startTime = Time.time;
         float delta = 0;
+        float fadeSpeed = 2f/ ConstantsBucket.PlayfieldFadeTime;
         while(delta < ConstantsBucket.PlayfieldFadeTime){
-            delta = Time.time - startTime;
-            rend.material.SetFloat("_FadeLevel", ConstantsBucket.PlayfieldFadeTime-delta);
+            delta = (Time.time - startTime) * fadeSpeed;
+            rend.material.SetFloat("_FadeLevel", 2f-delta);
             yield return null;
         }
         Destroy(gameObject);

@@ -4,23 +4,12 @@ using UnityEngine;
 using System.Linq;
 public class ArenaCoordinator : Singleton<ArenaCoordinator>
 {
-    public float playfieldArrangeFloatSpeedConstant = 5f;
-    [SerializeField]
-    int _gridSize = 11;
-    public static int GridSize {get {return Instance._gridSize;}}
-    [SerializeField]
-    float _tileSize = 0.5f;
-    public static float TileSize {get {return Instance._tileSize;}}
-    [SerializeField]
-    Vector2 _tileScale = new Vector2(2.5f,2.5f);
-    public static Vector2 TileScale {get {return Instance._tileScale;}}
     public static Vector2 fieldSize {
         get{
-            float width = Instance._gridSize * Instance._tileSize;
+            float width = ConstantsBucket.GridSize * ConstantsBucket.PlayfieldTileSize;
             return new Vector2(width, width);
         }
     }
-
     private List<Playfield> playfields = new List<Playfield>();
     public static List<Playfield> GetPlayfields{
         get{return Instance.playfields;}
@@ -29,7 +18,6 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator>
     public List<ArenaPreset> presets = new List<ArenaPreset>();
     public GameObject playfieldPrefab;
     public GameObject vortexPrefab;
-    public int emptySpacesBetweenFields = 1;
 
     void Start(){
         presets.AddRange(GetComponentsInChildren<ArenaPreset>(true));
@@ -80,7 +68,7 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator>
         List<PresetSocket> sockets = new List<PresetSocket>(randomPreset.playfieldSockets);
         List<Playfield> leftoverFields = new List<Playfield>(playfields);
         Playfield p = playfieldPrefab.GetComponent<Playfield>();
-        float fieldWidth = fieldSize.x + emptySpacesBetweenFields * _tileSize;
+        float fieldWidth = fieldSize.x + ConstantsBucket.EmptySpacesBetweenFields * ConstantsBucket.PlayfieldTileSize;
 
         for(int i = 0; i < playfields.Count; i++){
             int rS = Random.Range(0, sockets.Count-1);
@@ -88,7 +76,7 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator>
             Vector2 offset = sockets[rS].transform.position;
             //leftoverFields[rF].transform.position = offset * fieldWidth;
             FieldFloat pFloat = leftoverFields[rF].GetComponent<FieldFloat>();
-            pFloat.StartFloating(playfieldArrangeFloatSpeedConstant, offset * fieldWidth);
+            pFloat.StartFloating(ConstantsBucket.PlayfieldFloatSpeed, offset * fieldWidth);
             if(leftoverFields[rF].fieldCorners !=null)
                 leftoverFields[rF].fieldCorners.Recenter(offset * fieldWidth);
             leftoverFields.RemoveAt(rF);
@@ -97,7 +85,7 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator>
     }
     void AddVortexes(ArenaPreset randomPreset){
         List<PresetSocket> vortexSockets = new List<PresetSocket>(randomPreset.vortexSockets);
-        float fieldWidth = fieldSize.x + emptySpacesBetweenFields * _tileSize;
+        float fieldWidth = fieldSize.x + ConstantsBucket.GridSize * ConstantsBucket.PlayfieldTileSize;
         for(int i = 0; i < vortexSockets.Count; i++){
             GameObject newVortex = Instantiate(vortexPrefab);
             newVortex.transform.parent = transform;

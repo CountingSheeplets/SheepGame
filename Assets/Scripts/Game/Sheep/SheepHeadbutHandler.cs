@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SheepHeadbutHandler : MonoBehaviour
 {
-    public float hitRange = 0.2f;
 
     void Start()
     {
@@ -27,7 +26,7 @@ public class SheepHeadbutHandler : MonoBehaviour
         if(king == msg.sheepUnit.owner.GetKing())
             return;
         float distance = (king.transform.position - msg.sheepUnit.transform.position).magnitude;
-        if(distance < king.radius + hitRange){
+        if(distance < king.radius + ConstantsBucket.HitRange){
             EventCoordinator.TriggerEvent(EventName.System.King.Hit(), GameMessage.Write().WithSheepUnit(msg.sheepUnit).WithKingUnit(king).WithOwner(msg.sheepUnit.owner));
         }
         if(msg.playfield != msg.sheepUnit.owner.GetPlayfield())

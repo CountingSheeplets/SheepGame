@@ -47,25 +47,25 @@ public class Playfield : MonoBehaviour
     } */
     void OnStart(GameMessage msg){
         //adjust background size:
-        backgroundSprite.transform.localScale = ArenaCoordinator.TileScale * ArenaCoordinator.GridSize;
+        backgroundSprite.transform.localScale = ConstantsBucket.PlayfieldTileScale * ConstantsBucket.GridSize;
         //generate field area:
         Spiral sp = new Spiral();
-        for(int i = 0;i < ArenaCoordinator.GridSize * ArenaCoordinator.GridSize; i++){
+        for(int i = 0;i < ConstantsBucket.GridSize * ConstantsBucket.GridSize; i++){
             GameObject newTileGO = Instantiate(fieldTilePrefab, Vector2.zero, Quaternion.identity, fieldParent);
-            newTileGO.transform.localPosition = sp.ThisPoint() * ArenaCoordinator.TileSize;
+            newTileGO.transform.localPosition = sp.ThisPoint() * ConstantsBucket.PlayfieldTileSize;
             sp.Next();
-            newTileGO.transform.localScale = ArenaCoordinator.TileScale;
+            newTileGO.transform.localScale = ConstantsBucket.PlayfieldTileScale;
             fieldTiles.Add(newTileGO.GetComponent<FieldTile>());
         }
         //generate fences around field:
         //Vector2 offset = new Vector2(-(size.x+1)/2, (size.y+1)/2);
         if(generateFence)
-            for(int i = 0; i < (ArenaCoordinator.GridSize + 2 + ArenaCoordinator.GridSize) * 2; i++){
-                if((i+1) % (ArenaCoordinator.GridSize + 1) != 0) {
+            for(int i = 0; i < (ConstantsBucket.GridSize + 2 + ConstantsBucket.GridSize) * 2; i++){
+                if((i+1) % (ConstantsBucket.GridSize + 1) != 0) {
                     GameObject newTileGO = Instantiate(fenceTilePrefab, Vector2.zero, Quaternion.identity, fenceParent);
-                    newTileGO.transform.localPosition = sp.ThisPoint() * ArenaCoordinator.TileSize;
-                    newTileGO.transform.localScale = ArenaCoordinator.TileScale;
-                    Vector3 rotateBy = new Vector3(0, 0, 90f * Mathf.FloorToInt(i / (ArenaCoordinator.GridSize + 1)));
+                    newTileGO.transform.localPosition = sp.ThisPoint() * ConstantsBucket.PlayfieldTileSize;
+                    newTileGO.transform.localScale = ConstantsBucket.PlayfieldTileScale;
+                    Vector3 rotateBy = new Vector3(0, 0, 90f * Mathf.FloorToInt(i / (ConstantsBucket.GridSize + 1)));
                     //Debug.Log("rotateBy "+rotateBy);
                     newTileGO.transform.Rotate(rotateBy, Space.World);
                     newTileGO.GetComponentInChildren<SpriteRenderer>().transform.Rotate(-rotateBy, Space.World);

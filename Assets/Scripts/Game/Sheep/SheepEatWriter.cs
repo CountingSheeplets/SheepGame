@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class SheepEatWriter : MonoBehaviour
 {
-    public float eatInterval = 1f;
-    public float baseEatValue = 0.05f;
-    public float incrementalEatValue = 0.05f; // could do that base eating of all sheep increases over time
+ // could do that base eating of all sheep increases over time
     //to increase game speed for late game
     float counter;
 
@@ -14,9 +12,9 @@ public class SheepEatWriter : MonoBehaviour
     void Update()
     {
         counter+=Time.deltaTime;
-        if(counter > eatInterval){
+        if(counter > ConstantsBucket.EatInterval){
             counter = 0;
-            EventCoordinator.TriggerEvent(EventName.System.Economy.EatGrass(), GameMessage.Write().WithFloatMessage(baseEatValue));
+            EventCoordinator.TriggerEvent(EventName.System.Economy.EatGrass(), GameMessage.Write().WithFloatMessage(ConstantsBucket.BaseEatValue));
             //foreach(Playfield field in ArenaCoordinator.GetPlayfields){
                 //float eatValue = SheepCoordinator.GetSheepInField(field, SheepType.None) * defaultEatValue;
                 //EventCoordinator.TriggerEvent(EventName.System.Economy.EatGrass(), GameMessage.Write().WithPlayfield(field).WithFloatMessage(eatValue));

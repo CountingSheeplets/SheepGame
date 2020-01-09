@@ -6,8 +6,7 @@ using NDream.AirConsole;
 
 public class PlayerProfileCoordinator : Singleton<PlayerProfileCoordinator>
 {
-    public List<PlayerProfile> profiles = new List<PlayerProfile>();
-    public List<Color> colors = new List<Color>();
+    List<PlayerProfile> profiles = new List<PlayerProfile>();
 
     public static float ModifyPlayerGrass(Owner owner, float amount){
         return GetProfile(owner).ModifyGrass(amount);
@@ -21,8 +20,8 @@ public class PlayerProfileCoordinator : Singleton<PlayerProfileCoordinator>
         //Debug.Log("adding a profile");
         PlayerProfile profile = new PlayerProfile().Create(owner);
         //assign data
-        if(Instance.colors.Count > Instance.profiles.Count)
-            profile.playerColor = Instance.colors[Instance.profiles.Count];
+        if(ConstantsBucket.PlayerColors.Count > Instance.profiles.Count)
+            profile.playerColor = ConstantsBucket.PlayerColors[Instance.profiles.Count];
         else
             profile.playerColor = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
 
