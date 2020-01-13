@@ -93,10 +93,11 @@ public class EventName
             public static List<string> Get() { return new List<string> {Initialized(), SetField(), AdjustField(), EndMatch(), ArenaAnimating(), PlayfieldAnimated(), ArenaAnimated() }; }          
         }
         public class Player{
+            public static string ProfileCreated() { return "System_ProfileCreated"; }
             public static string ProfileUpdate() { return "System_ProfileUpdate"; }
             public static string PlayerCardsSorted() { return "System_PlayerCardsSorted"; }
             public static string Eliminated() { return "System_Eliminated"; }
-            public static List<string> Get() { return new List<string> { ProfileUpdate(),PlayerCardsSorted(),Eliminated()}; }          
+            public static List<string> Get() { return new List<string> {ProfileCreated(), ProfileUpdate(),PlayerCardsSorted(),Eliminated()}; }          
         }
         //public static string NextScene() { return "NextScene"; }
         //public static string LoadScene() { return "LoadScene"; }

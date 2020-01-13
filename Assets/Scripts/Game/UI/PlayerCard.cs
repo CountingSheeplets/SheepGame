@@ -52,7 +52,7 @@ public class PlayerCard : MonoBehaviour
         if(isEliminated)
             return;
         if(owner.EqualsByValue(msg.playerProfile.owner)){
-            crownCount.text = Mathf.FloorToInt(msg.playerProfile.GetStars()).ToString();
+            crownCount.text = Mathf.FloorToInt(msg.playerProfile.GetCrowns()).ToString();
             moneyCount.text = Mathf.FloorToInt(msg.playerProfile.GetMoney()).ToString();
             kingHealthText.text = Mathf.FloorToInt(msg.playerProfile.GetHealth()).ToString();
 

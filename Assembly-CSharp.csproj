@@ -306,6 +306,8 @@
      <Compile Include="Assets\Scripts\Game\King\KingRoam.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingSmash\KingSmashPlayerCard.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingUnit.cs" />
+     <Compile Include="Assets\Scripts\Game\PlayerProfile\PersistentDataController.cs" />
+     <Compile Include="Assets\Scripts\Game\PlayerProfile\PersistentDataCoordinator.cs" />
      <Compile Include="Assets\Scripts\Game\PlayerProfile\PlayerEliminationHandler.cs" />
      <Compile Include="Assets\Scripts\Game\PlayerProfile\PlayerProfile.cs" />
      <Compile Include="Assets\Scripts\Game\PlayerProfile\PlayerProfileController.cs" />
@@ -386,6 +388,7 @@
      <Compile Include="Assets\Scripts\Network\OwnersController.cs" />
      <Compile Include="Assets\Scripts\Network\OwnersCoordinator.cs" />
      <Compile Include="Assets\Scripts\System\Base Classes\Singleton.cs" />
+     <Compile Include="Assets\Scripts\System\CryptoHelper.cs" />
      <Compile Include="Assets\Scripts\System\CustomHelperClasses.cs" />
      <Compile Include="Assets\Scripts\System\EventChain.cs" />
      <Compile Include="Assets\Scripts\System\EventCoordinator.cs" />
@@ -393,6 +396,7 @@
      <Compile Include="Assets\Scripts\System\EventName.cs" />
      <Compile Include="Assets\Scripts\System\ExtentionMethods.cs" />
      <Compile Include="Assets\Scripts\System\GameMessage.cs" />
+     <Compile Include="Assets\Scripts\System\JsonExtensions.cs" />
      <Compile Include="Assets\Scripts\System\Types\BuildingType.cs" />
      <Compile Include="Assets\Scripts\System\Types\FactionType.cs" />
      <Compile Include="Assets\Scripts\System\UnityGameEvent.cs" />

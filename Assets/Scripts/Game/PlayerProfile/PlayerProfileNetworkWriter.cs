@@ -28,7 +28,8 @@ public class PlayerProfileNetworkWriter : MonoBehaviour
         var data = new Dictionary<string, float>{ { "health", profile.GetHealth() },
                                                     { "money", profile.GetMoney() },
                                                     { "grass", Mathf.FloorToInt(profile.GetGrass())},
-                                                    { "crowns", profile.GetStars()},
+                                                    { "crowns", profile.GetCrowns()},
+                                                    { "permanentCrowns", profile.permanentCrownCount},
 
                                                     { "priceGrass", PriceCoordinator.GetPrice(profile.owner, PriceName.King.BuyGrass())},
                                                     { "priceSheep", PriceCoordinator.GetPrice(profile.owner, PriceName.King.BuySheep())},

@@ -11,7 +11,28 @@ public class PlayerProfile
     public Color playerColor;
     public Sprite playerAvatarImage;
     public Playfield playfield;
-
+    int _selectedCrown;
+    public int selectedCrown {
+        get { return _selectedCrown;}
+        set { SetNetworkDirty();
+            _selectedCrown = value;}
+    }
+    int _selectedScepter;
+    public int selectedScepter{
+        get { return _selectedScepter;}
+        set { SetNetworkDirty();
+            _selectedScepter = value;}
+    }
+    bool _dataStored;// dirty for network updates and such;
+    public bool IsNetworkDirty(){
+        return _dataStored;
+    }
+    public void SetNetworkDirty(){
+        _dataStored = false;
+    }
+    public void CleanNetworkDirty(){
+        _dataStored = true;
+    }
     public float GetGrass(){
         if (playfield != null)
             return playfield.GetHitpoints();
@@ -74,9 +95,10 @@ public class PlayerProfile
         SetDirty();
         return money;
     }
+    public int permanentCrownCount;
 
     public int crownCount;
-    public int GetStars(){
+    public int GetCrowns(){
         return crownCount;
     }
     public int AddCrowns(int amount){
@@ -112,7 +134,7 @@ public class PlayerProfile
     }
 
     public IEnumerator DisplayUrlPicture (string url) {
-		// Crownt a download of the given URL
+		// Coint a download of the given URL
 		WWW www = new WWW (url);
 		
 		// Wait for download to complete

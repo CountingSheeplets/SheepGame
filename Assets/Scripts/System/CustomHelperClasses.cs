@@ -45,4 +45,5 @@ public class Vector3Bool
             Z = true;
         }
     }
+
 }

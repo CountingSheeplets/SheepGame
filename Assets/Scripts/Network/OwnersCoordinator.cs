@@ -44,6 +44,9 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator>
     public static Owner GetOwner(int device_id){
         return Instance.owners.Where(x=>x.deviceId == device_id).FirstOrDefault();
     }
+    public static Owner GetOwner(string uid){
+        return Instance.owners.Where(x=>x.ownerId == uid).FirstOrDefault();
+    }
     public static Owner GetRandomOwner(){
         if(Instance.owners.Count > 0){
             List<Owner> aliveOwners = new List<Owner> (Instance.owners.Where(x => x.GetPlayerProfile().isAlive).ToList());

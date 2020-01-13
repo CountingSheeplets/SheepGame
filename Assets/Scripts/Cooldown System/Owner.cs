@@ -54,6 +54,11 @@ public class Owner : MonoBehaviour
     public PlayerProfile GetPlayerProfile(){
         return PlayerProfileCoordinator.GetProfile(this);
     }
+    public string GetToken(int crownCount){
+        string token = "sheep"+ownerId+"_!"+crownCount;
+        Debug.Log("token:"+token);
+        return CryptoHelper.md5(token);
+    }
     public bool IsMine(){
         //int mask = 0x01 | 12345;
         /*/if ((mask & ownerType) == mask) {

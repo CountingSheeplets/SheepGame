@@ -33,6 +33,7 @@ public class PlayerProfileController : MonoBehaviour
         if(profile == null){
             profile = PlayerProfileCoordinator.AddProfile(msg.owner);
             profile.AddMoney(100f);
+            EventCoordinator.TriggerEvent(EventName.System.Player.ProfileCreated(), GameMessage.Write().WithPlayerProfile(profile));
         }
         //send assigned data
         NetworkCoordinator.SendColor(msg.owner.deviceId, "#"+ColorUtility.ToHtmlStringRGBA(profile.playerColor).Substring(0, 6));
