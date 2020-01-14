@@ -296,12 +296,15 @@
      <Compile Include="Assets\Scripts\Game\King\Ability Handlers\BuyGrassHandler.cs" />
      <Compile Include="Assets\Scripts\Game\King\Ability Handlers\BuySheepHandler.cs" />
      <Compile Include="Assets\Scripts\Game\King\Ability Handlers\KingSmiteHandler.cs" />
-     <Compile Include="Assets\Scripts\Game\King\HatChanger.cs" />
+     <Compile Include="Assets\Scripts\Game\King\ItemChangeHandler.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingController.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingCoordinator.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingEat.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingFactory.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingHealthBar.cs" />
+     <Compile Include="Assets\Scripts\Game\King\KingItems\KingItem.cs" />
+     <Compile Include="Assets\Scripts\Game\King\KingItems\KingItemBucket.cs" />
+     <Compile Include="Assets\Scripts\Game\King\KingItems\KingItemType.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingModel.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingRoam.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingSmash\KingSmashPlayerCard.cs" />
@@ -378,6 +381,7 @@
      <Compile Include="Assets\Scripts\Network\Controller Handlers\BackButtonHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\BuyResourceNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\ControllerView.cs" />
+     <Compile Include="Assets\Scripts\Network\Controller Handlers\KingItemChangeNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\KingSmashNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\MenuNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\ReadyNetworkHandler.cs" />

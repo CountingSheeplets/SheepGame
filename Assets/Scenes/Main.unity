@@ -3445,6 +3445,7 @@ GameObject:
   - component: {fileID: 752291662}
   - component: {fileID: 752291661}
   - component: {fileID: 752291663}
+  - component: {fileID: 752291664}
   m_Layer: 0
   m_Name: Buckets(Prices, Upgrades, Speeds)
   m_TagString: Untagged
@@ -3685,6 +3686,28 @@ MonoBehaviour:
   hitRange: 0.2
   kingSmiteRange: 1
   playerColors: []
+  profileUpdateInterval: 0.5
+--- !u!114 &752291664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752291657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d397e205cc401443b0171391f98d208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  kingHats:
+  - {fileID: 7850907195064140875, guid: 3b774a892a206f141b2b5154492c4b08, type: 3}
+  - {fileID: -3208100873215765966, guid: 59bb559bc6fe5fb4b8a79d310164a0a9, type: 3}
+  - {fileID: -8239643649098071619, guid: 177174ac626482741a2b559bc7de855e, type: 3}
+  - {fileID: 6690523383659771592, guid: 6c1340df2bc63774b8b1b2764ade6304, type: 3}
+  kingScepters:
+  - {fileID: -2665248342372899925, guid: d41c59c63e70d7b43856140185815749, type: 3}
+  - {fileID: 4710703670985784280, guid: 97a1e8a7c4fc5d74a93cb6beb2b32a4a, type: 3}
 --- !u!1 &761747014
 GameObject:
   m_ObjectHideFlags: 0
@@ -4546,7 +4569,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 34.45
+  m_fontSize: 35.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5346,6 +5369,7 @@ GameObject:
   - component: {fileID: 1067208990}
   - component: {fileID: 1067208989}
   - component: {fileID: 1067208991}
+  - component: {fileID: 1067208992}
   m_Layer: 0
   m_Name: menu
   m_TagString: Untagged
@@ -5403,6 +5427,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8dee144a64214c04db6267e0f1a07449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1067208992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067208987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1f318983e8ff12449a0f6dd536226f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1076482761

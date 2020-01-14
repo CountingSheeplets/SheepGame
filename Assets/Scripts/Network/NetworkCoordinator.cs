@@ -30,6 +30,49 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator>
         json["upgrade"] = JToken.FromObject(upgrade);
         TrySend(deviceId, json);
     }
+    public static void SendKingItems(Owner owner){
+        JObject json = new JObject();
+        PlayerProfile profile = owner.GetPlayerProfile();
+        json["type"] = "kingItems";
+        json["crowns"] = profile.permanentCrownCount;
+
+        JObject hatJson = new JObject();
+        hatJson["ID"] =  profile.selectedHat;
+        hatJson["itemName"] = KingItemBucket.GetItem(profile.selectedHat, KingItemType.hat).itemName;
+
+        JObject hCrownsJson = new JObject();
+        hCrownsJson["required"] =  KingItemBucket.GetItem(profile.selectedHat, KingItemType.hat).crownRequirement;
+        hCrownsJson["requirementMet"] =  KingItemBucket.IsCrownRequirementMet(owner, profile.selectedHat, KingItemType.hat);
+        hatJson["crowns"] = hCrownsJson;
+
+        JObject hPremiumJson = new JObject();
+        hPremiumJson["required"] =  KingItemBucket.GetItem(profile.selectedHat, KingItemType.hat).premiumRequirement;
+        hPremiumJson["requirementMet"] =  KingItemBucket.IsPremiumRequirementMet(owner, profile.selectedHat, KingItemType.hat);
+        hatJson["premium"] = hPremiumJson;
+
+        hatJson["unlocked"] =  KingItemBucket.IsItemAvailable(owner, profile.selectedHat, KingItemType.hat);
+        
+        json["newHat"] = hatJson;
+
+        JObject scepterJson = new JObject();
+        scepterJson["ID"] = profile.selectedScepter;
+        scepterJson["itemName"] = KingItemBucket.GetItem(profile.selectedScepter, KingItemType.scepter).itemName;
+
+        JObject sCrownsJson = new JObject();
+        sCrownsJson["required"] =  KingItemBucket.GetItem(profile.selectedScepter, KingItemType.scepter).crownRequirement;
+        sCrownsJson["requirementMet"] =  KingItemBucket.IsCrownRequirementMet(owner, profile.selectedScepter, KingItemType.scepter);
+        scepterJson["crowns"] = sCrownsJson;
+
+        JObject sPremiumJson = new JObject();
+        sPremiumJson["required"] =  KingItemBucket.GetItem(profile.selectedScepter, KingItemType.scepter).premiumRequirement;
+        sPremiumJson["requirementMet"] =  KingItemBucket.IsPremiumRequirementMet(owner, profile.selectedScepter, KingItemType.scepter);
+        scepterJson["premium"] = sPremiumJson;
+
+        scepterJson["unlocked"] =  KingItemBucket.IsItemAvailable(owner, profile.selectedScepter, KingItemType.scepter);
+
+        json["newScepter"] = scepterJson;
+        TrySend(owner.deviceId, json);
+    }
     public static void SendUpgradeButtons(int deviceId, SheepUnit sheep){
         JObject json = new JObject();
         json["type"] = "upgradeButtons";
@@ -77,6 +120,28 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator>
         json["total"] = totalScore;
         TrySend(deviceId, json);
     }
+
+    public static bool SendProfile(PlayerProfile profile){
+        if(profile == null)
+            return false;
+        if(!profile.isAlive) //also should be if(profile.isDirty)
+            return false;
+        var data = new Dictionary<string, float>{ { "health", profile.GetHealth() },
+                                                    { "money", profile.GetMoney() },
+                                                    { "grass", Mathf.FloorToInt(profile.GetGrass())},
+                                                    { "crowns", profile.GetCrowns()},
+                                                    { "permanentCrowns", profile.permanentCrownCount},
+
+                                                    { "priceGrass", PriceCoordinator.GetPrice(profile.owner, PriceName.King.BuyGrass())},
+                                                    { "priceSheep", PriceCoordinator.GetPrice(profile.owner, PriceName.King.BuySheep())},
+                                                    { "priceSmash", PriceCoordinator.GetPrice(profile.owner, PriceName.King.Smash())},
+                                                    { "priceUpgrade1", PriceCoordinator.GetPrice(profile.owner, UpgradeBucket.ToName(profile.playfield.GetComponent<SheepUpgrade>().typeA))},
+                                                    { "priceUpgrade2", PriceCoordinator.GetPrice(profile.owner, UpgradeBucket.ToName(profile.playfield.GetComponent<SheepUpgrade>().typeB))}
+                                                };
+        NetworkCoordinator.SendPlayerProfile(profile.owner.deviceId, data);
+        return true;
+    }
+
 //general functions:
     static void TrySendObject(int deviceId, NetworkObject networkObject){
         if(AirConsole.instance != null){

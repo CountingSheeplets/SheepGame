@@ -6,16 +6,18 @@ public class PlayerProfile
 {
     public bool isAlive = true;
     public int eliminatedPlace = 0;
-
+    bool _isPremium =false;
+    public bool isPremium{get{return _isPremium;}}
+    public void SetPremium(){_isPremium = true;}
     public Owner owner;
     public Color playerColor;
     public Sprite playerAvatarImage;
     public Playfield playfield;
-    int _selectedCrown;
-    public int selectedCrown {
-        get { return _selectedCrown;}
+    int _selectedHat;
+    public int selectedHat {
+        get { return _selectedHat;}
         set { SetNetworkDirty();
-            _selectedCrown = value;}
+            _selectedHat = value;}
     }
     int _selectedScepter;
     public int selectedScepter{
@@ -23,15 +25,34 @@ public class PlayerProfile
         set { SetNetworkDirty();
             _selectedScepter = value;}
     }
-    bool _dataStored;// dirty for network updates and such;
+    public void SelectItem(KingItemType itemType, int index){
+        switch(itemType){
+            case KingItemType.hat:
+                selectedHat = index;
+                break;
+            case KingItemType.scepter:
+                selectedScepter = index;
+                break;
+        }
+    }
+    public int GetSelectedItem(KingItemType itemType){
+        switch(itemType){
+            case KingItemType.hat:
+                return selectedHat;
+            case KingItemType.scepter:
+                return selectedScepter;
+        }
+        return 0;
+    }
+    bool _dirty = false;// dirty for network updates and such;
     public bool IsNetworkDirty(){
-        return _dataStored;
+        return _dirty;
     }
     public void SetNetworkDirty(){
-        _dataStored = false;
+        _dirty = true;
     }
     public void CleanNetworkDirty(){
-        _dataStored = true;
+        _dirty = false;
     }
     public float GetGrass(){
         if (playfield != null)
@@ -44,7 +65,7 @@ public class PlayerProfile
     public float ModifyGrass(float amount){
         if (playfield != null){
             float adjustedAmount = playfield.AdjustHitPoints(amount);
-            SetDirty();
+            SetNetworkDirty();
             return adjustedAmount;
         }else{
             Debug.LogWarning("playfield = null, in player profile: "+owner);
@@ -56,7 +77,7 @@ public class PlayerProfile
             float prevHitpoints = playfield.currentHitpoints;
             float amount = playfield.AdjustHitPoints(500);
             playfield.AdjustHitPoints(amount);
-            SetDirty();
+            SetNetworkDirty();
             return prevHitpoints - playfield.currentHitpoints;
         }else{
             Debug.LogWarning("playfield = null, in player profile: "+owner);
@@ -87,12 +108,12 @@ public class PlayerProfile
         money += amount;
         if(amount > 0)
             earnedMoney+=amount;
-        SetDirty();
+        SetNetworkDirty();
         return money;
     }
     public float SetMoney(float amount){
         money = amount;
-        SetDirty();
+        SetNetworkDirty();
         return money;
     }
     public int permanentCrownCount;
@@ -103,19 +124,19 @@ public class PlayerProfile
     }
     public int AddCrowns(int amount){
         crownCount += amount;
-        SetDirty();
+        SetNetworkDirty();
         return crownCount;
     }
     public int SetCrowns(int amount){
         crownCount = amount;
-        SetDirty();
+        SetNetworkDirty();
         return crownCount;
     }
     public bool Buy(string priceName){
         float price = PriceCoordinator.GetPrice(owner, priceName);
         if(price < GetMoney()){
             AddMoney(-price);
-            SetDirty();
+            SetNetworkDirty();
             return true;
         }
         Debug.Log("Cannto buy ["+priceName+"], not anough money. Need ["+price+"], Have ["+GetMoney()+"]");
@@ -143,8 +164,8 @@ public class PlayerProfile
 		// assign texture
         playerAvatarImage = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0, 0));
 	}
-    public void SetDirty(){
+/*     public void SetNetworkDirty(){
         if(isAlive)
             EventCoordinator.TriggerEvent(EventName.System.Player.ProfileUpdate(), GameMessage.Write().WithPlayerProfile(this).WithOwner(owner));
-    }
+    } */
 }

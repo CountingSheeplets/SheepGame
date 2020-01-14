@@ -19,7 +19,7 @@ public class PlayerOwnerTile : MonoBehaviour
         EventCoordinator.StopListening(EventName.System.Player.ProfileUpdate(), OnProfileUpdate);
     }
     void OnProfileUpdate(GameMessage msg){
-        if(myOwner == msg.owner);
+        if(myOwner == msg.owner)
             crownCountText.text = msg.playerProfile.permanentCrownCount.ToString();
     }
 }

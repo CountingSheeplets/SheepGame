@@ -50,5 +50,6 @@ public class ConstantsBucket : Singleton<ConstantsBucket>
     [Header("Profile")]
     [SerializeField] List<Color> playerColors = new List<Color>();
     public static List<Color> PlayerColors{        get{return Instance.playerColors;}    }
-
+    [SerializeField] float profileUpdateInterval = 0.5f;
+    public static float ProfileUpdateInterval{        get{return Instance.profileUpdateInterval;}    }
 }

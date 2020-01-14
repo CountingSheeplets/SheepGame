@@ -8,12 +8,15 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator>
 {
     string key = "sheepGameData";
     private List<string> requestedNames = new List<string>();
+    public bool IsRequestedNamesEmpty {
+        get { return requestedNames.Count > 0;}
+    }
     public static void StoreData(Owner owner){
         //NetworkObject newNetObj = new NetworkObject("changeView", view);
         JObject json = new JObject();
         json["ownerID"] = owner.ownerId;
         json["coinCount"] = owner.GetPlayerProfile().permanentCrownCount + owner.GetPlayerProfile().GetCrowns();
-        json["selectedCrown"] = owner.GetPlayerProfile().selectedCrown;
+        json["selectedHat"] = owner.GetPlayerProfile().selectedHat;
         json["selectedScepter"] = owner.GetPlayerProfile().selectedScepter;
         json["token"] = owner.GetToken((int)json["coinCount"]);
         TryStore(json, owner);
@@ -39,15 +42,22 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator>
                 match = request;
                 data = data[match][Instance.key];
                 Owner owner = OwnersCoordinator.GetOwner(data["ownerID"].ToString());
-                if(owner)
+                if(owner){
+                    PlayerProfile profile = owner.GetPlayerProfile();
+                    if(profile != null)
                     if(HasReceivedTrueData(owner, data)){
-                        PlayerProfile profile = owner.GetPlayerProfile();
-                        profile.permanentCrownCount = (int)data["coinCount"];
-                        profile.selectedCrown = (int)data["selectedCrown"];
-                        profile.selectedScepter = (int)data["selectedScepter"];
+                        if(!data["coinCount"].IsNullOrEmpty())
+                            profile.permanentCrownCount = (int)data["coinCount"];
+                        if(!data["selectedHat"].IsNullOrEmpty())
+                            profile.selectedHat = (int)data["selectedHat"];
+                        if(!data["selectedScepter"].IsNullOrEmpty())
+                            profile.selectedScepter = (int)data["selectedScepter"];
                         EventCoordinator.TriggerEvent(EventName.System.Player.ProfileUpdate(), GameMessage.Write().WithPlayerProfile(profile).WithOwner(owner));
+		                EventCoordinator.TriggerEvent(EventName.Input.ChangeHat(), GameMessage.Write().WithOwner(owner).WithIntMessage(0));
+		                EventCoordinator.TriggerEvent(EventName.Input.ChangeScepter(), GameMessage.Write().WithOwner(owner).WithIntMessage(0));
                         Debug.Log("data received and loaded");
                     }
+                }
             }
         }
         if(match != "")

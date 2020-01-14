@@ -56,7 +56,7 @@ public class Owner : MonoBehaviour
     }
     public string GetToken(int crownCount){
         string token = "sheep"+ownerId+"_!"+crownCount;
-        Debug.Log("token:"+token);
+        //Debug.Log("token:"+token);
         return CryptoHelper.md5(token);
     }
     public bool IsMine(){

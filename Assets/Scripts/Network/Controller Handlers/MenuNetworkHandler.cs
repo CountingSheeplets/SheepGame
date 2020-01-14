@@ -15,7 +15,6 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler>
 		AirConsole.instance.onConnect += OnConnect;
         AirConsole.instance.onPremium += OnPremium;
         AirConsole.instance.onDisconnect += OnDisconnect;
-        AirConsole.instance.onMessage += OnSelectHatClick;
     }
     void OnConnect(int device_id){
 		Owner owner = OwnersCoordinator.TryCreateOwner(device_id);
@@ -44,7 +43,6 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler>
 			AirConsole.instance.onConnect -= OnConnect;
             AirConsole.instance.onPremium -= OnPremium;
 			AirConsole.instance.onDisconnect -= OnDisconnect;
-            AirConsole.instance.onMessage -= OnSelectHatClick;
 		}
 	}
 	void OnPremium(int device_id){
@@ -74,25 +72,4 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler>
 		//Log to on-screen Console
 		Debug.Log("Loaded persistentData: " + data + " \n \n");
 	}
-    void OnSelectHatClick(int from, JToken message)
-    {
-        Debug.Log("int from: " + from + "   " + message);
-        if (message["data"] != null){
-			Owner owner = OwnersCoordinator.GetOwner(from);
-            if   (message["element"].ToString().Contains("previous-king-hat"))
-            {
-				Owner triggerOwner = OwnersCoordinator.GetOwner(from);
-				if(triggerOwner == null)
-					return;
-				EventCoordinator.TriggerEvent(EventName.Input.ChangeHat(), GameMessage.Write().WithIntMessage(-1).WithOwner(owner));
-            }
-			if   (message["element"].ToString().Contains("next-king-hat"))
-            {
-				Owner triggerOwner = OwnersCoordinator.GetOwner(from);
-				if(triggerOwner == null)
-					return;
-				EventCoordinator.TriggerEvent(EventName.Input.ChangeHat(), GameMessage.Write().WithIntMessage(1).WithOwner(owner));
-            }
-		}
-    }
 }

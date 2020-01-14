@@ -40,10 +40,11 @@ public class EventName
         public static string SheepUpgrade() { return "Input_SheepUpgrade"; }
         public static string Swipe() { return "Input_Swipe"; }
         public static string ChangeHat() { return "King_ChangeHat"; }
+        public static string ChangeScepter() { return "King_ChangeScepter"; }
         public static string StartGame() { return "StartGame"; }
         public static List<string> Get() { return new List<string> {
             StartGame(), SheepUpgrade(),
-            Swipe(), ChangeHat()
+            Swipe(), ChangeHat(), ChangeScepter()
             }.Concat(KingAbilities.Get())
                 //.Concat(SheepUpgrade.Get())
                 .Concat(Menus.Get())
@@ -118,7 +119,7 @@ public class EventName
         public static List<string> Get() { return new List<string> {
         SwitchFakeController()}.ToList();    }
     } */
-    public List<string> Get()
+    public static List<string> Get()
     {
         return new List<string> { }.Concat(UI.Get())
                                     .Concat(Editor.Get())
