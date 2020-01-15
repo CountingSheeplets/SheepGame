@@ -12,56 +12,6 @@ public static class ExtensionMethods
     //variable. This variable denotes which class the extension
     //method becomes a part of.
 
-    //markers stuff:
-    public static GameObject GetOrCreateStorableObject(this GameObject prefab, List<GameObject> storage, Transform parent)
-    {
-        List<GameObject> leftovers = new List<GameObject>(storage.Where(x => x.GetComponent<IMarker>().IsMarked == false).ToList());
-        GameObject outputModel;
-        if (leftovers.Count == 0)
-        {
-            GameObject newModel = GameObject.Instantiate(prefab, parent) as GameObject;
-            newModel.transform.localPosition = Vector3.zero;
-            storage.Add(newModel);
-            outputModel = newModel;
-        } else{
-            outputModel = leftovers[0];
-        }
-        return outputModel;
-    }
-    public static List<GameObject> GetOrCreateStorableObjects(this GameObject prefab, List<GameObject> storage, Transform parent, int count)
-    {
-        //take only items from storage, which have all of their marker components not marked;
-        List<GameObject> leftovers = new List<GameObject>(storage.Where(x => x.GetComponents<IMarker>().All(y => y.IsMarked == false)).ToList());
-        List<GameObject> outputModels = new List<GameObject>();
-        for (int i = 0; i < count; i++)
-        {
-            if (leftovers.Count == 0)
-            {
-                GameObject newModel = GameObject.Instantiate(prefab, parent) as GameObject;
-                newModel.transform.localPosition = Vector3.zero;
-                storage.Add(newModel);
-                outputModels.Add(newModel);
-            } else{
-                outputModels.Add(leftovers[0]);
-                leftovers.RemoveAt(0);
-            }
-        }
-        return outputModels;
-    }
-    public static void StoreAndUnmark(this List<GameObject> leftovers)
-    {
-        foreach(GameObject obj in leftovers)
-        {
-            StoreMarker(obj);
-        }
-    }
-    public static void StoreMarker(this GameObject leftover){
-        List<IMarker> markedMarkers = new List<IMarker>(leftover.GetComponents<IMarker>().Where(x => x.IsMarked));
-        foreach(IMarker marker in markedMarkers){
-            marker.UnMark();
-            leftover.transform.position = Vector3.zero;
-        }
-    }
     //Remove a list from a list:
     public static void RemoveList<T>(this List<T> listToRemoveFrom, List<T> listToRemove)
     {

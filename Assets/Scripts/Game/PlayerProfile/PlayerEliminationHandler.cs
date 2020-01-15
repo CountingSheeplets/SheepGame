@@ -25,7 +25,7 @@ public class PlayerEliminationHandler : MonoBehaviour
         float moneyReward = PriceCoordinator.GetPrice(msg.owner, PriceName.Player.KingElimGold());
         PlayerProfileCoordinator.GetProfile(msg.owner).AddMoney(moneyReward);
 
-        if(PriceCoordinator.GetLevel(msg.owner, PriceName.Player.KingElimGold()) < 5);
+        if(PriceCoordinator.GetLevel(msg.owner, PriceName.Player.KingElimGold()) < 5)
             PriceCoordinator.IncreaseLevel(msg.owner, PriceName.Player.KingElimGold());
         PriceCoordinator.IncreaseLevel(msg.owner, PriceName.Player.KingElimGold());
 

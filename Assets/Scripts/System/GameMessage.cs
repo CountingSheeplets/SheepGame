@@ -38,11 +38,6 @@ public class GameMessage
         gameObject = value;
         return this;
     }
-    public CooldownGroup cooldownGroup;
-    public GameMessage WithCooldownGroup(CooldownGroup value){
-        cooldownGroup = value;
-        return this;
-    }
 
     public Owner owner;
     public GameMessage WithOwner(Owner value){

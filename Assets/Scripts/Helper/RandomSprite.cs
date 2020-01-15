@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class RandomSprite : MonoBehaviour
 {
-    public SpriteRenderer renderer;
+    public SpriteRenderer rend;
     public List<Sprite> sprites;
 
     void Start()
     {
-        if(renderer == null)    renderer = GetComponentInChildren<SpriteRenderer>();
+        if(rend == null)    rend = GetComponentInChildren<SpriteRenderer>();
         SelectSprite();
     }
 
@@ -20,6 +20,6 @@ public class RandomSprite : MonoBehaviour
             return;
         }
         int index = Random.Range(0, sprites.Count-1);
-        renderer.sprite = sprites[index];
+        rend.sprite = sprites[index];
     }
 }

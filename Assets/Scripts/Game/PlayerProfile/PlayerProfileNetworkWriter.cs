@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NDream.AirConsole;
 
 public class PlayerProfileNetworkWriter : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class PlayerProfileNetworkWriter : MonoBehaviour
     }
 
     void TrySendProfile(Owner owner){
+        if(AirConsole.instance == null)
+            return;
         PlayerProfile profile = owner.GetPlayerProfile();
         if(profile != null)
             if(profile.IsNetworkDirty()){

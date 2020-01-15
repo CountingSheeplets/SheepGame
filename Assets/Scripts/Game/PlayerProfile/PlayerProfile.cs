@@ -157,7 +157,7 @@ public class PlayerProfile
     public IEnumerator DisplayUrlPicture (string url) {
 		// Coint a download of the given URL
 		WWW www = new WWW (url);
-		
+        
 		// Wait for download to complete
 		yield return www;
 		
