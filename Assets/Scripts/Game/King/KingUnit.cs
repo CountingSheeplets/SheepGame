@@ -17,7 +17,22 @@ public class KingUnit : MonoBehaviour
     }
     public bool isUsingAbility = false;
     public bool isRoaming = false;
-    public float radius = 0.5f;
+    [SerializeField]
+    public int succesfullHits = 0;
+    public Vector3 defaultScale;
+    public void SuccesfullHit(){
+        succesfullHits++;
+        transform.localScale = defaultScale * Mathf.Pow(1 + ConstantsBucket.KingHitRadiusIncrement, succesfullHits);
+        Debug.Log("hit:"+transform.localScale);
+    }
+    public void ResetSuccesfullHits(){
+        succesfullHits = 0;
+        transform.localScale = defaultScale;
+        Debug.Log("reset:"+transform.localScale);
+    }
+    public float GetRadius(){
+        return ConstantsBucket.KingHitRadius * Mathf.Pow(1 + ConstantsBucket.KingHitRadiusIncrement, succesfullHits);
+    }
     [SerializeField]
     private float maxHealth = 100f;
     [SerializeField]
@@ -35,6 +50,8 @@ public class KingUnit : MonoBehaviour
     public OnReceivedDamage onReceivedDamage;
 
     void Start(){
+        Debug.Log("pre sclae:"+transform.localScale);
+        defaultScale = transform.localScale;
         EventCoordinator.StartListening(EventName.System.King.Hit(), OnHit);
     }
     void OnDestroy(){
@@ -45,7 +62,7 @@ public class KingUnit : MonoBehaviour
         if(msg.kingUnit == this){
             //if target owner == damaged owner. throw msg "king is starving!"
             DealDamage(10);
-            onReceivedDamage(10);
+            //onReceivedDamage(10); move this to messaging system
             TryDie(msg.owner, owner);
         }
     }

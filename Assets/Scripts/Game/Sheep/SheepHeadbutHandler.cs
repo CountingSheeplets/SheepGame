@@ -23,14 +23,17 @@ public class SheepHeadbutHandler : MonoBehaviour
             Debug.Log("msg.sheepUnit == null");
             return;
         }
-        if(king == msg.sheepUnit.owner.GetKing())
+        if(king == msg.sheepUnit.lastHandler.GetKing())
             return;
         float distance = (king.transform.position - msg.sheepUnit.transform.position).magnitude;
-        if(distance < king.radius + ConstantsBucket.HitRange){
+        Debug.Log("distance: "+distance+"  King Radius: "+king.GetRadius()+"  sheep radius: "+ConstantsBucket.HitRange);
+        if(distance < king.GetRadius() + ConstantsBucket.HitRange){
+            msg.sheepUnit.lastHandler.GetKing().SuccesfullHit();
+            king.ResetSuccesfullHits();
             EventCoordinator.TriggerEvent(EventName.System.King.Hit(), GameMessage.Write().WithSheepUnit(msg.sheepUnit).WithKingUnit(king).WithOwner(msg.sheepUnit.owner));
         }
         if(msg.playfield != msg.sheepUnit.owner.GetPlayfield())
-            if(msg.sheepUnit.sheepType == SheepType.Armored){
+            if(msg.sheepUnit.sheepType == SheepType.Bouncy){
                 SheepFly fly = msg.sheepUnit.GetComponent<SheepFly>();
                 fly.StartFlying(SpeedBucket.GetFlySpeed(msg.sheepUnit.sheepType), king.transform.position);
 

@@ -14,7 +14,6 @@ public class BaseUnitMove : MonoBehaviour
     //public AnimatorContainer animator;
     public SpineContainer animator;
     void Awake(){
-        myScale = transform.localScale;
     }
     public void MoveToDestination(float speed, float _midScale){
         if(animator == null)
@@ -25,6 +24,7 @@ public class BaseUnitMove : MonoBehaviour
     }
 
     IEnumerator Move(){
+        myScale = transform.localScale;
         //calculate parameters for movement:
         totalDistance = ((Vector2)(transform.position) - destination).magnitude;
         Vector2 initialPos = (Vector2)(transform.position);

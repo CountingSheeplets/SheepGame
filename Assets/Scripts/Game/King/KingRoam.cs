@@ -36,15 +36,15 @@ public class KingRoam : BaseUnitMove
         Vector2 newVec = new Vector2(0, 1.5f * ConstantsBucket.PlayfieldTileSize);
         newVec = Quaternion.AngleAxis(Random.Range(0, 359), Vector3.forward) * newVec;
         Vector2 targetPos = (Vector2)transform.position + newVec;
-        if(king.myPlayfield.fieldCorners.IsWithinField(targetPos, king.radius)){
+        if(king.myPlayfield.fieldCorners.IsWithinField(targetPos, king.GetRadius())){
             return targetPos; 
         } else {
             targetPos = transform.position + Quaternion.AngleAxis(90, Vector3.forward) * newVec;
-            if(king.myPlayfield.fieldCorners.IsWithinField(targetPos, king.radius)){
+            if(king.myPlayfield.fieldCorners.IsWithinField(targetPos, king.GetRadius())){
                 return targetPos;
             } else {
                 targetPos = transform.position + Quaternion.AngleAxis(180, Vector3.forward) * newVec;
-                if(king.myPlayfield.fieldCorners.IsWithinField(targetPos, king.radius)){
+                if(king.myPlayfield.fieldCorners.IsWithinField(targetPos, king.GetRadius())){
                     return targetPos;
                 }
             }

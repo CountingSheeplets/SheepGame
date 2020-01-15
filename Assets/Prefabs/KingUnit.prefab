@@ -52,7 +52,7 @@ MonoBehaviour:
   canBeThrown: 1
   isUsingAbility: 0
   isRoaming: 0
-  radius: 0.5
+  succesfullHits: 0
   maxHealth: 100
   currentDamage: 0
 --- !u!114 &4476018965608934899
@@ -72,7 +72,7 @@ MonoBehaviour:
   distanceLeft: 0
   distanceTraveled: 0
   myScale: {x: 0, y: 0, z: 0}
-  midScale: 2
+  midScale: 0
   animator: {fileID: 0}
 --- !u!114 &2672995643569707066
 MonoBehaviour:
@@ -100,7 +100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinations: []
   initPos: []
-  hitRange: 2
   flyDistance: 2
   knockFlySpeed: 2
 --- !u!1 &6176890268272503166
@@ -120,7 +119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8825538963035002086
 Transform:
   m_ObjectHideFlags: 0

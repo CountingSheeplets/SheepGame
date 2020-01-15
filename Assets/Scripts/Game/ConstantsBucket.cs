@@ -46,7 +46,10 @@ public class ConstantsBucket : Singleton<ConstantsBucket>
     [Header("King")]
     [SerializeField] float kingSmiteRange = 1f;
     public static float KingSmiteRange{        get{return Instance.kingSmiteRange;}    }
-
+    [SerializeField] float kingHitRadius = 0.5f;
+    public static float KingHitRadius{        get{return Instance.kingHitRadius;}    }
+    [SerializeField] float kingHitRadiusIncrement = 0.05f;
+    public static float KingHitRadiusIncrement{        get{return Instance.kingHitRadiusIncrement;}    }
     [Header("Profile")]
     [SerializeField] List<Color> playerColors = new List<Color>();
     public static List<Color> PlayerColors{        get{return Instance.playerColors;}    }
