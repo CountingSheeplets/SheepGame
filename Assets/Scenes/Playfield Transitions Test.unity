@@ -724,8 +724,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 254, y: -16.933334}
-  m_SizeDelta: {x: 508, y: 33.866665}
+  m_AnchoredPosition: {x: 215.5, y: -14.366669}
+  m_SizeDelta: {x: 431, y: 28.733334}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &297183557
 MonoBehaviour:
@@ -1577,8 +1577,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 254, y: -41.799988}
-  m_SizeDelta: {x: 508, y: 33.866665}
+  m_AnchoredPosition: {x: 215.5, y: -34.1}
+  m_SizeDelta: {x: 431, y: 28.733334}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &472995009
 MonoBehaviour:
@@ -1922,7 +1922,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 11.2
+  m_fontSize: 9.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2857,10 +2857,10 @@ RectTransform:
   m_Father: {fileID: 1753602706}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.3}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0.3}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1000, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &695881612
 MonoBehaviour:
@@ -2909,7 +2909,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 13
+  m_fontSize: 11.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2993,6 +2993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77133f42160a5934084d476849656169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollSpeed: 1
 --- !u!1 &698737497
 GameObject:
   m_ObjectHideFlags: 0
@@ -3265,7 +3266,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 11.3
+  m_fontSize: 9.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3669,7 +3670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _persistent: 0
   playfieldFadeTime: 2
-  playfieldFadeNoiseTiling: {x: 0.5, y: 0.5}
+  playfieldFadeNoiseTiling: {x: 0.05, y: 0.05}
   playfieldFadeProportion: 1
   playfieldGridSize: 11
   playfieldTileSize: 0.5
@@ -4988,7 +4989,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 9
+  m_fontSize: 7.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6105,7 +6106,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 18.25
+  m_fontSize: 15.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
