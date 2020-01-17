@@ -50,8 +50,12 @@ public class PriceCoordinator : Singleton<PriceCoordinator>
         if(attr != null)
         {
             PriceBase pBase = attr.GetPriceBase(priceName);
-            if(pBase != null)
-                return pBase.basePrice + pBase.increment * pBase.level;
+            if(pBase != null){
+                if(priceName != PriceName.King.BuyGrass())
+                    return pBase.basePrice + pBase.increment * pBase.level;
+                else
+                    return pBase.basePrice * Mathf.Pow(pBase.increment, pBase.level);
+            }
         }
         return 999f;
     }

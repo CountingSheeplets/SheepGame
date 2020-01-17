@@ -14,7 +14,8 @@ public class BuyGrassHandler : MonoBehaviour
     void OnPlayerBuyGrass(GameMessage msg){
         PlayerProfile profile = PlayerProfileCoordinator.GetProfile(msg.owner);
         if(profile.Buy(PriceName.King.BuyGrass())){
-            profile.ModifyGrass(2f);
+            profile.FillGrass();
+            PriceCoordinator.IncreaseLevel(msg.owner, PriceName.King.BuyGrass());
         }
     }
 }
