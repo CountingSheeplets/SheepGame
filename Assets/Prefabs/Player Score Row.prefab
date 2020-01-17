@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 1
-  m_AspectRatio: 15
+  m_AspectRatio: 18
 --- !u!114 &3577552356417637773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,6 +444,7 @@ MonoBehaviour:
   military: {fileID: 3577552357011326075}
   technology: {fileID: 3577552356855291681}
   total: {fileID: 3577552355724468179}
+  eliminatedPlace: 0
 --- !u!1 &3577552356855291695
 GameObject:
   m_ObjectHideFlags: 0

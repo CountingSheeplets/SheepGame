@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using UnityEngine.UI;
 public class ScoreScreenController : MonoBehaviour
 {
     public GameObject scoreRowPrefab;
@@ -18,10 +19,13 @@ public class ScoreScreenController : MonoBehaviour
 
     void OnScoresShow(GameMessage msg)
     {
+        Debug.Log("OnScore Screen stuff:");
         scoreScreen.gameObject.SetActive(true);
         bool first = true;
         List<ScoreRow> scoreRows = new List<ScoreRow>();
+        Debug.Log("owners total: :"+OwnersCoordinator.GetOwners().Count);
         foreach(Owner owner in OwnersCoordinator.GetOwners()){
+            Debug.Log("scoring owner: :"+owner);
             PlayerScores scores = ScoreCoordinator.GetPlayerScores(owner);
             GameObject newScoreRow = Instantiate(scoreRowPrefab, scoresContainer);
             //newScoreRow.transform.SetSiblingIndex(1);
@@ -37,6 +41,7 @@ public class ScoreScreenController : MonoBehaviour
         {
             if(first){
                 scoreRows[i].transform.SetSiblingIndex(i+1);
+                scoreRows[i].GetComponent<AspectRatioFitter>().aspectRatio -= 3;
                 first = false;
             } else {
                 scoreRows[i].transform.SetSiblingIndex(i+2);
@@ -45,8 +50,8 @@ public class ScoreScreenController : MonoBehaviour
             //Debug.Log("get index: "+scoreRows[i].transform.GetSiblingIndex());
         }
 
-        winnerNameScrollbar.text = "     winner - "+scoreRows[0].playerName.text+"     ";
-        winnerNameScrollbar.text+=winnerNameScrollbar.text;
-        winnerNameScrollbar.text+=winnerNameScrollbar.text;
+        winnerNameScrollbar.text = "winner - "+scoreRows[0].playerName.text;//+"     ";
+        //winnerNameScrollbar.text+=winnerNameScrollbar.text;
+        //winnerNameScrollbar.text+=winnerNameScrollbar.text;
     }
 }

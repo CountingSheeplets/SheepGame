@@ -25,8 +25,8 @@ public class ScoreNetworkWriter : MonoBehaviour
             eliminatedOwners.Add(msg.targetOwner);
         foreach(Owner owner in eliminatedOwners){
             PlayerScores playerScores = ScoreCoordinator.GetPlayerScores(owner);
-            int total = ScoreCoordinator.GetTotalPlayerScores(msg.owner);
-            msg.owner.GetPlayerProfile().SetCrowns(total);
+            int total = ScoreCoordinator.GetTotalPlayerScores(owner);
+            owner.GetPlayerProfile().SetCrowns(total);
             NetworkCoordinator.SendPlayerScores(owner.deviceId, false, playerScores.scores, total);
         }
     }

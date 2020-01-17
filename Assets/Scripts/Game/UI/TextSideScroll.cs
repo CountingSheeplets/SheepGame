@@ -7,18 +7,34 @@ public class TextSideScroll : MonoBehaviour
     TextMeshProUGUI text;
     int counter = 0;
     int skip = 5;
+    bool scroll = true;
+    RectTransform myRectTr;
+    public float scrollSpeed = 1f;
     void Start()
     {
         if(text == null) text = GetComponent<TextMeshProUGUI>();
+        if(myRectTr == null) myRectTr = GetComponent<RectTransform>();
+        float height = myRectTr.rect.height;
+        Debug.Log(height);
+        //myRectTr.sizeDelta = new Vector2(Screen.width, height);
+        myRectTr.offsetMin = new Vector2(-Screen.width/2f, 0);
+        myRectTr.offsetMax = new Vector2(Screen.width/2f, 0);
+        Debug.Log(myRectTr.rect);
+
+        StartCoroutine(Scroll());
     }
 
-    void FixedUpdate()
+    IEnumerator Scroll()
     {
-        counter++;
-        if(counter >5){
-            string original = text.text;
-            text.text = original.Remove(0,1) + original[0];
-            counter =0;
+        while(scroll){
+            transform.localPosition -= new Vector3(scrollSpeed, 0, 0);
+
+            if(transform.localPosition.x <= -Screen.width)
+                transform.localPosition = new Vector3(Screen.width, transform.localPosition.y, transform.localPosition.z);
+
+            yield return 0;
         }
+        yield return 0;
     }
+    void OnDestroy(){scroll = false;}
 }

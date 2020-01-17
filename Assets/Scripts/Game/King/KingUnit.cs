@@ -64,11 +64,9 @@ public class KingUnit : MonoBehaviour
             TryDie(msg.owner, owner);
         }
     }
-    public void OnStarve(GameMessage msg){
-        if(msg.kingUnit == this){
-            DealDamage(ConstantsBucket.StarveDamage);
-            TryDie(null, owner);
-        }
+    public void OnStarve(){
+        DealDamage(ConstantsBucket.StarveDamage);
+        TryDie(null, owner);
     }
     public void DealDamage(float amount){
         currentDamage += amount;
@@ -79,8 +77,9 @@ public class KingUnit : MonoBehaviour
 
             //then remove king
             EventCoordinator.TriggerEvent(EventName.System.King.Killed(), GameMessage.Write().WithKingUnit(this).WithOwner(killer).WithTargetOwner(eliminated));
-            Destroy(gameObject, 2f); //destroy GO after animations have played out
-            Destroy(this); //destroy this instantly, so that wouldnt interfere with other mechanics
+            //Destroy(gameObject, 2f); //destroy GO after animations have played out
+            Destroy(gameObject); //destroy this instantly, so that wouldnt interfere with other mechanics
+            //then with OnDestroy have death animations created via KingFactory
         }
     }
 }

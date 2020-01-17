@@ -20,7 +20,7 @@ public class KingEat : MonoBehaviour
         float totalGrass = PlayerProfileCoordinator.ModifyPlayerGrass(king.owner, -eatAmount);
         Debug.Log("KingUnit grass eaten "+eatAmount);
         if(totalGrass <=0 )
-            king.OnStarve(msg);
+            king.OnStarve();
             //EventCoordinator.TriggerEvent(EventName.System.King.Hit(), GameMessage.Write().WithSheepUnit(msg.sheepUnit).WithKingUnit(king).WithOwner(king.owner));
             //if target owner == damaged owner. throw msg "king is starving!"
     }
