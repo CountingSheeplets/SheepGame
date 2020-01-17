@@ -9,6 +9,11 @@ public class ArenaControllerTest : MonoBehaviour
             Debug.Log("is animating..."); */
 
         if(Input.GetKeyDown(KeyCode.KeypadPlus)){
+            if(GameStateView.HasState(GameState.started))
+			{
+				Debug.LogWarning("New cannot join, game already started");
+				return;
+			}
             Owner owner = OwnersCoordinator.CreateEmptyOwner();
             if(owner){
                 EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerJoined(), GameMessage.Write().WithOwner(owner));
@@ -22,7 +27,8 @@ public class ArenaControllerTest : MonoBehaviour
             }
         }
         if(Input.GetKeyDown(KeyCode.KeypadEnter)){
-            EventCoordinator.TriggerEvent(EventName.Input.StartGame(), GameMessage.Write());
+            if(!GameStateView.HasState(GameState.started))
+                EventCoordinator.TriggerEvent(EventName.Input.StartGame(), GameMessage.Write());
         }
     }
     void Start()

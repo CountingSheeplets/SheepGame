@@ -17,9 +17,16 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler>
         AirConsole.instance.onDisconnect += OnDisconnect;
     }
     void OnConnect(int device_id){
+		if(GameStateView.HasState(GameState.started))
+		{
+			Debug.LogWarning("New cannot join, game already started");
+			return;
+		}
+
 		Owner owner = OwnersCoordinator.TryCreateOwner(device_id);
 		if(owner){
 			//then anounce the new owner
+
         	EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerJoined(), GameMessage.Write().WithOwner(owner));
 			//then add hero model to the Owner as Child:
 			KingFactory.TryCreateHeroModel(owner);
@@ -28,6 +35,12 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler>
 			Debug.LogError("OnConnect returned null Owner!");
     }
     void OnDisconnect(int device_id){
+		if(GameStateView.HasState(GameState.started))
+		{
+			Debug.LogWarning("New cannot join, game already started");
+			return;
+		}
+
 		Owner owner = OwnersCoordinator.DisconnectOwner(device_id);
 		if(!owner)
 			Debug.LogWarning("OnDisconnect returned null Owner! Nothing to disconnect...");

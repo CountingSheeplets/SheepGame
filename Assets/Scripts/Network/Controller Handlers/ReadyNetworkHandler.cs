@@ -15,6 +15,8 @@ public class ReadyNetworkHandler : MonoBehaviour
 
     void OnReady(int from, JToken message)
     {
+        if(GameStateView.HasState(GameState.started))
+            return;
         if (message["element"] != null)
             if (message["element"].ToString() == "ready-button")
             {

@@ -31,4 +31,9 @@ public class GameStateView : Singleton<GameStateView>
         FlagsHelper.Set(ref currentState, GameState.arenaAnimating);
         //currentState |= GameState.arenaAnimating;
     }
+    public static bool HasState(GameState inputState){
+        if((GameStateView.GetGameState() & inputState) != 0)
+            return true;
+        return false;
+    }
 }
