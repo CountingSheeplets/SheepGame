@@ -17,18 +17,14 @@ public class KingUnit : MonoBehaviour
     }
     public bool isUsingAbility = false;
     public bool isRoaming = false;
-    [SerializeField]
-    public int succesfullHits = 0;
-    public Vector3 defaultScale;
+    int succesfullHits = 0;
     public void SuccesfullHit(){
         succesfullHits++;
-        transform.localScale = defaultScale * Mathf.Pow(1 + ConstantsBucket.KingHitRadiusIncrement, succesfullHits);
-        Debug.Log("hit:"+transform.localScale);
+        GetComponent<KingChangeSize>().StartIncreasingSize(succesfullHits);
     }
     public void ResetSuccesfullHits(){
         succesfullHits = 0;
-        transform.localScale = defaultScale;
-        Debug.Log("reset:"+transform.localScale);
+        GetComponent<KingChangeSize>().StartResetingSize();
     }
     public float GetRadius(){
         return ConstantsBucket.KingHitRadius * Mathf.Pow(1 + ConstantsBucket.KingHitRadiusIncrement, succesfullHits);
@@ -51,7 +47,6 @@ public class KingUnit : MonoBehaviour
 
     void Start(){
         Debug.Log("pre sclae:"+transform.localScale);
-        defaultScale = transform.localScale;
         EventCoordinator.StartListening(EventName.System.King.Hit(), OnHit);
     }
     void OnDestroy(){

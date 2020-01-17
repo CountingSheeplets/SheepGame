@@ -241,6 +241,7 @@
      <Compile Include="Assets\Scripts\Game\King\Ability Handlers\BuySheepHandler.cs" />
      <Compile Include="Assets\Scripts\Game\King\Ability Handlers\KingSmiteHandler.cs" />
      <Compile Include="Assets\Scripts\Game\King\ItemChangeHandler.cs" />
+     <Compile Include="Assets\Scripts\Game\King\KingChangeSize.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingController.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingCoordinator.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingEat.cs" />
@@ -314,6 +315,7 @@
      <Compile Include="Assets\Scripts\General\ManagerInstantiater.cs" />
      <Compile Include="Assets\Scripts\Helper\CollectionHelper.cs" />
      <Compile Include="Assets\Scripts\Helper\DebugHelper.cs" />
+     <Compile Include="Assets\Scripts\Helper\Easing.cs" />
      <Compile Include="Assets\Scripts\Helper\FlagsHelper.cs" />
      <Compile Include="Assets\Scripts\Helper\Generate.cs" />
      <Compile Include="Assets\Scripts\Helper\InitializeListeners.cs" />

@@ -26,6 +26,23 @@ public class TestEvents : MonoBehaviour
                 sheep = sheeps[Random.Range(0, sheeps.Count-1)];
             EventCoordinator.TriggerEvent(EventName.System.King.Hit(), GameMessage.Write().WithKingUnit(kings[Random.Range(0, kings.Count-1)]).WithSheepUnit(sheep).WithOwner(owners[Random.Range(0, owners.Count-1)]));
         }
+        if(Input.GetKeyDown(KeyCode.L)){
+            Debug.Log("Fake land sheep on a random king...");
+            List<KingUnit> kings = new List<KingUnit>( FindObjectsOfType<KingUnit>() );
+            List<SheepUnit> sheeps = new List<SheepUnit>( FindObjectsOfType<SheepUnit>() );
+            SheepUnit sheep = null;
+            KingUnit king = null;
+            if(sheeps.Count>0)
+                sheep = sheeps[Random.Range(0, sheeps.Count-1)];
+            if(kings.Count > 0)
+                king = kings[Random.Range(0, kings.Count-1)];
+            sheep.lastHandler = sheep.currentPlayfield.owner;
+            sheep.transform.position = king.transform.position;
+            Playfield newPlayfield = ArenaCoordinator.GetPlayfield(sheep.transform.position);
+            sheep.currentPlayfield = newPlayfield;
+            sheep.ResetContainer();
+            EventCoordinator.TriggerEvent(EventName.System.Sheep.Land(), GameMessage.Write().WithSheepUnit(sheep).WithPlayfield(king.myPlayfield));
+        }
         if(Input.GetKeyDown(KeyCode.G)){
             Debug.Log("Fake eat grass...");
             EventCoordinator.TriggerEvent(EventName.System.Economy.EatGrass(), GameMessage.Write().WithFloatMessage(10f));

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4476018965608934899}
   - component: {fileID: 2672995643569707066}
   - component: {fileID: 9412328676758384}
+  - component: {fileID: 3520766465558782696}
   m_Layer: 0
   m_Name: KingUnit
   m_TagString: Untagged
@@ -53,6 +54,7 @@ MonoBehaviour:
   isUsingAbility: 0
   isRoaming: 0
   succesfullHits: 0
+  defaultScale: {x: 0, y: 0, z: 0}
   maxHealth: 100
   currentDamage: 0
 --- !u!114 &4476018965608934899
@@ -102,6 +104,18 @@ MonoBehaviour:
   initPos: []
   flyDistance: 2
   knockFlySpeed: 2
+--- !u!114 &3520766465558782696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4932373932008650664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a077a4beff70b4ea8688792bf595cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6176890268272503166
 GameObject:
   m_ObjectHideFlags: 0

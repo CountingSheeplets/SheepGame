@@ -11,6 +11,6 @@ public class SheepSalto : MonoBehaviour
     }
     void OnKingHit(GameMessage msg)
     {
-        Debug.Log("sheep doing a salto, in similar manner coords as roam, but animation of salto/fly");
+        //Debug.Log("sheep doing a salto, in similar manner coords as roam, but animation of salto/fly");
     }
 }

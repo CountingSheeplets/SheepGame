@@ -50,6 +50,8 @@ public class ConstantsBucket : Singleton<ConstantsBucket>
     public static float KingHitRadius{        get{return Instance.kingHitRadius;}    }
     [SerializeField] float kingHitRadiusIncrement = 0.05f;
     public static float KingHitRadiusIncrement{        get{return Instance.kingHitRadiusIncrement;}    }
+    [SerializeField] float kingScaleChangeTime = 0.5f;
+    public static float KingScaleChangeTime{        get{return Instance.kingScaleChangeTime;}    }
     [Header("Profile")]
     [SerializeField] List<Color> playerColors = new List<Color>();
     public static List<Color> PlayerColors{        get{return Instance.playerColors;}    }

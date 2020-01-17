@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3670,7 +3670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _persistent: 0
   playfieldFadeTime: 2
-  playfieldFadeNoiseTiling: {x: 1, y: 1}
+  playfieldFadeNoiseTiling: {x: 0.5, y: 0.5}
   playfieldFadeProportion: 1
   playfieldGridSize: 11
   playfieldTileSize: 0.5
@@ -3687,7 +3687,18 @@ MonoBehaviour:
   kingSmiteRange: 1
   kingHitRadius: 0.5
   kingHitRadiusIncrement: 0.05
-  playerColors: []
+  kingScaleChangeTime: 1
+  playerColors:
+  - {r: 0.23921569, g: 0.58431375, b: 0.80784315, a: 1}
+  - {r: 0.8901961, g: 0.32156864, b: 0.25882354, a: 1}
+  - {r: 0.95686275, g: 0.6392157, b: 0.31764707, a: 1}
+  - {r: 0.6784314, g: 0.5063429, b: 0.91764706, a: 1}
+  - {r: 0.91764706, g: 0.8, b: 0.29411766, a: 1}
+  - {r: 0.9372549, g: 0.56078434, b: 0.84313726, a: 1}
+  - {r: 0.25882354, g: 0.90588236, b: 0.87058824, a: 1}
+  - {r: 0.26666668, g: 0.6, b: 0.32156864, a: 1}
+  - {r: 0.28155038, g: 0.2921396, b: 0.3490566, a: 1}
+  - {r: 0.6037736, g: 0.2306871, b: 0.2306871, a: 1}
   profileUpdateInterval: 0.5
 --- !u!114 &752291664
 MonoBehaviour:
@@ -4571,7 +4582,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 27.15
+  m_fontSize: 45.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
