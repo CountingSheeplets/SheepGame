@@ -33,9 +33,9 @@ public class TestEvents : MonoBehaviour
             SheepUnit sheep = null;
             KingUnit king = null;
             if(sheeps.Count>0)
-                sheep = sheeps[Random.Range(0, sheeps.Count-1)];
+                sheep = sheeps[Random.Range(0, sheeps.Count)];
             if(kings.Count > 0)
-                king = kings[Random.Range(0, kings.Count-1)];
+                king = kings[Random.Range(0, kings.Count)];
             sheep.lastHandler = sheep.currentPlayfield.owner;
             sheep.transform.position = king.transform.position;
             Playfield newPlayfield = ArenaCoordinator.GetPlayfield(sheep.transform.position);

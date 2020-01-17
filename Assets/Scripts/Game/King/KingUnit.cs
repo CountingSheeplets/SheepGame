@@ -18,6 +18,9 @@ public class KingUnit : MonoBehaviour
     public bool isUsingAbility = false;
     public bool isRoaming = false;
     int succesfullHits = 0;
+    public int GetSuccesfullHits(){
+        return succesfullHits;
+    }
     public void SuccesfullHit(){
         succesfullHits++;
         GetComponent<KingChangeSize>().StartIncreasingSize(succesfullHits);
@@ -56,12 +59,17 @@ public class KingUnit : MonoBehaviour
     void OnHit(GameMessage msg){
         if(msg.kingUnit == this){
             //if target owner == damaged owner. throw msg "king is starving!"
-            DealDamage(10);
+            DealDamage(ConstantsBucket.HitDamage);
             //onReceivedDamage(10); move this to messaging system
             TryDie(msg.owner, owner);
         }
     }
-
+    public void OnStarve(GameMessage msg){
+        if(msg.kingUnit == this){
+            DealDamage(ConstantsBucket.StarveDamage);
+            TryDie(null, owner);
+        }
+    }
     public void DealDamage(float amount){
         currentDamage += amount;
     }

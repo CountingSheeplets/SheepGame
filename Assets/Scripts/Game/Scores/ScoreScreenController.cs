@@ -24,7 +24,7 @@ public class ScoreScreenController : MonoBehaviour
         foreach(Owner owner in OwnersCoordinator.GetOwners()){
             PlayerScores scores = ScoreCoordinator.GetPlayerScores(owner);
             GameObject newScoreRow = Instantiate(scoreRowPrefab, scoresContainer);
-                newScoreRow.transform.SetSiblingIndex(1);
+            //newScoreRow.transform.SetSiblingIndex(1);
 
             newScoreRow.name = "ScoreRow:"+owner.ownerName;
             ScoreRow row = newScoreRow.GetComponent<ScoreRow>();
@@ -32,7 +32,7 @@ public class ScoreScreenController : MonoBehaviour
             row.InitScoreRow(owner.ownerName, owner.GetPlayerProfile().playerColor, scores);
             row.eliminatedPlace = owner.GetPlayerProfile().eliminatedPlace;
         }
-        scoreRows.OrderByDescending(row => row.eliminatedPlace).ToArray();
+        scoreRows = scoreRows.OrderByDescending(row => row.eliminatedPlace).ToList();
         for (int i = 0; i < scoreRows.Count; i++)
         {
             if(first){
@@ -41,6 +41,8 @@ public class ScoreScreenController : MonoBehaviour
             } else {
                 scoreRows[i].transform.SetSiblingIndex(i+2);
             }
+            //Debug.Log("row eliminated: "+scoreRows[i].eliminatedPlace+ "  "+scoreRows[i].playerName);
+            //Debug.Log("get index: "+scoreRows[i].transform.GetSiblingIndex());
         }
 
         winnerNameScrollbar.text = "     winner - "+scoreRows[0].playerName.text+"     ";

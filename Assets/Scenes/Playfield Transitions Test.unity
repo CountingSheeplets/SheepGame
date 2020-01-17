@@ -3678,15 +3678,22 @@ MonoBehaviour:
   emptySpacesBetweenFields: 1
   sheepThrowStrength: 1
   eatInterval: 1
-  baseEatValue: 0.05
+  baseEatValue: 0.02
   incrementalEatValue: 0.05
   roamInterval: 1
   roamProbability: 0.25
   hitRange: 0.2
+  hitDamage: 7
+  greedySheepBonusMoney: 0.15
+  smallSheepBonusEat: 0.1
+  incomeMultiplierNoGrass: 2
   kingSmiteRange: 1
   kingHitRadius: 0.5
   kingHitRadiusIncrement: 0.05
   kingScaleChangeTime: 1
+  kingEatBonus: 0.15
+  kingEatIncrement: 0.05
+  starveDamage: 1.25
   playerColors:
   - {r: 0.23921569, g: 0.58431375, b: 0.80784315, a: 1}
   - {r: 0.8901961, g: 0.32156864, b: 0.25882354, a: 1}

@@ -5,8 +5,7 @@ using UnityEngine;
 public class SheepEat : MonoBehaviour
 {
     SheepUnit sheep;
-    public float bonusEatIfSheepIsSmall = 0.1f;
-    public float bonusMoneyIfIsGreedy = 0.15f;
+
     void Start()
     {
         sheep = GetComponent<SheepUnit>();
@@ -20,26 +19,27 @@ public class SheepEat : MonoBehaviour
     {
         if(sheep.currentPlayfield == null)
             return;
-        Owner owner = sheep.currentPlayfield.owner;
-        if(owner.EqualsByValue(GetComponentInParent<Playfield>().owner))
+        Owner playfieldOwner = sheep.currentPlayfield.owner;
+        if(playfieldOwner.EqualsByValue(sheep.owner))
             return;
-        float eatAmount = CalculateEatAmount(msg.floatMessage);
+        float eatAmount = CalculateEatAmount();
         float totalGrass = PlayerProfileCoordinator.ModifyPlayerGrass(sheep.currentPlayfield.owner, -eatAmount);
+        Debug.Log("sheep grass eaten "+eatAmount);
         
         float multiplier = 1;
         if(totalGrass <=0)
-            multiplier = 2;//PriceManager multipliers.NoGrass()
-        float moneyAmount = (eatAmount + bonusMoneyIfIsGreedy) / 2f * multiplier;
+            multiplier = ConstantsBucket.IncomeMultiplierNoGrass;//PriceManager multipliers.NoGrass()
+        float moneyAmount = (eatAmount + ConstantsBucket.GreedySheepBonusMoney) * multiplier;
         PlayerProfileCoordinator.GetProfile(GetComponentInParent<Playfield>().owner).AddMoney(moneyAmount);
     }
 
-    float CalculateEatAmount(float baseAmount){
+    float CalculateEatAmount(){
         //do math here, like faster eating sheep, slower eating sheep etc.
         if(sheep.sheepType == SheepType.Small){
-            return baseAmount + bonusEatIfSheepIsSmall;
+            return ConstantsBucket.BaseEatValue + ConstantsBucket.SmallSheepBonusEat;
         }
         //then return final value:
-        return baseAmount;
+        return ConstantsBucket.BaseEatValue;
     }
     float CalculateMoneyReward(float eatAmount){
         //do math here how money income is calculated depending on sheep eating

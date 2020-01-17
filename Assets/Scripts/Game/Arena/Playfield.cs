@@ -119,6 +119,7 @@ public class Playfield : MonoBehaviour
         currentHitpoints+=amount;
         if(currentHitpoints < 0)
             currentHitpoints = 0;
+
         return currentHitpoints;
     }
     public override string ToString(){

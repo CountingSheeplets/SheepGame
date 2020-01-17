@@ -16,22 +16,25 @@ public class KingEat : MonoBehaviour
     }
     void OnEat(GameMessage msg)
     {
-        float eatAmount = CalculateEatAmount(msg.floatMessage);
+        float eatAmount = CalculateEatAmount();
         float totalGrass = PlayerProfileCoordinator.ModifyPlayerGrass(king.owner, -eatAmount);
+        Debug.Log("KingUnit grass eaten "+eatAmount);
         if(totalGrass <=0 )
-            EventCoordinator.TriggerEvent(EventName.System.King.Hit(), GameMessage.Write().WithSheepUnit(msg.sheepUnit).WithKingUnit(king).WithOwner(king.owner));
+            king.OnStarve(msg);
+            //EventCoordinator.TriggerEvent(EventName.System.King.Hit(), GameMessage.Write().WithSheepUnit(msg.sheepUnit).WithKingUnit(king).WithOwner(king.owner));
             //if target owner == damaged owner. throw msg "king is starving!"
     }
 
-    float CalculateEatAmount(float baseAmount){
+    float CalculateEatAmount(){
         //do math here, like faster eating king, slower eating king etc.
-
+        float baseAmount = ConstantsBucket.BaseEatValue + ConstantsBucket.KingEatBonus;
+        float amount = baseAmount + ConstantsBucket.KingEatIncrement * king.GetSuccesfullHits();
         //then return final value:
-        return baseAmount;
+        return amount;
     }
-    float CalculateMoneyReward(float eatAmount){
+/*     float CalculateMoneyReward(float eatAmount){
         //do math here how money income is calculated depending on king eating
 
         return eatAmount * 5f;
-    }
+    } */
 }

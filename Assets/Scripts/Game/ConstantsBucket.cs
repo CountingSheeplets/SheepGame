@@ -14,6 +14,7 @@ public class ConstantsBucket : Singleton<ConstantsBucket>
     [Range(0,1)]
     [SerializeField] float playfieldFadeProportion = 1f;
     public static float PlayfieldFadeProportion{get{return Instance.playfieldFadeProportion;}}
+
     [Header("Arena Generation")]
     [SerializeField] int playfieldGridSize = 11;
     public static int GridSize {get {return Instance.playfieldGridSize;}}
@@ -31,7 +32,7 @@ public class ConstantsBucket : Singleton<ConstantsBucket>
     public static float SheepThrowStrength{get{return Instance.sheepThrowStrength;}}
     [SerializeField] float eatInterval = 1f;
     public static float EatInterval{        get{return Instance.eatInterval;}    }
-    [SerializeField] float baseEatValue = 0.05f;
+    [SerializeField] float baseEatValue = 0.02f;
     public static float BaseEatValue{        get{return Instance.baseEatValue;}    }
     [SerializeField] float incrementalEatValue = 0.05f;
     public static float IncrementalEatValue{        get{return Instance.incrementalEatValue;}    }
@@ -42,6 +43,18 @@ public class ConstantsBucket : Singleton<ConstantsBucket>
     public static float RoamProbability{        get{return Instance.roamProbability;}    }
     [SerializeField] public float hitRange = 0.2f;
     public static float HitRange{        get{return Instance.hitRange;}    }
+    [SerializeField] public float hitDamage = 7.0f;
+    public static float HitDamage{        get{return Instance.hitDamage;}    }
+    
+    [Header("Sheep upgrades")]
+    [SerializeField] public float greedySheepBonusMoney = 0.1f;
+    public static float GreedySheepBonusMoney{        get{return Instance.greedySheepBonusMoney;}    }
+    [SerializeField] public float smallSheepBonusEat = 0.1f;
+    public static float SmallSheepBonusEat{        get{return Instance.smallSheepBonusEat;}    }
+
+    [Header("Economy")]
+    [SerializeField] public float incomeMultiplierNoGrass = 2.0f;
+    public static float IncomeMultiplierNoGrass{        get{return Instance.incomeMultiplierNoGrass;}    }
 
     [Header("King")]
     [SerializeField] float kingSmiteRange = 1f;
@@ -52,6 +65,13 @@ public class ConstantsBucket : Singleton<ConstantsBucket>
     public static float KingHitRadiusIncrement{        get{return Instance.kingHitRadiusIncrement;}    }
     [SerializeField] float kingScaleChangeTime = 0.5f;
     public static float KingScaleChangeTime{        get{return Instance.kingScaleChangeTime;}    }
+    [SerializeField] float kingEatBonus = 0.15f;
+    public static float KingEatBonus{        get{return Instance.kingEatBonus;} }
+    [SerializeField] float kingEatIncrement = 0.05f;
+    public static float KingEatIncrement{        get{return Instance.kingEatIncrement;} }   
+    [SerializeField] float starveDamage = 1.25f;
+    public static float StarveDamage{        get{return Instance.starveDamage;}    }
+
     [Header("Profile")]
     [SerializeField] List<Color> playerColors = new List<Color>();
     public static List<Color> PlayerColors{        get{return Instance.playerColors;}    }
