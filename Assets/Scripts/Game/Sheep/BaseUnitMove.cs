@@ -13,7 +13,13 @@ public class BaseUnitMove : MonoBehaviour
     public float midScale = 2f;
     //public AnimatorContainer animator;
     public SpineContainer animator;
+
+    public bool isMoving = false;
     void Awake(){
+        SetScale();
+    }
+    public void SetScale(){
+        myScale = transform.localScale;
     }
     public void MoveToDestination(float speed, float _midScale){
         if(animator == null)
@@ -24,14 +30,17 @@ public class BaseUnitMove : MonoBehaviour
     }
 
     IEnumerator Move(){
-        myScale = transform.localScale;
+        //stop other enumerators, which are already moving the object
+        isMoving = true;
+        yield return null;
+        isMoving = false;
         //calculate parameters for movement:
         totalDistance = ((Vector2)(transform.position) - destination).magnitude;
         Vector2 initialPos = (Vector2)(transform.position);
         distanceTraveled = ((Vector2)(transform.position) - initialPos).magnitude;
         Vector2 moveDir = (destination - (Vector2)(transform.position)).normalized;
         
-        while(distanceTraveled < totalDistance){
+        while(distanceTraveled < totalDistance && !isMoving){
             distanceTraveled = ((Vector2)(transform.position) - initialPos).magnitude;
             distanceLeft = ((Vector2)(transform.position) - destination).magnitude;
 
@@ -43,6 +52,7 @@ public class BaseUnitMove : MonoBehaviour
             yield return null;
         }
         transform.localScale = myScale;
+        transform.position = destination;
         PostMoveAction();
         yield return null;
     }

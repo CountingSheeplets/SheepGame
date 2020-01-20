@@ -12,14 +12,16 @@ public class KingChangeSize : MonoBehaviour
     }
     public void StartIncreasingSize(int _steps){
         targetScale = defaultScale * Mathf.Pow(1 + ConstantsBucket.KingHitRadiusIncrement, _steps);
+        GetComponent<BaseUnitMove>().SetScale();
         StartCoroutine(IncreaseSize());
     }
     public void StartResetingSize(){
         targetScale = defaultScale;
+        GetComponent<BaseUnitMove>().SetScale();
         StartCoroutine(IncreaseSize());
     }
     IEnumerator IncreaseSize(){
-        Debug.Log("IncreaseSize");
+        //Debug.Log("IncreaseSize");
         Vector3 myScale = transform.localScale;
         float startTime = Time.time;
         float timePassed = 0f;        
