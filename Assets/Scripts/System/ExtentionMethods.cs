@@ -41,6 +41,16 @@ public static class ExtensionMethods
             }
         }
     }
+    //Destroys all monos in childern except which have a component of type T
+    public static void DestroyAllMonosExcept<T>(this GameObject go){
+        List<Component> components = new List<Component>(go.GetComponentsInChildren(typeof(MonoBehaviour)));
+        for(int i = components.Count-1; i >= 0;i--){
+            if (!(components[i] is T)){
+                //Debug.Log(components[i].GetType()+" its not equal by type: " + typeof(T));
+                GameObject.Destroy(components[i]);
+            }
+        }
+    }
     //other stuff
     public static Vector3Int ConvertToVector3(this Vector3 vec3)
     {

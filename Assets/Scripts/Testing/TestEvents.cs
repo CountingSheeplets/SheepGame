@@ -9,11 +9,11 @@ public class TestEvents : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.D)){
-            Debug.Log("Defeat Random Player...");
             List<Owner> aliveOwners = new List<Owner> (OwnersCoordinator.GetOwners().Where(x => x.GetPlayerProfile().isAlive).ToList());
             Owner killer = OwnersCoordinator.GetRandomOwner();
             aliveOwners.Remove(killer);
             Owner killed = aliveOwners[Random.Range(0, aliveOwners.Count)];
+            Debug.Log("Defeating Random Player..."+killed+"  by  "+killer);
             EventCoordinator.TriggerEvent(EventName.System.Player.Eliminated(), GameMessage.Write().WithOwner(killer).WithTargetOwner(killed));
         }
         if(Input.GetKeyDown(KeyCode.A)){

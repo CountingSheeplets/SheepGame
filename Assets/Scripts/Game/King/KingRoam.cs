@@ -15,6 +15,7 @@ public class KingRoam : BaseUnitMove
     }
     public void StartWalking(Vector2 _destination){
         //Debug.Log("King Roam...");
+        SetScale();
         destination = _destination;
         king.isRoaming = true;
         //walk animation;

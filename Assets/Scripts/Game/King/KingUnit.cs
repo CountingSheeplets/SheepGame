@@ -49,7 +49,7 @@ public class KingUnit : MonoBehaviour
     public OnReceivedDamage onReceivedDamage;
 
     void Start(){
-        Debug.Log("pre sclae:"+transform.localScale);
+        //Debug.Log("pre sclae:"+transform.localScale);
         EventCoordinator.StartListening(EventName.System.King.Hit(), OnHit);
     }
     void OnDestroy(){

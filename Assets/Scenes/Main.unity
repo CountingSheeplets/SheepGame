@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3671,22 +3671,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _persistent: 0
   playfieldFadeTime: 2
-  playfieldFadeNoiseTiling: {x: 0.5, y: 0.5}
+  playfieldFadeNoiseTiling: {x: 0.05, y: 0.05}
   playfieldFadeProportion: 1
   playfieldGridSize: 9
-  playfieldTileSize: 0.5
-  playfieldTileScale: {x: 2.5, y: 2.5}
+  playfieldTileSize: 0.3
+  playfieldTileScale: {x: 2, y: 2}
   playfieldArrangeFloatSpeed: 5
-  emptySpacesBetweenFields: 1
+  emptySpacesBetweenFields: 3
   sheepThrowStrength: 1
   eatInterval: 1
-  baseEatValue: 0.05
+  baseEatValue: 0.02
   incrementalEatValue: 0.05
   roamInterval: 1
   roamProbability: 0.25
   hitRange: 0.2
   hitDamage: 7
-  greedySheepBonusMoney: 0.1
+  greedySheepBonusMoney: 0.15
   smallSheepBonusEat: 0.1
   incomeMultiplierNoGrass: 2
   kingSmiteRange: 1
@@ -4590,7 +4590,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 41.45
+  m_fontSize: 41
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5796,6 +5796,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1154907610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1154907611}
+  m_Layer: 0
+  m_Name: Death FX Container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1154907611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154907610}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1708926916}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1183716376
 GameObject:
   m_ObjectHideFlags: 0
@@ -8238,6 +8268,7 @@ Transform:
   - {fileID: 1662264215}
   - {fileID: 978869376}
   - {fileID: 425942273}
+  - {fileID: 1154907611}
   m_Father: {fileID: 817108758}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8254,6 +8285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 0
+  deathFxContainer: {fileID: 1154907611}
   currentVortexes: []
   presets: []
   playfieldPrefab: {fileID: 8023144983768244914, guid: 12b7d692ddef63c45a257c78ddab0c54,

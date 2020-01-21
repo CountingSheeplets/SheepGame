@@ -4,6 +4,8 @@ using UnityEngine;
 using System.Linq;
 public class ArenaCoordinator : Singleton<ArenaCoordinator>
 {
+    public Transform deathFxContainer;
+    public static Transform GetFxContainer { get { return Instance.deathFxContainer;}}
     public static Vector2 fieldSize {
         get{
             float width = ConstantsBucket.GridSize * ConstantsBucket.PlayfieldTileSize;

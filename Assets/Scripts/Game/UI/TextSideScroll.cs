@@ -15,11 +15,11 @@ public class TextSideScroll : MonoBehaviour
         if(text == null) text = GetComponent<TextMeshProUGUI>();
         if(myRectTr == null) myRectTr = GetComponent<RectTransform>();
         float height = myRectTr.rect.height;
-        Debug.Log(height);
+        //Debug.Log(height);
         //myRectTr.sizeDelta = new Vector2(Screen.width, height);
         myRectTr.offsetMin = new Vector2(-Screen.width/2f, 0);
         myRectTr.offsetMax = new Vector2(Screen.width/2f, 0);
-        Debug.Log(myRectTr.rect);
+        //Debug.Log(myRectTr.rect);
 
         StartCoroutine(Scroll());
     }

@@ -10,6 +10,7 @@ public class Ballista : MonoBehaviour
     SpriteRenderer rend;
     public Sprite loaded;
     public Sprite empty;
+
     void Start()
     {
         rend = GetComponentInChildren<SpriteRenderer>();
@@ -17,16 +18,12 @@ public class Ballista : MonoBehaviour
         sheepThrow = GetComponentInParent<SheepThrow>();
         EventCoordinator.StartListening(EventName.System.Sheep.Launch(), OnSheepLaunch);
         EventCoordinator.StartListening(EventName.System.Sheep.ReadyToLaunch(), OnSheepReady);
-        EventCoordinator.StartListening(EventName.Input.StartGame(), OnGameStart);
     }
     void OnDestroy(){
         EventCoordinator.StopListening(EventName.System.Sheep.Launch(), OnSheepLaunch);
         EventCoordinator.StopListening(EventName.System.Sheep.ReadyToLaunch(), OnSheepReady);
-        EventCoordinator.StopListening(EventName.Input.StartGame(), OnGameStart);
     }
-    void OnGameStart(GameMessage msg){
-        rend.enabled = true;
-    }
+
     void OnSheepLaunch(GameMessage msg)
     {
         if(playfield == msg.playfield){

@@ -56,6 +56,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9084910563931842211}
   - component: {fileID: 8587068319775894475}
+  - component: {fileID: 1031146440558321716}
+  - component: {fileID: 1063536262518357659}
   m_Layer: 0
   m_Name: Ballista Model
   m_TagString: Untagged
@@ -84,7 +86,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3723616292380564015}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -94,7 +96,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ab643b929fc6d1a4898eb0f2610f29c4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,7 +116,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: e40ca07b866a4ed4096d3a691d82dfa6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -126,6 +128,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1031146440558321716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723616292380564015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb924112c3b46744da2599012f5519f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toState: 0
+  changeStateEventName: StartGame
+--- !u!114 &1063536262518357659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723616292380564015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 439cbd6419de20841ac8e2f303e200d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debrisParticles: {fileID: 0}
+  txToAddOnDeath: {fileID: 214859261516475597, guid: 1347984e816612241a61593e9ee740cb,
+    type: 3}
+  isClone: 0
 --- !u!1 &4031614864715271271
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +198,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1965412392450234639}
   - component: {fileID: 5276559966815316059}
-  - component: {fileID: 2366673475568391688}
+  - component: {fileID: 605809344800397242}
+  - component: {fileID: 2002888458076569912}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -237,7 +270,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2366673475568391688
+--- !u!114 &605809344800397242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,9 +279,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 4664886193869066616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93b8abef567911a42a2709555ffb7c6f, type: 3}
+  m_Script: {fileID: 11500000, guid: cb924112c3b46744da2599012f5519f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toState: 0
+  changeStateEventName: StartGame
+--- !u!114 &2002888458076569912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4664886193869066616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 439cbd6419de20841ac8e2f303e200d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debrisParticles: {fileID: 0}
+  txToAddOnDeath: {fileID: 6408502770599773233, guid: 9461e1717707a2c45a4e892db4610186,
+    type: 3}
+  isClone: 0
 --- !u!1 &5590616745775446763
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +345,7 @@ GameObject:
   - component: {fileID: 7518835110973820340}
   - component: {fileID: 5341466570603118328}
   m_Layer: 0
-  m_Name: ArenaPrefab
+  m_Name: PlayfieldPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -413,6 +464,7 @@ MonoBehaviour:
   myScale: {x: 0, y: 0, z: 0}
   midScale: -0.5
   animator: {fileID: 0}
+  isMoving: 0
   playfield: {fileID: 0}
 --- !u!1 &8291182087161254146
 GameObject:

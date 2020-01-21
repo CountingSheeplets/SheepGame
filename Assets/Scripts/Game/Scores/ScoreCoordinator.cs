@@ -22,7 +22,7 @@ public class ScoreCoordinator : Singleton<ScoreCoordinator>
     }
 
     public static void IncreaseScoreCounter(Owner owner, string scoreName, int amount){
-        Debug.Log("IncreaseScoreCounter");
+        //Debug.Log("IncreaseScoreCounter");
         Score score = GetPlayerScore(owner, scoreName);
         if(score != null)
         {

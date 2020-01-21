@@ -230,7 +230,10 @@
      <Compile Include="Assets\Scripts\Game\Arena\Ballista.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\FieldCorners.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\FieldFloat.cs" />
-     <Compile Include="Assets\Scripts\Game\Arena\Fx\BackgroundTileFade.cs" />
+     <Compile Include="Assets\Scripts\Game\Arena\Fx\DeathFx.cs" />
+     <Compile Include="Assets\Scripts\Game\Arena\Fx\Destructable.cs" />
+     <Compile Include="Assets\Scripts\Game\Arena\Fx\DissolveFx.cs" />
+     <Compile Include="Assets\Scripts\Game\Arena\Fx\FadeFx.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\Playfield.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\PresetSocket.cs" />
      <Compile Include="Assets\Scripts\Game\Arena\SheepThrow.cs" />
@@ -305,6 +308,7 @@
      <Compile Include="Assets\Scripts\Game\UI\OwnerTileResizer.cs" />
      <Compile Include="Assets\Scripts\Game\UI\PlayerCard.cs" />
      <Compile Include="Assets\Scripts\Game\UI\PlayerOwnerTile.cs" />
+     <Compile Include="Assets\Scripts\Game\UI\StateChanger.cs" />
      <Compile Include="Assets\Scripts\Game\UI\TextSideScroll.cs" />
      <Compile Include="Assets\Scripts\Game\Upgrades\SpeedBucket.cs" />
      <Compile Include="Assets\Scripts\Game\Upgrades\UpgradeBucket.cs" />

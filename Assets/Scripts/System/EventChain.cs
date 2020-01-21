@@ -26,7 +26,7 @@ public class EventChain : MonoBehaviour {
             return;
         msg.targetOwner.GetPlayerProfile().isAlive = false;
         List<Owner> owners = PlayerProfileCoordinator.GetAliveOwners();
-        Debug.Log("alive owners: "+owners.Count);
+        //Debug.Log("alive owners: "+owners.Count);
         if(owners.Count == 1)
             EventCoordinator.TriggerEvent(EventName.System.Environment.EndMatch(), GameMessage.Write().WithOwner(owners[0]));
 /*         if(owners.Count == 0){

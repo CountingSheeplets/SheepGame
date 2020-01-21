@@ -19,7 +19,7 @@ public class FieldFloat : BaseUnitMove
     }
 
     public  override void PostMoveAction(){
-        Debug.Log("float eneded, stopping at:"+(Vector2)(transform.position));
+        //Debug.Log("float eneded, stopping at:"+(Vector2)(transform.position));
         //animator.StopWalking();
 
         //trigger Land game event
