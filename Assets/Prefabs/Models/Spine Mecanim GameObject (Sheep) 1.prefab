@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 7428146423131164584}
   - component: {fileID: 6941872309952982285}
   - component: {fileID: 6147656777528703320}
-  m_Layer: 0
+  - component: {fileID: 9051660004038582595}
+  m_Layer: 8
   m_Name: Spine Mecanim GameObject (Sheep) 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,3 +153,20 @@ MonoBehaviour:
   anim: {fileID: 0}
   prevAngle: 0
   currentPoint: to2
+--- !u!114 &9051660004038582595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7639751366884189362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 439cbd6419de20841ac8e2f303e200d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debrisParticles: {fileID: 0}
+  txToAddOnDeath: {fileID: 214859261516475597, guid: 1347984e816612241a61593e9ee740cb,
+    type: 3}
+  isClone: 0
+  playerColor: {r: 1, g: 1, b: 1, a: 1}

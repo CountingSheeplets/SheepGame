@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Shader Graphs_Disolve
-  m_Shader: {fileID: -6465566751694194690, guid: 77d568c6f3dbb314a96dcead4c2fb34b,
+  m_Shader: {fileID: -6465566751694194690, guid: 953d593ac4f52d24c90d45f6e7f4e728,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
@@ -48,6 +48,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_2FC7F0AD_Out_0:
+        m_Texture: {fileID: 2800000, guid: 7fe95d5d02e7d6348b379202a82cf424, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AlphaClip: 0
     - _Blend: 0
@@ -76,7 +80,7 @@ Material:
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _DisolveColor: {r: 0.07952053, g: 1, b: 0.03301889, a: 1}
-    - _DissolveColor: {r: 1.4039216, g: 0.27450982, b: 0.43137255, a: 1}
+    - _DissolveColor: {r: 2.9960785, g: 0.59607846, b: 0.9254902, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!114 &7333950090144861573

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6456368486568105432}
   - component: {fileID: 6300660470769883253}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ballista
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 8587068319775894475}
   - component: {fileID: 1031146440558321716}
   - component: {fileID: 1063536262518357659}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ballista Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,6 +158,7 @@ MonoBehaviour:
   txToAddOnDeath: {fileID: 214859261516475597, guid: 1347984e816612241a61593e9ee740cb,
     type: 3}
   isClone: 0
+  playerColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &4031614864715271271
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +301,7 @@ MonoBehaviour:
   txToAddOnDeath: {fileID: 6408502770599773233, guid: 9461e1717707a2c45a4e892db4610186,
     type: 3}
   isClone: 0
+  playerColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &5590616745775446763
 GameObject:
   m_ObjectHideFlags: 0

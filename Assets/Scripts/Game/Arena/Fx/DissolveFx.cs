@@ -5,19 +5,19 @@ using System.Linq;
 
 public class DissolveFx : DeathFx
 {
-
     List<Material> materials = new List<Material>();
 
     void Start()
     {
         if(materials.Count == 0) materials = GetComponentsInChildren<SpriteRenderer>().Select(x => x.material).ToList();
+        materials.AddRange(GetComponentsInChildren<MeshRenderer>().Select(x => x.material).ToList());
         StartCoroutine(Disolve());
     }
 
     IEnumerator Disolve()
     {
         foreach(Material material in materials){
-            material.SetColor("_DissolveColor", mainColor);
+            material.SetColor("_DissolveColor", mainColor); // multiply makes it HDR aplicable
             //Debug.Log("color:"+mainColor);
         }
 

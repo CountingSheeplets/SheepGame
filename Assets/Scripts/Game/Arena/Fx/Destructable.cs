@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Destructable : MonoBehaviour
 {
+    public float hdrIntensity = 2f;
     public GameObject debrisParticles;
     public DeathFx txToAddOnDeath;
     public bool isClone = false;
-    Color playerColor = Color.white;
+    public Color playerColor = Color.white;
     void CreateDebris(){
         if(debrisParticles == null)
             return;
@@ -38,7 +39,7 @@ public class Destructable : MonoBehaviour
 
         DeathFx fx = newTempObj.AddComponent(txToAddOnDeath.GetType()) as DeathFx;
         if(playerColor != Color.white)
-            fx.SetColor(playerColor); 
+            fx.SetColorHDR(playerColor, hdrIntensity); 
         newTempObj.DestroyAllMonosExcept<DeathFx>();
         newTempObj.SetActive(true);
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Spine.Unity;
 //It is common to create a class to contain all of your
 //extension methods. This class must be static.
 public static class ExtensionMethods
@@ -45,7 +46,7 @@ public static class ExtensionMethods
     public static void DestroyAllMonosExcept<T>(this GameObject go){
         List<Component> components = new List<Component>(go.GetComponentsInChildren(typeof(MonoBehaviour)));
         for(int i = components.Count-1; i >= 0;i--){
-            if (!(components[i] is T)){
+            if (!(components[i] is T || components[i] is SkeletonMecanim)){
                 //Debug.Log(components[i].GetType()+" its not equal by type: " + typeof(T));
                 GameObject.Destroy(components[i]);
             }

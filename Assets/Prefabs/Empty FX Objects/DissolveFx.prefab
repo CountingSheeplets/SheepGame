@@ -43,4 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bd1b02773f90d46afe90caf15b6b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disolveColor: {r: 1, g: 1, b: 1, a: 1}
+  glowIntensity: 1
+  mainColor: {r: 1, g: 1, b: 1, a: 1}
