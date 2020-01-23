@@ -71,7 +71,8 @@ public class EventName
             public static string SmashReset() { return "System_King_SmashReset"; }
             public static string Killed() { return "System_King_Killed"; }
             public static string Hit() { return "System_King_Hit"; }
-            public static List<string> Get() { return new List<string> { Hit(), Spawned(), Smashed(), SmashReset(), Killed()}; }          
+            public static string ReceivedDamage() { return "System_King_ReceivedDamage"; }
+            public static List<string> Get() { return new List<string> { ReceivedDamage(), Hit(), Spawned(), Smashed(), SmashReset(), Killed()}; }          
         }
         public class Sheep{
             public static string Spawned() { return "System_Sheep_Spawned"; }

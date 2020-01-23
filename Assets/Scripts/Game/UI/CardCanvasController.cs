@@ -10,12 +10,14 @@ public class CardCanvasController : MonoBehaviour
     {
         EventCoordinator.StartListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
         EventCoordinator.StartListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
+        EventCoordinator.StartListening(EventName.Input.StartGame(), OnStartGame);
         EventCoordinator.StartListening(EventName.System.Environment.EndMatch(), OnMatchEnd);
     }
     void OnDestroy()
     {
         EventCoordinator.StopListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
         EventCoordinator.StopListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
+        EventCoordinator.StopListening(EventName.Input.StartGame(), OnStartGame);
         EventCoordinator.StopListening(EventName.System.Environment.EndMatch(), OnMatchEnd);
     }
 

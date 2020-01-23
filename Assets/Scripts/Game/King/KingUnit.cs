@@ -70,6 +70,7 @@ public class KingUnit : MonoBehaviour
     }
     public void DealDamage(float amount){
         currentDamage += amount;
+        EventCoordinator.TriggerEvent(EventName.System.King.ReceivedDamage(), GameMessage.Write().WithKingUnit(this).WithFloatMessage(amount));
     }
     void TryDie(Owner killer, Owner eliminated){
         if(GetHealth <= 0){

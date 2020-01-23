@@ -12,7 +12,8 @@ public class PlayerCard : MonoBehaviour
     public TextMeshProUGUI crownCount;
     public TextMeshProUGUI moneyCount;
     public TextMeshProUGUI kingHealthText;
-    public RectTransform kingHealthPanel;
+    //public RectTransform kingHealthPanel;
+    public Image kingHealthFill;
 
     public TextMeshProUGUI playerName;
     public Image playerAvatarImage;
@@ -31,6 +32,7 @@ public class PlayerCard : MonoBehaviour
         EventCoordinator.StartListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
         EventCoordinator.StartListening(EventName.System.Player.PlayerCardsSorted(), OnSorted);
         EventCoordinator.StartListening(EventName.System.Player.Eliminated(), OnEliminated);
+        EventCoordinator.StartListening(EventName.System.King.ReceivedDamage(), OnDamageReceived);
         //init by copying ghost:
         myRectTr = GetComponent<RectTransform>();
         ghostRectTr = targetCardGhost.GetComponent<RectTransform>();
@@ -45,6 +47,7 @@ public class PlayerCard : MonoBehaviour
         EventCoordinator.StopListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
         EventCoordinator.StopListening(EventName.System.Player.PlayerCardsSorted(), OnSorted);
         EventCoordinator.StopListening(EventName.System.Player.Eliminated(), OnEliminated);
+        EventCoordinator.StopListening(EventName.System.King.ReceivedDamage(), OnDamageReceived);
         Destroy(targetCardGhost.gameObject);
     }
 
@@ -54,15 +57,21 @@ public class PlayerCard : MonoBehaviour
         if(owner.EqualsByValue(msg.playerProfile.owner)){
             crownCount.text = Mathf.FloorToInt(msg.playerProfile.GetCrowns()).ToString();
             moneyCount.text = Mathf.FloorToInt(msg.playerProfile.GetMoney()).ToString();
-            kingHealthText.text = Mathf.FloorToInt(msg.playerProfile.GetHealth()).ToString();
-
-            Vector2 min = new Vector2(0, 0);
+/*             Vector2 min = new Vector2(0, 0);
             Vector2 max = new Vector2(msg.playerProfile.GetHealth()/100f, 1);
             kingHealthPanel.anchorMin = min;
-            kingHealthPanel.anchorMax = max;
+            kingHealthPanel.anchorMax = max; */
+            kingHealthFill.fillAmount = msg.playerProfile.GetHealth()/100f;
         }
     }
-
+    void OnDamageReceived(GameMessage msg){
+        if(isEliminated)
+            return;
+        if(msg.kingUnit == owner.GetKing()){
+            kingHealthText.text = Mathf.FloorToInt(msg.floatMessage).ToString();
+            kingHealthText.GetComponent<Animator>().SetTrigger("Show");
+        }
+    }
     void OnPlayerJoined(GameMessage msg){
         if((GameStateView.GetGameState() & GameState.started) != 0)
             if(owner.EqualsByValue(msg.owner)){
