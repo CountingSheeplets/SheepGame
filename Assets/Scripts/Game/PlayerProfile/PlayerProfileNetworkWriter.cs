@@ -22,7 +22,8 @@ public class PlayerProfileNetworkWriter : MonoBehaviour
         PlayerProfile profile = owner.GetPlayerProfile();
         if(profile != null)
             if(profile.IsNetworkDirty()){
-                if((GameStateView.GetGameState() & GameState.started) != 0){
+                if((GameStateView.GetGameState() & GameState.started) != 0 &&
+                (GameStateView.GetGameState() & GameState.ended) == 0){
                     if(NetworkCoordinator.SendProfile(profile)){
                         EventCoordinator.TriggerEvent(EventName.System.Player.ProfileUpdate(), GameMessage.Write().WithPlayerProfile(profile).WithOwner(owner));
                         CardCanvasCoordinator.Sort();

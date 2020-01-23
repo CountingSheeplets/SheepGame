@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 public class Owner : MonoBehaviour
 {
     public string ownerId = "";
@@ -20,7 +20,16 @@ public class Owner : MonoBehaviour
             NetworkCoordinator.SendConfirmReady(deviceId, value);
         }
     }
-
+    bool _playAgain = false;
+    public bool playAgain {
+        get{ return _playAgain;}
+        set{ _playAgain = value;
+            ScoreRow row = FindObjectsOfType<ScoreRow>().Where(x=> x.playerName.text == ownerName).FirstOrDefault();
+            if(row != null)
+			    row.SetPlayAgain();
+            NetworkCoordinator.SendConfirmPlayAgain(deviceId, value);
+        }
+    }
     [BitMask(typeof(OwnerType))]
     public OwnerType ownerType;
     public Owner Create(Owner newOwner){

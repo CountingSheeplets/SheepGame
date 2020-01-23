@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -638,8 +638,9 @@ GameObject:
   m_Component:
   - component: {fileID: 623132465}
   - component: {fileID: 623132466}
+  - component: {fileID: 623132467}
   m_Layer: 0
-  m_Name: Out
+  m_Name: post
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -669,6 +670,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7e546a3f52b765478f6cfd8943e2f98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &623132467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623132464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a67d2fa4217d18459c8116ff32a3c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &752291657
@@ -1072,6 +1085,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sea Waves
       objectReference: {fileID: 0}
+    - target: {fileID: 5364923290255337590, guid: 2d3cd4e2c6cef4f45bb06fd939515596,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5364923290255337591, guid: 2d3cd4e2c6cef4f45bb06fd939515596,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1325,36 +1343,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1390060351
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1390060352}
-  m_Layer: 0
-  m_Name: Score Info
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1390060352
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1390060351}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1888063660}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1433108558
 GameObject:
@@ -1725,7 +1713,6 @@ Transform:
   - {fileID: 331891876}
   - {fileID: 621026288}
   - {fileID: 623132465}
-  - {fileID: 1390060352}
   m_Father: {fileID: 438182120}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

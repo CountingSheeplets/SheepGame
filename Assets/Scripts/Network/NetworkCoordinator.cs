@@ -112,6 +112,13 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator>
         json["value"] = valInt;
         TrySend(deviceId, json);
     }
+    public static void SendConfirmPlayAgain(int deviceId, bool value){
+        JObject json = new JObject();
+        json["type"] = "playAgain";
+        int valInt = value ? 1 : 0;
+        json["value"] = valInt;
+        TrySend(deviceId, json);
+    }
     public static void SendPlayerScores(int deviceId, bool win, List<Score> scores, int totalScore){
         JObject json = new JObject();
         json["type"] = "playerScores";

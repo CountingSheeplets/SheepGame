@@ -336,6 +336,7 @@
      <Compile Include="Assets\Scripts\Network\Controller Handlers\KingItemChangeNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\KingSmashNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\MenuNetworkHandler.cs" />
+     <Compile Include="Assets\Scripts\Network\Controller Handlers\PlayAgainNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\ReadyNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\SwipeNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\UpgradeInfoNetworkHandler.cs" />
