@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.498d002a.chunk.css",
-    "main.js": "/static/js/main.beda549b.chunk.js",
-    "main.js.map": "/static/js/main.beda549b.chunk.js.map",
+    "main.js": "/static/js/main.1e3561aa.chunk.js",
+    "main.js.map": "/static/js/main.1e3561aa.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.90329f9f.js",
     "runtime-main.js.map": "/static/js/runtime-main.90329f9f.js.map",
-    "static/js/2.02e36de2.chunk.js": "/static/js/2.02e36de2.chunk.js",
-    "static/js/2.02e36de2.chunk.js.map": "/static/js/2.02e36de2.chunk.js.map",
+    "static/js/2.237fa0df.chunk.js": "/static/js/2.237fa0df.chunk.js",
+    "static/js/2.237fa0df.chunk.js.map": "/static/js/2.237fa0df.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.a79a84e04951e25cda031fb1f39b9fe8.js": "/precache-manifest.a79a84e04951e25cda031fb1f39b9fe8.js",
+    "precache-manifest.5060838672d9debbda976f824e2fb95a.js": "/precache-manifest.5060838672d9debbda976f824e2fb95a.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.498d002a.chunk.css.map": "/static/css/main.498d002a.chunk.css.map",
     "static/media/NerisBlack.otf": "/static/media/NerisBlack.b3ed728b.otf",
@@ -16,15 +16,24 @@
     "static/media/deafeat_prebackground.png": "/static/media/deafeat_prebackground.bb4da567.png",
     "static/media/grass_button.png": "/static/media/grass_button.90c4e7a3.png",
     "static/media/healthbar_background.png": "/static/media/healthbar_background.27c5d136.png",
+    "static/media/sheep_achievement_icons-01.png": "/static/media/sheep_achievement_icons-01.293850e5.png",
+    "static/media/sheep_achievement_icons-02.png": "/static/media/sheep_achievement_icons-02.c133fea0.png",
+    "static/media/sheep_achievement_icons-03.png": "/static/media/sheep_achievement_icons-03.2d0180a6.png",
+    "static/media/sheep_achievement_icons-04.png": "/static/media/sheep_achievement_icons-04.243a6e3f.png",
+    "static/media/sheep_achievement_icons-05.png": "/static/media/sheep_achievement_icons-05.618f479e.png",
+    "static/media/sheep_achievement_icons-06.png": "/static/media/sheep_achievement_icons-06.960646b3.png",
+    "static/media/sheep_achievement_icons-07.png": "/static/media/sheep_achievement_icons-07.4f8327b8.png",
+    "static/media/sheep_achievement_icons-08.png": "/static/media/sheep_achievement_icons-08.0a06aa00.png",
+    "static/media/sheep_achievement_icons-09.png": "/static/media/sheep_achievement_icons-09.ed588b66.png",
     "static/media/smite_button.png": "/static/media/smite_button.a9761104.png",
     "static/media/swipewheel_icon.png": "/static/media/swipewheel_icon.e15b10eb.png",
-    "static/media/vicotry_prebackground.png": "/static/media/vicotry_prebackground.4314cf3f.png",
+    "static/media/victoryr_background.png": "/static/media/victoryr_background.ec24bf18.png",
     "static/media/win_view.png": "/static/media/win_view.4ba138c8.png"
   },
   "entrypoints": [
     "static/js/runtime-main.90329f9f.js",
-    "static/js/2.02e36de2.chunk.js",
+    "static/js/2.237fa0df.chunk.js",
     "static/css/main.498d002a.chunk.css",
-    "static/js/main.beda549b.chunk.js"
+    "static/js/main.1e3561aa.chunk.js"
   ]
 }

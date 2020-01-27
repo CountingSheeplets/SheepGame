@@ -122,7 +122,7 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator>
     public static void SendPlayerScores(int deviceId, bool win, List<Score> scores, int totalScore){
         JObject json = new JObject();
         json["type"] = "playerScores";
-        json["value"] = win.ToString();
+        json["value"] = win;
         json["scores"] = JToken.FromObject(scores);
         json["total"] = totalScore;
         TrySend(deviceId, json);

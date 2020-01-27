@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
-using System.Linq;
 
 public class ReadyNetworkHandler : MonoBehaviour
 {

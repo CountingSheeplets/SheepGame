@@ -258,6 +258,7 @@
      <Compile Include="Assets\Scripts\Game\King\KingSmash.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingSmash\KingSmashPlayerCard.cs" />
      <Compile Include="Assets\Scripts\Game\King\KingUnit.cs" />
+     <Compile Include="Assets\Scripts\Game\MatchEndHandler.cs" />
      <Compile Include="Assets\Scripts\Game\Owner.cs" />
      <Compile Include="Assets\Scripts\Game\PlayerProfile\PersistentDataController.cs" />
      <Compile Include="Assets\Scripts\Game\PlayerProfile\PersistentDataCoordinator.cs" />
@@ -337,6 +338,7 @@
      <Compile Include="Assets\Scripts\Network\Controller Handlers\KingSmashNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\MenuNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\PlayAgainNetworkHandler.cs" />
+     <Compile Include="Assets\Scripts\Network\Controller Handlers\PlayerEliminatedNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\ReadyNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\SwipeNetworkHandler.cs" />
      <Compile Include="Assets\Scripts\Network\Controller Handlers\UpgradeInfoNetworkHandler.cs" />
