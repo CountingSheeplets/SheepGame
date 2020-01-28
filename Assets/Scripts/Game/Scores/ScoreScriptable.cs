@@ -12,4 +12,5 @@ public class ScoreScriptable : ScriptableObject
     public string description;
     public int rewardDelta;
     public ScoreType scoreType;
+    public Sprite icon;
 }

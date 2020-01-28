@@ -18,3 +18,4 @@ MonoBehaviour:
     tier upgrades through all game.
   rewardDelta: 1
   scoreType: 2
+  icon: {fileID: 21300000, guid: 416a6fde5389254498e7889b8264eb1b, type: 3}

@@ -17,3 +17,4 @@ MonoBehaviour:
   description: per 50 direct hits onto enemy king
   rewardDelta: 50
   scoreType: 1
+  icon: {fileID: 21300000, guid: 36a1b14264185fb4a976358e19d7bcab, type: 3}

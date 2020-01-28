@@ -16,3 +16,5 @@ MonoBehaviour:
   reward: 1
   description: per 1 opponent king elimination.
   rewardDelta: 1
+  scoreType: 0
+  icon: {fileID: 21300000, guid: b14e2194af3afd94dad68ad9c28833b4, type: 3}

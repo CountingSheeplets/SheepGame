@@ -18,3 +18,4 @@ MonoBehaviour:
     of his elimination.
   rewardDelta: 1
   scoreType: 2
+  icon: {fileID: 21300000, guid: 2327235801c8a934baa4f702315e26d4, type: 3}

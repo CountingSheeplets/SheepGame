@@ -6,6 +6,7 @@
     public int counter;
     public int rewardDelta;
     public ScoreType scoreType;
+    public string icon;
 
     public int total {
         get{return counter / rewardDelta * reward;}
@@ -17,5 +18,6 @@
         description = score.description;
         rewardDelta = score.rewardDelta;
         scoreType = score.scoreType;
+        icon = score.icon.ToString().Split('.')[0];
     }
 }
