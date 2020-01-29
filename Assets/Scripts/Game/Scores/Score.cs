@@ -18,6 +18,6 @@
         description = score.description;
         rewardDelta = score.rewardDelta;
         scoreType = score.scoreType;
-        icon = score.icon.ToString().Split('.')[0];
+        icon = score.icon.ToString().Split(' ')[0];
     }
 }
