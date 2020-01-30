@@ -34,6 +34,7 @@ public class PlayerProfileController : MonoBehaviour
             profile = PlayerProfileCoordinator.AddProfile(msg.owner);
             profile.AddMoney(100f);
             EventCoordinator.TriggerEvent(EventName.System.Player.ProfileCreated(), GameMessage.Write().WithPlayerProfile(profile));
+            NetworkCoordinator.SendShowView(msg.owner.deviceId, "menu");
         }
         //send assigned data
         NetworkCoordinator.SendColor(msg.owner.deviceId, "#"+ColorUtility.ToHtmlStringRGBA(profile.playerColor).Substring(0, 6));

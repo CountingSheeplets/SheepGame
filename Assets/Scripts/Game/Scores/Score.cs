@@ -5,6 +5,7 @@
     public string description;
     public int counter;
     public int rewardDelta;
+    public string wordDelta;
     public ScoreType scoreType;
     public string icon;
 
@@ -18,6 +19,7 @@
         description = score.description;
         rewardDelta = score.rewardDelta;
         scoreType = score.scoreType;
+        wordDelta = score.wordDelta;
         icon = score.icon.ToString().Split(' ')[0];
     }
 }

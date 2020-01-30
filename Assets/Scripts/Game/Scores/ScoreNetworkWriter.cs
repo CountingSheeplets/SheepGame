@@ -19,6 +19,7 @@ public class ScoreNetworkWriter : MonoBehaviour
         int total = ScoreCoordinator.GetTotalPlayerScores(msg.owner);
         msg.owner.GetPlayerProfile().SetCrowns(total);
         NetworkCoordinator.SendPlayerScores(msg.owner.deviceId, true, playerScores.scores, total);
+        Debug.Log("total:"+total);
     }
     void OnEliminated(GameMessage msg){
         if(!eliminatedOwners.Contains(msg.targetOwner))
