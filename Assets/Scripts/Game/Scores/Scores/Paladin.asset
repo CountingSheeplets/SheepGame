@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreName: Paladin
   reward: 2
-  description: a single player achievement, for player who smashed most sheep in a
-    single hit per match.
+  description: a single player achievement, for a player who smashed [Y] sheep in
+    a single hit per match
   rewardDelta: 1
+  wordDelta: most
   scoreType: 2
   icon: {fileID: 21300000, guid: 162fa016f45e9d945abd19c9139aba87, type: 3}

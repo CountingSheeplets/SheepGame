@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreName: Higher Education
   reward: 1
-  description: for players who upgraded all of his sheep that were alive at the moment
-    of his elimination.
+  description: whoever upgraded [Y] of his sheep that were alive at the moment of
+    his elimination gets a crown
   rewardDelta: 1
+  wordDelta: all
   scoreType: 2
   icon: {fileID: 21300000, guid: 2327235801c8a934baa4f702315e26d4, type: 3}

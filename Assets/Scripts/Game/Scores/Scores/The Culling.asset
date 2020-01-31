@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreName: The Culling
   reward: 1
-  description: per 150 sheep eliminated (including your own sheep).
+  description: '[X] crown[S] per [Y] sheep eliminated, including your own sheep'
   rewardDelta: 150
+  wordDelta: 
   scoreType: 0
   icon: {fileID: 21300000, guid: 97b985ec1882a50498333a86fa25cdf0, type: 3}

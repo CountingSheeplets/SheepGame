@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreName: Merchant
   reward: 1
-  description: per 500 earned coins
+  description: '[X] crown[S] for each [Y] coin[S] earned'
   rewardDelta: 500
+  wordDelta: 
   scoreType: 1
   icon: {fileID: 21300000, guid: 480100f7598baaa4ea3c8ecb5768d1f4, type: 3}

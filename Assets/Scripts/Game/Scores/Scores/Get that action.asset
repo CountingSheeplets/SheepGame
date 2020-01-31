@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreName: Get that action
   reward: 1
-  description: once per match to each player who eliminate at least one opponent king.
+  description: '[Y] per match each player who eliminated at least one opponent king
+    gets [X] crown[S]'
   rewardDelta: 1
+  wordDelta: once
   scoreType: 0
   icon: {fileID: 21300000, guid: dbd5e5a5fc340d84d813deeb5515e159, type: 3}

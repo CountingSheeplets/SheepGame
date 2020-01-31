@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreName: Dr. Baaah
   reward: 1
-  description: a single player achievement in each match for whoever got most 2nd
-    tier upgrades through all game.
+  description: a single player achievement in each match for whoever got [Y] 2nd tier
+    upgrades through whole game
   rewardDelta: 1
+  wordDelta: most
   scoreType: 2
   icon: {fileID: 21300000, guid: 416a6fde5389254498e7889b8264eb1b, type: 3}

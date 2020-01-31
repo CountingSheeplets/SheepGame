@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreName: Elvish-sheep
   reward: 1
-  description: per 50 direct hits onto enemy king
+  description: '[X] crown[S] per [Y] direct hits onto enemy king'
   rewardDelta: 50
+  wordDelta: 
   scoreType: 1
   icon: {fileID: 21300000, guid: 36a1b14264185fb4a976358e19d7bcab, type: 3}
