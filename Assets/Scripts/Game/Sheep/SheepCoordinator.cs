@@ -13,6 +13,8 @@ public class SheepCoordinator : Singleton<SheepCoordinator>
         return sheep;
     }
     public static void DestroySheep(SheepUnit sheep){
+        if(Instance == null)
+            return;
         Instance.sheeps.Remove(sheep);
         SheepFactory.DestroySheep(sheep);
     }

@@ -11,7 +11,7 @@ public class PlayerEliminatedNetworkHandler : MonoBehaviour
     }
     void OnDestroy() {
         EventCoordinator.StopListening(EventName.System.Player.PostElimination(), OnPostEliminated);
-        EventCoordinator.StartListening(EventName.System.Environment.EndMatch(), OnPostWin);
+        EventCoordinator.StopListening(EventName.System.Environment.EndMatch(), OnPostWin);
     }
     void OnPostEliminated(GameMessage msg)
     {

@@ -37,9 +37,9 @@ public class SheepFactory : Singleton<SheepFactory>
     }
 
     public static void DestroySheep(SheepUnit sheep){
+        if(Instance == null)
+            return;
         Destroy(sheep.gameObject);
-        //instanciate a temp sheep death obj here:
-        ///Instanciate()
     }
 
 }

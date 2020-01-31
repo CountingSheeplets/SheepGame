@@ -14,7 +14,7 @@ public class PlayAgainNetworkHandler : MonoBehaviour
 
     void OnReady(int from, JToken message)
     {
-        if(GameStateView.HasState(GameState.started))
+        if(!GameStateView.HasState(GameState.ended))
             return;
         if (message["element"] != null)
             if (message["element"].ToString() == "playAgain")

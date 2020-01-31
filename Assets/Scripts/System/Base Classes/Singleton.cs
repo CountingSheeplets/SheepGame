@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using JetBrains.Annotations;
+using UnityEngine.SceneManagement;
 
 public abstract class Singleton<T> : Singleton where T : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour
         {
             if (Quitting)
             {
-                //Debug.LogWarning($"[{nameof(Singleton)}<{typeof(T)}>] Instance will not be returned because the application is quitting.");
+                Debug.LogWarning($"[{nameof(Singleton)}<{typeof(T)}>] Instance will not be returned because the application is quitting.");
                 // ReSharper disable once AssignNullToNotNullAttribute
                 return null;
             }
@@ -62,9 +63,12 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour
     {
         if (_persistent)
             DontDestroyOnLoad(gameObject);
+        else
+            SceneManager.sceneUnloaded += OnSceneUnload;
         OnAwake();
         Debug.LogWarning("Singleton Awoken: "+this.GetType().Name);
     }
+    protected virtual void OnSceneUnload<Scene> (Scene scene) { Quitting = true;}
     protected virtual void OnAwake() { }
     protected virtual void OnInit() { }
     #endregion
@@ -73,7 +77,7 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour
 public abstract class Singleton : MonoBehaviour
 {
     #region  Properties
-    public static bool Quitting { get; private set; }
+    public static bool Quitting { get; set; }
     #endregion
 
     #region  Methods

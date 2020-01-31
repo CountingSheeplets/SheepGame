@@ -7,14 +7,14 @@ public class ScoreNetworkWriter : MonoBehaviour
     List<Owner> eliminatedOwners = new List<Owner>();
     void Start()
     {
-        EventCoordinator.StartListening(EventName.System.Environment.EndMatch(), OnWin);
+        EventCoordinator.StartListening(EventName.System.Environment.EndMatch(), OnEndMatch);
         EventCoordinator.StartListening(EventName.System.Player.Eliminated(), OnEliminated);
     }
     void OnDestroy(){
-        EventCoordinator.StopListening(EventName.System.Environment.EndMatch(), OnWin);
+        EventCoordinator.StopListening(EventName.System.Environment.EndMatch(), OnEndMatch);
         EventCoordinator.StopListening(EventName.System.Player.Eliminated(), OnEliminated);
     }
-    void OnWin(GameMessage msg){
+    void OnEndMatch(GameMessage msg){
         PlayerScores playerScores = ScoreCoordinator.GetPlayerScores(msg.owner);
         int total = ScoreCoordinator.GetTotalPlayerScores(msg.owner);
         msg.owner.GetPlayerProfile().SetCrowns(total);

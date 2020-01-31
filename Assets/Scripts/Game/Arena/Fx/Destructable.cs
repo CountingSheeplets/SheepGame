@@ -24,9 +24,9 @@ public class Destructable : MonoBehaviour
             playerColor = pl.owner.GetPlayerProfile().playerColor;
     }
     void OnDestroy(){
-        if (isClone || ArenaCoordinator.Instance == null)
+        if (isClone || ArenaCoordinator.Instance == null || GameStateView.HasState(GameState.ended))
             return;
-        //Debug.Log("dead, creating fx...");
+        Debug.Log("dead, creating fx...");
         isClone = true;
 
         CreateDebris();

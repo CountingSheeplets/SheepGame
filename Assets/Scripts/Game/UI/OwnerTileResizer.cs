@@ -8,12 +8,9 @@ public class OwnerTileResizer : MonoBehaviour
  
     void Start ()
     {
-        //EventCoordinator.StartListening(EventName.Input.Network.PlayerJoined(), Resize);
         Resize(GameMessage.Write());
     }
-    void OnDestroy(){
-        //EventCoordinator.StopListening(EventName.Input.Network.PlayerJoined(), Resize);
-    }
+
     void Resize(GameMessage msg){
         GridLayoutGroup layout = GetComponent<GridLayoutGroup>();
         height = this.gameObject.GetComponent<RectTransform>().rect.height;
