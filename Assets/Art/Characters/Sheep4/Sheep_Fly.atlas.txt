@@ -1,0 +1,348 @@
+
+Sheep_Fly.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+blob_5
+  rotate: true
+  xy: 598, 25
+  size: 513, 580
+  orig: 513, 580
+  offset: 0, 0
+  index: -1
+ears_1
+  rotate: false
+  xy: 963, 1517
+  size: 297, 112
+  orig: 297, 112
+  offset: 0, 0
+  index: -1
+ears_2
+  rotate: false
+  xy: 1209, 1326
+  size: 211, 174
+  orig: 211, 174
+  offset: 0, 0
+  index: -1
+ears_3
+  rotate: false
+  xy: 459, 1539
+  size: 173, 94
+  orig: 173, 94
+  offset: 0, 0
+  index: -1
+ears_4
+  rotate: false
+  xy: 1705, 1486
+  size: 196, 128
+  orig: 196, 128
+  offset: 0, 0
+  index: -1
+ears_5
+  rotate: false
+  xy: 217, 1540
+  size: 240, 93
+  orig: 240, 93
+  offset: 0, 0
+  index: -1
+eye_2
+  rotate: false
+  xy: 498, 1367
+  size: 179, 164
+  orig: 179, 164
+  offset: 0, 0
+  index: -1
+eyes_1
+  rotate: false
+  xy: 1384, 1502
+  size: 186, 120
+  orig: 186, 120
+  offset: 0, 0
+  index: -1
+eyes_3
+  rotate: false
+  xy: 110, 1545
+  size: 105, 94
+  orig: 105, 94
+  offset: 0, 0
+  index: -1
+fleece _2
+  rotate: true
+  xy: 1180, 1
+  size: 537, 553
+  orig: 537, 553
+  offset: 0, 0
+  index: -1
+fleece _5
+  rotate: true
+  xy: 1, 654
+  size: 467, 533
+  orig: 467, 533
+  offset: 0, 0
+  index: -1
+fleece_ 1
+  rotate: true
+  xy: 1, 78
+  size: 494, 595
+  orig: 494, 595
+  offset: 0, 0
+  index: -1
+fleece_ 3
+  rotate: false
+  xy: 536, 574
+  size: 537, 482
+  orig: 537, 482
+  offset: 0, 0
+  index: -1
+fleece_ 4
+  rotate: false
+  xy: 1075, 540
+  size: 539, 502
+  orig: 539, 502
+  offset: 0, 0
+  index: -1
+gogles 3
+  rotate: false
+  xy: 1262, 1507
+  size: 120, 116
+  orig: 120, 116
+  offset: 0, 0
+  index: -1
+gogles_1
+  rotate: false
+  xy: 634, 1533
+  size: 212, 100
+  orig: 212, 100
+  offset: 0, 0
+  index: -1
+googles_2
+  rotate: false
+  xy: 312, 1375
+  size: 184, 162
+  orig: 184, 162
+  offset: 0, 0
+  index: -1
+head_1
+  rotate: true
+  xy: 615, 1090
+  size: 254, 327
+  orig: 254, 327
+  offset: 0, 0
+  index: -1
+head_2
+  rotate: true
+  xy: 1376, 1044
+  size: 270, 292
+  orig: 270, 292
+  offset: 0, 0
+  index: -1
+head_3
+  rotate: false
+  xy: 1, 1187
+  size: 285, 214
+  orig: 285, 214
+  offset: 0, 0
+  index: -1
+head_4
+  rotate: false
+  xy: 679, 1355
+  size: 169, 169
+  orig: 169, 169
+  offset: 0, 0
+  index: -1
+head_5
+  rotate: false
+  xy: 679, 1355
+  size: 169, 169
+  orig: 169, 169
+  offset: 0, 0
+  index: -1
+mounth_1
+  rotate: true
+  xy: 1572, 1493
+  size: 127, 131
+  orig: 127, 131
+  offset: 0, 0
+  index: -1
+mounth_2
+  rotate: false
+  xy: 1, 1549
+  size: 107, 93
+  orig: 107, 93
+  offset: 0, 0
+  index: -1
+mounth_3
+  rotate: false
+  xy: 1161, 1631
+  size: 120, 71
+  orig: 120, 71
+  offset: 0, 0
+  index: -1
+pegs back_1
+  rotate: false
+  xy: 1283, 1625
+  size: 213, 77
+  orig: 213, 77
+  offset: 0, 0
+  index: -1
+pegs back_4
+  rotate: false
+  xy: 288, 1123
+  size: 325, 242
+  orig: 325, 242
+  offset: 0, 0
+  index: -1
+pegs front_5
+  rotate: false
+  xy: 1, 1403
+  size: 309, 135
+  orig: 309, 135
+  offset: 0, 0
+  index: -1
+pegs_3
+  rotate: false
+  xy: 284, 1635
+  size: 801, 67
+  orig: 801, 67
+  offset: 0, 0
+  index: -1
+pegs_back_2
+  rotate: false
+  xy: 1589, 1622
+  size: 132, 80
+  orig: 132, 80
+  offset: 0, 0
+  index: -1
+pegs_back_5
+  rotate: false
+  xy: 850, 1346
+  size: 357, 169
+  orig: 357, 169
+  offset: 0, 0
+  index: -1
+pegs_front_1
+  rotate: false
+  xy: 1422, 1316
+  size: 506, 168
+  orig: 506, 168
+  offset: 0, 0
+  index: -1
+pegs_front_2
+  rotate: false
+  xy: 944, 1058
+  size: 430, 266
+  orig: 568, 266
+  offset: 0, 0
+  index: -1
+pegs_front_4
+  rotate: true
+  xy: 1670, 883
+  size: 431, 290
+  orig: 576, 469
+  offset: 0, 179
+  index: -1
+tail_base_1
+  rotate: false
+  xy: 127, 1641
+  size: 87, 61
+  orig: 87, 61
+  offset: 0, 0
+  index: -1
+tail_base_2
+  rotate: false
+  xy: 1723, 1620
+  size: 87, 82
+  orig: 87, 82
+  offset: 0, 0
+  index: -1
+tail_base_3
+  rotate: false
+  xy: 1812, 1616
+  size: 90, 86
+  orig: 90, 86
+  offset: 0, 0
+  index: -1
+tail_base_4
+  rotate: false
+  xy: 1904, 1613
+  size: 94, 89
+  orig: 94, 89
+  offset: 0, 0
+  index: -1
+tail_base_5
+  rotate: false
+  xy: 848, 1526
+  size: 113, 107
+  orig: 113, 107
+  offset: 0, 0
+  index: -1
+tail_fleece_1
+  rotate: false
+  xy: 1, 1659
+  size: 58, 43
+  orig: 58, 43
+  offset: 0, 0
+  index: -1
+tail_fleece_2
+  rotate: true
+  xy: 61, 1644
+  size: 58, 64
+  orig: 58, 64
+  offset: 0, 0
+  index: -1
+tail_fleece_3
+  rotate: true
+  xy: 216, 1641
+  size: 61, 66
+  orig: 61, 66
+  offset: 0, 0
+  index: -1
+tail_fleece_4
+  rotate: true
+  xy: 1087, 1635
+  size: 67, 72
+  orig: 67, 72
+  offset: 0, 0
+  index: -1
+tail_fleece_5
+  rotate: true
+  xy: 1498, 1624
+  size: 78, 89
+  orig: 78, 89
+  offset: 0, 0
+  index: -1
+
+Sheep_Fly2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+blob_1
+  rotate: false
+  xy: 1, 581
+  size: 538, 622
+  orig: 538, 622
+  offset: 0, 0
+  index: -1
+blob_2
+  rotate: false
+  xy: 1, 1
+  size: 599, 578
+  orig: 599, 578
+  offset: 0, 0
+  index: -1
+blob_3
+  rotate: true
+  xy: 602, 43
+  size: 599, 545
+  orig: 599, 545
+  offset: 0, 0
+  index: -1
+blob_4
+  rotate: false
+  xy: 541, 644
+  size: 591, 559
+  orig: 591, 559
+  offset: 0, 0
+  index: -1
