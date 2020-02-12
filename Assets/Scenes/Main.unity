@@ -257,6 +257,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7174871919142420155, guid: 2ecc20202dc2ee942b2d66f65997951b,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1809778912}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ecc20202dc2ee942b2d66f65997951b, type: 3}
 --- !u!1001 &66873264
@@ -411,6 +416,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 0
+--- !u!1 &369074237 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5364923290255337590, guid: 2d3cd4e2c6cef4f45bb06fd939515596,
+    type: 3}
+  m_PrefabInstance: {fileID: 1048158556}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &369074238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369074237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb924112c3b46744da2599012f5519f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toState: 1
+  changeStateEventName: UI_ShowScoreScreen
 --- !u!1 &438182119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1605,6 +1630,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &1809778912 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
+    type: 3}
+  m_PrefabInstance: {fileID: 66873264}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1888063659
 GameObject:
   m_ObjectHideFlags: 0
