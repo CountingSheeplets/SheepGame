@@ -40,10 +40,11 @@ public class PlayAgainNetworkHandler : MonoBehaviour
         {
             if (owner.playAgain == false)
             {
-                Debug.Log("player not ready:"+owner);
+                Debug.Log("player not ready to restart:"+owner);
                 return false;
             }
         }
+        Debug.Log("players ready. restarting...");
         return true;
     }
     private void OnDestroy()

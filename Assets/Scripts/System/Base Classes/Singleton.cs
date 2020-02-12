@@ -61,6 +61,7 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour
     #region  Methods
     private void Awake()
     {
+        Debug.Log("Singletin:Awake: "+$"[{nameof(Singleton)}<{typeof(T)}>]");
         if (_persistent)
             DontDestroyOnLoad(gameObject);
         else
@@ -68,7 +69,14 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour
         OnAwake();
         Debug.LogWarning("Singleton Awoken: "+this.GetType().Name);
     }
-    protected virtual void OnSceneUnload<Scene> (Scene scene) { Quitting = true;}
+    void OnDestroy()
+    {
+        Debug.Log("Singletin:OnDestroy: "+$"[{nameof(Singleton)}<{typeof(T)}>]");
+        //Quitting = true;
+    }
+    protected virtual void OnSceneUnload<Scene> (Scene scene) { 
+        Debug.Log("Singletin:OnSceneUnload: "+$"[{nameof(Singleton)}<{typeof(T)}>]");
+        Quitting = true;}
     protected virtual void OnAwake() { }
     protected virtual void OnInit() { }
     #endregion
@@ -81,9 +89,10 @@ public abstract class Singleton : MonoBehaviour
     #endregion
 
     #region  Methods
-    private void OnApplicationQuit()
+    void OnApplicationQuit()
     {
         Quitting = true;
     }
+
     #endregion
 }
