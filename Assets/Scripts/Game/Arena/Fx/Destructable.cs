@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Destructable : MonoBehaviour
 {
+    public static bool Quitting { get; set; }
     public float hdrIntensity = 2f;
     public GameObject debrisParticles;
     public DeathFx txToAddOnDeath;
@@ -24,7 +25,7 @@ public class Destructable : MonoBehaviour
             playerColor = pl.owner.GetPlayerProfile().playerColor;
     }
     void OnDestroy(){
-        if (isClone || ArenaCoordinator.Instance == null || GameStateView.HasState(GameState.ended))
+        if (isClone || ArenaCoordinator.Instance == null || GameStateView.HasState(GameState.ended) || GameStateView.GetGameState() == 0)
             return;
         Debug.Log("dead, creating fx...");
         isClone = true;
@@ -42,5 +43,9 @@ public class Destructable : MonoBehaviour
             fx.SetColorHDR(playerColor, hdrIntensity); 
         newTempObj.DestroyAllMonosExcept<DeathFx>();
         newTempObj.SetActive(true);
+    }
+    void OnApplicationQuit()
+    {
+        Quitting = true;
     }
 }

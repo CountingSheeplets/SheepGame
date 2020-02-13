@@ -13,12 +13,14 @@ public class GameStateView : Singleton<GameStateView>
         EventCoordinator.StartListening(EventName.System.Environment.EndMatch(), OnEndGame);
         EventCoordinator.StartListening(EventName.System.Environment.ArenaAnimating(), OnArenaAnimating);
         EventCoordinator.StartListening(EventName.System.Environment.ArenaAnimated(), OnArenaAnimated);
+        EventCoordinator.StartListening(EventName.System.Environment.CleanScene(), OnSceneClean);
     }
     void OnDestroy(){
         EventCoordinator.StopListening(EventName.Input.StartGame(), OnStartGame);
         EventCoordinator.StopListening(EventName.System.Environment.EndMatch(), OnEndGame);
         EventCoordinator.StopListening(EventName.System.Environment.ArenaAnimating(), OnArenaAnimating);
         EventCoordinator.StopListening(EventName.System.Environment.ArenaAnimated(), OnArenaAnimated);
+        EventCoordinator.StopListening(EventName.System.Environment.CleanScene(), OnSceneClean);
     }
     void OnStartGame(GameMessage msg){
         // Set a bit at position to 1.
@@ -40,5 +42,11 @@ public class GameStateView : Singleton<GameStateView>
         if((GameStateView.GetGameState() & inputState) != 0)
             return true;
         return false;
+    }
+    void OnSceneClean(GameMessage msg){
+        FlagsHelper.Unset(ref currentState, GameState.started);
+        FlagsHelper.Unset(ref currentState, GameState.ended);
+        FlagsHelper.Unset(ref currentState, GameState.arenaAnimating);
+        FlagsHelper.Unset(ref currentState, GameState.firstOut);
     }
 }

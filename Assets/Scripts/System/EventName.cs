@@ -92,7 +92,8 @@ public class EventName
             public static string ArenaAnimating() {return "System_Environment_ArenaAnimating";}
             public static string PlayfieldAnimated() { return "System_Environment_PlayfieldAnimated"; }
             public static string ArenaAnimated() { return "System_Environment_ArenaAnimated"; }
-            public static List<string> Get() { return new List<string> {Initialized(), SetField(), AdjustField(), EndMatch(), ArenaAnimating(), PlayfieldAnimated(), ArenaAnimated() }; }          
+            public static string CleanScene() { return "System_Environment_CleanScene";}
+            public static List<string> Get() { return new List<string> {Initialized(), SetField(), AdjustField(), EndMatch(), ArenaAnimating(), PlayfieldAnimated(), ArenaAnimated(), CleanScene() }; }          
         }
         public class Player{
             public static string ProfileCreated() { return "System_ProfileCreated"; }

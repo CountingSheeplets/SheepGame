@@ -75,6 +75,9 @@ public class TestEvents : MonoBehaviour
                 ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Counter.Shepherd(), 300);
             }
         }
-
+        if(Input.GetKeyDown(KeyCode.F10)){
+            EventCoordinator.TriggerEvent(EventName.System.Environment.CleanScene(), GameMessage.Write());
+            Debug.Log("Scene Cleaning done.");
+        }
     }
 }

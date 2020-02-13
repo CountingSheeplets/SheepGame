@@ -28,7 +28,7 @@ public class PlayAgainNetworkHandler : MonoBehaviour
                 }
                 if(TryRestart(GameMessage.Write())){
                     AirConsole.instance.ShowAd();
-                    SceneManager.LoadScene("main");
+                    EventCoordinator.TriggerEvent(EventName.System.Environment.CleanScene(), GameMessage.Write());
                     NetworkCoordinator.SendShowViewAll("menu");
                 };
                 Debug.Log("Ready:" + readyOwner);

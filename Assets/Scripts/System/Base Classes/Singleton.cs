@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using JetBrains.Annotations;
-using UnityEngine.SceneManagement;
-
+using UnityEditor;
 public abstract class Singleton<T> : Singleton where T : MonoBehaviour
 {
     #region  Fields
@@ -34,6 +33,7 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour
                     return _instance;
                 var instances = FindObjectsOfType<T>();
                 var count = instances.Length;
+                Debug.Log($"found intsances [{nameof(Singleton)}<{typeof(T)}>] of :"+count);
                 if (count > 0)
                 {
                     if (count == 1){
@@ -62,26 +62,20 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour
     private void Awake()
     {
         Debug.Log("Singletin:Awake: "+$"[{nameof(Singleton)}<{typeof(T)}>]");
-        if (_persistent)
-            DontDestroyOnLoad(gameObject);
-        else
-            SceneManager.sceneUnloaded += OnSceneUnload;
+        //potential problem here, on Build application...
+        if (_persistent){
+            if(EditorApplication.isPlaying)
+                DontDestroyOnLoad(gameObject);
+        }
+        T tempInstance = Instance;
         OnAwake();
         Debug.LogWarning("Singleton Awoken: "+this.GetType().Name);
     }
-    void OnDestroy()
-    {
-        Debug.Log("Singletin:OnDestroy: "+$"[{nameof(Singleton)}<{typeof(T)}>]");
-        //Quitting = true;
-    }
-    protected virtual void OnSceneUnload<Scene> (Scene scene) { 
-        Debug.Log("Singletin:OnSceneUnload: "+$"[{nameof(Singleton)}<{typeof(T)}>]");
-        Quitting = true;}
+
     protected virtual void OnAwake() { }
     protected virtual void OnInit() { }
     #endregion
 }
-
 public abstract class Singleton : MonoBehaviour
 {
     #region  Properties
