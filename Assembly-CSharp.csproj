@@ -452,6 +452,7 @@
      <None Include="Assets\Spine\Shaders\CGIncludes\Spine-Input-LW.hlsl" />
      <None Include="Assets\Spine\Shaders\CGIncludes\SpineCoreShaders\SpriteLighting.cginc" />
      <None Include="Assets\Spine\Shaders\Spine-Sprite-LW.shader" />
+     <None Include="Assets\Art\Environment\Balista\Balista.atlas.txt" />
      <None Include="Assets\Spine\Shaders\Spine-Skeleton-LW.shader" />
      <None Include="Assets\Spine Examples\Spine Skeletons\FootSoldier\license.txt" />
      <None Include="Assets\Spine\version 1.txt" />

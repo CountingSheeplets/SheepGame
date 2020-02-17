@@ -1,0 +1,67 @@
+
+Balista.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Base
+  rotate: true
+  xy: 1, 1
+  size: 570, 2040
+  orig: 570, 2040
+  offset: 0, 0
+  index: -1
+Bow1
+  rotate: false
+  xy: 1, 573
+  size: 2040, 491
+  orig: 2040, 491
+  offset: 0, 0
+  index: -1
+Seat
+  rotate: true
+  xy: 814, 1066
+  size: 454, 521
+  orig: 454, 521
+  offset: 0, 0
+  index: -1
+Twist
+  rotate: false
+  xy: 176, 1367
+  size: 636, 153
+  orig: 636, 153
+  offset: 0, 0
+  index: -1
+Twist2
+  rotate: false
+  xy: 1, 1387
+  size: 173, 133
+  orig: 173, 133
+  offset: 0, 0
+  index: -1
+
+Balista2.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+String
+  rotate: false
+  xy: 1, 1
+  size: 2040, 778
+  orig: 2040, 778
+  offset: 0, 0
+  index: -1
+
+Balista3.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Bow2
+  rotate: false
+  xy: 1, 1
+  size: 2040, 1312
+  orig: 2040, 1312
+  offset: 0, 0
+  index: -1
