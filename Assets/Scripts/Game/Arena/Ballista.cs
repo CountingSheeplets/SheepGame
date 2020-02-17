@@ -8,9 +8,9 @@ public class Ballista : MonoBehaviour
     SheepThrow sheepThrow;
     Playfield playfield;
     SpriteRenderer rend;
-    public Sprite loaded;
-    public Sprite empty;
-
+    //public Sprite loaded;
+    //public Sprite empty;
+    public Animator anim;
     void Start()
     {
         rend = GetComponentInChildren<SpriteRenderer>();
@@ -27,14 +27,20 @@ public class Ballista : MonoBehaviour
     void OnSheepLaunch(GameMessage msg)
     {
         if(playfield == msg.playfield){
-            rend.sprite = empty;
+            //rend.sprite = empty;
+            //anim.SetTrigger("shoot");
+            anim.Play("Shoot");
+            Debug.Log("shoot");
             float rot_z = Mathf.Atan2(msg.swipe.vector.y, msg.swipe.vector.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, rot_z - defaultSpriteAngle);
         }
     }
     void OnSheepReady(GameMessage msg){
         if(playfield == msg.playfield){
-            rend.sprite = loaded;
+            //rend.sprite = loaded;
+            //anim.SetTrigger("load");
+            anim.Play("Pull");
+            Debug.Log("load");
         }
         //transform.rotation.SetLookRotation(Vector2.up);
     }
