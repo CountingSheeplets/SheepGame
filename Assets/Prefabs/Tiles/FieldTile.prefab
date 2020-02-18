@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7275534280682011842}
   - component: {fileID: 7275534280682011843}
   - component: {fileID: 7275534280682011852}
+  - component: {fileID: 5949505922705522510}
   m_Layer: 0
   m_Name: FieldTile
   m_TagString: Untagged
@@ -96,3 +97,17 @@ MonoBehaviour:
   activeCol: {r: 0.12385145, g: 0.9245283, b: 0.082858644, a: 1}
   passiveCol: {r: 0.10415777, g: 0.4056604, b: 0.09376113, a: 1}
   mySprite: {fileID: 7275534280682011843}
+--- !u!114 &5949505922705522510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7275534280682011853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c5bdac784659a4c8726a107a2957c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  array2DBool: {fileID: 0}
+  prefabToInstantiate: {fileID: 0}

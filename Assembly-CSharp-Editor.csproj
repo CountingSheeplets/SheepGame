@@ -62,6 +62,14 @@
      <Compile Include="Assets\AirConsole\scripts\editor\WebListener.cs" />
      <Compile Include="Assets\Scripts\Editor\EditorExtension.cs" />
      <Compile Include="Assets\Scripts\Editor\NamedAttributeEditor.cs" />
+     <Compile Include="Assets\Scripts\Game\Tile Objects\Editor\TileSpriteStateDrawer.cs" />
+     <Compile Include="Assets\Scripts\Helper\Array2DEditor\Editor\Array2DBoolEditor.cs" />
+     <Compile Include="Assets\Scripts\Helper\Array2DEditor\Editor\Array2DEditor.cs" />
+     <Compile Include="Assets\Scripts\Helper\Array2DEditor\Editor\Array2DEnumEditor.cs" />
+     <Compile Include="Assets\Scripts\Helper\Array2DEditor\Editor\Array2DExampleEnumEditor.cs" />
+     <Compile Include="Assets\Scripts\Helper\Array2DEditor\Editor\Array2DFloatEditor.cs" />
+     <Compile Include="Assets\Scripts\Helper\Array2DEditor\Editor\Array2DIntEditor.cs" />
+     <Compile Include="Assets\Scripts\Helper\Array2DEditor\Editor\Array2DStringEditor.cs" />
      <Compile Include="Assets\Scripts\Helper\Editor\FindMissingScriptsRecursively.cs" />
      <Compile Include="Assets\Scripts\Helper\Editor\ReadOnlyPropertyDrawer.cs" />
      <Compile Include="Assets\Spine Examples\Scripts\Sample Components\SkeletonUtility Modules\Editor\SkeletonRagdoll2DInspector.cs" />
