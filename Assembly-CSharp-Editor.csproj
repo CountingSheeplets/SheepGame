@@ -62,7 +62,7 @@
      <Compile Include="Assets\AirConsole\scripts\editor\WebListener.cs" />
      <Compile Include="Assets\Scripts\Editor\EditorExtension.cs" />
      <Compile Include="Assets\Scripts\Editor\NamedAttributeEditor.cs" />
-     <Compile Include="Assets\Scripts\Game\Tile Objects\Editor\TileSpriteStateDrawer.cs" />
+     <Compile Include="Assets\Scripts\Game\Tile Objects\Editor\Array2DFieldTileTypeEditor.cs" />
      <Compile Include="Assets\Scripts\Helper\Array2DEditor\Editor\Array2DBoolEditor.cs" />
      <Compile Include="Assets\Scripts\Helper\Array2DEditor\Editor\Array2DEditor.cs" />
      <Compile Include="Assets\Scripts\Helper\Array2DEditor\Editor\Array2DEnumEditor.cs" />

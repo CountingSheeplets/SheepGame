@@ -33,7 +33,7 @@ public class FieldTile : BaseTile
     void OnNeighbourStateChanged(FieldTile tile, FieldTileSpriteType newState){
         tile.tileState.SetState(new Vector2((int)neighbours[tile].x, (int)neighbours[tile].y), newState);
         //update sprite here, by new state
-        //sprite = FieldTileSpriteBucket.GetSprite(TileSpriteState)
+        mySprite.sprite = TileSpriteFactory.GetSprite(tile.tileState);
     }
 
     Vector2 LocToState(Vector2 location){

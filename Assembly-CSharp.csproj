@@ -304,6 +304,9 @@
      <Compile Include="Assets\Scripts\Game\Tile Objects\FenceTile.cs" />
      <Compile Include="Assets\Scripts\Game\Tile Objects\FieldTile.cs" />
      <Compile Include="Assets\Scripts\Game\Tile Objects\FieldTileSpriteType.cs" />
+     <Compile Include="Assets\Scripts\Game\Tile Objects\Objects\Array2DFieldTileType.cs" />
+     <Compile Include="Assets\Scripts\Game\Tile Objects\Objects\SpriteForLayout.cs" />
+     <Compile Include="Assets\Scripts\Game\Tile Objects\TileSpriteFactory.cs" />
      <Compile Include="Assets\Scripts\Game\Tile Objects\TileSpriteState.cs" />
      <Compile Include="Assets\Scripts\Game\UI\CardCanvasController.cs" />
      <Compile Include="Assets\Scripts\Game\UI\CardCanvasCoordinator.cs" />

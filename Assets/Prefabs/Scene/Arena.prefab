@@ -3184,6 +3184,7 @@ GameObject:
   - component: {fileID: 2463484813543074633}
   - component: {fileID: 2463484813543074635}
   - component: {fileID: 2463484813543074638}
+  - component: {fileID: 9177376584049049340}
   m_Layer: 0
   m_Name: Arena
   m_TagString: Untagged
@@ -3325,6 +3326,93 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2d759f9a44c104dafff44623635989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9177376584049049340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2463484813543074625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 825953806d95de846a8a9e1f165376a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  layouts:
+  - layout: {fileID: 11400000, guid: 067a85c0cedfa704a9ae0cb111d19f48, type: 2}
+    sprite: {fileID: -6109249635986342521, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 067a85c0cedfa704a9ae0cb111d19f48, type: 2}
+    sprite: {fileID: -3105962902861641560, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 067a85c0cedfa704a9ae0cb111d19f48, type: 2}
+    sprite: {fileID: 2788614757983132230, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 067a85c0cedfa704a9ae0cb111d19f48, type: 2}
+    sprite: {fileID: -2562067914984890041, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 1ece9df407b50ad4c93c115e19de77d6, type: 2}
+    sprite: {fileID: -4667720732635357563, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 1ece9df407b50ad4c93c115e19de77d6, type: 2}
+    sprite: {fileID: 5037890156315309102, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 1ece9df407b50ad4c93c115e19de77d6, type: 2}
+    sprite: {fileID: 8696062031085123573, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 1ece9df407b50ad4c93c115e19de77d6, type: 2}
+    sprite: {fileID: 8106466888805238550, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 1ece9df407b50ad4c93c115e19de77d6, type: 2}
+    sprite: {fileID: -7094167703984760062, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 7b726ea26bd60f649ba58049e6ff8be4, type: 2}
+    sprite: {fileID: -8515587444050811148, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: b05369e77a8c18c4aaf66c88a899c5e6, type: 2}
+    sprite: {fileID: 6436969889966449681, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: b7713d4243e4def429b2b2372bd3a90b, type: 2}
+    sprite: {fileID: -169401087700734000, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 954b29623ab160b49807b346a322e0a8, type: 2}
+    sprite: {fileID: 457132792399860042, guid: e8fc26c99b1b7ef4aa38075679bcbe13, type: 3}
+  - layout: {fileID: 11400000, guid: 5a8e82da9bbf29248a3a9c58657ef0c3, type: 2}
+    sprite: {fileID: 6913207493627447854, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 0b89d27e048f44d44b87fb27dbfb829f, type: 2}
+    sprite: {fileID: -6388238653551389694, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: b8848a3b70120fa4daae2899994920af, type: 2}
+    sprite: {fileID: -433892131783088962, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 6d09147712b131e4d938f7ffa654931b, type: 2}
+    sprite: {fileID: 3229877049525750878, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: b098dbd0a4f517a47b13612d4c879a02, type: 2}
+    sprite: {fileID: -6482501252352978350, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 3ad04925d64a68649be3d3b0b61f62f7, type: 2}
+    sprite: {fileID: 1666391697444042502, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 3af169cd79ae9e0479bffb197a5dd6f1, type: 2}
+    sprite: {fileID: 5107905481575290788, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: fa430babe22891b4fb17823907347535, type: 2}
+    sprite: {fileID: -166656710247205903, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: b904367bca4df864abf0c5be3310ee39, type: 2}
+    sprite: {fileID: 8149867586557381911, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 5a8e82da9bbf29248a3a9c58657ef0c3, type: 2}
+    sprite: {fileID: -2742489846779710188, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: e2992068beb2ce64ca9c6c0d6d20b94d, type: 2}
+    sprite: {fileID: 1424724180305699168, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: d856e279e54602b4b9021d554d66ee1f, type: 2}
+    sprite: {fileID: 21300000, guid: 658e3cbaebcabe54fa3484bc714c9df5, type: 3}
 --- !u!1 &2463484813546389685
 GameObject:
   m_ObjectHideFlags: 0
