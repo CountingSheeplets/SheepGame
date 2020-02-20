@@ -3352,6 +3352,18 @@ MonoBehaviour:
   - layout: {fileID: 11400000, guid: 067a85c0cedfa704a9ae0cb111d19f48, type: 2}
     sprite: {fileID: -2562067914984890041, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
       type: 3}
+  - layout: {fileID: 11400000, guid: 067a85c0cedfa704a9ae0cb111d19f48, type: 2}
+    sprite: {fileID: 8528780923018909514, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 067a85c0cedfa704a9ae0cb111d19f48, type: 2}
+    sprite: {fileID: -1717234600843811929, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 067a85c0cedfa704a9ae0cb111d19f48, type: 2}
+    sprite: {fileID: -8619635239486372685, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 067a85c0cedfa704a9ae0cb111d19f48, type: 2}
+    sprite: {fileID: -3658724675472056866, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
   - layout: {fileID: 11400000, guid: 1ece9df407b50ad4c93c115e19de77d6, type: 2}
     sprite: {fileID: -4667720732635357563, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
       type: 3}
@@ -3411,8 +3423,20 @@ MonoBehaviour:
   - layout: {fileID: 11400000, guid: e2992068beb2ce64ca9c6c0d6d20b94d, type: 2}
     sprite: {fileID: 1424724180305699168, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
       type: 3}
+  - layout: {fileID: 11400000, guid: 52df28e7ccf4f604a9b2c6e966e4e538, type: 2}
+    sprite: {fileID: 4676273751516955262, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 93ab8b36a286d014e8d5748a194e753f, type: 2}
+    sprite: {fileID: 303779053651575633, guid: e8fc26c99b1b7ef4aa38075679bcbe13, type: 3}
+  - layout: {fileID: 11400000, guid: b22f6101a4444264cb27864089d90d12, type: 2}
+    sprite: {fileID: 1647157008107471762, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
+  - layout: {fileID: 11400000, guid: 5b6fab6dd5f0e1f4893c8ccef387d674, type: 2}
+    sprite: {fileID: 4949818704975081799, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
   - layout: {fileID: 11400000, guid: d856e279e54602b4b9021d554d66ee1f, type: 2}
-    sprite: {fileID: 21300000, guid: 658e3cbaebcabe54fa3484bc714c9df5, type: 3}
+    sprite: {fileID: -4667720732635357563, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      type: 3}
 --- !u!1 &2463484813546389685
 GameObject:
   m_ObjectHideFlags: 0

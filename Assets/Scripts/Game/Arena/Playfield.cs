@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 public class Playfield : MonoBehaviour
 {
     public Owner owner;
@@ -59,6 +59,27 @@ public class Playfield : MonoBehaviour
             newTileGO.transform.localScale = ConstantsBucket.PlayfieldTileScale;
             fieldTiles.Add(newTileGO.GetComponent<FieldTile>());
         }
+        //setup subscriptions for neightbouring tiles:
+        FieldTile[,] tileArray = fieldTiles.OrderBy(x => x.transform.position.x).OrderByDescending(x => x.transform.position.y).ToList().ToSquareArray();
+        for(int i = 0; i < tileArray.GetLength(0); i++){
+            for(int j = 0; j < tileArray.GetLength(1); j++){
+                for(int x = -1; x <= 1; x++){
+                    for(int y = -1; y <= 1; y++){
+                        if(i + x > 0 && y + j > 0 &&
+                            x + i < tileArray.GetLength(0) &&
+                            y + j < tileArray.GetLength(1)){
+                            FieldTile neighbour = tileArray[i + x, j + y];
+                            tileArray[i,j].SubscribeToNeighbour(neighbour, new Vector2(x, y));
+                            tileArray[i,j].gameObject.name = "FieldTile:"+i+","+j;
+                            tileArray[i,j].transform.SetAsLastSibling();
+                            } else {
+                                tileArray[i,j].SubscribeToNeighbour(null, new Vector2(x, y));
+                            }
+                    }
+                }
+            }
+        }
+        Debug.Log("playfield subscribed tiles");
         //generate fences around field:
         //Vector2 offset = new Vector2(-(size.x+1)/2, (size.y+1)/2);
         if(generateFence)

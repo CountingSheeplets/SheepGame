@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7275534280682011842}
   - component: {fileID: 7275534280682011843}
   - component: {fileID: 7275534280682011852}
-  - component: {fileID: 5949505922705522510}
   m_Layer: 0
   m_Name: FieldTile
   m_TagString: Untagged
@@ -28,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7275534280682011853}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.641, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,7 +71,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 1, b: 0.1538353, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -94,20 +93,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d6438158bae7ac4794e192b0ad4940b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeCol: {r: 0.12385145, g: 0.9245283, b: 0.082858644, a: 1}
-  passiveCol: {r: 0.10415777, g: 0.4056604, b: 0.09376113, a: 1}
   mySprite: {fileID: 7275534280682011843}
---- !u!114 &5949505922705522510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7275534280682011853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4c5bdac784659a4c8726a107a2957c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  array2DBool: {fileID: 0}
-  prefabToInstantiate: {fileID: 0}

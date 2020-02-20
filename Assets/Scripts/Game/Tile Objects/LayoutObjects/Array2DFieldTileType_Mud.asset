@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp-Editor:Array2DEditor:Array2DExampleEnum
   gridSize: {x: 3, y: 3}
   cells:
-  - row: 020000000200000002000000
-  - row: 020000000200000002000000
-  - row: 020000000200000002000000
+  - row: 000000000000000000000000
+  - row: 000000000200000000000000
+  - row: 000000000000000000000000
   sprite: {fileID: 0}

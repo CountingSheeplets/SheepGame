@@ -21,6 +21,29 @@ public static class ExtensionMethods
             listToRemoveFrom.Remove(item);
         }
     }
+
+    public static T[,] ToSquareArray<T>(this IList<T> source)
+    {
+        if (source == null)
+        {
+            throw new System.ArgumentNullException("source");
+        }
+
+        int size = Mathf.CeilToInt( Mathf.Sqrt(source.Count()) );
+
+        var result = new T[size, size];
+        int step = 0;
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                result[i, j] = source[step];
+                step++;
+            }
+        }
+
+        return result;
+    }
     //Enable/Disable a whole List:
     public static void EnableAll(MonoBehaviour[] listToRemoveFrom, bool state)
     {

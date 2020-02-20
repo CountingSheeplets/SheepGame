@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class FieldTile : BaseTile
 {
-    public Color activeCol;
-    public Color passiveCol;
+    ////public Color activeCol;
+    //public Color passiveCol;
     public SpriteRenderer mySprite;
     public void SetState(bool state){
-        mySprite.enabled = state;
-        FieldTileSpriteType typeState = FieldTileSpriteType.anyOrSelf;
+        FieldTileSpriteType stateType = FieldTileSpriteType.anyOrSelf;
         if(state){
-            typeState = FieldTileSpriteType.grass;
+            stateType = FieldTileSpriteType.grass;
         } else {
-            typeState = FieldTileSpriteType.mud;
+            stateType = FieldTileSpriteType.mud;
         }
-        onListenStateChange(this, typeState);
+        if(onListenStateChange != null)
+            onListenStateChange(this, stateType);
     }
     public delegate void OnStateChange (FieldTile tile, FieldTileSpriteType state);
     public OnStateChange onListenStateChange;
@@ -24,16 +24,23 @@ public class FieldTile : BaseTile
     public TileSpriteState tileState = new TileSpriteState();
 
     public void SubscribeToNeighbour(FieldTile tile, Vector2 location){
-        if(!neighbours.ContainsKey(tile)){
-            neighbours.Add(tile, LocToState(location));
-            tile.onListenStateChange += OnNeighbourStateChanged;
+        if(tile != null){
+            if(!neighbours.ContainsKey(tile)){
+                neighbours.Add(tile, LocToState(location));
+                tile.onListenStateChange += OnNeighbourStateChanged;
+            }
+        } else {
+            //dont set sprite, only state. instead set sprite if it's dirty on update.
+            tileState.SetState(LocToState(location), FieldTileSpriteType.water);
         }
     }
 
     void OnNeighbourStateChanged(FieldTile tile, FieldTileSpriteType newState){
-        tile.tileState.SetState(new Vector2((int)neighbours[tile].x, (int)neighbours[tile].y), newState);
-        //update sprite here, by new state
-        mySprite.sprite = TileSpriteFactory.GetSprite(tile.tileState);
+        tileState.SetState(new Vector2((int)neighbours[tile].x, (int)neighbours[tile].y), newState);
+            //dont set sprite, only state. instead set sprite if it's dirty on update.
+        mySprite.sprite = TileSpriteFactory.GetSprite(tileState);
+        Debug.Log("entering new state of tile: "+gameObject.name);
+        tileState.PrintState();
     }
 
     Vector2 LocToState(Vector2 location){
@@ -41,6 +48,10 @@ public class FieldTile : BaseTile
     }
     public void FillWater(){
         tileState.FillWater();
+    }
+    void OnDestroy(){
+        foreach(FieldTile tile in neighbours.Keys)
+            tile.onListenStateChange -= OnNeighbourStateChanged;
     }
 }
 

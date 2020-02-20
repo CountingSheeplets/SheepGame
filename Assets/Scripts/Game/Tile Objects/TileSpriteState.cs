@@ -25,6 +25,8 @@ public class TileSpriteState
     public bool IsEqualByState(FieldTileSpriteType[,] inputTileState){
         for(int i = 0; i < tileState.GetLength(0); i++){
             for(int j = 0; j < tileState.GetLength(1); j++){
+                if(inputTileState[i,j] == FieldTileSpriteType.anyOrSelf)
+                    continue;
                 if(tileState[i,j] != inputTileState[i,j]){
                     return false;
                 }
@@ -45,6 +47,15 @@ public class TileSpriteState
                     }
                 }
             }
+        }
+    }
+    public void PrintState(){
+        for(int i = 0; i < tileState.GetLength(0); i++){
+            string output = "";
+            for(int j = 0; j < tileState.GetLength(1); j++){
+                output += tileState[i,j] + " - ";
+            }
+            Debug.Log(i+" row TileState: "+output);
         }
     }
 }
