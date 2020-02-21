@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 [System.Serializable]
 public class SpriteForLayout
 {
-    public Array2DFieldTileType layout;
-    public Sprite sprite;
+    public List<Array2DFieldTileType> layouts = new List<Array2DFieldTileType>();
+    public List<Sprite> sprites = new List<Sprite>();
 }

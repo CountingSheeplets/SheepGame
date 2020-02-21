@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
+using System.Linq;
 [Serializable]
 public class TileSpriteState
 {
-    public FieldTileSpriteType[,] tileState = new FieldTileSpriteType[3,3];
+    public FieldTileSpriteType[,] tileState = new FieldTileSpriteType[2,2];
     public FieldTileSpriteType[,] GetState(){
         return tileState;
     }
@@ -23,6 +23,12 @@ public class TileSpriteState
         return this;
     }
     public bool IsEqualByState(FieldTileSpriteType[,] inputTileState){
+        var equal =
+        tileState.Rank == inputTileState.Rank &&
+        Enumerable.Range(0,tileState.Rank).All(dimension => tileState.GetLength(dimension) == inputTileState.GetLength(dimension)) &&
+        tileState.Cast<FieldTileSpriteType>().SequenceEqual(inputTileState.Cast<FieldTileSpriteType>());
+        if(equal)
+            return true;
         for(int i = 0; i < tileState.GetLength(0); i++){
             for(int j = 0; j < tileState.GetLength(1); j++){
                 if(inputTileState[i,j] == FieldTileSpriteType.anyOrSelf)
@@ -33,6 +39,13 @@ public class TileSpriteState
             }
         }
         return true;
+    }
+    public bool IsInListByState(List<FieldTileSpriteType[,]> inputTileStates){
+        foreach(FieldTileSpriteType[,] state in inputTileStates){
+            if(IsEqualByState(state))
+                return true;
+        }
+        return false;
     }
     public bool IsEqualByState(TileSpriteState inputTileSpriteState){
         return IsEqualByState(inputTileSpriteState.tileState);
