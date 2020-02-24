@@ -12,39 +12,49 @@ public class TileSpriteFactory : Singleton<TileSpriteFactory>
         List<Sprite> eligibleSprites = new List<Sprite>();
         foreach(SpriteForLayout item in Instance.layouts){
             if(inputState.IsInListByState(item.layouts.Select(x => x.GetCells()).ToList())){
+            //if(inputState.IsEqualByState(item.layout.GetCells())){
                 eligibleSprites.AddRange(item.sprites);
             }
         }
-        return eligibleSprites[Random.Range(0, eligibleSprites.Count)];
+        int randIndex = Random.Range(0, eligibleSprites.Count);
+        Debug.Log("eligibleSprites[randIndex]:"+eligibleSprites[randIndex]);
+        return eligibleSprites[randIndex];
     }
 
-    public static bool[,] GetAffectedSprites(Vector2 location){
+    public static bool[,] GetAffectedSprites(Vector2 location){ //input 3x3 loc
         bool[,] output = new bool[2,2];
         int x = (int)location.x;
         int y = (int)location.y;
+        bool[] i = new bool[2];
+        bool[] j = new bool[2];
         switch(x){
             case 0:
-                output[0,0] = true;
+                i[0] = true;
                 break;
             case 1:
-                output[0,0] = true;
-                output[0,1] = true;
+                i[0] = true;
+                i[1] = true;
                 break;
             case 2:
-                output[0,1] = true;
+                i[1] = true;
                 break;
         }
         switch(y){
             case 0:
-                output[1,0] = true;
+                j[0] = true;
                 break;
             case 1:
-                output[1,0] = true;
-                output[1,1] = true;
+                j[0] = true;
+                j[1] = true;
                 break;
             case 2:
-                output[1,1] = true;
+                j[1] = true;
                 break;
+        }
+        for(int k = 0; k < 2; k++){
+            for(int l = 0; l < 2; l++){
+                output[k,l] = i[k] & j[l];
+            }
         }
         return output;
     }

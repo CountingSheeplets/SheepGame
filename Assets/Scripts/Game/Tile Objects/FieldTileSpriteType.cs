@@ -1,3 +1,3 @@
 ﻿public enum FieldTileSpriteType{
-    anyOrSelf, water, mud, grass
+    any, self, water, mud, grass
 }

@@ -2,6 +2,6 @@
 {
     public static class Consts
     {
-        public const int defaultGridSize = 3;
+        public const int defaultGridSize = 2;
     }
 }

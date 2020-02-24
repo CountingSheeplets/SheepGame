@@ -65,12 +65,13 @@ public class Playfield : MonoBehaviour
             for(int j = 0; j < tileArray.GetLength(1); j++){
                 for(int x = -1; x <= 1; x++){
                     for(int y = -1; y <= 1; y++){
-                        if(i + x > 0 && y + j > 0 &&
-                            x + i < tileArray.GetLength(0) &&
-                            y + j < tileArray.GetLength(1)){
+                        if(i + x >= 0 && y + j >= 0 &&
+                        x + i < tileArray.GetLength(0) &&
+                        y + j < tileArray.GetLength(1)){
                             FieldTile neighbour = tileArray[i + x, j + y];
-                            tileArray[i,j].SubscribeToNeighbour(neighbour, new Vector2(x, y));
-                            tileArray[i,j].gameObject.name = "FieldTile:"+i+","+j;
+                            tileArray[i,j].SubscribeToNeighbour(neighbour, new Vector2(y, x));
+                            tileArray[i,j].neighbTest.Add(new NeighbourItem(neighbour, new Vector2(y, x)));
+                            //tileArray[i,j].gameObject.name = "FieldTile:"+i+","+j;
                             tileArray[i,j].transform.SetAsLastSibling();
                             } else {
                                 tileArray[i,j].SubscribeToNeighbour(null, new Vector2(x, y));

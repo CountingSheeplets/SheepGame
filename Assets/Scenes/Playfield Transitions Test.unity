@@ -748,9 +748,9 @@ MonoBehaviour:
   playfieldFadeTime: 2
   playfieldFadeNoiseTiling: {x: 0.05, y: 0.05}
   playfieldFadeProportion: 1
-  playfieldGridSize: 9
-  playfieldTileSize: 0.3
-  playfieldTileScale: {x: 2, y: 2}
+  playfieldGridSize: 5
+  playfieldTileSize: 0.7
+  playfieldTileScale: {x: 5, y: 5}
   playfieldArrangeFloatSpeed: 5
   emptySpacesBetweenFields: 3
   sheepThrowStrength: 1
@@ -1559,6 +1559,24 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: layouts.Array.data[14].layouts.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 263e12c7366618449920cfd39fe518c8,
+        type: 2}
+    - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: layouts.Array.data[14].layouts.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 78a8b6ddcbb57e640ba1b38448ceb5fd,
+        type: 2}
+    - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: layouts.Array.data[14].layouts.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: acc79c86ef47a584a864f4e0f0f92bd4,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f6e4c9fb6c47844daf933edff06fc8b, type: 3}
 --- !u!1001 &4804696112686051568
@@ -1585,6 +1603,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
+        type: 3}
+      propertyPath: m_HDR
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
+        type: 3}
+      propertyPath: m_AllowDynamicResolution
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
+        type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4804696112322545776, guid: 75f0d304b7ed16942b3078dd0d29617b,
         type: 3}
@@ -1640,36 +1688,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
-        type: 3}
-      propertyPath: m_HDR
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
-        type: 3}
-      propertyPath: m_AllowDynamicResolution
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
-        type: 3}
-      propertyPath: m_OcclusionCulling
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
-        type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
-        type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
-        type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75f0d304b7ed16942b3078dd0d29617b, type: 3}

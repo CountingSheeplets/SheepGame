@@ -6,6 +6,9 @@ using System.Linq;
 [Serializable]
 public class TileSpriteState
 {
+    public TileSpriteState(int selfX, int selfY){
+        tileState[selfX,selfY] = FieldTileSpriteType.self;
+    }
     public FieldTileSpriteType[,] tileState = new FieldTileSpriteType[2,2];
     public FieldTileSpriteType[,] GetState(){
         return tileState;
@@ -22,18 +25,21 @@ public class TileSpriteState
         tileState[(int)position.x, (int)position.y] = newState;
         return this;
     }
-    public bool IsEqualByState(FieldTileSpriteType[,] inputTileState){
+    public bool IsEqualByState(FieldTileSpriteType[,] inputTileState){ //2x2 input
         var equal =
         tileState.Rank == inputTileState.Rank &&
         Enumerable.Range(0,tileState.Rank).All(dimension => tileState.GetLength(dimension) == inputTileState.GetLength(dimension)) &&
         tileState.Cast<FieldTileSpriteType>().SequenceEqual(inputTileState.Cast<FieldTileSpriteType>());
-        if(equal)
+        if(equal){
+            //Debug.Log("TileSpriteState returning true by sequence equality...");
             return true;
+        }
         for(int i = 0; i < tileState.GetLength(0); i++){
             for(int j = 0; j < tileState.GetLength(1); j++){
-                if(inputTileState[i,j] == FieldTileSpriteType.anyOrSelf)
+                if(inputTileState[i,j] == FieldTileSpriteType.any || tileState[i,j] == FieldTileSpriteType.any)
                     continue;
                 if(tileState[i,j] != inputTileState[i,j]){
+                    //Debug.Log(tileState[i,j]+":::  tileState[i,j] != inputTileState[i,j]::" + inputTileState[i,j]);
                     return false;
                 }
             }
@@ -55,7 +61,7 @@ public class TileSpriteState
         for(int i = 0; i < tileState.GetLength(0); i++){
             for(int j = 0; j < tileState.GetLength(1); j++){
                 if(j != 1 || j != 1){
-                    if(tileState[i,j] == FieldTileSpriteType.anyOrSelf){
+                    if(tileState[i,j] == FieldTileSpriteType.any){
                         tileState[i,j] = FieldTileSpriteType.water;
                     }
                 }
