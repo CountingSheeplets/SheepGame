@@ -305,7 +305,11 @@
      <Compile Include="Assets\Scripts\Game\Tile Objects\FieldTile.cs" />
      <Compile Include="Assets\Scripts\Game\Tile Objects\FieldTileSpriteType.cs" />
      <Compile Include="Assets\Scripts\Game\Tile Objects\Objects\Array2DFieldTileType.cs" />
+     <Compile Include="Assets\Scripts\Game\Tile Objects\Objects\Location2x2.cs" />
+     <Compile Include="Assets\Scripts\Game\Tile Objects\Objects\Location3x3.cs" />
      <Compile Include="Assets\Scripts\Game\Tile Objects\Objects\SpriteForLayout.cs" />
+     <Compile Include="Assets\Scripts\Game\Tile Objects\Objects\SubFieldTile.cs" />
+     <Compile Include="Assets\Scripts\Game\Tile Objects\Objects\TileLocation.cs" />
      <Compile Include="Assets\Scripts\Game\Tile Objects\TileSpriteFactory.cs" />
      <Compile Include="Assets\Scripts\Game\Tile Objects\TileSpriteState.cs" />
      <Compile Include="Assets\Scripts\Game\UI\CardCanvasController.cs" />

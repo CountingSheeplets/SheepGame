@@ -6,12 +6,19 @@ using System.Linq;
 [Serializable]
 public class TileSpriteState
 {
+    public TileSpriteState(Location2x2 loc){
+        tileState[loc.x,loc.y] = FieldTileSpriteType.self;
+    }
     public TileSpriteState(int selfX, int selfY){
         tileState[selfX,selfY] = FieldTileSpriteType.self;
     }
     public FieldTileSpriteType[,] tileState = new FieldTileSpriteType[2,2];
-    public FieldTileSpriteType[,] GetState(){
+    public FieldTileSpriteType[,] GetStateTypeArray(){
         return tileState;
+    }
+    public TileSpriteState SetState(TileSpriteState inputTileSpriteState){
+        tileState = inputTileSpriteState.tileState;
+        return this;
     }
     public TileSpriteState SetState(FieldTileSpriteType[,] inputTileState){
         for(int i = 0; i < tileState.GetLength(0); i++){
@@ -21,8 +28,8 @@ public class TileSpriteState
         }
         return this;
     }
-    public TileSpriteState SetState(Vector2 position, FieldTileSpriteType newState){
-        tileState[(int)position.x, (int)position.y] = newState;
+    public TileSpriteState SetState(Location2x2 loc2x2, FieldTileSpriteType newState){
+        tileState[loc2x2.x, loc2x2.y] = newState;
         return this;
     }
     public bool IsEqualByState(FieldTileSpriteType[,] inputTileState){ //2x2 input

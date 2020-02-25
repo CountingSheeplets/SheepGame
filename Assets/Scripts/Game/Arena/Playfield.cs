@@ -61,20 +61,20 @@ public class Playfield : MonoBehaviour
         }
         //setup subscriptions for neightbouring tiles:
         FieldTile[,] tileArray = fieldTiles.OrderBy(x => x.transform.position.x).OrderByDescending(x => x.transform.position.y).ToList().ToSquareArray();
-        for(int i = 0; i < tileArray.GetLength(0); i++){
-            for(int j = 0; j < tileArray.GetLength(1); j++){
+        for(int i = 0; i < tileArray.GetLength(1); i++){
+            for(int j = 0; j < tileArray.GetLength(0); j++){
                 for(int x = -1; x <= 1; x++){
                     for(int y = -1; y <= 1; y++){
                         if(i + x >= 0 && y + j >= 0 &&
-                        x + i < tileArray.GetLength(0) &&
-                        y + j < tileArray.GetLength(1)){
+                        x + i < tileArray.GetLength(1) &&
+                        y + j < tileArray.GetLength(0)){
                             FieldTile neighbour = tileArray[i + x, j + y];
-                            tileArray[i,j].SubscribeToNeighbour(neighbour, new Vector2(y, x));
+                            tileArray[i,j].SubscribeToNeighbour(neighbour, new Location3x3(y, x));
                             tileArray[i,j].neighbTest.Add(new NeighbourItem(neighbour, new Vector2(y, x)));
-                            //tileArray[i,j].gameObject.name = "FieldTile:"+i+","+j;
+                            tileArray[i,j].gameObject.name = "FieldTile:x="+j+",y="+i;
                             tileArray[i,j].transform.SetAsLastSibling();
                             } else {
-                                tileArray[i,j].SubscribeToNeighbour(null, new Vector2(x, y));
+                                tileArray[i,j].SubscribeToNeighbour(null, new Location3x3(y, x));
                             }
                     }
                 }
