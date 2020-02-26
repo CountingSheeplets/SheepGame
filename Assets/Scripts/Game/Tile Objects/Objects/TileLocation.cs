@@ -20,4 +20,8 @@ public class TileLocation {
         _x = (int)vec2.x;
         _y = (int)vec2.y;
     }
+    public override string ToString()
+    {
+        return "x:" + x + " y:" + y;
+    }
 }

@@ -35,45 +35,43 @@ public class FieldTile : BaseTile
 
     public void SubscribeToNeighbour(FieldTile tile, Location3x3 loc3x3){
         if(tile != null){
-            if(!neighbours.ContainsKey(tile)){
-                neighbours.Add(tile, loc3x3);
+            if(!neighbours.ContainsKey(tile) && !loc3x3.IsCenterTile()){
+                neighbTest.Add(new NeighbourItem(tile, new Vector2(loc3x3.y, loc3x3.x)));
+                neighbours.Add(tile, loc3x3.ToLocal());
                 tile.onListenStateChange += OnNeighbourStateChanged;
                 //tile.listenerNames.Add(gameObject.name);
             }
         } else {
-            //this loc3x3 is water, mark it as water!
-            bool[,] affected = loc3x3.GetAffectedSubTiles();
-            //mark state
+            FillWater(loc3x3.ToLocal());
         }
     }
 
     void OnNeighbourStateChanged(FieldTile tile, FieldTileSpriteType newState){
         Debug.Log("calling OnNeightbourh:"+gameObject.name+" by: "+tile.gameObject.name);
-        bool[,] affected = neighbours[tile].GetAffectedSubTiles();
         for(int i = 0; i < 2; i++){
             for(int j = 0; j < 2; j++){
-                if(affected[i,j]){
-                    TileSpriteState newTileState = new TileSpriteState(i,j);
+                //Debug.Log("affec check: "+subTiles[i,j]+" loc3: "+neighbours[tile]+" "+subTiles[i,j].IsAffected(neighbours[tile]));
+                if(subTiles[i,j].IsAffected(neighbours[tile])){
                     Location2x2 loc2x2 = new Location2x2(neighbours[tile], i, j);
-                    if(!newTileState.IsEqualByState(subTiles[i,j].GetState())){
-                        Debug.Log("not equal!:");
-                        Debug.Log("previous!:");
-                        subTiles[i,j].GetState().PrintState();
-                        Debug.Log("new!:");
-                        newTileState.SetState(loc2x2, newState);
-                        newTileState.PrintState();
-                        Debug.Log("after!:");
-                        subTiles[i,j].SetState(loc2x2, newState);
-                        subTiles[i,j].GetState().PrintState();
-                    }
+                    Debug.Log(subTiles[i,j]+" no exp: "+subTiles[i,j].GetState());
+                    Debug.Log(subTiles[i,j]+" before: "+subTiles[i,j].ExportState());
+                    subTiles[i,j].SetSubState(loc2x2, newState);
+                    Debug.Log(subTiles[i,j]+" after:"+subTiles[i,j].ExportState());
                 }
             }
         }
     }
 
-
-    public void FillWater(){
-        ////tileState.FillWater();
+    public void FillWater(Location3x3 loc3x3){
+        for(int i = 0; i < 2; i++){
+            for(int j = 0; j < 2; j++){
+                if(subTiles[i,j].IsAffected(loc3x3)){
+                    TileSpriteState newTileState = new TileSpriteState(i,j);
+                    Location2x2 loc2x2 = new Location2x2(loc3x3, i, j);
+                    subTiles[i,j].SetSubState(loc2x2, FieldTileSpriteType.water);
+                }
+            }
+        }
     }
     void OnDestroy(){
         foreach(FieldTile tile in neighbours.Keys)

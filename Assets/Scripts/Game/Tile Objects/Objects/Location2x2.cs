@@ -9,7 +9,20 @@ public class Location2x2 : TileLocation {
         _x -= affTileX;
         _y -= affTileY;
     }
+    public Location2x2 Get(){
+        if(_x < 0 || _y < 0 || _x > 1 || _y > 1)
+            return null;
+        else
+            return this;
+    }
     public Location3x3 To3x3(int affTileX, int affTileY){
-        return new Location3x3(this, affTileX, affTileY);
+        return new Location3x3(this, affTileX, affTileY).Get();
+    }
+
+    public bool Equals(Location2x2 loc2x2){
+        return x == loc2x2.x && y== loc2x2.y;
+    }
+    public Location2x2 Inverted(){
+        return new Location2x2(!(this.x != 0) ? 1 : 0, !(this.y != 0) ? 1 : 0);
     }
 }

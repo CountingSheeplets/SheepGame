@@ -15,5 +15,5 @@ MonoBehaviour:
   gridSize: {x: 2, y: 2}
   cells:
   - row: 0300000003000000
-  - row: 0100000004000000
+  - row: 0400000004000000
   sprite: {fileID: 0}

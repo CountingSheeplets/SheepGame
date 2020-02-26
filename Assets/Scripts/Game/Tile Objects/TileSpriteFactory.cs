@@ -7,14 +7,19 @@ public class TileSpriteFactory : Singleton<TileSpriteFactory>
 {
     [SerializeField]
     private List<SpriteForLayout> layouts = new List<SpriteForLayout>();
-    
-    public static Sprite GetSprite(TileSpriteState inputState){
+    [SerializeField]
+    private List<Sprite> mudSprites = new List<Sprite>();
+    public static Sprite GetSprite(SubFieldTile subFieldTile){
         List<Sprite> eligibleSprites = new List<Sprite>();
-        foreach(SpriteForLayout item in Instance.layouts){
-            if(inputState.IsInListByState(item.layouts.Select(x => x.GetCells()).ToList())){
-            //if(inputState.IsEqualByState(item.layout.GetCells())){
-                eligibleSprites.AddRange(item.sprites);
+        if(subFieldTile.GetParentType() != FieldTileSpriteType.mud){
+            foreach(SpriteForLayout item in Instance.layouts){
+                if(subFieldTile.ExportState().IsInListByMatching(item.layouts.Select(x => x.GetCells()).ToList())){
+                //if(inputState.IsEqualByState(item.layout.GetCells())){
+                    eligibleSprites.AddRange(item.sprites);
+                }
             }
+        } else {
+            eligibleSprites.AddRange(Instance.mudSprites);
         }
         int randIndex = Random.Range(0, eligibleSprites.Count);
         Debug.Log("eligibleSprites[randIndex]:"+eligibleSprites[randIndex]);

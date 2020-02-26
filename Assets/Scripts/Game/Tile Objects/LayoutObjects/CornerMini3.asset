@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridSize: {x: 2, y: 2}
   cells:
-  - row: 0100000004000000
+  - row: 0400000004000000
   - row: 0400000003000000
   sprite: {fileID: 0}

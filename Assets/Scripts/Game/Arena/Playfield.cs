@@ -70,7 +70,6 @@ public class Playfield : MonoBehaviour
                         y + j < tileArray.GetLength(0)){
                             FieldTile neighbour = tileArray[i + x, j + y];
                             tileArray[i,j].SubscribeToNeighbour(neighbour, new Location3x3(y, x));
-                            tileArray[i,j].neighbTest.Add(new NeighbourItem(neighbour, new Vector2(y, x)));
                             tileArray[i,j].gameObject.name = "FieldTile:x="+j+",y="+i;
                             tileArray[i,j].transform.SetAsLastSibling();
                             } else {
