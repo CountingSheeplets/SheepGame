@@ -20,7 +20,6 @@ public class Playfield : MonoBehaviour
     public Transform sheepParent; // used by SheepFactory
 
     public bool isAnimating = false;
-    
     public Playfield Init(){
         GameObject newPlayfieldGO = Instantiate(gameObject);
         Playfield playfield = newPlayfieldGO.GetComponent<Playfield>();
@@ -49,14 +48,14 @@ public class Playfield : MonoBehaviour
     }
     void OnStart(GameMessage msg){
         //adjust background size:
-        backgroundSprite.transform.localScale = ConstantsBucket.PlayfieldTileScale * ConstantsBucket.GridSize;
+        backgroundSprite.transform.localScale = ConstantsBucket.PlayfieldSpriteScale * ConstantsBucket.GridSize;
         //generate field area:
         Spiral sp = new Spiral();
         for(int i = 0;i < ConstantsBucket.GridSize * ConstantsBucket.GridSize; i++){
             GameObject newTileGO = Instantiate(fieldTilePrefab, Vector2.zero, Quaternion.identity, fieldParent);
             newTileGO.transform.localPosition = sp.ThisPoint() * ConstantsBucket.PlayfieldTileSize;
             sp.Next();
-            newTileGO.transform.localScale = ConstantsBucket.PlayfieldTileScale;
+            newTileGO.transform.localScale = ConstantsBucket.PlayfieldSpriteScale;
             fieldTiles.Add(newTileGO.GetComponent<FieldTile>());
         }
         //setup subscriptions for neightbouring tiles:
@@ -87,12 +86,15 @@ public class Playfield : MonoBehaviour
                 if((i+1) % (ConstantsBucket.GridSize + 1) != 0) {
                     GameObject newTileGO = Instantiate(fenceTilePrefab, Vector2.zero, Quaternion.identity, fenceParent);
                     newTileGO.transform.localPosition = sp.ThisPoint() * ConstantsBucket.PlayfieldTileSize;
-                    newTileGO.transform.localScale = ConstantsBucket.PlayfieldTileScale;
+                    newTileGO.transform.localScale = ConstantsBucket.PlayfieldSpriteScale;
                     Vector3 rotateBy = new Vector3(0, 0, 90f * Mathf.FloorToInt(i / (ConstantsBucket.GridSize + 1)));
                     //Debug.Log("rotateBy "+rotateBy);
                     newTileGO.transform.Rotate(rotateBy, Space.World);
-                    newTileGO.GetComponentInChildren<SpriteRenderer>().transform.Rotate(-rotateBy, Space.World);
-                    fenceTiles.Add(newTileGO.GetComponent<FenceTile>());
+                    FenceTile fTile = newTileGO.GetComponentInChildren<FenceTile>();
+                    fTile.transform.Rotate(-rotateBy, Space.World);
+                    fTile.isHorizontal = sp.IsHorizontal();
+                    fTile.FillWithTiles();
+                    fenceTiles.Add(fTile);
                 } else {
                     //Debug.Log("SP: "+sp.ThisPoint()+" i:"+ i+"  %="+(i % (ArenaManager.GridSize + 1) ));
                 }
@@ -177,5 +179,8 @@ public class Spiral
     {
         x = 0;
         y = 0;
+    }
+    public bool IsHorizontal(){
+        return !(Mathf.Abs(x) > Mathf.Abs(y)+0.5f*Mathf.Sign(x) && Mathf.Abs(x) > (-y+0.5f));
     }
 }

@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class RandomSprite : MonoBehaviour
 {
-    public SpriteRenderer rend;
+    List<SpriteRenderer> rends;
     public List<Sprite> sprites;
 
     void Start()
     {
-        if(rend == null)    rend = GetComponentInChildren<SpriteRenderer>();
-        SelectSprite();
+        if(rends == null)    rends = new List<SpriteRenderer>(GetComponentsInChildren<SpriteRenderer>());
+        foreach(SpriteRenderer rend in rends)
+            SelectSprite(rend);
     }
 
-    void SelectSprite()
+    void SelectSprite(SpriteRenderer rend)
     {
         if(sprites.Count<=0){
             Debug.LogWarning("Zero Sprites to select a random from, not randoming any sprite...");

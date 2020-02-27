@@ -749,10 +749,11 @@ MonoBehaviour:
   playfieldFadeNoiseTiling: {x: 0.05, y: 0.05}
   playfieldFadeProportion: 1
   playfieldGridSize: 5
-  playfieldTileSize: 0.7
-  playfieldTileScale: {x: 5, y: 5}
+  playfieldTileSize: 0.672
+  playfieldSpriteScale: {x: 5.5, y: 5.5}
   playfieldArrangeFloatSpeed: 5
   emptySpacesBetweenFields: 3
+  fenceFieldSubdivision: 3
   sheepThrowStrength: 1
   eatInterval: 1
   baseEatValue: 0.02
@@ -1502,7 +1503,7 @@ PrefabInstance:
     - target: {fileID: 2463484813543074630, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2463484813543074630, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
         type: 3}
@@ -1613,6 +1614,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 0532cac54ccd9ed47816681525a27775,
         type: 2}
+    - target: {fileID: 2463484813335761282, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463484813335761282, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: m_Name
+      value: Preset6[6]
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f6e4c9fb6c47844daf933edff06fc8b, type: 3}
 --- !u!1001 &4804696112686051568

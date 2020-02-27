@@ -20,12 +20,14 @@ public class ConstantsBucket : Singleton<ConstantsBucket>
     public static int GridSize {get {return Instance.playfieldGridSize;}}
     [SerializeField] float playfieldTileSize = 0.5f;
     public static float PlayfieldTileSize {get {return Instance.playfieldTileSize;}}
-    [SerializeField] Vector2 playfieldTileScale = new Vector2(2.5f,2.5f);
-    public static Vector2 PlayfieldTileScale {get {return Instance.playfieldTileScale;}}
+    [SerializeField] Vector2 playfieldSpriteScale = new Vector2(2.5f,2.5f);
+    public static Vector2 PlayfieldSpriteScale {get {return Instance.playfieldSpriteScale;}}
     [SerializeField] float playfieldArrangeFloatSpeed = 5f;
     public static float PlayfieldFloatSpeed {get {return Instance.playfieldArrangeFloatSpeed;}}
     [SerializeField] int emptySpacesBetweenFields = 1;
     public static float EmptySpacesBetweenFields {get {return Instance.emptySpacesBetweenFields;}}
+    [SerializeField] float fenceFieldSubdivision = 2;
+    public static float FenceFieldSubdivision {get {return Instance.fenceFieldSubdivision;}}
 
     [Header("Sheep")]
     [SerializeField] float sheepThrowStrength = 1f;

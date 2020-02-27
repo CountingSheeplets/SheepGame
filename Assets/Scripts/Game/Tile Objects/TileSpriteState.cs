@@ -39,6 +39,8 @@ public class TileSpriteState
             for(int j = 0; j < tileState.GetLength(1); j++){
                 if(tileState[i,j] == FieldTileSpriteType.self)
                     tileState[i,j] = newState;
+                if(tileState[i,j] == FieldTileSpriteType.water)
+                    tileState[i,j] = FieldTileSpriteType.mud;
             }
         }
         return this;

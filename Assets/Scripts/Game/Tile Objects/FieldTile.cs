@@ -47,16 +47,16 @@ public class FieldTile : BaseTile
     }
 
     void OnNeighbourStateChanged(FieldTile tile, FieldTileSpriteType newState){
-        Debug.Log("calling OnNeightbourh:"+gameObject.name+" by: "+tile.gameObject.name);
+        //Debug.Log("calling OnNeightbourh:"+gameObject.name+" by: "+tile.gameObject.name);
         for(int i = 0; i < 2; i++){
             for(int j = 0; j < 2; j++){
                 //Debug.Log("affec check: "+subTiles[i,j]+" loc3: "+neighbours[tile]+" "+subTiles[i,j].IsAffected(neighbours[tile]));
                 if(subTiles[i,j].IsAffected(neighbours[tile])){
                     Location2x2 loc2x2 = new Location2x2(neighbours[tile], i, j);
-                    Debug.Log(subTiles[i,j]+" no exp: "+subTiles[i,j].GetState());
-                    Debug.Log(subTiles[i,j]+" before: "+subTiles[i,j].ExportState());
+                    //Debug.Log(subTiles[i,j]+" no exp: "+subTiles[i,j].GetState());
+                    //Debug.Log(subTiles[i,j]+" before: "+subTiles[i,j].ExportState());
                     subTiles[i,j].SetSubState(loc2x2, newState);
-                    Debug.Log(subTiles[i,j]+" after:"+subTiles[i,j].ExportState());
+                    //Debug.Log(subTiles[i,j]+" after:"+subTiles[i,j].ExportState());
                 }
             }
         }
