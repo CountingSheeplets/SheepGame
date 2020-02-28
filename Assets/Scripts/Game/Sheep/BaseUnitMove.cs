@@ -15,8 +15,10 @@ public class BaseUnitMove : MonoBehaviour
     public SpineContainer animator;
 
     public bool isMoving = false;
+    public bool impactScale = true;
     void Awake(){
-        SetScale();
+        if(impactScale)
+            SetScale();
     }
     public void SetScale(){
         myScale = transform.localScale;
@@ -45,13 +47,16 @@ public class BaseUnitMove : MonoBehaviour
             distanceLeft = ((Vector2)(transform.position) - destination).magnitude;
 
         //adjust size by distance
-            float scaleComponent = midScale * Mathf.Sin(distanceTraveled / totalDistance * Mathf.PI);
-            transform.localScale = myScale + myScale * scaleComponent;
+            if(impactScale){
+                float scaleComponent = midScale * Mathf.Sin(distanceTraveled / totalDistance * Mathf.PI);
+                transform.localScale = myScale + myScale * scaleComponent;
+            }
         //move transform
             transform.Translate(moveDir * moveSpeed * 0.02f);
             yield return null;
         }
-        transform.localScale = myScale;
+        if(impactScale)
+         transform.localScale = myScale;
         transform.position = destination;
         PostMoveAction();
         yield return null;
