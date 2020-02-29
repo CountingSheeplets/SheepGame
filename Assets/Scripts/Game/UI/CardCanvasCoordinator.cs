@@ -16,8 +16,8 @@ public class CardCanvasCoordinator : Singleton<CardCanvasCoordinator>
             return null;
         GameObject newCardGO = Instantiate(Instance.playerCardPrefab);
         GameObject newCardGhost = Instantiate(Instance.playerCardGhostPrefab);
-        newCardGO.transform.parent = Instance.realCardContainer;
-        newCardGhost.transform.parent = Instance.transform;
+        newCardGO.transform.SetParent(Instance.realCardContainer);
+        newCardGhost.transform.SetParent(Instance.transform);
 
         newCardGO.transform.localScale = new Vector3(1, 1, 1);
         newCardGhost.transform.localScale = new Vector3(1, 1, 1);

@@ -36,21 +36,20 @@ public class CloudGenerator : MonoBehaviour
     }
     void OnSpawnCloud(GameMessage msg)
     {
-        if(Random.Range(0, 1f) < spawnChance)
-            if(transform.childCount < maxClouds){
-                GameObject newCloud = Instantiate(cloudPrefab, transform);
-                float sizeMultiplier = 1 + Random.Range(-sizeDelta, sizeDelta);
-                newCloud.GetComponentInChildren<SpriteRenderer>().transform.localScale = sizeMultiplier * Vector3.one;
+        if(gameObject.activeInHierarchy)
+            if(Random.Range(0, 1f) < spawnChance)
+                if(transform.childCount < maxClouds){
+                    GameObject newCloud = Instantiate(cloudPrefab, transform);
+                    float sizeMultiplier = 1 + Random.Range(-sizeDelta, sizeDelta);
+                    newCloud.GetComponentInChildren<SpriteRenderer>().transform.localScale = sizeMultiplier * Vector3.one;
 
-                Cloud cloud = newCloud.GetComponent<Cloud>();
-                //cloud.SetDir(right);
-                float randomY = Random.Range(-maxY, maxY);
-                newCloud.transform.localPosition = new Vector2(0, randomY);
-                float randomSpeed = Random.Range(cloudSpeedBase-cloudSpeedRandomDelta, cloudSpeedBase+cloudSpeedRandomDelta);
-                cloud.StartFloating(randomSpeed, new Vector2(-transform.localPosition.x, randomY));
-                newCloud.GetComponentInChildren<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Length)];
-
-
-            }
+                    Cloud cloud = newCloud.GetComponent<Cloud>();
+                    //cloud.SetDir(right);
+                    float randomY = Random.Range(-maxY, maxY);
+                    newCloud.transform.localPosition = new Vector2(0, randomY);
+                    float randomSpeed = Random.Range(cloudSpeedBase-cloudSpeedRandomDelta, cloudSpeedBase+cloudSpeedRandomDelta);
+                    cloud.StartFloating(randomSpeed, new Vector2(-transform.localPosition.x, randomY));
+                    newCloud.GetComponentInChildren<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Length)];
+                }
     }
 }

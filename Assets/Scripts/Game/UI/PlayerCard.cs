@@ -115,6 +115,8 @@ public class PlayerCard : MonoBehaviour
         if(owner.EqualsByValue( msg.targetOwner)){
             //transform.SetAsLastSibling();
             eliminatedImage.SetActive(true);
+            playerAvatarImage.gameObject.SetActive(false);
+            kingHealthText.gameObject.SetActive(false);
             isEliminated = true;
         }
     }

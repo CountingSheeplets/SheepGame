@@ -30,7 +30,7 @@ public class Ballista : MonoBehaviour
             //rend.sprite = empty;
             //anim.SetTrigger("shoot");
             anim.Play("Shoot");
-            Debug.Log("shoot");
+            //Debug.Log("shoot");
             float rot_z = Mathf.Atan2(msg.swipe.vector.y, msg.swipe.vector.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, rot_z - defaultSpriteAngle);
         }
@@ -40,7 +40,7 @@ public class Ballista : MonoBehaviour
             //rend.sprite = loaded;
             //anim.SetTrigger("load");
             anim.Play("Pull");
-            Debug.Log("load");
+            //Debug.Log("load");
         }
         //transform.rotation.SetLookRotation(Vector2.up);
     }
