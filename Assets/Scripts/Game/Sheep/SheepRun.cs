@@ -20,7 +20,7 @@ public class SheepRun : BaseUnitMove
 
     public  override void PostMoveAction(){
         //trigger ready to jump/launch animation
-        Debug.Log("run eneded, stopping at:"+(Vector2)(transform.position));
+        //Debug.Log("run eneded, stopping at:"+(Vector2)(transform.position));
         //animator.FadeIn(destination, AnimatorContainer.Animation.Idle);
         animator.StopWalking();
 
