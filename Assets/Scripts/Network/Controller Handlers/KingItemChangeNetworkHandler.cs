@@ -18,11 +18,19 @@ public class KingItemChangeNetworkHandler : MonoBehaviour
             return;
         if   (message["element"].ToString().Contains("changeHat"))
         {
-            EventCoordinator.TriggerEvent(EventName.Input.ChangeHat(), GameMessage.Write().WithOwner(triggerOwner).WithIntMessage((int)message["value"]));
+            EventCoordinator.TriggerEvent(EventName.Input.ChangeKingItem(),
+                GameMessage.Write()
+                .WithOwner(triggerOwner)
+                .WithIntMessage((int)message["value"])
+                .WithKingItemType(KingItemType.hat));
         }
         if   (message["element"].ToString().Contains("changeScepter"))
         {
-            EventCoordinator.TriggerEvent(EventName.Input.ChangeScepter(), GameMessage.Write().WithOwner(triggerOwner).WithIntMessage((int)message["value"]));
+            EventCoordinator.TriggerEvent(EventName.Input.ChangeKingItem(),
+                GameMessage.Write()
+                .WithOwner(triggerOwner)
+                .WithIntMessage((int)message["value"])
+                .WithKingItemType(KingItemType.scepter));
         }
     }
     private void OnDestroy()

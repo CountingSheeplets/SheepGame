@@ -53,8 +53,14 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator>
                         if(!data["selectedScepter"].IsNullOrEmpty())
                             profile.selectedScepter = (int)data["selectedScepter"];
                         EventCoordinator.TriggerEvent(EventName.System.Player.ProfileUpdate(), GameMessage.Write().WithPlayerProfile(profile).WithOwner(owner));
-		                EventCoordinator.TriggerEvent(EventName.Input.ChangeHat(), GameMessage.Write().WithOwner(owner).WithIntMessage(0));
-		                EventCoordinator.TriggerEvent(EventName.Input.ChangeScepter(), GameMessage.Write().WithOwner(owner).WithIntMessage(0));
+		                EventCoordinator.TriggerEvent(EventName.Input.ChangeKingItem(), GameMessage.Write()
+                            .WithOwner(owner)
+                            .WithIntMessage(profile.selectedHat)
+                            .WithKingItemType(KingItemType.hat));
+		                EventCoordinator.TriggerEvent(EventName.Input.ChangeKingItem(), GameMessage.Write()
+                            .WithOwner(owner)
+                            .WithIntMessage(profile.selectedScepter)
+                            .WithKingItemType(KingItemType.scepter));
                         Debug.Log("data received and loaded");
                     }
                 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class KingFactory : Singleton<KingFactory>
 {
-    //public List<KingUnit> kings = new List<KingUnit>(); // belongs to coordinator type script
     public GameObject defaultModel;
     public GameObject kingUnitPrefab;
 
@@ -30,15 +29,9 @@ public class KingFactory : Singleton<KingFactory>
         newKingGO.transform.parent = ArenaCoordinator.GetPlayfield(owner).transform;
         newKingGO.transform.localPosition = Vector3.zero;
         GameObject newKingModelGO = Instantiate(GetHeroModel(owner.ownerId));
-        newKingModelGO.GetComponentInChildren<KingModel>().ChangeColor(PlayerProfileCoordinator.GetProfile(owner).playerColor);
+        newKingModelGO.GetComponentInChildren<KingModel>().ChangeColor(owner.deviceId);
         newKingModelGO.transform.parent = newKingGO.transform;
         newKingModelGO.transform.localPosition = Vector3.zero;
-        //Instance.kings.Add(newKing);
         return newKing;
     } 
-/*     public static void DestroyKing(KingUnit king){
-        Instance.kings.Remove(king);
-        Destroy(king);
-        Create a die king sprite animation with a small lifetime
-    } */
 }

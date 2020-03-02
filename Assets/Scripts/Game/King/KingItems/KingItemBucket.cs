@@ -33,7 +33,6 @@ public class KingItemBucket : Singleton<KingItemBucket>
         }
         return null;
     }
-
     public static bool IsCrownRequirementMet(Owner owner, int index, KingItemType itemType){
         KingItem item = GetItem(index, itemType);
         if(item == null)

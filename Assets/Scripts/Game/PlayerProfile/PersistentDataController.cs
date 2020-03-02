@@ -12,7 +12,7 @@ public class PersistentDataController : MonoBehaviour
         AirConsole.instance.onPersistentDataLoaded += OnDataLoaded;
 		EventCoordinator.StartListening(EventName.System.Player.ProfileCreated(), OnProfileCreated);
 		EventCoordinator.StartListening(EventName.UI.ShowScoreScreen(), OnShowScore);
-		EventCoordinator.Attach(EventName.Input.ChangeHat(), OnChangeHat);
+		EventCoordinator.Attach(EventName.Input.ChangeKingItem(), OnChangeHat);
     }
 	void OnProfileCreated(GameMessage msg){//perhaps add the requested owner, and keep asking for update until its received?
 		PersistentDataCoordinator.RequestData(msg.playerProfile.owner);
@@ -39,6 +39,6 @@ public class PersistentDataController : MonoBehaviour
 		}
 		EventCoordinator.StopListening(EventName.System.Player.ProfileCreated(), OnProfileCreated);
 		EventCoordinator.StopListening(EventName.UI.ShowScoreScreen(), OnShowScore);
-		EventCoordinator.Detach(EventName.Input.ChangeHat(), OnChangeHat);
+		EventCoordinator.Detach(EventName.Input.ChangeKingItem(), OnChangeHat);
 	}
 }

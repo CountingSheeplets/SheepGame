@@ -99,4 +99,9 @@ public class GameMessage
         sheepUnits = value;
         return this;
     }
+    public KingItemType kingItemType;
+    public GameMessage WithKingItemType(KingItemType value){
+        kingItemType = value;
+        return this;
+    }
 }

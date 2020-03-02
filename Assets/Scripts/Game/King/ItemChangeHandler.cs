@@ -4,25 +4,24 @@ using UnityEngine;
 
 public class ItemChangeHandler : MonoBehaviour
 {
-    public GameObject currentItemGO;
-    public KingItemType itemType;
+    //public GameObject currentItemGO;
+    KingItemType itemType;
 
-    [StringInList(typeof(PropertyDrawersHelper), "AllEventNames")]
-    public string changeItemEventName;
+/*     [StringInList(typeof(PropertyDrawersHelper), "AllEventNames")]
+    public string changeItemEventName; */
 
     int currentItemIndex = 0; //0 = default
     void Start()
     {
-        //EventName.Input.ChangeHat
-        //EventName.Input.ChangeScepter
-        EventCoordinator.StartListening(changeItemEventName, OnChangeItem);
+        EventCoordinator.StartListening(EventName.Input.ChangeKingItem(), OnChangeItem);
     }
     void OnDestroy(){
-        EventCoordinator.StopListening(changeItemEventName, OnChangeItem);
+        EventCoordinator.StopListening(EventName.Input.ChangeKingItem(), OnChangeItem);
     }
 
     void OnChangeItem(GameMessage msg)
     {
+        itemType = msg.kingItemType;
         if(GetComponentInParent<Owner>().EqualsByValue(msg.owner)){
             currentItemIndex = msg.owner.GetPlayerProfile().GetSelectedItem(itemType);
             if(msg.intMessage > 0){
@@ -41,15 +40,16 @@ public class ItemChangeHandler : MonoBehaviour
         }
     }
     void ChangeItemTo(int index){
-        currentItemIndex = index;
-        //Debug.Log("currentitemindex: "+index);
-        //Debug.Log("item: "+KingItemBucket.GetItem(currentItemIndex, itemType));
+        if(itemType == KingItemType.hat)
+            GetComponent<KingModel>().ChangeHat(index);
+        if(itemType == KingItemType.scepter)
+            GetComponent<KingModel>().ChangeScepter(index);
 
-        GameObject newItem = Instantiate(KingItemBucket.GetItem(currentItemIndex, itemType).gameObject);
+/*         GameObject newItem = Instantiate(KingItemBucket.GetItem(currentItemIndex, itemType).gameObject);
         newItem.transform.parent = transform;
         newItem.transform.localPosition = currentItemGO.transform.localPosition;
         newItem.transform.localScale = currentItemGO.transform.localScale;
         Destroy(currentItemGO);
-        currentItemGO = newItem;
+        currentItemGO = newItem; */
     }
 }
