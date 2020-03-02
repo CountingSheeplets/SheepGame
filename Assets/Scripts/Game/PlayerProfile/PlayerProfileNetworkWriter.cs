@@ -29,7 +29,7 @@ public class PlayerProfileNetworkWriter : MonoBehaviour
                         CardCanvasCoordinator.Sort();
                         EventCoordinator.TriggerEvent(EventName.System.Player.PlayerCardsSorted(), GameMessage.Write());
                     } else {
-                        Debug.Log("Cant Send... profile not found or player is dead for owner: "+owner);
+                        //Debug.Log("Cant Send... profile not found or player is dead for owner: "+owner);
                     }
                 } else {
                     NetworkCoordinator.SendKingItems(owner);

@@ -9,6 +9,8 @@ public class TileSpriteFactory : Singleton<TileSpriteFactory>
     private List<SpriteForLayout> layouts = new List<SpriteForLayout>();
     [SerializeField]
     private List<Sprite> mudSprites = new List<Sprite>();
+    [SerializeField]
+    private List<SpriteForLayout> mudLayouts = new List<SpriteForLayout>();
 
     public static Sprite GetSprite(SubFieldTile subFieldTile){
         List<Sprite> eligibleSprites = new List<Sprite>();
@@ -22,11 +24,19 @@ public class TileSpriteFactory : Singleton<TileSpriteFactory>
                 }
             }
         } else {
-            eligibleSprites.AddRange(Instance.mudSprites);
+            foreach(SpriteForLayout item in Instance.mudLayouts){
+                if(subFieldTile.ExportState().IsInListByMatching(item.layouts.Select(x => x.GetCells()).ToList())){
+                //if(inputState.IsEqualByState(item.layout.GetCells())){
+                    //Debug.Log(subFieldTile.ExportState()+"layout matched with: "+item.layouts[0]);
+                    eligibleSprites.AddRange(item.sprites);
+                    break;
+                }
+            }
+            if(eligibleSprites.Count == 0)
+                eligibleSprites.AddRange(Instance.mudSprites);
         }
         int randIndex = Random.Range(0, eligibleSprites.Count);
         //Debug.Log("eligibleSprites[randIndex]:"+eligibleSprites[randIndex]);
         return eligibleSprites[randIndex];
     }
-
 }
