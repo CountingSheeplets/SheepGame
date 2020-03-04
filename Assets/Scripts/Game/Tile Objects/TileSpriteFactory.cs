@@ -23,6 +23,8 @@ public class TileSpriteFactory : Singleton<TileSpriteFactory>
                     break;
                 }
             }
+            if(eligibleSprites.Count == 0)
+                eligibleSprites.AddRange(Instance.mudSprites);
         } else {
             foreach(SpriteForLayout item in Instance.mudLayouts){
                 if(subFieldTile.ExportState().IsInListByMatching(item.layouts.Select(x => x.GetCells()).ToList())){

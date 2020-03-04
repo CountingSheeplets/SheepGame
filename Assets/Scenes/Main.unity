@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1823,6 +1823,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: mudLayouts.Array.data[4].sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 7403221088168266536, guid: ce06ed963c00e8e44852c63a77ac704a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f6e4c9fb6c47844daf933edff06fc8b, type: 3}
 --- !u!4 &1946995377 stripped

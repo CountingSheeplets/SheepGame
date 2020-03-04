@@ -100,6 +100,7 @@ public class Playfield : MonoBehaviour
                 }
                 sp.Next();
             }
+        
         SetHitpointsTo(55);
     }
     void OnSetField(GameMessage msg){

@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1551,6 +1551,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
         type: 3}
+      propertyPath: mudLayouts.Array.data[4].layouts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: mudLayouts.Array.data[6].layouts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: mudLayouts.Array.data[8].layouts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: mudLayouts.Array.data[10].layouts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: mudLayouts.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
       propertyPath: layouts.Array.data[14].layouts.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 263e12c7366618449920cfd39fe518c8,
@@ -1657,27 +1682,87 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
         type: 3}
-      propertyPath: layouts.Array.data[6].sprites.Array.data[0]
+      propertyPath: mudLayouts.Array.data[4].layouts.Array.data[1]
       value: 
-      objectReference: {fileID: -3105962902861641560, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      objectReference: {fileID: 11400000, guid: f600ec68acc7b284db858bd8767366ab,
+        type: 2}
+    - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: mudLayouts.Array.data[4].layouts.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: a796bfbf639b5d44a9502971ab341b97,
+        type: 2}
+    - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: mudLayouts.Array.data[6].layouts.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5843a2324325aed41bdd72a1f8c24205,
+        type: 2}
+    - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: mudLayouts.Array.data[6].layouts.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4f16920b0be6eca4da5b7841a35855ab,
+        type: 2}
+    - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: mudLayouts.Array.data[8].layouts.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 665f9a490a3ffe54e9f72ef00f623606,
+        type: 2}
+    - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: mudLayouts.Array.data[8].layouts.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 462609f75f8a47145b290544ec98fc99,
+        type: 2}
+    - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: mudLayouts.Array.data[10].layouts.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8808c670d88242c49b50dd772d02a31c,
+        type: 2}
+    - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: mudLayouts.Array.data[10].layouts.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: bb70e2dd41cf47241a964ad73928fa02,
+        type: 2}
+    - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: mudLayouts.Array.data[12].layouts.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8808c670d88242c49b50dd772d02a31c,
+        type: 2}
+    - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: mudLayouts.Array.data[12].sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -3436339866695974415, guid: ce06ed963c00e8e44852c63a77ac704a,
         type: 3}
     - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
         type: 3}
-      propertyPath: layouts.Array.data[5].sprites.Array.data[0]
+      propertyPath: mudLayouts.Array.data[13].layouts.Array.data[0]
       value: 
-      objectReference: {fileID: -2562067914984890041, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      objectReference: {fileID: 11400000, guid: 8808c670d88242c49b50dd772d02a31c,
+        type: 2}
+    - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: mudLayouts.Array.data[13].sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -3436339866695974415, guid: ce06ed963c00e8e44852c63a77ac704a,
         type: 3}
     - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
         type: 3}
-      propertyPath: layouts.Array.data[4].sprites.Array.data[0]
+      propertyPath: mudLayouts.Array.data[14].layouts.Array.data[0]
       value: 
-      objectReference: {fileID: -3658724675472056866, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
-        type: 3}
+      objectReference: {fileID: 11400000, guid: 8808c670d88242c49b50dd772d02a31c,
+        type: 2}
     - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
         type: 3}
-      propertyPath: layouts.Array.data[3].sprites.Array.data[0]
+      propertyPath: mudLayouts.Array.data[14].sprites.Array.data[0]
       value: 
-      objectReference: {fileID: -1717234600843811929, guid: e8fc26c99b1b7ef4aa38075679bcbe13,
+      objectReference: {fileID: -3436339866695974415, guid: ce06ed963c00e8e44852c63a77ac704a,
         type: 3}
     - target: {fileID: 484102940015026238, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
         type: 3}
@@ -1741,7 +1826,7 @@ PrefabInstance:
     - target: {fileID: 8779957956524137985, guid: 1d0eb1a7dcff9d4438a8a16694233d75,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8779957956524137985, guid: 1d0eb1a7dcff9d4438a8a16694233d75,
         type: 3}
