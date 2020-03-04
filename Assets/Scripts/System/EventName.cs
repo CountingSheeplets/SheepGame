@@ -102,6 +102,11 @@ public class EventName
             public static string PostElimination() { return "System_PostElimination"; }
             public static List<string> Get() { return new List<string> {ProfileCreated(), ProfileUpdate(),PlayerCardsSorted(),Eliminated()}; }          
         }
+        public class Booster{
+            public static string Created() { return "System_BoosterCreated"; }
+            public static string Consumed() { return "System_BoosterConsumed"; }
+            public static List<string> Get() { return new List<string> {Created(), Consumed()}; }          
+        }
         //public static string NextScene() { return "NextScene"; }
         //public static string LoadScene() { return "LoadScene"; }
         //public static string SceneLoaded() { return "SceneLoaded"; }
@@ -109,7 +114,7 @@ public class EventName
             //MapLayoutChanged(),
             //NextScene(), LoadScene(),s
              //SceneLoaded()
-            }.Concat(Economy.Get()).Concat(King.Get()).Concat(Sheep.Get()).Concat(Cooldown.Get()).Concat(Environment.Get()).ToList(); }
+            }.Concat(Economy.Get()).Concat(King.Get()).Concat(Sheep.Get()).Concat(Cooldown.Get()).Concat(Environment.Get()).Concat(Booster.Get()).ToList(); }
     }
     public class AI
     {

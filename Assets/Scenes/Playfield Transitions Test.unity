@@ -496,6 +496,7 @@ GameObject:
   - component: {fileID: 752291662}
   - component: {fileID: 752291661}
   - component: {fileID: 752291663}
+  - component: {fileID: 752291664}
   m_Layer: 0
   m_Name: Buckets(Prices, Upgrades, Speeds)
   m_TagString: Untagged
@@ -739,6 +740,7 @@ MonoBehaviour:
   greedySheepBonusMoney: 0.15
   smallSheepBonusEat: 0.1
   incomeMultiplierNoGrass: 2
+  tipLoopTimer: 10
   kingSmiteRange: 1
   kingHitRadius: 0.5
   kingHitRadiusIncrement: 0.05
@@ -758,6 +760,25 @@ MonoBehaviour:
   - {r: 0.28155038, g: 0.2921396, b: 0.3490566, a: 1}
   - {r: 0.6037736, g: 0.2306871, b: 0.2306871, a: 1}
   profileUpdateInterval: 0.5
+--- !u!114 &752291664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752291657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dae50f79c84aed48a24606063f1944b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  tips:
+  - try to hit an opponents king when thowing your sheep to inflict damage
+  - your sheep at an opponents field will eat their grass and produce gold for you
+  - if your sheep lands outside of a land-mass, she will suffer a sad fate
+  - upgrade your sheep into a Trench Veteran if you are having trouble staying them
+    on opponents land
 --- !u!1 &817108756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,6 +1991,56 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6548960666243033747, guid: 2ecc20202dc2ee942b2d66f65997951b,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548960666243033747, guid: 2ecc20202dc2ee942b2d66f65997951b,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548960666243033747, guid: 2ecc20202dc2ee942b2d66f65997951b,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548960666243033747, guid: 2ecc20202dc2ee942b2d66f65997951b,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548960666243033747, guid: 2ecc20202dc2ee942b2d66f65997951b,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548960666243033747, guid: 2ecc20202dc2ee942b2d66f65997951b,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548960666243033747, guid: 2ecc20202dc2ee942b2d66f65997951b,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800401417284316532, guid: 2ecc20202dc2ee942b2d66f65997951b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014514060371191863, guid: 2ecc20202dc2ee942b2d66f65997951b,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014514060371191863, guid: 2ecc20202dc2ee942b2d66f65997951b,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 7174871919142420152, guid: 2ecc20202dc2ee942b2d66f65997951b,
         type: 3}
       propertyPath: m_Name

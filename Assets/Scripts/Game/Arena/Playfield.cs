@@ -12,7 +12,6 @@ public class Playfield : MonoBehaviour
     public GameObject fenceTilePrefab;
     public GameObject backgroundSprite;
     public List<FieldTile> fieldTiles = new List<FieldTile>();
-    public List<FenceTile> fenceTiles = new List<FenceTile>();
     public float currentHitpoints = 0f;
     public bool generateFence = true;
     public Transform fieldParent;
@@ -81,7 +80,8 @@ public class Playfield : MonoBehaviour
         Debug.Log("playfield subscribed tiles");
         //generate fences around field:
         //Vector2 offset = new Vector2(-(size.x+1)/2, (size.y+1)/2);
-        if(generateFence)
+        FenceController fenceController = GetComponentInChildren<FenceController>();
+        if(generateFence){
             for(int i = 0; i < (ConstantsBucket.GridSize + 2 + ConstantsBucket.GridSize) * 2; i++){
                 if((i+1) % (ConstantsBucket.GridSize + 1) != 0) {
                     GameObject newTileGO = Instantiate(fenceTilePrefab, Vector2.zero, Quaternion.identity, fenceParent);
@@ -94,13 +94,14 @@ public class Playfield : MonoBehaviour
                     fTile.transform.Rotate(-rotateBy, Space.World);
                     fTile.isHorizontal = sp.IsHorizontal();
                     fTile.FillWithTiles();
-                    fenceTiles.Add(fTile);
+                    fenceController.OnFenceTileAdd(fTile);
                 } else {
                     //Debug.Log("SP: "+sp.ThisPoint()+" i:"+ i+"  %="+(i % (ArenaManager.GridSize + 1) ));
                 }
                 sp.Next();
             }
-        
+            fenceController.FenceGenerationEnded();
+        }
         SetHitpointsTo(55);
     }
     void OnSetField(GameMessage msg){

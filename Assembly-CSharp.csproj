@@ -303,6 +303,7 @@
      <Compile Include="Assets\Scripts\Game\Swipe.cs" />
      <Compile Include="Assets\Scripts\Game\Tile Objects\BaseTile.cs" />
      <Compile Include="Assets\Scripts\Game\Tile Objects\EmptyTile.cs" />
+     <Compile Include="Assets\Scripts\Game\Tile Objects\FenceController.cs" />
      <Compile Include="Assets\Scripts\Game\Tile Objects\FenceTile.cs" />
      <Compile Include="Assets\Scripts\Game\Tile Objects\FieldTile.cs" />
      <Compile Include="Assets\Scripts\Game\Tile Objects\FieldTileSpriteType.cs" />
@@ -314,6 +315,7 @@
      <Compile Include="Assets\Scripts\Game\Tile Objects\Objects\TileLocation.cs" />
      <Compile Include="Assets\Scripts\Game\Tile Objects\TileSpriteFactory.cs" />
      <Compile Include="Assets\Scripts\Game\Tile Objects\TileSpriteState.cs" />
+     <Compile Include="Assets\Scripts\Game\TipsBucket.cs" />
      <Compile Include="Assets\Scripts\Game\UI\CardCanvasController.cs" />
      <Compile Include="Assets\Scripts\Game\UI\CardCanvasCoordinator.cs" />
      <Compile Include="Assets\Scripts\Game\UI\GameNameStartReader.cs" />
@@ -322,6 +324,7 @@
      <Compile Include="Assets\Scripts\Game\UI\PlayerOwnerTile.cs" />
      <Compile Include="Assets\Scripts\Game\UI\StateChanger.cs" />
      <Compile Include="Assets\Scripts\Game\UI\TextSideScroll.cs" />
+     <Compile Include="Assets\Scripts\Game\UI\TipsController.cs" />
      <Compile Include="Assets\Scripts\Game\Upgrades\SpeedBucket.cs" />
      <Compile Include="Assets\Scripts\Game\Upgrades\UpgradeBucket.cs" />
      <Compile Include="Assets\Scripts\Game\Upgrades\UpgradeNetworkWriter.cs" />

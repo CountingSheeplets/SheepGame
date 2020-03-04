@@ -57,7 +57,9 @@ public class ConstantsBucket : Singleton<ConstantsBucket>
     [Header("Economy")]
     [SerializeField] public float incomeMultiplierNoGrass = 2.0f;
     public static float IncomeMultiplierNoGrass{        get{return Instance.incomeMultiplierNoGrass;}    }
-
+    [SerializeField] public float tipLoopTimer = 10.0f;
+    public static float TipLoopTimer{        get{return Instance.tipLoopTimer;}    }
+    
     [Header("King")]
     [SerializeField] float kingSmiteRange = 1f;
     public static float KingSmiteRange{        get{return Instance.kingSmiteRange;}    }

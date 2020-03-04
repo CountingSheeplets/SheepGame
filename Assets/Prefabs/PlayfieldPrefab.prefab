@@ -54,6 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8497541845933457712}
+  - component: {fileID: 8910669761103753619}
   m_Layer: 0
   m_Name: Fences
   m_TagString: Untagged
@@ -75,6 +76,19 @@ Transform:
   m_Father: {fileID: 2392307331080380785}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8910669761103753619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4031614864715271271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af180cc18fb3cd4d815f98f9d60b47e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fenceTiles: []
 --- !u!1 &4664886193869066616
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +306,6 @@ MonoBehaviour:
     type: 3}
   backgroundSprite: {fileID: 4664886193869066616}
   fieldTiles: []
-  fenceTiles: []
   currentHitpoints: 0
   generateFence: 1
   fieldParent: {fileID: 5350862721687316760}
@@ -368,6 +381,7 @@ MonoBehaviour:
   midScale: -0.5
   animator: {fileID: 0}
   isMoving: 0
+  impactScale: 1
   playfield: {fileID: 0}
 --- !u!1 &8291182087161254146
 GameObject:
@@ -406,16 +420,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6456368486568105432}
     m_Modifications:
-    - target: {fileID: 7264911332029479535, guid: 854437c85b4111a4c9d53ab5d586f4aa,
-        type: 3}
-      propertyPath: m_Name
-      value: Spine Mecanim GameObject (Balista)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7264911332029479535, guid: 854437c85b4111a4c9d53ab5d586f4aa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7264911332029479538, guid: 854437c85b4111a4c9d53ab5d586f4aa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -485,6 +489,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264911332029479535, guid: 854437c85b4111a4c9d53ab5d586f4aa,
+        type: 3}
+      propertyPath: m_Name
+      value: Spine Mecanim GameObject (Balista)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264911332029479535, guid: 854437c85b4111a4c9d53ab5d586f4aa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7264911332029479539, guid: 854437c85b4111a4c9d53ab5d586f4aa,
         type: 3}
