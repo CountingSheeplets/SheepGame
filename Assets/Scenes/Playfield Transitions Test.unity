@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -791,6 +791,7 @@ GameObject:
   - component: {fileID: 817108760}
   - component: {fileID: 817108757}
   - component: {fileID: 817108759}
+  - component: {fileID: 817108761}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -856,6 +857,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 0
+--- !u!114 &817108761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817108756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b528b600d08da408d4247a8f1b37f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1067208987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1891,6 +1904,36 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
+        type: 3}
+      propertyPath: m_HDR
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
+        type: 3}
+      propertyPath: m_AllowDynamicResolution
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
+        type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4804696112322545776, guid: 75f0d304b7ed16942b3078dd0d29617b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1946,36 +1989,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
-        type: 3}
-      propertyPath: m_HDR
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
-        type: 3}
-      propertyPath: m_AllowDynamicResolution
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
-        type: 3}
-      propertyPath: m_OcclusionCulling
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
-        type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
-        type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
-        type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75f0d304b7ed16942b3078dd0d29617b, type: 3}
 --- !u!4 &5364923289776798120 stripped
@@ -1991,6 +2004,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7174871919142420152, guid: 2ecc20202dc2ee942b2d66f65997951b,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 6548960666243033747, guid: 2ecc20202dc2ee942b2d66f65997951b,
         type: 3}
       propertyPath: m_text
@@ -2040,11 +2058,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7174871919142420152, guid: 2ecc20202dc2ee942b2d66f65997951b,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 7174871919142420100, guid: 2ecc20202dc2ee942b2d66f65997951b,
         type: 3}

@@ -1,40 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Linq;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
-using System.Linq;
-public class TestEvents : MonoBehaviour
-{
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.D)){
-            List<Owner> aliveOwners = new List<Owner> (OwnersCoordinator.GetOwners().Where(x => x.GetPlayerProfile().isAlive).ToList());
-            Owner killer = OwnersCoordinator.GetRandomOwner();
-            aliveOwners.Remove(killer);
-            Owner killed = aliveOwners[Random.Range(0, aliveOwners.Count)];
-            Debug.Log("Defeating Random Player..."+killed+"  by  "+killer);
-            EventCoordinator.TriggerEvent(EventName.System.Player.Eliminated(), GameMessage.Write().WithOwner(killer).WithTargetOwner(killed));
+using UnityEngine;
+public class TestEvents : MonoBehaviour {
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.D)) {
+            List<Owner> aliveOwners = new List<Owner>(OwnersCoordinator.GetOwners().Where(x => x.GetPlayerProfile().isAlive).ToList());
+            if (aliveOwners.Count > 1) {
+
+                Owner killer = OwnersCoordinator.GetRandomOwner();
+                aliveOwners.Remove(killer);
+                Owner killed = aliveOwners[Random.Range(0, aliveOwners.Count)];
+                Debug.Log("Defeating Random Player..." + killed + "  by  " + killer);
+                EventCoordinator.TriggerEvent(EventName.System.Player.Eliminated(), GameMessage.Write().WithOwner(killer).WithTargetOwner(killed));
+            } else {
+                Owner killer = OwnersCoordinator.GetRandomOwner();
+                EventCoordinator.TriggerEvent(EventName.System.Player.Eliminated(), GameMessage.Write().WithOwner(killer).WithTargetOwner(killer));
+            }
         }
-        if(Input.GetKeyDown(KeyCode.A)){
+        if (Input.GetKeyDown(KeyCode.A)) {
             Debug.Log("Fake Hit a random King with random sheep...");
-            List<KingUnit> kings = new List<KingUnit>( FindObjectsOfType<KingUnit>() );
-            List<SheepUnit> sheeps = new List<SheepUnit>( FindObjectsOfType<SheepUnit>() );
+            List<KingUnit> kings = new List<KingUnit>(FindObjectsOfType<KingUnit>());
+            List<SheepUnit> sheeps = new List<SheepUnit>(FindObjectsOfType<SheepUnit>());
             SheepUnit sheep = null;
             List<Owner> owners = OwnersCoordinator.GetOwners();
-            if(sheeps.Count>0)
-                sheep = sheeps[Random.Range(0, sheeps.Count-1)];
-            EventCoordinator.TriggerEvent(EventName.System.King.Hit(), GameMessage.Write().WithKingUnit(kings[Random.Range(0, kings.Count-1)]).WithSheepUnit(sheep).WithOwner(owners[Random.Range(0, owners.Count-1)]));
+            if (sheeps.Count > 0)
+                sheep = sheeps[Random.Range(0, sheeps.Count - 1)];
+            EventCoordinator.TriggerEvent(EventName.System.King.Hit(), GameMessage.Write().WithKingUnit(kings[Random.Range(0, kings.Count - 1)]).WithSheepUnit(sheep).WithOwner(owners[Random.Range(0, owners.Count - 1)]));
         }
-        if(Input.GetKeyDown(KeyCode.L)){
+        if (Input.GetKeyDown(KeyCode.L)) {
             Debug.Log("Fake land sheep on a random king...");
-            List<KingUnit> kings = new List<KingUnit>( FindObjectsOfType<KingUnit>() );
-            List<SheepUnit> sheeps = new List<SheepUnit>( FindObjectsOfType<SheepUnit>() );
+            List<KingUnit> kings = new List<KingUnit>(FindObjectsOfType<KingUnit>());
+            List<SheepUnit> sheeps = new List<SheepUnit>(FindObjectsOfType<SheepUnit>());
             SheepUnit sheep = null;
             KingUnit king = null;
-            if(sheeps.Count>0)
+            if (sheeps.Count > 0)
                 sheep = sheeps[Random.Range(0, sheeps.Count)];
-            if(kings.Count > 0)
+            if (kings.Count > 0)
                 king = kings[Random.Range(0, kings.Count)];
             sheep.lastHandler = sheep.currentPlayfield.owner;
             sheep.transform.position = king.transform.position;
@@ -43,26 +47,26 @@ public class TestEvents : MonoBehaviour
             sheep.ResetContainer();
             EventCoordinator.TriggerEvent(EventName.System.Sheep.Land(), GameMessage.Write().WithSheepUnit(sheep).WithPlayfield(king.myPlayfield));
         }
-        if(Input.GetKeyDown(KeyCode.G)){
+        if (Input.GetKeyDown(KeyCode.G)) {
             Debug.Log("Fake eat grass...");
             EventCoordinator.TriggerEvent(EventName.System.Economy.EatGrass(), GameMessage.Write().WithFloatMessage(10f));
         }
-        if(Input.GetKeyDown(KeyCode.S)){
+        if (Input.GetKeyDown(KeyCode.S)) {
             NetworkCoordinator.SendShowViewAll("match");
         }
-        if(Input.GetKeyDown(KeyCode.S)){
+        if (Input.GetKeyDown(KeyCode.S)) {
             Debug.Log("Fake spawn sheep...");
             SheepUnit sheep = SheepCoordinator.SpawnSheep(OwnersCoordinator.GetRandomOwner());
             EventCoordinator.TriggerEvent(EventName.System.Sheep.Spawned(), GameMessage.Write().WithSheepUnit(sheep));
         }
-        if(Input.GetKeyDown(KeyCode.T)){
+        if (Input.GetKeyDown(KeyCode.T)) {
             Debug.Log("Fake throw sheep...");
             Swipe newSwipe = new Swipe();
             Debug.Log(newSwipe.ToString());
             EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(OwnersCoordinator.GetRandomOwner()));
         }
-        if(Input.GetKeyDown(KeyCode.KeypadMultiply)){
-            foreach(Owner owner in OwnersCoordinator.GetOwners()){
+        if (Input.GetKeyDown(KeyCode.KeypadMultiply)) {
+            foreach (Owner owner in OwnersCoordinator.GetOwners()) {
                 ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Achievement.Baaah(), 1);
                 ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Achievement.Education(), 1);
                 ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Achievement.GetThatAction(), 1);
@@ -75,7 +79,7 @@ public class TestEvents : MonoBehaviour
                 ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Counter.Shepherd(), 300);
             }
         }
-        if(Input.GetKeyDown(KeyCode.F10)){
+        if (Input.GetKeyDown(KeyCode.F10)) {
             EventCoordinator.TriggerEvent(EventName.System.Environment.CleanScene(), GameMessage.Write());
             Debug.Log("Scene Cleaning done.");
         }

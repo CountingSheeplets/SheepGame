@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using UnityEditor;
-public abstract class Singleton<T> : Singleton where T : MonoBehaviour
-{
+using UnityEngine;
+public abstract class Singleton<T> : Singleton where T : MonoBehaviour {
     #region  Fields
     [CanBeNull]
     private static T _instance;
@@ -17,26 +16,25 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour
 
     #region  Properties
     [NotNull]
-    public static T Instance
-    {
-        get
-        {
-            if (Quitting)
-            {
+    public static T Instance {
+        get {
+            Debug.LogWarning($"[{nameof(Singleton)}<{typeof(T)}>] Got This Instance Correctly!");
+
+            if (Quitting) {
                 Debug.LogWarning($"[{nameof(Singleton)}<{typeof(T)}>] Instance will not be returned because the application is quitting.");
                 // ReSharper disable once AssignNullToNotNullAttribute
                 return null;
             }
-            lock (Lock)
-            {
+            Debug.Log("pre lock");
+            lock(Lock) {
+                Debug.Log("lock");
                 if (_instance != null)
                     return _instance;
                 var instances = FindObjectsOfType<T>();
                 var count = instances.Length;
-                Debug.Log($"found intsances [{nameof(Singleton)}<{typeof(T)}>] of :"+count);
-                if (count > 0)
-                {
-                    if (count == 1){
+                Debug.Log($"found intsances [{nameof(Singleton)}<{typeof(T)}>] of :" + count);
+                if (count > 0) {
+                    if (count == 1) {
                         _instance = instances[0];
                         (_instance as Singleton<T>).OnInit();
                         return _instance;
@@ -54,37 +52,35 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour
                 (_instance as Singleton<T>).OnInit();
                 return _instance;
             }
+            Debug.Log("post lock");
         }
     }
     #endregion
 
     #region  Methods
-    private void Awake()
-    {
-        Debug.Log("Singletin:Awake: "+$"[{nameof(Singleton)}<{typeof(T)}>]");
+    private void Awake() {
+        Debug.Log("Singleton:Awake: " + $"[{nameof(Singleton)}<{typeof(T)}>]");
         //potential problem here, on Build application...
-        if (_persistent){
-            if(EditorApplication.isPlaying)
+        if (_persistent) {
+            if (EditorApplication.isPlaying)
                 DontDestroyOnLoad(gameObject);
         }
         T tempInstance = Instance;
         OnAwake();
-        Debug.LogWarning("Singleton Awoken: "+this.GetType().Name);
+        Debug.LogWarning("Singleton Awoken: " + this.GetType().Name);
     }
 
     protected virtual void OnAwake() { }
     protected virtual void OnInit() { }
     #endregion
 }
-public abstract class Singleton : MonoBehaviour
-{
+public abstract class Singleton : MonoBehaviour {
     #region  Properties
     public static bool Quitting { get; set; }
     #endregion
 
     #region  Methods
-    void OnApplicationQuit()
-    {
+    void OnApplicationQuit() {
         Quitting = true;
     }
 
