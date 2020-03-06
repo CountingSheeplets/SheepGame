@@ -2,27 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KingFactory : Singleton<KingFactory>
-{
+public class KingFactory : Singleton<KingFactory> {
     public GameObject defaultModel;
     public GameObject kingUnitPrefab;
 
-    public static GameObject TryCreateHeroModel(Owner owner){
+    public static GameObject TryCreateHeroModel(Owner owner) {
         GameObject newHero = Instantiate(GetHeroModel(owner.ownerId));
-        newHero.GetComponentInChildren<KingModel>().ChangeColor(PlayerProfileCoordinator.GetProfile(owner).playerColor);
+        //newHero.GetComponentInChildren<KingModel>().ChangeColor(PlayerProfileCoordinator.GetProfile(owner).playerColor);
         newHero.transform.parent = owner.gameObject.transform;
         newHero.transform.localPosition = Vector3.zero;
         return newHero;
     }
 
-    public static GameObject GetHeroModel(string ownerID){
+    public static GameObject GetHeroModel(string ownerID) {
         //if player has saved a hat selection, load that hat
 
         //else just load default model
         return Instance.defaultModel;
     }
 
-    public static KingUnit CreateKing(Owner owner){
+    public static KingUnit CreateKing(Owner owner) {
         GameObject newKingGO = Instantiate(Instance.kingUnitPrefab);
         KingUnit newKing = newKingGO.GetComponent<KingUnit>();
         newKing.owner = owner;
@@ -33,5 +32,5 @@ public class KingFactory : Singleton<KingFactory>
         newKingModelGO.transform.parent = newKingGO.transform;
         newKingModelGO.transform.localPosition = Vector3.zero;
         return newKing;
-    } 
+    }
 }

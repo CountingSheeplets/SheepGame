@@ -1,0 +1,315 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8604118487354306394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8604118487354306393}
+  - component: {fileID: 8604118487354306399}
+  - component: {fileID: 8604118487354306392}
+  - component: {fileID: 8604118487354306397}
+  - component: {fileID: 8604118487354306398}
+  - component: {fileID: 8604118487354306396}
+  - component: {fileID: 8604118487354306371}
+  - component: {fileID: 8604118487354306370}
+  m_Layer: 0
+  m_Name: Buckets(Prices, Upgrades, Speeds)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8604118487354306393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604118487354306394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8604118487354306399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604118487354306394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287239f8104b5064d8bac9c31c18781c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8604118487354306392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604118487354306394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d34d997086d3c41a96a1468514a26c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  defaultPrices: {fileID: 11400000, guid: 0cc46602125364840832a55a0266fc3b, type: 2}
+--- !u!114 &8604118487354306397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604118487354306394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a208dafa4358bbb458f8e122d9db4e0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  flySpeeds:
+  - speed: 1
+    sheepType: 0
+  - speed: 2
+    sheepType: 1
+  - speed: 1
+    sheepType: 2
+  - speed: 1
+    sheepType: 3
+  - speed: 0.7
+    sheepType: 4
+  - speed: 1
+    sheepType: 5
+  - speed: 1
+    sheepType: 6
+  - speed: 1
+    sheepType: 7
+  runSpeeds:
+  - speed: 1
+    sheepType: 0
+  - speed: 2
+    sheepType: 1
+  - speed: 1
+    sheepType: 2
+  - speed: 1
+    sheepType: 3
+  - speed: 0.3
+    sheepType: 4
+  - speed: 1
+    sheepType: 5
+  - speed: 0.15
+    sheepType: 6
+  - speed: 1
+    sheepType: 7
+  roamSpeeds:
+  - speed: 0.3
+    sheepType: 0
+  - speed: 0.6
+    sheepType: 1
+  - speed: 0.3
+    sheepType: 2
+  - speed: 0.3
+    sheepType: 3
+  - speed: 0.3
+    sheepType: 4
+  - speed: 0.3
+    sheepType: 5
+  - speed: 0.2
+    sheepType: 6
+  - speed: 0.3
+    sheepType: 7
+  swimSpeeds:
+  - speed: 0.2
+    sheepType: 0
+  - speed: 0.1
+    sheepType: 1
+  - speed: 0.2
+    sheepType: 2
+  - speed: 0.2
+    sheepType: 3
+  - speed: 0.2
+    sheepType: 4
+  - speed: 0.2
+    sheepType: 5
+  - speed: 0.3
+    sheepType: 6
+  - speed: 0.2
+    sheepType: 7
+  knockbackSpeeds:
+  - speed: 2
+    sheepType: 0
+  - speed: 2
+    sheepType: 1
+  - speed: 2
+    sheepType: 2
+  - speed: 2
+    sheepType: 3
+  - speed: 2
+    sheepType: 4
+  - speed: 2
+    sheepType: 5
+  - speed: 0.3
+    sheepType: 6
+  - speed: 2
+    sheepType: 7
+--- !u!114 &8604118487354306398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604118487354306394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d7007343fdece442a3845ea253a08b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  upgrades:
+  - priceUpgrade: 0
+    slot: 0
+    upgradeDisplayName: small and Fast
+    upgradeCodeName: SheepUpgrade_Small
+    upgradeDescription: does everything faster
+    sheepTypeInput: 0
+    sheepTypeOutput: 1
+  - priceUpgrade: 0
+    slot: 1
+    upgradeDisplayName: bouncy
+    upgradeCodeName: SheepUpgrade_Bouncy
+    upgradeDescription: after landing anywhere on the enemy field bounces towards
+      the king
+    sheepTypeInput: 1
+    sheepTypeOutput: 2
+  - priceUpgrade: 0
+    slot: 0
+    upgradeDisplayName: Greedy
+    upgradeCodeName: SheepUpgrade_Greedy
+    upgradeDescription: eating grass gives more coins
+    sheepTypeInput: 1
+    sheepTypeOutput: 3
+  - priceUpgrade: 0
+    slot: 1
+    upgradeDisplayName: armored
+    upgradeCodeName: SheepUpgrade_Armored
+    upgradeDescription: moves slower to launch location
+    sheepTypeInput: 0
+    sheepTypeOutput: 4
+  - priceUpgrade: 0
+    slot: 0
+    upgradeDisplayName: trench veteran
+    upgradeCodeName: SheepUpgrade_Trench
+    upgradeDescription: before being thrown, it burrows underground postponing its
+      duty by a turn
+    sheepTypeInput: 4
+    sheepTypeOutput: 5
+  - priceUpgrade: 0
+    slot: 1
+    upgradeDisplayName: Tank
+    upgradeCodeName: SheepUpgrade_Tank
+    upgradeDescription: move even slower, cannot be Smited
+    sheepTypeInput: 4
+    sheepTypeOutput: 6
+  - priceUpgrade: 0
+    slot: 0
+    upgradeDisplayName: None
+    upgradeCodeName: King_BuySheep
+    upgradeDescription: None
+    sheepTypeInput: 0
+    sheepTypeOutput: 0
+--- !u!114 &8604118487354306396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604118487354306394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714d7f08f642a2c44ab59ac8a590e768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  playfieldFadeTime: 2
+  playfieldFadeNoiseTiling: {x: 0.05, y: 0.05}
+  playfieldFadeProportion: 1
+  playfieldGridSize: 5
+  playfieldTileSize: 0.6715
+  playfieldSpriteScale: {x: 5.5, y: 5.5}
+  playfieldArrangeFloatSpeed: 5
+  emptySpacesBetweenFields: 3
+  fenceFieldSubdivision: 3
+  sheepThrowStrength: 1
+  eatInterval: 1
+  baseEatValue: 0.02
+  incrementalEatValue: 0.05
+  roamInterval: 1
+  roamProbability: 0.25
+  hitRange: 0.2
+  hitDamage: 7
+  greedySheepBonusMoney: 0.15
+  smallSheepBonusEat: 0.1
+  incomeMultiplierNoGrass: 2
+  tipLoopTimer: 10
+  kingSmiteRange: 1
+  kingHitRadius: 0.5
+  kingHitRadiusIncrement: 0.05
+  kingScaleChangeTime: 1
+  kingEatBonus: 0.15
+  kingEatIncrement: 0.05
+  starveDamage: 1.25
+  playerColors:
+  - {r: 0.23921569, g: 0.58431375, b: 0.80784315, a: 1}
+  - {r: 0.8901961, g: 0.32156864, b: 0.25882354, a: 1}
+  - {r: 0.95686275, g: 0.6392157, b: 0.31764707, a: 1}
+  - {r: 0.6784314, g: 0.5063429, b: 0.91764706, a: 1}
+  - {r: 0.91764706, g: 0.8, b: 0.29411766, a: 1}
+  - {r: 0.9372549, g: 0.56078434, b: 0.84313726, a: 1}
+  - {r: 0.25882354, g: 0.90588236, b: 0.87058824, a: 1}
+  - {r: 0.26666668, g: 0.6, b: 0.32156864, a: 1}
+  - {r: 0.28155038, g: 0.2921396, b: 0.3490566, a: 1}
+  - {r: 0.6037736, g: 0.2306871, b: 0.2306871, a: 1}
+  profileUpdateInterval: 0.5
+--- !u!114 &8604118487354306371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604118487354306394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dae50f79c84aed48a24606063f1944b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  tips:
+  - try to hit an opponents king when thowing your sheep to inflict damage
+  - your sheep at an opponents field will eat their grass and produce gold for you
+  - if your sheep lands outside of a land-mass, she will suffer a sad fate
+  - upgrade your sheep into a Trench Veteran if you are having trouble staying them
+    on opponents land
+--- !u!114 &8604118487354306370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604118487354306394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d397e205cc401443b0171391f98d208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  kingHats: []
+  kingScepters: []

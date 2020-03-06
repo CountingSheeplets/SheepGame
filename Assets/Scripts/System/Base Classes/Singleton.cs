@@ -25,9 +25,9 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour {
                 // ReSharper disable once AssignNullToNotNullAttribute
                 return null;
             }
-            Debug.Log("pre lock");
+            //Debug.Log("pre lock");
             lock(Lock) {
-                Debug.Log("lock");
+                //Debug.Log("lock");
                 if (_instance != null)
                     return _instance;
                 var instances = FindObjectsOfType<T>();
@@ -52,14 +52,13 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour {
                 (_instance as Singleton<T>).OnInit();
                 return _instance;
             }
-            Debug.Log("post lock");
         }
     }
     #endregion
 
     #region  Methods
     private void Awake() {
-        Debug.Log("Singleton:Awake: " + $"[{nameof(Singleton)}<{typeof(T)}>]");
+        //Debug.Log("Singleton:Awake: " + $"[{nameof(Singleton)}<{typeof(T)}>]");
         //potential problem here, on Build application...
         if (_persistent) {
             if (EditorApplication.isPlaying)
@@ -67,7 +66,7 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour {
         }
         T tempInstance = Instance;
         OnAwake();
-        Debug.LogWarning("Singleton Awoken: " + this.GetType().Name);
+        //Debug.LogWarning("Singleton Awoken: " + this.GetType().Name);
     }
 
     protected virtual void OnAwake() { }
