@@ -8,15 +8,15 @@ public class KingModel : MonoBehaviour {
     void Awake() {
         skMecanim = GetComponent<SkeletonMecanim>();
     }
-    public void ChangeColor(Color color) {
-        targetColoredSprite.color = color;
-    }
+    /*     public void ChangeColor(Color color) {
+            targetColoredSprite.color = color;
+        } */
     public void ChangeColor(int playerIndex) {
         if (playerIndex > 0 && playerIndex < 9) {
-            if (skMecanim != null)
+            if (skMecanim != null) {
                 skMecanim.skeleton.SetSkin("Player" + playerIndex.ToString());
-        } else {
-            ChangeColor(ConstantsBucket.PlayerColors[playerIndex]);
+                //Debug.Log("setting king color to: " + playerIndex.ToString());
+            }
         }
     }
     public void ChangeScepter(int scepterIndex) {

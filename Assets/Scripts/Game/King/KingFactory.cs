@@ -7,18 +7,18 @@ public class KingFactory : Singleton<KingFactory> {
     public GameObject kingUnitPrefab;
 
     public static GameObject TryCreateHeroModel(Owner owner) {
-        GameObject newHero = Instantiate(GetHeroModel(owner.ownerId));
+        GameObject newHero = CreateHeroModel(owner.teamId);
         //newHero.GetComponentInChildren<KingModel>().ChangeColor(PlayerProfileCoordinator.GetProfile(owner).playerColor);
-        newHero.transform.parent = owner.gameObject.transform;
+        newHero.transform.SetParent(owner.gameObject.transform);
         newHero.transform.localPosition = Vector3.zero;
+        newHero.GetComponent<Animator>().Play("Idle1", -1, 0);
         return newHero;
     }
 
-    public static GameObject GetHeroModel(string ownerID) {
-        //if player has saved a hat selection, load that hat
-
-        //else just load default model
-        return Instance.defaultModel;
+    public static GameObject CreateHeroModel(int teamId) {
+        GameObject newKingModelGO = Instantiate(Instance.defaultModel);
+        newKingModelGO.GetComponent<KingModel>().ChangeColor(teamId);
+        return newKingModelGO;
     }
 
     public static KingUnit CreateKing(Owner owner) {
@@ -26,10 +26,8 @@ public class KingFactory : Singleton<KingFactory> {
         KingUnit newKing = newKingGO.GetComponent<KingUnit>();
         newKing.owner = owner;
         newKingGO.transform.parent = ArenaCoordinator.GetPlayfield(owner).transform;
-        newKingGO.transform.localPosition = Vector3.zero;
-        GameObject newKingModelGO = Instantiate(GetHeroModel(owner.ownerId));
-        newKingModelGO.GetComponentInChildren<KingModel>().ChangeColor(owner.deviceId);
-        newKingModelGO.transform.parent = newKingGO.transform;
+        GameObject newKingModelGO = CreateHeroModel(owner.teamId);
+        newKingModelGO.transform.SetParent(newKingGO.transform);
         newKingModelGO.transform.localPosition = Vector3.zero;
         return newKing;
     }

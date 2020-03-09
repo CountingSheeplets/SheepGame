@@ -5,7 +5,7 @@ public class CSVReader : Singleton<CSVReader> {
     List<KingItem> hats = new List<KingItem>();
     List<KingItem> scepters = new List<KingItem>();
     void Awake() {
-        Debug.Log("Read the CSV file");
+        //Debug.Log("Read the CSV file");
         TextAsset DataCSV = Resources.Load<TextAsset>("RewardData");
         string[] line = DataCSV.text.Split(new char[] { '\n' });
 
@@ -25,8 +25,8 @@ public class CSVReader : Singleton<CSVReader> {
                 scepters.Add(kingItem);
         }
 
-        Debug.Log("CSVReader hats Count : " + hats.Count);
-        Debug.Log("CSVReader scepters Count : " + scepters.Count);
+        //Debug.Log("CSVReader hats Count : " + hats.Count);
+        //Debug.Log("CSVReader scepters Count : " + scepters.Count);
         /*         foreach (KingItem kingItem in items) {
                     //Debug.Log("Nom: " + kingItem.Nom + ", Pays: " + kingItem.Pays + ", Superficie: " + kingItem.Superficie + ", Population: " + kingItem.Population + ", C-Population: " + kingItem.CroissancePopulation + ", PIB: " + kingItem.PIB + ", C-PIB: " + kingItem.CroissancePIB + ", Langue: " + kingItem.Langue + ", Religion: " + kingItem.Religion);
                 } */

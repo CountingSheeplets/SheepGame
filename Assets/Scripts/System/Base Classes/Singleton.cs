@@ -18,10 +18,10 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour {
     [NotNull]
     public static T Instance {
         get {
-            Debug.LogWarning($"[{nameof(Singleton)}<{typeof(T)}>] Got This Instance Correctly!");
+            //Debug.LogWarning($"[{nameof(Singleton)}<{typeof(T)}>] Got This Instance Correctly!");
 
             if (Quitting) {
-                Debug.LogWarning($"[{nameof(Singleton)}<{typeof(T)}>] Instance will not be returned because the application is quitting.");
+                //Debug.LogWarning($"[{nameof(Singleton)}<{typeof(T)}>] Instance will not be returned because the application is quitting.");
                 // ReSharper disable once AssignNullToNotNullAttribute
                 return null;
             }
@@ -29,17 +29,17 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour {
                 if (_instance != null)
                     return _instance;
                 _instance = (T) FindObjectOfType(typeof(T));
-                Debug.Log($"Found an instance of [{nameof(Singleton)}<{typeof(T)}>]");
+                //Debug.Log($"Found an instance of [{nameof(Singleton)}<{typeof(T)}>]");
                 if (_instance != null) {
                     (_instance as Singleton<T>).OnInit();
                     return _instance;
                 }
-                Debug.LogWarning($"[{nameof(Singleton)}<{typeof(T)}>] There should never be more than one {nameof(Singleton)} of type {typeof(T)} in the scene, but {FindObjectsOfType<T>()} were found. The first instance found will be used, and all others will be destroyed.");
+                //Debug.LogWarning($"[{nameof(Singleton)}<{typeof(T)}>] There should never be more than one {nameof(Singleton)} of type {typeof(T)} in the scene, but {FindObjectsOfType<T>()} were found. The first instance found will be used, and all others will be destroyed.");
                 (_instance as Singleton<T>).OnInit();
                 return _instance;
             }
 
-            Debug.Log($"[{nameof(Singleton)}<{typeof(T)}>] An instance is needed in the scene and no existing instances were found.");
+            //Debug.Log($"[{nameof(Singleton)}<{typeof(T)}>] An instance is needed in the scene and no existing instances were found.");
             //_instance = new GameObject($"({nameof(Singleton)}){typeof(T)}").AddComponent<T>();
             //(_instance as Singleton<T>).OnInit();
             return null;
