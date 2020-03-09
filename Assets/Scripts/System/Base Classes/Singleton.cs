@@ -25,33 +25,24 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour {
                 // ReSharper disable once AssignNullToNotNullAttribute
                 return null;
             }
-            //Debug.Log("pre lock");
             lock(Lock) {
-                //Debug.Log("lock");
                 if (_instance != null)
                     return _instance;
-                var instances = FindObjectsOfType<T>();
-                var count = instances.Length;
-                Debug.Log($"found intsances [{nameof(Singleton)}<{typeof(T)}>] of :" + count);
-                if (count > 0) {
-                    if (count == 1) {
-                        _instance = instances[0];
-                        (_instance as Singleton<T>).OnInit();
-                        return _instance;
-                    }
-                    Debug.LogWarning($"[{nameof(Singleton)}<{typeof(T)}>] There should never be more than one {nameof(Singleton)} of type {typeof(T)} in the scene, but {count} were found. The first instance found will be used, and all others will be destroyed.");
-                    for (var i = 1; i < instances.Length; i++)
-                        Destroy(instances[i]);
-                    _instance = instances[0];
+                _instance = (T) FindObjectOfType(typeof(T));
+                Debug.Log($"Found an instance of [{nameof(Singleton)}<{typeof(T)}>]");
+                if (_instance != null) {
                     (_instance as Singleton<T>).OnInit();
                     return _instance;
                 }
-
-                Debug.Log($"[{nameof(Singleton)}<{typeof(T)}>] An instance is needed in the scene and no existing instances were found, so a new instance will be created.");
-                _instance = new GameObject($"({nameof(Singleton)}){typeof(T)}").AddComponent<T>();
+                Debug.LogWarning($"[{nameof(Singleton)}<{typeof(T)}>] There should never be more than one {nameof(Singleton)} of type {typeof(T)} in the scene, but {FindObjectsOfType<T>()} were found. The first instance found will be used, and all others will be destroyed.");
                 (_instance as Singleton<T>).OnInit();
                 return _instance;
             }
+
+            Debug.Log($"[{nameof(Singleton)}<{typeof(T)}>] An instance is needed in the scene and no existing instances were found.");
+            //_instance = new GameObject($"({nameof(Singleton)}){typeof(T)}").AddComponent<T>();
+            //(_instance as Singleton<T>).OnInit();
+            return null;
         }
     }
     #endregion
@@ -65,8 +56,10 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour {
                 DontDestroyOnLoad(gameObject);
         }
         T tempInstance = Instance;
+        if (tempInstance != this)
+            if (EditorApplication.isPlaying)
+                Destroy(gameObject);
         OnAwake();
-        //Debug.LogWarning("Singleton Awoken: " + this.GetType().Name);
     }
 
     protected virtual void OnAwake() { }
