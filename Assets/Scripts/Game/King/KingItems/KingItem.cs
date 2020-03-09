@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 [System.Serializable]
-public class KingItem
-{
+public class KingItem {
     //public KingItemType itemType;
     public string itemName;
     public int crownRequirement;
