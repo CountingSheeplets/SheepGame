@@ -32,14 +32,11 @@ public class TestEvents : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.L)) {
             Debug.Log("Fake land sheep on a random king...");
-            List<KingUnit> kings = new List<KingUnit>(FindObjectsOfType<KingUnit>());
             List<SheepUnit> sheeps = new List<SheepUnit>(FindObjectsOfType<SheepUnit>());
             SheepUnit sheep = null;
-            KingUnit king = null;
+            KingUnit king = GetRandomKing();
             if (sheeps.Count > 0)
                 sheep = sheeps[Random.Range(0, sheeps.Count)];
-            if (kings.Count > 0)
-                king = kings[Random.Range(0, kings.Count)];
             sheep.lastHandler = sheep.currentPlayfield.owner;
             sheep.transform.position = king.transform.position;
             Playfield newPlayfield = ArenaCoordinator.GetPlayfield(sheep.transform.position);
@@ -51,8 +48,10 @@ public class TestEvents : MonoBehaviour {
             Debug.Log("Fake eat grass...");
             EventCoordinator.TriggerEvent(EventName.System.Economy.EatGrass(), GameMessage.Write().WithFloatMessage(10f));
         }
-        if (Input.GetKeyDown(KeyCode.S)) {
-            NetworkCoordinator.SendShowViewAll("match");
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            //NetworkCoordinator.SendShowViewAll("match");
+            KingUnit randomKing = GetRandomKing();
+            EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.Smash(), GameMessage.Write().WithOwner(randomKing.owner));
         }
         if (Input.GetKeyDown(KeyCode.S)) {
             Debug.Log("Fake spawn sheep...");
@@ -83,5 +82,13 @@ public class TestEvents : MonoBehaviour {
             EventCoordinator.TriggerEvent(EventName.System.Environment.CleanScene(), GameMessage.Write());
             Debug.Log("Scene Cleaning done.");
         }
+    }
+
+    KingUnit GetRandomKing() {
+        List<KingUnit> kings = new List<KingUnit>(FindObjectsOfType<KingUnit>());
+        KingUnit king = null;
+        if (kings.Count > 0)
+            king = kings[Random.Range(0, kings.Count)];
+        return king;
     }
 }

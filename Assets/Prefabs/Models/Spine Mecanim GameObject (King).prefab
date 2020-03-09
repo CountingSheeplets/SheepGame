@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1609344614955573350}
   - component: {fileID: 5341025965468455563}
   - component: {fileID: 4208512613812966870}
+  - component: {fileID: 8145525826899372314}
   m_Layer: 0
   m_Name: Spine Mecanim GameObject (King)
   m_TagString: Untagged
@@ -187,3 +188,15 @@ MonoBehaviour:
   anim: {fileID: 0}
   prevAngle: 0
   currentPoint: to1
+--- !u!114 &8145525826899372314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608349506529783468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c313cbcc350528f4380a6c908417176b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

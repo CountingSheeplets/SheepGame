@@ -19,7 +19,7 @@ public class SpineContainerFourDirWalk : MonoBehaviour, IAnimatableDirection {
         string dirNum = EnumToAnimNum(GetAnimEnum(target));
         string animation = "to" + dirNum.ToString();
 
-        //Debug.Log("new anim set to:"+animation);
+        Debug.Log("new anim set to:"+animation);
         foreach (string animName in GetAnimPath(animation)) {
             //Debug.Log("anim trigger:"+animName);
             anim.SetTrigger(animName);

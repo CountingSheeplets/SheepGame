@@ -56,7 +56,8 @@ public class BaseUnitMove : MonoBehaviour {
         }
         if (impactScale)
             transform.localScale = myScale;
-        transform.position = destination;
+        if (!isMoving)
+            transform.position = destination;
         PostMoveAction();
         yield return null;
     }
