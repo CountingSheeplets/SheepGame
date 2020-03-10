@@ -1,17 +1,24 @@
 {
   "files": {
     "main.css": "/static/css/main.498d002a.chunk.css",
-    "main.js": "/static/js/main.674ebae3.chunk.js",
-    "main.js.map": "/static/js/main.674ebae3.chunk.js.map",
+    "main.js": "/static/js/main.141f4a81.chunk.js",
+    "main.js.map": "/static/js/main.141f4a81.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.90329f9f.js",
     "runtime-main.js.map": "/static/js/runtime-main.90329f9f.js.map",
-    "static/js/2.e82b02de.chunk.js": "/static/js/2.e82b02de.chunk.js",
-    "static/js/2.e82b02de.chunk.js.map": "/static/js/2.e82b02de.chunk.js.map",
+    "static/js/2.08a7f7b8.chunk.js": "/static/js/2.08a7f7b8.chunk.js",
+    "static/js/2.08a7f7b8.chunk.js.map": "/static/js/2.08a7f7b8.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.6c2a8ee9b7b4eeae5493875c911d91d9.js": "/precache-manifest.6c2a8ee9b7b4eeae5493875c911d91d9.js",
+    "precache-manifest.16a21d8f2e2cadef8fd20240f07cf439.js": "/precache-manifest.16a21d8f2e2cadef8fd20240f07cf439.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.498d002a.chunk.css.map": "/static/css/main.498d002a.chunk.css.map",
+    "static/media/CROWNS_25.png": "/static/media/CROWNS_25.c3522d6d.png",
     "static/media/NerisBlack.otf": "/static/media/NerisBlack.b3ed728b.otf",
+    "static/media/STAFFS_04.png": "/static/media/STAFFS_04.50954f14.png",
+    "static/media/STAFFS_05.png": "/static/media/STAFFS_05.d99adb45.png",
+    "static/media/STAFFS_09.png": "/static/media/STAFFS_09.2cab0565.png",
+    "static/media/STAFFS_11.png": "/static/media/STAFFS_11.212224d6.png",
+    "static/media/STAFFS_13.png": "/static/media/STAFFS_13.3adaa1d5.png",
+    "static/media/STAFFS_18.png": "/static/media/STAFFS_18.38beb71a.png",
     "static/media/SelectionScreen_prebackground.png": "/static/media/SelectionScreen_prebackground.73e46b99.png",
     "static/media/grass_button.png": "/static/media/grass_button.90c4e7a3.png",
     "static/media/healthbar_background.png": "/static/media/healthbar_background.27c5d136.png",
@@ -26,13 +33,13 @@
     "static/media/icon9.png": "/static/media/icon9.ed588b66.png",
     "static/media/smite_button.png": "/static/media/smite_button.a9761104.png",
     "static/media/swipewheel_icon.png": "/static/media/swipewheel_icon.e15b10eb.png",
-    "static/media/victoryr_background.png": "/static/media/victoryr_background.ec24bf18.png",
+    "static/media/upgrade_button_buy.png": "/static/media/upgrade_button_buy.bf5186b0.png",
     "static/media/win_view.png": "/static/media/win_view.4ba138c8.png"
   },
   "entrypoints": [
     "static/js/runtime-main.90329f9f.js",
-    "static/js/2.e82b02de.chunk.js",
+    "static/js/2.08a7f7b8.chunk.js",
     "static/css/main.498d002a.chunk.css",
-    "static/js/main.674ebae3.chunk.js"
+    "static/js/main.141f4a81.chunk.js"
   ]
 }

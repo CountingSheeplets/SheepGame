@@ -8,16 +8,22 @@ public class KingSmash : MonoBehaviour {
     public float flyDistance = 2f;
     public float knockFlySpeed = 2f;
     KingUnit king;
+    float counter = 0f;
+    float smashTime;
+    GameMessage smashMsg;
     void Start() {
+        smashTime = ConstantsBucket.SmashSpeed;
         if (king == null) king = GetComponentInParent<KingUnit>();
         if (owner == null) owner = king.owner;
-        EventCoordinator.StartListening(EventName.System.King.Smashed(), OnSmash);
+        EventCoordinator.StartListening(EventName.System.King.StartSmash(), OnStartSmash);
     }
     void OnDestroy() {
-        EventCoordinator.StopListening(EventName.System.King.Smashed(), OnSmash);
+        EventCoordinator.StopListening(EventName.System.King.StartSmash(), OnStartSmash);
     }
-    void OnSmash(GameMessage msg) {
+    void OnStartSmash(GameMessage msg) {
         if (owner.EqualsByValue(msg.owner)) {
+            smashTime = ConstantsBucket.SmashSpeed;
+            smashMsg = msg;
             king.SetUsingAbility();
             SendSheepFly(msg.sheepUnits);
         }
@@ -26,6 +32,14 @@ public class KingSmash : MonoBehaviour {
     void Update() {
         for (int i = 0; i < destinations.Count; i++)
             Debug.DrawLine(initPos[i], destinations[i], king.owner.GetPlayerProfile().playerColor);
+
+        if (king.GetIsUsingAbility())
+            counter += Time.deltaTime;
+        if (counter >= smashTime) {
+            EventCoordinator.TriggerEvent(EventName.System.King.Smashed(), smashMsg);
+            counter = 0f;
+            king.StopUsingAbility();
+        }
     }
     void SendSheepFly(List<SheepUnit> sheeps) {
         destinations.Clear();

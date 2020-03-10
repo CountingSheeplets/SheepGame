@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KingAnimateSmite : MonoBehaviour {
+public class KingAnimateSmash : MonoBehaviour {
     KingUnit king;
     Animator anim;
 
     void Start() {
         anim = GetComponent<Animator>();
         king = GetComponentInParent<KingUnit>();
-        EventCoordinator.StartListening(EventName.System.King.Smashed(), OnSmited);
+        EventCoordinator.StartListening(EventName.System.King.StartSmash(), OnSmited);
     }
     void OnDestroy() {
-        EventCoordinator.StopListening(EventName.System.King.Smashed(), OnSmited);
+        EventCoordinator.StopListening(EventName.System.King.StartSmash(), OnSmited);
     }
     void OnSmited(GameMessage msg) {
         foreach (AnimatorControllerParameter parameter in anim.parameters) {

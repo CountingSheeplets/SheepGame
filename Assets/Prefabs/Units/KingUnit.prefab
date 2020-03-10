@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &216148959561885613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1581468107768890841}
+  - component: {fileID: 683642066905861032}
+  m_Layer: 0
+  m_Name: Smash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1581468107768890841
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216148959561885613}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8231495508775806076}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &683642066905861032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216148959561885613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c1afbd32ffa7c4ba391b8db21274cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smashFxPrefab: {fileID: 8402401706779306179, guid: bd9134a84f5fa424dab92025d7482e74,
+    type: 3}
 --- !u!1 &4932373932008650664
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,6 +78,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8825538963035002086}
+  - {fileID: 1581468107768890841}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -51,10 +97,7 @@ MonoBehaviour:
   sheepType: 7
   owner: {fileID: 0}
   canBeThrown: 1
-  isUsingAbility: 0
   isRoaming: 0
-  succesfullHits: 0
-  defaultScale: {x: 0, y: 0, z: 0}
   maxHealth: 100
   currentDamage: 0
 --- !u!114 &4476018965608934899
@@ -75,7 +118,8 @@ MonoBehaviour:
   distanceTraveled: 0
   myScale: {x: 0, y: 0, z: 0}
   midScale: 0
-  animator: {fileID: 0}
+  isMoving: 0
+  impactScale: 1
 --- !u!114 &2672995643569707066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a077a4beff70b4ea8688792bf595cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultScale: {x: 0, y: 0, z: 0}
+  targetScale: {x: 0, y: 0, z: 0}
 --- !u!1 &6176890268272503166
 GameObject:
   m_ObjectHideFlags: 0

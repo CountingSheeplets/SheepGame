@@ -25,7 +25,7 @@ public class KingRoam : BaseUnitMove {
             isMoving = true;
     }
     void OnRoam(GameMessage msg) {
-        if (!king.isRoaming && !king.isUsingAbility) {
+        if (!king.isRoaming && !king.GetIsUsingAbility()) {
             float roll = Random.Range(0, 3f); //3x larger roll = 3x smaller probability
             if (roll < msg.floatMessage) {
                 Vector2 targetPosition = RoamTarget();

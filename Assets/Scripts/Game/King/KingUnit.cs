@@ -21,6 +21,9 @@ public class KingUnit : MonoBehaviour {
     public bool GetIsUsingAbility() {
         return isUsingAbility;
     }
+    public void StopUsingAbility() {
+        isUsingAbility = false;
+    }
     public bool isRoaming = false;
     int succesfullHits = 0;
     public int GetSuccesfullHits() {
