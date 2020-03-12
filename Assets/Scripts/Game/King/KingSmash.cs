@@ -13,7 +13,7 @@ public class KingSmash : MonoBehaviour {
     GameMessage smashMsg;
     void Start() {
         smashTime = ConstantsBucket.SmashSpeed;
-        if (king == null) king = GetComponentInParent<KingUnit>();
+        if (king == null) king = GetComponent<KingUnit>();
         if (owner == null) owner = king.owner;
         EventCoordinator.StartListening(EventName.System.King.StartSmash(), OnStartSmash);
     }
