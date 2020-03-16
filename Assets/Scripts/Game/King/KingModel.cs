@@ -4,6 +4,10 @@ using Spine.Unity;
 using UnityEngine;
 public class KingModel : MonoBehaviour {
     public SpriteRenderer targetColoredSprite;
+    int _hatIndex;
+    public int HatIndex { get { return _hatIndex; } }
+    int _scepterIndex;
+    public int ScepterIndex { get { return _scepterIndex; } }
     SkeletonMecanim skMecanim;
     void Awake() {
         skMecanim = GetComponent<SkeletonMecanim>();
@@ -19,11 +23,13 @@ public class KingModel : MonoBehaviour {
             }
         }
     }
-    public void ChangeScepter(int scepterIndex) {
+    public void SetScepter(int scepterIndex) {
+        _scepterIndex = scepterIndex;
         if (skMecanim != null)
             skMecanim.skeleton.SetAttachment("Staff", KingItemBucket.GetItem(scepterIndex, KingItemType.scepter).spriteName);
     }
-    public void ChangeHat(int hatIndex) {
+    public void SetHat(int hatIndex) {
+        _hatIndex = hatIndex;
         if (skMecanim != null)
             skMecanim.skeleton.SetAttachment("Crown", KingItemBucket.GetItem(hatIndex, KingItemType.hat).spriteName);
     }

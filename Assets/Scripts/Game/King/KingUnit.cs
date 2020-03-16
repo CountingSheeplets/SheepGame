@@ -56,7 +56,13 @@ public class KingUnit : MonoBehaviour {
     }
     public delegate void OnReceivedDamage(float dmg);
     public OnReceivedDamage onReceivedDamage;
-
+    KingModel _model;
+    public KingModel GetModel() {
+        if (_model != null)
+            return _model;
+        else
+            return _model = GetComponentInChildren<KingModel>();
+    }
     void Start() {
         //Debug.Log("pre sclae:"+transform.localScale);
         EventCoordinator.StartListening(EventName.System.King.Hit(), OnHit);

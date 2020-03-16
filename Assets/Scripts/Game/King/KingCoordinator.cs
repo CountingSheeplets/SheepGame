@@ -3,42 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class KingCoordinator : Singleton<KingCoordinator>
-{
+public class KingCoordinator : Singleton<KingCoordinator> {
     public List<KingUnit> kings = new List<KingUnit>();
-
-    void Start()
-    {
+    public List<KingModel> kingModels = new List<KingModel>();
+    void Start() {
         EventCoordinator.StartListening(EventName.System.King.Spawned(), OnSpawn);
         EventCoordinator.StartListening(EventName.System.King.Killed(), OnKill);
-        
+        EventCoordinator.StartListening(EventName.Input.Network.PlayerJoined(), OnJoin);
+        EventCoordinator.StartListening(EventName.Input.Network.PlayerLeft(), OnJoin);
     }
-    void OnDestroy(){
+    void OnDestroy() {
         EventCoordinator.StopListening(EventName.System.King.Spawned(), OnSpawn);
         EventCoordinator.StopListening(EventName.System.King.Killed(), OnKill);
+        EventCoordinator.StopListening(EventName.Input.Network.PlayerJoined(), OnJoin);
+        EventCoordinator.StopListening(EventName.Input.Network.PlayerLeft(), OnJoin);
     }
 
-    void OnSpawn(GameMessage msg){
+    void OnSpawn(GameMessage msg) {
         kings.Add(msg.kingUnit);
     }
-    void OnKill(GameMessage msg){
+    void OnKill(GameMessage msg) {
         kings.Remove(msg.kingUnit);
     }
-    public static KingUnit GetKing(Playfield playfield){
-        foreach(KingUnit king in Instance.kings){
-            if(king.owner.GetPlayfield() == playfield)
+    void OnJoin(GameMessage msg) {
+        kingModels = new List<KingModel>(FindObjectsOfType<KingModel>());
+    }
+    public static KingUnit GetKing(Playfield playfield) {
+        foreach (KingUnit king in Instance.kings) {
+            if (king.owner.GetPlayfield() == playfield)
                 return king;
         }
         return null;
     }
-    public static KingUnit GetKing(Owner owner){
-        foreach(KingUnit king in Instance.kings){
-            if(king.owner == owner)
+    public static KingUnit GetKing(Owner owner) {
+        foreach (KingUnit king in Instance.kings) {
+            if (king.owner == owner)
                 return king;
         }
         return null;
     }
-    public static List<KingUnit> GetKings(){
+    public static List<KingUnit> GetKings() {
         return Instance.kings;
+    }
+    public static KingModel GetSourceKingModel(Owner owner) {
+        KingModel model = owner.GetComponentsInChildren<KingModel>(true) [0];
+        if (model != null) {
+            return model;
+        }
+        return null;
     }
 }

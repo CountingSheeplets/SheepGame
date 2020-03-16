@@ -27,6 +27,11 @@ public class KingFactory : Singleton<KingFactory> {
         newKing.owner = owner;
         newKingGO.transform.parent = ArenaCoordinator.GetPlayfield(owner).transform;
         GameObject newKingModelGO = CreateHeroModel(owner.teamId);
+        int hat = KingCoordinator.GetSourceKingModel(owner).HatIndex;
+        int scept = KingCoordinator.GetSourceKingModel(owner).ScepterIndex;
+        KingModel model = newKingModelGO.GetComponent<KingModel>();
+        model.SetHat(hat);
+        model.SetScepter(scept);
         newKingModelGO.transform.SetParent(newKingGO.transform);
         newKingModelGO.transform.localPosition = Vector3.zero;
         return newKing;

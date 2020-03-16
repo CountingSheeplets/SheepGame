@@ -36,13 +36,15 @@ public class EventName {
         public static string SheepUpgrade() { return "Input_SheepUpgrade"; }
         public static string Swipe() { return "Input_Swipe"; }
         public static string ChangeKingItem() { return "ChangeKingItem"; }
+        public static string SetKingItem() { return "SetKingItem"; }
         public static string StartGame() { return "StartGame"; }
         public static List<string> Get() {
             return new List<string> {
                     StartGame(),
                     SheepUpgrade(),
                     Swipe(),
-                    ChangeKingItem()
+                    ChangeKingItem(),
+                    SetKingItem()
                 }.Concat(KingAbilities.Get())
                 //.Concat(SheepUpgrade.Get())
                 .Concat(Menus.Get())
