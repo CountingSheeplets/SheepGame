@@ -1,25 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-public class PlayerOwnerTile : MonoBehaviour
-{
+using UnityEngine;
+public class PlayerOwnerTile : MonoBehaviour {
     Owner myOwner;
     public TextMeshProUGUI crownCountText;
-
-    public GameObject shade;
-    public void Ready(bool state){
-        shade.SetActive(state);
+    Animator animator;
+    public void Ready(bool state) {
+        animator.SetTrigger("startLoop");
     }
-    void Start(){
+    void Start() {
         myOwner = GetComponentInParent<Owner>();
         EventCoordinator.StartListening(EventName.System.Player.ProfileUpdate(), OnProfileUpdate);
+        animator = GetComponent<Animator>();
     }
-    void OnDestroy(){
+    void OnDestroy() {
         EventCoordinator.StopListening(EventName.System.Player.ProfileUpdate(), OnProfileUpdate);
     }
-    void OnProfileUpdate(GameMessage msg){
-        if(myOwner == msg.owner)
+    void OnProfileUpdate(GameMessage msg) {
+        if (myOwner == msg.owner)
             crownCountText.text = msg.playerProfile.permanentCrownCount.ToString();
     }
 }
