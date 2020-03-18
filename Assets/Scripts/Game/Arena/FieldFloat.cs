@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieldFloat : BaseUnitMove
-{
+public class FieldFloat : BaseUnitMove {
     public Playfield playfield;
-    public void StartFloating(float speed, Vector2 _destination){
-        if(!playfield)
+    public void StartFloating(float speed, Vector2 _destination) {
+        if (!playfield)
             playfield = GetComponent<Playfield>();
         //Debug.Log("StartRunning");
-        destination = _destination;
+        SetDestination(_destination, false);
         playfield.isAnimating = true;
         //move the transform to destination
         MoveToDestination(speed, -0.5f);
@@ -18,7 +17,7 @@ public class FieldFloat : BaseUnitMove
         //animator.WalkTo(destination); // SpineContainer
     }
 
-    public  override void PostMoveAction(){
+    public override void PostMoveAction() {
         //Debug.Log("float eneded, stopping at:"+(Vector2)(transform.position));
         //animator.StopWalking();
 

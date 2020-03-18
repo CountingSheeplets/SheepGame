@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseUnitMove : MonoBehaviour {
-    public Vector2 destination;
+    Vector2 destination;
     public float totalDistance;
     float moveSpeed;
     public float distanceLeft;
@@ -15,12 +15,21 @@ public class BaseUnitMove : MonoBehaviour {
 
     public bool isMoving = false;
     public bool impactScale = true;
+    bool isLocal = true;
     void Awake() {
         if (impactScale)
             SetScale();
     }
     public void SetScale() {
         myScale = transform.localScale;
+    }
+    public void SetDestination(Vector2 _destination, bool _isLocal) {
+        isLocal = _isLocal;
+        if (isLocal) {
+            destination = _destination - (Vector2) transform.parent.transform.position;
+        } else {
+            destination = _destination;
+        }
     }
     public void MoveToDestination(float speed, float _midScale) {
         if (animator == null)
@@ -29,22 +38,34 @@ public class BaseUnitMove : MonoBehaviour {
         moveSpeed = speed;
         StartCoroutine(Move());
     }
-
+    //perhaps split into GlobalMove and LocalMove, and instead of public property call via appropriate function in inheritor
     IEnumerator Move() {
         //stop other enumerators, which are already moving the object
         isMoving = true;
         yield return null;
         isMoving = false;
         //calculate parameters for movement:
-        totalDistance = ((Vector2) (transform.position) - destination).magnitude;
-        Vector2 initialPos = (Vector2) (transform.position);
-        distanceTraveled = ((Vector2) (transform.position) - initialPos).magnitude;
-        Vector2 moveDir = (destination - (Vector2) (transform.position)).normalized;
-
-        while (distanceTraveled < totalDistance && !isMoving) {
+        Vector2 initialPos;
+        Vector2 moveDir;
+        if (isLocal) {
+            totalDistance = ((Vector2) (transform.localPosition) - destination).magnitude;
+            initialPos = (Vector2) (transform.localPosition);
+            distanceTraveled = ((Vector2) (transform.localPosition) - initialPos).magnitude;
+            moveDir = (destination - (Vector2) (transform.localPosition)).normalized;
+        } else {
+            totalDistance = ((Vector2) (transform.position) - destination).magnitude;
+            initialPos = (Vector2) (transform.position);
             distanceTraveled = ((Vector2) (transform.position) - initialPos).magnitude;
-            distanceLeft = ((Vector2) (transform.position) - destination).magnitude;
-
+            moveDir = (destination - (Vector2) (transform.position)).normalized;
+        }
+        while (distanceTraveled < totalDistance && !isMoving) {
+            if (isLocal) {
+                distanceTraveled = ((Vector2) (transform.localPosition) - initialPos).magnitude;
+                distanceLeft = ((Vector2) (transform.localPosition) - destination).magnitude;
+            } else {
+                distanceTraveled = ((Vector2) (transform.position) - initialPos).magnitude;
+                distanceLeft = ((Vector2) (transform.position) - destination).magnitude;
+            }
             //adjust size by distance
             if (impactScale) {
                 float scaleComponent = midScale * Mathf.Sin(distanceTraveled / totalDistance * Mathf.PI);
@@ -57,7 +78,10 @@ public class BaseUnitMove : MonoBehaviour {
         if (impactScale)
             transform.localScale = myScale;
         if (!isMoving)
-            transform.position = destination;
+            if (isLocal)
+                transform.localPosition = destination;
+            else
+                transform.position = destination;
         PostMoveAction();
         yield return null;
     }

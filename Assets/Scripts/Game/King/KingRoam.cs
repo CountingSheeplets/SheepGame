@@ -15,10 +15,10 @@ public class KingRoam : BaseUnitMove {
     }
     public void StartWalking(Vector2 _destination) {
         SetScale();
-        destination = _destination;
+        SetDestination(_destination, true);
         king.isRoaming = true;
         MoveToDestination(SpeedBucket.GetRoamSpeed(SheepType.King), 0f);
-        animator.WalkTo(destination);
+        animator.WalkTo(_destination);
     }
     void OnSmited(GameMessage msg) {
         if (msg.kingUnit == king)

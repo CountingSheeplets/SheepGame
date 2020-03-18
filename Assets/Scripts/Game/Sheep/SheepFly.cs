@@ -2,25 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SheepFly : BaseUnitMove
-{
+public class SheepFly : BaseUnitMove {
     SheepUnit sheep;
-    public void StartFlying(float speed, Vector2 _destination){
-        if(!sheep)
+    public void StartFlying(float speed, Vector2 _destination) {
+        if (!sheep)
             sheep = GetComponent<SheepUnit>();
-        Debug.Log("StartFlying to:"+_destination);
+        Debug.Log("StartFlying to:" + _destination);
         sheep.isFlying = true;
         sheep.isReadyToFly = false;
-        destination = _destination;
+        SetDestination(_destination, false);
         //run animation;
 
         MoveToDestination(speed, 2f);
- }
+    }
 
-    public  override void PostMoveAction(){
+    public override void PostMoveAction() {
         GetComponent<SheepUnit>().isFlying = false;
         //trigger to play Land animation
-        Debug.Log("fly eneded, landing at:"+(Vector2)(transform.position));
+        Debug.Log("fly eneded, landing at:" + (Vector2) (transform.position));
 
         //trigger Land game event, listened by sheep throw
         Playfield newPlayfield = ArenaCoordinator.GetPlayfield(transform.position);
