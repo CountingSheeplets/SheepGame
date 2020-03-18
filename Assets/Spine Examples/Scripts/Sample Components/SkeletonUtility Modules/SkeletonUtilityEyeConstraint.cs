@@ -56,6 +56,10 @@ namespace Spine.Unity.Examples {
 
 		protected override void OnDisable () {
 			if (!Application.isPlaying) return;
+
+			for (int i = 0; i < eyes.Length; i++) {
+				eyes[i].localPosition = origins[i];
+			}
 			base.OnDisable();
 		}
 
@@ -71,7 +75,8 @@ namespace Spine.Unity.Examples {
 
 			for (int i = 0; i < eyes.Length; i++) {
 				center = transform.TransformPoint(origins[i]);
-				eyes[i].position = Vector3.MoveTowards(eyes[i].position, center + (dir * radius), speed * Time.deltaTime);
+				eyes[i].position = Vector3.MoveTowards(eyes[i].position, center + (dir * radius * hierarchy.PositionScale),
+					speed * hierarchy.PositionScale * Time.deltaTime);
 			}
 
 		}

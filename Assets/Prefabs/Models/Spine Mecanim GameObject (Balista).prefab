@@ -59,11 +59,11 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1a0e8ad2ff560564cbdab24b388a9bdf, type: 2}
-  - {fileID: 2100000, guid: a718ac4c47d24e74794af2fef1ec84db, type: 2}
-  - {fileID: 2100000, guid: 1a0e8ad2ff560564cbdab24b388a9bdf, type: 2}
-  - {fileID: 2100000, guid: 8ad907cdcfbe00342afd6fdf13a53be7, type: 2}
-  - {fileID: 2100000, guid: 1a0e8ad2ff560564cbdab24b388a9bdf, type: 2}
+  - {fileID: 2100000, guid: ec68f75a45939fb4aba4756acf5859cd, type: 2}
+  - {fileID: 2100000, guid: 8cfb0ac216222844a92f48ed6a523d02, type: 2}
+  - {fileID: 2100000, guid: ec68f75a45939fb4aba4756acf5859cd, type: 2}
+  - {fileID: 2100000, guid: 6f382e4ed6ef46e45adf761c14f4c0f5, type: 2}
+  - {fileID: 2100000, guid: ec68f75a45939fb4aba4756acf5859cd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   fixDrawOrder: 0
   addNormals: 0
   calculateTangents: 0
-  maskInteraction: 1
+  maskInteraction: 2
   maskMaterials:
     materialsMaskDisabled:
     - {fileID: 2100000, guid: a9e0891fb77d3a34ba6f312e2c3b2824, type: 2}
@@ -138,13 +138,13 @@ MonoBehaviour:
     - {fileID: 2100000, guid: a9e0891fb77d3a34ba6f312e2c3b2824, type: 2}
     - {fileID: 2100000, guid: c57c6ab228e09004fbf8640c1ff3162f, type: 2}
     - {fileID: 2100000, guid: a9e0891fb77d3a34ba6f312e2c3b2824, type: 2}
-    materialsInsideMask:
-    - {fileID: 2100000, guid: 1a0e8ad2ff560564cbdab24b388a9bdf, type: 2}
-    - {fileID: 2100000, guid: a718ac4c47d24e74794af2fef1ec84db, type: 2}
-    - {fileID: 2100000, guid: 1a0e8ad2ff560564cbdab24b388a9bdf, type: 2}
-    - {fileID: 2100000, guid: 8ad907cdcfbe00342afd6fdf13a53be7, type: 2}
-    - {fileID: 2100000, guid: 1a0e8ad2ff560564cbdab24b388a9bdf, type: 2}
-    materialsOutsideMask: []
+    materialsInsideMask: []
+    materialsOutsideMask:
+    - {fileID: 2100000, guid: ec68f75a45939fb4aba4756acf5859cd, type: 2}
+    - {fileID: 2100000, guid: 8cfb0ac216222844a92f48ed6a523d02, type: 2}
+    - {fileID: 2100000, guid: ec68f75a45939fb4aba4756acf5859cd, type: 2}
+    - {fileID: 2100000, guid: 6f382e4ed6ef46e45adf761c14f4c0f5, type: 2}
+    - {fileID: 2100000, guid: ec68f75a45939fb4aba4756acf5859cd, type: 2}
   disableRenderingOnOverride: 1
   translator:
     autoReset: 1

@@ -84,7 +84,10 @@ namespace Spine.Unity.Editor {
 			if (imported.Length == 0)
 				return;
 
-			AssetUtility.HandleOnPostprocessAllAssets(imported, texturesWithoutMetaFile);
+			// we copy the list here to prevent nested calls to OnPostprocessAllAssets() triggering a Clear() of the list
+			// in the middle of execution.
+			var texturesWithoutMetaFileCopy = new List<string>(texturesWithoutMetaFile);
+			AssetUtility.HandleOnPostprocessAllAssets(imported, texturesWithoutMetaFileCopy);
 			texturesWithoutMetaFile.Clear();
 		}
 
@@ -299,6 +302,8 @@ namespace Spine.Unity.Editor {
 				var eventType = current.type;
 				bool isDraggingEvent = eventType == EventType.DragUpdated;
 				bool isDropEvent = eventType == EventType.DragPerform;
+				UnityEditor.DragAndDrop.visualMode = DragAndDropVisualMode.Copy;
+
 				if (isDraggingEvent || isDropEvent) {
 					var mouseOverWindow = EditorWindow.mouseOverWindow;
 					if (mouseOverWindow != null) {
@@ -312,23 +317,44 @@ namespace Spine.Unity.Editor {
 								// Allow drag-and-dropping anywhere in the Hierarchy Window.
 								// HACK: string-compare because we can't get its type via reflection.
 								const string HierarchyWindow = "UnityEditor.SceneHierarchyWindow";
+								const string GenericDataTargetID = "target";
 								if (HierarchyWindow.Equals(mouseOverWindow.GetType().ToString(), System.StringComparison.Ordinal)) {
 									if (isDraggingEvent) {
-										UnityEditor.DragAndDrop.visualMode = DragAndDropVisualMode.Copy;
-										current.Use();
+										var mouseOverTarget = UnityEditor.EditorUtility.InstanceIDToObject(instanceId);
+										if (mouseOverTarget)
+											DragAndDrop.SetGenericData(GenericDataTargetID, mouseOverTarget);
+										// Note: do not call current.Use(), otherwise we get the wrong drop-target parent.
 									} else if (isDropEvent) {
-										DragAndDropInstantiation.ShowInstantiateContextMenu(skeletonDataAsset, Vector3.zero);
+										var parentGameObject = DragAndDrop.GetGenericData(GenericDataTargetID) as UnityEngine.GameObject;
+										Transform parent = parentGameObject != null ? parentGameObject.transform : null;
+										// when dragging into empty space in hierarchy below last node, last node would be parent.
+										if (IsLastNodeInHierarchy(parent))
+											parent = null;
+										DragAndDropInstantiation.ShowInstantiateContextMenu(skeletonDataAsset, Vector3.zero, parent);
 										UnityEditor.DragAndDrop.AcceptDrag();
 										current.Use();
 										return;
 									}
 								}
-
 							}
 						}
 					}
 				}
+			}
 
+			internal static bool IsLastNodeInHierarchy (Transform node) {
+				if (node == null)
+					return false;
+
+				while (node.parent != null) {
+					if (node.GetSiblingIndex() != node.parent.childCount - 1)
+						return false;
+					node = node.parent;
+				}
+
+				var rootNodes = UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects();
+				bool isLastNode = (rootNodes.Length > 0 && rootNodes[rootNodes.Length - 1].transform == node);
+				return isLastNode;
 			}
 		}
 	}
@@ -339,8 +365,9 @@ namespace Spine.Unity.Editor {
 		{
 			if (SpineEditorUtilities.Preferences.textureImporterWarning) {
 				foreach (string path in paths) {
-					if (path.EndsWith(".png.meta", System.StringComparison.Ordinal) ||
-						path.EndsWith(".jpg.meta", System.StringComparison.Ordinal)) {
+					if ((path != null) &&
+						(path.EndsWith(".png.meta", System.StringComparison.Ordinal) ||
+						 path.EndsWith(".jpg.meta", System.StringComparison.Ordinal))) {
 
 						string texturePath = System.IO.Path.ChangeExtension(path, null); // .meta removed
 						string atlasPath = System.IO.Path.ChangeExtension(texturePath, "atlas.txt");

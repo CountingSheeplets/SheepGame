@@ -227,6 +227,11 @@ namespace Spine.Unity {
 		public SkeletonData SkeletonData { get { return skeleton == null ? null : skeleton.data; } }
 		public bool IsValid { get { return skeleton != null; } }
 
+		public delegate void SkeletonRendererDelegate (SkeletonGraphic skeletonGraphic);
+
+		/// <summary>OnRebuild is raised after the Skeleton is successfully initialized.</summary>
+		public event SkeletonRendererDelegate OnRebuild;
+
 		protected Spine.AnimationState state;
 		public Spine.AnimationState AnimationState { get { return state; } }
 
@@ -237,6 +242,34 @@ namespace Spine.Unity {
 
 		public Mesh GetLastMesh () {
 			return meshBuffers.GetCurrent().mesh;
+		}
+
+		public bool MatchRectTransformWithBounds () {
+			UpdateMesh();
+
+			Mesh mesh = this.GetLastMesh();
+			if (mesh == null) {
+				return false;
+			}
+
+			if (mesh.vertexCount == 0) {
+				this.rectTransform.sizeDelta = new Vector2(50f, 50f);
+				this.rectTransform.pivot = new Vector2(0.5f, 0.5f);
+				return false;
+			}
+
+			mesh.RecalculateBounds();
+			var bounds = mesh.bounds;
+			var size = bounds.size;
+			var center = bounds.center;
+			var p = new Vector2(
+				0.5f - (center.x / size.x),
+				0.5f - (center.y / size.y)
+			);
+
+			this.rectTransform.sizeDelta = size;
+			this.rectTransform.pivot = p;
+			return true;
 		}
 
 		public event UpdateBonesDelegate UpdateLocal;
@@ -292,6 +325,9 @@ namespace Spine.Unity {
 						Update(0f);
 				}
 			}
+
+			if (OnRebuild != null)
+				OnRebuild(this);
 		}
 
 		public void UpdateMesh () {
@@ -304,7 +340,7 @@ namespace Spine.Unity {
 			bool updateTriangles = SkeletonRendererInstruction.GeometryNotEqual(currentInstructions, smartMesh.instructionUsed);
 
 			meshGenerator.Begin();
-			if (currentInstructions.hasActiveClipping) {
+			if (currentInstructions.hasActiveClipping && currentInstructions.submeshInstructions.Count > 0) {
 				meshGenerator.AddSubmesh(currentInstructions.submeshInstructions.Items[0], updateTriangles);
 			} else {
 				meshGenerator.BuildMeshWithArrays(currentInstructions, updateTriangles);
