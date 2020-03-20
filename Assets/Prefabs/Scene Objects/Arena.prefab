@@ -328,7 +328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb924112c3b46744da2599012f5519f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toState: 1
+  startState: 0
+  toState: 2
   changeStateEventName: UI_ShowScoreScreen
 --- !u!114 &459672254710749020
 MonoBehaviour:
@@ -342,7 +343,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb924112c3b46744da2599012f5519f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toState: 0
+  startState: 2
+  toState: 1
   changeStateEventName: StartGame
 --- !u!1 &945592909316270213
 GameObject:
@@ -5075,6 +5077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _persistent: 0
   kings: []
+  kingModels: []
 --- !u!114 &2463484813543074635
 MonoBehaviour:
   m_ObjectHideFlags: 0

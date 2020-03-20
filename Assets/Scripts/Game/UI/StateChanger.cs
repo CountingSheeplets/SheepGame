@@ -2,30 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateChanger : MonoBehaviour
-{
+public class StateChanger : MonoBehaviour {
+    public SetActive startState;
     public SetActive toState;
     [StringInList(typeof(PropertyDrawersHelper), "AllEventNames")]
     public string changeStateEventName;
     //public Component changeTarget;
 
-    void Start(){//EventName.Input.StartGame()
+    void Start() { //EventName.Input.StartGame()
         EventCoordinator.StartListening(changeStateEventName, OnStart);
-        switch(toState){
+        switch (startState) {
+            case SetActive.none:
+                break;
             case SetActive.enable:
-                gameObject.SetActive(false);
+                gameObject.SetActive(true);
                 break;
             case SetActive.disable:
-                gameObject.SetActive(true);
+                gameObject.SetActive(false);
                 break;
         }
     }
-    void OnDestroy(){ 
+    void OnDestroy() {
         EventCoordinator.StopListening(changeStateEventName, OnStart);
     }
-    void OnStart(GameMessage msg){
+    void OnStart(GameMessage msg) {
         //activate visuals here
-        switch(toState){
+        switch (toState) {
             case SetActive.enable:
                 gameObject.SetActive(true);
                 break;
@@ -37,6 +39,7 @@ public class StateChanger : MonoBehaviour
 
 }
 public enum SetActive {
+    none,
     enable,
     disable
 }

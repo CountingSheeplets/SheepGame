@@ -14,12 +14,12 @@ public class SpineContainerFourDirWalk : MonoBehaviour, IAnimatableDirection {
     };
 
     public void WalkTo(Vector2 target) {
-        if (anim == null) anim = GetComponent<Animator>();
+        if (anim == null)anim = GetComponent<Animator>();
         anim.ResetTrigger("stop");
         string dirNum = EnumToAnimNum(GetAnimEnum(target));
         string animation = "to" + dirNum.ToString();
 
-        Debug.Log("new anim set to:"+animation);
+        //Debug.Log("new anim set to:"+animation);
         foreach (string animName in GetAnimPath(animation)) {
             //Debug.Log("anim trigger:"+animName);
             anim.SetTrigger(animName);
@@ -106,7 +106,7 @@ public class SpineContainerFourDirWalk : MonoBehaviour, IAnimatableDirection {
         }
     }
     FacingDirection GetAnimEnum(Vector2 target) {
-        Vector2 direction = target - (Vector2) transform.position;
+        Vector2 direction = target - (Vector2)transform.position;
         float angle = 0;
         if (direction.magnitude > 0.05f) { //this fixes Idle dir keeping same as walking dir
             angle = Vector2.SignedAngle(direction, Vector2.up);
@@ -123,7 +123,7 @@ public class SpineContainerFourDirWalk : MonoBehaviour, IAnimatableDirection {
         FacingDirection dir = 0;
         for (int i = 0; i < 4; i++) {
             if (angle > i * 90f) {
-                dir = (FacingDirection) i;
+                dir = (FacingDirection)i;
             } else break;
         }
         //Debug.Log("Output Dir Name:"+dir.ToString());

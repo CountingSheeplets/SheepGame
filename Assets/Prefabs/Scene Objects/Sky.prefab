@@ -94,7 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb924112c3b46744da2599012f5519f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toState: 0
+  startState: 2
+  toState: 1
   changeStateEventName: StartGame
 --- !u!114 &3723531795415692875
 MonoBehaviour:
@@ -108,5 +109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb924112c3b46744da2599012f5519f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toState: 1
+  startState: 0
+  toState: 2
   changeStateEventName: System_Environment_EndMatch

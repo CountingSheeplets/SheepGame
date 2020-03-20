@@ -111,12 +111,12 @@ public class EventName {
         }
         //public static string NextScene() { return "NextScene"; }
         //public static string LoadScene() { return "LoadScene"; }
-        //public static string SceneLoaded() { return "SceneLoaded"; }
+        public static string SceneLoaded() { return "SceneLoaded"; }
         public static List<string> Get() {
             return new List<string> {
                 //MapLayoutChanged(),
                 //NextScene(), LoadScene(),s
-                //SceneLoaded()
+                SceneLoaded()
             }.Concat(Economy.Get()).Concat(King.Get()).Concat(Sheep.Get()).Concat(Cooldown.Get()).Concat(Environment.Get()).Concat(Booster.Get()).ToList();
         }
     }
@@ -130,7 +130,7 @@ public class EventName {
             SwitchFakeController()}.ToList();    }
         } */
     public static List<string> Get() {
-        return new List<string> { }.Concat(UI.Get())
+        return new List<string> {}.Concat(UI.Get())
             .Concat(Editor.Get())
             .Concat(Input.Get())
             .Concat(System.Get())

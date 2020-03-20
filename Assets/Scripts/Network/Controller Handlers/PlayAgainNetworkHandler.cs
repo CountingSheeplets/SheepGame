@@ -1,32 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
+using UnityEngine;
 using UnityEngine.SceneManagement;
-public class PlayAgainNetworkHandler : MonoBehaviour
-{
-    void Awake()
-    {
-        if(AirConsole.instance != null)
+public class PlayAgainNetworkHandler : MonoBehaviour {
+    void Awake() {
+        if (AirConsole.instance != null)
             AirConsole.instance.onMessage += OnReady;
     }
 
-    void OnReady(int from, JToken message)
-    {
-        if(!GameStateView.HasState(GameState.ended))
+    void OnReady(int from, JToken message) {
+        if (!GameStateView.HasState(GameState.ended))
             return;
         if (message["element"] != null)
-            if (message["element"].ToString() == "playAgain")
-            {
+            if (message["element"].ToString() == "playAgain") {
                 bool playAgain = (bool)(message["pressed"]);
                 Owner readyOwner = OwnersCoordinator.GetOwner(from);
                 if (readyOwner == null)
                     return;
-                else{
+                else {
                     readyOwner.playAgain = playAgain;
                 }
-                if(TryRestart(GameMessage.Write())){
+                if (TryRestart(GameMessage.Write())) {
                     AirConsole.instance.ShowAd();
                     EventCoordinator.TriggerEvent(EventName.System.Environment.CleanScene(), GameMessage.Write());
                     NetworkCoordinator.SendShowViewAll("menu");
@@ -34,23 +30,21 @@ public class PlayAgainNetworkHandler : MonoBehaviour
                 Debug.Log("Ready:" + readyOwner);
             }
     }
-    bool TryRestart(GameMessage msg)
-    {
-        foreach (Owner owner in OwnersCoordinator.GetOwners())
-        {
-            if (owner.playAgain == false)
-            {
-                Debug.Log("player not ready to restart:"+owner);
+    bool TryRestart(GameMessage msg) {
+        foreach (Owner owner in OwnersCoordinator.GetOwners()) {
+            if (owner.playAgain == false) {
+                Debug.Log("player not ready to restart:" + owner);
                 return false;
             }
+        }
+        foreach (Owner owner in OwnersCoordinator.GetOwners()) {
+            owner.playAgain = false;
         }
         Debug.Log("players ready. restarting...");
         return true;
     }
-    private void OnDestroy()
-    {
-        if (AirConsole.instance != null)
-        {
+    private void OnDestroy() {
+        if (AirConsole.instance != null) {
             AirConsole.instance.onMessage -= OnReady;
         }
     }
