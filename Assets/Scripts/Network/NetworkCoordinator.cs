@@ -27,6 +27,7 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         JObject json = new JObject();
         json["type"] = "upgradeData";
         json["upgrade"] = JToken.FromObject(upgrade);
+        json["icon"] = upgrade.sheepTypeOutput.ToString();
         TrySend(deviceId, json);
     }
     public static void SendKingItems(Owner owner) {

@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4fedf6bedce957324d0cac4083f4a40c",
+    "revision": "7587cd5991e6bdc3bfe650467e95f928",
     "url": "/index.html"
   },
   {
-    "revision": "b32b43345dcdba642d61",
+    "revision": "473f7e185ef2360466e6",
     "url": "/static/css/main.498d002a.chunk.css"
   },
   {
-    "revision": "f52793286f614b5de1c8",
-    "url": "/static/js/2.08a7f7b8.chunk.js"
+    "revision": "ac4a152eb914a132f167",
+    "url": "/static/js/2.f5283299.chunk.js"
   },
   {
-    "revision": "b32b43345dcdba642d61",
-    "url": "/static/js/main.141f4a81.chunk.js"
+    "revision": "473f7e185ef2360466e6",
+    "url": "/static/js/main.0f98acf6.chunk.js"
   },
   {
     "revision": "be469bead0dbadc13eb3",
@@ -22,6 +22,18 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "c3522d6d25a4cb35f7fe5b71fad10a5f",
     "url": "/static/media/CROWNS_25.c3522d6d.png"
+  },
+  {
+    "revision": "0b743d1b766f9d561ac38e362c51f398",
+    "url": "/static/media/CROWNS_38.0b743d1b.png"
+  },
+  {
+    "revision": "c4af8da572a3b17f9541ea6f46116d7b",
+    "url": "/static/media/CROWNS_40.c4af8da5.png"
+  },
+  {
+    "revision": "d9d76972015a8c59d02bbdf746fcce62",
+    "url": "/static/media/CROWNS_46.d9d76972.png"
   },
   {
     "revision": "b3ed728be9cb645e89b1be33ef5f4832",
@@ -40,8 +52,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/STAFFS_09.2cab0565.png"
   },
   {
-    "revision": "212224d66a9cd4132d8b3499e5b29b21",
-    "url": "/static/media/STAFFS_11.212224d6.png"
+    "revision": "d21ecd933d6be482b999540e4023b48e",
+    "url": "/static/media/STAFFS_11.d21ecd93.png"
   },
   {
     "revision": "3adaa1d519e433568983d7eb9540483f",
@@ -52,12 +64,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/STAFFS_18.38beb71a.png"
   },
   {
-    "revision": "73e46b99705e34fadc084dbfd4ddaade",
-    "url": "/static/media/SelectionScreen_prebackground.73e46b99.png"
+    "revision": "8eb442e1e0b23247d06849dffdb7574e",
+    "url": "/static/media/SelectionScreen_background.8eb442e1.png"
   },
   {
-    "revision": "90c4e7a3c7cb9d6397c8a384966a45d1",
-    "url": "/static/media/grass_button.90c4e7a3.png"
+    "revision": "6dba432d96414a43582551508048a2df",
+    "url": "/static/media/defeat_background.6dba432d.png"
   },
   {
     "revision": "27c5d1361974aa7f75a1cb7b2bdbe041",
@@ -100,10 +112,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/icon9.ed588b66.png"
   },
   {
-    "revision": "a97611048b81a345ff26ea7d58cede6a",
-    "url": "/static/media/smite_button.a9761104.png"
-  },
-  {
     "revision": "e15b10eb278d3aa230407281a37a0bfe",
     "url": "/static/media/swipewheel_icon.e15b10eb.png"
   },
@@ -112,7 +120,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/upgrade_button_buy.bf5186b0.png"
   },
   {
-    "revision": "4ba138c834508ca975ec783fa65eb622",
-    "url": "/static/media/win_view.4ba138c8.png"
+    "revision": "a497cdbe985f7624957e0e9aa01c8bb8",
+    "url": "/static/media/victory_background.a497cdbe.png"
   }
 ]);
