@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3559431874477606315}
   - component: {fileID: 3024923897151508153}
   - component: {fileID: -65407403638016155}
+  - component: {fileID: 903498712488477430}
   m_Layer: 0
   m_Name: Spine Mecanim GameObject (Sheep)
   m_TagString: Untagged
@@ -59,6 +60,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -106,7 +108,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 125
+  m_SortingOrder: 100
 --- !u!95 &6759887895922138629
 Animator:
   serializedVersion: 3
@@ -175,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbd5a2e26cf6f4fb148413dcb1dbee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sheep: {fileID: 0}
 --- !u!114 &3024923897151508153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,3 +211,14 @@ MonoBehaviour:
   anim: {fileID: 0}
   prevAngle: 0
   currentPoint: to2
+--- !u!210 &903498712488477430
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9198241363911740042}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 100

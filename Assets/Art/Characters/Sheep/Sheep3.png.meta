@@ -1,9 +1,36 @@
 fileFormatVersion: 2
 guid: f279702479fe10640b2ad25c2ce9b9bb
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 762328174435359443
+    second: Textures/blob_3
+  - first:
+      213: 593971432973406933
+    second: Textures/blob_4
+  - first:
+      213: 3016628866301544963
+    second: Textures/blob_5
+  - first:
+      213: -5992373489090068276
+    second: Textures/fleece _2
+  - first:
+      213: 6389372450000990283
+    second: fleece  1
+  - first:
+      213: 4139933786452361288
+    second: fleece  2
+  - first:
+      213: -5542186821419353700
+    second: fleece  6
+  - first:
+      213: 2926925141407969767
+    second: fleece  7
+  - first:
+      213: 1202530238352628062
+    second: fleece  8
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -40,7 +67,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -57,6 +84,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -72,7 +100,196 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Textures/blob_3
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 1488
+        width: 599
+        height: 545
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dadd778f65549a00800000000000000
+      internalID: 762328174435359443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/blob_4
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 1488
+        width: 591
+        height: 559
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d21c1d0fd53e3800800000000000000
+      internalID: 593971432973406933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/blob_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 410
+        width: 580
+        height: 513
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30ac71b98f73dd920800000000000000
+      internalID: 3016628866301544963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/fleece _2
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 410
+        width: 553
+        height: 537
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc081558f00d6dca0800000000000000
+      internalID: -5992373489090068276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fleece  1
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 949
+        width: 595
+        height: 537
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b40f9f3146c9ba850800000000000000
+      internalID: 6389372450000990283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fleece  2
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 410
+        width: 595
+        height: 537
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 840812f28dff37930800000000000000
+      internalID: 4139933786452361288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fleece  6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1488
+        width: 595
+        height: 537
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c99b27e13723613b0800000000000000
+      internalID: -5542186821419353700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fleece  7
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 949
+        width: 595
+        height: 537
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e138c998e68e9820800000000000000
+      internalID: 2926925141407969767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fleece  8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 925
+        width: 553
+        height: 537
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e599ca861ee30b010800000000000000
+      internalID: 1202530238352628062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

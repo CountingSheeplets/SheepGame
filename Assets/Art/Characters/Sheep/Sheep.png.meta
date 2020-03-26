@@ -1,9 +1,234 @@
 fileFormatVersion: 2
 guid: 91cc18b734d81f34886831815c9141a4
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3203779722032322926
+    second: Crown
+  - first:
+      213: 4821343164171663738
+    second: Helmet
+  - first:
+      213: 200392633122980083
+    second: Layer 2
+  - first:
+      213: 6298550198647581307
+    second: Textures/head_1
+  - first:
+      213: -2185619649955946486
+    second: PEG
+  - first:
+      213: -2549507888115256439
+    second: Shovel
+  - first:
+      213: -1637369169932517536
+    second: Textures/ears_1
+  - first:
+      213: 2659649451936297666
+    second: Textures/ears_2
+  - first:
+      213: -201118208470803306
+    second: Textures/ears_3
+  - first:
+      213: -2919743816676963473
+    second: Textures/ears_4
+  - first:
+      213: -2662700095754693663
+    second: Textures/ears_5
+  - first:
+      213: 3505060659892108975
+    second: Textures/eye_2
+  - first:
+      213: -3745660758430607102
+    second: eyes 1
+  - first:
+      213: 6912324858969378755
+    second: Textures/eyes_1
+  - first:
+      213: 2366506329529954501
+    second: eyes 2
+  - first:
+      213: -3522439700107786923
+    second: Textures/eyes_3
+  - first:
+      213: -1751011502300327746
+    second: Textures/fleece _5
+  - first:
+      213: 1449830084822693833
+    second: Textures/fleece_ 1
+  - first:
+      213: 7484565319518489525
+    second: Textures/fleece_ 3
+  - first:
+      213: 6714524057631646520
+    second: Textures/fleece_ 4
+  - first:
+      213: 5898699266779894085
+    second: Textures/gogles 3
+  - first:
+      213: -2433832251797741210
+    second: Textures/gogles_1
+  - first:
+      213: 4643736533846122740
+    second: gogles 2
+  - first:
+      213: 6113624165122600951
+    second: Textures/googles_2
+  - first:
+      213: -3324150859009128973
+    second: googles 1
+  - first:
+      213: -3016502570816407283
+    second: Textures/head_2
+  - first:
+      213: 958397443826488198
+    second: head 1
+  - first:
+      213: -7699449796876529389
+    second: Textures/head_3
+  - first:
+      213: -7124477513447410817
+    second: Textures/head_4
+  - first:
+      213: -2355514170347870177
+    second: Textures/head_5
+  - first:
+      213: 8159215451613031108
+    second: head 6
+  - first:
+      213: -8157926789784121703
+    second: head 7
+  - first:
+      213: -278858411673250839
+    second: Textures/mounth_1
+  - first:
+      213: 7283421134515773754
+    second: mounth 2
+  - first:
+      213: -2180709465085836876
+    second: Textures/mounth_2
+  - first:
+      213: -208924763572707120
+    second: mounth 1
+  - first:
+      213: 1385309562888226963
+    second: Textures/mounth_3
+  - first:
+      213: -8337581853981567655
+    second: Textures/pegs back_1
+  - first:
+      213: 1582243546670662088
+    second: Textures/pegs back_4
+  - first:
+      213: -3704595690091286754
+    second: Textures/pegs front_5
+  - first:
+      213: 3022125052023405273
+    second: Textures/pegs_3
+  - first:
+      213: 70228141349228377
+    second: Textures/pegs_back_2
+  - first:
+      213: 7701573115616144587
+    second: Textures/pegs_back_5
+  - first:
+      213: -3475806283185422566
+    second: Textures/pegs_front_1
+  - first:
+      213: 5204970657779879371
+    second: Textures/pegs_front_2
+  - first:
+      213: 4133567592868026623
+    second: Textures/pegs_front_4
+  - first:
+      213: -8816720462717844250
+    second: Textures/tail_base_1
+  - first:
+      213: 6869295945736809084
+    second: tail base 2
+  - first:
+      213: 5791506404413713934
+    second: Textures/tail_base_2
+  - first:
+      213: 4942576127103837276
+    second: tail base 1
+  - first:
+      213: -403551004353134861
+    second: Textures/tail_base_3
+  - first:
+      213: -2288170169846086034
+    second: tail base 8
+  - first:
+      213: -6664564887178238124
+    second: Textures/tail_base_4
+  - first:
+      213: 8923911070727846443
+    second: tail base 7
+  - first:
+      213: -4337030822395059699
+    second: Textures/tail_base_5
+  - first:
+      213: -4755993523394009329
+    second: tail base 6
+  - first:
+      213: -3646508914301593046
+    second: Textures/tail_fleece_1
+  - first:
+      213: -8114478573601088075
+    second: tail fleece 2
+  - first:
+      213: -4910908694878268035
+    second: Textures/tail_fleece_2
+  - first:
+      213: -179794129966830459
+    second: tail fleece 1
+  - first:
+      213: 786195729057654864
+    second: Textures/tail_fleece_3
+  - first:
+      213: -782932062844282071
+    second: tail fleece 8
+  - first:
+      213: -8720644497389128152
+    second: Textures/tail_fleece_4
+  - first:
+      213: -652724159216830717
+    second: tail fleece 7
+  - first:
+      213: 3546909865252251271
+    second: Textures/tail_fleece_5
+  - first:
+      213: -2386561377931051344
+    second: tail fleece 6
+  - first:
+      213: -4728721253902144480
+    second: ears 1
+  - first:
+      213: 4382811542498245308
+    second: ears 2
+  - first:
+      213: 240441472045998513
+    second: ears 6
+  - first:
+      213: 4822357733966000
+    second: ears 7
+  - first:
+      213: -6189489654783782998
+    second: ears 8
+  - first:
+      213: 4451002234831682673
+    second: eyes 8
+  - first:
+      213: 3749564131117014725
+    second: gogles 8
+  - first:
+      213: 1194792242832747535
+    second: head8
+  - first:
+      213: 1687071915289888249
+    second: mounth 8
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -40,7 +265,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -57,6 +282,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -72,7 +298,1582 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Crown
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 471
+        width: 320
+        height: 222
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 296e9a13153e983d0800000000000000
+      internalID: -3203779722032322926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Helmet
+      rect:
+        serializedVersion: 2
+        x: 1276
+        y: 575
+        width: 380
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a79b5b0301ad8e240800000000000000
+      internalID: 4821343164171663738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer 2
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 501
+        width: 327
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f086e0c900f7c200800000000000000
+      internalID: 200392633122980083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/head_1
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 501
+        width: 327
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7aea56d802f86750800000000000000
+      internalID: 6298550198647581307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PEG
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 26
+        width: 152
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a00234e128e1ba1e0800000000000000
+      internalID: -2185619649955946486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shovel
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 900
+        width: 1004
+        height: 349
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98375d865145e9cd0800000000000000
+      internalID: -2549507888115256439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/ears_1
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 190
+        width: 297
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06ffef34a65e649e0800000000000000
+      internalID: -1637369169932517536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/ears_2
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 304
+        width: 211
+        height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c2b9b9c519f8e420800000000000000
+      internalID: 2659649451936297666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/ears_3
+      rect:
+        serializedVersion: 2
+        x: 1663
+        y: 99
+        width: 173
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69c1c321e0c753df0800000000000000
+      internalID: -201118208470803306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/ears_4
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 190
+        width: 196
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6b83dbd77cfa77d0800000000000000
+      internalID: -2919743816676963473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/ears_5
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 95
+        width: 240
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e39429de503c0bd0800000000000000
+      internalID: -2662700095754693663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/eye_2
+      rect:
+        serializedVersion: 2
+        x: 1766
+        y: 219
+        width: 179
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faeb01d791a74a030800000000000000
+      internalID: 3505060659892108975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes 1
+      rect:
+        serializedVersion: 2
+        x: 1766
+        y: 219
+        width: 179
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2099f94b26db40cc0800000000000000
+      internalID: -3745660758430607102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/eyes_1
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 190
+        width: 186
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cfc8fe06d28def50800000000000000
+      internalID: 6912324858969378755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes 2
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 190
+        width: 186
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c0b85ae7f487d020800000000000000
+      internalID: 2366506329529954501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/eyes_3
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 98
+        width: 105
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 555875461c7cd1fc0800000000000000
+      internalID: -3522439700107786923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/fleece _5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1039
+        width: 533
+        height: 467
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb014cfd05823b7e0800000000000000
+      internalID: -1751011502300327746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/fleece_ 1
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 1251
+        width: 595
+        height: 494
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c7f786d7c4de1410800000000000000
+      internalID: 1449830084822693833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/fleece_ 3
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 1251
+        width: 537
+        height: 482
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bb8b10d0848ed760800000000000000
+      internalID: 7484565319518489525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/fleece_ 4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1508
+        width: 502
+        height: 539
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 833e2fa2e08ce2d50800000000000000
+      internalID: 6714524057631646520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/gogles 3
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 178
+        width: 120
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 541d5410bb36cd150800000000000000
+      internalID: 5898699266779894085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/gogles_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 168
+        width: 212
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 661e4b4467a493ed0800000000000000
+      internalID: -2433832251797741210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gogles 2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 168
+        width: 212
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f0e66226cdd17040800000000000000
+      internalID: 4643736533846122740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/googles_2
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 195
+        width: 184
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ff606c69c4f7d450800000000000000
+      internalID: 6113624165122600951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: googles 1
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 195
+        width: 184
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f583f4e76e3ed1d0800000000000000
+      internalID: -3324150859009128973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/head_2
+      rect:
+        serializedVersion: 2
+        x: 1658
+        y: 628
+        width: 292
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d097f6ad4ea3326d0800000000000000
+      internalID: -3016502570816407283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: head 1
+      rect:
+        serializedVersion: 2
+        x: 1658
+        y: 628
+        width: 292
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6839be8b569ec4d00800000000000000
+      internalID: 958397443826488198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/head_3
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 359
+        width: 285
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3119833043f062590800000000000000
+      internalID: -7699449796876529389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/head_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 270
+        width: 169
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7375b8d275c02d90800000000000000
+      internalID: -7124477513447410817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/head_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 270
+        width: 169
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f18240597588f4fd0800000000000000
+      internalID: -2355514170347870177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: head 6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 270
+        width: 169
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cae54f493b5b3170800000000000000
+      internalID: 8159215451613031108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: head 7
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 270
+        width: 169
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99e4647aec839ce80800000000000000
+      internalID: -8157926789784121703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/mounth_1
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 190
+        width: 131
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e3169580cb412cf0800000000000000
+      internalID: -278858411673250839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mounth 2
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 190
+        width: 131
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a31a260cee8e31560800000000000000
+      internalID: 7283421134515773754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/mounth_2
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 95
+        width: 107
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b10a3f9b409cb1e0800000000000000
+      internalID: -2180709465085836876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mounth 1
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 95
+        width: 107
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d06772d800c91df0800000000000000
+      internalID: -208924763572707120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/mounth_3
+      rect:
+        serializedVersion: 2
+        x: 1722
+        y: 26
+        width: 120
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39887ef25bb993310800000000000000
+      internalID: 1385309562888226963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/pegs back_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 89
+        width: 213
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9559fab6a75fa4c80800000000000000
+      internalID: -8337581853981567655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/pegs back_4
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 490
+        width: 325
+        height: 242
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c185736f1245f510800000000000000
+      internalID: 1582243546670662088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/pegs front_5
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 194
+        width: 309
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1f6aaff8d1a69cc0800000000000000
+      internalID: -3704595690091286754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/pegs_3
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 26
+        width: 801
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9daf9a019beb0f920800000000000000
+      internalID: 3022125052023405273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/pegs_back_2
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 90
+        width: 132
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95f4b5a5f1089f000800000000000000
+      internalID: 70228141349228377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/pegs_back_5
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 319
+        width: 357
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bccaff7a1fb71ea60800000000000000
+      internalID: 7701573115616144587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/pegs_front_1
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 331
+        width: 506
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1f79aed99473cfc0800000000000000
+      internalID: -3475806283185422566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/pegs_front_2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 734
+        width: 430
+        height: 266
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcd0d437c35cb3840800000000000000
+      internalID: 5204970657779879371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/pegs_front_4
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 747
+        width: 431
+        height: 290
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff817fb33d16d5930800000000000000
+      internalID: 4133567592868026623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/tail_base_1
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 26
+        width: 87
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e409cfb377b4a580800000000000000
+      internalID: -8816720462717844250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tail base 2
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 26
+        width: 87
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7a6cae7444a45f50800000000000000
+      internalID: 6869295945736809084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/tail_base_2
+      rect:
+        serializedVersion: 2
+        x: 1935
+        y: 26
+        width: 87
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0eaa7dd3609f5050800000000000000
+      internalID: 5791506404413713934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tail base 1
+      rect:
+        serializedVersion: 2
+        x: 1935
+        y: 26
+        width: 87
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c54a95bfcce879440800000000000000
+      internalID: 4942576127103837276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/tail_base_3
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 95
+        width: 90
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fe77c8ef7c466af0800000000000000
+      internalID: -403551004353134861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tail base 8
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 95
+        width: 90
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e66cda09a59ce30e0800000000000000
+      internalID: -2288170169846086034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/tail_base_4
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 95
+        width: 94
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4572335ab85b283a0800000000000000
+      internalID: -6664564887178238124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tail base 7
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 95
+        width: 94
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2ab8e186d918db70800000000000000
+      internalID: 8923911070727846443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/tail_base_5
+      rect:
+        serializedVersion: 2
+        x: 1838
+        y: 110
+        width: 113
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d02e8331275cfc3c0800000000000000
+      internalID: -4337030822395059699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tail base 6
+      rect:
+        serializedVersion: 2
+        x: 1838
+        y: 110
+        width: 113
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f07aa0cb6115ffdb0800000000000000
+      internalID: -4755993523394009329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/tail_fleece_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 26
+        width: 58
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2a12c4667ff46dc0800000000000000
+      internalID: -3646508914301593046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tail fleece 2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 26
+        width: 58
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bd1dfacab4936f80800000000000000
+      internalID: -8114478573601088075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/tail_fleece_2
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 26
+        width: 64
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d755765af82f8dbb0800000000000000
+      internalID: -4910908694878268035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tail fleece 1
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 26
+        width: 64
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58c60aef03e318df0800000000000000
+      internalID: -179794129966830459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/tail_fleece_3
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 26
+        width: 66
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0582962a9d029ea00800000000000000
+      internalID: 786195729057654864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tail fleece 8
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 26
+        width: 66
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92b17eedf677225f0800000000000000
+      internalID: -782932062844282071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/tail_fleece_4
+      rect:
+        serializedVersion: 2
+        x: 1241
+        y: 26
+        width: 72
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 826f7a8980c0af680800000000000000
+      internalID: -8720644497389128152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tail fleece 7
+      rect:
+        serializedVersion: 2
+        x: 1241
+        y: 26
+        width: 72
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 307b091e5de01f6f0800000000000000
+      internalID: -652724159216830717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Textures/tail_fleece_5
+      rect:
+        serializedVersion: 2
+        x: 1844
+        y: 26
+        width: 89
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78660b8eab7293130800000000000000
+      internalID: 3546909865252251271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tail fleece 6
+      rect:
+        serializedVersion: 2
+        x: 1844
+        y: 26
+        width: 89
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0beb0c1421b31eed0800000000000000
+      internalID: -2386561377931051344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ears 1
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 490
+        width: 295
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02ca25bc215306eb0800000000000000
+      internalID: -4728721253902144480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ears 2
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 95
+        width: 408
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbaf61470efd2dc30800000000000000
+      internalID: 4382811542498245308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ears 6
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 26
+        width: 290
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b1e292be38365300800000000000000
+      internalID: 240441472045998513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ears 7
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 296
+        width: 221
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b086b7a8e1211000800000000000000
+      internalID: 4822357733966000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ears 8
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 95
+        width: 146
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaf48a9c3f38a1aa0800000000000000
+      internalID: -6189489654783782998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eyes 8
+      rect:
+        serializedVersion: 2
+        x: 1607
+        y: 26
+        width: 113
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17cbc9d33f225cd30800000000000000
+      internalID: 4451002234831682673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gogles 8
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 172
+        width: 112
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ce96c116b0290430800000000000000
+      internalID: 3749564131117014725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: head8
+      rect:
+        serializedVersion: 2
+        x: 1762
+        y: 385
+        width: 257
+        height: 241
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0c207ee631c49010800000000000000
+      internalID: 1194792242832747535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mounth 8
+      rect:
+        serializedVersion: 2
+        x: 1447
+        y: 95
+        width: 107
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f5446de7fea96710800000000000000
+      internalID: 1687071915289888249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

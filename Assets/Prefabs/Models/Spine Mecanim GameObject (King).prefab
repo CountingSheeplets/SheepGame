@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5341025965468455563}
   - component: {fileID: 4208512613812966870}
   - component: {fileID: 8145525826899372314}
+  - component: {fileID: -7590703455707321619}
   m_Layer: 0
   m_Name: Spine Mecanim GameObject (King)
   m_TagString: Untagged
@@ -60,6 +61,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -85,7 +87,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 101
+  m_SortingOrder: 100
 --- !u!95 &7462730905724977576
 Animator:
   serializedVersion: 3
@@ -163,7 +165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7cb38b8465b7384cb78f3d72e923d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetColoredSprite: {fileID: 0}
 --- !u!114 &5341025965468455563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,3 +204,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c313cbcc350528f4380a6c908417176b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!210 &-7590703455707321619
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608349506529783468}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 100
