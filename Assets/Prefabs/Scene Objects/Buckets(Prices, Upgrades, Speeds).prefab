@@ -161,6 +161,23 @@ MonoBehaviour:
     sheepType: 6
   - speed: 2
     sheepType: 7
+  fallSpeeds:
+  - speed: 0.2
+    sheepType: 0
+  - speed: 0.2
+    sheepType: 1
+  - speed: 0.2
+    sheepType: 2
+  - speed: 0.2
+    sheepType: 3
+  - speed: 0.2
+    sheepType: 4
+  - speed: 0.2
+    sheepType: 5
+  - speed: 0.2
+    sheepType: 6
+  - speed: 0.2
+    sheepType: 7
 --- !u!114 &8604118487354306398
 MonoBehaviour:
   m_ObjectHideFlags: 0

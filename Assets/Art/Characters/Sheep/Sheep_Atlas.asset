@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
   m_Name: Sheep_Atlas
   m_EditorClassIdentifier: 
-  atlasFile: {fileID: 4900000, guid: b616e0ee345e9454e93921b85e698fa9, type: 3}
+  atlasFile: {fileID: 4900000, guid: 4758ded6ae57e7747a6fc74efa68f642, type: 3}
   materials:
-  - {fileID: 2100000, guid: ceb707b10e9a73c4b8155aa3997c7e5c, type: 2}
-  - {fileID: 2100000, guid: 643ca41bfd4f9e64aa7ad8d211beb5a3, type: 2}
-  - {fileID: 2100000, guid: 16124b9f921b8674a8e796e8eb911992, type: 2}
-  - {fileID: 2100000, guid: 882de91b830639e4585b4db6c863d4ef, type: 2}
+  - {fileID: 2100000, guid: 2b3e0965bfc7ffd40937c03b72dce147, type: 2}
+  - {fileID: 2100000, guid: 24f027d7bc56c9d43b4a97653caa8534, type: 2}
+  - {fileID: 2100000, guid: 2c2ab0be5ee1c5f4d9afec456c2ff377, type: 2}
+  - {fileID: 2100000, guid: e817c8581d726214e95cf6c143339b5a, type: 2}

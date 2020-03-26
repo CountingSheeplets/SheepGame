@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 2397903250103437727}
   - component: {fileID: 1390822323850748576}
   - component: {fileID: 8428747763076860831}
-  - component: {fileID: 5256840377385684018}
   - component: {fileID: 6896828739701191601}
   - component: {fileID: 1483372112864640368}
+  - component: {fileID: 3741358571592513877}
   m_Layer: 0
   m_Name: SheepUnit
   m_TagString: Untagged
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
+  lastHandler: {fileID: 0}
   currentPlayfield: {fileID: 0}
   isReadying: 0
   isReadyToFly: 0
@@ -108,6 +109,7 @@ MonoBehaviour:
   isRoaming: 0
   radius: 0.5
   sheepType: 0
+  skippedByTrenching: 0
 --- !u!114 &2397903250103437727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,13 +122,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bfb99c210755f4fa5c116800d2a8f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {x: 0, y: 0}
   totalDistance: 0
   distanceLeft: 0
   distanceTraveled: 0
   myScale: {x: 0, y: 0, z: 0}
   midScale: 2
-  animator: {fileID: 0}
+  isMoving: 0
+  impactScale: 1
 --- !u!114 &1390822323850748576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,33 +153,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e6b0f74dfd7a34cb1a2a4ea20218f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {x: 0, y: 0}
   totalDistance: 0
   distanceLeft: 0
   distanceTraveled: 0
   myScale: {x: 0, y: 0, z: 0}
   midScale: 2
-  animator: {fileID: 0}
+  isMoving: 0
+  impactScale: 1
   sheep: {fileID: 0}
---- !u!114 &5256840377385684018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6195520508007395971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fec8d098d136c614a9d1a1012cf70a59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destination: {x: 0, y: 0}
-  totalDistance: 0
-  distanceLeft: 0
-  distanceTraveled: 0
-  myScale: {x: 0, y: 0, z: 0}
-  midScale: 2
-  animator: {fileID: 0}
 --- !u!114 &6896828739701191601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,13 +173,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7b51bd706d368640a818651a0089e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {x: 0, y: 0}
   totalDistance: 0
   distanceLeft: 0
   distanceTraveled: 0
   myScale: {x: 0, y: 0, z: 0}
   midScale: 2
-  animator: {fileID: 0}
+  isMoving: 0
+  impactScale: 1
 --- !u!114 &1483372112864640368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,3 +192,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8551cd842e8b44cba06b6a523788e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3741358571592513877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6195520508007395971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4be3b8692b6cdd4584bc8aff8a69652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalDistance: 0
+  distanceLeft: 0
+  distanceTraveled: 0
+  myScale: {x: 0, y: 0, z: 0}
+  midScale: 2
+  isMoving: 0
+  impactScale: 1

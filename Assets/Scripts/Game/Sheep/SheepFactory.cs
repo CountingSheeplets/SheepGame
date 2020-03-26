@@ -22,16 +22,17 @@ public class SheepFactory : Singleton<SheepFactory> {
         newSheepModel.transform.parent = newSheepGO.transform;
         newSheepModel.transform.localPosition = Vector3.zero;
         //set color:
-        SpineContainerEightDirWalk container = newSheepModel.GetComponent<SpineContainerEightDirWalk>();
-        SkeletonMecanim skMecanim = container.GetComponent<SkeletonMecanim>();
-        foreach (Spine.Slot slot in skMecanim.skeleton.Slots) {
-            if (slot.Data.Name.Contains("Color")) {
-                Color newColor = owner.GetPlayerProfile().playerColor;
-                newColor.a = slot.GetColor().a;
-                Debug.Log("setting color of component: " + slot.Data.Name + "  to:" + newColor);
-                slot.SetColor(newColor);
-            }
-        }
+        newSheepModel.GetComponentInChildren<SheepModel>().ChangeColor(owner.teamId);
+        /*         SpineContainerEightDirWalk container = newSheepModel.GetComponent<SpineContainerEightDirWalk>();
+                SkeletonMecanim skMecanim = container.GetComponent<SkeletonMecanim>();
+                foreach (Spine.Slot slot in skMecanim.skeleton.Slots) {
+                    if (slot.Data.Name.Contains("Color")) {
+                        Color newColor = owner.GetPlayerProfile().playerColor;
+                        newColor.a = slot.GetColor().a;
+                        Debug.Log("setting color of component: " + slot.Data.Name + "  to:" + newColor);
+                        slot.SetColor(newColor);
+                    }
+                } */
         return sheep;
     }
 

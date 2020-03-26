@@ -16,6 +16,8 @@ public class BaseUnitMove : MonoBehaviour {
     public bool isMoving = false;
     public bool impactScale = true;
     bool isLocal = true;
+    Vector2 localMoveDirection;
+    public Vector2 GetLocalMoveDir() { return localMoveDirection; }
     void Awake() {
         if (impactScale)
             SetScale();
@@ -26,9 +28,11 @@ public class BaseUnitMove : MonoBehaviour {
     public void SetDestination(Vector2 _destination, bool _isLocal) {
         isLocal = _isLocal;
         if (isLocal) {
-            destination = _destination - (Vector2) transform.parent.transform.position;
+            destination = _destination - (Vector2)transform.parent.transform.position;
+            localMoveDirection = -_destination;
         } else {
             destination = _destination;
+            localMoveDirection = -(Vector2)transform.position + destination;
         }
     }
     public void MoveToDestination(float speed, float _midScale) {
@@ -48,23 +52,23 @@ public class BaseUnitMove : MonoBehaviour {
         Vector2 initialPos;
         Vector2 moveDir;
         if (isLocal) {
-            totalDistance = ((Vector2) (transform.localPosition) - destination).magnitude;
-            initialPos = (Vector2) (transform.localPosition);
-            distanceTraveled = ((Vector2) (transform.localPosition) - initialPos).magnitude;
-            moveDir = (destination - (Vector2) (transform.localPosition)).normalized;
+            totalDistance = ((Vector2)(transform.localPosition) - destination).magnitude;
+            initialPos = (Vector2)(transform.localPosition);
+            distanceTraveled = ((Vector2)(transform.localPosition) - initialPos).magnitude;
+            moveDir = (destination - (Vector2)(transform.localPosition)).normalized;
         } else {
-            totalDistance = ((Vector2) (transform.position) - destination).magnitude;
-            initialPos = (Vector2) (transform.position);
-            distanceTraveled = ((Vector2) (transform.position) - initialPos).magnitude;
-            moveDir = (destination - (Vector2) (transform.position)).normalized;
+            totalDistance = ((Vector2)(transform.position) - destination).magnitude;
+            initialPos = (Vector2)(transform.position);
+            distanceTraveled = ((Vector2)(transform.position) - initialPos).magnitude;
+            moveDir = (destination - (Vector2)(transform.position)).normalized;
         }
         while (distanceTraveled < totalDistance && !isMoving) {
             if (isLocal) {
-                distanceTraveled = ((Vector2) (transform.localPosition) - initialPos).magnitude;
-                distanceLeft = ((Vector2) (transform.localPosition) - destination).magnitude;
+                distanceTraveled = ((Vector2)(transform.localPosition) - initialPos).magnitude;
+                distanceLeft = ((Vector2)(transform.localPosition) - destination).magnitude;
             } else {
-                distanceTraveled = ((Vector2) (transform.position) - initialPos).magnitude;
-                distanceLeft = ((Vector2) (transform.position) - destination).magnitude;
+                distanceTraveled = ((Vector2)(transform.position) - initialPos).magnitude;
+                distanceLeft = ((Vector2)(transform.position) - destination).magnitude;
             }
             //adjust size by distance
             if (impactScale) {
@@ -86,5 +90,5 @@ public class BaseUnitMove : MonoBehaviour {
         yield return null;
     }
 
-    public virtual void PostMoveAction() { }
+    public virtual void PostMoveAction() {}
 }

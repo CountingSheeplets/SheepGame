@@ -28,7 +28,7 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour {
             lock(Lock) {
                 if (_instance != null)
                     return _instance;
-                _instance = (T) FindObjectOfType(typeof(T));
+                _instance = (T)FindObjectOfType(typeof(T));
                 //Debug.Log($"Found an instance of [{nameof(Singleton)}<{typeof(T)}>]");
                 if (_instance != null) {
                     (_instance as Singleton<T>).OnInit();
@@ -52,18 +52,27 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour {
         //Debug.Log("Singleton:Awake: " + $"[{nameof(Singleton)}<{typeof(T)}>]");
         //potential problem here, on Build application...
         if (_persistent) {
+#if UNITY_EDITOR
             if (EditorApplication.isPlaying)
                 DontDestroyOnLoad(gameObject);
+#else 
+            DontDestroyOnLoad(gameObject);
+#endif
         }
         T tempInstance = Instance;
-        if (tempInstance != this)
+        if (tempInstance != this) {
+#if UNITY_EDITOR
             if (EditorApplication.isPlaying)
                 Destroy(gameObject);
+#else 
+            Destroy(gameObject);
+#endif
+        }
         OnAwake();
     }
 
-    protected virtual void OnAwake() { }
-    protected virtual void OnInit() { }
+    protected virtual void OnAwake() {}
+    protected virtual void OnInit() {}
     #endregion
 }
 public abstract class Singleton : MonoBehaviour {

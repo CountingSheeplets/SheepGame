@@ -13,13 +13,13 @@ public class SheepFly : BaseUnitMove {
         SetDestination(_destination, false);
         //run animation;
 
-        MoveToDestination(speed, 2f);
+        MoveToDestination(speed, 1.5f);
     }
 
     public override void PostMoveAction() {
         GetComponent<SheepUnit>().isFlying = false;
         //trigger to play Land animation
-        Debug.Log("fly eneded, landing at:" + (Vector2) (transform.position));
+        Debug.Log("fly eneded, landing at:" + (Vector2)(transform.position));
 
         //trigger Land game event, listened by sheep throw
         Playfield newPlayfield = ArenaCoordinator.GetPlayfield(transform.position);

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Spine.Unity;
 using UnityEngine;
 public class KingModel : MonoBehaviour {
-    public SpriteRenderer targetColoredSprite;
     int _hatIndex;
     public int HatIndex { get { return _hatIndex; } }
     int _scepterIndex;
@@ -12,9 +11,6 @@ public class KingModel : MonoBehaviour {
     void Awake() {
         skMecanim = GetComponent<SkeletonMecanim>();
     }
-    /*     public void ChangeColor(Color color) {
-            targetColoredSprite.color = color;
-        } */
     public void ChangeColor(int playerIndex) {
         if (playerIndex > 0 && playerIndex < 9) {
             if (skMecanim != null) {
