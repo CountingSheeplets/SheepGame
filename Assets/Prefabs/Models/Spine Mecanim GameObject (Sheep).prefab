@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 6759887895922138629}
   - component: {fileID: 8717961065467405344}
   - component: {fileID: 3559431874477606315}
+  - component: {fileID: 3024923897151508153}
+  - component: {fileID: -65407403638016155}
   m_Layer: 0
   m_Name: Spine Mecanim GameObject (Sheep)
   m_TagString: Untagged
@@ -30,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 9198241363911740042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -51,7 +53,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9198241363911740042}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -64,14 +66,25 @@ MeshRenderer:
   - {fileID: 2100000, guid: 2b3e0965bfc7ffd40937c03b72dce147, type: 2}
   - {fileID: 2100000, guid: 2c2ab0be5ee1c5f4d9afec456c2ff377, type: 2}
   - {fileID: 2100000, guid: 2b3e0965bfc7ffd40937c03b72dce147, type: 2}
+  - {fileID: 2100000, guid: 24f027d7bc56c9d43b4a97653caa8534, type: 2}
+  - {fileID: 2100000, guid: e817c8581d726214e95cf6c143339b5a, type: 2}
+  - {fileID: 2100000, guid: 2b3e0965bfc7ffd40937c03b72dce147, type: 2}
+  - {fileID: 2100000, guid: 2c2ab0be5ee1c5f4d9afec456c2ff377, type: 2}
+  - {fileID: 2100000, guid: 2b3e0965bfc7ffd40937c03b72dce147, type: 2}
+  - {fileID: 2100000, guid: 2c2ab0be5ee1c5f4d9afec456c2ff377, type: 2}
+  - {fileID: 2100000, guid: 2b3e0965bfc7ffd40937c03b72dce147, type: 2}
+  - {fileID: 2100000, guid: 24f027d7bc56c9d43b4a97653caa8534, type: 2}
   - {fileID: 2100000, guid: 2c2ab0be5ee1c5f4d9afec456c2ff377, type: 2}
   - {fileID: 2100000, guid: 2b3e0965bfc7ffd40937c03b72dce147, type: 2}
   - {fileID: 2100000, guid: 24f027d7bc56c9d43b4a97653caa8534, type: 2}
   - {fileID: 2100000, guid: 2b3e0965bfc7ffd40937c03b72dce147, type: 2}
+  - {fileID: 2100000, guid: 24f027d7bc56c9d43b4a97653caa8534, type: 2}
   - {fileID: 2100000, guid: 2c2ab0be5ee1c5f4d9afec456c2ff377, type: 2}
   - {fileID: 2100000, guid: 2b3e0965bfc7ffd40937c03b72dce147, type: 2}
+  - {fileID: 2100000, guid: 24f027d7bc56c9d43b4a97653caa8534, type: 2}
   - {fileID: 2100000, guid: 2c2ab0be5ee1c5f4d9afec456c2ff377, type: 2}
   - {fileID: 2100000, guid: 2b3e0965bfc7ffd40937c03b72dce147, type: 2}
+  - {fileID: 2100000, guid: 24f027d7bc56c9d43b4a97653caa8534, type: 2}
   - {fileID: 2100000, guid: 2c2ab0be5ee1c5f4d9afec456c2ff377, type: 2}
   - {fileID: 2100000, guid: 2b3e0965bfc7ffd40937c03b72dce147, type: 2}
   m_StaticBatchInfo:
@@ -93,7 +106,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 125
 --- !u!95 &6759887895922138629
 Animator:
   serializedVersion: 3
@@ -104,7 +117,7 @@ Animator:
   m_GameObject: {fileID: 9198241363911740042}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5f6559b8cec1192468d626e586c07f74, type: 2}
+  m_Controller: {fileID: 9100000, guid: c043f36e694d12548ab2a0cba00af63b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -126,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonDataAsset: {fileID: 11400000, guid: 1432932d5b0b54b46aa27dcfb225a5e2, type: 2}
-  initialSkinName: 
+  initialSkinName: Player1
   initialFlipX: 0
   initialFlipY: 0
   separatorSlotNames: []
@@ -162,4 +175,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbd5a2e26cf6f4fb148413dcb1dbee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetColoredSprite: {fileID: 0}
+--- !u!114 &3024923897151508153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9198241363911740042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 439cbd6419de20841ac8e2f303e200d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hdrIntensity: 2
+  debrisParticles: {fileID: 0}
+  txToAddOnDeath: {fileID: 214859261516475597, guid: 1347984e816612241a61593e9ee740cb,
+    type: 3}
+  isClone: 0
+  playerColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &-65407403638016155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9198241363911740042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8604fa6f8337da84e835ffed1881fd9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  prevAngle: 0
+  currentPoint: to2

@@ -1,36 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
-public class UpgradeBucket : Singleton<UpgradeBucket>
-{
+using UnityEngine;
+public class UpgradeBucket : Singleton<UpgradeBucket> {
     public List<UpgradeProperty> upgrades = new List<UpgradeProperty>();
-    public static UpgradeProperty GetCurrentUpgrade(SheepUnit sheep){
-        if (sheep == null) return null;
-         UpgradeProperty upgrade = Instance.upgrades
-            .Where(x=> x.sheepTypeOutput == sheep.sheepType).FirstOrDefault();
-        if (upgrade == null) return null;
+    public static UpgradeProperty GetCurrentUpgrade(SheepUnit sheep) {
+        if (sheep == null)return null;
+        UpgradeProperty upgrade = Instance.upgrades
+            .Where(x => x.sheepTypeOutput == sheep.sheepType).FirstOrDefault();
+        if (upgrade == null)return null;
         upgrade.priceUpgrade = PriceCoordinator.GetPrice(sheep.owner, upgrade.upgradeCodeName);
         return upgrade;
     }
-    public static UpgradeProperty GetNextUpgradeA(SheepUnit sheep){
-        if (sheep == null) return null;
-        UpgradeProperty upgrade = Instance.upgrades.Where(x=>x.slot == UpgradeType.A)
-            .Where(x=> x.sheepTypeInput == sheep.sheepType).FirstOrDefault();
-        if (upgrade == null) return null;
+    public static UpgradeProperty GetNextUpgradeA(SheepUnit sheep) {
+        if (sheep == null)return null;
+        UpgradeProperty upgrade = Instance.upgrades.Where(x => x.slot == UpgradeType.A)
+            .Where(x => x.sheepTypeInput == sheep.sheepType).FirstOrDefault();
+        if (upgrade == null)return null;
         upgrade.priceUpgrade = PriceCoordinator.GetPrice(sheep.owner, upgrade.upgradeCodeName);
         return upgrade;
     }
-    public static UpgradeProperty GetNextUpgradeB(SheepUnit sheep){
-        if (sheep == null) return null;
-        UpgradeProperty upgrade = Instance.upgrades.Where(x=>x.slot == UpgradeType.B)
-            .Where(x=> x.sheepTypeInput == sheep.sheepType).FirstOrDefault();
-        if (upgrade == null) return null;
+    public static UpgradeProperty GetNextUpgradeB(SheepUnit sheep) {
+        if (sheep == null)return null;
+        UpgradeProperty upgrade = Instance.upgrades.Where(x => x.slot == UpgradeType.B)
+            .Where(x => x.sheepTypeInput == sheep.sheepType).FirstOrDefault();
+        if (upgrade == null)return null;
         upgrade.priceUpgrade = PriceCoordinator.GetPrice(sheep.owner, upgrade.upgradeCodeName);
         return upgrade;
     }
-    public static string ToName(SheepType sheepType){
-        switch(sheepType){
+    public static string ToName(SheepType sheepType) {
+        switch (sheepType) {
             case SheepType.None:
                 return PriceName.King.BuySheep();
             case SheepType.Small:
@@ -48,12 +47,33 @@ public class UpgradeBucket : Singleton<UpgradeBucket>
         }
         return "";
     }
+    public static string GetAttachmentSlot(SheepType sheepType) {
+        switch (sheepType) {
+            case SheepType.None:
+                return " . ";
+            case SheepType.Small:
+                return "Small.Small";
+            case SheepType.Bouncy:
+                return "Divine.Divine";
+            case SheepType.Greedy:
+                return "Crown.Crown";
+            case SheepType.Armored:
+                return "Crown.Helmet";
+            case SheepType.Trench:
+                return "Shovel.Shovel";
+            case SheepType.Tank:
+                return "Shield.Shield";
+        }
+        return "";
+    }
 }
-public enum UpgradeType{
-    A,B
+public enum UpgradeType {
+    A,
+    B
 }
+
 [System.Serializable]
-public class UpgradeProperty{
+public class UpgradeProperty {
     public float priceUpgrade = 0;
     public UpgradeType slot;
     public string upgradeDisplayName;
@@ -63,7 +83,7 @@ public class UpgradeProperty{
     public string upgradeDescription;
     public SheepType sheepTypeInput;
     public SheepType sheepTypeOutput;
-    public UpgradeProperty(){
+    public UpgradeProperty() {
         upgradeDisplayName = "No Sheep...";
         upgradeDescription = "Need a sheep ready to be launched to upgrade";
     }

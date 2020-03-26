@@ -82,6 +82,12 @@ public class TestEvents : MonoBehaviour {
             EventCoordinator.TriggerEvent(EventName.System.Environment.CleanScene(), GameMessage.Write());
             Debug.Log("Scene Cleaning done.");
         }
+        if (Input.GetKeyDown(KeyCode.U)) {
+            Debug.Log("Random owner clicks upgrade....");
+            Owner upgrader = OwnersCoordinator.GetRandomOwner();
+            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType)Random.Range(0, 1)));
+        }
+
     }
 
     KingUnit GetRandomKing() {

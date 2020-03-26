@@ -60,6 +60,9 @@ public class ConstantsBucket : Singleton<ConstantsBucket> {
     [SerializeField] public float hitDamage = 7.0f;
     public static float HitDamage { get { return Instance.hitDamage; } }
 
+    [SerializeField] public float smallUpgradeShrinkSize = 0.7f;
+    public static float SmallUpgradeShrinkSize { get { return Instance.smallUpgradeShrinkSize; } }
+
     [Header("Sheep upgrades")]
     [SerializeField] public float greedySheepBonusMoney = 0.1f;
     public static float GreedySheepBonusMoney { get { return Instance.greedySheepBonusMoney; } }
