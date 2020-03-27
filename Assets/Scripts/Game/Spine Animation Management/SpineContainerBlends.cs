@@ -1,0 +1,125 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SpineContainerBlends : MonoBehaviour, IAnimatableDirection {
+    public float prevAngle;
+    public Animator anim;
+    void Start() {
+        SetInitialRandomDirection();
+    }
+    public void SetInitialRandomDirection() {
+        if (anim == null)anim = GetComponent<Animator>();
+        Vector2 direction = Random.insideUnitCircle.normalized + (Vector2)transform.position;
+        SetAnimatorDirections(direction);
+    }
+
+    public void WalkTo(Vector2 target) {
+        if (anim == null)anim = GetComponent<Animator>();
+        ResetAllTriggers();
+        Vector2 newDir = SetAnimatorDirections(target);
+        Vector2 prevDir = new Vector2(anim.GetFloat("dirX_blend"), anim.GetFloat("dirY_blend"));
+        float turn = GetAngle(prevDir, newDir);
+        if (turn > 0) {
+            anim.SetTrigger("clockwise");
+        } else {
+            if (turn < 0) {
+                anim.SetTrigger("counter_closkwise");
+            } else {
+                anim.SetTrigger("straight");
+            }
+        }
+    }
+
+    public void FlyTo(Vector2 target) {
+        anim.SetTrigger("fly");
+        SetAnimatorDirections(target);
+    }
+    public void Die() {
+        if (anim == null)anim = GetComponent<Animator>();
+        anim.SetTrigger("die");
+    }
+    Vector2 SetAnimatorDirections(Vector2 target) {
+        Vector2 newDir = EnumToAnimVec(GetAnimEnum(target));
+        anim.SetFloat("dirX_blend", newDir.x);
+        anim.SetFloat("dirY_blend", newDir.y);
+        return newDir;
+    }
+    public void StopWalking() {
+        //Debug.Log("stopping");
+        anim.SetTrigger("stop");
+    }
+    float GetAngle(Vector2 v1, Vector2 v2) {
+        var sign = Mathf.Sign(v1.x * v2.y - v1.y * v2.x);
+        return Vector2.Angle(v1, v2) * sign;
+    }
+
+    void ResetAllTriggers() {
+        anim.ResetTrigger("stop");
+        anim.ResetTrigger("clockwise");
+        anim.ResetTrigger("counter_closkwise");
+        anim.ResetTrigger("straight");
+        anim.ResetTrigger("fly");
+    }
+    FacingDirection GetAnimEnum(Vector2 target) {
+        Vector2 direction = target - (Vector2)transform.position;
+        float angle = 0;
+        if (direction.magnitude > 0.05f) { //this fixes Idle dir keeping same as walking dir
+            angle = Vector2.SignedAngle(direction, Vector2.up);
+            prevAngle = angle;
+        } else {
+            angle = prevAngle;
+        }
+        if (angle < 0)
+            angle += 360f;
+        angle += 22.5f;
+        FacingDirection dir = 0;
+        for (int i = 0; i < 8; i++) {
+            if (angle > i * 45f) {
+                dir = (FacingDirection)i;
+            } else break;
+        }
+        //Debug.Log("Output Dir Name:"+dir.ToString());
+        return dir;
+    }
+    public Vector2 EnumToAnimVec(FacingDirection dir) {
+        Vector2 output = Vector2.zero;
+        switch (dir) {
+            case FacingDirection.Top:
+                output = new Vector2(0, 1);
+                break;
+            case FacingDirection.TopRight:
+                output = new Vector2(1, 1);
+                break;
+            case FacingDirection.Right:
+                output = new Vector2(1, 0);
+                break;
+            case FacingDirection.BottomRight:
+                output = new Vector2(1, -1);
+                break;
+            case FacingDirection.Bottom:
+                output = new Vector2(0, -1);
+                break;
+            case FacingDirection.BottomLeft:
+                output = new Vector2(-1, -1);
+                break;
+            case FacingDirection.Left:
+                output = new Vector2(-1, 0);
+                break;
+            case FacingDirection.TopLeft:
+                output = new Vector2(-1, 1);
+                break;
+        }
+        return output;
+    }
+    public enum FacingDirection {
+        Top,
+        TopRight,
+        Right,
+        BottomRight,
+        Bottom,
+        BottomLeft,
+        Left,
+        TopLeft
+    }
+}

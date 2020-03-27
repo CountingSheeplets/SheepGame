@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
+using UnityEngine.Rendering;
 public class SheepFall : BaseUnitMove {
     SheepUnit sheep;
     void Start() {
@@ -16,12 +16,12 @@ public class SheepFall : BaseUnitMove {
         //Debug.Log("StartFalling");
         SetDestination(_destination, false);
         sheep.isSwimming = true;
-        //fall animation;
-
         //change layer to be behind all
-
+        sheep.GetComponentInChildren<SortingGroup>().sortingOrder = -10;
         //move the transform to destination
         MoveToDestination(speed, 0.25f);
+        //fall animation;
+        animator.Die();
     }
     void OnLand(GameMessage msg) {
         //Debug.Log("OnLand:StartFalling:"+gameObject.name);

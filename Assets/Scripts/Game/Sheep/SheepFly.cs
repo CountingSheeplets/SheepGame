@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class SheepFly : BaseUnitMove {
     SheepUnit sheep;
@@ -11,12 +12,14 @@ public class SheepFly : BaseUnitMove {
         sheep.isFlying = true;
         sheep.isReadyToFly = false;
         SetDestination(_destination, false);
-        //run animation;
-
         MoveToDestination(speed, 1.5f);
+        //run animation;
+        animator.FlyTo(_destination);
+        sheep.GetComponentInChildren<SortingGroup>().sortingOrder = 200;
     }
 
     public override void PostMoveAction() {
+        sheep.GetComponentInChildren<SortingGroup>().sortingOrder = 100;
         GetComponent<SheepUnit>().isFlying = false;
         //trigger to play Land animation
         Debug.Log("fly eneded, landing at:" + (Vector2)(transform.position));

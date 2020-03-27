@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 8717961065467405344}
   - component: {fileID: 3559431874477606315}
   - component: {fileID: 3024923897151508153}
-  - component: {fileID: -65407403638016155}
   - component: {fileID: 903498712488477430}
+  - component: {fileID: -6718269551683509644}
   m_Layer: 0
   m_Name: Spine Mecanim GameObject (Sheep)
   m_TagString: Untagged
@@ -196,21 +196,6 @@ MonoBehaviour:
     type: 3}
   isClone: 0
   playerColor: {r: 1, g: 1, b: 1, a: 1}
---- !u!114 &-65407403638016155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9198241363911740042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8604fa6f8337da84e835ffed1881fd9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  prevAngle: 0
-  currentPoint: to2
 --- !u!210 &903498712488477430
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -222,3 +207,16 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
+--- !u!114 &-6718269551683509644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9198241363911740042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b05c35e92f8a43419bb9ae0badb1b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 6759887895922138629}

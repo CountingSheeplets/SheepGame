@@ -16,9 +16,10 @@ public class SpineContainerEightDirWalk : MonoBehaviour, IAnimatableDirection {
         "to7",
         "to8"
     };
-
+    public void FlyTo(Vector2 target) {}
+    public void Die() {}
     public void WalkTo(Vector2 target) {
-        if (anim == null) anim = GetComponent<Animator>();
+        if (anim == null)anim = GetComponent<Animator>();
         anim.ResetTrigger("stop");
         string dirNum = EnumToAnimNum(GetAnimEnum(target));
         string animation = "to" + dirNum.ToString();
@@ -110,7 +111,7 @@ public class SpineContainerEightDirWalk : MonoBehaviour, IAnimatableDirection {
         }
     }
     FacingDirection GetAnimEnum(Vector2 target) {
-        Vector2 direction = target - (Vector2) transform.position;
+        Vector2 direction = target - (Vector2)transform.position;
         float angle = 0;
         if (direction.magnitude > 0.05f) { //this fixes Idle dir keeping same as walking dir
             angle = Vector2.SignedAngle(direction, Vector2.up);
@@ -127,7 +128,7 @@ public class SpineContainerEightDirWalk : MonoBehaviour, IAnimatableDirection {
         FacingDirection dir = 0;
         for (int i = 0; i < 8; i++) {
             if (angle > i * 45f) {
-                dir = (FacingDirection) i;
+                dir = (FacingDirection)i;
             } else break;
         }
         //Debug.Log("Output Dir Name:"+dir.ToString());

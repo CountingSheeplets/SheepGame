@@ -23,6 +23,7 @@ public class SheepFactory : Singleton<SheepFactory> {
         newSheepModel.transform.localPosition = Vector3.zero;
         //set color:
         newSheepModel.GetComponentInChildren<SheepModel>().ChangeColor(owner.teamId);
+        //set random direction:
         /*         SpineContainerEightDirWalk container = newSheepModel.GetComponent<SpineContainerEightDirWalk>();
                 SkeletonMecanim skMecanim = container.GetComponent<SkeletonMecanim>();
                 foreach (Spine.Slot slot in skMecanim.skeleton.Slots) {
