@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SheepUnit : MonoBehaviour
-{
+public class SheepUnit : MonoBehaviour {
     public Owner owner;
     public Owner lastHandler;
     public bool canBeThrown {
-        get{
-            Debug.Log("isReadying:"+isReadying+"  isReadyToFly:"+isReadyToFly+"   isFlying:"+isFlying+"   "+isSwimming);
+        get {
+            Debug.Log("isReadying:" + isReadying + "  isReadyToFly:" + isReadyToFly + "   isFlying:" + isFlying + "   " + isSwimming);
             return (!isReadying && !isReadyToFly && !isFlying && !isSwimming);
         }
     }
@@ -23,25 +22,22 @@ public class SheepUnit : MonoBehaviour
     public SheepType sheepType;
     public bool skippedByTrenching = false;
 
-    void Start(){
+    void Start() {
         EventCoordinator.StartListening(EventName.System.Sheep.Kill(), OnKill);
     }
-    void OnDestroy(){
+    void OnDestroy() {
         EventCoordinator.StopListening(EventName.System.Sheep.Kill(), OnKill);
     }
-    void OnKill(GameMessage msg){
-        if(msg.sheepUnit == this){
-            //show drown animation
-
-            //then remove sheep
-            Destroy(gameObject, 1f);
+    void OnKill(GameMessage msg) {
+        if (msg.sheepUnit == this) {
+            Destroy(gameObject);
         }
     }
-    public void ResetContainer(){
-        if(isFlying || isSwimming)
+    public void ResetContainer() {
+        if (isFlying || isSwimming)
             transform.parent = SheepCoordinator.Instance.transform;
         else
-            if(currentPlayfield != null)
-                transform.parent = currentPlayfield.sheepParent;
+        if (currentPlayfield != null)
+            transform.parent = currentPlayfield.sheepParent;
     }
 }

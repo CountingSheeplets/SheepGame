@@ -19,7 +19,7 @@ public class SheepFall : BaseUnitMove {
         //change layer to be behind all
         sheep.GetComponentInChildren<SortingGroup>().sortingOrder = -10;
         //move the transform to destination
-        MoveToDestination(speed, 0.25f);
+        MoveToDestination(speed, 1f, 0.25f);
         //fall animation;
         animator.Die();
     }
@@ -29,8 +29,9 @@ public class SheepFall : BaseUnitMove {
             if (GameStateView.GetGameState() != GameState.arenaAnimating) {
                 if (msg.playfield == null) {
                     SheepFly fly = GetComponent<SheepFly>();
+                    Vector2 fallDirection = fly.GetLocalMoveDir() / 10f + (Vector2)transform.position;
                     if (fly != null)
-                        this.StartFalling(SpeedBucket.GetFallSpeed(sheep.sheepType), fly.GetLocalMoveDir() + (Vector2)transform.position);
+                        this.StartFalling(SpeedBucket.GetFallSpeed(sheep.sheepType), fallDirection);
                     else
                         EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(sheep));
                 }

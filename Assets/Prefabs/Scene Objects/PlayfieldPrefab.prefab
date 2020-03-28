@@ -264,6 +264,7 @@ MonoBehaviour:
   distanceTraveled: 0
   myScale: {x: 0, y: 0, z: 0}
   midScale: -0.5
+  endScale: 0
   isMoving: 0
   impactScale: 1
   playfield: {fileID: 0}
@@ -304,6 +305,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6456368486568105432}
     m_Modifications:
+    - target: {fileID: 7264911332029479534, guid: 854437c85b4111a4c9d53ab5d586f4aa,
+        type: 3}
+      propertyPath: maskMaterials.materialsMaskDisabled.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264911332029479534, guid: 854437c85b4111a4c9d53ab5d586f4aa,
+        type: 3}
+      propertyPath: maskMaterials.materialsOutsideMask.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7264911332029479535, guid: 854437c85b4111a4c9d53ab5d586f4aa,
         type: 3}
       propertyPath: m_Name
@@ -314,6 +325,31 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7264911332029479536, guid: 854437c85b4111a4c9d53ab5d586f4aa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a9e0891fb77d3a34ba6f312e2c3b2824, type: 2}
+    - target: {fileID: 7264911332029479536, guid: 854437c85b4111a4c9d53ab5d586f4aa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: baf6d470059aeaa46b17961f3bfa50a5, type: 2}
+    - target: {fileID: 7264911332029479536, guid: 854437c85b4111a4c9d53ab5d586f4aa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: a9e0891fb77d3a34ba6f312e2c3b2824, type: 2}
+    - target: {fileID: 7264911332029479536, guid: 854437c85b4111a4c9d53ab5d586f4aa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: c57c6ab228e09004fbf8640c1ff3162f, type: 2}
+    - target: {fileID: 7264911332029479536, guid: 854437c85b4111a4c9d53ab5d586f4aa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: a9e0891fb77d3a34ba6f312e2c3b2824, type: 2}
     - target: {fileID: 7264911332029479538, guid: 854437c85b4111a4c9d53ab5d586f4aa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -384,45 +420,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.05
       objectReference: {fileID: 0}
-    - target: {fileID: 7264911332029479536, guid: 854437c85b4111a4c9d53ab5d586f4aa,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a9e0891fb77d3a34ba6f312e2c3b2824, type: 2}
-    - target: {fileID: 7264911332029479536, guid: 854437c85b4111a4c9d53ab5d586f4aa,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: baf6d470059aeaa46b17961f3bfa50a5, type: 2}
-    - target: {fileID: 7264911332029479536, guid: 854437c85b4111a4c9d53ab5d586f4aa,
-        type: 3}
-      propertyPath: m_Materials.Array.data[2]
-      value: 
-      objectReference: {fileID: 2100000, guid: a9e0891fb77d3a34ba6f312e2c3b2824, type: 2}
-    - target: {fileID: 7264911332029479536, guid: 854437c85b4111a4c9d53ab5d586f4aa,
-        type: 3}
-      propertyPath: m_Materials.Array.data[3]
-      value: 
-      objectReference: {fileID: 2100000, guid: c57c6ab228e09004fbf8640c1ff3162f, type: 2}
-    - target: {fileID: 7264911332029479536, guid: 854437c85b4111a4c9d53ab5d586f4aa,
-        type: 3}
-      propertyPath: m_Materials.Array.data[4]
-      value: 
-      objectReference: {fileID: 2100000, guid: a9e0891fb77d3a34ba6f312e2c3b2824, type: 2}
     - target: {fileID: 7264911332029479539, guid: 854437c85b4111a4c9d53ab5d586f4aa,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7264911332029479534, guid: 854437c85b4111a4c9d53ab5d586f4aa,
-        type: 3}
-      propertyPath: maskMaterials.materialsMaskDisabled.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7264911332029479534, guid: 854437c85b4111a4c9d53ab5d586f4aa,
-        type: 3}
-      propertyPath: maskMaterials.materialsOutsideMask.Array.size
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 854437c85b4111a4c9d53ab5d586f4aa, type: 3}

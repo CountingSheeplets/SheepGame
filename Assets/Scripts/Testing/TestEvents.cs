@@ -87,7 +87,11 @@ public class TestEvents : MonoBehaviour {
             Owner upgrader = OwnersCoordinator.GetRandomOwner();
             EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType)Random.Range(0, 1)));
         }
-
+        if (Input.GetKeyDown(KeyCode.F1)) {
+            Debug.Log("Random king smites....");
+            Owner smasher = OwnersCoordinator.GetRandomOwner();
+            EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.Smash(), GameMessage.Write().WithOwner(smasher));
+        }
     }
 
     KingUnit GetRandomKing() {

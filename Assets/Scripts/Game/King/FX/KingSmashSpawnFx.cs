@@ -6,7 +6,6 @@ public class KingSmashSpawnFx : MonoBehaviour {
     public GameObject smashFxPrefab;
     void Start() {
         EventCoordinator.StartListening(EventName.System.King.Smashed(), OnSmashed);
-
     }
     void OnDestroy() {
         EventCoordinator.StopListening(EventName.System.King.Smashed(), OnSmashed);
@@ -16,7 +15,7 @@ public class KingSmashSpawnFx : MonoBehaviour {
             return;
         GameObject newFx = Instantiate(smashFxPrefab, transform);
         newFx.transform.localPosition = Vector3.zero;
-        newFx.transform.SetParent(FxContainer.GetTransform());
+        newFx.transform.SetParent(msg.kingUnit.myPlayfield.transform);
         Destroy(newFx, 2f);
     }
 }

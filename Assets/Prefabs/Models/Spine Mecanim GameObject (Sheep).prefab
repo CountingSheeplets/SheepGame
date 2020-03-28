@@ -191,9 +191,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hdrIntensity: 2
-  debrisParticles: {fileID: 0}
-  txToAddOnDeath: {fileID: 214859261516475597, guid: 1347984e816612241a61593e9ee740cb,
+  debrisParticles: {fileID: 1349599891588174301, guid: 3de132ef9f74ea744a4f77763c5d40f4,
     type: 3}
+  txToAddOnDeath: {fileID: 0}
   isClone: 0
   playerColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!210 &903498712488477430
@@ -219,4 +219,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b05c35e92f8a43419bb9ae0badb1b35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prevAngle: 0
   anim: {fileID: 6759887895922138629}

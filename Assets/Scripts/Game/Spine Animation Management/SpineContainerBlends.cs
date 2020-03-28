@@ -5,21 +5,24 @@ using UnityEngine;
 public class SpineContainerBlends : MonoBehaviour, IAnimatableDirection {
     public float prevAngle;
     public Animator anim;
-    void Start() {
+    void Awake() {
         SetInitialRandomDirection();
     }
     public void SetInitialRandomDirection() {
         if (anim == null)anim = GetComponent<Animator>();
         Vector2 direction = Random.insideUnitCircle.normalized + (Vector2)transform.position;
+        prevAngle = Vector2.SignedAngle(direction, Vector2.up);
         SetAnimatorDirections(direction);
     }
 
     public void WalkTo(Vector2 target) {
         if (anim == null)anim = GetComponent<Animator>();
         ResetAllTriggers();
-        Vector2 newDir = SetAnimatorDirections(target);
         Vector2 prevDir = new Vector2(anim.GetFloat("dirX_blend"), anim.GetFloat("dirY_blend"));
+        Vector2 newDir = SetAnimatorDirections(target);
+        Debug.Log("prev: " + prevDir + " newdir" + newDir);
         float turn = GetAngle(prevDir, newDir);
+        Debug.Log("turn: " + turn);
         if (turn > 0) {
             anim.SetTrigger("clockwise");
         } else {

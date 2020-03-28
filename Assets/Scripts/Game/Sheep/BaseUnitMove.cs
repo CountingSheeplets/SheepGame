@@ -10,6 +10,7 @@ public class BaseUnitMove : MonoBehaviour {
     public float distanceTraveled;
     public Vector3 myScale;
     public float midScale = 2f;
+    public float endScale = 0f;
     //public AnimatorContainer animator;
     public IAnimatableDirection animator;
 
@@ -34,6 +35,10 @@ public class BaseUnitMove : MonoBehaviour {
             destination = _destination;
             localMoveDirection = -(Vector2)transform.position + destination;
         }
+    }
+    public void MoveToDestination(float speed, float _midScale, float _endScale) {
+        endScale = _endScale;
+        MoveToDestination(speed, _midScale);
     }
     public void MoveToDestination(float speed, float _midScale) {
         if (animator == null)
@@ -72,8 +77,13 @@ public class BaseUnitMove : MonoBehaviour {
             }
             //adjust size by distance
             if (impactScale) {
-                float scaleComponent = midScale * Mathf.Sin(distanceTraveled / totalDistance * Mathf.PI);
-                transform.localScale = myScale + myScale * scaleComponent;
+                if (endScale == 0f) {
+                    float scaleComponent = midScale * Mathf.Sin(distanceTraveled / totalDistance * Mathf.PI);
+                    transform.localScale = myScale + myScale * scaleComponent;
+                } else {
+                    float scaleComponent = (1 - endScale) * distanceTraveled / totalDistance;
+                    transform.localScale = myScale - myScale * scaleComponent;
+                }
             }
             //move transform
             transform.Translate(moveDir * moveSpeed * 0.02f);
