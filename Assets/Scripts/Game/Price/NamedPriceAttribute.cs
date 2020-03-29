@@ -5,8 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public class NamedPriceAttribute {
 
-    [SerializeField]
+#if UNITY_EDITOR
     [StringInList(typeof(PropertyDrawersHelper), "AllPriceNames")]
+#endif
+    [SerializeField]
     public string attributeName;
 
     [SerializeField]

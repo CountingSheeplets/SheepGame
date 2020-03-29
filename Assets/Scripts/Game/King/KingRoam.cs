@@ -7,11 +7,11 @@ public class KingRoam : BaseUnitMove {
     void Awake() {
         king = GetComponent<KingUnit>();
         EventCoordinator.StartListening(EventName.System.Sheep.Roam(), OnRoam);
-        EventCoordinator.StartListening(EventName.System.King.Smashed(), OnSmited);
+        EventCoordinator.StartListening(EventName.System.King.Smashed(), OnSmashed);
     }
     void OnDestroy() {
         EventCoordinator.StopListening(EventName.System.Sheep.Roam(), OnRoam);
-        EventCoordinator.StopListening(EventName.System.King.Smashed(), OnSmited);
+        EventCoordinator.StopListening(EventName.System.King.Smashed(), OnSmashed);
     }
     public void StartWalking(Vector2 _destination) {
         SetScale();
@@ -20,7 +20,7 @@ public class KingRoam : BaseUnitMove {
         MoveToDestination(SpeedBucket.GetRoamSpeed(SheepType.King), 0f);
         animator.WalkTo(_destination);
     }
-    void OnSmited(GameMessage msg) {
+    void OnSmashed(GameMessage msg) {
         if (msg.kingUnit == king)
             isMoving = true;
     }
@@ -37,7 +37,7 @@ public class KingRoam : BaseUnitMove {
     Vector2 RoamTarget() {
         Vector2 newVec = new Vector2(0, 1.5f * ConstantsBucket.PlayfieldTileSize);
         newVec = Quaternion.AngleAxis(Random.Range(0, 359), Vector3.forward) * newVec;
-        Vector2 targetPos = (Vector2) transform.position + newVec;
+        Vector2 targetPos = (Vector2)transform.position + newVec;
         if (king.myPlayfield.fieldCorners.IsWithinField(targetPos, king.GetRadius())) {
             return targetPos;
         } else {

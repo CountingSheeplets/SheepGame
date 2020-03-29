@@ -50,7 +50,9 @@ public class BaseUnitMove : MonoBehaviour {
     //perhaps split into GlobalMove and LocalMove, and instead of public property call via appropriate function in inheritor
     IEnumerator Move() {
         //stop other enumerators, which are already moving the object
-        isMoving = true;
+        foreach (BaseUnitMove move in GetComponents<BaseUnitMove>()) {
+            move.isMoving = true;
+        }
         yield return null;
         isMoving = false;
         //calculate parameters for movement:
@@ -97,6 +99,7 @@ public class BaseUnitMove : MonoBehaviour {
             else
                 transform.position = destination;
         PostMoveAction();
+        isMoving = false;
         yield return null;
     }
 

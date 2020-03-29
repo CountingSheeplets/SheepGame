@@ -9,12 +9,12 @@ public class KingAnimateSmash : MonoBehaviour {
     void Start() {
         anim = GetComponent<Animator>();
         king = GetComponentInParent<KingUnit>();
-        EventCoordinator.StartListening(EventName.System.King.StartSmash(), OnSmited);
+        EventCoordinator.StartListening(EventName.System.King.StartSmash(), OnStartSmash);
     }
     void OnDestroy() {
-        EventCoordinator.StopListening(EventName.System.King.StartSmash(), OnSmited);
+        EventCoordinator.StopListening(EventName.System.King.StartSmash(), OnStartSmash);
     }
-    void OnSmited(GameMessage msg) {
+    void OnStartSmash(GameMessage msg) {
         foreach (AnimatorControllerParameter parameter in anim.parameters) {
             anim.ResetTrigger(parameter.name);
         }

@@ -18,6 +18,7 @@ public class SpineContainerEightDirWalk : MonoBehaviour, IAnimatableDirection {
     };
     public void FlyTo(Vector2 target) {}
     public void Die() {}
+    public void StopFlying() {}
     public void WalkTo(Vector2 target) {
         if (anim == null)anim = GetComponent<Animator>();
         anim.ResetTrigger("stop");

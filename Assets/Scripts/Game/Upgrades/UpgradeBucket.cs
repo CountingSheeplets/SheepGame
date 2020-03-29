@@ -78,7 +78,9 @@ public class UpgradeProperty {
     public UpgradeType slot;
     public string upgradeDisplayName;
     [SerializeField]
+#if UNITY_EDITOR
     [StringInList(typeof(PropertyDrawersHelper), "AllPriceNames")]
+#endif
     public string upgradeCodeName;
     public string upgradeDescription;
     public SheepType sheepTypeInput;

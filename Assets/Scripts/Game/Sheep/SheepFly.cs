@@ -23,7 +23,7 @@ public class SheepFly : BaseUnitMove {
         GetComponent<SheepUnit>().isFlying = false;
         //trigger to play Land animation
         Debug.Log("fly eneded, landing at:" + (Vector2)(transform.position));
-
+        animator.StopFlying();
         //trigger Land game event, listened by sheep throw
         Playfield newPlayfield = ArenaCoordinator.GetPlayfield(transform.position);
         sheep.currentPlayfield = newPlayfield;

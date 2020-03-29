@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 2672995643569707066}
   - component: {fileID: 9412328676758384}
   - component: {fileID: 3520766465558782696}
+  - component: {fileID: 6205358423873046144}
   m_Layer: 0
   m_Name: KingUnit
   m_TagString: Untagged
@@ -112,12 +113,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c37aa36aa1eeb6d43b014b1f74901f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {x: 0, y: 0}
   totalDistance: 0
   distanceLeft: 0
   distanceTraveled: 0
   myScale: {x: 0, y: 0, z: 0}
   midScale: 0
+  endScale: 0
   isMoving: 0
   impactScale: 1
 --- !u!114 &2672995643569707066
@@ -144,10 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141c51e349431394eb661ebf5213e3d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinations: []
-  initPos: []
   flyDistance: 2
-  knockFlySpeed: 2
 --- !u!114 &3520766465558782696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +160,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultScale: {x: 0, y: 0, z: 0}
   targetScale: {x: 0, y: 0, z: 0}
+--- !u!114 &6205358423873046144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4932373932008650664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af69d3eac82e7964f95476ff02051e91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinations: []
+  initPos: []
 --- !u!1 &6176890268272503166
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +220,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

@@ -7,4 +7,5 @@ public interface IAnimatableDirection {
     void FlyTo(Vector2 target);
     void Die();
     void StopWalking();
+    void StopFlying();
 }

@@ -13,6 +13,7 @@ public class SpineContainerFourDirWalk : MonoBehaviour, IAnimatableDirection {
         "to4"
     };
     public void FlyTo(Vector2 target) {}
+    public void StopFlying() {}
     public void Die() {
         if (anim == null)anim = GetComponent<Animator>();
         anim.SetTrigger("die");

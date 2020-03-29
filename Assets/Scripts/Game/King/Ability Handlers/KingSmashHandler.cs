@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class KingSmashHandler : MonoBehaviour {
@@ -22,14 +21,10 @@ public class KingSmashHandler : MonoBehaviour {
         if (profile.Buy(PriceName.King.Smash())) {
             PriceCoordinator.IncreaseLevel(msg.owner, PriceName.King.Smash());
             KingUnit king = msg.owner.GetKing();
-            List<SheepUnit> sheepWithinRange = SheepCoordinator.GetSheepInField(king.myPlayfield)
-                .Where(x => (x.GetComponent<Transform>().position - transform.position).magnitude <= ConstantsBucket.KingSmiteRange)
-                .Where(x => x.sheepType == SheepType.Tank)
-                .ToList();
+
             EventCoordinator.TriggerEvent(EventName.System.King.StartSmash(),
                 GameMessage.Write()
                 .WithOwner(msg.owner)
-                .WithSheepUnits(sheepWithinRange)
                 .WithKingUnit(king)
             );
         }

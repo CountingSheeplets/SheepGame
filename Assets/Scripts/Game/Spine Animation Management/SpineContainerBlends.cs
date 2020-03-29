@@ -20,9 +20,7 @@ public class SpineContainerBlends : MonoBehaviour, IAnimatableDirection {
         ResetAllTriggers();
         Vector2 prevDir = new Vector2(anim.GetFloat("dirX_blend"), anim.GetFloat("dirY_blend"));
         Vector2 newDir = SetAnimatorDirections(target);
-        Debug.Log("prev: " + prevDir + " newdir" + newDir);
         float turn = GetAngle(prevDir, newDir);
-        Debug.Log("turn: " + turn);
         if (turn > 0) {
             anim.SetTrigger("clockwise");
         } else {
@@ -49,8 +47,10 @@ public class SpineContainerBlends : MonoBehaviour, IAnimatableDirection {
         return newDir;
     }
     public void StopWalking() {
-        //Debug.Log("stopping");
-        anim.SetTrigger("stop");
+        anim.SetTrigger("stopWalk");
+    }
+    public void StopFlying() {
+        anim.SetTrigger("stopFly");
     }
     float GetAngle(Vector2 v1, Vector2 v2) {
         var sign = Mathf.Sign(v1.x * v2.y - v1.y * v2.x);
