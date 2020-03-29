@@ -19,9 +19,9 @@ public class GridLayoutGroupHandler : MonoBehaviour {
     void Regroup(GameMessage msg) {
         int count = OwnersCoordinator.GetOwners().Where(x => x.connected).ToList().Count;
         if (count > 4) {
-            gridLayoutGroup.startAxis = GridLayoutGroup.Axis.Vertical;
+            gridLayoutGroup.constraintCount = 2;
         } else {
-            gridLayoutGroup.startAxis = GridLayoutGroup.Axis.Horizontal;
+            gridLayoutGroup.constraintCount = 1;
         }
     }
 }
