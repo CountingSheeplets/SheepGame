@@ -2,28 +2,6 @@
 <html>
 <head>
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-  
-<!--   <script src="libs/pixi.js-legacy.d.ts"></script> -->
-  <script src="pixi/pixi.js"></script>
-  <script src="./pixi/dragonBones.js"></script>
-
-  <script src="./out/DragHelper.js"></script>
-  <script src="./out/BaseDemo.js"></script>
-  <script src="./out/HelloDragonBones.js"></script>
-  <script src="./out/AnimationBase.js"></script>
-  <script src="./out/DragonBonesEvent.js"></script>
-  <script src="./out/AnimationLayer.js"></script>
-  <script src="./out/BoneOffset.js"></script>
-  <script src="./out/InverseKinematics.js"></script>
-  <script src="./out/BoundingBox.js"></script>
-  <script src="./out/MultiTextureAltas.js"></script>
-  <script src="./out/ReplaceSlotDisplay.js"></script>
-  <script src="./out/ReplaceSkin.js"></script>
-  <script src="./out/ReplaceAnimation.js"></script>
-  <script src="./out/CoreElement.js"></script>
-  <script src="./out/EyeTracking.js"></script>
-  <script src="./out/PerformanceTest.js"></script>
-
   <script type="text/javascript" src="https://www.airconsole.com/api/airconsole-1.7.0.js"></script>
   <script type="text/javascript">
     //the view manager finds all div containers with the "view" class and lets me show one view while hiding all others
@@ -61,11 +39,11 @@
   </script>
   <style type=text/css>
   /* the style sheet dictates what our elements (buttons, backgrounds etc.) will look like. */
-/*   #background {
+  #background {
     width: 100%;
     height: 100%;
     position: absolute;
-  } */
+  }
 
   .button{
     background: #3B3B3B;
@@ -135,7 +113,7 @@
             //check the CustomDeviceStateChange data contains any playerColorData for this particular device
             if (device_data["playerColors"][me.airconsole.getDeviceId()]){
               //this works for named colors. If you want to use colors that don't have a name, you could pass a hex code instead of a string/name
-              //document.getElementById("background").style.backgroundColor = device_data["playerColors"][me.airconsole.getDeviceId()];
+              document.getElementById("background").style.backgroundColor = device_data["playerColors"][me.airconsole.getDeviceId()];
             }
           }
         }
@@ -179,12 +157,10 @@
     };
 
   </script>
-
+ 
 </head>
-
-
 <body onload="window.app = new App()">
-<!-- <div id="background"></div> -->
+<div id="background"></div>
 <div class="view" id="Start">
       <div style="color:white;">No Controller view has been set</div>
   </div>
@@ -200,25 +176,5 @@
       <div class="button" id="pause-button" ontouchstart="window.app.pressPauseScreenButton()"></div>
       <div class="button-text">Pause Screen Button</div>
   </div>
-  <script src="./sheep_scripts/sheep_anim.js"></script>
-
-  <script>
-      new SheepCharacter();
-      //new HelloDragonBones();
-      // new AnimationBase();
-      // new DragonBonesEvent();
-      // new AnimationLayer();
-      // new BoneOffset();
-      // new InverseKinematics();
-      // new BoundingBox();
-      // new MultiTextureAltas();
-      // new ReplaceSlotDisplay();
-      // new ReplaceSkin();
-      // new ReplaceAnimation();
-      // new coreElement.Game();
-      //new EyeTracking();
-      // new PerformanceTest();
-  </script>
-
 </body>
 </html>

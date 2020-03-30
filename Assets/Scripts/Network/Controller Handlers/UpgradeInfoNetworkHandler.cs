@@ -1,54 +1,46 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using Newtonsoft.Json.Linq;
 using NDream.AirConsole;
-public class UpgradeInfoNetworkHandler : MonoBehaviour
-{
-    UpgradeType upgradeType;
-    void Awake()
-    {
-        if(AirConsole.instance != null)
+using Newtonsoft.Json.Linq;
+using UnityEngine;
+public class UpgradeInfoNetworkHandler : MonoBehaviour {
+    Dictionary<Owner, UpgradeType> upgradeTypes = new Dictionary<Owner, UpgradeType>();
+    void Awake() {
+        if (AirConsole.instance != null)
             AirConsole.instance.onMessage += OnOpenUpgradeInfo;
     }
 
-    void OnOpenUpgradeInfo(int from, JToken message)
-    {
-        if (message["element"] != null && message["pressed"] != null)
-        {
+    void OnOpenUpgradeInfo(int from, JToken message) {
+        if (message["element"] != null && message["pressed"] != null) {
             Owner triggerOwner = OwnersCoordinator.GetOwner(from);
-            if(triggerOwner == null || !triggerOwner.GetPlayerProfile().isAlive)
+            if (triggerOwner == null || !triggerOwner.GetPlayerProfile().isAlive)
                 return;
 
-            if((bool)message["pressed"] == false && message["element"].ToString().Contains("upgrade")){
+            if ((bool)message["pressed"] == false && message["element"].ToString().Contains("upgrade")) {
                 SheepUnit sheep = triggerOwner.GetPlayfield().GetComponent<SheepThrow>().sheepReadyToBeThrown;
-                if(sheep){
-                    if (message["element"].ToString() == "upgrade1")
-                    {
-                        upgradeType = UpgradeType.A;
+                if (sheep) {
+                    if (message["element"].ToString() == "upgrade1") {
+                        upgradeTypes[triggerOwner] = UpgradeType.A;
                         NetworkCoordinator.SendUpgradeData(from, UpgradeBucket.GetNextUpgradeA(sheep));
                     }
-                    if (message["element"].ToString() == "upgrade2")
-                    {
-                        upgradeType = UpgradeType.B;
+                    if (message["element"].ToString() == "upgrade2") {
+                        upgradeTypes[triggerOwner] = UpgradeType.B;
                         NetworkCoordinator.SendUpgradeData(from, UpgradeBucket.GetNextUpgradeB(sheep));
                     }
                     //send to show view for info:
                     NetworkCoordinator.SendShowView(from, "upgrade");
                 }
             } else {
-                if(message["element"].ToString() == "upgrade" && (bool)message["pressed"] == true){
-                    EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(triggerOwner).WithUpgradeType(upgradeType));
+                if (message["element"].ToString() == "upgrade" && (bool)message["pressed"] == true) {
+                    EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(triggerOwner).WithUpgradeType(upgradeTypes[triggerOwner]));
                     NetworkCoordinator.SendShowView(from, "match");
                 }
             }
         }
     }
 
-    private void OnDestroy()
-    {
-        if (AirConsole.instance != null)
-        {
+    private void OnDestroy() {
+        if (AirConsole.instance != null) {
             AirConsole.instance.onMessage -= OnOpenUpgradeInfo;
         }
     }
