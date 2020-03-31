@@ -17,7 +17,7 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
         json["coinCount"] = owner.GetPlayerProfile().permanentCrownCount + owner.GetPlayerProfile().GetCrowns();
         json["selectedHat"] = KingCoordinator.GetSourceKingModel(owner).HatIndex;
         json["selectedScepter"] = KingCoordinator.GetSourceKingModel(owner).ScepterIndex;
-        json["token"] = owner.GetToken((int) json["coinCount"]);
+        json["token"] = owner.GetToken((int)json["coinCount"]);
         TryStore(json, owner);
     }
 
@@ -31,48 +31,46 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
     public static void OnReceivedData(JToken data) {
         string match = "";
         foreach (string request in Instance.requestedNames) {
-            if (data[request] == null)
+            if (data[request].IsNullOrEmpty()) {
+                Debug.Log("OnReceivedData: IsNullOrEmpty()!: " + data);
                 continue;
-            else {
-                Debug.Log("OnReceivedData: " + data);
-                if (data[request].IsNullOrEmpty()) {
-                    continue;
-                }
-                match = request;
-                data = data[match][Instance.key];
-                Owner owner = OwnersCoordinator.GetOwner(data["ownerID"].ToString());
-                if (owner) {
-                    PlayerProfile profile = owner.GetPlayerProfile();
-                    if (profile != null)
-                        if (HasReceivedTrueData(owner, data)) {
-                            if (!data["coinCount"].IsNullOrEmpty())
-                                profile.permanentCrownCount = (int) data["coinCount"];
-                            if (!data["selectedHat"].IsNullOrEmpty())
-                                profile.selectedHat = (int) data["selectedHat"];
-                            if (!data["selectedScepter"].IsNullOrEmpty())
-                                profile.selectedScepter = (int) data["selectedScepter"];
-                            EventCoordinator.TriggerEvent(EventName.System.Player.ProfileUpdate(), GameMessage.Write().WithPlayerProfile(profile).WithOwner(owner));
-                            EventCoordinator.TriggerEvent(EventName.Input.SetKingItem(), GameMessage.Write()
-                                .WithOwner(owner)
-                                .WithIntMessage(profile.selectedHat)
-                                .WithKingItemType(KingItemType.hat));
-                            EventCoordinator.TriggerEvent(EventName.Input.SetKingItem(), GameMessage.Write()
-                                .WithOwner(owner)
-                                .WithIntMessage(profile.selectedScepter)
-                                .WithKingItemType(KingItemType.scepter));
-                            Debug.Log("data received and loaded!");
-                        }
-                }
             }
+            match = request;
+            data = data[match][Instance.key];
+            Owner owner = OwnersCoordinator.GetOwner(data["ownerID"].ToString());
+            if (owner && data.ContainsPlayerData()) {
+                Debug.Log("OnReceivedData: contains all data!: " + data);
+                PlayerProfile profile = owner.GetPlayerProfile();
+                if (profile != null)
+                    if (HasReceivedTrueData(owner, data)) {
+                        Debug.Log("OnReceivedData: data is true!");
+                        if (!data["coinCount"].IsNullOrEmpty())
+                            profile.permanentCrownCount = (int)data["coinCount"];
+                        if (!data["selectedHat"].IsNullOrEmpty())
+                            profile.selectedHat = (int)data["selectedHat"];
+                        if (!data["selectedScepter"].IsNullOrEmpty())
+                            profile.selectedScepter = (int)data["selectedScepter"];
+                        EventCoordinator.TriggerEvent(EventName.System.Player.ProfileUpdate(), GameMessage.Write().WithPlayerProfile(profile).WithOwner(owner));
+                        EventCoordinator.TriggerEvent(EventName.Input.SetKingItem(), GameMessage.Write()
+                            .WithOwner(owner)
+                            .WithIntMessage(profile.selectedHat)
+                            .WithKingItemType(KingItemType.hat));
+                        EventCoordinator.TriggerEvent(EventName.Input.SetKingItem(), GameMessage.Write()
+                            .WithOwner(owner)
+                            .WithIntMessage(profile.selectedScepter)
+                            .WithKingItemType(KingItemType.scepter));
+                        Debug.Log("data received and loaded!");
+                    }
+            }
+            if (match != "")
+                Instance.requestedNames.Remove(match);
         }
-        if (match != "")
-            Instance.requestedNames.Remove(match);
     }
 
     public static bool HasReceivedTrueData(Owner owner, JToken data) {
         if (data["token"] != null && data["coinCount"] != null) {
             //Debug.Log("comparing tokens: " + data["token"] + "     :vs:    " + owner.GetToken((int) data["coinCount"]));
-            if ((string) data["token"] == owner.GetToken((int) data["coinCount"])) {
+            if ((string)data["token"] == owner.GetToken((int)data["coinCount"])) {
                 return true;
             }
         }

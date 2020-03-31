@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "AnrAzS2i89zsXCJ38SKUZliOp4U",
+	"hash": "izD/n+zr5nkCYt7bFAiWultTEhA",
 	"spine": "3.8.86",
 	"x": -478.87,
 	"y": -478.29,
@@ -414,7 +414,7 @@
 				"ears 6": {
 					"type": "mesh",
 					"uvs": [ 0, 0, 1, 0, 0, 1, 1, 1, 0.22584, 0, 0.23101, 1, 0.72997, 0, 0.76118, 1 ],
-					"triangles": [ 6, 5, 7, 1, 7, 3, 6, 7, 1, 4, 2, 5, 0, 2, 4, 4, 5, 6 ],
+					"triangles": [ 6, 7, 1, 1, 7, 3, 6, 5, 7, 4, 5, 6, 0, 2, 4, 4, 2, 5 ],
 					"vertices": [ 1, 60, 64.3, -0.53, 1, 1, 52, 67.04, -5.64, 1, 1, 60, 10.3, 39.14, 1, 1, 52, 12.48, -41.64, 1, 1, 60, 25.52, -53.31, 1, 2, 60, -29.36, -14.85, 0.9684, 52, -114.16, 141.92, 0.0316, 1, 52, 23.16, 60.87, 1, 1, 52, -26.85, 15.37, 1 ],
 					"hull": 8,
 					"edges": [ 0, 4, 2, 6, 2, 12, 4, 10, 6, 14, 8, 12, 10, 14, 8, 0, 8, 10, 12, 14 ],
@@ -426,7 +426,7 @@
 				"ears 1": {
 					"type": "mesh",
 					"uvs": [ 0, 0, 1, 1, 0.64794, 1, 0.64794, 0.65081, 1, 0.63492, 0.2815, 0, 0.2676, 0.29885, 0, 0.29081 ],
-					"triangles": [ 3, 6, 2, 5, 3, 4, 3, 1, 4, 3, 2, 1, 0, 6, 5, 0, 7, 6, 6, 7, 2, 5, 6, 3 ],
+					"triangles": [ 3, 2, 1, 3, 1, 4, 5, 3, 4, 3, 6, 2, 5, 6, 3, 6, 7, 2, 0, 7, 6, 0, 6, 5 ],
 					"vertices": [ 1, 48, 76.41, -0.88, 1, 1, 50, 95.52, -8.86, 1, 1, 50, 5.51, -60.68, 1, 1, 50, -38.91, 16.48, 1, 1, 50, 49.07, 71.81, 1, 1, 48, 28.65, -68.8, 1, 1, 48, -31.33, -21.61, 1, 1, 48, 15.75, 41.78, 1 ],
 					"hull": 6,
 					"edges": [ 0, 10, 2, 4, 2, 8, 4, 14, 8, 10, 14, 0, 4, 6, 6, 8, 10, 12, 12, 14 ],
@@ -438,7 +438,7 @@
 				"ears 1": {
 					"type": "mesh",
 					"uvs": [ 0, 0, 1, 1, 0.64794, 1, 0.64794, 0.65081, 1, 0.63492, 0.2815, 0, 0.2676, 0.29885, 0, 0.29081 ],
-					"triangles": [ 3, 6, 2, 5, 3, 4, 3, 1, 4, 3, 2, 1, 0, 6, 5, 0, 7, 6, 6, 7, 2, 5, 6, 3 ],
+					"triangles": [ 3, 2, 1, 3, 1, 4, 5, 3, 4, 3, 6, 2, 5, 6, 3, 6, 7, 2, 0, 7, 6, 0, 6, 5 ],
 					"vertices": [ 1, 55, 76.41, -0.88, 1, 1, 58, 95.52, -8.86, 1, 1, 58, 5.51, -60.68, 1, 1, 58, -38.91, 16.48, 1, 1, 58, 49.07, 71.81, 1, 1, 55, 28.65, -68.8, 1, 1, 55, -31.33, -21.61, 1, 1, 55, 15.75, 41.78, 1 ],
 					"hull": 6,
 					"edges": [ 0, 10, 2, 4, 2, 8, 4, 14, 8, 10, 14, 0, 4, 6, 6, 8, 10, 12, 12, 14 ],
@@ -450,7 +450,7 @@
 				"ears 2": {
 					"type": "mesh",
 					"uvs": [ 0, 0, 1, 0, 0, 1, 1, 1, 0.22376, 0, 0.22376, 1, 0.76383, 0, 0.76383, 1 ],
-					"triangles": [ 5, 7, 6, 6, 7, 3, 1, 6, 3, 0, 2, 4, 2, 5, 4, 4, 5, 6 ],
+					"triangles": [ 1, 6, 3, 6, 7, 3, 5, 7, 6, 4, 5, 6, 2, 5, 4, 0, 2, 4 ],
 					"vertices": [ 1, 46, 97.69, 3.34, 1, 1, 47, 94.84, -4.95, 1, 1, 46, 19.56, 53.78, 1, 1, 47, 20.44, -60.74, 1, 1, 46, 48.17, -73.36, 1, 1, 46, -29.96, -22.91, 1, 1, 47, 37.04, 72.14, 1, 1, 47, -37.37, 16.35, 1 ],
 					"hull": 8,
 					"edges": [ 0, 4, 2, 6, 2, 12, 4, 10, 6, 14, 8, 12, 10, 14, 8, 0, 8, 10, 12, 14 ],
@@ -462,7 +462,7 @@
 				"ears 7": {
 					"type": "mesh",
 					"uvs": [ 1, 0, 0, 1, 1, 0.41446, 0.69841, 0.40318, 0.67171, 0, 0, 0.64133, 0.34298, 0.64133, 0.36967, 1 ],
-					"triangles": [ 6, 1, 7, 5, 1, 6, 5, 6, 4, 6, 7, 3, 4, 6, 3, 4, 3, 0, 3, 2, 0, 3, 7, 2 ],
+					"triangles": [ 6, 7, 3, 5, 6, 4, 5, 1, 6, 6, 1, 7, 3, 7, 2, 3, 2, 0, 4, 3, 0, 4, 6, 3 ],
 					"vertices": [ 1, 62, 71.68, -2.87, 1, 1, 45, 61.19, 12.17, 1, 1, 62, 14.87, -46.61, 1, 1, 62, -24.24, 7.4, 1, 1, 62, 27.43, 54.62, 1, 1, 45, 36.51, -44.76, 1, 1, 45, -33.04, -14.62, 1, 1, 45, -13.78, 44.66, 1 ],
 					"hull": 6,
 					"edges": [ 0, 4, 2, 10, 2, 14, 4, 14, 8, 10, 8, 0, 4, 6, 6, 8, 10, 12, 12, 14 ],
@@ -474,7 +474,7 @@
 				"ears 7": {
 					"type": "mesh",
 					"uvs": [ 1, 0, 0, 1, 1, 0.41446, 0.69841, 0.40318, 0.67171, 0, 0, 0.64133, 0.34298, 0.64133, 0.36967, 1 ],
-					"triangles": [ 6, 1, 7, 5, 1, 6, 5, 6, 4, 6, 7, 3, 4, 6, 3, 4, 3, 0, 3, 2, 0, 3, 7, 2 ],
+					"triangles": [ 6, 7, 3, 5, 6, 4, 5, 1, 6, 6, 1, 7, 3, 7, 2, 3, 2, 0, 4, 3, 0, 4, 6, 3 ],
 					"vertices": [ 1, 56, 71.68, -2.87, 1, 1, 57, 61.19, 12.17, 1, 1, 56, 14.87, -46.61, 1, 1, 56, -24.24, 7.4, 1, 1, 56, 27.43, 54.62, 1, 1, 57, 36.51, -44.76, 1, 1, 57, -33.04, -14.62, 1, 1, 57, -13.78, 44.66, 1 ],
 					"hull": 6,
 					"edges": [ 0, 4, 2, 10, 2, 14, 4, 14, 8, 10, 8, 0, 4, 6, 6, 8, 10, 12, 12, 14 ],
@@ -486,7 +486,7 @@
 				"ears 8": {
 					"type": "mesh",
 					"uvs": [ 0, 0, 1, 0, 1, 1, 0.49251, 0, 0.29833, 1, 0.33395, 0, 0.26237, 0.55057, 0, 0.55983 ],
-					"triangles": [ 3, 4, 2, 6, 3, 4, 1, 3, 2, 6, 7, 4, 0, 7, 6, 0, 6, 5, 5, 6, 3 ],
+					"triangles": [ 1, 3, 2, 6, 3, 4, 3, 4, 2, 5, 6, 3, 0, 6, 5, 0, 7, 6, 6, 7, 4 ],
 					"vertices": [ 1, 59, 41.2, 0.64, 1, 1, 53, 95.95, 7.29, 1, 1, 53, 47.35, -57.51, 1, 2, 59, -9.7, -50.16, 0.01, 53, 36.68, 51.74, 0.99, 1, 53, -34.6, 3.95, 1, 1, 59, 6.69, -33.81, 1, 1, 59, -17.43, 5.14, 1, 1, 59, 9.16, 32.74, 1 ],
 					"hull": 7,
 					"edges": [ 0, 10, 2, 4, 2, 6, 4, 8, 6, 10, 8, 14, 14, 0, 6, 8, 10, 12, 12, 14 ],
@@ -498,7 +498,7 @@
 				"ears 8": {
 					"type": "mesh",
 					"uvs": [ 0, 0, 1, 0, 1, 1, 0.49251, 0, 0.29833, 1, 0.33395, 0, 0.26237, 0.55057, 0, 0.55983 ],
-					"triangles": [ 3, 4, 2, 6, 3, 4, 1, 3, 2, 6, 7, 4, 0, 7, 6, 0, 6, 5, 5, 6, 3 ],
+					"triangles": [ 1, 3, 2, 6, 3, 4, 3, 4, 2, 5, 6, 3, 0, 6, 5, 0, 7, 6, 6, 7, 4 ],
 					"vertices": [ 1, 65, 41.2, 0.64, 1, 1, 64, 95.95, 7.29, 1, 1, 64, 47.35, -57.51, 1, 2, 65, -9.7, -50.16, 0.01, 64, 36.68, 51.74, 0.99, 1, 64, -34.6, 3.95, 1, 1, 65, 6.69, -33.81, 1, 1, 65, -17.43, 5.14, 1, 1, 65, 9.16, 32.74, 1 ],
 					"hull": 7,
 					"edges": [ 0, 10, 2, 4, 2, 6, 4, 8, 6, 10, 8, 14, 14, 0, 6, 8, 10, 12, 12, 14 ],
@@ -510,7 +510,7 @@
 				"Textures/ears_1": {
 					"type": "mesh",
 					"uvs": [ 1, 1, 0.75661, 1, 0.26161, 1, 0, 1, 0, 0, 0.26687, 0, 0.73028, 0, 1, 0 ],
-					"triangles": [ 1, 6, 7, 1, 2, 6, 1, 7, 0, 2, 3, 4, 5, 2, 4, 2, 5, 6 ],
+					"triangles": [ 1, 7, 0, 1, 2, 6, 1, 6, 7, 2, 5, 6, 5, 2, 4, 2, 3, 4 ],
 					"vertices": [ 1, 72, -24.34, -34.34, 1, 1, 72, -18.08, 37.68, 1, 1, 73, -16.33, -47.58, 1, 1, 73, -19.32, 30.06, 1, 1, 73, 92.6, 34.36, 1, 1, 73, 95.65, -44.84, 1, 1, 72, 94.18, 35.77, 1, 1, 72, 87.24, -44.04, 1 ],
 					"hull": 8,
 					"edges": [ 6, 8, 0, 14, 8, 10, 4, 6, 10, 4, 10, 12, 12, 14, 0, 2, 2, 4, 12, 2 ],
@@ -522,7 +522,7 @@
 				"Textures/ears_2": {
 					"type": "mesh",
 					"uvs": [ 1, 0.36825, 1, 1, 0.44294, 1, 0, 0.45515, 0, 0, 0.41428, 0, 0.45728, 0.64632, 0.37129, 0.36826 ],
-					"triangles": [ 7, 4, 5, 7, 5, 0, 3, 4, 7, 6, 3, 7, 6, 7, 0, 2, 3, 6, 6, 0, 1, 2, 6, 1 ],
+					"triangles": [ 6, 3, 7, 3, 4, 7, 7, 5, 0, 7, 4, 5, 2, 6, 1, 6, 0, 1, 2, 3, 6, 6, 7, 0 ],
 					"vertices": [ 2, 82, 115.46, 35.47, 0.95135, 83, 119, -159.26, 0.04865, 1, 82, 57.85, -58.15, 1, 2, 82, -42.26, 3.46, 0.92212, 83, -41.53, -147.92, 0.07788, 2, 82, -72.17, 133.18, 0.07084, 83, -35.66, -14.93, 0.92916, 1, 83, 22.38, 38.96, 1, 1, 83, 81.86, -25.09, 1, 1, 82, -7.43, 54.28, 1, 1, 83, 28.73, -62.05, 1 ],
 					"hull": 6,
 					"edges": [ 2, 4, 4, 12, 2, 0, 12, 0, 6, 8, 6, 14, 8, 10, 14, 10, 10, 0, 4, 6 ],
@@ -534,7 +534,7 @@
 				"Textures/ears_3": {
 					"type": "mesh",
 					"uvs": [ 1, 0.37686, 1, 1, 0.21088, 1, 0, 0.40787, 0, 0, 0.58933, 0, 0.22082, 0.57802, 0.57853, 0.322, 0.24491, 0.40221, 0.58933, 0.16451 ],
-					"triangles": [ 6, 3, 8, 3, 4, 8, 7, 8, 9, 5, 9, 8, 8, 4, 5, 0, 9, 5, 6, 8, 7, 2, 3, 6, 1, 2, 7, 2, 6, 7, 7, 0, 1, 7, 9, 0 ],
+					"triangles": [ 0, 9, 5, 8, 4, 5, 5, 9, 8, 7, 8, 9, 3, 4, 8, 6, 3, 8, 7, 9, 0, 7, 0, 1, 2, 6, 7, 1, 2, 7, 2, 3, 6, 6, 8, 7 ],
 					"vertices": [ 2, 95, 115.57, 28.14, 0.96512, 96, 140.84, -49.93, 0.03488, 1, 95, 109.17, -30.52, 1, 1, 95, -26.67, -16.94, 1, 1, 96, -12.31, -9.3, 1, 1, 96, -4.6, 28.26, 1, 1, 96, 95.27, 7.77, 1, 1, 95, -21.01, 22.36, 1, 1, 95, 42.96, 40.15, 1, 1, 96, 29.31, -17.29, 1, 1, 96, 92.16, -7.38, 1 ],
 					"hull": 6,
 					"edges": [ 2, 4, 4, 12, 12, 14, 2, 0, 14, 0, 6, 8, 6, 16, 16, 18, 8, 10, 18, 10, 10, 0, 4, 6 ],
@@ -546,7 +546,7 @@
 				"Textures/ears_4": {
 					"type": "mesh",
 					"uvs": [ 1, 0.58259, 0.54673, 1, 0, 1, 0, 0.41862, 0.49805, 0, 1, 0, 0.49805, 0.37391, 0.32283, 0.40372 ],
-					"triangles": [ 7, 6, 1, 2, 7, 1, 2, 3, 7, 7, 3, 4, 1, 6, 0, 0, 6, 5, 6, 4, 5, 6, 7, 4 ],
+					"triangles": [ 7, 3, 4, 2, 3, 7, 2, 7, 1, 7, 6, 1, 6, 7, 4, 6, 4, 5, 0, 6, 5, 1, 6, 0 ],
 					"vertices": [ 2, 100, 94.19, -21.15, 0.97123, 99, 183.87, 77.12, 0.02877, 2, 100, 16.51, -91.64, 0.23227, 99, 109.63, 3.02, 0.76773, 1, 99, 9.27, -45.32, 1, 2, 100, -119.15, -69.73, 0.03081, 99, -26.92, 18.45, 0.96919, 2, 100, -29.39, 1.59, 0.90853, 99, 59.35, 93.95, 0.09147, 1, 100, 60.94, 44.45, 1, 2, 100, -6.01, -42.07, 0.95504, 99, 84.78, 51.45, 0.04496, 1, 99, 25.93, 52.41, 1 ],
 					"hull": 6,
 					"edges": [ 8, 10, 8, 12, 0, 10, 12, 0, 4, 6, 6, 14, 2, 4, 14, 2, 0, 2, 6, 8 ],
@@ -558,7 +558,7 @@
 				"Textures/ears_5": {
 					"type": "mesh",
 					"uvs": [ 1, 1, 0.71981, 1, 0.3208, 1, 0, 1, 0, 0, 0.3208, 0, 0.7008, 0, 1, 0 ],
-					"triangles": [ 3, 4, 5, 2, 5, 6, 3, 5, 2, 1, 6, 7, 2, 6, 1, 1, 7, 0 ],
+					"triangles": [ 3, 5, 2, 2, 5, 6, 3, 4, 5, 1, 7, 0, 2, 6, 1, 1, 6, 7 ],
 					"vertices": [ 1, 112, 76.63, 22.73, 1, 2, 112, 69.46, -44.13, 0.94236, 113, 68.7, 148.38, 0.05764, 2, 112, 59.26, -139.35, 0.07753, 113, 72, 52.67, 0.92247, 1, 113, 74.65, -24.27, 1, 1, 113, -18.29, -27.48, 1, 1, 113, -20.95, 49.47, 1, 1, 112, -23.49, -38.76, 1, 1, 112, -15.84, 32.64, 1 ],
 					"hull": 8,
 					"edges": [ 6, 8, 0, 14, 12, 14, 0, 2, 12, 2, 8, 10, 10, 12, 2, 4, 4, 6, 10, 4 ],
@@ -835,7 +835,7 @@
 					"type": "mesh",
 					"path": "Textures/pegs back_1",
 					"uvs": [ 1, 1, 0.74297, 1, 0.28038, 1, 0, 1, 0, 0, 0.27304, 0, 0.7136, 0, 1, 0 ],
-					"triangles": [ 1, 7, 0, 2, 6, 1, 1, 6, 7, 3, 5, 2, 2, 5, 6, 3, 4, 5 ],
+					"triangles": [ 1, 6, 7, 2, 6, 1, 1, 7, 0, 3, 4, 5, 2, 5, 6, 3, 5, 2 ],
 					"vertices": [ 1, 76, 0.11, -16.37, 1, 1, 76, 15.84, 36.07, 1, 1, 77, 11.08, -50.78, 1, 1, 77, -8.46, 5.65, 1, 1, 77, 64.31, 30.84, 1, 1, 77, 83.33, -24.12, 1, 1, 76, 91.39, 19.94, 1, 1, 76, 73.86, -38.49, 1 ],
 					"hull": 8,
 					"edges": [ 6, 8, 0, 14, 4, 6, 8, 10, 4, 10, 0, 2, 2, 4, 10, 12, 12, 14, 2, 12 ],
@@ -847,7 +847,7 @@
 				"Textures/pegs back_4": {
 					"type": "mesh",
 					"uvs": [ 1, 0.53007, 0.70699, 1, 0, 1, 0, 0.3645, 0.32539, 0, 1, 0, 0.74808, 0.79813 ],
-					"triangles": [ 4, 5, 0, 6, 4, 0, 3, 4, 6, 2, 3, 6, 1, 2, 6, 1, 6, 0 ],
+					"triangles": [ 6, 4, 0, 4, 5, 0, 1, 6, 0, 1, 2, 6, 2, 3, 6, 3, 4, 6 ],
 					"vertices": [ 1, 101, 182.21, -30.81, 1, 2, 102, 250.56, -0.73, 0.92552, 101, 157.12, -177.01, 0.07448, 1, 102, 46.41, -106.17, 1, 2, 102, -24.16, 30.47, 0.95604, 101, -118.82, -159.68, 0.04396, 1, 101, -71.8, -30.25, 1, 1, 101, 117.68, 80.05, 1, 1, 102, 240.01, 48.8, 1 ],
 					"hull": 6,
 					"edges": [ 4, 6, 6, 12, 2, 4, 12, 2, 8, 10, 0, 10, 8, 0, 0, 2, 6, 8 ],
@@ -859,7 +859,7 @@
 				"Textures/pegs front_5": {
 					"type": "mesh",
 					"uvs": [ 1, 1, 0.65577, 1, 0.36063, 1, 0, 1, 0, 0, 0.24995, 0, 0.72956, 0, 1, 0 ],
-					"triangles": [ 3, 4, 5, 2, 5, 6, 3, 5, 2, 1, 2, 6, 6, 7, 0, 1, 6, 0 ],
+					"triangles": [ 3, 5, 2, 2, 5, 6, 3, 4, 5, 1, 6, 0, 6, 7, 0, 1, 2, 6 ],
 					"vertices": [ 1, 109, -0.06, -47.99, 1, 2, 109, -20.52, 56.38, 0.79509, 110, -54.67, -150.58, 0.20491, 2, 109, -38.07, 145.88, 0.2492, 110, -31.08, -62.49, 0.7508, 1, 110, -2.24, 45.15, 1, 2, 109, 72.96, 281.21, 0, 110, 128.16, 10.22, 1, 2, 109, 87.83, 205.42, 0.12507, 110, 108.18, -64.38, 0.87493, 2, 109, 116.34, 59.99, 0.8744, 110, 69.83, -207.53, 0.1256, 1, 109, 132.42, -22.02, 1 ],
 					"hull": 8,
 					"edges": [ 6, 8, 0, 14, 12, 14, 0, 2, 12, 2, 8, 10, 10, 12, 2, 4, 4, 6, 10, 4 ],
@@ -871,7 +871,7 @@
 				"Textures/pegs_3": {
 					"type": "mesh",
 					"uvs": [ 1, 1, 0.76249, 1, 0.25387, 1, 0, 1, 0, 0, 0.25816, 0, 0.76249, 0, 1, 0 ],
-					"triangles": [ 2, 3, 4, 5, 2, 4, 2, 5, 1, 1, 6, 7, 5, 6, 1, 1, 7, 0 ],
+					"triangles": [ 2, 5, 1, 5, 2, 4, 2, 3, 4, 1, 7, 0, 5, 6, 1, 1, 6, 7 ],
 					"vertices": [ 1, 91, 167.97, -38.28, 1, 2, 91, -22.2, -43.85, 0.98334, 92, -418, 50.25, 0.01666, 2, 91, -426.12, -64.96, 0.00637, 92, -14.57, 21.17, 0.99363, 1, 92, 188.68, 27.08, 1, 1, 92, 190.61, -39.89, 1, 2, 91, -432.86, 1.83, 0.01209, 92, -16.16, -45.94, 0.98791, 2, 91, -24.52, 23.01, 0.98561, 92, -423.97, -16.38, 0.01439, 1, 91, 165.76, 28.69, 1 ],
 					"hull": 8,
 					"edges": [ 6, 8, 0, 14, 12, 14, 0, 2, 12, 2, 8, 10, 10, 12, 2, 4, 4, 6, 10, 4 ],
@@ -886,7 +886,7 @@
 				"Textures/pegs_back_5": {
 					"type": "mesh",
 					"uvs": [ 1, 1, 0.72771, 1, 0.24233, 1, 0, 1, 0, 0, 0.25511, 0, 0.70217, 0, 1, 0 ],
-					"triangles": [ 1, 6, 7, 1, 2, 6, 1, 7, 0, 2, 3, 4, 5, 2, 4, 2, 5, 6 ],
+					"triangles": [ 1, 7, 0, 1, 2, 6, 1, 6, 7, 2, 5, 6, 5, 2, 4, 2, 3, 4 ],
 					"vertices": [ 1, 108, 168.35, 19.89, 1, 2, 107, 134.24, 232.85, 0.13156, 108, 145.78, -74.66, 0.86844, 2, 107, 153.37, 60.63, 0.88485, 108, 105.53, -243.2, 0.11515, 1, 107, 162.93, -25.36, 1, 1, 107, -5.04, -44.02, 1, 2, 107, -15.1, 46.5, 0.8896, 108, -57.79, -199.51, 0.1104, 2, 107, -32.72, 205.12, 0.11926, 108, -20.72, -44.28, 0.88074, 1, 108, 3.98, 59.14, 1 ],
 					"hull": 8,
 					"edges": [ 6, 8, 0, 14, 8, 10, 4, 6, 10, 4, 10, 12, 12, 14, 0, 2, 2, 4, 12, 2 ],
@@ -898,7 +898,7 @@
 				"Textures/pegs_front_1": {
 					"type": "mesh",
 					"uvs": [ 1, 0.58416, 1, 1, 0.85895, 1, 0.15113, 1, 0, 1, 0, 0.54692, 0.14804, 0, 0.29022, 0, 0.69204, 0, 0.82186, 0 ],
-					"triangles": [ 2, 0, 1, 2, 3, 8, 8, 9, 2, 2, 9, 0, 3, 7, 8, 3, 5, 6, 3, 6, 7, 3, 4, 5 ],
+					"triangles": [ 2, 9, 0, 8, 9, 2, 2, 3, 8, 2, 0, 1, 3, 4, 5, 3, 6, 7, 3, 5, 6, 3, 7, 8 ],
 					"vertices": [ 1, 74, 131.33, 47.67, 1, 1, 74, 188.93, 8.14, 1, 1, 74, 148.56, -50.71, 1, 1, 75, 136.55, 56.82, 1, 2, 75, 175.36, -9.08, 1, 74, -97.32, -409.1, 0, 1, 75, 109.77, -47.7, 1, 1, 75, -7.42, -29.78, 1, 1, 75, -43.93, 32.21, 1, 1, 74, -37.75, -25.31, 1, 1, 74, -0.59, 28.86, 1 ],
 					"hull": 10,
 					"edges": [ 6, 8, 14, 6, 12, 14, 8, 10, 12, 10, 14, 16, 2, 4, 4, 6, 16, 4, 16, 18, 2, 0, 18, 0 ],
@@ -910,7 +910,7 @@
 				"Textures/pegs_front_2": {
 					"type": "mesh",
 					"uvs": [ 0.68076, 0.48576, 0.75529, 0.82681, 0.54233, 1, 0.3347, 1, 0, 0.45166, 0, 0, 0.37729, 0, 0.29211, 0.71313, 0.39326, 0.2925 ],
-					"triangles": [ 0, 8, 6, 8, 5, 6, 8, 4, 5, 7, 4, 8, 1, 2, 0, 0, 2, 7, 2, 3, 7, 7, 8, 0, 4, 7, 3 ],
+					"triangles": [ 7, 4, 8, 8, 4, 5, 8, 5, 6, 0, 8, 6, 4, 7, 3, 7, 8, 0, 2, 3, 7, 0, 2, 7, 1, 2, 0 ],
 					"vertices": [ 2, 86, -44.9, -27.97, 0.98299, 87, -208.67, 168.86, 0.01701, 1, 86, -41.23, 72.08, 1, 1, 86, 87.44, 57.94, 1, 2, 86, 192.4, 4.17, 0.93782, 87, 18.59, 244.35, 0.06218, 1, 87, 159.58, 50.6, 1, 2, 86, 240.35, -319.24, 3.0E-5, 87, 125.54, -64.62, 0.99997, 1, 87, -79.98, -3.89, 1, 1, 86, 179.15, -74.77, 1, 1, 87, -66.64, 73.29, 1 ],
 					"hull": 7,
 					"edges": [ 6, 14, 14, 0, 0, 2, 4, 6, 2, 4, 8, 10, 8, 16, 10, 12, 16, 12, 6, 8, 12, 0 ],
@@ -922,7 +922,7 @@
 				"Textures/pegs_front_4": {
 					"type": "mesh",
 					"uvs": [ 0.74708, 0.17356, 0.29658, 0.617, 0, 0.54784, 0, 0.29154, 0.46552, 0, 0.7007, 0, 0.58808, 0.21831, 0.34627, 0.49088 ],
-					"triangles": [ 7, 3, 4, 2, 3, 7, 1, 2, 7, 0, 1, 7, 6, 4, 5, 6, 5, 0, 7, 4, 6, 0, 7, 6 ],
+					"triangles": [ 0, 1, 7, 1, 2, 7, 2, 3, 7, 7, 3, 4, 0, 7, 6, 7, 4, 6, 6, 5, 0, 6, 4, 5 ],
 					"vertices": [ 1, 104, -17.33, -45.09, 1, 2, 104, -67.04, 283.72, 0.00639, 103, -32.09, 19.66, 0.99361, 1, 103, 133.94, 71.32, 1, 2, 104, 150.7, 354.91, 0.00685, 103, 190.44, -34.78, 0.99315, 2, 104, 134.45, 54.36, 0.8894, 103, 18.03, -281.49, 0.1106, 1, 104, 66.49, -62.82, 1, 2, 104, 10.46, 44.66, 0.9245, 103, -92.41, -224.3, 0.0755, 2, 104, -30.24, 229.28, 0.12966, 103, -29.55, -46, 0.87034 ],
 					"hull": 6,
 					"edges": [ 8, 12, 12, 0, 8, 10, 0, 10, 6, 14, 14, 2, 4, 6, 2, 4, 6, 8, 0, 2 ],
@@ -1484,6 +1484,117 @@
 					"width": 90,
 					"height": 86
 				}
+			},
+			"blob_1": {
+				"color1": {
+					"name": "Textures/blob_2",
+					"path": "Textures/blob_1",
+					"color": "e35241ff",
+					"x": -0.51,
+					"y": -22.54,
+					"width": 538,
+					"height": 622
+				}
+			},
+			"blob_2": {
+				"color2": {
+					"name": "Textures/blob_2",
+					"type": "linkedmesh",
+					"color": "e35241ff",
+					"skin": "Player1",
+					"parent": "color2",
+					"width": 599,
+					"height": 578
+				}
+			},
+			"blob_3": {
+				"color3": {
+					"name": "Textures/blob_2",
+					"type": "linkedmesh",
+					"color": "e35241ff",
+					"skin": "Player1",
+					"parent": "color3",
+					"width": 599,
+					"height": 578
+				}
+			},
+			"blob_4": {
+				"color4": {
+					"name": "Textures/blob_2",
+					"type": "linkedmesh",
+					"color": "e35241ff",
+					"skin": "Player1",
+					"parent": "color4",
+					"width": 599,
+					"height": 578
+				}
+			},
+			"blob_5": {
+				"color5": {
+					"name": "Textures/blob_2",
+					"type": "linkedmesh",
+					"color": "e35241ff",
+					"skin": "Player1",
+					"parent": "color5",
+					"width": 599,
+					"height": 578
+				}
+			},
+			"tail_base_1": {
+				"tailcolor1": {
+					"name": "Textures/tail_base_2",
+					"path": "Textures/tail_base_1",
+					"color": "e35241ff",
+					"x": 28.04,
+					"y": 2.43,
+					"rotation": -94.4,
+					"width": 87,
+					"height": 61
+				}
+			},
+			"tail_base_2": {
+				"tailcolor2": {
+					"name": "Textures/tail_base_2",
+					"color": "e35241ff",
+					"x": 37.34,
+					"y": -0.97,
+					"rotation": -46.64,
+					"width": 87,
+					"height": 82
+				}
+			},
+			"tail_base_3": {
+				"tailcolor3": {
+					"name": "Textures/tail_base_2",
+					"color": "e35241ff",
+					"x": 42.33,
+					"y": -3.18,
+					"rotation": 1.43,
+					"width": 87,
+					"height": 82
+				}
+			},
+			"tail_base_4": {
+				"tailcolor4": {
+					"name": "Textures/tail_base_2",
+					"color": "e35241ff",
+					"x": 34.41,
+					"y": 1.38,
+					"rotation": 21.8,
+					"width": 87,
+					"height": 82
+				}
+			},
+			"tail_base_5": {
+				"tailcolor5": {
+					"name": "Textures/tail_base_2",
+					"color": "e35241ff",
+					"x": 32.45,
+					"y": 1.52,
+					"rotation": 86.05,
+					"width": 87,
+					"height": 82
+				}
 			}
 		}
 	},
@@ -1678,6 +1789,119 @@
 					"x": 29.33,
 					"y": -5.22,
 					"rotation": -2.11,
+					"width": 90,
+					"height": 86
+				}
+			},
+			"blob_1": {
+				"color1": {
+					"name": "Textures/blob_3",
+					"path": "Textures/blob_1",
+					"color": "f4a250ff",
+					"x": -0.51,
+					"y": -22.54,
+					"width": 538,
+					"height": 622
+				}
+			},
+			"blob_2": {
+				"color2": {
+					"name": "Textures/blob_3",
+					"type": "linkedmesh",
+					"path": "Textures/blob_2",
+					"color": "f4a250ff",
+					"skin": "Player1",
+					"parent": "color2",
+					"width": 599,
+					"height": 578
+				}
+			},
+			"blob_3": {
+				"color3": {
+					"name": "Textures/blob_3",
+					"type": "linkedmesh",
+					"color": "f4a250ff",
+					"skin": "Player1",
+					"parent": "color3",
+					"width": 599,
+					"height": 545
+				}
+			},
+			"blob_4": {
+				"color4": {
+					"name": "Textures/blob_3",
+					"type": "linkedmesh",
+					"color": "f4a250ff",
+					"skin": "Player1",
+					"parent": "color4",
+					"width": 599,
+					"height": 545
+				}
+			},
+			"blob_5": {
+				"color5": {
+					"name": "Textures/blob_3",
+					"type": "linkedmesh",
+					"color": "f4a250ff",
+					"skin": "Player1",
+					"parent": "color5",
+					"width": 599,
+					"height": 545
+				}
+			},
+			"tail_base_1": {
+				"tailcolor1": {
+					"name": "Textures/tail_base_3",
+					"path": "Textures/tail_base_1",
+					"color": "f4a250ff",
+					"x": 28.04,
+					"y": 2.43,
+					"rotation": -94.4,
+					"width": 87,
+					"height": 61
+				}
+			},
+			"tail_base_2": {
+				"tailcolor2": {
+					"name": "Textures/tail_base_3",
+					"path": "Textures/tail_base_2",
+					"color": "f4a250ff",
+					"x": 37.34,
+					"y": -0.97,
+					"rotation": -46.64,
+					"width": 87,
+					"height": 82
+				}
+			},
+			"tail_base_3": {
+				"tailcolor3": {
+					"name": "Textures/tail_base_3",
+					"color": "f4a250ff",
+					"x": 42.33,
+					"y": -3.18,
+					"rotation": 1.43,
+					"width": 90,
+					"height": 86
+				}
+			},
+			"tail_base_4": {
+				"tailcolor4": {
+					"name": "Textures/tail_base_3",
+					"color": "f4a250ff",
+					"x": 34.41,
+					"y": 1.38,
+					"rotation": 21.8,
+					"width": 90,
+					"height": 86
+				}
+			},
+			"tail_base_5": {
+				"tailcolor5": {
+					"name": "Textures/tail_base_3",
+					"color": "f4a250ff",
+					"x": 32.45,
+					"y": 1.52,
+					"rotation": 86.05,
 					"width": 90,
 					"height": 86
 				}
@@ -1878,6 +2102,121 @@
 					"width": 90,
 					"height": 86
 				}
+			},
+			"blob_1": {
+				"color1": {
+					"name": "Textures/blob_4",
+					"path": "Textures/blob_1",
+					"color": "ac81eaff",
+					"x": -0.51,
+					"y": -22.54,
+					"width": 538,
+					"height": 622
+				}
+			},
+			"blob_2": {
+				"color2": {
+					"name": "Textures/blob_4",
+					"type": "linkedmesh",
+					"path": "Textures/blob_2",
+					"color": "ac81eaff",
+					"skin": "Player1",
+					"parent": "color2",
+					"width": 599,
+					"height": 578
+				}
+			},
+			"blob_3": {
+				"color3": {
+					"name": "Textures/blob_4",
+					"type": "linkedmesh",
+					"path": "Textures/blob_3",
+					"color": "ac81eaff",
+					"skin": "Player1",
+					"parent": "color3",
+					"width": 599,
+					"height": 545
+				}
+			},
+			"blob_4": {
+				"color4": {
+					"name": "Textures/blob_4",
+					"type": "linkedmesh",
+					"color": "ac81eaff",
+					"skin": "Player1",
+					"parent": "color4",
+					"width": 591,
+					"height": 559
+				}
+			},
+			"blob_5": {
+				"color5": {
+					"name": "Textures/blob_4",
+					"type": "linkedmesh",
+					"color": "ac81eaff",
+					"skin": "Player1",
+					"parent": "color5",
+					"width": 591,
+					"height": 559
+				}
+			},
+			"tail_base_1": {
+				"tailcolor1": {
+					"name": "Textures/tail_base_4",
+					"path": "Textures/tail_base_1",
+					"color": "ac81eaff",
+					"x": 28.04,
+					"y": 2.43,
+					"rotation": -94.4,
+					"width": 87,
+					"height": 61
+				}
+			},
+			"tail_base_2": {
+				"tailcolor2": {
+					"name": "Textures/tail_base_4",
+					"path": "Textures/tail_base_2",
+					"color": "ac81eaff",
+					"x": 37.34,
+					"y": -0.97,
+					"rotation": -46.64,
+					"width": 87,
+					"height": 82
+				}
+			},
+			"tail_base_3": {
+				"tailcolor3": {
+					"name": "Textures/tail_base_4",
+					"path": "Textures/tail_base_3",
+					"color": "ac81eaff",
+					"x": 42.33,
+					"y": -3.18,
+					"rotation": 1.43,
+					"width": 90,
+					"height": 86
+				}
+			},
+			"tail_base_4": {
+				"tailcolor4": {
+					"name": "Textures/tail_base_4",
+					"color": "ac81eaff",
+					"x": 34.41,
+					"y": 1.38,
+					"rotation": 21.8,
+					"width": 94,
+					"height": 89
+				}
+			},
+			"tail_base_5": {
+				"tailcolor5": {
+					"name": "Textures/tail_base_4",
+					"color": "ac81eaff",
+					"x": 32.45,
+					"y": 1.52,
+					"rotation": 86.05,
+					"width": 94,
+					"height": 89
+				}
 			}
 		}
 	},
@@ -2074,6 +2413,123 @@
 					"rotation": -2.11,
 					"width": 90,
 					"height": 86
+				}
+			},
+			"blob_1": {
+				"color1": {
+					"name": "Textures/blob_5",
+					"path": "Textures/blob_1",
+					"color": "eacc4aff",
+					"x": -0.51,
+					"y": -22.54,
+					"width": 538,
+					"height": 622
+				}
+			},
+			"blob_2": {
+				"color2": {
+					"name": "Textures/blob_5",
+					"type": "linkedmesh",
+					"path": "Textures/blob_2",
+					"color": "eacc4aff",
+					"skin": "Player1",
+					"parent": "color2",
+					"width": 599,
+					"height": 578
+				}
+			},
+			"blob_3": {
+				"color3": {
+					"name": "Textures/blob_5",
+					"type": "linkedmesh",
+					"path": "Textures/blob_3",
+					"color": "eacc4aff",
+					"skin": "Player1",
+					"parent": "color3",
+					"width": 599,
+					"height": 545
+				}
+			},
+			"blob_4": {
+				"color4": {
+					"name": "Textures/blob_5",
+					"type": "linkedmesh",
+					"path": "Textures/blob_4",
+					"color": "eacc4aff",
+					"skin": "Player1",
+					"parent": "color4",
+					"width": 591,
+					"height": 559
+				}
+			},
+			"blob_5": {
+				"color5": {
+					"name": "Textures/blob_5",
+					"type": "linkedmesh",
+					"color": "eacc4aff",
+					"skin": "Player1",
+					"parent": "color5",
+					"width": 513,
+					"height": 580
+				}
+			},
+			"tail_base_1": {
+				"tailcolor1": {
+					"name": "Textures/tail_base_5",
+					"path": "Textures/tail_base_1",
+					"color": "eacc4aff",
+					"x": 28.04,
+					"y": 2.43,
+					"rotation": -94.4,
+					"width": 87,
+					"height": 61
+				}
+			},
+			"tail_base_2": {
+				"tailcolor2": {
+					"name": "Textures/tail_base_5",
+					"path": "Textures/tail_base_2",
+					"color": "eacc4aff",
+					"x": 37.34,
+					"y": -0.97,
+					"rotation": -46.64,
+					"width": 87,
+					"height": 82
+				}
+			},
+			"tail_base_3": {
+				"tailcolor3": {
+					"name": "Textures/tail_base_5",
+					"path": "Textures/tail_base_3",
+					"color": "eacc4aff",
+					"x": 42.33,
+					"y": -3.18,
+					"rotation": 1.43,
+					"width": 90,
+					"height": 86
+				}
+			},
+			"tail_base_4": {
+				"tailcolor4": {
+					"name": "Textures/tail_base_5",
+					"path": "Textures/tail_base_4",
+					"color": "eacc4aff",
+					"x": 34.41,
+					"y": 1.38,
+					"rotation": 21.8,
+					"width": 94,
+					"height": 89
+				}
+			},
+			"tail_base_5": {
+				"tailcolor5": {
+					"name": "Textures/tail_base_5",
+					"color": "eacc4aff",
+					"x": 32.45,
+					"y": 1.52,
+					"rotation": 86.05,
+					"width": 113,
+					"height": 107
 				}
 			}
 		}
@@ -2272,6 +2728,125 @@
 					"width": 90,
 					"height": 86
 				}
+			},
+			"blob_1": {
+				"color1": {
+					"name": "Textures/blob_6",
+					"path": "Textures/blob_1",
+					"color": "ef8fd7ff",
+					"x": -0.51,
+					"y": -22.54,
+					"width": 538,
+					"height": 622
+				}
+			},
+			"blob_2": {
+				"color2": {
+					"name": "Textures/blob_6",
+					"type": "linkedmesh",
+					"path": "Textures/blob_2",
+					"color": "ef8fd7ff",
+					"skin": "Player1",
+					"parent": "color2",
+					"width": 599,
+					"height": 578
+				}
+			},
+			"blob_3": {
+				"color3": {
+					"name": "Textures/blob_6",
+					"type": "linkedmesh",
+					"path": "Textures/blob_3",
+					"color": "ef8fd7ff",
+					"skin": "Player1",
+					"parent": "color3",
+					"width": 599,
+					"height": 545
+				}
+			},
+			"blob_4": {
+				"color4": {
+					"name": "Textures/blob_6",
+					"type": "linkedmesh",
+					"path": "Textures/blob_4",
+					"color": "ef8fd7ff",
+					"skin": "Player1",
+					"parent": "color4",
+					"width": 591,
+					"height": 559
+				}
+			},
+			"blob_5": {
+				"color5": {
+					"name": "Textures/blob_6",
+					"type": "linkedmesh",
+					"path": "Textures/blob_5",
+					"color": "ef8fd7ff",
+					"skin": "Player1",
+					"parent": "color5",
+					"width": 513,
+					"height": 580
+				}
+			},
+			"tail_base_1": {
+				"tailcolor1": {
+					"name": "Textures/tail_base_6",
+					"path": "Textures/tail_base_1",
+					"color": "ef8fd7ff",
+					"x": 28.04,
+					"y": 2.43,
+					"rotation": -94.4,
+					"width": 87,
+					"height": 61
+				}
+			},
+			"tail_base_2": {
+				"tailcolor2": {
+					"name": "Textures/tail_base_6",
+					"path": "Textures/tail_base_2",
+					"color": "ef8fd7ff",
+					"x": 37.34,
+					"y": -0.97,
+					"rotation": -46.64,
+					"width": 87,
+					"height": 82
+				}
+			},
+			"tail_base_3": {
+				"tailcolor3": {
+					"name": "Textures/tail_base_6",
+					"path": "Textures/tail_base_3",
+					"color": "ef8fd7ff",
+					"x": 42.33,
+					"y": -3.18,
+					"rotation": 1.43,
+					"width": 90,
+					"height": 86
+				}
+			},
+			"tail_base_4": {
+				"tailcolor4": {
+					"name": "Textures/tail_base_6",
+					"path": "Textures/tail_base_4",
+					"color": "ef8fd7ff",
+					"x": 34.41,
+					"y": 1.38,
+					"rotation": 21.8,
+					"width": 94,
+					"height": 89
+				}
+			},
+			"tail_base_5": {
+				"tailcolor5": {
+					"name": "Textures/tail_base_6",
+					"path": "Textures/tail_base_5",
+					"color": "ef8fd7ff",
+					"x": 32.45,
+					"y": 1.52,
+					"rotation": 86.05,
+					"width": 113,
+					"height": 107
+				}
 			}
 		}
 	},
@@ -2469,6 +3044,125 @@
 					"width": 90,
 					"height": 86
 				}
+			},
+			"blob_1": {
+				"color1": {
+					"name": "Textures/blob_7",
+					"path": "Textures/blob_1",
+					"color": "41e7deff",
+					"x": -0.51,
+					"y": -22.54,
+					"width": 538,
+					"height": 622
+				}
+			},
+			"blob_2": {
+				"color2": {
+					"name": "Textures/blob_7",
+					"type": "linkedmesh",
+					"path": "Textures/blob_2",
+					"color": "41e7deff",
+					"skin": "Player1",
+					"parent": "color2",
+					"width": 599,
+					"height": 578
+				}
+			},
+			"blob_3": {
+				"color3": {
+					"name": "Textures/blob_7",
+					"type": "linkedmesh",
+					"path": "Textures/blob_3",
+					"color": "41e7deff",
+					"skin": "Player1",
+					"parent": "color3",
+					"width": 599,
+					"height": 545
+				}
+			},
+			"blob_4": {
+				"color4": {
+					"name": "Textures/blob_7",
+					"type": "linkedmesh",
+					"path": "Textures/blob_4",
+					"color": "41e7deff",
+					"skin": "Player1",
+					"parent": "color4",
+					"width": 591,
+					"height": 559
+				}
+			},
+			"blob_5": {
+				"color5": {
+					"name": "Textures/blob_7",
+					"type": "linkedmesh",
+					"path": "Textures/blob_5",
+					"color": "41e7deff",
+					"skin": "Player1",
+					"parent": "color5",
+					"width": 513,
+					"height": 580
+				}
+			},
+			"tail_base_1": {
+				"tailcolor1": {
+					"name": "Textures/tail_base_7",
+					"path": "Textures/tail_base_1",
+					"color": "41e7deff",
+					"x": 28.04,
+					"y": 2.43,
+					"rotation": -94.4,
+					"width": 87,
+					"height": 61
+				}
+			},
+			"tail_base_2": {
+				"tailcolor2": {
+					"name": "Textures/tail_base_7",
+					"path": "Textures/tail_base_2",
+					"color": "41e7deff",
+					"x": 37.34,
+					"y": -0.97,
+					"rotation": -46.64,
+					"width": 87,
+					"height": 82
+				}
+			},
+			"tail_base_3": {
+				"tailcolor3": {
+					"name": "Textures/tail_base_7",
+					"path": "Textures/tail_base_3",
+					"color": "41e7deff",
+					"x": 42.33,
+					"y": -3.18,
+					"rotation": 1.43,
+					"width": 90,
+					"height": 86
+				}
+			},
+			"tail_base_4": {
+				"tailcolor4": {
+					"name": "Textures/tail_base_7",
+					"path": "Textures/tail_base_4",
+					"color": "41e7deff",
+					"x": 34.41,
+					"y": 1.38,
+					"rotation": 21.8,
+					"width": 94,
+					"height": 89
+				}
+			},
+			"tail_base_5": {
+				"tailcolor5": {
+					"name": "Textures/tail_base_7",
+					"path": "Textures/tail_base_5",
+					"color": "41e7deff",
+					"x": 32.45,
+					"y": 1.52,
+					"rotation": 86.05,
+					"width": 113,
+					"height": 107
+				}
 			}
 		}
 	},
@@ -2665,6 +3359,125 @@
 					"rotation": -2.11,
 					"width": 90,
 					"height": 86
+				}
+			},
+			"blob_1": {
+				"color1": {
+					"name": "Textures/blob_8",
+					"path": "Textures/blob_1",
+					"color": "449951ff",
+					"x": -0.51,
+					"y": -22.54,
+					"width": 538,
+					"height": 622
+				}
+			},
+			"blob_2": {
+				"color2": {
+					"name": "Textures/blob_8",
+					"type": "linkedmesh",
+					"path": "Textures/blob_2",
+					"color": "449951ff",
+					"skin": "Player1",
+					"parent": "color2",
+					"width": 599,
+					"height": 578
+				}
+			},
+			"blob_3": {
+				"color3": {
+					"name": "Textures/blob_8",
+					"type": "linkedmesh",
+					"path": "Textures/blob_3",
+					"color": "449951ff",
+					"skin": "Player1",
+					"parent": "color3",
+					"width": 599,
+					"height": 545
+				}
+			},
+			"blob_4": {
+				"color4": {
+					"name": "Textures/blob_8",
+					"type": "linkedmesh",
+					"path": "Textures/blob_4",
+					"color": "449951ff",
+					"skin": "Player1",
+					"parent": "color4",
+					"width": 591,
+					"height": 559
+				}
+			},
+			"blob_5": {
+				"color5": {
+					"name": "Textures/blob_8",
+					"type": "linkedmesh",
+					"path": "Textures/blob_5",
+					"color": "449951ff",
+					"skin": "Player1",
+					"parent": "color5",
+					"width": 513,
+					"height": 580
+				}
+			},
+			"tail_base_1": {
+				"tailcolor1": {
+					"name": "Textures/tail_base_8",
+					"path": "Textures/tail_base_1",
+					"color": "449951ff",
+					"x": 28.04,
+					"y": 2.43,
+					"rotation": -94.4,
+					"width": 87,
+					"height": 61
+				}
+			},
+			"tail_base_2": {
+				"tailcolor2": {
+					"name": "Textures/tail_base_8",
+					"path": "Textures/tail_base_2",
+					"color": "449951ff",
+					"x": 37.34,
+					"y": -0.97,
+					"rotation": -46.64,
+					"width": 87,
+					"height": 82
+				}
+			},
+			"tail_base_3": {
+				"tailcolor3": {
+					"name": "Textures/tail_base_8",
+					"path": "Textures/tail_base_3",
+					"color": "449951ff",
+					"x": 42.33,
+					"y": -3.18,
+					"rotation": 1.43,
+					"width": 90,
+					"height": 86
+				}
+			},
+			"tail_base_4": {
+				"tailcolor4": {
+					"name": "Textures/tail_base_8",
+					"path": "Textures/tail_base_4",
+					"color": "449951ff",
+					"x": 34.41,
+					"y": 1.38,
+					"rotation": 21.8,
+					"width": 94,
+					"height": 89
+				}
+			},
+			"tail_base_5": {
+				"tailcolor5": {
+					"name": "Textures/tail_base_8",
+					"path": "Textures/tail_base_5",
+					"color": "449951ff",
+					"x": 32.45,
+					"y": 1.52,
+					"rotation": 86.05,
+					"width": 113,
+					"height": 107
 				}
 			}
 		}
@@ -12980,7 +13793,7 @@
 			"fleece12": {
 				"color": [
 					{ "color": "ffffff00" },
-					{ "time": 0.1, "color": "ffffffff" }
+					{ "time": 0.0333, "color": "ffffffff" }
 				]
 			},
 			"gogles2": {
@@ -13391,7 +14204,7 @@
 			"fleece12": {
 				"color": [
 					{ "color": "ffffffff", "curve": "stepped" },
-					{ "time": 0.1, "color": "ffffffff" },
+					{ "time": 0.1333, "color": "ffffffff" },
 					{ "time": 0.2, "color": "ffffff00" }
 				]
 			},
@@ -17021,6 +17834,7 @@
 				"offsets": [
 					{ "slot": "Shield", "offset": 35 },
 					{ "slot": "Shovel", "offset": 42 },
+					{ "slot": "Color4", "offset": -6 },
 					{ "slot": "mounth81", "offset": -5 }
 				]
 			},

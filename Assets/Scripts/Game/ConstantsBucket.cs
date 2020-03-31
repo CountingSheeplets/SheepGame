@@ -103,6 +103,9 @@ public class ConstantsBucket : Singleton<ConstantsBucket> {
     [SerializeField] AnimationClip smashAnimationClip;
     public static float SmashSpeed { get { return Instance.smashAnimationClip.length / (1f - Instance.smashEffectDelay); } }
 
+    [SerializeField] float headbutStarsTimer = 2f;
+    public static float HeadbutStarsTimer { get { return Instance.headbutStarsTimer; } }
+
     [Header("Profile")]
     [SerializeField] List<Color> playerColors = new List<Color>();
     public static List<Color> PlayerColors { get { return Instance.playerColors; } }

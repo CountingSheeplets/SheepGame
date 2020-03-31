@@ -5,7 +5,9 @@ using UnityEngine;
 public class StateChanger : MonoBehaviour {
     public SetActive startState;
     public SetActive toState;
+#if UNITY_EDITOR
     [StringInList(typeof(PropertyDrawersHelper), "AllEventNames")]
+#endif
     public string changeStateEventName;
     //public Component changeTarget;
 

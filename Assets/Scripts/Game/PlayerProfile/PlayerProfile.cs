@@ -12,7 +12,7 @@ public class PlayerProfile {
     public Color playerColor;
     public Sprite playerAvatarImage;
     public Playfield playfield;
-    int _selectedHat;
+    int _selectedHat = 0;
     public int selectedHat {
         get { return _selectedHat; }
         set {
@@ -20,7 +20,7 @@ public class PlayerProfile {
             _selectedHat = value;
         }
     }
-    int _selectedScepter;
+    int _selectedScepter = 0;
     public int selectedScepter {
         get { return _selectedScepter; }
         set {
@@ -119,7 +119,7 @@ public class PlayerProfile {
         SetNetworkDirty();
         return money;
     }
-    public int permanentCrownCount;
+    public int permanentCrownCount = 0;
 
     public int crownCount;
     public int GetCrowns() {

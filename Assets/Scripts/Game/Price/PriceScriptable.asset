@@ -20,7 +20,7 @@ MonoBehaviour:
       level: 0
   - attributeName: Player_KingElimGold
     priceBase:
-      basePrice: 25
+      basePrice: 40
       increment: -5
       level: 0
   - attributeName: Player_KingElimStar
@@ -30,8 +30,8 @@ MonoBehaviour:
       level: 0
   - attributeName: King_BuySheep
     priceBase:
-      basePrice: 2
-      increment: 0.5
+      basePrice: 5
+      increment: 1
       level: 0
   - attributeName: King_BuyGrass
     priceBase:
