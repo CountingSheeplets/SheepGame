@@ -1676,7 +1676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   browserStartMode: 0
-  controllerHtml: {fileID: 102900000, guid: 7c3e1d804e0bb954293eff664ad5ff44, type: 3}
+  controllerHtml: {fileID: 102900000, guid: 93cab905ed99f5944bdf3c2163bd6efe, type: 3}
   autoScaleCanvas: 1
 --- !u!4 &1715578836
 Transform:
@@ -1906,6 +1906,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Audio
+      objectReference: {fileID: 0}
+    - target: {fileID: 8668415122482646954, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2a31d511c4f4064d9f2a5444f6dea8f, type: 3}

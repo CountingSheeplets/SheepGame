@@ -28,17 +28,24 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
         }
     }
 
-    public static void OnReceivedData(JToken data) {
+    public static void OnReceivedData(JToken receivedToken) {
         string match = "";
-        foreach (string request in Instance.requestedNames) {
-            if (data[request].IsNullOrEmpty()) {
-                Debug.Log("OnReceivedData: IsNullOrEmpty()!: " + data);
+        string[] names = Instance.requestedNames.ToArray();
+        foreach (string request in names) {
+            Debug.Log("OnReceivedData: request!: " + request);
+            Debug.Log("OnReceivedData: data!: " + receivedToken);
+            if (receivedToken[request].IsNullOrEmpty()) {
+                Debug.Log("OnReceivedData: IsNullOrEmpty()!: " + receivedToken);
                 continue;
             }
             match = request;
-            data = data[match][Instance.key];
+            JToken data = receivedToken[match][Instance.key];
+            if (data.IsNullOrEmpty())
+                continue;
+            if (!data.ContainsPlayerData())
+                continue;
             Owner owner = OwnersCoordinator.GetOwner(data["ownerID"].ToString());
-            if (owner && data.ContainsPlayerData()) {
+            if (owner) {
                 Debug.Log("OnReceivedData: contains all data!: " + data);
                 PlayerProfile profile = owner.GetPlayerProfile();
                 if (profile != null)
@@ -81,6 +88,13 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
         if (AirConsole.instance != null) {
             AirConsole.instance.StorePersistentData(Instance.key, json, owner.ownerId);
             Debug.Log("AirConsole.instance.StorePersistentData:" + json);
+        }
+    }
+    public static void DeleteAllStoredData() {
+        if (AirConsole.instance != null) {
+            foreach (Owner owner in OwnersCoordinator.GetOwners())
+                AirConsole.instance.StorePersistentData(Instance.key, "", owner.ownerId);
+            Debug.Log("AirConsole.instance.StorePersistentData:" + "deleted");
         }
     }
 }

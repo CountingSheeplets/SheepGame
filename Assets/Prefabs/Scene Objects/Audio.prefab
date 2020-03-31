@@ -48,7 +48,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.4
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -144,7 +144,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.4
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -247,8 +247,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bbc25f636fcc7f8408a7e08d27e48589, type: 3}
   - {fileID: 8300000, guid: 3c9ea4a3697fce046bea04db3e2f8391, type: 3}
   - {fileID: 8300000, guid: 953e44363a945db4a80a2a6ec386cf53, type: 3}
-  randomizedList: []
-  loadDelay: 2
+  targetPitchDown: 0.7
+  targetVolumeDown: 0.05
 --- !u!114 &5596483061446291789
 MonoBehaviour:
   m_ObjectHideFlags: 0

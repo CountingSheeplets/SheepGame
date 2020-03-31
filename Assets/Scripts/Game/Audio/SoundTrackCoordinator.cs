@@ -54,14 +54,12 @@ public class SoundTrackCoordinator : Singleton<SoundTrackCoordinator> {
     }
     IEnumerator ToneDown(AudioSource source, float timeToDie) {
         if (source.isPlaying) {
-            Debug.Log("timeToDie: " + timeToDie);
             float currenVolume = source.volume;
             float currenPitch = source.pitch;
             float timeCount = 0;
             while (timeToDie > timeCount) {
                 timeCount += Time.deltaTime;
                 float timePart = timeCount / timeToDie;
-                Debug.Log("timepart: " + timePart);
                 source.pitch = Mathf.Lerp(currenPitch, targetPitchDown, timePart);
                 source.volume = Mathf.Lerp(currenVolume, targetVolumeDown, timePart);
                 yield return null;

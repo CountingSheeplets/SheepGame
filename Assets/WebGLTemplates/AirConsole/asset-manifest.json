@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.498d002a.chunk.css",
-    "main.js": "/static/js/main.78d8cc20.chunk.js",
-    "main.js.map": "/static/js/main.78d8cc20.chunk.js.map",
+    "main.js": "/static/js/main.a731d0ca.chunk.js",
+    "main.js.map": "/static/js/main.a731d0ca.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.90329f9f.js",
     "runtime-main.js.map": "/static/js/runtime-main.90329f9f.js.map",
     "static/js/2.548aaa8e.chunk.js": "/static/js/2.548aaa8e.chunk.js",
     "static/js/2.548aaa8e.chunk.js.map": "/static/js/2.548aaa8e.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.fded63b9727334b33de487a3d4c7779f.js": "/precache-manifest.fded63b9727334b33de487a3d4c7779f.js",
+    "precache-manifest.ded616e037c6650e5cec65373a42b296.js": "/precache-manifest.ded616e037c6650e5cec65373a42b296.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.498d002a.chunk.css.map": "/static/css/main.498d002a.chunk.css.map",
     "static/media/CROWNS_25.png": "/static/media/CROWNS_25.c3522d6d.png",
@@ -42,6 +42,6 @@
     "static/js/runtime-main.90329f9f.js",
     "static/js/2.548aaa8e.chunk.js",
     "static/css/main.498d002a.chunk.css",
-    "static/js/main.78d8cc20.chunk.js"
+    "static/js/main.a731d0ca.chunk.js"
   ]
 }

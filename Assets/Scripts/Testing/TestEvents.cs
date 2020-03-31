@@ -92,6 +92,10 @@ public class TestEvents : MonoBehaviour {
             Owner smasher = OwnersCoordinator.GetRandomOwner();
             EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.Smash(), GameMessage.Write().WithOwner(smasher));
         }
+        if (Input.GetKeyDown(KeyCode.F4)) {
+            Debug.Log("clear all current owner data....");
+            PersistentDataCoordinator.DeleteAllStoredData();
+        }
     }
 
     KingUnit GetRandomKing() {

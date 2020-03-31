@@ -8,7 +8,8 @@ public static class JsonExtensions {
             (token.Type == JTokenType.Null);
     }
     public static bool ContainsPlayerData(this JToken token) {
-        return (token["token"] != null) &&
+        return (token["ownerID"] != null) &&
+            (token["token"] != null) &&
             (token["coinCount"] != null) &&
             (token["selectedHat"] != null) &&
             (token["selectedScepter"] != null);
