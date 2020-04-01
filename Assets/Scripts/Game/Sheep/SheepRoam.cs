@@ -35,7 +35,7 @@ public class SheepRoam : BaseUnitMove {
     Vector2 RoamTarget() {
         Vector2 newVec = new Vector2(0, 1.5f * ConstantsBucket.PlayfieldTileSize);
         newVec = Quaternion.AngleAxis(Random.Range(0, 359), Vector3.forward) * newVec;
-        Vector2 targetPos = (Vector2) transform.position + newVec;
+        Vector2 targetPos = (Vector2)transform.position + newVec;
         if (sheep.currentPlayfield.fieldCorners.IsWithinField(targetPos, sheep.radius)) {
             //Debug.Log("taget vector ok, roaming to:"+newVec);
             return targetPos;
@@ -56,8 +56,6 @@ public class SheepRoam : BaseUnitMove {
     }
     public override void PostMoveAction() {
         sheep.isRoaming = false;
-        //trigger eat grass animation
-        //animator.FadeIn(destination, AnimatorContainer.Animation.Idle);
         animator.StopWalking();
     }
 }

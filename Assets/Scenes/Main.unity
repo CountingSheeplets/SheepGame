@@ -1433,7 +1433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 1
-  enableDebugging: 1
+  enableDebugging: 0
 --- !u!4 &1470963684
 Transform:
   m_ObjectHideFlags: 0

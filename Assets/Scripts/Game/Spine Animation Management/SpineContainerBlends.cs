@@ -25,7 +25,7 @@ public class SpineContainerBlends : MonoBehaviour, IAnimatableDirection {
             anim.SetTrigger("clockwise");
         } else {
             if (turn < 0) {
-                anim.SetTrigger("counter_closkwise");
+                anim.SetTrigger("counterClockwise");
             } else {
                 anim.SetTrigger("straight");
             }
@@ -33,6 +33,7 @@ public class SpineContainerBlends : MonoBehaviour, IAnimatableDirection {
     }
 
     public void FlyTo(Vector2 target) {
+        ResetAllTriggers();
         anim.SetTrigger("fly");
         SetAnimatorDirections(target);
     }
@@ -58,9 +59,10 @@ public class SpineContainerBlends : MonoBehaviour, IAnimatableDirection {
     }
 
     void ResetAllTriggers() {
-        anim.ResetTrigger("stop");
+        anim.ResetTrigger("stopWalk");
+        anim.ResetTrigger("stopFly");
         anim.ResetTrigger("clockwise");
-        anim.ResetTrigger("counter_closkwise");
+        anim.ResetTrigger("counterClockwise");
         anim.ResetTrigger("straight");
         anim.ResetTrigger("fly");
     }

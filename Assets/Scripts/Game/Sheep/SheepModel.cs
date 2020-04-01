@@ -46,7 +46,6 @@ public class SheepModel : MonoBehaviour {
     }
 
     void DisableAllAttachments() {
-        Debug.Log("DisableAllAttachments");
         skMecanim.skeleton.SetAttachment("Divine", null);
         skMecanim.skeleton.SetAttachment("Crown", null);
         skMecanim.skeleton.SetAttachment("Shovel", null);
