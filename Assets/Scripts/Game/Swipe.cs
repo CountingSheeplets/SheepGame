@@ -28,11 +28,11 @@ public class Swipe {
     }
     public Swipe() {
         speed = Random.Range(10, 32); //ok?
-        float deltaX = Random.Range(-100f, 100f);
-        float deltaY = Random.Range(-100f, 100f);
+        float deltaX = Random.Range(-1f, 1f);
+        float deltaY = Random.Range(-1f, 1f);
         vector = new Vector2(deltaX, deltaY).normalized; //ok?
         initial = new Vector2(-(float)Random.Range(0f, 100f), (float)Random.Range(0f, 100f)); //ok? 
-        distance = (float)new Vector2(deltaX, deltaY).magnitude;
+        distance = Random.Range(50f, 80f);;
     }
     public override string ToString() {
         return "Swipe():" +

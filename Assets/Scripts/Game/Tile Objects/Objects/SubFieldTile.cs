@@ -12,6 +12,7 @@ public class SubFieldTile : MonoBehaviour {
         return myParentStateType;
     }
     public void SetDirty() {
+        //Debug.Log("settung dirty");
         isDirty = true;
     }
 
@@ -61,24 +62,15 @@ public class SubFieldTile : MonoBehaviour {
     }
 
     void SpriteSet() {
-        //Debug.Log("------------------entering new sprite of SUBtile... : "+gameObject.name);
-        //Debug.Log("for state: ");
-        ///tileState.PrintState();
         mySprite.sprite = TileSpriteFactory.GetSprite(this);
         myMask.sprite = mySprite.sprite;
-        //Debug.Log("sprite was set: "+mySprite.sprite.name);
     }
 
     public bool IsAffected(Location3x3 loc3x3) {
         if (loc3x3.IsCenterTile()) {
-            Debug.Log("its me! - no fieldtiles should be affected");
             return false;
         }
         Location2x2 affLoc = loc3x3.To2x2(myLoc);
-        /*         Debug.Log("loc3x3: "+loc3x3+" and get: "+loc3x3.Get());
-                Debug.Log("myLoc: "+myLoc+" and get: "+myLoc.Get());
-                Debug.Log("affloc post trasform: "+affLoc);
-                Debug.Log("will affect: "+((affLoc != null).ToString())+"    "+gameObject.name); */
         return affLoc != null;
     }
     public override string ToString() {

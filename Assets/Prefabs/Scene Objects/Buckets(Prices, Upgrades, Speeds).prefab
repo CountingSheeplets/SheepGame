@@ -273,6 +273,7 @@ MonoBehaviour:
   roamProbability: 0.25
   hitRange: 0.2
   hitDamage: 7
+  smallUpgradeShrinkSize: 0.7
   greedySheepBonusMoney: 0.15
   smallSheepBonusEat: 0.1
   incomeMultiplierNoGrass: 2
@@ -287,6 +288,7 @@ MonoBehaviour:
   smashEffectDelay: 0
   smashAnimationClip: {fileID: -1827790361219284835, guid: 892bd7dc638408645a3f762096feb6f8,
     type: 2}
+  headbutStarsTimer: 2
   playerColors:
   - {r: 0.23921569, g: 0.58431375, b: 0.80784315, a: 1}
   - {r: 0.8901961, g: 0.32156864, b: 0.25882354, a: 1}
@@ -318,6 +320,21 @@ MonoBehaviour:
   - if your sheep lands outside of a land-mass, she will suffer a sad fate
   - upgrade your sheep into a Trench Veteran if you are having trouble staying them
     on opponents land
+  - use king's Smash ability to knock nearby sheep away
+  - you can upgrade sheep which are standing in the balista ready to launch
+  - your king's hitpoints are represented by a white circle around your portrait
+  - need more coins? upgrade a sheep to Greedy and send it to opponents land
+  - if available, there are two choices to upgrade into
+  - some upgrades have cons as well as pros
+  - king's Smash ability becomes available again only after eveyone has used theirs
+    up.
+  - as you earn more crowns in matches, you will automatically unlock fancier crowns
+    and staves.
+  - some king's crowns and staves are available for Hero subscribers only. These
+    are marked with golden locks.
+  - sheep with some upgrades are immune to king's Smash
+  - every time you replant grass the cost doubles! use this ability wisely!
+  - the more sheep you have alive, the more expensive they get
 --- !u!114 &8604118487354306370
 MonoBehaviour:
   m_ObjectHideFlags: 0
