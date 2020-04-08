@@ -102,19 +102,23 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         TrySend(deviceId, json);
     }
     public static void SendColor(int deviceId, string colorHex) {
-        NetworkObject newNetObj = new NetworkObject("playerColor", colorHex);
-        TrySendObject(deviceId, newNetObj);
+        JObject json = new JObject();
+        json["type"] = "playerColor";
+        json["value"] = colorHex;
+        NetworkImportantCoordinator.SendImportant(deviceId, json);
     }
     public static void SendName(int deviceId, string playerName) {
-        NetworkObject newNetObj = new NetworkObject("playerName", playerName);
-        TrySendObject(deviceId, newNetObj);
+        JObject json = new JObject();
+        json["type"] = "playerName";
+        json["value"] = playerName;
+        NetworkImportantCoordinator.SendImportant(deviceId, json);
     }
     public static void SendConfirmReady(int deviceId, bool value) {
         JObject json = new JObject();
         json["type"] = "ready";
         int valInt = value ? 1 : 0;
         json["value"] = valInt;
-        TrySend(deviceId, json);
+        NetworkImportantCoordinator.SendImportant(deviceId, json);
     }
     public static void SendConfirmPlayAgain(int deviceId, bool value) {
         JObject json = new JObject();
@@ -166,8 +170,7 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
             AirConsole.instance.Broadcast(data);
         }
     }
-
-    static void TrySend(int deviceId, JObject json) {
+    public static void TrySend(int deviceId, JObject json) {
         if (AirConsole.instance != null)
             AirConsole.instance.Message(deviceId, json);
     }

@@ -2119,6 +2119,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2382887475221800836, guid: 3d5459cc99ba68d43ab069d09123308c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
     - target: {fileID: 3598454144463675533, guid: 3d5459cc99ba68d43ab069d09123308c,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2314,6 +2320,12 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9157960957374056125, guid: 3d5459cc99ba68d43ab069d09123308c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d5459cc99ba68d43ab069d09123308c, type: 3}
 --- !u!1001 &8028919617483740776
@@ -2467,6 +2479,11 @@ PrefabInstance:
         type: 3}
       propertyPath: smashEffectDelay
       value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604118487354306396, guid: 38139f4f48e2af14ea01a365c7f32b03,
+        type: 3}
+      propertyPath: roamProbability
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38139f4f48e2af14ea01a365c7f32b03, type: 3}
