@@ -258,6 +258,9 @@ GameObject:
   m_Component:
   - component: {fileID: 438182120}
   - component: {fileID: 438182124}
+  - component: {fileID: 438182123}
+  - component: {fileID: 438182122}
+  - component: {fileID: 438182121}
   m_Layer: 0
   m_Name: Network
   m_TagString: Untagged
@@ -281,6 +284,47 @@ Transform:
   m_Father: {fileID: 817108758}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &438182121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438182119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47c695f9e11e574ea1e66bf3913bc66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  defaultAttemptCount: 5
+  hashes: []
+--- !u!114 &438182122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438182119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24abaf64667b5684d8d37dedcdb7c611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeout: 1
+--- !u!114 &438182123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438182119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720ed5b8f7dcf504fac84b4e23ceaa10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
 --- !u!114 &438182124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -742,6 +786,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1787212550244447860, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 3780865556861000117, guid: baaa865aa35950f4b921e4893e9ad07b,
+        type: 2}
+    - target: {fileID: 4120030446641587812, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
+        type: 3}
+      propertyPath: eventName
+      value: System_King_Killed
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128965592407676718, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 3780865556861000117, guid: baaa865aa35950f4b921e4893e9ad07b,
+        type: 2}
+    - target: {fileID: 5087506706331829500, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
+        type: 3}
+      propertyPath: eventName
+      value: System_Sheep_Spawned
+      objectReference: {fileID: 0}
+    - target: {fileID: 6419682385356284328, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
+        type: 3}
+      propertyPath: eventName
+      value: System_King_Smashed
+      objectReference: {fileID: 0}
     - target: {fileID: 8668415122482646954, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
         type: 3}
       propertyPath: m_Name
@@ -750,7 +821,7 @@ PrefabInstance:
     - target: {fileID: 8668415122482646954, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2a31d511c4f4064d9f2a5444f6dea8f, type: 3}

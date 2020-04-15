@@ -5,6 +5,7 @@ using UnityEngine;
 public class SoundTrackCoordinator : Singleton<SoundTrackCoordinator> {
 
     public AudioClip menuSoundTrack;
+    public AudioClip scoreSoundTrack;
     public List<AudioClip> matchSoundTracks;
     List<AudioClip> randomizedList;
     int matchTrackIndex;
@@ -28,6 +29,9 @@ public class SoundTrackCoordinator : Singleton<SoundTrackCoordinator> {
     }
     public static void PlayMenu() {
         ScheduleAndPlay(Instance.menuSoundTrack, 0.5f);
+    }
+    public static void PlayScores() {
+        ScheduleAndPlay(Instance.scoreSoundTrack, 0.5f);
     }
     public static void PlayNext() {
         ScheduleAndPlay(Instance.randomizedList[Instance.matchTrackIndex]);

@@ -118,7 +118,8 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         json["type"] = "ready";
         int valInt = value ? 1 : 0;
         json["value"] = valInt;
-        NetworkImportantCoordinator.SendImportant(deviceId, json);
+        json["deviceId"] = deviceId;
+        NetworkImportantCoordinator.SendImportant(deviceId, json, 3);
     }
     public static void SendConfirmPlayAgain(int deviceId, bool value) {
         JObject json = new JObject();
