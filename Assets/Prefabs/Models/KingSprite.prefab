@@ -47,10 +47,11 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,7 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7cb38b8465b7384cb78f3d72e923d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetColoredSprite: {fileID: 1552117275892751136}
 --- !u!114 &1832081412665120361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +107,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b60d8449ed1504b4594c44d128bea4a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentItemGO: {fileID: 0}
-  itemType: 0
-  changeItemEventName: King_ChangeHat

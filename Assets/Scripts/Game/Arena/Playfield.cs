@@ -110,6 +110,9 @@ public class Playfield : MonoBehaviour {
     public float GetHitpoints() {
         return currentHitpoints;
     }
+    public void SetHitpointsToMax() {
+        AdjustHitPoints(fieldTiles.Count - currentHitpoints);
+    }
     public void SetHitpointsTo(int hitpoints) {
         if (hitpoints > fieldTiles.Count - 1)
             currentHitpoints = fieldTiles.Count - 1;
@@ -129,20 +132,21 @@ public class Playfield : MonoBehaviour {
         }
     }
     public float AdjustHitPoints(float amount) {
-        if (amount + currentHitpoints > fieldTiles.Count - 1)
-            amount = fieldTiles.Count - 1 - currentHitpoints;
-
+        float targetHp = Mathf.Clamp(amount + currentHitpoints, 0, fieldTiles.Count - 1);
+        int targetTile = Mathf.CeilToInt(targetHp);
+        int startingTile = Mathf.CeilToInt(Mathf.Clamp(currentHitpoints, 0, fieldTiles.Count - 1));
         if (amount > 0)
-            for (int i = 0; i < Mathf.FloorToInt(currentHitpoints + amount) - Mathf.FloorToInt(currentHitpoints); i++) {
-                if (Mathf.CeilToInt(currentHitpoints - 1) + i < fieldTiles.Count)
-                    fieldTiles[Mathf.CeilToInt(currentHitpoints - 1) + i].SetState(true);
+            for (int i = startingTile; i <= targetTile; i++) {
+                Debug.Log("targetTile: " + targetTile + " i " + i);
+                fieldTiles[i].SetState(true);
             }
         if (amount < 0)
-            for (int i = 0; i < Mathf.FloorToInt(currentHitpoints) - Mathf.FloorToInt(currentHitpoints + amount); i++) {
-                if (Mathf.FloorToInt(currentHitpoints) - i >= 1)
-                    fieldTiles[Mathf.FloorToInt(currentHitpoints - 1) - i].SetState(false);
+            for (int i = startingTile; i >= targetTile; i--) {
+                Debug.Log("targetTile: " + targetTile + " i: " + i + " targetHp:" + targetHp);
+                Debug.Log("total tiles: " + fieldTiles.Count + " hitpoints: " + currentHitpoints);
+                fieldTiles[i].SetState(false);
             }
-        currentHitpoints += amount;
+        currentHitpoints += Mathf.Clamp(amount, -10000000, fieldTiles.Count - 1 - currentHitpoints + 1);
         if (currentHitpoints < 0)
             currentHitpoints = 0;
 
@@ -161,9 +165,9 @@ public class Spiral {
             return;
         }
         if (Mathf.Abs(x) > Mathf.Abs(y) + 0.5f * Mathf.Sign(x) && Mathf.Abs(x) > (-y + 0.5f))
-            y += (int) Mathf.Sign(x);
+            y += (int)Mathf.Sign(x);
         else
-            x -= (int) Mathf.Sign(y);
+            x -= (int)Mathf.Sign(y);
     }
     public Vector2 NextPoint() {
         Next();

@@ -45,10 +45,11 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,12 +125,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0208fec0c19f0fa418f7e2fb73379f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {x: 0, y: 0}
   totalDistance: 0
   distanceLeft: 0
   distanceTraveled: 0
   myScale: {x: 0, y: 0, z: 0}
   midScale: 2
-  animator: {fileID: 0}
+  endScale: 0
   isMoving: 0
   impactScale: 0
