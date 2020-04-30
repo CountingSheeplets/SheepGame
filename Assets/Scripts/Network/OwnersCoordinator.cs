@@ -52,7 +52,7 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
     }
     public static Owner GetRandomOwner() {
         if (Instance.owners.Count > 0) {
-            List<Owner> aliveOwners = new List<Owner>(Instance.owners.Where(x => x.GetPlayerProfile().isAlive).ToList());
+            List<Owner> aliveOwners = new List<Owner>(Instance.owners.Where(x => x.GetPlayerProfile().isAlive && x.connected).ToList());
             return aliveOwners[Random.Range(0, aliveOwners.Count)];
         } else return null;
     }

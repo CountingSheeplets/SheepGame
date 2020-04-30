@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
-
 public class ReadyNetworkHandler : MonoBehaviour {
     void Awake() {
         if (AirConsole.instance != null)
@@ -28,6 +28,9 @@ public class ReadyNetworkHandler : MonoBehaviour {
     }
 
     void TryStart(GameMessage msg) {
+        int count = OwnersCoordinator.GetOwners().Where(x => x.connected).ToList().Count;
+        if (count < 2)
+            return;
         foreach (Owner owner in OwnersCoordinator.GetOwners()) {
             if (owner.ready == false) {
                 Debug.Log("player not ready:" + owner);

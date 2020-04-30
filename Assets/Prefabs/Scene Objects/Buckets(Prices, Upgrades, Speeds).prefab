@@ -194,7 +194,7 @@ MonoBehaviour:
   upgrades:
   - priceUpgrade: 0
     slot: 0
-    upgradeDisplayName: small and Fast
+    upgradeDisplayName: small and fast
     upgradeCodeName: SheepUpgrade_Small
     upgradeDescription: does everything faster
     sheepTypeInput: 0

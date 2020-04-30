@@ -107,6 +107,9 @@ public class ConstantsBucket : Singleton<ConstantsBucket> {
     public static float HeadbutStarsTimer { get { return Instance.headbutStarsTimer; } }
 
     [Header("Profile")]
+    [SerializeField] float startingGold = 100f;
+    public static float StartingGold { get { return Instance.startingGold; } }
+
     [SerializeField] List<Color> playerColors = new List<Color>();
     public static List<Color> PlayerColors { get { return Instance.playerColors; } }
 

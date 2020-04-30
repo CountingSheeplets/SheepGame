@@ -30,8 +30,8 @@ MonoBehaviour:
       level: 0
   - attributeName: King_BuySheep
     priceBase:
-      basePrice: 5
-      increment: 1
+      basePrice: 0
+      increment: 5
       level: 0
   - attributeName: King_BuyGrass
     priceBase:

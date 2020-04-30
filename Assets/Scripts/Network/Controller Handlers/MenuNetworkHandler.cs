@@ -33,6 +33,7 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 	void OnDisconnect(int device_id) {
 		if (GameStateView.HasState(GameState.started)) {
 			Debug.LogWarning("New cannot join, game already started");
+			//NetworkCoordinator.SendShowView(device_id, "in-game");
 			return;
 		}
 

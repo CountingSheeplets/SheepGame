@@ -20,8 +20,12 @@ public class ArenaControllerTest : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.KeypadMinus)) {
             Owner owner = OwnersCoordinator.GetRandomOwner();
-            if (owner) {
-                EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerLeft(), GameMessage.Write().WithOwner(owner));
+            OwnersCoordinator.DisconnectOwner(owner.deviceId);
+            if (!owner)
+                Debug.LogWarning("OnDisconnect returned null Owner! Nothing to disconnect...");
+            EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerLeft(), GameMessage.Write().WithOwner(owner));
+            foreach (Owner stayingOwner in OwnersCoordinator.GetOwners()) {
+                stayingOwner.ready = false;
             }
         }
         if (Input.GetKeyDown(KeyCode.KeypadEnter)) {

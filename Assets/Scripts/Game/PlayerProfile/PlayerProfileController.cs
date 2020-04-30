@@ -29,7 +29,7 @@ public class PlayerProfileController : MonoBehaviour {
         PlayerProfile profile = PlayerProfileCoordinator.GetProfile(msg.owner);
         if (profile == null) {
             profile = PlayerProfileCoordinator.AddProfile(msg.owner);
-            profile.AddMoney(100f);
+            profile.AddMoney(ConstantsBucket.StartingGold);
             EventCoordinator.TriggerEvent(EventName.System.Player.ProfileCreated(), GameMessage.Write().WithPlayerProfile(profile));
             NetworkCoordinator.SendShowView(msg.owner.deviceId, "menu");
         }
