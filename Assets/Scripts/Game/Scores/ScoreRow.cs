@@ -16,7 +16,6 @@ public class ScoreRow : MonoBehaviour {
     //public Animator playAgainOverlayAnim;
     public Animator playAgainGlintAnim;
     public Animator playerNameAnim;
-    public Animator playAgainTextAnim;
 
     public void InitScoreRow(string _playerName, Color _playerColor, PlayerScores scores) {
         playerName.text = _playerName;
@@ -34,9 +33,7 @@ public class ScoreRow : MonoBehaviour {
 
     public void SetPlayAgain() {
         playAgainCheckMark.SetActive(true);
-        ///playAgainOverlayAnim.SetTrigger("show");
         playAgainGlintAnim.SetTrigger("run");
-        playerNameAnim.SetBool("isFadeoutLoopActive", true);
-        playAgainTextAnim.SetBool("isFadeoutLoopActive", true);
+        playerNameAnim.SetTrigger("playerReady");
     }
 }

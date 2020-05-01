@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 public class PlayAgainNetworkHandler : MonoBehaviour {
     void Awake() {
         if (AirConsole.instance != null)
@@ -32,10 +31,11 @@ public class PlayAgainNetworkHandler : MonoBehaviour {
     }
     bool TryRestart(GameMessage msg) {
         foreach (Owner owner in OwnersCoordinator.GetOwners()) {
-            if (owner.playAgain == false) {
-                Debug.Log("player not ready to restart:" + owner);
-                return false;
-            }
+            if (owner.connected)
+                if (owner.playAgain == false) {
+                    Debug.Log("player not ready to restart:" + owner);
+                    return false;
+                }
         }
         foreach (Owner owner in OwnersCoordinator.GetOwners()) {
             owner.playAgain = false;

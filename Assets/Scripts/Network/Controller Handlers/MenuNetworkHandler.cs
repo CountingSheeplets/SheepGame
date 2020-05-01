@@ -16,8 +16,17 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 		EventCoordinator.StartListening(EventName.System.SceneLoaded(), OnSceneReloaded);
 	}
 	void OnConnect(int device_id) {
+		int count = OwnersCoordinator.GetOwners().Where(x => x.connected).ToList().Count;
+		Debug.Log("count " + count);
+		if (count > 7) {
+			NetworkCoordinator.SendShowView(device_id, "max_players");
+			Debug.Log("max");
+			return;
+		}
 		if (GameStateView.HasState(GameState.started)) {
 			Debug.LogWarning("New cannot join, game already started");
+			NetworkCoordinator.SendShowView(device_id, "in_game");
+			Debug.Log("starteed");
 			return;
 		}
 
@@ -31,12 +40,6 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 			Debug.LogError("OnConnect returned null Owner!");
 	}
 	void OnDisconnect(int device_id) {
-		if (GameStateView.HasState(GameState.started)) {
-			Debug.LogWarning("New cannot join, game already started");
-			//NetworkCoordinator.SendShowView(device_id, "in-game");
-			return;
-		}
-
 		Owner owner = OwnersCoordinator.DisconnectOwner(device_id);
 		if (!owner)
 			Debug.LogWarning("OnDisconnect returned null Owner! Nothing to disconnect...");

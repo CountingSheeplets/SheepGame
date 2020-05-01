@@ -137,13 +137,13 @@ public class Playfield : MonoBehaviour {
         int startingTile = Mathf.CeilToInt(Mathf.Clamp(currentHitpoints, 0, fieldTiles.Count - 1));
         if (amount > 0)
             for (int i = startingTile; i <= targetTile; i++) {
-                Debug.Log("targetTile: " + targetTile + " i " + i);
+                //Debug.Log("targetTile: " + targetTile + " i " + i);
                 fieldTiles[i].SetState(true);
             }
         if (amount < 0)
             for (int i = startingTile; i >= targetTile; i--) {
-                Debug.Log("targetTile: " + targetTile + " i: " + i + " targetHp:" + targetHp);
-                Debug.Log("total tiles: " + fieldTiles.Count + " hitpoints: " + currentHitpoints);
+                //Debug.Log("targetTile: " + targetTile + " i: " + i + " targetHp:" + targetHp);
+                //Debug.Log("total tiles: " + fieldTiles.Count + " hitpoints: " + currentHitpoints);
                 fieldTiles[i].SetState(false);
             }
         currentHitpoints += Mathf.Clamp(amount, -10000000, fieldTiles.Count - 1 - currentHitpoints + 1);
