@@ -64,18 +64,8 @@ public class ConstantsBucket : Singleton<ConstantsBucket> {
     public static float SmallUpgradeShrinkSize { get { return Instance.smallUpgradeShrinkSize; } }
 
     [Header("Sheep upgrades")]
-    [SerializeField] public float greedySheepBonusMoney = 0.1f;
-    public static float GreedySheepBonusMoney { get { return Instance.greedySheepBonusMoney; } }
-
     [SerializeField] public float smallSheepBonusEat = 0.1f;
     public static float SmallSheepBonusEat { get { return Instance.smallSheepBonusEat; } }
-
-    [Header("Economy")]
-    [SerializeField] public float incomeMultiplierNoGrass = 2.0f;
-    public static float IncomeMultiplierNoGrass { get { return Instance.incomeMultiplierNoGrass; } }
-
-    [SerializeField] public float tipLoopTimer = 10.0f;
-    public static float TipLoopTimer { get { return Instance.tipLoopTimer; } }
 
     [Header("King")]
     [SerializeField] float kingSmiteRange = 1f;
@@ -115,4 +105,8 @@ public class ConstantsBucket : Singleton<ConstantsBucket> {
 
     [SerializeField] float profileUpdateInterval = 0.5f;
     public static float ProfileUpdateInterval { get { return Instance.profileUpdateInterval; } }
+
+    [Header("Other")]
+    [SerializeField] public float tipLoopTimer = 10.0f;
+    public static float TipLoopTimer { get { return Instance.tipLoopTimer; } }
 }

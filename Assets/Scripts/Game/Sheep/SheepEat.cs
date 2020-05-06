@@ -21,12 +21,6 @@ public class SheepEat : MonoBehaviour {
         float eatAmount = CalculateEatAmount();
         float totalGrass = PlayerProfileCoordinator.ModifyPlayerGrass(sheep.currentPlayfield.owner, -eatAmount);
         Debug.Log("sheep grass eaten " + eatAmount);
-
-        float multiplier = 1;
-        if (totalGrass <= 0)
-            multiplier = ConstantsBucket.IncomeMultiplierNoGrass; //PriceManager multipliers.NoGrass()
-        float moneyAmount = (eatAmount + ConstantsBucket.GreedySheepBonusMoney) * multiplier;
-        PlayerProfileCoordinator.GetProfile(sheep.owner).AddMoney(moneyAmount);
     }
 
     float CalculateEatAmount() {
@@ -36,10 +30,5 @@ public class SheepEat : MonoBehaviour {
         }
         //then return final value:
         return ConstantsBucket.BaseEatValue;
-    }
-    float CalculateMoneyReward(float eatAmount) {
-        //do math here how money income is calculated depending on sheep eating
-
-        return eatAmount * 5f;
     }
 }

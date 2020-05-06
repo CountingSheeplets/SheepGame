@@ -79,11 +79,12 @@ public class EventName {
             public static string Spawned() { return "System_Sheep_Spawned"; }
             public static string Launch() { return "System_Sheep_Launch"; }
             public static string Land() { return "System_Sheep_Land"; }
+            public static string KingMissed() { return "System_Sheep_KingMissed"; }
             public static string ReadyToLaunch() { return "System_Sheep_ReadyToLaunch"; }
             public static string Kill() { return "System_Sheep_Kill"; }
             public static string Roam() { return "System_Sheep_Roam"; }
             public static string Upgraded() { return "System_Sheep_Upgraded"; }
-            public static List<string> Get() { return new List<string> { Spawned(), Launch(), Land(), ReadyToLaunch(), Kill(), Roam(), Upgraded() }; }
+            public static List<string> Get() { return new List<string> { Spawned(), Launch(), Land(), KingMissed(), ReadyToLaunch(), Kill(), Roam(), Upgraded() }; }
         }
         public class Environment {
             public static string Initialized() { return "System_Environment_Initialized"; }

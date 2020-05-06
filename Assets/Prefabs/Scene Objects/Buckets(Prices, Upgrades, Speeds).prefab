@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8604118487354306396}
   - component: {fileID: 8604118487354306371}
   - component: {fileID: 8604118487354306370}
+  - component: {fileID: 5902129969623488959}
   m_Layer: 0
   m_Name: Buckets(Prices, Upgrades, Speeds)
   m_TagString: Untagged
@@ -196,7 +197,7 @@ MonoBehaviour:
     slot: 0
     upgradeDisplayName: small and fast
     upgradeCodeName: SheepUpgrade_Small
-    upgradeDescription: does everything faster
+    upgradeDescription: does everything faster and eats more grass
     sheepTypeInput: 0
     sheepTypeOutput: 1
   - priceUpgrade: 0
@@ -211,14 +212,14 @@ MonoBehaviour:
     slot: 0
     upgradeDisplayName: Greedy
     upgradeCodeName: SheepUpgrade_Greedy
-    upgradeDescription: eating grass gives more coins
+    upgradeDescription: earns bonus gold on launch
     sheepTypeInput: 1
     sheepTypeOutput: 3
   - priceUpgrade: 0
     slot: 1
     upgradeDisplayName: armored
     upgradeCodeName: SheepUpgrade_Armored
-    upgradeDescription: moves slower to launch location
+    upgradeDescription: moves slower to launch location thus delaying a launch
     sheepTypeInput: 0
     sheepTypeOutput: 4
   - priceUpgrade: 0
@@ -233,7 +234,7 @@ MonoBehaviour:
     slot: 1
     upgradeDisplayName: Tank
     upgradeCodeName: SheepUpgrade_Tank
-    upgradeDescription: move even slower, cannot be Smited
+    upgradeDescription: moves very slow and cannot be Smashed
     sheepTypeInput: 4
     sheepTypeOutput: 6
   - priceUpgrade: 0
@@ -274,10 +275,7 @@ MonoBehaviour:
   hitRange: 0.2
   hitDamage: 7
   smallUpgradeShrinkSize: 0.7
-  greedySheepBonusMoney: 0.15
   smallSheepBonusEat: 0.1
-  incomeMultiplierNoGrass: 2
-  tipLoopTimer: 10
   kingSmiteRange: 1
   kingHitRadius: 0.5
   kingHitRadiusIncrement: 0.05
@@ -289,6 +287,7 @@ MonoBehaviour:
   smashAnimationClip: {fileID: -1827790361219284835, guid: 892bd7dc638408645a3f762096feb6f8,
     type: 2}
   headbutStarsTimer: 2
+  startingGold: 100
   playerColors:
   - {r: 0.23921569, g: 0.58431375, b: 0.80784315, a: 1}
   - {r: 0.8392157, g: 0.29803923, b: 0.4, a: 1}
@@ -301,6 +300,7 @@ MonoBehaviour:
   - {r: 0.28155038, g: 0.2921396, b: 0.3490566, a: 1}
   - {r: 0.6037736, g: 0.2306871, b: 0.2306871, a: 1}
   profileUpdateInterval: 0.5
+  tipLoopTimer: 10
 --- !u!114 &8604118487354306371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,3 +350,22 @@ MonoBehaviour:
   _persistent: 0
   kingHats: []
   kingScepters: []
+--- !u!114 &5902129969623488959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604118487354306394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30031bb0a0d241b4d9d2afecb6177a80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  sheepLandFieldFlat: 2
+  sheepKingHitFlat: 3
+  sheepSelfThrow: 1
+  sheepOtherPlayerThrow: 1
+  greedySheepBonusMoney: 1
+  incomeMultiplierNoGrass: 0.5

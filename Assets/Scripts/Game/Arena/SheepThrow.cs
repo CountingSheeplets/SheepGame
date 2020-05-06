@@ -25,7 +25,7 @@ public class SheepThrow : MonoBehaviour {
             if (sheepReadyToBeThrown) {
                 throwableSheep.Remove(sheepReadyToBeThrown);
                 sheepReadyToBeThrown.lastHandler = msg.owner;
-                EventCoordinator.TriggerEvent(EventName.System.Sheep.Launch(), msg.WithSheepUnit(sheepReadyToBeThrown).WithPlayfield(sheepReadyToBeThrown.currentPlayfield));
+                EventCoordinator.TriggerEvent(EventName.System.Sheep.Launch(), msg.WithSheepUnit(sheepReadyToBeThrown).WithPlayfield(sheepReadyToBeThrown.currentPlayfield).WithOwner(msg.owner));
                 sheepReadyToBeThrown.currentPlayfield = null;
                 sheepReadyToBeThrown = null;
             } else {
