@@ -14,6 +14,17 @@ public class KingUnit : MonoBehaviour {
             return _myPlayfield;
         }
     }
+    bool _isVulnerable = false;
+    public delegate void OnStateChange(bool state);
+    public OnStateChange onVulnerabilityChange;
+    public bool isVulnerable {
+        get { return _isVulnerable; }
+        set {
+            _isVulnerable = value;
+            if (onVulnerabilityChange != null)
+                onVulnerabilityChange(_isVulnerable);
+        }
+    }
     bool isUsingAbility = false;
     public void SetUsingAbility() {
         isUsingAbility = true;
@@ -74,22 +85,24 @@ public class KingUnit : MonoBehaviour {
     void OnHit(GameMessage msg) {
         if (msg.kingUnit == this) {
             //if target owner == damaged owner. throw msg "king is starving!"
-            DealDamage(ConstantsBucket.HitDamage);
+            //DealDamage(ConstantsBucket.HitDamage);
             //onReceivedDamage(10); move this to messaging system
             TryDie(msg.owner, owner);
         }
     }
-    public void OnStarve() {
-        DealDamage(ConstantsBucket.StarveDamage);
-        TryDie(null, owner);
-    }
-    public void DealDamage(float amount) {
-        currentDamage += amount;
-        EventCoordinator.TriggerEvent(EventName.System.King.ReceivedDamage(), GameMessage.Write().WithKingUnit(this).WithFloatMessage(amount));
-    }
+    /*     public void OnStarve() {
+            DealDamage(ConstantsBucket.StarveDamage);
+            TryDie(null, owner);
+        } */
+    /*     public void DealDamage(float amount) {
+            currentDamage += amount;
+            EventCoordinator.TriggerEvent(EventName.System.King.ReceivedDamage(), GameMessage.Write().WithKingUnit(this).WithFloatMessage(amount));
+        } */
     void TryDie(Owner killer, Owner eliminated) {
-        if (GetHealth <= 0) {
+        if (isVulnerable) {
             //show die animation
+
+            //wait for animation to end
 
             //then remove king
             EventCoordinator.TriggerEvent(EventName.System.King.Killed(), GameMessage.Write().WithKingUnit(this).WithOwner(killer).WithTargetOwner(eliminated));

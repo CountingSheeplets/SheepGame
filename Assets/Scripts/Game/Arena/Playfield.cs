@@ -147,8 +147,12 @@ public class Playfield : MonoBehaviour {
                 fieldTiles[i].SetState(false);
             }
         currentHitpoints += Mathf.Clamp(amount, -10000000, fieldTiles.Count - 1 - currentHitpoints + 1);
-        if (currentHitpoints < 0)
+        if (currentHitpoints <= 0) {
             currentHitpoints = 0;
+            owner.GetKing().isVulnerable = true;
+        } else {
+            owner.GetKing().isVulnerable = false;
+        }
 
         return currentHitpoints;
     }
