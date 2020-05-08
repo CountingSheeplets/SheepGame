@@ -18,6 +18,12 @@ public static class ExtensionMethods {
             listToRemoveFrom.Remove(item);
         }
     }
+    //move element to last element in list
+    public static void Move<T>(this List<T> list, int oldIndex, int newIndex) {
+        T item = list[oldIndex];
+        list.RemoveAt(oldIndex);
+        list.Insert(newIndex, item);
+    }
     //return list randomized order
     public static List<T> Shuffle<T>(this List<T> listToRemoveFrom) {
         List<T> outputList = new List<T>();

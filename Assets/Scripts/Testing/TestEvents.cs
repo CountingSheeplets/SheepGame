@@ -59,10 +59,17 @@ public class TestEvents : MonoBehaviour {
             EventCoordinator.TriggerEvent(EventName.System.Sheep.Spawned(), GameMessage.Write().WithSheepUnit(sheep));
         }
         if (Input.GetKeyDown(KeyCode.T)) {
-            Debug.Log("Fake throw sheep...");
+            Debug.Log("Fake throw sheep...random");
             Swipe newSwipe = new Swipe();
             Debug.Log(newSwipe.ToString());
             EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(OwnersCoordinator.GetRandomOwner()));
+        }
+        if (Input.GetKeyDown(KeyCode.Y)) {
+            Debug.Log("Fake throw sheep...to a 1st king from 2nd player");
+            Swipe newSwipe = new Swipe();
+            newSwipe.ToZeroKing();
+            Debug.Log(newSwipe.ToString());
+            EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(OwnersCoordinator.GetOwners()[1]));
         }
         if (Input.GetKeyDown(KeyCode.KeypadMultiply)) {
             foreach (Owner owner in OwnersCoordinator.GetOwners()) {
@@ -82,11 +89,7 @@ public class TestEvents : MonoBehaviour {
             EventCoordinator.TriggerEvent(EventName.System.Environment.CleanScene(), GameMessage.Write());
             Debug.Log("Scene Cleaning done.");
         }
-        if (Input.GetKeyDown(KeyCode.U)) {
-            Debug.Log("Random owner clicks upgrade....");
-            Owner upgrader = OwnersCoordinator.GetRandomOwner();
-            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType)Random.Range(0, 1)));
-        }
+
         if (Input.GetKeyDown(KeyCode.F1)) {
             Debug.Log("Random king smites....");
             Owner smasher = OwnersCoordinator.GetRandomOwner();
@@ -95,6 +98,23 @@ public class TestEvents : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F4)) {
             Debug.Log("clear all current owner data....");
             PersistentDataCoordinator.DeleteAllStoredData();
+        }
+
+        ///upgrades:
+        if (Input.GetKeyDown(KeyCode.U)) {
+            Debug.Log("Random owner clicks upgrade....");
+            Owner upgrader = OwnersCoordinator.GetRandomOwner();
+            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType)Random.Range(0, 2)));
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1)) {
+            Debug.Log("first owner gets first upgrade....");
+            Owner upgrader = OwnersCoordinator.Instance.owners[1];
+            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType)0));
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2)) {
+            Debug.Log("first owner gets first upgrade....");
+            Owner upgrader = OwnersCoordinator.Instance.owners[1];
+            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType)1));
         }
     }
 

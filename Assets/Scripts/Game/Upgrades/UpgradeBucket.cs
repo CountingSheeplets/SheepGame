@@ -16,7 +16,7 @@ public class UpgradeBucket : Singleton<UpgradeBucket> {
         if (sheep == null)return null;
         UpgradeProperty upgrade = Instance.upgrades.Where(x => x.slot == UpgradeType.A)
             .Where(x => x.sheepTypeInput == sheep.sheepType).FirstOrDefault();
-        if (upgrade == null)return null;
+        if (upgrade == null)return null; // Instance.upgrades[Instance.upgrades.Count - 1]; //select last (empty) upgrade
         upgrade.priceUpgrade = PriceCoordinator.GetPrice(sheep.owner, upgrade.upgradeCodeName);
         return upgrade;
     }

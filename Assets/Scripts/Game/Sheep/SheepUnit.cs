@@ -20,7 +20,21 @@ public class SheepUnit : MonoBehaviour {
     public float radius = 0.5f;
     //[BitMask(typeof(SheepType))]
     public SheepType sheepType;
-    public bool skippedByTrenching = false;
+    bool _skippedByTrenching = false;
+    public delegate void OnStateChange(bool state);
+    public OnStateChange onIsTrenchingChange;
+    public bool skippedByTrenching {
+        get { return _skippedByTrenching; }
+        set {
+            _skippedByTrenching = value;
+            if (onIsTrenchingChange != null)
+                onIsTrenchingChange(_skippedByTrenching);
+            if (_skippedByTrenching)
+                foreach (BaseUnitMove move in GetComponents<BaseUnitMove>()) {
+                    move.StopMove();
+                }
+        }
+    }
 
     void Start() {
         EventCoordinator.StartListening(EventName.System.Sheep.Kill(), OnKill);

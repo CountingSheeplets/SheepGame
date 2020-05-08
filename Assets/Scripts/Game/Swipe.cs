@@ -32,7 +32,16 @@ public class Swipe {
         float deltaY = Random.Range(-1f, 1f);
         vector = new Vector2(deltaX, deltaY).normalized; //ok?
         initial = new Vector2(-(float)Random.Range(0f, 100f), (float)Random.Range(0f, 100f)); //ok? 
-        distance = Random.Range(50f, 80f);;
+        distance = Random.Range(50f, 80f);
+    }
+    public void ToZeroKing() {
+        KingUnit king = KingCoordinator.GetKings()[0];
+        speed = Random.Range(10, 32); //ok?
+        float deltaX = king.transform.position.x;
+        float deltaY = king.transform.position.y;
+        vector = new Vector2(deltaX, deltaY).normalized;
+        initial = new Vector2(-deltaX, deltaY);
+        distance = king.transform.position.magnitude;
     }
     public override string ToString() {
         return "Swipe():" +

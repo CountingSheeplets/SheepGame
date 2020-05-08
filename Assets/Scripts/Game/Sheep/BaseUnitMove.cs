@@ -51,7 +51,7 @@ public class BaseUnitMove : MonoBehaviour {
     IEnumerator Move() {
         //stop other enumerators, which are already moving the object
         foreach (BaseUnitMove move in GetComponents<BaseUnitMove>()) {
-            move.isMoving = true;
+            move.StopMove();
         }
         yield return null;
         isMoving = false;
@@ -102,6 +102,8 @@ public class BaseUnitMove : MonoBehaviour {
         isMoving = false;
         yield return null;
     }
-
+    public void StopMove() {
+        isMoving = true;
+    }
     public virtual void PostMoveAction() {}
 }

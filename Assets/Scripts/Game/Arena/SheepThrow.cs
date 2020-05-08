@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-
 public class SheepThrow : MonoBehaviour {
     public List<SheepUnit> throwableSheep = new List<SheepUnit>();
     public SheepUnit sheepReadyToBeThrown;
@@ -84,17 +84,17 @@ public class SheepThrow : MonoBehaviour {
         }
     }
     SheepUnit GetNextSheep() {
+        ReorderTrenchSheep();
         foreach (SheepUnit sheep in throwableSheep) {
             if (sheep.canBeThrown) {
                 if (sheep.sheepType == SheepType.Trench) {
                     if (!sheep.skippedByTrenching) {
                         sheep.skippedByTrenching = true;
-                        //here animate sheep trenching!!! burrow sheep
-
-                        //trigger animation
+                        Debug.Log("skipped cause trenching");
                         continue;
                     }
                     if (sheep.skippedByTrenching) {
+                        Debug.Log("trenching sheep not skipepd anymore");
                         sheep.skippedByTrenching = false;
                         return sheep;
                     }
@@ -103,6 +103,11 @@ public class SheepThrow : MonoBehaviour {
             }
         }
         return null;
+    }
+    void ReorderTrenchSheep() {
+        //put trench sheep to last
+        List<SheepUnit> tempList = throwableSheep.OrderBy(sheep => sheep.sheepType == SheepType.Trench).ToList();
+        throwableSheep = new List<SheepUnit>(tempList);
     }
     bool SheepIsReadying() {
         foreach (SheepUnit sheep in throwableSheep) {
