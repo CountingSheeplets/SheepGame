@@ -121,6 +121,23 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         json["deviceId"] = deviceId;
         NetworkImportantCoordinator.SendImportant(deviceId, json, 3);
     }
+    //////////////////////// Audio
+    public static void SendFirstOwner(int deviceId, bool value) {
+        JObject json = new JObject();
+        json["type"] = "firstOwner";
+        int valInt = value ? 1 : 0;
+        json["value"] = valInt;
+        json["deviceId"] = deviceId;
+        TrySend(deviceId, json);
+    }
+    public static void SendAudioState(int deviceId, int value) {
+        JObject json = new JObject();
+        json["type"] = "audio";
+        json["value"] = value;
+        json["deviceId"] = deviceId;
+        TrySend(deviceId, json);
+    }
+    ////**************************
     public static void SendConfirmPlayAgain(int deviceId, bool value) {
         JObject json = new JObject();
         json["type"] = "playAgain";

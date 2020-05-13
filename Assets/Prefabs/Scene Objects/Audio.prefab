@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: 4730719040441ad4cb24b746d1927321, type: 3}
-  eventName: 
+  eventName: UI_ShowScoreScreen
 --- !u!82 &6177877605501106164
 AudioSource:
   m_ObjectHideFlags: 0
@@ -287,6 +287,7 @@ GameObject:
   - component: {fileID: 4128965592407676718}
   - component: {fileID: 8275888690483693523}
   - component: {fileID: 5596483061446291789}
+  - component: {fileID: 950142965180164803}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -537,3 +538,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ec3d91e449c6b4ba882c842e39020f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &950142965180164803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8668415122482646954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472f05df1b8bb4b4fa5296ec93f5ff70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: baaa865aa35950f4b921e4893e9ad07b, type: 2}

@@ -86,4 +86,11 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
         }
         return leftOwner;
     }
+    public static bool ContainsActiveFirstOwner() {
+        foreach (Owner owner in Instance.owners) {
+            if (owner.IsFirstOwner)
+                return true;
+        }
+        return false;
+    }
 }

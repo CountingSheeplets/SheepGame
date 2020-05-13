@@ -32,6 +32,7 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 
 		Owner owner = OwnersCoordinator.TryCreateOwner(device_id);
 		if (owner) {
+			TrySetupFirstOwner();
 			//then add hero model to the Owner as Child:
 			KingFactory.TryCreateHeroModel(owner);
 			//then anounce the new owner
@@ -44,7 +45,10 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 		if (!owner)
 			Debug.LogWarning("OnDisconnect returned null Owner! Nothing to disconnect...");
 		EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerLeft(), GameMessage.Write().WithOwner(owner));
-
+		if (owner.IsFirstOwner) {
+			owner.IsFirstOwner = false;
+			TrySetupFirstOwner();
+		}
 		foreach (Owner stayingOwner in OwnersCoordinator.GetOwners()) {
 			stayingOwner.ready = false;
 		}
@@ -93,5 +97,10 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 	void OnPersistentDataLoaded(JToken data) {
 		//Log to on-screen Console
 		Debug.Log("Loaded persistentData: " + data + " \n \n");
+	}
+
+	void TrySetupFirstOwner() {
+		if (!OwnersCoordinator.ContainsActiveFirstOwner())
+			OwnersCoordinator.GetOwners().Where(x => x.IsPlayer()).FirstOrDefault().IsFirstOwner = true;
 	}
 }
