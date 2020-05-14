@@ -39,7 +39,6 @@ public class NetworkAudioHandler : MonoBehaviour {
             return;
         if (message["element"] != null)
             if (message["element"].ToString() == "audio-button") {
-                bool ready = (bool)(message["pressed"]);
                 Owner eventOwner = OwnersCoordinator.GetOwner(from);
                 if (eventOwner == null)
                     return;
