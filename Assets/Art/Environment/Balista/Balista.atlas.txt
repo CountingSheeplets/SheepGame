@@ -1,67 +1,55 @@
 
 Balista.png
-size: 2048,2048
+size: 2048,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 Base
   rotate: true
-  xy: 1, 1
-  size: 570, 2040
-  orig: 570, 2040
+  xy: 1023, 230
+  size: 285, 1020
+  orig: 285, 1020
   offset: 0, 0
   index: -1
 Bow1
   rotate: false
-  xy: 1, 573
-  size: 2040, 491
-  orig: 2040, 491
+  xy: 1, 2
+  size: 1020, 246
+  orig: 1020, 246
+  offset: 0, 0
+  index: -1
+Bow2
+  rotate: false
+  xy: 1, 250
+  size: 1020, 656
+  orig: 1020, 656
   offset: 0, 0
   index: -1
 Seat
   rotate: true
-  xy: 814, 1066
-  size: 454, 521
-  orig: 454, 521
+  xy: 1023, 1
+  size: 227, 261
+  orig: 227, 261
+  offset: 0, 0
+  index: -1
+String
+  rotate: false
+  xy: 1023, 517
+  size: 1020, 389
+  orig: 1020, 389
   offset: 0, 0
   index: -1
 Twist
   rotate: false
-  xy: 176, 1367
-  size: 636, 153
-  orig: 636, 153
+  xy: 1286, 151
+  size: 318, 77
+  orig: 318, 77
   offset: 0, 0
   index: -1
 Twist2
   rotate: false
-  xy: 1, 1387
-  size: 173, 133
-  orig: 173, 133
-  offset: 0, 0
-  index: -1
-
-Balista2.png
-size: 2048,1024
-format: RGBA8888
-filter: Linear,Linear
-repeat: none
-String
-  rotate: false
-  xy: 1, 1
-  size: 2040, 778
-  orig: 2040, 778
-  offset: 0, 0
-  index: -1
-
-Balista3.png
-size: 2048,2048
-format: RGBA8888
-filter: Linear,Linear
-repeat: none
-Bow2
-  rotate: false
-  xy: 1, 1
-  size: 2040, 1312
-  orig: 2040, 1312
+  xy: 1606, 161
+  size: 87, 67
+  orig: 87, 67
   offset: 0, 0
   index: -1
