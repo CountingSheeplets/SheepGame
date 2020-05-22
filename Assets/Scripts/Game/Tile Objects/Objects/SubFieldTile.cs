@@ -8,11 +8,13 @@ public class SubFieldTile : MonoBehaviour {
     public SpriteMask myMask;
     bool isDirty = true;
     FieldTileSpriteType myParentStateType;
+
+    TileTextureHandler textureTile;
+
     public FieldTileSpriteType GetParentType() {
         return myParentStateType;
     }
     public void SetDirty() {
-        //Debug.Log("settung dirty");
         isDirty = true;
     }
 
@@ -48,8 +50,10 @@ public class SubFieldTile : MonoBehaviour {
     }
     void Awake() {
         tileState = new TileSpriteState(myLoc.Inverted());
+        textureTile = GetComponent<TileTextureHandler>();
         GetComponentInParent<FieldTile>().onListenStateChange += OnParentStateChanged;
     }
+
     void OnDestroy() {
         if (GetComponentInParent<FieldTile>())
             GetComponentInParent<FieldTile>().onListenStateChange -= OnParentStateChanged;
@@ -62,8 +66,8 @@ public class SubFieldTile : MonoBehaviour {
     }
 
     void SpriteSet() {
-        mySprite.sprite = TileSpriteFactory.GetSprite(this);
-        myMask.sprite = mySprite.sprite;
+        textureTile.SetTilePosition(TileSpriteFactory.GetTextureTile(this));
+        textureTile.UpdateTexture();
     }
 
     public bool IsAffected(Location3x3 loc3x3) {

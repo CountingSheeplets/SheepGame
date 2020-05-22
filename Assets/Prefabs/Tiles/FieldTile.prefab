@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 970218479336460759}
   - component: {fileID: 3986137698187542249}
   - component: {fileID: 7558482342170819470}
+  - component: {fileID: 5465021616509221073}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -51,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 3f23f345d03bb5e4983bbe7c6f0623ad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -72,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 4f766a215da93f442baf7e01acb42405, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -149,6 +150,20 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5465021616509221073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009477074677910194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fdcf722109931948917ed75f0539092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textureCellAndDimension: {x: 0, y: 0, z: 0, w: 0}
+  textureTilingAndOffset: {x: 1, y: 1, z: 0, w: 0}
 --- !u!1 &3559601806076247351
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,6 +176,7 @@ GameObject:
   - component: {fileID: 2263351410306393602}
   - component: {fileID: 2007478151603886120}
   - component: {fileID: 255600959161256161}
+  - component: {fileID: 1441791013258164803}
   m_Layer: 0
   m_Name: Sprite (3)
   m_TagString: Untagged
@@ -200,7 +216,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 3f23f345d03bb5e4983bbe7c6f0623ad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -221,12 +237,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 4f766a215da93f442baf7e01acb42405, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -298,6 +314,20 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1441791013258164803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3559601806076247351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fdcf722109931948917ed75f0539092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textureCellAndDimension: {x: 0, y: 0, z: 0, w: 0}
+  textureTilingAndOffset: {x: 1, y: 1, z: 0, w: 0}
 --- !u!1 &7275534280682011853
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +353,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7275534280682011853}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.641, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4185492851218498707}
@@ -359,6 +389,7 @@ GameObject:
   - component: {fileID: 2825423214218519502}
   - component: {fileID: 8101398761201856018}
   - component: {fileID: 5684523452034552495}
+  - component: {fileID: 3300370325920623179}
   m_Layer: 0
   m_Name: Sprite (2)
   m_TagString: Untagged
@@ -398,7 +429,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 3f23f345d03bb5e4983bbe7c6f0623ad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -419,12 +450,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 4f766a215da93f442baf7e01acb42405, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -496,6 +527,20 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3300370325920623179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7636494960697256619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fdcf722109931948917ed75f0539092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textureCellAndDimension: {x: 0, y: 0, z: 0, w: 0}
+  textureTilingAndOffset: {x: 1, y: 1, z: 0, w: 0}
 --- !u!1 &8595341177512637180
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,6 +553,7 @@ GameObject:
   - component: {fileID: 1355279128052482520}
   - component: {fileID: 5871412372284837973}
   - component: {fileID: 8406125086640917946}
+  - component: {fileID: 5527038237583724554}
   m_Layer: 0
   m_Name: Sprite (1)
   m_TagString: Untagged
@@ -547,7 +593,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 3f23f345d03bb5e4983bbe7c6f0623ad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -568,12 +614,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 4f766a215da93f442baf7e01acb42405, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.1, y: 0.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -645,3 +691,17 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5527038237583724554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8595341177512637180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fdcf722109931948917ed75f0539092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textureCellAndDimension: {x: 0, y: 0, z: 0, w: 0}
+  textureTilingAndOffset: {x: 1, y: 1, z: 0, w: 0}

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿/* using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
@@ -53,4 +53,4 @@ public class RippleController : MonoBehaviour {
 
         ripple.enabled.Override(false);
     }
-}
+} */

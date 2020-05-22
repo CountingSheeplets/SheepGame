@@ -1,4 +1,4 @@
-﻿using System;
+﻿/* using System;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
@@ -32,4 +32,4 @@ public sealed class RippleRenderer : PostProcessEffectRenderer<Ripple> {
 
         context.command.BlitFullscreenTriangle(context.source, context.destination, sheet, 0);
     }
-}
+} */

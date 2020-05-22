@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 [System.Serializable]
-public class SpriteForLayout
-{
+public class SpriteForLayout {
     public List<Array2DFieldTileType> layouts;
-    public List<Sprite> sprites;
+    public List<Vector2> spriteAddresses;
 }
