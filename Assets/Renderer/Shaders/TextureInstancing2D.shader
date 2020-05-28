@@ -1,22 +1,32 @@
-﻿Shader "Unlit/TextureInstancing"
+﻿Shader "Unlit/TextureInstancing2D"
 {
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
 		_TextureCellDim ("Texture Cell and Dimension", Vector) = (0,0,0,0)
 		_TextureST ("Texture ST", Vector) = (1,1,0,0)
-		//_TexturePadding ("Texture Padding", Vector) = (2,2)
 	}
 	SubShader
 	{
-		Tags { "RenderType"="Opaque" }
+		Tags {
+			"RenderType"="Opaque" 
+			"Queue" = "Transparent+1" 
+		}
 		LOD 100
 
 		Pass
 		{
-			Tags {"RenderType" = "Transparent"}//"LightMode" = "ForwardBase"
+			Tags {
+				"Queue"="Transparent" 
+				"IgnoreProjector"="True" 
+				"RenderType"="Transparent" 
+				"PreviewType"="Plane"
+				"CanUseSpriteAtlas"="True"
+			}//"LightMode" = "ForwardBase"
 			Blend SrcAlpha OneMinusSrcAlpha
-			//ZWrite Off
+			ZWrite Off
+			Cull Off
+     		Lighting Off
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
@@ -26,18 +36,20 @@
 
 			#include "UnityCG.cginc"
 
-			struct appdata
+			struct Vertex
 			{
 				float4 vertex : POSITION;
 				float3 normal : NORMAL;
-				float2 uv : TEXCOORD01;
+				float2 uv : TEXCOORD00;
+				float2 uv2 : TEXCOORD01;
 				UNITY_VERTEX_INPUT_INSTANCE_ID // Need this for basic functionality.
 			};
 
-			struct v2f
+			struct Fragment
 			{
 				float4 vertex : SV_POSITION;
-				float2 uv : TEXCOORD01;
+				float2 uv : TEXCOORD00;
+				float2 uv2 : TEXCOORD01;
 				float3 normal : TEXCOORD02;
 				float3 worldPos : TEXCOORD03;
 				UNITY_VERTEX_INPUT_INSTANCE_ID // Need this to be able to get property in fragment shader.				
@@ -51,9 +63,9 @@
 
 			sampler2D _MainTex; float4 _MainTex_ST;
 
-			v2f vert (appdata v)
+			Fragment vert (Vertex v)
 			{
-				v2f o;
+				Fragment o;
 
 				// Setup.
 				UNITY_SETUP_INSTANCE_ID(v);
@@ -64,19 +76,15 @@
 				o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = v.uv;
+				o.uv2 = v.uv2;
 				return o;
 			}
 			
-			fixed4 frag (v2f i) : SV_Target
+			fixed4 frag (Fragment i) : SV_Target
 			{
 				// Setup.
 				UNITY_SETUP_INSTANCE_ID(i);
 
-				//float3 normalDir = normalize(i.normal);
-				//float3 lightDir = _WorldSpaceLightPos0;
-				// Simple light interaction.
-				//float3 diffuse = clamp(dot(normalDir, lightDir), 0.5, 1);
-				//float2 padding = _TexturePadding;
 				// Get per instance property values.
 				float4 texCellDim = UNITY_ACCESS_INSTANCED_PROP(Props, _TextureCellDim);
 				float4 texST = UNITY_ACCESS_INSTANCED_PROP(Props, _TextureST);
