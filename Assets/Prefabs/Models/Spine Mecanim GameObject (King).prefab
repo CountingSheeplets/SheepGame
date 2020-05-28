@@ -64,10 +64,7 @@ MeshRenderer:
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 980aaadeeea10fe4db70100ed41700ab, type: 2}
-  - {fileID: 2100000, guid: fa752c600de80fd47b6e64fc8caa6053, type: 2}
-  - {fileID: 2100000, guid: 980aaadeeea10fe4db70100ed41700ab, type: 2}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

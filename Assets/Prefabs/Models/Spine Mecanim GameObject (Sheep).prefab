@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 8717961065467405344}
   - component: {fileID: 3559431874477606315}
   - component: {fileID: 3024923897151508153}
-  - component: {fileID: 903498712488477430}
   - component: {fileID: -6718269551683509644}
+  - component: {fileID: -2387080625347044878}
   m_Layer: 0
   m_Name: Spine Mecanim GameObject (Sheep)
   m_TagString: Untagged
@@ -64,20 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: 7e9b1ff67c0a6a542812f1d1892737b1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -146,36 +133,8 @@ MonoBehaviour:
   calculateTangents: 0
   maskInteraction: 0
   maskMaterials:
-    materialsMaskDisabled:
-    - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-    - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-    - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-    - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-    - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-    - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-    - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-    - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-    - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-    - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-    - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-    - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-    - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-    - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-    materialsInsideMask:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    materialsMaskDisabled: []
+    materialsInsideMask: []
     materialsOutsideMask: []
   disableRenderingOnOverride: 1
   translator:
@@ -214,17 +173,6 @@ MonoBehaviour:
   txToAddOnDeath: {fileID: 0}
   isClone: 0
   playerColor: {r: 1, g: 1, b: 1, a: 1}
---- !u!210 &903498712488477430
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9198241363911740042}
-  m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 100
 --- !u!114 &-6718269551683509644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,3 +187,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevAngle: 0
   anim: {fileID: 6759887895922138629}
+--- !u!210 &-2387080625347044878
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9198241363911740042}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 100
