@@ -5,7 +5,7 @@ using UnityEngine;
 public class SubFieldTile : MonoBehaviour {
     public Location2x2 myLoc;
     public SpriteRenderer mySprite;
-    public SpriteMask myMask;
+    //public SpriteMask myMask;
     bool isDirty = true;
     FieldTileSpriteType myParentStateType;
     public FieldTileSpriteType GetParentType() {
@@ -63,7 +63,7 @@ public class SubFieldTile : MonoBehaviour {
 
     void SpriteSet() {
         mySprite.sprite = TileSpriteFactory.GetSprite(this);
-        myMask.sprite = mySprite.sprite;
+        //myMask.sprite = mySprite.sprite;
     }
 
     public bool IsAffected(Location3x3 loc3x3) {

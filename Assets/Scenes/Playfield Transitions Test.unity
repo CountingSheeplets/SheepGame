@@ -421,6 +421,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxAmount: 25
   friction: 0.95
+  ripple: {fileID: 0}
+  rippleVolume: {fileID: 0}
 --- !u!20 &519420031 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
@@ -1818,7 +1820,7 @@ PrefabInstance:
     - target: {fileID: 4804696112322545776, guid: 75f0d304b7ed16942b3078dd0d29617b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.00008726013
       objectReference: {fileID: 0}
     - target: {fileID: 4804696112322545776, guid: 75f0d304b7ed16942b3078dd0d29617b,
         type: 3}
@@ -1843,7 +1845,7 @@ PrefabInstance:
     - target: {fileID: 4804696112322545776, guid: 75f0d304b7ed16942b3078dd0d29617b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4804696112322545776, guid: 75f0d304b7ed16942b3078dd0d29617b,
         type: 3}
