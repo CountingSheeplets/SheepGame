@@ -23,7 +23,9 @@ public class Destructable : MonoBehaviour {
         newDebris.transform.parent = ArenaCoordinator.GetFxContainer;
         ParticleSystemRenderer[] systems = newDebris.GetComponentsInChildren<ParticleSystemRenderer>();
         foreach (ParticleSystemRenderer system in systems) {
-            system.sortingOrder = GetComponent<SortingGroup>().sortingOrder + 1;
+            SortingGroup sGroup = GetComponent<SortingGroup>();
+            if (sGroup)
+                system.sortingOrder = sGroup.sortingOrder + 1;
         }
         newDebris.gameObject.name = gameObject.name + ("(ParticleFX)");
         Destroy(newDebris, 1f);
@@ -51,7 +53,7 @@ public class Destructable : MonoBehaviour {
         newTempObj.transform.position = transform.position;
         newTempObj.transform.localScale = new Vector3(transform.lossyScale.x, transform.lossyScale.y, 1);
 
-        DeathFx fx = newTempObj.AddComponent(txToAddOnDeath.GetType())as DeathFx;
+        DeathFx fx = newTempObj.AddComponent(txToAddOnDeath.GetType()) as DeathFx;
         if (playerColor != Color.white)
             fx.SetColorHDR(playerColor, hdrIntensity);
         newTempObj.DestroyAllMonosExcept<DeathFx>();

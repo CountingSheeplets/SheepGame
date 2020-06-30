@@ -78,55 +78,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _persistent: 0
   flySpeeds:
-  - speed: 1
-    sheepType: 0
   - speed: 2
+    sheepType: 0
+  - speed: 3
     sheepType: 1
-  - speed: 1
+  - speed: 2
     sheepType: 2
-  - speed: 1
+  - speed: 2
     sheepType: 3
-  - speed: 0.7
+  - speed: 1.3
     sheepType: 4
-  - speed: 1
+  - speed: 2
     sheepType: 5
-  - speed: 1
+  - speed: 1.8
     sheepType: 6
-  - speed: 1
+  - speed: 2
     sheepType: 7
   runSpeeds:
-  - speed: 1
-    sheepType: 0
   - speed: 2
+    sheepType: 0
+  - speed: 3
     sheepType: 1
-  - speed: 1
+  - speed: 2
     sheepType: 2
-  - speed: 1
+  - speed: 2
     sheepType: 3
-  - speed: 0.3
+  - speed: 0.5
     sheepType: 4
-  - speed: 1
+  - speed: 2
     sheepType: 5
-  - speed: 0.15
+  - speed: 0.3
     sheepType: 6
-  - speed: 1
+  - speed: 2
     sheepType: 7
   roamSpeeds:
-  - speed: 0.3
-    sheepType: 0
   - speed: 0.6
+    sheepType: 0
+  - speed: 1
     sheepType: 1
-  - speed: 0.3
+  - speed: 0.5
     sheepType: 2
-  - speed: 0.3
+  - speed: 0.6
     sheepType: 3
-  - speed: 0.3
+  - speed: 0.5
     sheepType: 4
-  - speed: 0.3
+  - speed: 0.6
     sheepType: 5
-  - speed: 0.2
-    sheepType: 6
   - speed: 0.3
+    sheepType: 6
+  - speed: 0.4
     sheepType: 7
   swimSpeeds:
   - speed: 0.2
@@ -146,38 +146,38 @@ MonoBehaviour:
   - speed: 0.2
     sheepType: 7
   knockbackSpeeds:
-  - speed: 2
+  - speed: 3
     sheepType: 0
-  - speed: 2
+  - speed: 3
     sheepType: 1
-  - speed: 2
+  - speed: 3
     sheepType: 2
-  - speed: 2
+  - speed: 3
     sheepType: 3
-  - speed: 2
+  - speed: 3
     sheepType: 4
-  - speed: 2
+  - speed: 3
+    sheepType: 5
+  - speed: 0.5
+    sheepType: 6
+  - speed: 3
+    sheepType: 7
+  fallSpeeds:
+  - speed: 0.3
+    sheepType: 0
+  - speed: 0.3
+    sheepType: 1
+  - speed: 0.3
+    sheepType: 2
+  - speed: 0.3
+    sheepType: 3
+  - speed: 0.3
+    sheepType: 4
+  - speed: 0.3
     sheepType: 5
   - speed: 0.3
     sheepType: 6
-  - speed: 2
-    sheepType: 7
-  fallSpeeds:
-  - speed: 0.2
-    sheepType: 0
-  - speed: 0.2
-    sheepType: 1
-  - speed: 0.2
-    sheepType: 2
-  - speed: 0.2
-    sheepType: 3
-  - speed: 0.2
-    sheepType: 4
-  - speed: 0.2
-    sheepType: 5
-  - speed: 0.2
-    sheepType: 6
-  - speed: 0.2
+  - speed: 0.3
     sheepType: 7
 --- !u!114 &8604118487354306398
 MonoBehaviour:

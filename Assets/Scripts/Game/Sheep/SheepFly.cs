@@ -5,9 +5,12 @@ using UnityEngine.Rendering;
 
 public class SheepFly : BaseUnitMove {
     SheepUnit sheep;
+    SortingGroup sGroup;
     public void StartFlying(float speed, Vector2 _destination) {
         if (!sheep)
             sheep = GetComponent<SheepUnit>();
+        if (!sGroup)
+            sGroup = sheep.GetComponentInChildren<SortingGroup>();
         Debug.Log("StartFlying to:" + _destination);
         sheep.isFlying = true;
         sheep.isReadyToFly = false;
@@ -15,14 +18,16 @@ public class SheepFly : BaseUnitMove {
         MoveToDestination(speed, 1.5f);
         //run animation;
         animator.FlyTo(_destination);
-        sheep.GetComponentInChildren<SortingGroup>().sortingOrder = 200;
+        if (sGroup)
+            sGroup.sortingOrder = 200;
     }
 
     public override void PostMoveAction() {
-        sheep.GetComponentInChildren<SortingGroup>().sortingOrder = 100;
+        if (sGroup)
+            sGroup.sortingOrder = 100;
         GetComponent<SheepUnit>().isFlying = false;
         //trigger to play Land animation
-        Debug.Log("fly eneded, landing at:" + (Vector2)(transform.position));
+        Debug.Log("fly eneded, landing at:" + (Vector2) (transform.position));
         animator.StopFlying();
         //trigger Land game event, listened by sheep throw
         Playfield newPlayfield = ArenaCoordinator.GetPlayfield(transform.position);

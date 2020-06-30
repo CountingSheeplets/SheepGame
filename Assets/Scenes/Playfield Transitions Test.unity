@@ -349,7 +349,6 @@ GameObject:
   - component: {fileID: 470012889}
   - component: {fileID: 470012888}
   - component: {fileID: 470012890}
-  - component: {fileID: 470012891}
   m_Layer: 0
   m_Name: KingAbilities
   m_TagString: Untagged
@@ -407,22 +406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7658f047840ce4abeba7587053ea24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &470012891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 470012886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e895a57436cc5a4d9d2d182534ddde2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxAmount: 25
-  friction: 0.95
-  ripple: {fileID: 0}
-  rippleVolume: {fileID: 0}
 --- !u!20 &519420031 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4804696112322545807, guid: 75f0d304b7ed16942b3078dd0d29617b,
