@@ -5,6 +5,7 @@ using UnityEngine;
 public class KingHeadbutStars : MonoBehaviour {
     KingUnit king;
     public GameObject stars;
+    public GameObject explodeFx;
     float counter;
     bool hit;
     void Start() {
@@ -17,8 +18,14 @@ public class KingHeadbutStars : MonoBehaviour {
     }
     void OnHit(GameMessage msg) {
         if (msg.kingUnit == king) {
-            hit = true;
-            stars.SetActive(true);
+            if (msg.kingUnit.owner.GetPlayerProfile().GetGrass() > 0) {
+                hit = true;
+                stars.SetActive(true);
+            } else {
+                //spawn explosion?
+                //GameObject newExplosion = Instantiate(explodeFx, transform.position, Quaternion.identity);
+                //Destroy(explodeFx);
+            }
         }
     }
     void Update() {

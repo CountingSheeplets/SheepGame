@@ -69,7 +69,7 @@ public class TestEvents : MonoBehaviour {
             Swipe newSwipe = new Swipe();
             newSwipe.ToZeroKing();
             Debug.Log(newSwipe.ToString());
-            EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(OwnersCoordinator.GetOwners()[1]));
+            EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(OwnersCoordinator.GetOwners() [1]));
         }
         if (Input.GetKeyDown(KeyCode.KeypadMultiply)) {
             foreach (Owner owner in OwnersCoordinator.GetOwners()) {
@@ -104,17 +104,17 @@ public class TestEvents : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.U)) {
             Debug.Log("Random owner clicks upgrade....");
             Owner upgrader = OwnersCoordinator.GetRandomOwner();
-            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType)Random.Range(0, 2)));
+            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType) Random.Range(0, 2)));
         }
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
             Debug.Log("first owner gets first upgrade....");
-            Owner upgrader = OwnersCoordinator.Instance.owners[1];
-            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType)0));
+            Owner upgrader = OwnersCoordinator.Instance.owners[0];
+            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType) 0));
         }
         if (Input.GetKeyDown(KeyCode.Alpha2)) {
             Debug.Log("first owner gets first upgrade....");
-            Owner upgrader = OwnersCoordinator.Instance.owners[1];
-            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType)1));
+            Owner upgrader = OwnersCoordinator.Instance.owners[0];
+            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType) 1));
         }
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SheepUpgradeLightbeam : MonoBehaviour {
     public Animator anim;
+
     void Start() {
         if (anim == null)
             anim = GetComponent<Animator>();
