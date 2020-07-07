@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SubFieldTile : MonoBehaviour {
     public Location2x2 myLoc;
-    public SpriteRenderer mySprite;
+    //SpriteRenderer mySprite;
+    MasterTile masterTile;
     //public SpriteMask myMask;
     bool isDirty = true;
     FieldTileSpriteType myParentStateType;
@@ -48,6 +49,8 @@ public class SubFieldTile : MonoBehaviour {
     }
     void Awake() {
         tileState = new TileSpriteState(myLoc.Inverted());
+        masterTile = GetComponentInParent<MasterTile>();
+        //Debug.Log("mySprite:" + mySprite.gameObject.name);
         GetComponentInParent<FieldTile>().onListenStateChange += OnParentStateChanged;
     }
     void OnDestroy() {
@@ -62,8 +65,12 @@ public class SubFieldTile : MonoBehaviour {
     }
 
     void SpriteSet() {
-        mySprite.sprite = TileSpriteFactory.GetSprite(this);
-        //myMask.sprite = mySprite.sprite;
+        //mySprite.sprite = TileSpriteFactory.GetSprite(this);
+        //setPixels of the sprite received to where they must go here:
+        Color[] pixels = TileSpriteFactory.GetSprite(this).texture.GetPixels();
+        int x = myLoc.x + Mathf.FloorToInt(transform.parent.position.x);
+        int y = myLoc.y + Mathf.FloorToInt(transform.parent.position.y);
+        masterTile.UpdateTexture(x, y, pixels);
     }
 
     public bool IsAffected(Location3x3 loc3x3) {

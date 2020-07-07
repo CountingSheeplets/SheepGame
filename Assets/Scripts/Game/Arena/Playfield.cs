@@ -18,6 +18,7 @@ public class Playfield : MonoBehaviour {
     public Transform sheepParent; // used by SheepFactory
 
     public bool isAnimating = false;
+    public MasterTile masterTile;
     public Playfield Init() {
         GameObject newPlayfieldGO = Instantiate(gameObject);
         Playfield playfield = newPlayfieldGO.GetComponent<Playfield>();
@@ -25,6 +26,7 @@ public class Playfield : MonoBehaviour {
     }
 
     void Start() {
+        masterTile = GetComponentInChildren<MasterTile>();
         fieldCorners = new FieldCorners(ArenaCoordinator.fieldSize);
         //Debug.Log("object set: fieldCorners..."+fieldCorners);
         //EventManager.StartListening(EventName.Input.Swipe(), OnSwipe);
@@ -125,6 +127,7 @@ public class Playfield : MonoBehaviour {
         for (int i = Mathf.FloorToInt(currentHitpoints - 1); i >= 0; i--) {
             fieldTiles[i].SetState(true);
         }
+        masterTile.ApplyTexture();
     }
     void OnAdjustField(GameMessage msg) {
         if (msg.owner.EqualsByValue(GetComponent<Owner>())) {
@@ -169,9 +172,9 @@ public class Spiral {
             return;
         }
         if (Mathf.Abs(x) > Mathf.Abs(y) + 0.5f * Mathf.Sign(x) && Mathf.Abs(x) > (-y + 0.5f))
-            y += (int)Mathf.Sign(x);
+            y += (int) Mathf.Sign(x);
         else
-            x -= (int)Mathf.Sign(y);
+            x -= (int) Mathf.Sign(y);
     }
     public Vector2 NextPoint() {
         Next();
