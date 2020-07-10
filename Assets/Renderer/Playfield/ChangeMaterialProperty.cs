@@ -4,24 +4,29 @@ using UnityEngine;
 
 public class ChangeMaterialProperty : MonoBehaviour {
     bool trigger;
-    float blendSpeed = 0.5f;
+    float timeToDestroy = 0.5f;
     float visibility = 1f;
     SpriteRenderer rend;
-
+    public Owner owner;
     void Start() {
+        EventCoordinator.StartListening(EventName.System.Environment.DestroyArena(), OnDestroyArena);
         rend = GetComponent<SpriteRenderer>();
+        owner = GetComponentInParent<Owner>();
     }
-
-    // Update is called once per frame
+    void OnDestroy() {
+        EventCoordinator.StopListening(EventName.System.Environment.DestroyArena(), OnDestroyArena);
+    }
+    void OnDestroyArena(GameMessage msg) {
+        if (!owner.EqualsByValue(msg.targetOwner))
+            return;
+        timeToDestroy = msg.floatMessage;
+        trigger = true;
+        visibility = 1f;
+        rend.material.SetFloat("_CurrentLevel", 1);
+    }
     void Update() {
-        if (Input.GetKey(KeyCode.A)) {
-            Debug.Log("Start ChangeMaterialProperty");
-            trigger = true;
-            visibility = 1f;
-            rend.material.SetFloat("_CurrentLevel", 1);
-        }
         if (trigger) {
-            visibility -= Time.deltaTime * blendSpeed;
+            visibility -= Time.deltaTime / timeToDestroy;
             if (visibility >= 0)
                 rend.material.SetFloat("_CurrentLevel", visibility);
             else {

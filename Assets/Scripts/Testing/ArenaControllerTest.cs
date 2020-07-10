@@ -37,7 +37,7 @@ public class ArenaControllerTest : MonoBehaviour {
         EventCoordinator.StartListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
         EventCoordinator.StartListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
         EventCoordinator.StartListening(EventName.Input.StartGame(), OnStartGame);
-        EventCoordinator.StartListening(EventName.System.Player.Eliminated(), OnPlayerDefeated);
+        EventCoordinator.StartListening(EventName.System.Environment.ArenaDestroyed(), OnArenaDestroyed);
         EventCoordinator.StartListening(EventName.System.Environment.EndMatch(), OnMatchEnd);
         EventCoordinator.StartListening(EventName.System.SceneLoaded(), OnSceneReloaded);
     }
@@ -45,7 +45,7 @@ public class ArenaControllerTest : MonoBehaviour {
         EventCoordinator.StopListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
         EventCoordinator.StopListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
         EventCoordinator.StopListening(EventName.Input.StartGame(), OnStartGame);
-        EventCoordinator.StopListening(EventName.System.Player.Eliminated(), OnPlayerDefeated);
+        EventCoordinator.StopListening(EventName.System.Environment.ArenaDestroyed(), OnArenaDestroyed);
         EventCoordinator.StopListening(EventName.System.Environment.EndMatch(), OnMatchEnd);
         EventCoordinator.StopListening(EventName.System.SceneLoaded(), OnSceneReloaded);
     }
@@ -56,7 +56,7 @@ public class ArenaControllerTest : MonoBehaviour {
     void OnPlayerLeft(GameMessage msg) {
         ArenaCoordinator.RemoveField(msg.owner);
     }
-    void OnPlayerDefeated(GameMessage msg) {
+    void OnArenaDestroyed(GameMessage msg) {
         ArenaCoordinator.RemoveField(msg.targetOwner);
         ArenaCoordinator.RearrangeArena();
     }

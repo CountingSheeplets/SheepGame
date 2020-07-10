@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4208512613812966870}
   - component: {fileID: 8145525826899372314}
   - component: {fileID: -7590703455707321619}
+  - component: {fileID: 5899763417754825198}
   m_Layer: 0
   m_Name: Spine Mecanim GameObject (King)
   m_TagString: Untagged
@@ -203,3 +204,15 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
+--- !u!114 &5899763417754825198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608349506529783468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74123b34b2d1b594fbdd8007756acd8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

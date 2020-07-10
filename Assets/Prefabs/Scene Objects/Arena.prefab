@@ -5003,6 +5003,7 @@ GameObject:
   - component: {fileID: 2463484813543074635}
   - component: {fileID: 2463484813543074638}
   - component: {fileID: 9177376584049049340}
+  - component: {fileID: 2705995424070894471}
   m_Layer: 0
   m_Name: Arena
   m_TagString: Untagged
@@ -5346,6 +5347,19 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 0c9906ace05933f4ea1f0398de4a0bb5, type: 2}
     sprites:
     - {fileID: 1713723044500430029, guid: d178ed43a199d3947b51d191d0cbe770, type: 3}
+--- !u!114 &2705995424070894471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2463484813543074625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68349ec5355b34343b5422e578397e92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDestroy: 2
 --- !u!1 &2463484813546389685
 GameObject:
   m_ObjectHideFlags: 0
