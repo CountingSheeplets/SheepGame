@@ -84,20 +84,10 @@ public class KingUnit : MonoBehaviour {
 
     void OnHit(GameMessage msg) {
         if (msg.kingUnit == this) {
-            //if target owner == damaged owner. throw msg "king is starving!"
-            //DealDamage(ConstantsBucket.HitDamage);
-            //onReceivedDamage(10); move this to messaging system
             TryDie(msg.owner, owner);
         }
     }
-    /*     public void OnStarve() {
-            DealDamage(ConstantsBucket.StarveDamage);
-            TryDie(null, owner);
-        } */
-    /*     public void DealDamage(float amount) {
-            currentDamage += amount;
-            EventCoordinator.TriggerEvent(EventName.System.King.ReceivedDamage(), GameMessage.Write().WithKingUnit(this).WithFloatMessage(amount));
-        } */
+
     void TryDie(Owner killer, Owner eliminated) {
         if (isVulnerable) {
             //show die animation

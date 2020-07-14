@@ -8,7 +8,9 @@ public class PlayerProfileCoordinator : Singleton<PlayerProfileCoordinator> {
     public List<PlayerProfile> profiles = new List<PlayerProfile>();
 
     public static float ModifyPlayerGrass(Owner owner, float amount) {
-        return GetProfile(owner).ModifyGrass(amount);
+        float targetAmount = GetProfile(owner).ModifyGrass(amount);
+        EventCoordinator.TriggerEvent(EventName.System.Economy.GrassChanged(), GameMessage.Write().WithDeltaFloat(amount).WithTargetFloat(targetAmount).WithOwner(owner));
+        return targetAmount;
     }
 
     public static PlayerProfile GetProfile(Owner owner) {
