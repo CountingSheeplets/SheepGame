@@ -65,6 +65,7 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
     }
     void ArrangeFields(ArenaPreset randomPreset) {
         List<PresetSocket> sockets = new List<PresetSocket>(randomPreset.playfieldSockets);
+        //Debug.Log("payfields:" + playfields.Count);
         List<Playfield> leftoverFields = new List<Playfield>(playfields);
         Playfield p = playfieldPrefab.GetComponent<Playfield>();
         float fieldWidth = fieldSize.x + ConstantsBucket.EmptySpacesBetweenFields * ConstantsBucket.PlayfieldTileSize;
@@ -74,6 +75,7 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
             int rF = Random.Range(0, leftoverFields.Count - 1);
             Vector2 offset = sockets[rS].transform.position;
             //leftoverFields[rF].transform.position = offset * fieldWidth;
+            //Debug.Log("leftoverFields[rF]:" + leftoverFields[rF].name);
             FieldFloat pFloat = leftoverFields[rF].GetComponent<FieldFloat>();
             pFloat.StartFloating(ConstantsBucket.PlayfieldFloatSpeed, offset * fieldWidth);
             if (leftoverFields[rF].fieldCorners != null)

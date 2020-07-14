@@ -17,14 +17,14 @@ public class ArenaDestructionHandler : MonoBehaviour {
         EventCoordinator.TriggerEvent(EventName.System.Environment.DestroyArena(), GameMessage.Write().WithFloatMessage(timeToDestroy).WithTargetOwner(ownerBeingDestroyed));
         progress = 1f;
         trigger = true;
-
     }
 
     void Update() {
         if (trigger) {
             progress -= Time.deltaTime / timeToDestroy;
             if (progress <= 0) {
-                EventCoordinator.TriggerEvent(EventName.System.Environment.ArenaDestroyed(), GameMessage.Write().WithFloatMessage(timeToDestroy).WithTargetOwner(ownerBeingDestroyed));
+                progress = 1f;
+                EventCoordinator.TriggerEvent(EventName.System.Environment.ArenaDestroyed(), GameMessage.Write().WithTargetOwner(ownerBeingDestroyed));
                 trigger = false;
             }
         }

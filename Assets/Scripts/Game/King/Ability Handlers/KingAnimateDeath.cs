@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-
 public class KingAnimateDeath : MonoBehaviour {
     public Owner owner;
     public Animator anim;
@@ -25,7 +25,7 @@ public class KingAnimateDeath : MonoBehaviour {
         if (owner.EqualsByValue(msg.targetOwner)) {
             anim.SetTrigger("die");
         }
-        List<BaseUnitMove> moves = new List<BaseUnitMove>(GetComponentsInParent<BaseUnitMove>());
+        List<BaseUnitMove> moves = new List<BaseUnitMove>(GetComponentsInParent<BaseUnitMove>().Where(x => !(x is FieldFloat)));
         foreach (BaseUnitMove move in moves) {
             Destroy(move);
         }

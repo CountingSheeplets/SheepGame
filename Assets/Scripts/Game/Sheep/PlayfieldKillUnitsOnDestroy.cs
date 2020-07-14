@@ -31,7 +31,6 @@ public class PlayfieldKillUnitsOnDestroy : MonoBehaviour {
         if (trigger) {
             if (progress > killInterval) {
                 counter++;
-                Debug.Log("counter+ " + counter);
                 if (counter >= amount)
                     trigger = false;
                 else {

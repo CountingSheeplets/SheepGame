@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MatchEndHandler : MonoBehaviour {
     void Start() {
-        EventCoordinator.StartListening(EventName.System.Player.PostElimination(), OnPostEliminated);
+        EventCoordinator.StartListening(EventName.System.Environment.ArenaDestroyed(), OnPostEliminated);
     }
     void OnDestroy() {
-        EventCoordinator.StopListening(EventName.System.Player.PostElimination(), OnPostEliminated);
+        EventCoordinator.StopListening(EventName.System.Environment.ArenaDestroyed(), OnPostEliminated);
     }
     void OnPostEliminated(GameMessage msg) {
         ////Debug.Log("OnPostEliminated: state: " + GameState.ended);
