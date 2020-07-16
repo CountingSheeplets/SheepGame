@@ -66,7 +66,7 @@ public class PlayerCard : MonoBehaviour {
         if (isEliminated)
             return;
         if (msg.owner == owner) {
-            Debug.Log("deltaFloat: " + msg.deltaFloat);
+            //Debug.Log("deltaFloat: " + msg.deltaFloat);
             kingHealthFill.fillAmount = msg.targetFloatMessage / Mathf.Pow(ConstantsBucket.GridSize, 2);
             //kingHealthText.text = Mathf.FloorToInt(msg.deltaFloat).ToString();
             //kingHealthText.GetComponent<Animator>().SetTrigger("Show");

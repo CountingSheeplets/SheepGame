@@ -14,7 +14,6 @@ public class KingAnimateDeath : MonoBehaviour {
         skeleton = GetComponent<SkeletonMecanim>().skeleton;
         color = skeleton.GetColor();
         alpha = color.a + 0.1f;
-        Debug.Log(skeleton.GetColor());
     }
     void Start() {
         anim = GetComponent<Animator>();
