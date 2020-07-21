@@ -16,9 +16,9 @@ public class SheepEat : MonoBehaviour {
         if (sheep.currentPlayfield == null)
             return;
         Owner playfieldOwner = sheep.currentPlayfield.owner;
-        if (playfieldOwner.EqualsByValue(sheep.owner))
-            return;
-        float eatAmount = CalculateEatAmount();
+        //if (playfieldOwner.EqualsByValue(sheep.owner))
+        //    return;
+        float eatAmount = CalculateEatAmount() + msg.floatMessage;
         float totalGrass = PlayerProfileCoordinator.ModifyPlayerGrass(sheep.currentPlayfield.owner, -eatAmount);
         Debug.Log("sheep grass eaten " + eatAmount);
     }

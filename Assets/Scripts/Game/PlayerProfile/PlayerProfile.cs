@@ -59,7 +59,7 @@ public class PlayerProfile {
     }
     public float GetGrass() {
         if (playfield != null)
-            return playfield.GetHitpoints();
+            return playfield.GetGrass();
         else {
             //Debug.LogWarning("playfield = null, in player profile: "+owner);   //Sort() calls this
             return 0;
@@ -67,7 +67,7 @@ public class PlayerProfile {
     }
     public float ModifyGrass(float amount) {
         if (playfield != null) {
-            float adjustedAmount = playfield.AdjustHitPoints(amount);
+            float adjustedAmount = playfield.ModifyGrass(amount);
             SetNetworkDirty();
             return adjustedAmount;
         } else {
@@ -78,8 +78,7 @@ public class PlayerProfile {
     public float FillGrass() {
         if (playfield != null) {
             float prevHitpoints = playfield.currentHitpoints;
-            float amount = playfield.AdjustHitPoints(500);
-            playfield.AdjustHitPoints(amount);
+            playfield.SetGrassTo(ConstantsBucket.MaxPlayfieldGrass + 1);
             SetNetworkDirty();
             return prevHitpoints - playfield.currentHitpoints;
         } else {

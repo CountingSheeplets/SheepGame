@@ -46,7 +46,7 @@ public class TestEvents : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.G)) {
             Debug.Log("Fake eat grass...");
-            EventCoordinator.TriggerEvent(EventName.System.Economy.EatGrass(), GameMessage.Write().WithFloatMessage(10f));
+            EventCoordinator.TriggerEvent(EventName.System.Economy.EatGrass(), GameMessage.Write().WithFloatMessage(1f));
         }
         if (Input.GetKeyDown(KeyCode.Q)) {
             //NetworkCoordinator.SendShowViewAll("match");

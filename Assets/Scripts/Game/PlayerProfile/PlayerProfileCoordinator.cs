@@ -9,7 +9,6 @@ public class PlayerProfileCoordinator : Singleton<PlayerProfileCoordinator> {
 
     public static float ModifyPlayerGrass(Owner owner, float amount) {
         float targetAmount = GetProfile(owner).ModifyGrass(amount);
-        EventCoordinator.TriggerEvent(EventName.System.Economy.GrassChanged(), GameMessage.Write().WithDeltaFloat(amount).WithTargetFloat(targetAmount).WithOwner(owner));
         return targetAmount;
     }
 

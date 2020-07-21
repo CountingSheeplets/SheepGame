@@ -89,8 +89,6 @@ public class EventName {
         }
         public class Environment {
             public static string Initialized() { return "System_Environment_Initialized"; }
-            public static string SetField() { return "System_Environment_SetField"; }
-            public static string AdjustField() { return "System_Environment_AdjustField"; }
             public static string EndMatch() { return "System_Environment_EndMatch"; }
             public static string DestroyArena() { return "System_Environment_DestroyArena"; }
             public static string ArenaDestroyed() { return "System_Environment_ArenaDestroyed"; }
@@ -98,7 +96,7 @@ public class EventName {
             public static string PlayfieldAnimated() { return "System_Environment_PlayfieldAnimated"; }
             public static string ArenaAnimated() { return "System_Environment_ArenaAnimated"; }
             public static string CleanScene() { return "System_Environment_CleanScene"; }
-            public static List<string> Get() { return new List<string> { Initialized(), SetField(), AdjustField(), EndMatch(), DestroyArena(), ArenaDestroyed(), ArenaAnimating(), PlayfieldAnimated(), ArenaAnimated(), CleanScene() }; }
+            public static List<string> Get() { return new List<string> { Initialized(), EndMatch(), DestroyArena(), ArenaDestroyed(), ArenaAnimating(), PlayfieldAnimated(), ArenaAnimated(), CleanScene() }; }
         }
         public class Player {
             public static string ProfileCreated() { return "System_ProfileCreated"; }

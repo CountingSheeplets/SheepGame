@@ -107,6 +107,10 @@ public class ConstantsBucket : Singleton<ConstantsBucket> {
     public static float ProfileUpdateInterval { get { return Instance.profileUpdateInterval; } }
 
     [Header("Other")]
+    [SerializeField] public float maxPlayfieldGrass = 100.0f;
+    public static float MaxPlayfieldGrass { get { return Instance.maxPlayfieldGrass; } }
+
+    [Header("Other")]
     [SerializeField] public float tipLoopTimer = 10.0f;
     public static float TipLoopTimer { get { return Instance.tipLoopTimer; } }
 }
