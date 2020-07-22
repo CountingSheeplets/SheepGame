@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 5107475408758365491}
   - component: {fileID: 6666286272336251124}
   - component: {fileID: 9161422630228465625}
+  - component: {fileID: 3098356784123305128}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -290,7 +291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bcdee832ef97ab428049b0218454735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: 0}
 --- !u!114 &9161422630228465625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +303,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32083884d7b8b8842912e82fb9945c59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: 0}
+--- !u!114 &3098356784123305128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6451136426159359089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50855accfaa7eb2499a4d9a740b40f30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crackTextures:
+  - {fileID: 2800000, guid: 4eb0e5625109077418cde4e21544d64f, type: 3}
+  - {fileID: 2800000, guid: e85844b401822994b8f6b712419ef4b4, type: 3}
+  - {fileID: 2800000, guid: 1b0ab3a33de721049a7b72cd93dcfe99, type: 3}
+  - {fileID: 2800000, guid: d07b6061655479045b35168a99a21766, type: 3}
 --- !u!1 &6903003754823185118
 GameObject:
   m_ObjectHideFlags: 0

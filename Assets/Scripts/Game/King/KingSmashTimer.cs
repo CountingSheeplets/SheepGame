@@ -14,8 +14,8 @@ public class KingSmashTimer : MonoBehaviour {
 
     void Start() {
         smashTime = ConstantsBucket.SmashSpeed;
-        if (king == null)king = GetComponent<KingUnit>();
-        if (owner == null)owner = king.owner;
+        if (king == null) king = GetComponent<KingUnit>();
+        if (owner == null) owner = king.owner;
         EventCoordinator.StartListening(EventName.System.King.StartSmash(), OnStartSmash);
     }
     void OnDestroy() {
@@ -39,7 +39,7 @@ public class KingSmashTimer : MonoBehaviour {
                 .Where(x => x.sheepType != SheepType.Tank)
                 .Where(x => !x.isReadyToFly)
                 .ToList();
-            EventCoordinator.TriggerEvent(EventName.System.King.Smashed(), smashMsg.WithSheepUnits(sheepWithinRange));
+            EventCoordinator.TriggerEvent(EventName.System.King.Smashed(), smashMsg.WithSheepUnits(sheepWithinRange).WithCoordinates(king.transform.localPosition).WithOwner(owner));
             counter = 0f;
             king.StopUsingAbility();
         }

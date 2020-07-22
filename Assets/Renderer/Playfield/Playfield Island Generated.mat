@@ -60,6 +60,14 @@ Material:
         m_Texture: {fileID: 2800000, guid: 47879f8262858b64fb466327cc235954, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SmashCrackTexture:
+        m_Texture: {fileID: 2800000, guid: 4eb0e5625109077418cde4e21544d64f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SmiteCrackDecal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -83,6 +91,8 @@ Material:
     - _QueueOffset: 0
     - _RandomSeed: 2
     - _ReceiveShadows: 1
+    - _SmashCrackLevel: 0
+    - _SmiteCrackLevel: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
