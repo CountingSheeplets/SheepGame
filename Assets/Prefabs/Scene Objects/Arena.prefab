@@ -8347,7 +8347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c8975d542f73f41a88a925ffcf7717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxClouds: 4
+  maxClouds: 5
   cloudPrefab: {fileID: 5178766671345301529, guid: 02f315e383bffb943a778b0d77855600,
     type: 3}
   maxY: 5
@@ -11429,7 +11429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c8975d542f73f41a88a925ffcf7717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxClouds: 2
+  maxClouds: 4
   cloudPrefab: {fileID: 5178766671345301529, guid: 02f315e383bffb943a778b0d77855600,
     type: 3}
   maxY: 5
