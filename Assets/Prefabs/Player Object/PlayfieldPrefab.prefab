@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 269294427564951461}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 7903777884982416815}
   m_Father: {fileID: 2392307331080380785}
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 7903777884982416812}
+  timeToRotate: 0.1
 --- !u!1 &421335077350656772
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,6 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50855accfaa7eb2499a4d9a740b40f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visibility: 0
   crackTextures:
   - {fileID: 2800000, guid: 4eb0e5625109077418cde4e21544d64f, type: 3}
   - {fileID: 2800000, guid: e85844b401822994b8f6b712419ef4b4, type: 3}
@@ -710,17 +712,17 @@ PrefabInstance:
     - target: {fileID: 7264911332029479538, guid: 854437c85b4111a4c9d53ab5d586f4aa,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.05
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7264911332029479538, guid: 854437c85b4111a4c9d53ab5d586f4aa,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.05
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7264911332029479538, guid: 854437c85b4111a4c9d53ab5d586f4aa,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.05
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7264911332029479539, guid: 854437c85b4111a4c9d53ab5d586f4aa,
         type: 3}
