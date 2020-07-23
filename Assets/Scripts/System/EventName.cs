@@ -58,7 +58,8 @@ public class EventName {
             public static string GrassChanged() { return "Economy_GrassChanged"; } // should be under Playfield
             public static string IncomeTick() { return "Economy_IncomeTick"; }
             public static string CoinChange() { return "Economy_CoinChange"; }
-            public static List<string> Get() { return new List<string> { GrassChanged(), IncomeTick(), CoinChange(), EatGrass() }; }
+            public static string ComboChanged() { return "Economy_ComboChanged"; }
+            public static List<string> Get() { return new List<string> { GrassChanged(), IncomeTick(), CoinChange(), EatGrass(), ComboChanged() }; }
         }
         public class Cooldown {
             public static string Tick() { return "Cooldown_Tick"; }

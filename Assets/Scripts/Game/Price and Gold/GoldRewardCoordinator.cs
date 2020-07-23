@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 public class GoldRewardCoordinator : Singleton<GoldRewardCoordinator> {
     Dictionary<Owner, int> combos = new Dictionary<Owner, int>();
+    public static int GetComboLevel(Owner owner) {
+        if (Instance.combos.ContainsKey(owner))
+            return Mathf.Clamp(Instance.combos[owner], 0, ConstantsBucket.MaxPlayerCombo);
+        else
+            return 0;
+    }
 
     public static void IncreaseCombo(Owner owner) {
         if (Instance.combos.ContainsKey(owner))
@@ -18,12 +24,7 @@ public class GoldRewardCoordinator : Singleton<GoldRewardCoordinator> {
         RewardGold(owner, GoldRewardBucket.SheepLandFieldFlat);
     }
     public static int GetComboMultiplier(Owner owner) {
-        if (Instance.combos.ContainsKey(owner))
-            return (int)(Mathf.Pow(2, Instance.combos[owner]));
-        else {
-            Instance.combos[owner] = 0;
-            return 1;
-        }
+        return (int) (Mathf.Pow(2, GetComboLevel(owner)));
     }
     public static void RewardOnKingKingHit(Owner owner) {
         int comboMult = GetComboMultiplier(owner);

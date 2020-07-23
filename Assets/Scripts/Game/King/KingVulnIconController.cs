@@ -6,7 +6,7 @@ public class KingVulnIconController : MonoBehaviour {
     KingUnit king;
     public GameObject iconSpriteObj;
     void Start() {
-        if (king == null)king = GetComponentInParent<KingUnit>();
+        if (king == null) king = GetComponentInParent<KingUnit>();
         king.onVulnerabilityChange += OnStateChange;
     }
 

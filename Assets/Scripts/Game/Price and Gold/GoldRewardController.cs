@@ -31,6 +31,7 @@ public class GoldRewardController : MonoBehaviour {
     }
     void OnKingHit(GameMessage msg) {
         GoldRewardCoordinator.RewardOnKingKingHit(msg.owner);
+        EventCoordinator.TriggerEvent(EventName.System.Economy.ComboChanged(), GameMessage.Write().WithIntMessage(GoldRewardCoordinator.GetComboMultiplier(msg.owner)).WithOwner(msg.owner));
     }
     void OnKingMissed(GameMessage msg) {
         GoldRewardCoordinator.ResetCombo(msg.owner);
