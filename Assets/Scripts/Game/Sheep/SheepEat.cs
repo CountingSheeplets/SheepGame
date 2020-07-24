@@ -20,7 +20,7 @@ public class SheepEat : MonoBehaviour {
         //    return;
         float eatAmount = CalculateEatAmount() + msg.floatMessage;
         float totalGrass = PlayerProfileCoordinator.ModifyPlayerGrass(sheep.currentPlayfield.owner, -eatAmount);
-        Debug.Log("sheep grass eaten " + eatAmount);
+        //Debug.Log("sheep grass eaten " + eatAmount);
     }
 
     float CalculateEatAmount() {

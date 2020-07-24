@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Spine.Unity;
 using UnityEngine;
 
 public class SpineContainerBlends : MonoBehaviour, IAnimatableDirection {
     public float prevAngle;
     public Animator anim;
+    SkeletonMecanim mecanim;
     void Awake() {
         SetInitialRandomDirection();
     }
     public void SetInitialRandomDirection() {
         if (anim == null) anim = GetComponent<Animator>();
+        if (mecanim == null) mecanim = GetComponent<SkeletonMecanim>();
         Vector2 direction = Random.insideUnitCircle.normalized + (Vector2) transform.position;
         prevAngle = Vector2.SignedAngle(direction, Vector2.up);
         SetAnimatorDirections(direction);
@@ -59,7 +62,8 @@ public class SpineContainerBlends : MonoBehaviour, IAnimatableDirection {
     }
 
     void ResetAllTriggers() {
-        anim.enabled = true;
+        SkeletonRendererController.MakeSheepActive(mecanim);
+        //mecanim.enabled = true;
         anim.ResetTrigger("stopWalk");
         anim.ResetTrigger("stopFly");
         anim.ResetTrigger("clockwise");
