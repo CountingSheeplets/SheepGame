@@ -31,6 +31,7 @@ public class PlayerCard : MonoBehaviour {
         EventCoordinator.StartListening(EventName.System.Player.PlayerCardsSorted(), OnSorted);
         EventCoordinator.StartListening(EventName.System.Player.Eliminated(), OnEliminated);
         EventCoordinator.StartListening(EventName.System.Economy.GrassChanged(), OnGrassChanged);
+        EventCoordinator.StartListening(EventName.System.Economy.GoldChanged(), OnGoldChanged);
         //init by copying ghost:
         myRectTr = GetComponent<RectTransform>();
         ghostRectTr = targetCardGhost.GetComponent<RectTransform>();
@@ -45,16 +46,22 @@ public class PlayerCard : MonoBehaviour {
         EventCoordinator.StopListening(EventName.System.Player.PlayerCardsSorted(), OnSorted);
         EventCoordinator.StopListening(EventName.System.Player.Eliminated(), OnEliminated);
         EventCoordinator.StopListening(EventName.System.Economy.GrassChanged(), OnGrassChanged);
+        EventCoordinator.StopListening(EventName.System.Economy.GoldChanged(), OnGoldChanged);
         if (targetCardGhost.gameObject != null)
             Destroy(targetCardGhost.gameObject);
     }
-
+    void OnGoldChanged(GameMessage msg) {
+        if (isEliminated)
+            return;
+        if (owner.EqualsByValue(msg.owner)) {
+            moneyCount.text = Mathf.FloorToInt(msg.targetFloatMessage).ToString();
+        }
+    }
     void OnProfileUpdate(GameMessage msg) {
         if (isEliminated)
             return;
         if (owner.EqualsByValue(msg.playerProfile.owner)) {
             crownCount.text = Mathf.FloorToInt(msg.playerProfile.GetCrowns()).ToString();
-            moneyCount.text = Mathf.FloorToInt(msg.playerProfile.GetMoney()).ToString();
             /*             Vector2 min = new Vector2(0, 0);
                         Vector2 max = new Vector2(msg.playerProfile.GetHealth()/100f, 1);
                         kingHealthPanel.anchorMin = min;

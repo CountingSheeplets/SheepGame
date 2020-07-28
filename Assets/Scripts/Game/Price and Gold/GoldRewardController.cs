@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GoldRewardController : MonoBehaviour {
+    float counter = 0;
     void Start() {
         EventCoordinator.StartListening(EventName.System.Sheep.Land(), OnSheepLand);
         EventCoordinator.StartListening(EventName.System.Sheep.Launch(), OnSheepLaunch);
@@ -35,5 +36,14 @@ public class GoldRewardController : MonoBehaviour {
     }
     void OnKingMissed(GameMessage msg) {
         GoldRewardCoordinator.ResetCombo(msg.owner);
+    }
+    void Update() {
+        counter += Time.deltaTime;
+        if (counter > ConstantsBucket.GoldIncomePeriod) {
+            counter = 0;
+            foreach (Owner owner in OwnersCoordinator.GetOwners()) {
+                GoldRewardCoordinator.RewardGold(owner, ConstantsBucket.BaseGoldIncome);
+            }
+        }
     }
 }

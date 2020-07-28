@@ -56,10 +56,9 @@ public class EventName {
         public class Economy {
             public static string EatGrass() { return "Economy_EatGrass"; }
             public static string GrassChanged() { return "Economy_GrassChanged"; } // should be under Playfield
-            public static string IncomeTick() { return "Economy_IncomeTick"; }
-            public static string CoinChange() { return "Economy_CoinChange"; }
+            public static string GoldChanged() { return "Economy_GoldChanged"; }
             public static string ComboChanged() { return "Economy_ComboChanged"; }
-            public static List<string> Get() { return new List<string> { GrassChanged(), IncomeTick(), CoinChange(), EatGrass(), ComboChanged() }; }
+            public static List<string> Get() { return new List<string> { GrassChanged(), GoldChanged(), EatGrass(), ComboChanged() }; }
         }
         public class Cooldown {
             public static string Tick() { return "Cooldown_Tick"; }

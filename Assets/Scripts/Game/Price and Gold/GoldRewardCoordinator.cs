@@ -44,17 +44,18 @@ public class GoldRewardCoordinator : Singleton<GoldRewardCoordinator> {
         RewardGold(owner, GoldRewardBucket.SheepOtherPlayerThrow + bonus);
     }
 
-    static void RewardGold(PlayerProfile profile, float amount) {
-        profile.AddMoney(amount * NoGrassMultipler(profile.owner));
+    public static void RewardGold(PlayerProfile profile, float amount) {
+        float current = profile.AddMoney(amount); // * NoGrassMultipler(profile.owner));
+        EventCoordinator.TriggerEvent(EventName.System.Economy.GoldChanged(), GameMessage.Write().WithDeltaFloat(amount).WithTargetFloat(current).WithOwner(profile.owner));
     }
-    static void RewardGold(Owner owner, float amount) {
-        RewardGold(owner.GetPlayerProfile(), amount * NoGrassMultipler(owner));
+    public static void RewardGold(Owner owner, float amount) {
+        RewardGold(owner.GetPlayerProfile(), amount); // * NoGrassMultipler(owner));
     }
-    static float NoGrassMultipler(Owner owner) {
-        if (owner.GetPlayerProfile().GetGrass() > 0) {
-            return 1f;
-        } else {
-            return GoldRewardBucket.IncomeMultiplierNoGrass;
-        }
-    }
+    /*     static float NoGrassMultipler(Owner owner) {
+            if (owner.GetPlayerProfile().GetGrass() > 0) {
+                return 1f;
+            } else {
+                return GoldRewardBucket.IncomeMultiplierNoGrass;
+            }
+        } */
 }

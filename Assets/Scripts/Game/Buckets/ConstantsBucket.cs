@@ -113,6 +113,12 @@ public class ConstantsBucket : Singleton<ConstantsBucket> {
     [SerializeField] public int maxPlayerCombo = 3;
     public static int MaxPlayerCombo { get { return Instance.maxPlayerCombo; } }
 
+    [SerializeField] public float baseGoldIncome = 1;
+    public static float BaseGoldIncome { get { return Instance.baseGoldIncome; } }
+
+    [SerializeField] public float goldIncomePeriod = 1;
+    public static float GoldIncomePeriod { get { return Instance.goldIncomePeriod; } }
+
     [Header("Other")]
     [SerializeField] public float tipLoopTimer = 10.0f;
     public static float TipLoopTimer { get { return Instance.tipLoopTimer; } }
