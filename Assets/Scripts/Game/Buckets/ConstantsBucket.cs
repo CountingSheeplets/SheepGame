@@ -36,6 +36,12 @@ public class ConstantsBucket : Singleton<ConstantsBucket> {
     public static float FenceFieldSubdivision { get { return Instance.fenceFieldSubdivision; } }
 
     [Header("Sheep")]
+    [SerializeField] float sheepSpawnPeriod = 5f;
+    public static float SheepSpawnPeriod { get { return Instance.sheepSpawnPeriod; } }
+
+    [SerializeField] float sheepSpawnUpgradeDecrement = 0.05f;
+    public static float SheepSpawnUpgradeDecrement { get { return Instance.sheepSpawnUpgradeDecrement; } }
+
     [SerializeField] float sheepThrowStrength = 1f;
     public static float SheepThrowStrength { get { return Instance.sheepThrowStrength; } }
 

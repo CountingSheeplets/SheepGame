@@ -58,6 +58,10 @@ public class TestEvents : MonoBehaviour {
             SheepUnit sheep = SheepCoordinator.SpawnSheep(OwnersCoordinator.GetRandomOwner());
             EventCoordinator.TriggerEvent(EventName.System.Sheep.Spawned(), GameMessage.Write().WithSheepUnit(sheep));
         }
+        if (Input.GetKeyDown(KeyCode.Z)) {
+            Debug.Log("Fake increase sheep spawn rate...");
+            EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.SpawnSheep(), GameMessage.Write().WithOwner(OwnersCoordinator.GetRandomOwner()));
+        }
         if (Input.GetKeyDown(KeyCode.T)) {
             Debug.Log("Fake throw sheep...random");
             Swipe newSwipe = new Swipe();

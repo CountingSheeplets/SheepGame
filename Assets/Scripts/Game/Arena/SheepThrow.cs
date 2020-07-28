@@ -5,7 +5,9 @@ using UnityEngine;
 public class SheepThrow : MonoBehaviour {
     public List<SheepUnit> throwableSheep = new List<SheepUnit>();
     public SheepUnit sheepReadyToBeThrown;
+    Playfield playfield;
     void Start() {
+        playfield = GetComponent<Playfield>();
         EventCoordinator.StartListening(EventName.Input.Swipe(), OnSwipe);
         EventCoordinator.StartListening(EventName.System.Sheep.Spawned(), OnSpawn);
         EventCoordinator.StartListening(EventName.System.Sheep.Land(), OnLand);
@@ -51,7 +53,7 @@ public class SheepThrow : MonoBehaviour {
         }
     }
     void OnLand(GameMessage msg) {
-        if (msg.playfield == GetComponent<Playfield>()) {
+        if (msg.playfield == playfield && msg.sheepUnit.owner == playfield.owner) {
             //Debug.Log(msg.playfield+"-adding new sheep on Land:"+msg.sheepUnit.gameObject.name);
             throwableSheep.Add(msg.sheepUnit);
             TryReadyNewSheep();
@@ -66,7 +68,6 @@ public class SheepThrow : MonoBehaviour {
         }
     }
     void TryReadyNewSheep() {
-        //Debug.Log("throwableSheep:"+throwableSheep.Count);
         if (!SheepIsReadying() && sheepReadyToBeThrown == null) {
             SheepUnit availableSheep = GetNextSheep();
             //Debug.Log("GetNextSheep:"+availableSheep);
@@ -77,14 +78,11 @@ public class SheepThrow : MonoBehaviour {
                     //Debug.Log(" at speed:"+SpeedBucket.GetRunSpeed(availableSheep.sheepType));
                     availableSheep.GetComponent<SheepRun>().StartRunning(SpeedBucket.GetRunSpeed(availableSheep.sheepType), availableSheep.currentPlayfield.fieldCorners.Center);
                 }
-            } //else
-            //Debug.Log("cant run, its null");
-        } else {
-            //Debug.Log("IsReadying or already ready...");
+            }
         }
     }
     SheepUnit GetNextSheep() {
-        ReorderTrenchSheep();
+        //ReorderTrenchSheep(); dont need this anymore, because enemy sheap dont shoot anymore
         foreach (SheepUnit sheep in throwableSheep) {
             if (sheep.canBeThrown) {
                 if (sheep.sheepType == SheepType.Trench) {
@@ -104,11 +102,11 @@ public class SheepThrow : MonoBehaviour {
         }
         return null;
     }
-    void ReorderTrenchSheep() {
-        //put trench sheep to last
-        List<SheepUnit> tempList = throwableSheep.OrderBy(sheep => sheep.sheepType == SheepType.Trench).ToList();
-        throwableSheep = new List<SheepUnit>(tempList);
-    }
+    /*     void ReorderTrenchSheep() {
+            //put trench sheep to last
+            List<SheepUnit> tempList = throwableSheep.OrderBy(sheep => sheep.sheepType == SheepType.Trench).ToList();
+            throwableSheep = new List<SheepUnit>(tempList);
+        } */
     bool SheepIsReadying() {
         foreach (SheepUnit sheep in throwableSheep) {
             if (sheep.isReadying)
