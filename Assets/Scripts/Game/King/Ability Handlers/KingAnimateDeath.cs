@@ -4,7 +4,7 @@ using System.Linq;
 using Spine.Unity;
 using UnityEngine;
 public class KingAnimateDeath : MonoBehaviour {
-    public Owner owner;
+    Owner owner;
     public Animator anim;
     bool trigger;
     Spine.Skeleton skeleton;
@@ -29,8 +29,8 @@ public class KingAnimateDeath : MonoBehaviour {
         foreach (AnimatorControllerParameter parameter in anim.parameters) {
             anim.ResetTrigger(parameter.name);
         }
-        Debug.Log("king received the owner: " + msg.targetOwner);
-        Debug.Log("my owner: " + owner);
+        //Debug.Log("king received the owner: " + msg.targetOwner);
+        //Debug.Log("my owner: " + owner);
         if (owner.EqualsByValue(msg.targetOwner)) {
             anim.SetTrigger("die");
             trigger = true;
@@ -46,7 +46,7 @@ public class KingAnimateDeath : MonoBehaviour {
             float eased = Easing.Cubic.InOut(alpha);
             if (alpha > 0) {
                 skeleton.SetColor(new Color(color.r, color.g, color.b, eased));
-                Debug.Log(skeleton.GetColor());
+                //Debug.Log(skeleton.GetColor());
             } else trigger = false;
         }
     }

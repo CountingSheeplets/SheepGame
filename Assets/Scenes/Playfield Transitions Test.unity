@@ -976,6 +976,7 @@ GameObject:
   - component: {fileID: 1492470318}
   - component: {fileID: 1492470319}
   - component: {fileID: 1492470320}
+  - component: {fileID: 1492470321}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -1091,6 +1092,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ded9c4c128c81f4fa8b6654d212cd85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1492470321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492470312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c79a630a061d63d4d8043383128c8c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
 --- !u!1 &1558080265
 GameObject:
   m_ObjectHideFlags: 0
@@ -2576,6 +2590,16 @@ PrefabInstance:
         type: 3}
       propertyPath: roamProbability
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604118487354306396, guid: 38139f4f48e2af14ea01a365c7f32b03,
+        type: 3}
+      propertyPath: sheepSpawnPeriod
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604118487354306396, guid: 38139f4f48e2af14ea01a365c7f32b03,
+        type: 3}
+      propertyPath: sheepSpawnCapBase
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38139f4f48e2af14ea01a365c7f32b03, type: 3}

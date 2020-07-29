@@ -13,7 +13,9 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
     public static List<Owner> GetOwners() {
         return Instance.owners; //when getting this, it shoulnt be able to change (but only wont change if instance into a new List),else the original will also change...
     }
-
+    public static List<Owner> GetOwnersAlive() {
+        return Instance.owners.Where(x => x.GetPlayerProfile().isAlive).ToList();
+    }
     public static Owner TryCreateOwner(int device_id) {
         Owner candidateOwner = Instance.owners.Where(x => x.ownerId == AirConsole.instance.GetUID(device_id)).FirstOrDefault();
         if (candidateOwner == null) {
@@ -73,7 +75,7 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
         if (leftOwner == null)
             return null;
 
-        Debug.Log("DisconnectOwner GetGameState:" + (int)GameStateView.GetGameState());
+        Debug.Log("DisconnectOwner GetGameState:" + (int) GameStateView.GetGameState());
 
         if ((GameStateView.GetGameState() & GameState.started) != 0) {
             Debug.Log("disconnecting an owner..");

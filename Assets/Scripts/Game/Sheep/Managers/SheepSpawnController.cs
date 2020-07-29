@@ -18,10 +18,11 @@ public class SheepSpawnController : MonoBehaviour {
     }
     void Update() {
         if (GameStateView.HasState(GameState.started)) {
-            foreach (Owner owner in OwnersCoordinator.GetOwners()) {
+            foreach (Owner owner in OwnersCoordinator.GetOwnersAlive()) {
                 if (Time.time > nextSpawn[owner]) {
                     nextSpawn[owner] = GetSpawnRate(owner);
-                    SpawnNewSheep(owner);
+                    if (!SheepSpawnCapCoordinator.IsCapped(owner))
+                        SpawnNewSheep(owner);
                     //Debug.Log("Time: " + Time.time + "  spawn:  " + nextSpawn[owner] + " d: " + (nextSpawn[owner] - Time.time));
                 }
             }

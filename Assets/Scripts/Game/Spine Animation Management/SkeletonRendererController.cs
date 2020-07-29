@@ -6,11 +6,9 @@ using UnityEngine;
 public class SkeletonRendererController : Singleton<SkeletonRendererController> {
 
     public HashSet<SkeletonMecanim> passiveMecanims = new HashSet<SkeletonMecanim>();
+    //There's a task created, after subdivs are known, change List>Array for speed.
     public List<HashSet<SkeletonMecanim>> activeMecanimSets = new List<HashSet<SkeletonMecanim>>();
 
-    /*     public List<SkeletonMecanim> activesA = new List<SkeletonMecanim>();
-        public List<SkeletonMecanim> activesB = new List<SkeletonMecanim>();
-     */
     public int subdivisions = 2;
     public int currentStep = 0;
     int previousStep {
@@ -28,19 +26,7 @@ public class SkeletonRendererController : Singleton<SkeletonRendererController> 
     public static void MakeSheepActive(SkeletonMecanim mecanim) {
         Instance.passiveMecanims.Remove(mecanim);
         int smallest = Instance.GetSmallestSet();
-        // Debug.Log(smallest);
-        //RemoveFromSets(mecanim);
         Instance.activeMecanimSets[smallest].Add(mecanim);
-        /*         switch (smallest) {
-                    case 0:
-                        if (!Instance.activesA.Contains(mecanim))
-                            Instance.activesA.Add(mecanim);
-                        break;
-                    case 1:
-                        if (!Instance.activesB.Contains(mecanim))
-                            Instance.activesB.Add(mecanim);
-                        break;
-                } */
         mecanim.enabled = true;
     }
     public static void MakeSheepActive(SheepUnit sheep) {
@@ -85,19 +71,6 @@ public class SkeletonRendererController : Singleton<SkeletonRendererController> 
         if (Instance != null)
             foreach (HashSet<SkeletonMecanim> hs in Instance.activeMecanimSets) {
                 hs.Remove(skel);
-                /*                         if (Instance.activesA.Contains(skel))
-                                            Instance.activesA.Remove(skel);
-                                        if (Instance.activesB.Contains(skel))
-                                            Instance.activesB.Remove(skel);
-                                             */
             }
-    }
-    void ClearDead() {
-        foreach (HashSet<SkeletonMecanim> hs in activeMecanimSets) {
-            foreach (SkeletonMecanim mec in hs) {
-                if (mec == null)
-                    hs.Remove(mec);
-            }
-        }
     }
 }

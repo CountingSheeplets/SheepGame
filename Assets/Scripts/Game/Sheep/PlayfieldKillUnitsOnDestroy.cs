@@ -25,6 +25,10 @@ public class PlayfieldKillUnitsOnDestroy : MonoBehaviour {
         trigger = true;
         progress = 0f;
         counter = 0;
+        foreach (SheepUnit unit in sheepUnits) {
+            SkeletonRendererController.MakeSheepActive(unit);
+            unit.GetComponent<SheepFall>().StartFalling(SpeedBucket.GetFallSpeed(unit.sheepType), Vector2.zero);
+        }
     }
 
     void Update() {

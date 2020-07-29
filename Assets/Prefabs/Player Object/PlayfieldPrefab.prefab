@@ -452,6 +452,18 @@ MonoBehaviour:
   startState: 2
   toState: 1
   changeStateEventName: StartGame
+--- !u!114 &1093092337863043603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7903777884982416818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d693cbedbe9921f46ace795b7e94d9a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8023144983768244914
 GameObject:
   m_ObjectHideFlags: 0
