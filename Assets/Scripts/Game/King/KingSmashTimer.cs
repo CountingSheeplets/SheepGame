@@ -35,9 +35,10 @@ public class KingSmashTimer : MonoBehaviour {
             counter += Time.deltaTime;
         if (counter >= smashTime) {
             List<SheepUnit> sheepWithinRange = SheepCoordinator.GetSheepInField(king.myPlayfield)
+                .Where(x => !x.owner.EqualsByValue(king.owner))
                 .Where(x => (x.GetComponent<Transform>().position - transform.position).magnitude <= ConstantsBucket.KingSmiteRange)
                 .Where(x => x.sheepType != SheepType.Tank)
-                .Where(x => !x.isReadyToFly)
+                //.Where(x => !x.isReadyToFly)
                 .ToList();
             EventCoordinator.TriggerEvent(EventName.System.King.Smashed(), smashMsg.WithSheepUnits(sheepWithinRange).WithCoordinates(king.transform.localPosition).WithOwner(owner));
             counter = 0f;
