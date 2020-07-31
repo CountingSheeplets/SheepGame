@@ -19,7 +19,7 @@ public class KingAnimateSmash : MonoBehaviour {
             anim.ResetTrigger(parameter.name);
         }
         if (msg.kingUnit == king) {
-            anim.SetTrigger("smite");
+            anim.SetTrigger("smash");
         }
     }
 }

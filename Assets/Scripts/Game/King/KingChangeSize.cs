@@ -37,7 +37,7 @@ public class KingChangeSize : MonoBehaviour {
         }
         transform.localScale = targetScale;
         PostScaleChangeAction();
-        Debug.Log("IncreaseSize done!");
+        //Debug.Log("IncreaseSize done!");
         yield return null;
     }
 

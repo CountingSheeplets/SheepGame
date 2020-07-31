@@ -7,9 +7,11 @@ public class SheepSpawnController : MonoBehaviour {
     Dictionary<Owner, float> nextSpawn = new Dictionary<Owner, float>();
     void Start() {
         EventCoordinator.StartListening(EventName.Input.StartGame(), OnStartGame);
+        EventCoordinator.StartListening(EventName.System.Sheep.Kill(), OnKill);
     }
     void OnDestroy() {
         EventCoordinator.StopListening(EventName.Input.StartGame(), OnStartGame);
+        EventCoordinator.StopListening(EventName.System.Sheep.Kill(), OnKill);
     }
     void OnStartGame(GameMessage msg) {
         foreach (Owner owner in OwnersCoordinator.GetOwners()) {
@@ -21,14 +23,17 @@ public class SheepSpawnController : MonoBehaviour {
             foreach (Owner owner in OwnersCoordinator.GetOwnersAlive()) {
                 if (Time.time > nextSpawn[owner]) {
                     nextSpawn[owner] = GetSpawnRate(owner);
-                    if (!SheepSpawnCapCoordinator.IsCapped(owner))
+                    if (!SheepSpawnCapCoordinator.IsCapped(owner)) {
                         SpawnNewSheep(owner);
+                    }
                     //Debug.Log("Time: " + Time.time + "  spawn:  " + nextSpawn[owner] + " d: " + (nextSpawn[owner] - Time.time));
                 }
             }
         }
     }
-
+    void OnKill(GameMessage msg) {
+        SheepCoordinator.DestroySheep(msg.sheepUnit);
+    }
     void SpawnNewSheep(Owner owner) {
         SheepUnit sheep = SheepCoordinator.SpawnSheep(owner);
         EventCoordinator.TriggerEvent(EventName.System.Sheep.Spawned(), GameMessage.Write().WithSheepUnit(sheep));

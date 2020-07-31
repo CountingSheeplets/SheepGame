@@ -14,7 +14,7 @@ public class SheepHeadbutHandler : MonoBehaviour {
     void OnLand(GameMessage msg) {
         KingUnit king = KingCoordinator.GetKing(msg.playfield);
         if (king == null) {
-            Debug.Log("king == null");
+            //Debug.Log("king == null");
             return;
         }
         if (msg.sheepUnit == null) {

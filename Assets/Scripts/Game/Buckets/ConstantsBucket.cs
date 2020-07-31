@@ -89,6 +89,9 @@ public class ConstantsBucket : Singleton<ConstantsBucket> {
     [SerializeField] float kingHitRadiusIncrement = 0.05f;
     public static float KingHitRadiusIncrement { get { return Instance.kingHitRadiusIncrement; } }
 
+    [SerializeField] float sheepKickStrength = 1f;
+    public static float SheepKickStrength { get { return Instance.sheepKickStrength; } }
+
     [SerializeField] float kingScaleChangeTime = 0.5f;
     public static float KingScaleChangeTime { get { return Instance.kingScaleChangeTime; } }
 

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8604118487354306371}
   - component: {fileID: 8604118487354306370}
   - component: {fileID: 5902129969623488959}
+  - component: {fileID: 9200212022206869629}
   m_Layer: 0
   m_Name: Buckets(Prices, Upgrades, Speeds)
   m_TagString: Untagged
@@ -266,6 +267,10 @@ MonoBehaviour:
   playfieldArrangeFloatSpeed: 5
   emptySpacesBetweenFields: 3
   fenceFieldSubdivision: 3
+  sheepSpawnCapBase: 10
+  sheepSpawnCapIncrement: 2
+  sheepSpawnPeriod: 5
+  sheepSpawnUpgradeDecrement: 0.05
   sheepThrowStrength: 1
   eatInterval: 1
   baseEatValue: 0.02
@@ -279,6 +284,7 @@ MonoBehaviour:
   kingSmiteRange: 1
   kingHitRadius: 0.5
   kingHitRadiusIncrement: 0.05
+  sheepKickStrength: 1
   kingScaleChangeTime: 1
   kingEatBonus: 0.15
   kingEatIncrement: 0.05
@@ -300,6 +306,10 @@ MonoBehaviour:
   - {r: 0.28155038, g: 0.2921396, b: 0.3490566, a: 1}
   - {r: 0.6037736, g: 0.2306871, b: 0.2306871, a: 1}
   profileUpdateInterval: 0.5
+  maxPlayfieldGrass: 100
+  maxPlayerCombo: 3
+  baseGoldIncome: 1
+  goldIncomePeriod: 1
   tipLoopTimer: 10
 --- !u!114 &8604118487354306371
 MonoBehaviour:
@@ -369,3 +379,33 @@ MonoBehaviour:
   sheepOtherPlayerThrow: 1
   greedySheepBonusMoney: 1
   incomeMultiplierNoGrass: 0.5
+--- !u!114 &9200212022206869629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604118487354306394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb50196145df4a4d9c7b6834f46aa9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  strengths:
+  - knockStrength: 1
+    sheepType: 0
+  - knockStrength: 1.25
+    sheepType: 1
+  - knockStrength: 1.5
+    sheepType: 2
+  - knockStrength: 1
+    sheepType: 3
+  - knockStrength: 0.75
+    sheepType: 4
+  - knockStrength: 0
+    sheepType: 5
+  - knockStrength: 0.5
+    sheepType: 6
+  - knockStrength: 0
+    sheepType: 7

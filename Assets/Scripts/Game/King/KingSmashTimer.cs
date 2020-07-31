@@ -36,7 +36,7 @@ public class KingSmashTimer : MonoBehaviour {
         if (counter >= smashTime) {
             List<SheepUnit> sheepWithinRange = SheepCoordinator.GetSheepInField(king.myPlayfield)
                 .Where(x => !x.owner.EqualsByValue(king.owner))
-                .Where(x => (x.GetComponent<Transform>().position - transform.position).magnitude <= ConstantsBucket.KingSmiteRange)
+                //.Where(x => (x.GetComponent<Transform>().position - transform.position).magnitude <= ConstantsBucket.KingSmiteRange)
                 .Where(x => x.sheepType != SheepType.Tank)
                 //.Where(x => !x.isReadyToFly)
                 .ToList();

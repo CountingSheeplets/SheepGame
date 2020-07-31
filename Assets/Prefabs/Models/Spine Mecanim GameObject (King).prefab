@@ -15,10 +15,11 @@ GameObject:
   - component: {fileID: 483421144024207253}
   - component: {fileID: 1609344614955573350}
   - component: {fileID: 5341025965468455563}
-  - component: {fileID: 4208512613812966870}
   - component: {fileID: 8145525826899372314}
   - component: {fileID: -7590703455707321619}
   - component: {fileID: 5899763417754825198}
+  - component: {fileID: -4548286304459631375}
+  - component: {fileID: 2780061441278695093}
   m_Layer: 0
   m_Name: Spine Mecanim GameObject (King)
   m_TagString: Untagged
@@ -166,21 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b60d8449ed1504b4594c44d128bea4a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4208512613812966870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2608349506529783468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cfaab179faf9544a881664d916d7547, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  prevAngle: 0
-  currentPoint: to1
 --- !u!114 &8145525826899372314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,3 +203,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+--- !u!114 &-4548286304459631375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608349506529783468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e230ec947e76fe4e99872361439a0a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prevAngle: 0
+  anim: {fileID: 0}
+--- !u!114 &2780061441278695093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608349506529783468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c573deb34c00aa4b9c52b1651f61e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

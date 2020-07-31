@@ -36,17 +36,6 @@ public class SheepUnit : MonoBehaviour {
         }
     }
 
-    void Start() {
-        EventCoordinator.StartListening(EventName.System.Sheep.Kill(), OnKill);
-    }
-    void OnDestroy() {
-        EventCoordinator.StopListening(EventName.System.Sheep.Kill(), OnKill);
-    }
-    void OnKill(GameMessage msg) {
-        if (msg.sheepUnit == this) {
-            Destroy(gameObject);
-        }
-    }
     public void ResetContainer() {
         if (isFlying || isSwimming)
             transform.parent = SheepCoordinator.Instance.transform;

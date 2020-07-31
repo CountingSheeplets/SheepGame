@@ -63,6 +63,7 @@ public class EventCoordinator : Singleton<EventCoordinator> {
             ignoreList.Add(EventName.System.Player.ProfileUpdate());
             ignoreList.Add(EventName.System.Economy.GrassChanged());
             ignoreList.Add(EventName.System.Economy.GoldChanged());
+            ignoreList.Add(EventName.System.Sheep.Spawned());
         }
         UnityGameEvent thisEvent = null;
         if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent)) {

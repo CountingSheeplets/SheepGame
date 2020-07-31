@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Spine.Unity;
 using UnityEngine;
 
-public class SpineContainerBlends : MonoBehaviour, IAnimatableDirection {
+public class SpineContainerBlendsEight : MonoBehaviour, IAnimatableDirection {
     public float prevAngle;
     public Animator anim;
     SkeletonMecanim mecanim;
@@ -50,6 +50,7 @@ public class SpineContainerBlends : MonoBehaviour, IAnimatableDirection {
         anim.SetFloat("dirY_blend", newDir.y);
         return newDir;
     }
+    public void Attack() { }
     public void StopWalking() {
         anim.SetTrigger("stopWalk");
     }

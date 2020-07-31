@@ -112,7 +112,7 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
             if (playfield.fieldCorners.IsWithinField(point))
                 return playfield;
         }
-        Debug.Log("Not in any playfield");
+        //Debug.Log("Not in any playfield");
         return null;
     }
     public static Playfield GetPlayfield(Owner owner) {
