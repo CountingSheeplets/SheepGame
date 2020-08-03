@@ -1078,6 +1078,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 0
+  passivemEchanimsList: []
+  activeMecanimSetsListA: []
+  activeMecanimSetsListB: []
   subdivisions: 2
   currentStep: 0
 --- !u!114 &1492470320
@@ -2587,21 +2590,6 @@ PrefabInstance:
         type: 3}
       propertyPath: smashEffectDelay
       value: -0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8604118487354306396, guid: 38139f4f48e2af14ea01a365c7f32b03,
-        type: 3}
-      propertyPath: roamProbability
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 8604118487354306396, guid: 38139f4f48e2af14ea01a365c7f32b03,
-        type: 3}
-      propertyPath: sheepSpawnPeriod
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8604118487354306396, guid: 38139f4f48e2af14ea01a365c7f32b03,
-        type: 3}
-      propertyPath: sheepSpawnCapBase
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38139f4f48e2af14ea01a365c7f32b03, type: 3}

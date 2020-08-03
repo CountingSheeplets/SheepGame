@@ -24,7 +24,7 @@ public class SheepHeadbutHandler : MonoBehaviour {
         if (king == msg.sheepUnit.lastHandler.GetKing())
             return;
         float distance = (king.transform.position - msg.sheepUnit.transform.position).magnitude;
-        Debug.Log("distance: " + distance + "  King Radius: " + king.GetRadius() + "  sheep radius: " + ConstantsBucket.HitRange);
+        //Debug.Log("distance: " + distance + "  King Radius: " + king.GetRadius() + "  sheep radius: " + ConstantsBucket.HitRange);
         if (distance < king.GetRadius() + ConstantsBucket.HitRange) {
             msg.sheepUnit.lastHandler.GetKing().SuccesfullHit();
             king.ResetSuccesfullHits();

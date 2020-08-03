@@ -7,7 +7,7 @@ public class SheepUnit : MonoBehaviour {
     public Owner lastHandler;
     public bool canBeThrown {
         get {
-            Debug.Log("isReadying:" + isReadying + "  isReadyToFly:" + isReadyToFly + "   isFlying:" + isFlying + "   " + isSwimming);
+            //Debug.Log("isReadying:" + isReadying + "  isReadyToFly:" + isReadyToFly + "   isFlying:" + isFlying + "   " + isSwimming);
             return (!isReadying && !isReadyToFly && !isFlying && !isSwimming);
         }
     }

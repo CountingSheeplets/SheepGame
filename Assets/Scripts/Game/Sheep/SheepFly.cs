@@ -12,7 +12,7 @@ public class SheepFly : BaseUnitMove {
             sheep = GetComponent<SheepUnit>();
         if (!sGroup)
             sGroup = sheep.GetComponentInChildren<SortingGroup>();
-        Debug.Log("StartFlying to:" + _destination);
+        //Debug.Log("StartFlying to:" + _destination);
         sheep.isFlying = true;
         sheep.isReadyToFly = false;
         SetDestination(_destination, false);
@@ -28,7 +28,7 @@ public class SheepFly : BaseUnitMove {
             sGroup.sortingOrder = 100;
         sheep.isFlying = false;
         //trigger to play Land animation
-        Debug.Log("fly eneded, landing at:" + (Vector2) (transform.position));
+        //Debug.Log("fly eneded, landing at:" + (Vector2) (transform.position));
         animator.StopFlying();
         //trigger Land game event, listened by sheep throw
         Playfield newPlayfield = ArenaCoordinator.GetPlayfield(transform.position);

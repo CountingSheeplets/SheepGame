@@ -65,7 +65,7 @@ public class TestEvents : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.T)) {
             Debug.Log("Fake throw sheep...random");
             Swipe newSwipe = new Swipe();
-            Debug.Log(newSwipe.ToString());
+            //Debug.Log(newSwipe.ToString());
             EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(OwnersCoordinator.GetRandomOwner()));
         }
         if (Input.GetKeyDown(KeyCode.Y)) {

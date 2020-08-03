@@ -28,9 +28,9 @@ public class KingAttackController : MonoBehaviour {
         if (msg.playfield != null) {
             //Debug.Log(msg.playfield + " landed in my field: " + playfield);
             if (msg.playfield == playfield) {
-                Debug.Log("landed in my field: " + gameObject.name);
+                //Debug.Log("landed in my field: " + gameObject.name);
                 if (!msg.sheepUnit.owner.EqualsByValue(playfield.owner)) {
-                    Debug.Log("I am not owner: " + gameObject.name);
+                    //Debug.Log("I am not owner: " + gameObject.name);
                     if (!sheepInField.Contains(msg.sheepUnit)) {
                         sheepInField.Add(msg.sheepUnit);
                     }
@@ -59,7 +59,7 @@ public class KingAttackController : MonoBehaviour {
         float kingSizeEffect = Mathf.Sqrt(GoldRewardCoordinator.GetComboLevel(playfield.owner) + 1);
         Vector2 destination = sheepEffect * kingSizeEffect * direction * ConstantsBucket.SheepKickStrength / 1f + (Vector2) fly.transform.position;
         float speed = SpeedBucket.GetFlySpeed(sheep.sheepType);
-        Debug.Log("speed kicked:" + speed);
+        //Debug.Log("speed kicked:" + speed);
         fly.sheep.lastHandler = playfield.owner;
         fly.StartFlying(speed, destination);
         sheep.ResetContainer();
@@ -74,12 +74,10 @@ public class KingAttackController : MonoBehaviour {
             else
                 nextTarget = sheepInField.OrderBy(x => (x.transform.localPosition - transform.localPosition)).FirstOrDefault();
         }
-        Debug.Log("charge at sheep: " + nextTarget + " sheep playfield: " + nextTarget.currentPlayfield);
+        //Debug.Log("charge at sheep: " + nextTarget + " sheep playfield: " + nextTarget.currentPlayfield);
         if (nextTarget != null) {
             sheepInField.Remove(nextTarget);
             Vector3 stopOffset = (nextTarget.transform.localPosition - transform.localPosition).normalized * kingAttackDistance;
-            Debug.Log("stopOffset" + stopOffset);
-            Debug.Log("StartCharging" + (nextTarget.transform.position - stopOffset));
             kingCharge.StartCharging(nextTarget.transform.position - stopOffset);
 
         } else Debug.Log("nothing to charge at...");

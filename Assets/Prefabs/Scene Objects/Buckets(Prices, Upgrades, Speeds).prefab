@@ -267,9 +267,9 @@ MonoBehaviour:
   playfieldArrangeFloatSpeed: 5
   emptySpacesBetweenFields: 3
   fenceFieldSubdivision: 3
-  sheepSpawnCapBase: 10
+  sheepSpawnCapBase: 5
   sheepSpawnCapIncrement: 2
-  sheepSpawnPeriod: 5
+  sheepSpawnPeriod: 1.5
   sheepSpawnUpgradeDecrement: 0.05
   sheepThrowStrength: 1
   eatInterval: 1
@@ -277,7 +277,7 @@ MonoBehaviour:
   incrementalEatValue: 0.05
   roamInterval: 1
   roamProbability: 0.05
-  hitRange: 0.2
+  hitRange: 0.15
   hitDamage: 7
   smallUpgradeShrinkSize: 0.7
   smallSheepBonusEat: 0.1
