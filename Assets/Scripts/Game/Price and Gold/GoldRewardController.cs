@@ -19,7 +19,12 @@ public class GoldRewardController : MonoBehaviour {
 
     void OnSheepLand(GameMessage msg) {
         if (msg.playfield != null) {
-            GoldRewardCoordinator.RewardOnFieldLand(msg.sheepUnit.owner);
+            if (msg.sheepUnit.lastHandler != msg.playfield.owner)
+                GoldRewardCoordinator.RewardOnFieldLand(msg.sheepUnit.owner);
+            else {
+                //reward for kicking sheep here:
+                //...
+            }
         }
     }
     void OnSheepLaunch(GameMessage msg) {

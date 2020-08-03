@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 public class SheepFly : BaseUnitMove {
-    SheepUnit sheep;
+    public SheepUnit sheep;
     SortingGroup sGroup;
+    public bool kicked;
     public void StartFlying(float speed, Vector2 _destination) {
         if (!sheep)
             sheep = GetComponent<SheepUnit>();
@@ -25,7 +26,7 @@ public class SheepFly : BaseUnitMove {
     public override void PostMoveAction() {
         if (sGroup)
             sGroup.sortingOrder = 100;
-        GetComponent<SheepUnit>().isFlying = false;
+        sheep.isFlying = false;
         //trigger to play Land animation
         Debug.Log("fly eneded, landing at:" + (Vector2) (transform.position));
         animator.StopFlying();

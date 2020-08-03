@@ -10,6 +10,7 @@ public class SheepFactory : Singleton<SheepFactory> {
     public static SheepUnit CreateSheep(Owner owner) {
         Playfield playfield = ArenaCoordinator.GetPlayfield(owner);
         GameObject newSheepGO = Instantiate(Instance.sheepPrefab);
+        newSheepGO.name = "SheepUnit_" + Time.time.GetHashCode();
         float rnd1 = Random.Range(-Mathf.FloorToInt(ConstantsBucket.GridSize / 2), Mathf.CeilToInt(ConstantsBucket.GridSize / 2)) * ConstantsBucket.PlayfieldTileSize;
         float rnd2 = Random.Range(-Mathf.FloorToInt(ConstantsBucket.GridSize / 2), Mathf.CeilToInt(ConstantsBucket.GridSize / 2)) * ConstantsBucket.PlayfieldTileSize;
         newSheepGO.transform.parent = playfield.sheepParent;

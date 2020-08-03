@@ -26,6 +26,7 @@ public class KingCharge : BaseUnitMove {
 
     public override void PostMoveAction() {
         isMoving = false;
+        king.isRoaming = false;
         animator.StopWalking();
         animator.Attack();
         //then animate hit
