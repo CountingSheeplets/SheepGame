@@ -42,13 +42,5 @@ public class GoldRewardController : MonoBehaviour {
     void OnKingMissed(GameMessage msg) {
         GoldRewardCoordinator.ResetCombo(msg.owner);
     }
-    void Update() {
-        counter += Time.deltaTime;
-        if (counter > ConstantsBucket.GoldIncomePeriod) {
-            counter = 0;
-            foreach (Owner owner in OwnersCoordinator.GetOwners()) {
-                GoldRewardCoordinator.RewardGold(owner, ConstantsBucket.BaseGoldIncome);
-            }
-        }
-    }
+
 }

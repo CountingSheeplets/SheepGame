@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -848,6 +848,7 @@ GameObject:
   - component: {fileID: 1181831210}
   - component: {fileID: 1181831212}
   - component: {fileID: 1181831211}
+  - component: {fileID: 1181831213}
   m_Layer: 0
   m_Name: Gold
   m_TagString: Untagged
@@ -894,6 +895,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 0
+--- !u!114 &1181831213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181831209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f5e701ee029384f96b4caa1a90f933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1433108558
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,6 +990,7 @@ GameObject:
   - component: {fileID: 1492470319}
   - component: {fileID: 1492470320}
   - component: {fileID: 1492470321}
+  - component: {fileID: 1492470322}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -1108,6 +1122,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 0
+--- !u!114 &1492470322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492470312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74e5ca51d7ae8943b54a046a826894f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1558080265
 GameObject:
   m_ObjectHideFlags: 0

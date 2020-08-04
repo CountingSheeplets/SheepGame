@@ -928,6 +928,7 @@ GameObject:
   - component: {fileID: 804911729}
   - component: {fileID: 804911731}
   - component: {fileID: 804911730}
+  - component: {fileID: 804911732}
   m_Layer: 0
   m_Name: Gold
   m_TagString: Untagged
@@ -974,6 +975,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 0
+--- !u!114 &804911732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804911728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f5e701ee029384f96b4caa1a90f933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &817108756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,6 +1745,7 @@ GameObject:
   - component: {fileID: 1492470320}
   - component: {fileID: 1492470321}
   - component: {fileID: 1492470322}
+  - component: {fileID: 1492470323}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -1847,6 +1861,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 0
+  passivemEchanimsList: []
+  activeMecanimSetsListA: []
+  activeMecanimSetsListB: []
   subdivisions: 2
   currentStep: 0
 --- !u!114 &1492470321
@@ -1874,6 +1891,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 0
+--- !u!114 &1492470323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492470312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74e5ca51d7ae8943b54a046a826894f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1705232089
 GameObject:
   m_ObjectHideFlags: 0
