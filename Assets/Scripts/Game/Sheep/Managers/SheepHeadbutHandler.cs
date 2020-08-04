@@ -32,14 +32,5 @@ public class SheepHeadbutHandler : MonoBehaviour {
         } else {
             EventCoordinator.TriggerEvent(EventName.System.Sheep.KingMissed(), GameMessage.Write().WithSheepUnit(msg.sheepUnit).WithKingUnit(king).WithOwner(msg.sheepUnit.lastHandler));
         }
-        if (msg.playfield != msg.sheepUnit.owner.GetPlayfield())
-            if (msg.sheepUnit.sheepType == SheepType.Bouncy) {
-                SheepFly fly = msg.sheepUnit.GetComponent<SheepFly>();
-                fly.StartFlying(SpeedBucket.GetFlySpeed(msg.sheepUnit.sheepType), king.transform.position);
-                Debug.Log("bounce bouncey sheep");
-                //play bounce sound fx, bounce animation etc.:
-
-                //play
-            }
     }
 }
