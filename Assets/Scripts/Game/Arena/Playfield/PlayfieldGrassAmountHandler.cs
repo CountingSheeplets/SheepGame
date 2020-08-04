@@ -18,7 +18,9 @@ public class PlayfieldGrassAmountHandler : MonoBehaviour {
         if (!owner.EqualsByValue(msg.owner))
             return;
         float fillPart = msg.targetFloatMessage / ConstantsBucket.MaxPlayfieldGrass;
+        //float fillPart = Easing.Circular.OutIn(x);
+
+        //Debug.Log("x:" + x + "  fillPart:" + fillPart);
         rend.material.SetFloat("_GrassFill", Mathf.Clamp(fillPart, 0, 1));
     }
-
 }
