@@ -142,7 +142,6 @@ GameObject:
   - component: {fileID: 1390822323850748576}
   - component: {fileID: 8428747763076860831}
   - component: {fileID: 6896828739701191601}
-  - component: {fileID: 1483372112864640368}
   - component: {fileID: 3741358571592513877}
   m_Layer: 0
   m_Name: SheepUnit
@@ -208,6 +207,8 @@ MonoBehaviour:
   endScale: 0
   isMoving: 0
   impactScale: 1
+  sheep: {fileID: 0}
+  kicked: 0
 --- !u!114 &1390822323850748576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +240,7 @@ MonoBehaviour:
   midScale: 2
   endScale: 0
   isMoving: 0
-  impactScale: 1
+  impactScale: 0
   sheep: {fileID: 0}
 --- !u!114 &6896828739701191601
 MonoBehaviour:
@@ -260,19 +261,7 @@ MonoBehaviour:
   midScale: 2
   endScale: 0
   isMoving: 0
-  impactScale: 1
---- !u!114 &1483372112864640368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6195520508007395971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c8551cd842e8b44cba06b6a523788e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  impactScale: 0
 --- !u!114 &3741358571592513877
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -332,7 +332,7 @@ MonoBehaviour:
   midScale: 0
   endScale: 0
   isMoving: 0
-  impactScale: 1
+  impactScale: 0
 --- !u!114 &2672995643569707066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,6 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24edba4e055f98e409eb62a86ff41857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playfield: {fileID: 0}
 --- !u!114 &3719039117005738883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,7 +418,7 @@ MonoBehaviour:
   midScale: 2
   endScale: 0
   isMoving: 0
-  impactScale: 1
+  impactScale: 0
 --- !u!1 &6176890268272503166
 GameObject:
   m_ObjectHideFlags: 0

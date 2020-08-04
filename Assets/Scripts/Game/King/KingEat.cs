@@ -6,10 +6,10 @@ public class KingEat : MonoBehaviour {
     KingUnit king;
     void Start() {
         king = GetComponent<KingUnit>();
-        EventCoordinator.StartListening(EventName.System.Economy.EatGrass(), OnEat);
+        //EventCoordinator.StartListening(EventName.System.Economy.EatGrass(), OnEat);
     }
     void OnDestroy() {
-        EventCoordinator.StopListening(EventName.System.Economy.EatGrass(), OnEat);
+        //EventCoordinator.StopListening(EventName.System.Economy.EatGrass(), OnEat);
     }
     void OnEat(GameMessage msg) {
         float eatAmount = CalculateEatAmount();

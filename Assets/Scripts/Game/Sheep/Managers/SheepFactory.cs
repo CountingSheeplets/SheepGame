@@ -15,13 +15,16 @@ public class SheepFactory : Singleton<SheepFactory> {
         float rnd2 = Random.Range(-Mathf.FloorToInt(ConstantsBucket.GridSize / 2), Mathf.CeilToInt(ConstantsBucket.GridSize / 2)) * ConstantsBucket.PlayfieldTileSize;
         newSheepGO.transform.parent = playfield.sheepParent;
         newSheepGO.transform.localPosition = new Vector2(rnd1, rnd2);
+        newSheepGO.transform.localScale = new Vector3(1, 1, 1);
         SheepUnit sheep = newSheepGO.GetComponent<SheepUnit>();
         sheep.owner = owner;
         sheep.currentPlayfield = playfield;
 
         GameObject newSheepModel = Instantiate(Instance.sheepModel);
+        Vector3 modelScale = newSheepModel.transform.localScale;
         newSheepModel.transform.parent = newSheepGO.transform;
         newSheepModel.transform.localPosition = Vector3.zero;
+        newSheepModel.transform.localScale = modelScale;
         //set color:
         newSheepModel.GetComponentInChildren<SheepModel>().ChangeColor(owner.teamId);
         //set random direction:

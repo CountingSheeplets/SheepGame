@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BaseUnitMove : MonoBehaviour {
     Vector2 destination;
+    Vector2 trueDestination;
     public float totalDistance;
     float moveSpeed;
     public float distanceLeft;
-    public float distanceTraveled;
+    public float distanceTraveled = 0f;
     public Vector3 myScale;
     public float midScale = 2f;
     public float endScale = 0f;
@@ -28,12 +29,14 @@ public class BaseUnitMove : MonoBehaviour {
     }
     public void SetDestination(Vector2 _destination, bool _isLocal) {
         isLocal = _isLocal;
+        trueDestination = _destination;
+        localMoveDirection = _destination - (Vector2) transform.position;
         if (isLocal) {
-            destination = _destination - (Vector2)transform.parent.transform.position;
-            localMoveDirection = -_destination;
+            destination = _destination - (Vector2) transform.parent.transform.position;
+            //localMoveDirection = _destination - (Vector2) transform.position;
+            //localMoveDirection = -_destination;
         } else {
-            destination = _destination;
-            localMoveDirection = -(Vector2)transform.position + destination;
+            //destination = _destination;
         }
     }
     public void MoveToDestination(float speed, float _midScale, float _endScale) {
@@ -59,23 +62,25 @@ public class BaseUnitMove : MonoBehaviour {
         Vector2 initialPos;
         Vector2 moveDir;
         if (isLocal) {
-            totalDistance = ((Vector2)(transform.localPosition) - destination).magnitude;
-            initialPos = (Vector2)(transform.localPosition);
-            distanceTraveled = ((Vector2)(transform.localPosition) - initialPos).magnitude;
-            moveDir = (destination - (Vector2)(transform.localPosition)).normalized;
+            totalDistance = ((Vector2) (transform.localPosition) - destination).magnitude;
+            initialPos = (Vector2) (transform.localPosition);
+            //distanceTraveled = ((Vector2) (transform.localPosition) - initialPos).magnitude;
+            moveDir = (destination - (Vector2) (transform.localPosition)).normalized;
         } else {
-            totalDistance = ((Vector2)(transform.position) - destination).magnitude;
-            initialPos = (Vector2)(transform.position);
-            distanceTraveled = ((Vector2)(transform.position) - initialPos).magnitude;
-            moveDir = (destination - (Vector2)(transform.position)).normalized;
+            totalDistance = ((Vector2) (transform.position) - trueDestination).magnitude;
+            initialPos = (Vector2) (transform.position);
+            //distanceTraveled = ((Vector2) (transform.position) - initialPos).magnitude;
+            moveDir = (trueDestination - (Vector2) (transform.position)).normalized;
         }
         while (distanceTraveled < totalDistance && !isMoving) {
             if (isLocal) {
-                distanceTraveled = ((Vector2)(transform.localPosition) - initialPos).magnitude;
-                distanceLeft = ((Vector2)(transform.localPosition) - destination).magnitude;
+                //distanceTraveled = ((Vector2) (transform.localPosition) - initialPos).magnitude;
+                destination = trueDestination - (Vector2) transform.parent.transform.position;
+                distanceLeft = ((Vector2) (transform.localPosition) - destination).magnitude;
+                moveDir = (destination - (Vector2) (transform.localPosition)).normalized;
             } else {
-                distanceTraveled = ((Vector2)(transform.position) - initialPos).magnitude;
-                distanceLeft = ((Vector2)(transform.position) - destination).magnitude;
+                //distanceTraveled = ((Vector2) (transform.position) - initialPos).magnitude;
+                distanceLeft = ((Vector2) (transform.position) - trueDestination).magnitude;
             }
             //adjust size by distance
             if (impactScale) {
@@ -88,7 +93,8 @@ public class BaseUnitMove : MonoBehaviour {
                 }
             }
             //move transform
-            transform.Translate(moveDir * moveSpeed * 0.02f);
+            transform.Translate(moveDir * moveSpeed * 0.02f * transform.lossyScale.magnitude);
+            distanceTraveled += (moveSpeed * 0.02f * transform.lossyScale.magnitude);
             yield return null;
         }
         if (impactScale)
@@ -97,7 +103,7 @@ public class BaseUnitMove : MonoBehaviour {
             if (isLocal)
                 transform.localPosition = destination;
             else
-                transform.position = destination;
+                transform.position = trueDestination;
         PostMoveAction();
         isMoving = false;
         yield return null;
@@ -105,5 +111,5 @@ public class BaseUnitMove : MonoBehaviour {
     public void StopMove() {
         isMoving = true;
     }
-    public virtual void PostMoveAction() {}
+    public virtual void PostMoveAction() { }
 }
