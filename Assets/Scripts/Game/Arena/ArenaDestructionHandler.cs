@@ -11,7 +11,9 @@ public class ArenaDestructionHandler : MonoBehaviour {
         timeToDestroy = ConstantsBucket.PlayfieldFadeTime;
         EventCoordinator.StartListening(EventName.System.Player.Eliminated(), OnPlayerEliminated);
     }
-
+    void OnDesstroy() {
+        EventCoordinator.StopListening(EventName.System.Player.Eliminated(), OnPlayerEliminated);
+    }
     void OnPlayerEliminated(GameMessage msg) {
         ownerBeingDestroyed = msg.targetOwner;
         EventCoordinator.TriggerEvent(EventName.System.Environment.DestroyArena(), GameMessage.Write().WithFloatMessage(timeToDestroy).WithTargetOwner(ownerBeingDestroyed));

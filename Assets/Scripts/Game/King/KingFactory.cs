@@ -25,7 +25,7 @@ public class KingFactory : Singleton<KingFactory> {
         GameObject newKingGO = Instantiate(Instance.kingUnitPrefab);
         KingUnit newKing = newKingGO.GetComponent<KingUnit>();
         newKing.owner = owner;
-        newKingGO.transform.parent = ArenaCoordinator.GetPlayfield(owner).transform;
+        newKingGO.transform.parent = ArenaCoordinator.GetPlayfield(owner).GetComponentInChildren<PlayfieldOffsetHandler>().transform;
         newKingGO.transform.localPosition = Vector3.zero;
         GameObject newKingModelGO = CreateHeroModel(owner.teamId);
         int hat = KingCoordinator.GetSourceKingModel(owner).HatIndex;

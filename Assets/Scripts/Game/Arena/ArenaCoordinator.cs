@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -17,9 +18,10 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
     }
     public List<Vortex> currentVortexes = new List<Vortex>();
     public List<ArenaPreset> presets = new List<ArenaPreset>();
+    public List<Transform> arenaCornerPoints = new List<Transform>();
     public GameObject playfieldPrefab;
     public GameObject vortexPrefab;
-
+    public float mircoOffset = 0.05f; //used to stop visual intersections when playfields are moving
     void Start() {
         presets.AddRange(GetComponentsInChildren<ArenaPreset>(true));
     }
@@ -33,6 +35,7 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
             newField.owner = owner;
             Instance.playfields.Add(newField);
             newField.transform.parent = Instance.transform;
+            newField.GetComponentInChildren<PlayfieldOffsetHandler>().transform.position = new Vector3(0, 0, 0 + Instance.mircoOffset * Instance.playfields.Count);
             newField.gameObject.name = "Playfield:" + newOwner.ownerName;
             return newField;
         } else
@@ -54,7 +57,7 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
         List<ArenaPreset> availablePresets = Instance.presets.Where(x => x.presetSize == Instance.playfields.Count).ToList();
         if (availablePresets.Count <= 0)
             Debug.LogError("Zero Arena Presets found for this player amount! Exiting...");
-        ArenaPreset randomPreset = availablePresets[Random.Range(0, availablePresets.Count - 1)];
+        ArenaPreset randomPreset = availablePresets[UnityEngine.Random.Range(0, availablePresets.Count - 1)];
         randomPreset.SelectThisPreset();
         Instance.ArrangeFields(randomPreset);
 
@@ -71,8 +74,8 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
         float fieldWidth = fieldSize.x + ConstantsBucket.EmptySpacesBetweenFields * ConstantsBucket.PlayfieldTileSize;
 
         for (int i = 0; i < playfields.Count; i++) {
-            int rS = Random.Range(0, sockets.Count - 1);
-            int rF = Random.Range(0, leftoverFields.Count - 1);
+            int rS = UnityEngine.Random.Range(0, sockets.Count - 1);
+            int rF = UnityEngine.Random.Range(0, leftoverFields.Count - 1);
             Vector2 offset = sockets[rS].transform.position;
             //leftoverFields[rF].transform.position = offset * fieldWidth;
             //Debug.Log("leftoverFields[rF]:" + leftoverFields[rF].name);
@@ -90,7 +93,7 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
         for (int i = 0; i < vortexSockets.Count; i++) {
             GameObject newVortex = Instantiate(vortexPrefab);
             newVortex.transform.parent = transform;
-            newVortex.transform.Rotate(new Vector3(0, 0, Random.Range(0, 360)));
+            newVortex.transform.Rotate(new Vector3(0, 0, UnityEngine.Random.Range(0, 360)));
             currentVortexes.Add(newVortex.GetComponent<Vortex>());
             Vector2 offset = vortexSockets[i].transform.position;
             newVortex.transform.position = offset * fieldWidth;
@@ -122,4 +125,40 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
         }
         return null;
     }
+    public static(Vector2, Vector2) GetIntermitentPoints(Vector2 startVec, Vector2 endVec) {
+        List<Vector2> inters = new List<Vector2>();
+        Vector2[] fullArray = new Vector2[6];
+        fullArray[0] = startVec;
+        fullArray[1] = endVec;
+        int index = 2;
+        foreach (Transform tr in Instance.arenaCornerPoints) {
+            fullArray[index] = tr.position;
+            index++;
+        }
+        Array.Sort(fullArray, new ClockwiseComparer(Vector2.zero));
+        // ClockwiseComparer comparer = new ClockwiseComparer(Vector2.zero); comparer.Compare() return (firstInter, secondInter);
+        int startIndex = 0;
+        int endIndex = 0;
+        for (int i = 0; i < fullArray.Length; i++) {
+            if (fullArray[i] == startVec)
+                startIndex = i;
+            if (fullArray[i] == endVec)
+                endIndex = i;
+        }
+        index = endIndex;
+        for (int i = 0; i < fullArray.Length; i++) {
+            index--;
+            //if (index >= fullArray.Length)
+            //    index = 0;
+            if (index < 0)
+                index = fullArray.Length - 1;
+            if (index == startIndex)
+                continue;
+            inters.Insert(0, fullArray[index]);
+            if (inters.Count >= 2)
+                break;
+        }
+        return (inters[0], inters[1]);
+    }
+
 }

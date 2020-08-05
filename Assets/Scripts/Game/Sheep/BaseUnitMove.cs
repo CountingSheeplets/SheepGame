@@ -48,6 +48,7 @@ public class BaseUnitMove : MonoBehaviour {
             animator = GetComponentInChildren<IAnimatableDirection>();
         midScale = _midScale;
         moveSpeed = speed;
+        distanceTraveled = 0f;
         StartCoroutine(Move());
     }
     //perhaps split into GlobalMove and LocalMove, and instead of public property call via appropriate function in inheritor

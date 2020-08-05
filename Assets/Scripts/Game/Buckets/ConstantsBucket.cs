@@ -16,6 +16,9 @@ public class ConstantsBucket : Singleton<ConstantsBucket> {
     [SerializeField] float playfieldFadeProportion = 1f;
     public static float PlayfieldFadeProportion { get { return Instance.playfieldFadeProportion; } }
 
+    [SerializeField] float playfieldFloatTime = 1.5f;
+    public static float PlayfieldFloatTime { get { return Instance.playfieldFloatTime; } }
+
     [Header("Arena Generation")]
     [SerializeField] int playfieldGridSize = 11;
     public static int GridSize { get { return Instance.playfieldGridSize; } }
