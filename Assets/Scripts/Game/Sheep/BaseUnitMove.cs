@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class BaseUnitMove : MonoBehaviour {
     Vector2 destination;
-    Vector2 trueDestination;
+    public Vector2 parentPosition;
+    public Vector2 trueDestination;
     public float totalDistance;
     float moveSpeed;
-    public float distanceLeft;
-    public float distanceTraveled = 0f;
+    public Vector2 initialPos;
+    public Vector2 localDestination;
+    float distanceTraveled = 0f;
     public Vector3 myScale;
     public float midScale = 2f;
     public float endScale = 0f;
@@ -31,13 +33,6 @@ public class BaseUnitMove : MonoBehaviour {
         isLocal = _isLocal;
         trueDestination = _destination;
         localMoveDirection = _destination - (Vector2) transform.position;
-        if (isLocal) {
-            destination = _destination - (Vector2) transform.parent.transform.position;
-            //localMoveDirection = _destination - (Vector2) transform.position;
-            //localMoveDirection = -_destination;
-        } else {
-            //destination = _destination;
-        }
     }
     public void MoveToDestination(float speed, float _midScale, float _endScale) {
         endScale = _endScale;
@@ -49,40 +44,28 @@ public class BaseUnitMove : MonoBehaviour {
         midScale = _midScale;
         moveSpeed = speed;
         distanceTraveled = 0f;
-        StartCoroutine(Move());
+        if (isLocal) {
+            StartCoroutine(MoveLocal());
+        } else {
+            StartCoroutine(MoveGlobal());
+        }
     }
     //perhaps split into GlobalMove and LocalMove, and instead of public property call via appropriate function in inheritor
-    IEnumerator Move() {
+    IEnumerator MoveGlobal() {
         //stop other enumerators, which are already moving the object
         foreach (BaseUnitMove move in GetComponents<BaseUnitMove>()) {
             move.StopMove();
         }
-        yield return null;
+        yield return new WaitForFixedUpdate();
         isMoving = false;
         //calculate parameters for movement:
         Vector2 initialPos;
         Vector2 moveDir;
-        if (isLocal) {
-            totalDistance = ((Vector2) (transform.localPosition) - destination).magnitude;
-            initialPos = (Vector2) (transform.localPosition);
-            //distanceTraveled = ((Vector2) (transform.localPosition) - initialPos).magnitude;
-            moveDir = (destination - (Vector2) (transform.localPosition)).normalized;
-        } else {
-            totalDistance = ((Vector2) (transform.position) - trueDestination).magnitude;
-            initialPos = (Vector2) (transform.position);
-            //distanceTraveled = ((Vector2) (transform.position) - initialPos).magnitude;
-            moveDir = (trueDestination - (Vector2) (transform.position)).normalized;
-        }
+
+        totalDistance = ((Vector2) (transform.position) - trueDestination).magnitude;
+        initialPos = (Vector2) (transform.position);
+        moveDir = (trueDestination - (Vector2) (transform.position)).normalized;
         while (distanceTraveled < totalDistance && !isMoving) {
-            if (isLocal) {
-                //distanceTraveled = ((Vector2) (transform.localPosition) - initialPos).magnitude;
-                destination = trueDestination - (Vector2) transform.parent.transform.position;
-                distanceLeft = ((Vector2) (transform.localPosition) - destination).magnitude;
-                moveDir = (destination - (Vector2) (transform.localPosition)).normalized;
-            } else {
-                //distanceTraveled = ((Vector2) (transform.position) - initialPos).magnitude;
-                distanceLeft = ((Vector2) (transform.position) - trueDestination).magnitude;
-            }
             //adjust size by distance
             if (impactScale) {
                 if (endScale == 0f) {
@@ -94,20 +77,56 @@ public class BaseUnitMove : MonoBehaviour {
                 }
             }
             //move transform
-            transform.Translate(moveDir * moveSpeed * 0.02f * transform.lossyScale.magnitude);
-            distanceTraveled += (moveSpeed * 0.02f * transform.lossyScale.magnitude);
-            yield return null;
+            // remake this to use .localPosition if local is tagged
+            transform.Translate(moveDir * moveSpeed * 0.02f);
+            distanceTraveled += (moveSpeed * 0.02f);
+            yield return new WaitForFixedUpdate();
         }
         if (impactScale)
             transform.localScale = myScale;
         if (!isMoving)
-            if (isLocal)
-                transform.localPosition = destination;
-            else
-                transform.position = trueDestination;
+            transform.position = trueDestination;
         PostMoveAction();
         isMoving = false;
-        yield return null;
+        yield return new WaitForFixedUpdate();
+    }
+    IEnumerator MoveLocal() {
+        //stop other enumerators, which are already moving the object
+        foreach (BaseUnitMove move in GetComponents<BaseUnitMove>()) {
+            move.StopMove();
+        }
+        yield return new WaitForFixedUpdate();
+        isMoving = false;
+        //calculate parameters for movement:
+        initialPos = (Vector2) (transform.localPosition);
+        parentPosition = (Vector2) transform.parent.transform.position;
+        localDestination = trueDestination - (Vector2) transform.parent.transform.position;
+        float progress = 0f;
+        float distance = (initialPos - localDestination).magnitude;
+        while (progress < 1f && !isMoving) {
+            //adjust size by distance
+            if (impactScale) {
+                if (endScale == 0f) {
+                    float scaleComponent = midScale * Mathf.Sin(progress * Mathf.PI);
+                    transform.localScale = myScale + myScale * scaleComponent;
+                } else {
+                    float scaleComponent = (1 - endScale) * progress;
+                    transform.localScale = myScale - myScale * scaleComponent;
+                }
+            }
+            //move transform
+            transform.localPosition = Vector3.Lerp(initialPos, localDestination, progress);
+            progress += Time.deltaTime * moveSpeed / distance;
+            yield return new WaitForFixedUpdate();
+        }
+        if (impactScale)
+            transform.localScale = myScale;
+        if (!isMoving)
+            transform.localPosition = localDestination;
+
+        PostMoveAction();
+        isMoving = false;
+        yield return new WaitForFixedUpdate();
     }
     public void StopMove() {
         isMoving = true;

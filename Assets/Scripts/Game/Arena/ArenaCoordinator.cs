@@ -112,6 +112,7 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
     }
     public static Playfield GetPlayfield(Vector2 point) {
         foreach (Playfield playfield in Instance.playfields) {
+            playfield.fieldCorners.Recenter(playfield.transform.position);
             if (playfield.fieldCorners.IsWithinField(point))
                 return playfield;
         }

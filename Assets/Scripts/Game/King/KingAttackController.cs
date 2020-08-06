@@ -27,7 +27,7 @@ public class KingAttackController : MonoBehaviour {
         if (playfield == null) playfield = GetComponentInParent<Playfield>();
         if (msg.playfield != null) {
             //Debug.Log(msg.playfield + " landed in my field: " + playfield);
-            if (msg.playfield == playfield) {
+            if (msg.playfield == playfield && playfield.owner.GetPlayerProfile().isAlive) {
                 //Debug.Log("landed in my field: " + gameObject.name);
                 if (!msg.sheepUnit.owner.EqualsByValue(playfield.owner)) {
                     //Debug.Log("I am not owner: " + gameObject.name);

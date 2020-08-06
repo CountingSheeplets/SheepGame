@@ -7,10 +7,12 @@ public class SheepSpawnController : MonoBehaviour {
     Dictionary<Owner, float> nextSpawn = new Dictionary<Owner, float>();
     void Start() {
         EventCoordinator.StartListening(EventName.Input.StartGame(), OnStartGame);
+        EventCoordinator.StartListening(EventName.System.Player.PostElimination(), OnEliminated);
         EventCoordinator.StartListening(EventName.System.Sheep.Kill(), OnKill);
     }
     void OnDestroy() {
         EventCoordinator.StopListening(EventName.Input.StartGame(), OnStartGame);
+        EventCoordinator.StopListening(EventName.System.Player.PostElimination(), OnEliminated);
         EventCoordinator.StopListening(EventName.System.Sheep.Kill(), OnKill);
     }
     void OnStartGame(GameMessage msg) {
@@ -38,7 +40,9 @@ public class SheepSpawnController : MonoBehaviour {
         SheepUnit sheep = SheepCoordinator.SpawnSheep(owner);
         EventCoordinator.TriggerEvent(EventName.System.Sheep.Spawned(), GameMessage.Write().WithSheepUnit(sheep));
     }
-
+    void OnEliminated(GameMessage msg) {
+        SheepSpawnCapCoordinator.IncreaseCaps();
+    }
     float GetSpawnRate(Owner owner) {
         int level = SheepCoordinator.GetSpawnRateLevel(owner);
         float newNextSpawn = Random.Range(-scatterRandomBase, scatterRandomBase);

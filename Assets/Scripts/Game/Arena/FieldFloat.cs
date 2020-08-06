@@ -24,6 +24,11 @@ public class FieldFloat : MonoBehaviour {
     void FixedUpdate() {
         if (isFloating) {
             progress += Time.deltaTime / ConstantsBucket.PlayfieldFloatTime;
+            if (startingPosition == destinationPosition) {
+                isFloating = false;
+                PostMoveAction();
+                return;
+            }
             if (progress <= 1f)
                 transform.position = Curves.CubeBezier3(startingPosition, p1Position, p2Position, destinationPosition, progress);
             else {

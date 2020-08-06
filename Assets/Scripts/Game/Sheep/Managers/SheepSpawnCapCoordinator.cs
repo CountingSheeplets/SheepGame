@@ -8,6 +8,7 @@ public class SheepSpawnCapCoordinator : Singleton<SheepSpawnCapCoordinator> {
 
     public static bool IsCapped(Owner owner) {
         if (Instance.caps.ContainsKey(owner)) {
+            //Debug.Log("IsCaped: " + Instance.caps[owner] + " owned: " + SheepCoordinator.GetSheeps(owner).Count);
             return (Instance.caps[owner] <= SheepCoordinator.GetSheeps(owner).Count);
         } else return true;
     }
@@ -17,6 +18,13 @@ public class SheepSpawnCapCoordinator : Singleton<SheepSpawnCapCoordinator> {
         }
         foreach (Owner key in Instance.caps.Keys) {
             Instance.caps[key] += ConstantsBucket.SheepSpawnCapIncrement;
+        }
+    }
+    public static void IncreaseCaps() {
+        foreach (Owner owner in OwnersCoordinator.GetOwnersAlive()) {
+            if (Instance.caps.ContainsKey(owner)) {
+                Instance.caps[owner] += ConstantsBucket.SheepSpawnCapIncrement;
+            }
         }
     }
     void Start() {

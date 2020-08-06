@@ -991,6 +991,7 @@ GameObject:
   - component: {fileID: 1492470320}
   - component: {fileID: 1492470321}
   - component: {fileID: 1492470322}
+  - component: {fileID: 1492470323}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -1134,6 +1135,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74e5ca51d7ae8943b54a046a826894f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1492470323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492470312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a0867c1b50c9547b26897e177945ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheepModel: {fileID: 9198241363911740042, guid: 109eb8610fffb47418bbc9415866b6c6,
+    type: 3}
 --- !u!1 &1558080265
 GameObject:
   m_ObjectHideFlags: 0

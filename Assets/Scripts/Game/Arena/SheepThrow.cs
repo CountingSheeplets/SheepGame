@@ -53,7 +53,9 @@ public class SheepThrow : MonoBehaviour {
         }
     }
     void OnLand(GameMessage msg) {
-        if (msg.playfield == playfield && msg.sheepUnit.owner == playfield.owner) {
+        if (msg.playfield == playfield &&
+            msg.sheepUnit.owner == playfield.owner &&
+            playfield.owner.GetPlayerProfile().isAlive) {
             //Debug.Log(msg.playfield+"-adding new sheep on Land:"+msg.sheepUnit.gameObject.name);
             throwableSheep.Add(msg.sheepUnit);
             TryReadyNewSheep();
@@ -76,7 +78,7 @@ public class SheepThrow : MonoBehaviour {
                 if (availableSheep.currentPlayfield != null) {
                     //Debug.Log("sheeprun:"+availableSheep.GetComponent<SheepRun>());
                     //Debug.Log(" at speed:"+SpeedBucket.GetRunSpeed(availableSheep.sheepType));
-                    availableSheep.GetComponent<SheepRun>().StartRunning(SpeedBucket.GetRunSpeed(availableSheep.sheepType), availableSheep.currentPlayfield.fieldCorners.Center);
+                    availableSheep.GetComponent<SheepRun>().StartRunning(SpeedBucket.GetRunSpeed(availableSheep.sheepType), (Vector2) availableSheep.transform.parent.position);
                 }
             }
         }
