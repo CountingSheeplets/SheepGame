@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 public class ComboText : MonoBehaviour {
     TextMeshProUGUI comboText;
+    public Animator animator;
     Owner owner;
     void Start() {
         comboText = GetComponentInChildren<TextMeshProUGUI>();
@@ -15,9 +16,10 @@ public class ComboText : MonoBehaviour {
     void OnComboChanged(GameMessage msg) {
         if (owner == null) owner = GetComponentInParent<PlayerCard>().owner;
         if (owner.EqualsByValue(msg.owner)) {
-            if (msg.intMessage > 1)
-                comboText.text = "Combo X" + msg.intMessage;
-            else
+            if (msg.intMessage > 1) {
+                animator.SetTrigger("pop");
+                comboText.text = "X" + msg.intMessage;
+            } else
                 comboText.text = "";
         }
     }
