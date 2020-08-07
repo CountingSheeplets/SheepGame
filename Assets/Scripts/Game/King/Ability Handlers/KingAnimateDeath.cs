@@ -26,15 +26,16 @@ public class KingAnimateDeath : MonoBehaviour {
         EventCoordinator.StopListening(EventName.System.Player.Eliminated(), OnEliminated);
     }
     void OnEliminated(GameMessage msg) {
+        if (!owner.EqualsByValue(msg.targetOwner)) {
+            return;
+        }
         foreach (AnimatorControllerParameter parameter in anim.parameters) {
             anim.ResetTrigger(parameter.name);
         }
         //Debug.Log("king received the owner: " + msg.targetOwner);
         //Debug.Log("my owner: " + owner);
-        if (owner.EqualsByValue(msg.targetOwner)) {
-            anim.SetTrigger("die");
-            trigger = true;
-        }
+        anim.SetTrigger("die");
+        trigger = true;
         List<BaseUnitMove> moves = new List<BaseUnitMove>(GetComponentsInParent<BaseUnitMove>().Where(x => !(x is FieldFloat)));
         foreach (BaseUnitMove move in moves) {
             Destroy(move);
