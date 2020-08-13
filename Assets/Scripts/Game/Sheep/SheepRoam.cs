@@ -22,7 +22,7 @@ public class SheepRoam : BaseUnitMove {
     void OnRoam(GameMessage msg) {
         if (sheep == null)
             sheep = GetComponent<SheepUnit>();
-        if (!sheep.isSwimming && !sheep.isReadying && !sheep.isReadyToFly && !sheep.isFlying && !sheep.isRoaming && !sheep.skippedByTrenching) {
+        if (!sheep.isSwimming && !sheep.isReadying && !sheep.isReadyToFly && !sheep.isFlying && !sheep.isRoaming && !sheep.isTrenching) {
             float roll = Random.Range(0, 1f);
             if (roll < msg.floatMessage) {
                 Vector2 targetPosition = RoamTarget();
@@ -35,7 +35,7 @@ public class SheepRoam : BaseUnitMove {
     Vector2 RoamTarget() {
         Vector2 newVec = new Vector2(0, 1.5f * ConstantsBucket.PlayfieldTileSize);
         newVec = Quaternion.AngleAxis(Random.Range(0, 359), Vector3.forward) * newVec;
-        Vector2 targetPos = (Vector2)transform.position + newVec;
+        Vector2 targetPos = (Vector2) transform.position + newVec;
         if (sheep.currentPlayfield.fieldCorners.IsWithinField(targetPos, sheep.radius)) {
             //Debug.Log("taget vector ok, roaming to:"+newVec);
             return targetPos;

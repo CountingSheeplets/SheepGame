@@ -34,7 +34,7 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         JObject json = new JObject();
         PlayerProfile profile = owner.GetPlayerProfile();
         json["type"] = "kingItems";
-        json["crowns"] = profile.permanentCrownCount;
+        json["permanentCrownCount"] = profile.permanentCrownCount;
 
         JObject hatJson = new JObject();
         hatJson["ID"] = profile.selectedHat;
@@ -76,6 +76,7 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
 
         json["newScepter"] = scepterJson;
         TrySend(owner.deviceId, json);
+        profile.CleanNetworkDirty();
     }
     public static void SendUpgradeButtons(int deviceId, SheepUnit sheep) {
         JObject json = new JObject();
@@ -150,7 +151,7 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         json["type"] = "playerScores";
         json["value"] = win;
         json["scores"] = JToken.FromObject(scores);
-        json["total"] = totalScore;
+        json["totalScore"] = totalScore;
         TrySend(deviceId, json);
     }
 
@@ -172,6 +173,7 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
                 { "priceUpgrade2", PriceCoordinator.GetPrice(profile.owner, UpgradeBucket.ToName(profile.playfield.GetComponent<SheepUpgrade>().typeB)) }
             };
         NetworkCoordinator.SendPlayerProfile(profile.owner.deviceId, data);
+        profile.CleanNetworkDirty();
         return true;
     }
 

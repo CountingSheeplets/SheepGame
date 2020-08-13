@@ -69,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 99
   m_Sprite: {fileID: 21300000, guid: 7a33ff4df8c1e694fa9b0e57db5e2eb5, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -199,9 +199,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bfb99c210755f4fa5c116800d2a8f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPosition: {x: 0, y: 0}
+  trueDestination: {x: 0, y: 0}
   totalDistance: 0
-  distanceLeft: 0
-  distanceTraveled: 0
+  initialPos: {x: 0, y: 0}
+  localDestination: {x: 0, y: 0}
   myScale: {x: 0, y: 0, z: 0}
   midScale: 2
   endScale: 0
@@ -233,9 +235,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e6b0f74dfd7a34cb1a2a4ea20218f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPosition: {x: 0, y: 0}
+  trueDestination: {x: 0, y: 0}
   totalDistance: 0
-  distanceLeft: 0
-  distanceTraveled: 0
+  initialPos: {x: 0, y: 0}
+  localDestination: {x: 0, y: 0}
   myScale: {x: 0, y: 0, z: 0}
   midScale: 2
   endScale: 0
@@ -254,9 +258,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7b51bd706d368640a818651a0089e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPosition: {x: 0, y: 0}
+  trueDestination: {x: 0, y: 0}
   totalDistance: 0
-  distanceLeft: 0
-  distanceTraveled: 0
+  initialPos: {x: 0, y: 0}
+  localDestination: {x: 0, y: 0}
   myScale: {x: 0, y: 0, z: 0}
   midScale: 2
   endScale: 0
@@ -274,9 +280,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4be3b8692b6cdd4584bc8aff8a69652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPosition: {x: 0, y: 0}
+  trueDestination: {x: 0, y: 0}
   totalDistance: 0
-  distanceLeft: 0
-  distanceTraveled: 0
+  initialPos: {x: 0, y: 0}
+  localDestination: {x: 0, y: 0}
   myScale: {x: 0, y: 0, z: 0}
   midScale: 2
   endScale: 0

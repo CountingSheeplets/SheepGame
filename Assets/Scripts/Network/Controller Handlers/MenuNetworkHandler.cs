@@ -18,18 +18,17 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 	void OnConnect(int device_id) {
 		int count = OwnersCoordinator.GetOwners().Where(x => x.connected).ToList().Count;
 		Debug.Log("count " + count);
+		if (GameStateView.HasState(GameState.started)) {
+			Debug.LogWarning("New cannot join, game already started");
+			NetworkCoordinator.SendShowView(device_id, "in_game");
+			Debug.Log("started, sending to show in-game");
+			return;
+		}
 		if (count > 7) {
 			NetworkCoordinator.SendShowView(device_id, "max_players");
 			Debug.Log("max");
 			return;
 		}
-		if (GameStateView.HasState(GameState.started)) {
-			Debug.LogWarning("New cannot join, game already started");
-			NetworkCoordinator.SendShowView(device_id, "in_game");
-			Debug.Log("starteed");
-			return;
-		}
-
 		Owner owner = OwnersCoordinator.TryCreateOwner(device_id);
 		if (owner) {
 			TrySetupFirstOwner();

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KingCharge : BaseUnitMove {
     KingUnit king;
+    public bool isCharging = false; // this is falsed after animation has ended
     void Awake() {
         king = GetComponent<KingUnit>();
         EventCoordinator.StartListening(EventName.System.King.Smashed(), OnSmashed);
@@ -12,6 +13,7 @@ public class KingCharge : BaseUnitMove {
         EventCoordinator.StopListening(EventName.System.King.Smashed(), OnSmashed);
     }
     public void StartCharging(Vector2 _destination) {
+        isCharging = true;
         SetScale();
         SetDestination(_destination, true);
         king.isRoaming = true;
@@ -25,7 +27,6 @@ public class KingCharge : BaseUnitMove {
     }
 
     public override void PostMoveAction() {
-        isMoving = false;
         king.isRoaming = false;
         animator.StopWalking();
         animator.Attack();

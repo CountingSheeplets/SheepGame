@@ -20,8 +20,7 @@ public class NetworkImportantController : MonoBehaviour {
             return;
         if (message["deviceId"] == null)
             return;
-        Debug.Log(message);
-        if ((bool)message["important"]) {
+        if ((bool) message["important"]) {
             NetworkImportantCoordinator.TryConfirmImportantReceived(message);
         }
     }

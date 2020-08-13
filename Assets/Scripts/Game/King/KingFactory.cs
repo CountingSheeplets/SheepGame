@@ -18,6 +18,7 @@ public class KingFactory : Singleton<KingFactory> {
     public static GameObject CreateHeroModel(int teamId) {
         GameObject newKingModelGO = Instantiate(Instance.defaultModel);
         newKingModelGO.GetComponent<KingModel>().ChangeColor(teamId);
+        newKingModelGO.GetComponent<SpineContainerBlendsFour>().SetInitialRandomDirection();
         return newKingModelGO;
     }
 

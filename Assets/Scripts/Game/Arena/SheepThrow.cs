@@ -88,14 +88,14 @@ public class SheepThrow : MonoBehaviour {
         foreach (SheepUnit sheep in throwableSheep) {
             if (sheep.canBeThrown) {
                 if (sheep.sheepType == SheepType.Trench) {
-                    if (!sheep.skippedByTrenching) {
-                        sheep.skippedByTrenching = true;
+                    if (!sheep.isTrenching) {
+                        sheep.isTrenching = true;
                         Debug.Log("skipped cause trenching");
                         continue;
                     }
-                    if (sheep.skippedByTrenching) {
+                    if (sheep.isTrenching) {
                         Debug.Log("trenching sheep not skipepd anymore");
-                        sheep.skippedByTrenching = false;
+                        sheep.isTrenching = false;
                         return sheep;
                     }
                 }

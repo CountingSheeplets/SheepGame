@@ -13,7 +13,7 @@ public class BaseSoundPlayer : MonoBehaviour {
         if (audioClips.Length > 0) {
             AudioClip clip = audioClips[Random.Range(0, audioClips.Length)];
             source.PlayOneShot(clip);
-            Debug.Log("Play: " + clip.name);
+            //Debug.Log("Play: " + clip.name);
         }
     }
 }

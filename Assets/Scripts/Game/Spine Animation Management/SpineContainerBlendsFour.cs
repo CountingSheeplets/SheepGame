@@ -7,9 +7,7 @@ public class SpineContainerBlendsFour : MonoBehaviour, IAnimatableDirection {
     public float prevAngle;
     public Animator anim;
     SkeletonMecanim mecanim;
-    void Awake() {
-        SetInitialRandomDirection();
-    }
+
     public void SetInitialRandomDirection() {
         if (anim == null) anim = GetComponent<Animator>();
         if (mecanim == null) mecanim = GetComponent<SkeletonMecanim>();

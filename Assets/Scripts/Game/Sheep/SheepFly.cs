@@ -15,6 +15,7 @@ public class SheepFly : BaseUnitMove {
         //Debug.Log("StartFlying to:" + _destination);
         sheep.isFlying = true;
         sheep.isReadyToFly = false;
+        sheep.isTrenching = false;
         SetDestination(_destination, false);
         MoveToDestination(speed, 1.5f);
         //run animation;
@@ -33,6 +34,8 @@ public class SheepFly : BaseUnitMove {
         //trigger Land game event, listened by sheep throw
         Playfield newPlayfield = ArenaCoordinator.GetPlayfield(transform.position);
         sheep.currentPlayfield = newPlayfield;
+        if (sheep.sheepType == SheepType.Trench)
+            sheep.isTrenching = true;
         sheep.ResetContainer();
         EventCoordinator.TriggerEvent(EventName.System.Sheep.Land(), GameMessage.Write().WithSheepUnit(GetComponent<SheepUnit>()).WithPlayfield(newPlayfield));
     }

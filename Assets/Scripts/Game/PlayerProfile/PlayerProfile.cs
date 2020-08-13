@@ -118,7 +118,14 @@ public class PlayerProfile {
         SetNetworkDirty();
         return money;
     }
-    public int permanentCrownCount = 0;
+    public int _permanentCrownCount = 0;
+    public int permanentCrownCount {
+        get { return _permanentCrownCount; }
+        set {
+            _permanentCrownCount = value;
+            SetNetworkDirty();
+        }
+    }
 
     public int crownCount;
     public int GetCrowns() {
@@ -166,8 +173,4 @@ public class PlayerProfile {
         // assign texture
         playerAvatarImage = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0, 0));
     }
-    /*     public void SetNetworkDirty(){
-            if(isAlive)
-                EventCoordinator.TriggerEvent(EventName.System.Player.ProfileUpdate(), GameMessage.Write().WithPlayerProfile(this).WithOwner(owner));
-        } */
 }

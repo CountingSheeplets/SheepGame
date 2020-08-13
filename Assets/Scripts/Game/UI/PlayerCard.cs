@@ -61,12 +61,7 @@ public class PlayerCard : MonoBehaviour {
         if (isEliminated)
             return;
         if (owner.EqualsByValue(msg.playerProfile.owner)) {
-            crownCount.text = Mathf.FloorToInt(msg.playerProfile.GetCrowns()).ToString();
-            /*             Vector2 min = new Vector2(0, 0);
-                        Vector2 max = new Vector2(msg.playerProfile.GetHealth()/100f, 1);
-                        kingHealthPanel.anchorMin = min;
-                        kingHealthPanel.anchorMax = max; */
-            //kingHealthFill.fillAmount = msg.playerProfile.GetGrass() / Mathf.Pow(ConstantsBucket.GridSize, 2);
+            crownCount.text = Mathf.FloorToInt(msg.playerProfile.GetCrowns() + msg.playerProfile.permanentCrownCount).ToString();
         }
     }
     void OnGrassChanged(GameMessage msg) {

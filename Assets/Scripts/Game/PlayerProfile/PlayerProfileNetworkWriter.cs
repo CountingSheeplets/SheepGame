@@ -1,30 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using NDream.AirConsole;
+using UnityEngine;
 
-public class PlayerProfileNetworkWriter : MonoBehaviour
-{
+public class PlayerProfileNetworkWriter : MonoBehaviour {
     float counter;
-    void FixedUpdate(){
+    void FixedUpdate() {
         counter += Time.deltaTime;
-        if(counter > ConstantsBucket.ProfileUpdateInterval){
+        if (counter > ConstantsBucket.ProfileUpdateInterval) {
             counter = 0;
-            foreach(Owner owner in OwnersCoordinator.GetOwners()){
+            foreach (Owner owner in OwnersCoordinator.GetOwners()) {
                 TrySendProfile(owner);
             }
         }
     }
 
-    void TrySendProfile(Owner owner){
-        if(AirConsole.instance == null)
+    void TrySendProfile(Owner owner) {
+        if (AirConsole.instance == null)
             return;
         PlayerProfile profile = owner.GetPlayerProfile();
-        if(profile != null)
-            if(profile.IsNetworkDirty()){
-                if((GameStateView.GetGameState() & GameState.started) != 0 &&
-                (GameStateView.GetGameState() & GameState.ended) == 0){
-                    if(NetworkCoordinator.SendProfile(profile)){
+        if (profile != null)
+            if (profile.IsNetworkDirty() && !GameStateView.HasState(GameState.ended)) {
+                if (GameStateView.HasState(GameState.started)) {
+                    if (NetworkCoordinator.SendProfile(profile)) {
                         EventCoordinator.TriggerEvent(EventName.System.Player.ProfileUpdate(), GameMessage.Write().WithPlayerProfile(profile).WithOwner(owner));
                         CardCanvasCoordinator.Sort();
                         EventCoordinator.TriggerEvent(EventName.System.Player.PlayerCardsSorted(), GameMessage.Write());
@@ -33,7 +31,6 @@ public class PlayerProfileNetworkWriter : MonoBehaviour
                     }
                 } else {
                     NetworkCoordinator.SendKingItems(owner);
-                    profile.CleanNetworkDirty();
                 }
             }
     }

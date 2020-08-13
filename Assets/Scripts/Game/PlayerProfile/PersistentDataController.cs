@@ -30,7 +30,7 @@ public class PersistentDataController : MonoBehaviour {
 		PersistentDataCoordinator.OnReceivedData(data);
 	}
 	void OnDataStored(string uid) {
-		OwnersCoordinator.GetOwner(uid).GetPlayerProfile().CleanNetworkDirty();
+		//OwnersCoordinator.GetOwner(uid).GetPlayerProfile().CleanNetworkDirty();
 	}
 	void OnDestroy() {
 		if (AirConsole.instance != null) {

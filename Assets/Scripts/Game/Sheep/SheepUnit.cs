@@ -20,16 +20,16 @@ public class SheepUnit : MonoBehaviour {
     public float radius = 0.5f;
     //[BitMask(typeof(SheepType))]
     public SheepType sheepType;
-    bool _skippedByTrenching = false;
+    bool _isTrenching = false;
     public delegate void OnStateChange(bool state);
     public OnStateChange onIsTrenchingChange;
-    public bool skippedByTrenching {
-        get { return _skippedByTrenching; }
+    public bool isTrenching {
+        get { return _isTrenching; }
         set {
-            _skippedByTrenching = value;
+            _isTrenching = value;
             if (onIsTrenchingChange != null)
-                onIsTrenchingChange(_skippedByTrenching);
-            if (_skippedByTrenching)
+                onIsTrenchingChange(_isTrenching);
+            if (_isTrenching)
                 foreach (BaseUnitMove move in GetComponents<BaseUnitMove>()) {
                     move.StopMove();
                 }

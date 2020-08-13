@@ -24,7 +24,7 @@ public class ArenaController : MonoBehaviour {
     }
     void OnPlayerLeft(GameMessage msg) {
         //destroy a playfield if game has not started yet, if started, leave?
-        if ((GameStateView.GetGameState() & GameState.started) == 0)
+        if (!GameStateView.HasState(GameState.started) && !GameStateView.HasState(GameState.ended))
             ArenaCoordinator.RemoveField(msg.owner);
     }
     void OnArenaDestroyed(GameMessage msg) {

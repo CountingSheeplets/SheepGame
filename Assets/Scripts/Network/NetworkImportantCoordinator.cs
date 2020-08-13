@@ -7,7 +7,7 @@ using UnityEngine;
 public class NetworkImportantCoordinator : Singleton<NetworkImportantCoordinator> {
     public int defaultAttemptCount = 5;
     Dictionary<string, JObject> importantUnsent = new Dictionary<string, JObject>();
-    public List<string> hashes;
+    public HashSet<string> hashes = new HashSet<string>();
     public static void SendImportant(int deviceId, JObject json) {
         SendImportant(deviceId, json, Instance.defaultAttemptCount);
     }
@@ -18,28 +18,32 @@ public class NetworkImportantCoordinator : Singleton<NetworkImportantCoordinator
         json["deviceId"] = deviceId;
         json["attempts"] = attempts;
         Instance.importantUnsent.Add(hash, json);
+        Instance.hashes.Add(hash);
     }
     public static void ResendImportantAll() {
-        Debug.Log("ResendImportantAll");
-        Instance.hashes = new List<string>(Instance.importantUnsent.Keys);
+        //Debug.Log("ResendImportantAll");
         List<string> toRemove = new List<string>();
         foreach (KeyValuePair<string, JObject> pair in Instance.importantUnsent) {
-            pair.Value["attempts"] = (int)pair.Value["attempts"] - 1;
-            if ((int)pair.Value["attempts"] >= 0)
-                NetworkCoordinator.TrySend((int)pair.Value["deviceId"], pair.Value);
-            else {
+            pair.Value["attempts"] = (int) pair.Value["attempts"] - 1;
+            Debug.Log("sending important to: " + (int) pair.Value["deviceId"] + "  msg:: " + pair.Value + " atempts left: " + (int) pair.Value["attempts"]);
+            if ((int) pair.Value["attempts"] >= 0) {
+                NetworkCoordinator.TrySend((int) pair.Value["deviceId"], pair.Value);
+            } else {
                 toRemove.Add(pair.Key);
             }
         }
         foreach (string key in toRemove) {
+            Debug.Log("important out of attempts: " + (int) Instance.importantUnsent[key]["deviceId"] + "  msg:: " + Instance.importantUnsent[key] + " atempts left: " + (int) Instance.importantUnsent[key]["attempts"]);
             Instance.importantUnsent.Remove(key);
+            Instance.hashes.Remove(key);
         }
     }
     public static void TryConfirmImportantReceived(JToken json) {
         string hash = json["token"].ToString();
-        if (Instance.importantUnsent.ContainsKey(hash)) {
-            Debug.Log("in dict, will try to remove: " + hash);
+        if (Instance.hashes.Contains(hash)) {
+            Debug.Log("important message confirmation received: " + hash);
             Instance.importantUnsent.Remove(hash);
+            Instance.hashes.Remove(hash);
         } else
             Debug.Log("no such hash: " + hash);
     }
@@ -52,9 +56,7 @@ public class NetworkImportantCoordinator : Singleton<NetworkImportantCoordinator
     public static bool IsImportantUnsent() {
         if (Instance.importantUnsent.Keys.Count > 0) {
             return true;
-        } else {
-            Instance.hashes = new List<string>(Instance.importantUnsent.Keys);
-            return false;
         }
+        return false;
     }
 }

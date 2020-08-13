@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 public class KingAttackController : MonoBehaviour {
-    List<SheepUnit> sheepInField = new List<SheepUnit>();
+    public List<SheepUnit> sheepInField = new List<SheepUnit>();
     public Playfield playfield;
-    SheepUnit nextTarget = null;
+    public SheepUnit nextTarget = null;
     KingCharge kingCharge;
     float kingAttackDistance = 0.5f;
     AlertObserversGeneral observersGeneral;
@@ -31,11 +31,12 @@ public class KingAttackController : MonoBehaviour {
                 //Debug.Log("landed in my field: " + gameObject.name);
                 if (!msg.sheepUnit.owner.EqualsByValue(playfield.owner)) {
                     //Debug.Log("I am not owner: " + gameObject.name);
-                    if (!sheepInField.Contains(msg.sheepUnit)) {
+                    if (!sheepInField.Contains(msg.sheepUnit) && msg.sheepUnit.sheepType != SheepType.Trench) {
                         sheepInField.Add(msg.sheepUnit);
                     }
                 }
-                ChargeNextTarget();
+                if (!kingCharge.isCharging)
+                    ChargeNextTarget();
             } else {
                 if (sheepInField.Contains(msg.sheepUnit)) {
                     sheepInField.Remove(msg.sheepUnit);
@@ -46,6 +47,7 @@ public class KingAttackController : MonoBehaviour {
 
     //animation is played inside KingCharge on Post function. This function is attached to event on anim
     public void OnAttackAnimationEnded(string message) {
+        kingCharge.isCharging = false;
         if (nextTarget != null)
             LaunchSheep(nextTarget);
         ChargeNextTarget();
@@ -72,7 +74,7 @@ public class KingAttackController : MonoBehaviour {
             if (sheepInField.Count == 1)
                 nextTarget = sheepInField[0];
             else
-                nextTarget = sheepInField.OrderBy(x => (x.transform.localPosition - transform.localPosition)).FirstOrDefault();
+                nextTarget = sheepInField.OrderBy(x => (x.transform.localPosition - transform.localPosition).magnitude).FirstOrDefault();
         }
         //Debug.Log("charge at sheep: " + nextTarget + " sheep playfield: " + nextTarget.currentPlayfield);
         if (nextTarget != null) {

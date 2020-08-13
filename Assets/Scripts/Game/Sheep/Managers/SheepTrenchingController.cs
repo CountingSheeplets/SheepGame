@@ -9,12 +9,12 @@ public class SheepTrenchingController : MonoBehaviour {
     GameObject model;
     bool colorIsSet = false;
     void Start() {
-        if (sheep == null)sheep = GetComponentInParent<SheepUnit>();
+        if (sheep == null) sheep = GetComponentInParent<SheepUnit>();
         sheep.onIsTrenchingChange += OnTrenchingChange;
     }
 
     void OnTrenchingChange(bool state) {
-        if (model == null)model = transform.parent.GetComponentInChildren<SheepModel>().gameObject;
+        if (model == null) model = transform.parent.GetComponentInChildren<SheepModel>().gameObject;
         TrySetColor();
         model.SetActive(!state);
         front.SetActive(state);
