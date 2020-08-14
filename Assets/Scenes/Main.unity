@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -190,6 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7739020526160630715, guid: 75f0d304b7ed16942b3078dd0d29617b, type: 3}
+    - {fileID: 3264116687368007848, guid: 75f0d304b7ed16942b3078dd0d29617b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 75f0d304b7ed16942b3078dd0d29617b, type: 3}
 --- !u!1 &197821998
 GameObject:
@@ -1000,6 +1001,7 @@ GameObject:
   - component: {fileID: 817108757}
   - component: {fileID: 817108759}
   - component: {fileID: 817108762}
+  - component: {fileID: 817108761}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -1069,6 +1071,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _persistent: 0
   profiles: []
+--- !u!114 &817108761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817108756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 792117474e40c964f9b180897f00cabe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &817108762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1696,7 +1710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 1
-  enableDebugging: 0
+  enableDebugging: 1
 --- !u!4 &1470963684
 Transform:
   m_ObjectHideFlags: 0
@@ -1983,6 +1997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 0
+  requestedNames: []
 --- !u!1 &1715578834
 GameObject:
   m_ObjectHideFlags: 0
@@ -2015,6 +2030,7 @@ MonoBehaviour:
   browserStartMode: 0
   controllerHtml: {fileID: 4900000, guid: c3439b5ce827c6f43a7a80c0545ff642, type: 3}
   autoScaleCanvas: 1
+  devGameId: 
 --- !u!4 &1715578836
 Transform:
   m_ObjectHideFlags: 0
@@ -2124,7 +2140,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _persistent: 0
   defaultAttemptCount: 5
-  hashes: []
 --- !u!1001 &1946995376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2192,13 +2207,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2463484813543074635, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9177376584049049340, guid: 5f6e4c9fb6c47844daf933edff06fc8b,
         type: 3}
       propertyPath: mudLayouts.Array.data[4].sprites.Array.data[1]
       value: 
       objectReference: {fileID: 7403221088168266536, guid: ce06ed963c00e8e44852c63a77ac704a,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2463484813543074635, guid: 5f6e4c9fb6c47844daf933edff06fc8b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5f6e4c9fb6c47844daf933edff06fc8b, type: 3}
 --- !u!4 &1946995377 stripped
 Transform:

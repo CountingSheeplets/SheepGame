@@ -6,7 +6,8 @@ public class ArenaControllerTest : MonoBehaviour {
     void Update() {
         /*         if((GameStateView.GetGameState() & GameState.arenaAnimating) != 0)
                     Debug.Log("is animating..."); */
-
+        if (!EventCoordinator.Instance.enableDebugging)
+            return;
         if (Input.GetKeyDown(KeyCode.KeypadPlus)) {
             if (GameStateView.HasState(GameState.started)) {
                 Debug.LogWarning("New cannot join, game already started");

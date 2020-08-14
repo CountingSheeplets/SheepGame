@@ -13,10 +13,13 @@ public class NetworkImportantCoordinator : Singleton<NetworkImportantCoordinator
     }
     public static void SendImportant(int deviceId, JObject json, int attempts) {
         string hash = GetToken(json);
-        json["important"] = true;
+        if (Instance.hashes.Contains(hash))
+            return;
         json["token"] = hash;
+        json["important"] = true;
         json["deviceId"] = deviceId;
         json["attempts"] = attempts;
+
         Instance.importantUnsent.Add(hash, json);
         Instance.hashes.Add(hash);
     }
@@ -48,7 +51,7 @@ public class NetworkImportantCoordinator : Singleton<NetworkImportantCoordinator
             Debug.Log("no such hash: " + hash);
     }
     static string GetToken(JObject json) {
-        string token = "sheep" + json.ToString() + "_!";
+        string token = "sheep" + json.ToString() + "_!-" + Time.time;
         string hash = CryptoHelper.md5(token);
         Debug.Log("token:" + token + " hash: " + hash);
         return hash;

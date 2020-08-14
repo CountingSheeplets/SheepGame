@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
     string key = "sheepGameData";
-    private List<string> requestedNames = new List<string>();
+    public List<string> requestedNames = new List<string>();
     public bool IsRequestedNamesEmpty {
         get { return requestedNames.Count > 0; }
     }
@@ -19,13 +19,15 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
         json["selectedScepter"] = KingCoordinator.GetSourceKingModel(owner).ScepterIndex;
         json["token"] = owner.GetToken((int) json["coinCount"]);
         TryStore(json, owner);
-        //owner.GetPlayerProfile().permanentCrownCount = (int) json["coinCount"];
+        owner.GetPlayerProfile().permanentCrownCount = (int) json["coinCount"];
     }
 
     public static void RequestData(Owner owner) {
+        Debug.Log("RequestData");
         if (AirConsole.instance != null) {
             AirConsole.instance.RequestPersistentData(new List<string>() { owner.ownerId });
             Instance.requestedNames.Add(owner.ownerId);
+            Debug.Log("RequestData:" + owner.ownerId);
         }
     }
 
@@ -57,7 +59,7 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
                         if (!data["selectedHat"].IsNullOrEmpty())
                             profile.selectedHat = (int) data["selectedHat"];
                         if (!data["selectedScepter"].IsNullOrEmpty())
-                            profile.selectedScepter = (int) data["selectedScepter"];
+                            profile.SelectItem(KingItemType.scepter, (int) data["selectedScepter"]);
                         EventCoordinator.TriggerEvent(EventName.Input.SetKingItem(), GameMessage.Write()
                             .WithOwner(owner)
                             .WithIntMessage(profile.selectedHat)

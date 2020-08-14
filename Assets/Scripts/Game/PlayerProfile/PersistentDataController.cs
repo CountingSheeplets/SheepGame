@@ -5,14 +5,16 @@ using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 public class PersistentDataController : MonoBehaviour {
-	void Start() {
+	void Awake() {
+		Debug.Log("PersistentDataController.Start");
 		AirConsole.instance.onPersistentDataStored += OnDataStored;
 		AirConsole.instance.onPersistentDataLoaded += OnDataLoaded;
 		EventCoordinator.StartListening(EventName.System.Player.ProfileCreated(), OnProfileCreated);
 		EventCoordinator.StartListening(EventName.UI.ShowScoreScreen(), OnShowScore);
 		EventCoordinator.StartListening(EventName.Input.StartGame(), OnStartGame);
 	}
-	void OnProfileCreated(GameMessage msg) { //perhaps add the requested owner, and keep asking for update until its received?
+	void OnProfileCreated(GameMessage msg) {
+		Debug.Log("OnProfileCreated");
 		PersistentDataCoordinator.RequestData(msg.playerProfile.owner);
 	}
 	void OnShowScore(GameMessage msg) {
@@ -39,5 +41,6 @@ public class PersistentDataController : MonoBehaviour {
 		}
 		EventCoordinator.StopListening(EventName.System.Player.ProfileCreated(), OnProfileCreated);
 		EventCoordinator.StopListening(EventName.UI.ShowScoreScreen(), OnShowScore);
+		EventCoordinator.StopListening(EventName.Input.StartGame(), OnStartGame);
 	}
 }

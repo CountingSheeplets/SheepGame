@@ -13,10 +13,14 @@ public class UpgradeInfoNetworkHandler : MonoBehaviour {
     void OnOpenUpgradeInfo(int from, JToken message) {
         if (message["element"] != null && message["pressed"] != null) {
             Owner triggerOwner = OwnersCoordinator.GetOwner(from);
-            if (triggerOwner == null || !triggerOwner.GetPlayerProfile().isAlive)
+            if (triggerOwner == null)
+                return;
+            if (triggerOwner.GetPlayerProfile() == null)
+                return;
+            if (!triggerOwner.GetPlayerProfile().isAlive)
                 return;
 
-            if ((bool)message["pressed"] == false && message["element"].ToString().Contains("upgrade")) {
+            if ((bool) message["pressed"] == false && message["element"].ToString().Contains("upgrade")) {
                 SheepUnit sheep = triggerOwner.GetPlayfield().GetComponent<SheepThrow>().sheepReadyToBeThrown;
                 if (sheep) {
                     if (message["element"].ToString() == "upgrade1") {
@@ -31,7 +35,7 @@ public class UpgradeInfoNetworkHandler : MonoBehaviour {
                     NetworkCoordinator.SendShowView(from, "upgrade");
                 }
             } else {
-                if (message["element"].ToString() == "upgrade" && (bool)message["pressed"] == true) {
+                if (message["element"].ToString() == "upgrade" && (bool) message["pressed"] == true) {
                     EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(triggerOwner).WithUpgradeType(upgradeTypes[triggerOwner]));
                     NetworkCoordinator.SendShowView(from, "match");
                 }
