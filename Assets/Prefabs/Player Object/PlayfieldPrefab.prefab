@@ -533,6 +533,7 @@ GameObject:
   - component: {fileID: 7518835110973820340}
   - component: {fileID: 5341466570603118328}
   - component: {fileID: 6201150106955470998}
+  - component: {fileID: 7843548299688215369}
   m_Layer: 0
   m_Name: PlayfieldPrefab
   m_TagString: Untagged
@@ -656,6 +657,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myOwner: {fileID: 0}
+--- !u!114 &7843548299688215369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8023144983768244914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e30bd61c2b162479c49e09fa778c6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  grassDamageParticleFxPrefab: {fileID: 1349599891588174301, guid: 568eb5479fe4e534aa8b55dc813c9ed2,
+    type: 3}
 --- !u!1001 &683977878859460573
 PrefabInstance:
   m_ObjectHideFlags: 0

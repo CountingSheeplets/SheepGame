@@ -57,9 +57,6 @@ public class ConstantsBucket : Singleton<ConstantsBucket> {
     [SerializeField] float eatInterval = 1f;
     public static float EatInterval { get { return Instance.eatInterval; } }
 
-    [SerializeField] float baseEatValue = 0.02f;
-    public static float BaseEatValue { get { return Instance.baseEatValue; } }
-
     [SerializeField] float incrementalEatValue = 0.05f;
     public static float IncrementalEatValue { get { return Instance.incrementalEatValue; } }
 

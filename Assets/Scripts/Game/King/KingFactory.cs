@@ -11,7 +11,8 @@ public class KingFactory : Singleton<KingFactory> {
         //newHero.GetComponentInChildren<KingModel>().ChangeColor(PlayerProfileCoordinator.GetProfile(owner).playerColor);
         newHero.transform.SetParent(owner.gameObject.transform);
         newHero.transform.localPosition = Vector3.zero;
-        newHero.GetComponent<Animator>().Play("Idle1", -1, 0);
+        newHero.GetComponent<Animator>().SetFloat("dirX_blend", 0);
+        newHero.GetComponent<Animator>().SetFloat("dirY_blend", -1);
         return newHero;
     }
 

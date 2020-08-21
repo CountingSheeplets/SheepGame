@@ -23,7 +23,7 @@ public class KingEat : MonoBehaviour {
 
     float CalculateEatAmount() {
         //do math here, like faster eating king, slower eating king etc.
-        float baseAmount = ConstantsBucket.BaseEatValue + ConstantsBucket.KingEatBonus;
+        float baseAmount = DamageBucket.GetEatDamage(SheepType.King);
         float amount = baseAmount + ConstantsBucket.KingEatIncrement * king.GetSuccesfullHits();
         //then return final value:
         return amount;

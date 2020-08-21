@@ -46,7 +46,7 @@ public class KingAttackController : MonoBehaviour {
 
     //animation is played inside KingCharge on Post function. This function is attached to event on anim
     public void OnAttackAnimationEnded(string message) {
-        Debug.Log("OnAttackAnimationEnded");
+        //Debug.Log("OnAttackAnimationEnded");
         kingCharge.isCharging = false;
         if (nextTarget != null)
             LaunchSheep(nextTarget);
@@ -72,20 +72,18 @@ public class KingAttackController : MonoBehaviour {
         sheep.ResetContainer();
     }
     void ChargeNextTarget() {
-        if (sheepInField.Count == 0) {
-            Debug.Log("nothing to charge at... Count = 0");
+        if (sheepInField.Count == 0)
+            //Debug.Log("nothing to charge at... Count = 0");
             return;
-        } else {
-            if (sheepInField.Count == 1)
-                nextTarget = sheepInField[0];
-            else
-                nextTarget = sheepInField.OrderBy(x => (x.transform.localPosition - transform.localPosition).magnitude).FirstOrDefault();
-        }
-        Debug.Log("charge at sheep: " + nextTarget + " sheep playfield: " + nextTarget.currentPlayfield);
+        if (sheepInField.Count == 1)
+            nextTarget = sheepInField[0];
+        else
+            nextTarget = sheepInField.OrderBy(x => (x.transform.localPosition - transform.localPosition).magnitude).FirstOrDefault();
+        //Debug.Log("charge at sheep: " + nextTarget + " sheep playfield: " + nextTarget.currentPlayfield);
         if (nextTarget != null) {
             sheepInField.Remove(nextTarget);
             Vector3 stopOffset = (nextTarget.transform.localPosition - transform.localPosition).normalized * kingAttackDistance;
             kingCharge.StartCharging(nextTarget.transform.position - stopOffset);
-        } else Debug.Log("nothing to charge at... nextTarget = null");
+        } // else Debug.Log("nothing to charge at... nextTarget = null");
     }
 }

@@ -28,7 +28,7 @@ public class KingCharge : BaseUnitMove {
         king.isRoaming = true;
         MoveToDestination(SpeedBucket.GetRunSpeed(SheepType.King), 0f);
         animator.WalkTo(_destination);
-        Debug.Log("charging started");
+        //Debug.Log("charging started");
     }
     void OnSmashed(GameMessage msg) {
         if (msg.kingUnit == king)

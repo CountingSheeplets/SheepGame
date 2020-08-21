@@ -2684,16 +2684,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Buckets(Prices, Upgrades, Speeds)
       objectReference: {fileID: 0}
-    - target: {fileID: 8604118487354306396, guid: 38139f4f48e2af14ea01a365c7f32b03,
-        type: 3}
-      propertyPath: smashAnimationClip
-      value: 
-      objectReference: {fileID: -1827790361219284835, guid: 892bd7dc638408645a3f762096feb6f8,
-        type: 2}
-    - target: {fileID: 8604118487354306396, guid: 38139f4f48e2af14ea01a365c7f32b03,
-        type: 3}
-      propertyPath: smashEffectDelay
-      value: -0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38139f4f48e2af14ea01a365c7f32b03, type: 3}

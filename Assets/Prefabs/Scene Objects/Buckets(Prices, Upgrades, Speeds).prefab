@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8604118487354306370}
   - component: {fileID: 5902129969623488959}
   - component: {fileID: 9200212022206869629}
+  - component: {fileID: 6570848659858667099}
   m_Layer: 0
   m_Name: Buckets(Prices, Upgrades, Speeds)
   m_TagString: Untagged
@@ -274,7 +275,6 @@ MonoBehaviour:
   sheepSpawnUpgradeDecrement: 0.05
   sheepThrowStrength: 1
   eatInterval: 1
-  baseEatValue: 0.1
   incrementalEatValue: 0.05
   roamInterval: 1
   roamProbability: 0.05
@@ -283,14 +283,14 @@ MonoBehaviour:
   smallUpgradeShrinkSize: 0.7
   smallSheepBonusEat: 0.1
   kingSmiteRange: 1
-  kingHitRadius: 0.5
+  kingHitRadius: 0.35
   kingHitRadiusIncrement: 0.05
-  sheepKickStrength: 1
+  sheepKickStrength: 0.8
   kingScaleChangeTime: 1
   kingEatBonus: 0.15
   kingEatIncrement: 0.05
   starveDamage: 1.25
-  smashEffectDelay: 0
+  smashEffectDelay: -0.2
   smashAnimationClip: {fileID: -1827790361219284835, guid: 892bd7dc638408645a3f762096feb6f8,
     type: 2}
   headbutStarsTimer: 2
@@ -410,4 +410,64 @@ MonoBehaviour:
   - knockStrength: 0.5
     sheepType: 6
   - knockStrength: 0
+    sheepType: 7
+--- !u!114 &6570848659858667099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604118487354306394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 040656d699525e14eba78460e6690fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  balistaDamages:
+  - damage: 0.5
+    sheepType: 0
+  - damage: 1
+    sheepType: 1
+  - damage: 1.5
+    sheepType: 2
+  - damage: 1.5
+    sheepType: 3
+  - damage: 1
+    sheepType: 4
+  - damage: 1
+    sheepType: 5
+  - damage: 4
+    sheepType: 6
+  kickDamages:
+  - damage: 0
+    sheepType: 1
+  - damage: 0.5
+    sheepType: 2
+  - damage: 0.5
+    sheepType: 3
+  - damage: 0
+    sheepType: 3
+  - damage: 0
+    sheepType: 4
+  - damage: 0
+    sheepType: 5
+  - damage: 1
+    sheepType: 6
+  eatDamages:
+  - damage: 1
+    sheepType: 0
+  - damage: 3
+    sheepType: 1
+  - damage: 3
+    sheepType: 2
+  - damage: 5
+    sheepType: 3
+  - damage: 2
+    sheepType: 4
+  - damage: 3
+    sheepType: 5
+  - damage: 2
+    sheepType: 6
+  - damage: 1
     sheepType: 7

@@ -28,9 +28,9 @@ public class SheepHeadbutHandler : MonoBehaviour {
         if (distance < king.GetRadius() + ConstantsBucket.HitRange) {
             msg.sheepUnit.lastHandler.GetKing().SuccesfullHit();
             king.ResetSuccesfullHits();
-            EventCoordinator.TriggerEvent(EventName.System.King.Hit(), GameMessage.Write().WithSheepUnit(msg.sheepUnit).WithKingUnit(king).WithOwner(msg.sheepUnit.lastHandler));
+            EventCoordinator.TriggerEvent(EventName.System.King.Hit(), GameMessage.Write().WithSheepUnit(msg.sheepUnit).WithKingUnit(king).WithOwner(msg.sheepUnit.lastHandler).WithPlayfield(msg.playfield));
         } else {
-            EventCoordinator.TriggerEvent(EventName.System.Sheep.KingMissed(), GameMessage.Write().WithSheepUnit(msg.sheepUnit).WithKingUnit(king).WithOwner(msg.sheepUnit.lastHandler));
+            EventCoordinator.TriggerEvent(EventName.System.Sheep.KingMissed(), GameMessage.Write().WithSheepUnit(msg.sheepUnit).WithKingUnit(king).WithOwner(msg.sheepUnit.lastHandler).WithPlayfield(msg.playfield));
         }
     }
 }
