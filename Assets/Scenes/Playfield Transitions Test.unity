@@ -298,7 +298,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _persistent: 0
   defaultAttemptCount: 5
-  hashes: []
 --- !u!114 &438182122
 MonoBehaviour:
   m_ObjectHideFlags: 0

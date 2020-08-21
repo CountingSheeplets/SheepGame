@@ -12,6 +12,8 @@ public class NetworkImportantCoordinator : Singleton<NetworkImportantCoordinator
         SendImportant(deviceId, json, Instance.defaultAttemptCount);
     }
     public static void SendImportant(int deviceId, JObject json, int attempts) {
+        if (AirConsole.instance == null)
+            return;
         string hash = GetToken(json);
         if (Instance.hashes.Contains(hash))
             return;
@@ -24,6 +26,8 @@ public class NetworkImportantCoordinator : Singleton<NetworkImportantCoordinator
         Instance.hashes.Add(hash);
     }
     public static void ResendImportantAll() {
+        if (AirConsole.instance == null)
+            return;
         //Debug.Log("ResendImportantAll");
         List<string> toRemove = new List<string>();
         foreach (KeyValuePair<string, JObject> pair in Instance.importantUnsent) {

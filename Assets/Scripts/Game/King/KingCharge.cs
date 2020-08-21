@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class KingCharge : BaseUnitMove {
+    public delegate void OnAnimEnded(string parameterTheFunctionExpects);
+    public event OnAnimEnded animEndedCallback;
+    public AnimationClip attackAnimation;
+    public void OnAttackAnimationEnded(string message) { }
+    IEnumerator Attacking(float length) {
+        yield return new WaitForSeconds(length);
+        isCharging = false;
+        animEndedCallback("AttackAnimationEnded");
+    }
     KingUnit king;
     public bool isCharging = false; // this is falsed after animation has ended
     void Awake() {
@@ -24,12 +33,13 @@ public class KingCharge : BaseUnitMove {
     void OnSmashed(GameMessage msg) {
         if (msg.kingUnit == king)
             isMoving = true;
+        isCharging = false;
     }
 
     public override void PostMoveAction() {
         king.isRoaming = false;
         animator.StopWalking();
         animator.Attack();
-        //then animate hit
+        StartCoroutine(Attacking(attackAnimation.length / 2f)); // change this when we swap to new animation
     }
 }

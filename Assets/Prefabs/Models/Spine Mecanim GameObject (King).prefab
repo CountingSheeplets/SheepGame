@@ -19,7 +19,6 @@ GameObject:
   - component: {fileID: -7590703455707321619}
   - component: {fileID: 5899763417754825198}
   - component: {fileID: -4548286304459631375}
-  - component: {fileID: 2780061441278695093}
   m_Layer: 0
   m_Name: Spine Mecanim GameObject (King)
   m_TagString: Untagged
@@ -66,7 +65,8 @@ MeshRenderer:
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials: []
+  m_Materials:
+  - {fileID: 2100000, guid: 815b82c17791a5d4abb6dc0c16083df6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -217,15 +217,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevAngle: 0
   anim: {fileID: 0}
---- !u!114 &2780061441278695093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2608349506529783468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c573deb34c00aa4b9c52b1651f61e68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

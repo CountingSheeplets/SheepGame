@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class KingRoam : BaseUnitMove {
     KingUnit king;
+    KingCharge charge;
     void Awake() {
         king = GetComponent<KingUnit>();
+        charge = GetComponent<KingCharge>();
         EventCoordinator.StartListening(EventName.System.Sheep.Roam(), OnRoam);
         EventCoordinator.StartListening(EventName.System.Environment.ArenaAnimated(), ForceRoam);
         EventCoordinator.StartListening(EventName.System.King.Smashed(), OnSmashed);
@@ -27,6 +29,8 @@ public class KingRoam : BaseUnitMove {
             isMoving = true;
     }
     void OnRoam(GameMessage msg) {
+        if (charge.isCharging)
+            return;
         if (!king.isRoaming && !king.GetIsUsingAbility()) {
             float roll = Random.Range(0, 3f); //3x larger roll = 3x smaller probability
             if (roll < msg.floatMessage) {

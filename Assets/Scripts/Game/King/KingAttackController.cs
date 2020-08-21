@@ -8,20 +8,16 @@ public class KingAttackController : MonoBehaviour {
     public SheepUnit nextTarget = null;
     KingCharge kingCharge;
     float kingAttackDistance = 0.5f;
-    AlertObserversGeneral observersGeneral;
     void Start() {
         kingCharge = GetComponent<KingCharge>();
-        observersGeneral = GetComponentInChildren<AlertObserversGeneral>();
-        observersGeneral.animEndedCallback += OnAttackAnimationEnded;
+        kingCharge.animEndedCallback += OnAttackAnimationEnded;
         EventCoordinator.StartListening(EventName.System.Sheep.Land(), OnLand);
-        //EventCoordinator.StartListening(EventName.Input.StartGame(), OnStartGame);
+        EventCoordinator.StartListening(EventName.System.King.Smashed(), OnSmashed);
     }
     void OnDestroy() {
+        kingCharge.animEndedCallback -= OnAttackAnimationEnded;
         EventCoordinator.StopListening(EventName.System.Sheep.Land(), OnLand);
-        //EventCoordinator.StopListening(EventName.Input.StartGame(), OnStartGame);
-    }
-    void OnStartGame(GameMessage msg) {
-        //king here does not get component.need to fix it
+        EventCoordinator.StopListening(EventName.System.King.Smashed(), OnSmashed);
     }
     void OnLand(GameMessage msg) {
         if (playfield == null) playfield = GetComponentInParent<Playfield>();
@@ -37,6 +33,9 @@ public class KingAttackController : MonoBehaviour {
                 }
                 if (!kingCharge.isCharging)
                     ChargeNextTarget();
+                else {
+                    Debug.Log("OnLand wont charge, because already charging");
+                }
             } else {
                 if (sheepInField.Contains(msg.sheepUnit)) {
                     sheepInField.Remove(msg.sheepUnit);
@@ -47,28 +46,34 @@ public class KingAttackController : MonoBehaviour {
 
     //animation is played inside KingCharge on Post function. This function is attached to event on anim
     public void OnAttackAnimationEnded(string message) {
+        Debug.Log("OnAttackAnimationEnded");
         kingCharge.isCharging = false;
         if (nextTarget != null)
             LaunchSheep(nextTarget);
         ChargeNextTarget();
     }
 
+    void OnSmashed(GameMessage msg) {
+        if (msg.owner.EqualsByValue(playfield.owner)) {
+            sheepInField = sheepInField.Where(item => item != null).ToList();
+            if (!kingCharge.isCharging)
+                ChargeNextTarget();
+        }
+    }
     void LaunchSheep(SheepUnit sheep) {
         SheepFly fly = sheep.gameObject.GetComponent<SheepFly>();
-        //Debug.Log(msg.swipe);
         Vector2 direction = (sheep.transform.localPosition - transform.localPosition).normalized;
         float sheepEffect = KnockDistanceBucket.GetKnockStrength(sheep.sheepType);
         float kingSizeEffect = Mathf.Sqrt(GoldRewardCoordinator.GetComboLevel(playfield.owner) + 1);
         Vector2 destination = sheepEffect * kingSizeEffect * direction * ConstantsBucket.SheepKickStrength / 1f + (Vector2) fly.transform.position;
-        float speed = SpeedBucket.GetFlySpeed(sheep.sheepType);
-        //Debug.Log("speed kicked:" + speed);
+        float speed = SpeedBucket.GetFlySpeed(sheep.sheepType) / 3f;
         fly.sheep.lastHandler = playfield.owner;
         fly.StartFlying(speed, destination);
         sheep.ResetContainer();
     }
     void ChargeNextTarget() {
         if (sheepInField.Count == 0) {
-            Debug.Log("nothing to charge at...");
+            Debug.Log("nothing to charge at... Count = 0");
             return;
         } else {
             if (sheepInField.Count == 1)
@@ -76,12 +81,11 @@ public class KingAttackController : MonoBehaviour {
             else
                 nextTarget = sheepInField.OrderBy(x => (x.transform.localPosition - transform.localPosition).magnitude).FirstOrDefault();
         }
-        //Debug.Log("charge at sheep: " + nextTarget + " sheep playfield: " + nextTarget.currentPlayfield);
+        Debug.Log("charge at sheep: " + nextTarget + " sheep playfield: " + nextTarget.currentPlayfield);
         if (nextTarget != null) {
             sheepInField.Remove(nextTarget);
             Vector3 stopOffset = (nextTarget.transform.localPosition - transform.localPosition).normalized * kingAttackDistance;
             kingCharge.StartCharging(nextTarget.transform.position - stopOffset);
-
-        } else Debug.Log("nothing to charge at...");
+        } else Debug.Log("nothing to charge at... nextTarget = null");
     }
 }

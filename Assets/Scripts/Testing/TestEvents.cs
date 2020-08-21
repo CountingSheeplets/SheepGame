@@ -69,11 +69,12 @@ public class TestEvents : MonoBehaviour {
             EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(OwnersCoordinator.GetRandomOwner()));
         }
         if (Input.GetKeyDown(KeyCode.Y)) {
-            Debug.Log("Fake throw sheep...to a 1st king from 2nd player");
+            Debug.Log("Fake throw sheep...to a 0th Owner from random player");
             Swipe newSwipe = new Swipe();
-            newSwipe.ToZeroKing();
-            Debug.Log(newSwipe.ToString());
-            EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(OwnersCoordinator.GetOwners() [1]));
+            Owner randomOwner = OwnersCoordinator.GetRandomOwner();
+            newSwipe.ToZeroPlayfield(randomOwner);
+            //Debug.Log(newSwipe.ToString());
+            EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(randomOwner));
         }
         if (Input.GetKeyDown(KeyCode.KeypadMultiply)) {
             foreach (Owner owner in OwnersCoordinator.GetOwners()) {

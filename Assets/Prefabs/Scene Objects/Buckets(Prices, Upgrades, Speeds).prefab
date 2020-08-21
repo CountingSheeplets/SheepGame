@@ -110,7 +110,7 @@ MonoBehaviour:
     sheepType: 5
   - speed: 0.3
     sheepType: 6
-  - speed: 2
+  - speed: 1
     sheepType: 7
   roamSpeeds:
   - speed: 0.6
@@ -261,6 +261,7 @@ MonoBehaviour:
   playfieldFadeTime: 2
   playfieldFadeNoiseTiling: {x: 0.05, y: 0.05}
   playfieldFadeProportion: 1
+  playfieldFloatTime: 1.5
   playfieldGridSize: 5
   playfieldTileSize: 0.6715
   playfieldSpriteScale: {x: 5.5, y: 5.5}
@@ -273,7 +274,7 @@ MonoBehaviour:
   sheepSpawnUpgradeDecrement: 0.05
   sheepThrowStrength: 1
   eatInterval: 1
-  baseEatValue: 0.02
+  baseEatValue: 0.1
   incrementalEatValue: 0.05
   roamInterval: 1
   roamProbability: 0.05
@@ -310,6 +311,7 @@ MonoBehaviour:
   maxPlayerCombo: 3
   baseGoldIncome: 1
   goldIncomePeriod: 1
+  goldIncomeIncrement: 1
   tipLoopTimer: 10
 --- !u!114 &8604118487354306371
 MonoBehaviour:
