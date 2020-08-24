@@ -30,7 +30,7 @@ public class ArenaController : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.KeypadEnter)) {
             if (!GameStateView.HasState(GameState.started))
-                EventCoordinator.TriggerEvent(EventName.Input.StartGame(), GameMessage.Write());
+                EventCoordinator.TriggerEvent(EventName.Input.PlayersReady(), GameMessage.Write());
         }
     }
     void Awake() {

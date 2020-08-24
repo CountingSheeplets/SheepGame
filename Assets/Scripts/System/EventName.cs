@@ -38,8 +38,10 @@ public class EventName {
         public static string ChangeKingItem() { return "ChangeKingItem"; }
         public static string SetKingItem() { return "SetKingItem"; }
         public static string StartGame() { return "StartGame"; }
+        public static string PlayersReady() { return "PlayersReady"; }
         public static List<string> Get() {
             return new List<string> {
+                    PlayersReady(),
                     StartGame(),
                     SheepUpgrade(),
                     Swipe(),
