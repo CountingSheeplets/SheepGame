@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
-	public List<int> premiumIds = new List<int>();
+	//public List<int> premiumIds = new List<int>();
 	void Awake() {
 		if (AirConsole.instance == null)
 			return;
@@ -72,7 +72,8 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 	}
 	void OnPremium(int device_id) {
 		//Debug.Log("On Premium (device " + device_id + ") \n \n");
-		premiumIds.Add(device_id);
+		//premiumIds.Add(device_id);
+		OwnersCoordinator.GetOwner(device_id).GetPlayerProfile().SetPremium();
 	}
 	//unused::::
 	void OnHighScores(JToken highscores) {

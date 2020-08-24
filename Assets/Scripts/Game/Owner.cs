@@ -6,7 +6,6 @@ public class Owner : MonoBehaviour {
     public string ownerId = "";
     public int deviceId = 0;
     public string ownerName = "";
-    public bool isHero = false;
     public int teamId = 0;
     public bool connected = false;
     bool _ready = false;
@@ -55,10 +54,9 @@ public class Owner : MonoBehaviour {
 
         return this;
     }
-    public void Create(string id, string nm, bool hero, int devId) {
+    public void Create(string id, string nm, int devId) {
         ownerId = id;
         ownerName = nm;
-        isHero = hero;
         ownerType = OwnerType.Player;
         deviceId = devId;
         teamId = OwnersCoordinator.GetOwners().Count;
@@ -132,13 +130,13 @@ public class Owner : MonoBehaviour {
     //use this instead of override obj, cause that is needed still to compare same component!
     public bool EqualsByValue(Owner obj) {
         //Debug.Log("ReferenceEquals:null:"+ReferenceEquals(null, obj));
-        if (ReferenceEquals(null, obj))return false;
+        if (ReferenceEquals(null, obj)) return false;
         //Debug.Log("ReferenceEquals:this:"+ReferenceEquals(this, obj));
-        if (ReferenceEquals(this, obj))return true;
+        if (ReferenceEquals(this, obj)) return true;
         //Debug.Log("GetType():this:"+ReferenceEquals(this, obj));
-        if (obj.GetType() != this.GetType())return false;
+        if (obj.GetType() != this.GetType()) return false;
         Owner c = obj as Owner;
-        if ((System.Object)c == null) {
+        if ((System.Object) c == null) {
             //Debug.Log("obj is null, false");
             return false;
         }

@@ -38,18 +38,19 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
 
         JObject hatJson = new JObject();
         hatJson["ID"] = profile.selectedHat;
-        hatJson["itemName"] = KingItemBucket.GetItem(profile.selectedHat, KingItemType.hat).itemName;
-        hatJson["spriteName"] = KingItemBucket.GetItem(profile.selectedHat, KingItemType.hat).spriteName;
+        KingItem hat = KingItemBucket.GetItem(profile.selectedHat, KingItemType.hat);
+        hatJson["itemName"] = hat.itemName;
+        hatJson["spriteName"] = hat.spriteName;
         Debug.Log("sending hat spriteName: " + hatJson["spriteName"]);
 
         JObject hCrownsJson = new JObject();
-        hCrownsJson["required"] = KingItemBucket.GetItem(profile.selectedHat, KingItemType.hat).crownRequirement;
+        hCrownsJson["required"] = hat.crownRequirement;
         hCrownsJson["requirementMet"] = KingItemBucket.IsCrownRequirementMet(owner, profile.selectedHat, KingItemType.hat);
         hatJson["crowns"] = hCrownsJson;
 
         JObject hPremiumJson = new JObject();
-        hPremiumJson["required"] = KingItemBucket.GetItem(profile.selectedHat, KingItemType.hat).premiumRequirement;
-        hPremiumJson["requirementMet"] = KingItemBucket.IsPremiumRequirementMet(owner, profile.selectedHat, KingItemType.hat);
+        hPremiumJson["required"] = hat.premiumRequirement;
+        hPremiumJson["requirementMet"] = KingItemBucket.IsPremiumRequirementMet(owner, hat);
         hatJson["premium"] = hPremiumJson;
 
         hatJson["unlocked"] = KingItemBucket.IsItemAvailable(owner, profile.selectedHat, KingItemType.hat);
@@ -58,18 +59,19 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
 
         JObject scepterJson = new JObject();
         scepterJson["ID"] = profile.selectedScepter;
-        scepterJson["itemName"] = KingItemBucket.GetItem(profile.selectedScepter, KingItemType.scepter).itemName;
-        scepterJson["spriteName"] = KingItemBucket.GetItem(profile.selectedScepter, KingItemType.scepter).spriteName;
+        KingItem scepter = KingItemBucket.GetItem(profile.selectedScepter, KingItemType.scepter);
+        scepterJson["itemName"] = scepter.itemName;
+        scepterJson["spriteName"] = scepter.spriteName;
         Debug.Log("sending scepter spriteName: " + scepterJson["spriteName"]);
 
         JObject sCrownsJson = new JObject();
-        sCrownsJson["required"] = KingItemBucket.GetItem(profile.selectedScepter, KingItemType.scepter).crownRequirement;
+        sCrownsJson["required"] = scepter.crownRequirement;
         sCrownsJson["requirementMet"] = KingItemBucket.IsCrownRequirementMet(owner, profile.selectedScepter, KingItemType.scepter);
         scepterJson["crowns"] = sCrownsJson;
 
         JObject sPremiumJson = new JObject();
-        sPremiumJson["required"] = KingItemBucket.GetItem(profile.selectedScepter, KingItemType.scepter).premiumRequirement;
-        sPremiumJson["requirementMet"] = KingItemBucket.IsPremiumRequirementMet(owner, profile.selectedScepter, KingItemType.scepter);
+        sPremiumJson["required"] = scepter.premiumRequirement;
+        sPremiumJson["requirementMet"] = KingItemBucket.IsPremiumRequirementMet(owner, scepter);
         scepterJson["premium"] = sPremiumJson;
 
         scepterJson["unlocked"] = KingItemBucket.IsItemAvailable(owner, profile.selectedScepter, KingItemType.scepter);

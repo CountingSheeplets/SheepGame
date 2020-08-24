@@ -24,7 +24,7 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
             string nicknameOfJoined = AirConsole.instance.GetNickname(device_id);
             Owner newOwner = go.AddComponent<Owner>();
             Instance.owners.Add(newOwner);
-            newOwner.Create(AirConsole.instance.GetUID(device_id), nicknameOfJoined, MenuNetworkHandler.Instance.premiumIds.Contains(device_id), device_id);
+            newOwner.Create(AirConsole.instance.GetUID(device_id), nicknameOfJoined, device_id);
             go.name = newOwner.ownerName;
             go.GetComponentInChildren<TextMeshProUGUI>().text = newOwner.ownerName;
             return newOwner;
@@ -65,7 +65,7 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
         string nicknameOfJoined = Generate.RandomString(10);
         Owner newOwner = go.AddComponent<Owner>();
         Instance.owners.Add(newOwner);
-        newOwner.Create(device_id.ToString(), nicknameOfJoined, true, device_id);
+        newOwner.Create(device_id.ToString(), nicknameOfJoined, device_id);
         go.name = newOwner.ownerName;
         go.GetComponentInChildren<TextMeshProUGUI>().text = newOwner.ownerName;
         return newOwner;

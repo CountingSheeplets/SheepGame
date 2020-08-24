@@ -34,7 +34,7 @@ public class SheepFly : BaseUnitMove {
         //trigger Land game event, listened by sheep throw
         Playfield newPlayfield = ArenaCoordinator.GetPlayfield(transform.position);
         sheep.currentPlayfield = newPlayfield;
-        if (sheep.sheepType == SheepType.Trench)
+        if (sheep.sheepType == SheepType.Trench && newPlayfield != null)
             sheep.isTrenching = true;
         sheep.ResetContainer();
         EventCoordinator.TriggerEvent(EventName.System.Sheep.Land(), GameMessage.Write().WithSheepUnit(GetComponent<SheepUnit>()).WithPlayfield(newPlayfield));

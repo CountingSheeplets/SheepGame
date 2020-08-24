@@ -59,7 +59,7 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
                         if (!data["selectedHat"].IsNullOrEmpty())
                             profile.selectedHat = (int) data["selectedHat"];
                         if (!data["selectedScepter"].IsNullOrEmpty())
-                            profile.SelectItem(KingItemType.scepter, (int) data["selectedScepter"]);
+                            profile.selectedScepter = (int) data["selectedScepter"];
                         EventCoordinator.TriggerEvent(EventName.Input.SetKingItem(), GameMessage.Write()
                             .WithOwner(owner)
                             .WithIntMessage(profile.selectedHat)

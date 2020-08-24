@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerProfile {
     public bool isAlive = true;
     public int eliminatedPlace = 10;
-    bool _isPremium = false;
+    bool _isPremium = true;
     public bool isPremium { get { return _isPremium; } }
     public void SetPremium() { _isPremium = true; }
     public Owner owner;

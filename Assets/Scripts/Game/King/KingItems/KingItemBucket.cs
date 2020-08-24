@@ -10,8 +10,8 @@ public class KingItemBucket : Singleton<KingItemBucket> {
     void Start() {
         kingHats = CSVReader.GetHats();
         kingScepters = CSVReader.GetScepters();
-        kingHats.OrderBy(x => x.crownRequirement);
-        kingScepters.OrderBy(x => x.crownRequirement);
+        kingHats = kingHats.OrderBy(x => x.crownRequirement).ToList();
+        kingScepters = kingScepters.OrderBy(x => x.crownRequirement).ToList();
     }
     public static int ItemCount(KingItemType itemType) {
         if (itemType == KingItemType.hat) {
@@ -34,28 +34,37 @@ public class KingItemBucket : Singleton<KingItemBucket> {
         }
         return null;
     }
+    public static bool IsCrownRequirementMet(Owner owner, KingItem item) {
+        if (owner.GetPlayerProfile().permanentCrownCount > item.crownRequirement) {
+            return true;
+        }
+        return false;
+    }
     public static bool IsCrownRequirementMet(Owner owner, int index, KingItemType itemType) {
         KingItem item = GetItem(index, itemType);
         if (item == null)
             return false;
-        //Debug.Log(owner.GetPlayerProfile().permanentCrownCount+" count vs req "+item.crownRequirement);
-        if (owner.GetPlayerProfile().permanentCrownCount > item.crownRequirement) {
+        return IsCrownRequirementMet(owner, item);
+    }
+    public static bool IsPremiumRequirementMet(Owner owner, KingItem item) {
+        if (owner.GetPlayerProfile().isPremium)
             return true;
-        }
+        if (!item.premiumRequirement)
+            return true;
         return false;
     }
     public static bool IsPremiumRequirementMet(Owner owner, int index, KingItemType itemType) {
         KingItem item = GetItem(index, itemType);
         if (item == null)
             return false;
-        if (!item.premiumRequirement)
-            return true;
-        else if (owner.GetPlayerProfile().isPremium)
-            return true;
-        return false;
+        return IsPremiumRequirementMet(owner, item);
     }
     public static bool IsItemAvailable(Owner owner, int index, KingItemType itemType) {
-        if (IsPremiumRequirementMet(owner, index, itemType) && IsCrownRequirementMet(owner, index, itemType))
+        KingItem item = GetItem(index, itemType);
+        return IsItemAvailable(owner, item);
+    }
+    public static bool IsItemAvailable(Owner owner, KingItem item) {
+        if (IsPremiumRequirementMet(owner, item) && IsCrownRequirementMet(owner, item))
             return true;
         return false;
     }
