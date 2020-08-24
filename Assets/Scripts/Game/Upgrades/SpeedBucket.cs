@@ -42,7 +42,7 @@ public class SpeedBucket : Singleton<SpeedBucket> {
             case SpeedType.fall:
                 return Instance.fallSpeeds.Where(x => x.sheepType == sheepType).Select(x => x.speed).FirstOrDefault();
         }
-        return 100;
+        return 1f;
     }
 }
 public enum SpeedType {

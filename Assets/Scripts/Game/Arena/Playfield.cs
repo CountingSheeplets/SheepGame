@@ -60,12 +60,15 @@ public class Playfield : MonoBehaviour {
         return currentHitpoints;
     }
     bool IsKingVulnerable() {
+        KingUnit king = owner.GetKing();
+        if (king == null)
+            return true;
         if (currentHitpoints <= 0) {
             currentHitpoints = 0;
-            owner.GetKing().isVulnerable = true;
+            king.isVulnerable = true;
             return true;
         } else {
-            owner.GetKing().isVulnerable = false;
+            king.isVulnerable = false;
             return false;
         }
     }

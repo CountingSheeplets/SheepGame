@@ -25,10 +25,6 @@ public class PlayfieldKillUnitsOnDestroy : MonoBehaviour {
         trigger = true;
         progress = 0f;
         counter = 0;
-        foreach (SheepUnit unit in sheepUnits) {
-            SkeletonRendererController.MakeSheepActive(unit);
-            unit.GetComponent<SheepFall>().StartFalling(SpeedBucket.GetFallSpeed(unit.sheepType), Vector2.zero);
-        }
     }
 
     void Update() {
@@ -38,8 +34,14 @@ public class PlayfieldKillUnitsOnDestroy : MonoBehaviour {
                 if (counter >= amount)
                     trigger = false;
                 else {
-                    if (sheepUnits.Count > 0)
-                        EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(sheepUnits[0]));
+                    if (sheepUnits.Count > 0) {
+                        SkeletonRendererController.MakeSheepActive(sheepUnits[0]);
+                        SheepFall fall = sheepUnits[0].GetComponent<SheepFall>();
+                        if (fall != null)
+                            fall.StartFalling(SpeedBucket.GetFallSpeed(sheepUnits[0].sheepType), Vector2.zero);
+                        else
+                            EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(sheepUnits[0]));
+                    }
                     progress = 0f;
                     sheepUnits.RemoveAt(0);
                 }

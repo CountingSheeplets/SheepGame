@@ -37,7 +37,7 @@ public class KingCoordinator : Singleton<KingCoordinator> {
     }
     public static KingUnit GetKing(Owner owner) {
         foreach (KingUnit king in Instance.kings) {
-            if (king.owner == owner)
+            if (king.owner.EqualsByValue(owner))
                 return king;
         }
         return null;
