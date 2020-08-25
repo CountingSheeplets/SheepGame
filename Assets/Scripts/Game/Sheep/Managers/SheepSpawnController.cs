@@ -41,10 +41,12 @@ public class SheepSpawnController : MonoBehaviour {
         EventCoordinator.TriggerEvent(EventName.System.Sheep.Spawned(), GameMessage.Write().WithSheepUnit(sheep));
     }
     void OnEliminated(GameMessage msg) {
-        SheepSpawnCapCoordinator.IncreaseCaps();
+        SheepSpawnCapCoordinator.RemoveOwner(msg.targetOwner);
+        SheepSpawnCapCoordinator.IncreaseCaps(ConstantsBucket.SheepSpawnCapIncrement);
+        SheepCoordinator.IncreaseStacksSize(ConstantsBucket.SheepSpawnCapIncrement);
     }
     float GetSpawnRate(Owner owner) {
-        int level = SheepCoordinator.GetSpawnRateLevel(owner);
+        int level = SpawnRateCoordinator.GetSpawnRateLevel(owner);
         float newNextSpawn = Random.Range(-scatterRandomBase, scatterRandomBase);
         return Time.time + (newNextSpawn + ConstantsBucket.SheepSpawnPeriod) * (Mathf.Pow(1 - ConstantsBucket.SheepSpawnUpgradeDecrement, level));
     }

@@ -12,7 +12,7 @@ public class BuySheepHandler : MonoBehaviour {
     void OnSheepSpawn(GameMessage msg) {
         PlayerProfile profile = PlayerProfileCoordinator.GetProfile(msg.owner);
         if (profile.Buy(PriceName.King.BuySheep())) {
-            int level = SheepCoordinator.IncreaseSpawnRateLevel(msg.owner);
+            int level = SpawnRateCoordinator.IncreaseSpawnRateLevel(msg.owner);
             PriceCoordinator.IncreaseLevel(msg.owner, PriceName.King.BuySheep());
             //Debug.Log("level: " + level);
             //EventCoordinator.TriggerEvent(EventName.System.Sheep.Spawned(), GameMessage.Write().WithSheepUnit(sheep));

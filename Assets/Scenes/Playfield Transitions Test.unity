@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -157,6 +157,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Loading Sceen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834429926284761227, guid: b97bfbc83b9c73f49b5a89f093959b1d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8056904218790032968, guid: b97bfbc83b9c73f49b5a89f093959b1d,
         type: 3}
@@ -1134,6 +1139,7 @@ GameObject:
   - component: {fileID: 1492470321}
   - component: {fileID: 1492470322}
   - component: {fileID: 1492470323}
+  - component: {fileID: 1492470324}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -1180,7 +1186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 0
-  sheeps: []
 --- !u!114 &1492470316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1291,6 +1296,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sheepModel: {fileID: 9198241363911740042, guid: 109eb8610fffb47418bbc9415866b6c6,
     type: 3}
+--- !u!114 &1492470324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492470312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cfad37394b8adf49a9fa41de0a965c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
 --- !u!1 &1558080265
 GameObject:
   m_ObjectHideFlags: 0

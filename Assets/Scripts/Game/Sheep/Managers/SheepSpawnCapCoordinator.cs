@@ -16,14 +16,11 @@ public class SheepSpawnCapCoordinator : Singleton<SheepSpawnCapCoordinator> {
         if (Instance.caps.ContainsKey(owner)) {
             Instance.caps.Remove(owner);
         }
-        foreach (Owner key in Instance.caps.Keys) {
-            Instance.caps[key] += ConstantsBucket.SheepSpawnCapIncrement;
-        }
     }
-    public static void IncreaseCaps() {
+    public static void IncreaseCaps(int delta) {
         foreach (Owner owner in OwnersCoordinator.GetOwnersAlive()) {
             if (Instance.caps.ContainsKey(owner)) {
-                Instance.caps[owner] += ConstantsBucket.SheepSpawnCapIncrement;
+                Instance.caps[owner] += delta;
             }
         }
     }

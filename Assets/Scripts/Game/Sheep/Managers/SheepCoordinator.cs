@@ -4,63 +4,102 @@ using System.Linq;
 using UnityEngine;
 
 public class SheepCoordinator : Singleton<SheepCoordinator> {
-    public List<SheepUnit> sheeps = new List<SheepUnit>();
+    public Dictionary<Owner, SheepStack> sheepStacks = new Dictionary<Owner, SheepStack>();
 
-    public Dictionary<Owner, int> spawnRateLevel = new Dictionary<Owner, int>();
-    public static int GetSpawnRateLevel(Owner owner) {
-        if (Instance.spawnRateLevel.ContainsKey(owner)) {
-            return Instance.spawnRateLevel[owner];
+    public static void CreateStack(Owner owner) {
+        if (!Instance.sheepStacks.ContainsKey(owner))
+            Instance.sheepStacks.Add(owner, new SheepStack());
+        else {
+            Instance.sheepStacks[owner] = new SheepStack();
         }
-        return 0;
+        //Debug.Log("stack size " + Instance.sheepStacks[owner].sheepSlots.Count);
     }
-    public static int IncreaseSpawnRateLevel(Owner owner) {
-        if (Instance.spawnRateLevel.ContainsKey(owner)) {
-            Instance.spawnRateLevel[owner]++;
-            return Instance.spawnRateLevel[owner];
-        } else {
-            Instance.spawnRateLevel.Add(owner, 1);
-            return 1;
-        }
-    }
+
     public static SheepUnit SpawnSheep(Owner owner) {
-        SheepUnit sheep = SheepFactory.CreateSheep(owner);
-        Instance.sheeps.Add(sheep);
+        SheepUnit sheep = SheepFactory.CreateSheep(owner, Instance.sheepStacks[owner].GetNextType());
+        Instance.sheepStacks[owner].SetNewSheep(sheep);
         //SkeletonRendererController.MakeSheepActive(sheep);
         return sheep;
     }
     public static void DestroySheep(SheepUnit sheep) {
         if (Instance == null)
             return;
-        Instance.sheeps.Remove(sheep);
+        Instance.sheepStacks[sheep.owner].RemoveSheep(sheep);
         SheepFactory.DestroySheep(sheep);
     }
     public static List<SheepUnit> GetSheepInField(Playfield playfield) {
+        //if this seems slow, could be faster to do via playfield.GetComponentInChildren<SheepUnit>()
         List<SheepUnit> sheeps = new List<SheepUnit>();
-        foreach (SheepUnit sheep in Instance.sheeps) {
+        foreach (SheepUnit sheep in GetSheeps()) {
             if (sheep.currentPlayfield == playfield)
                 sheeps.Add(sheep);
         }
         return sheeps;
     }
-    public static int GetSheepInFieldByType(Playfield playfield, SheepType typeMask) {
-        int count = 0;
-        foreach (SheepUnit sheep in Instance.sheeps) {
-            if (sheep.currentPlayfield == playfield)
-                if (typeMask != 0) {
-                    if ((typeMask & sheep.sheepType) != 0) {
-                        //here do stuff if at least some input types are matching with sheep
 
-                    }
-                } else {
-                    count++;
-                }
-        }
-        return count;
-    }
     public static List<SheepUnit> GetSheeps(Owner owner) {
-        return Instance.sheeps.Where(x => x.owner == owner).ToList();
+        if (!Instance.sheepStacks.ContainsKey(owner))
+            return new List<SheepUnit>();
+        return Instance.sheepStacks[owner].GetSheeps();
     }
     public static List<SheepUnit> GetSheeps() {
-        return Instance.sheeps;
+        return new List<SheepUnit>(Instance.sheepStacks.SelectMany(y => y.Value.sheepSlots.Select(x => x.sheep)).ToList());
+    }
+    public static void UpgradeSheep(SheepUnit sheep, SheepType newType) {
+        sheep.sheepType = newType;
+        Instance.sheepStacks[sheep.owner].ChangeType(sheep, newType);
+    }
+    public static void IncreaseStacksSize(int delta) {
+        foreach (KeyValuePair<Owner, SheepStack> pair in Instance.sheepStacks) {
+            pair.Value.IncreaseStackSize(delta);
+        }
+    }
+    public class SheepSlot {
+        public SheepUnit sheep = null;
+        public SheepType slotType = SheepType.None;
+    }
+    public class SheepStack {
+        public List<SheepSlot> sheepSlots = new List<SheepSlot>();
+        public int currentIndex = 0;
+        public SheepStack() {
+            for (int i = 0; i < ConstantsBucket.SheepSpawnCapBase; i++)
+                sheepSlots.Add(new SheepSlot());
+        }
+        public SheepSlot GetNextSlot() {
+            return sheepSlots[GetNextIndex()];
+        }
+        public SheepType GetNextType() {
+            return GetNextSlot().slotType;
+        }
+        public int GetNextIndex() {
+            if (currentIndex + 1 < sheepSlots.Count)
+                return currentIndex + 1;
+            return 0;
+        }
+        public void SetNewSheep(SheepUnit newSheep) {
+            sheepSlots[GetNextIndex()].sheep = newSheep;
+            currentIndex++;
+            if (currentIndex >= sheepSlots.Count)
+                currentIndex = 0;
+        }
+        public List<SheepUnit> GetSheeps() {
+            return sheepSlots.Select(x => x.sheep).Where(x => x != null).ToList();
+        }
+        public SheepSlot GetSlot(SheepUnit sheep) {
+            return sheepSlots.Where(x => x.sheep == sheep).FirstOrDefault();
+        }
+        public void RemoveSheep(SheepUnit sheep) {
+            foreach (SheepSlot slot in sheepSlots) {
+                if (slot.sheep == sheep)
+                    slot.sheep = null;
+            }
+        }
+        public void ChangeType(SheepUnit sheep, SheepType newType) {
+            GetSlot(sheep).slotType = newType;
+        }
+        public void IncreaseStackSize(int delta) {
+            for (int i = 0; i < delta; i++)
+                sheepSlots.Add(new SheepSlot());
+        }
     }
 }

@@ -12,9 +12,9 @@ public class SheepController : MonoBehaviour {
     void OnEndMatch(GameMessage msg) {
         List<SheepUnit> sheeps = new List<SheepUnit>(SheepCoordinator.GetSheeps());
         for (int i = 0; i < sheeps.Count; i++) {
-            if (SheepCoordinator.GetSheeps() [0] != null)
-                if (SheepCoordinator.GetSheeps() [0].isSwimming || SheepCoordinator.GetSheeps() [0].isFlying)
-                    EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(SheepCoordinator.GetSheeps() [0]));
+            if (sheeps[i] != null)
+                if (sheeps[i].isSwimming || sheeps[i].isFlying)
+                    EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(sheeps[i]));
         }
     }
 }

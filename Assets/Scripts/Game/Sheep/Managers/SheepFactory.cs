@@ -7,7 +7,7 @@ public class SheepFactory : Singleton<SheepFactory> {
     public GameObject sheepPrefab;
     public GameObject sheepModel;
 
-    public static SheepUnit CreateSheep(Owner owner) {
+    public static SheepUnit CreateSheep(Owner owner, SheepType sheepType) {
         Playfield playfield = ArenaCoordinator.GetPlayfield(owner);
         GameObject newSheepGO = Instantiate(Instance.sheepPrefab);
         newSheepGO.name = "SheepUnit_" + Time.time.GetHashCode();
@@ -19,14 +19,16 @@ public class SheepFactory : Singleton<SheepFactory> {
         SheepUnit sheep = newSheepGO.GetComponent<SheepUnit>();
         sheep.owner = owner;
         sheep.currentPlayfield = playfield;
+        sheep.sheepType = sheepType;
 
         GameObject newSheepModel = Instantiate(Instance.sheepModel);
         Vector3 modelScale = newSheepModel.transform.localScale;
         newSheepModel.transform.parent = newSheepGO.transform;
         newSheepModel.transform.localPosition = Vector3.zero;
         newSheepModel.transform.localScale = modelScale;
-        //set color:
+        //set model properties:
         newSheepModel.GetComponentInChildren<SheepModel>().ChangeColor(owner.teamId);
+        newSheepModel.GetComponentInChildren<SheepModel>().EnabeUpgradeSlot();
         //set random direction:
         /*         SpineContainerEightDirWalk container = newSheepModel.GetComponent<SpineContainerEightDirWalk>();
                 SkeletonMecanim skMecanim = container.GetComponent<SkeletonMecanim>();
