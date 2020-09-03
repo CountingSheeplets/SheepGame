@@ -17,7 +17,9 @@ public class SpineContainerBlendsFour : MonoBehaviour, IAnimatableDirection {
     }
 
     public void WalkTo(Vector2 target) {
+        Debug.Log("WalkTo:" + target);
         if (anim == null) anim = GetComponent<Animator>();
+        if (mecanim == null) mecanim = GetComponent<SkeletonMecanim>();
         ResetAllTriggers();
         Vector2 prevDir = new Vector2(anim.GetFloat("dirX_blend"), anim.GetFloat("dirY_blend"));
         Vector2 newDir = SetAnimatorDirections(target);
@@ -53,6 +55,7 @@ public class SpineContainerBlendsFour : MonoBehaviour, IAnimatableDirection {
         anim.SetTrigger("attack");
     }
     public void StopWalking() {
+        Debug.Log("stopWalk");
         anim.SetTrigger("stopWalk");
     }
     public void StopFlying() {

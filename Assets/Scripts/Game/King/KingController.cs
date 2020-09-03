@@ -11,8 +11,6 @@ public class KingController : MonoBehaviour {
     }
 
     void OnStartGame(GameMessage msg) {
-        // take part of it and put it into a "KingFactory" and this "KingSpawnController??
-        //and also put stuff from KingModelManager into KingFactory?
         List<Owner> owners = OwnersCoordinator.GetOwners();
         foreach (Owner owner in owners) {
             KingUnit king = KingFactory.CreateKing(owner);

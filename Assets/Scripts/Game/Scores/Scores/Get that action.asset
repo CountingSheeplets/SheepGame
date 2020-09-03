@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Get that action
   m_EditorClassIdentifier: 
   scoreName: Get that action
-  reward: 1
+  reward: 2
   description: '[Y] per match each player who eliminated at least one opponent king
     gets [X] crown[S]'
   rewardDelta: 1

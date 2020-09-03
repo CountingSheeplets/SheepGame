@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreName: Merchant
   reward: 1
-  description: '[X] crown[S] for each [Y] coin[S] earned'
+  description: each [Y] coin[S] earned rewards with [X] crown[S]
   rewardDelta: 500
   wordDelta: 
   scoreType: 1

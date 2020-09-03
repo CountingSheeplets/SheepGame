@@ -33,6 +33,7 @@ public class SheepModel : MonoBehaviour {
         EnabeUpgradeSlot();
     }
     public void EnabeUpgradeSlot() {
+        if (sheep == null) return;
         string slot = UpgradeBucket.GetAttachmentSlot(sheep.sheepType).Split('.') [0];
         string attachment = UpgradeBucket.GetAttachmentSlot(sheep.sheepType).Split('.') [1];
         if (slot == "Small") {

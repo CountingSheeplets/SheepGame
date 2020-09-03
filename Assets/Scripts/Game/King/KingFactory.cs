@@ -11,15 +11,14 @@ public class KingFactory : Singleton<KingFactory> {
         //newHero.GetComponentInChildren<KingModel>().ChangeColor(PlayerProfileCoordinator.GetProfile(owner).playerColor);
         newHero.transform.SetParent(owner.gameObject.transform);
         newHero.transform.localPosition = Vector3.zero;
-        newHero.GetComponent<Animator>().SetFloat("dirX_blend", 0);
-        newHero.GetComponent<Animator>().SetFloat("dirY_blend", -1);
+        //newHero.GetComponent<Animator>().SetFloat("dirX_blend", 0);
+        //newHero.GetComponent<Animator>().SetFloat("dirY_blend", -1);
         return newHero;
     }
 
     public static GameObject CreateHeroModel(int teamId) {
         GameObject newKingModelGO = Instantiate(Instance.defaultModel);
         newKingModelGO.GetComponent<KingModel>().ChangeColor(teamId);
-        newKingModelGO.GetComponent<SpineContainerBlendsFour>().SetInitialRandomDirection();
         return newKingModelGO;
     }
 
@@ -30,6 +29,7 @@ public class KingFactory : Singleton<KingFactory> {
         newKingGO.transform.parent = ArenaCoordinator.GetPlayfield(owner).GetComponentInChildren<PlayfieldOffsetHandler>().transform;
         newKingGO.transform.localPosition = Vector3.zero;
         GameObject newKingModelGO = CreateHeroModel(owner.teamId);
+        newKingModelGO.GetComponent<SpineContainerBlendsFour>().SetInitialRandomDirection();
         int hat = KingCoordinator.GetSourceKingModel(owner).HatIndex;
         int scept = KingCoordinator.GetSourceKingModel(owner).ScepterIndex;
         KingModel model = newKingModelGO.GetComponent<KingModel>();
@@ -37,6 +37,7 @@ public class KingFactory : Singleton<KingFactory> {
         model.SetScepter(scept);
         newKingModelGO.transform.SetParent(newKingGO.transform);
         newKingModelGO.transform.localPosition = Vector3.zero;
+        model.GetComponent<SpineContainerBlendsFour>().SetInitialRandomDirection();
         return newKing;
     }
 }

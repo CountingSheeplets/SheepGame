@@ -21,14 +21,8 @@ public class SheepFactory : Singleton<SheepFactory> {
         sheep.currentPlayfield = playfield;
         sheep.sheepType = sheepType;
 
-        GameObject newSheepModel = Instantiate(Instance.sheepModel);
-        Vector3 modelScale = newSheepModel.transform.localScale;
-        newSheepModel.transform.parent = newSheepGO.transform;
-        newSheepModel.transform.localPosition = Vector3.zero;
-        newSheepModel.transform.localScale = modelScale;
-        //set model properties:
-        newSheepModel.GetComponentInChildren<SheepModel>().ChangeColor(owner.teamId);
-        newSheepModel.GetComponentInChildren<SheepModel>().EnabeUpgradeSlot();
+        GameObject newSheepModel = CreateSheepModel(owner, newSheepGO.transform);
+
         //set random direction:
         /*         SpineContainerEightDirWalk container = newSheepModel.GetComponent<SpineContainerEightDirWalk>();
                 SkeletonMecanim skMecanim = container.GetComponent<SkeletonMecanim>();
@@ -40,7 +34,20 @@ public class SheepFactory : Singleton<SheepFactory> {
                         slot.SetColor(newColor);
                     }
                 } */
+
+        newSheepModel.GetComponent<SpineContainerBlendsEight>().SetInitialRandomDirection();
         return sheep;
+    }
+    public static GameObject CreateSheepModel(Owner owner, Transform parent) {
+        GameObject newSheepModel = Instantiate(Instance.sheepModel);
+        Vector3 modelScale = newSheepModel.transform.localScale;
+        newSheepModel.transform.parent = parent;
+        newSheepModel.transform.localPosition = Vector3.zero;
+        newSheepModel.transform.localScale = modelScale;
+        //set model properties:
+        newSheepModel.GetComponentInChildren<SheepModel>().ChangeColor(owner.teamId);
+        newSheepModel.GetComponentInChildren<SheepModel>().EnabeUpgradeSlot();
+        return newSheepModel;
     }
 
     public static void DestroySheep(SheepUnit sheep) {
