@@ -293,6 +293,9 @@ MonoBehaviour:
   smashEffectDelay: -0.2
   smashAnimationClip: {fileID: -1827790361219284835, guid: 892bd7dc638408645a3f762096feb6f8,
     type: 2}
+  attackEffectDelay: 0
+  attackAnimationClip: {fileID: -3818177995494078928, guid: 892bd7dc638408645a3f762096feb6f8,
+    type: 2}
   headbutStarsTimer: 2
   startingGold: 100
   playerColors:

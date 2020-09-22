@@ -5,8 +5,8 @@ using UnityEngine;
 public class KingCharge : BaseUnitMove {
     public delegate void OnAnimEnded(string parameterTheFunctionExpects);
     public event OnAnimEnded animEndedCallback;
-    public AnimationClip attackAnimation;
-    public void OnAttackAnimationEnded(string message) { }
+    //AnimationClip attackAnimation;
+    public void OnAttackAnimationEnded(string message) {}
     IEnumerator Attacking(float length) {
         yield return new WaitForSeconds(length);
         isCharging = false;
@@ -16,6 +16,7 @@ public class KingCharge : BaseUnitMove {
     public bool isCharging = false; // this is falsed after animation has ended
     void Awake() {
         king = GetComponent<KingUnit>();
+        //attackAnimation = ConstantsBucket.AttackSpeed;
         EventCoordinator.StartListening(EventName.System.King.Smashed(), OnSmashed);
     }
     void OnDestroy() {
@@ -40,6 +41,6 @@ public class KingCharge : BaseUnitMove {
         king.isRoaming = false;
         animator.StopWalking();
         animator.Attack();
-        StartCoroutine(Attacking(attackAnimation.length / 2f)); // change this when we swap to new animation
+        StartCoroutine(Attacking(ConstantsBucket.AttackSpeed)); // change this when we swap to new animation
     }
 }
