@@ -91,7 +91,7 @@ public class TestEvents : MonoBehaviour {
             }
         }
         if (Input.GetKeyDown(KeyCode.F10)) {
-            EventCoordinator.TriggerEvent(EventName.System.Environment.CleanScene(), GameMessage.Write());
+            EventCoordinator.TriggerEvent(EventName.System.Environment.ScrollScoresOut(), GameMessage.Write());
             Debug.Log("Scene Cleaning done.");
         }
 
@@ -109,17 +109,17 @@ public class TestEvents : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.U)) {
             Debug.Log("Random owner clicks upgrade....");
             Owner upgrader = OwnersCoordinator.GetRandomOwner();
-            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType) Random.Range(0, 2)));
+            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType)Random.Range(0, 2)));
         }
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
             Debug.Log("first owner gets first upgrade....");
             Owner upgrader = OwnersCoordinator.Instance.owners[0];
-            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType) 0));
+            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType)0));
         }
         if (Input.GetKeyDown(KeyCode.Alpha2)) {
             Debug.Log("first owner gets first upgrade....");
             Owner upgrader = OwnersCoordinator.Instance.owners[0];
-            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType) 1));
+            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType)1));
         }
     }
 

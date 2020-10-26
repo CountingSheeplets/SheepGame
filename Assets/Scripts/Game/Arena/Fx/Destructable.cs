@@ -36,6 +36,8 @@ public class Destructable : MonoBehaviour {
             playerColor = pl.owner.GetPlayerProfile().playerColor;
     }
     void OnDestroy() {
+        if (GameStateView.HasState(GameState.gameReloaded) || GameStateView.HasState(GameState.ended))
+            return;
         if (isClone ||
             ArenaCoordinator.Instance == null ||
             GameStateView.HasState(GameState.ended) ||
@@ -53,7 +55,7 @@ public class Destructable : MonoBehaviour {
         newTempObj.transform.position = transform.position;
         newTempObj.transform.localScale = new Vector3(transform.lossyScale.x, transform.lossyScale.y, 1);
 
-        DeathFx fx = newTempObj.AddComponent(txToAddOnDeath.GetType()) as DeathFx;
+        DeathFx fx = newTempObj.AddComponent(txToAddOnDeath.GetType())as DeathFx;
         if (playerColor != Color.white)
             fx.SetColorHDR(playerColor, hdrIntensity);
         newTempObj.DestroyAllMonosExcept<DeathFx>();

@@ -6,7 +6,7 @@ using UnityEngine;
 public class ArenaController : MonoBehaviour {
     public bool testScene = false;
     void Update() {
-        if (!EventCoordinator.Instance.enableDebugging) return;
+        if (!EventCoordinator.Instance.enableDebugging)return;
         if (Input.GetKeyDown(KeyCode.KeypadPlus)) {
             if (GameStateView.HasState(GameState.started)) {
                 Debug.LogWarning("New cannot join, game already started");
@@ -30,7 +30,8 @@ public class ArenaController : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.KeypadEnter)) {
             if (!GameStateView.HasState(GameState.started))
-                EventCoordinator.TriggerEvent(EventName.Input.PlayersReady(), GameMessage.Write());
+                EventCoordinator.TriggerEvent(EventName.Input.StartGame(), GameMessage.Write());
+            //EventCoordinator.TriggerEvent(EventName.Input.PlayersReady(), GameMessage.Write());
         }
     }
     void Awake() {
@@ -53,14 +54,15 @@ public class ArenaController : MonoBehaviour {
     }
 
     void OnStartGame(GameMessage msg) {
-        ArenaCoordinator.RearrangeArena();
+        ArenaCoordinator.RearrangeArena(false);
     }
     void OnPlayerLeft(GameMessage msg) {
         ArenaCoordinator.RemoveField(msg.owner);
     }
     void OnArenaDestroyed(GameMessage msg) {
         ArenaCoordinator.RemoveField(msg.targetOwner);
-        ArenaCoordinator.RearrangeArena();
+        if (ArenaCoordinator.GetPlayfields.Count > 1)
+            ArenaCoordinator.RearrangeArena(true);
     }
 
     void OnPlayerJoined(GameMessage msg) {
@@ -68,8 +70,8 @@ public class ArenaController : MonoBehaviour {
     }
 
     void OnMatchEnd(GameMessage msg) {
-        ArenaCoordinator.RemoveField(msg.owner);
-        ArenaCoordinator.RearrangeArena();
+        //ArenaCoordinator.RemoveField(msg.owner);
+        //ArenaCoordinator.RearrangeArena(true);
     }
     void OnSceneReloaded(GameMessage msg) {
         Debug.Log("OnSceneLoad - Owners:" + OwnersCoordinator.GetOwners().Count);

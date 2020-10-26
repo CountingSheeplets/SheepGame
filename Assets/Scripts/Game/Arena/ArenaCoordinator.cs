@@ -53,16 +53,18 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
 
     }
 
-    public static void RearrangeArena() {
+    public static void RearrangeArena(bool doAnimate) {
         List<ArenaPreset> availablePresets = Instance.presets.Where(x => x.presetSize == Instance.playfields.Count).ToList();
         if (availablePresets.Count <= 0)
             Debug.LogError("Zero Arena Presets found for this player amount! Exiting...");
         ArenaPreset randomPreset = availablePresets[UnityEngine.Random.Range(0, availablePresets.Count - 1)];
         randomPreset.SelectThisPreset();
-        Instance.ArrangeFields(randomPreset);
-
-        EventCoordinator.TriggerEvent(EventName.System.Environment.ArenaAnimating(), GameMessage.Write());
-
+        if (doAnimate) {
+            Instance.ArrangeFields(randomPreset);
+            EventCoordinator.TriggerEvent(EventName.System.Environment.ArenaAnimating(), GameMessage.Write());
+        } else {
+            Instance.InstantArrangeFields(randomPreset);
+        }
         //Instance.RemoveVortexes();
         //Instance.AddVortexes(randomPreset);
     }
@@ -76,9 +78,7 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
         for (int i = 0; i < playfields.Count; i++) {
             int rS = UnityEngine.Random.Range(0, sockets.Count - 1);
             int rF = UnityEngine.Random.Range(0, leftoverFields.Count - 1);
-            Vector2 offset = sockets[rS].transform.position;
-            //leftoverFields[rF].transform.position = offset * fieldWidth;
-            //Debug.Log("leftoverFields[rF]:" + leftoverFields[rF].name);
+            Vector2 offset = sockets[rS].transform.localPosition;
             FieldFloat pFloat = leftoverFields[rF].GetComponent<FieldFloat>();
             pFloat.StartFloating(ConstantsBucket.PlayfieldFloatSpeed, offset * fieldWidth);
             if (leftoverFields[rF].fieldCorners != null)
@@ -87,6 +87,25 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
             sockets.RemoveAt(rS);
         }
     }
+    void InstantArrangeFields(ArenaPreset presetInput) {
+        List<PresetSocket> sockets = new List<PresetSocket>(presetInput.playfieldSockets);
+        List<Playfield> leftoverFields = new List<Playfield>(playfields);
+        Playfield p = playfieldPrefab.GetComponent<Playfield>();
+        float fieldWidth = fieldSize.x + ConstantsBucket.EmptySpacesBetweenFields * ConstantsBucket.PlayfieldTileSize;
+
+        for (int i = 0; i < playfields.Count; i++) {
+            int rS = UnityEngine.Random.Range(0, sockets.Count - 1);
+            int rF = UnityEngine.Random.Range(0, leftoverFields.Count - 1);
+            Vector2 offset = sockets[rS].transform.localPosition;
+            FieldFloat pFloat = leftoverFields[rF].GetComponent<FieldFloat>();
+            pFloat.transform.localPosition = offset * fieldWidth;
+            if (leftoverFields[rF].fieldCorners != null)
+                leftoverFields[rF].fieldCorners.Recenter(offset * fieldWidth);
+            leftoverFields.RemoveAt(rF);
+            sockets.RemoveAt(rS);
+        }
+    }
+
     void AddVortexes(ArenaPreset randomPreset) {
         List<PresetSocket> vortexSockets = new List<PresetSocket>(randomPreset.vortexSockets);
         float fieldWidth = fieldSize.x + ConstantsBucket.GridSize * ConstantsBucket.PlayfieldTileSize;
@@ -126,7 +145,7 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
         }
         return null;
     }
-    public static(Vector2, Vector2) GetIntermitentPoints(Vector2 startVec, Vector2 endVec) {
+    public static(Vector2, Vector2)GetIntermitentPoints(Vector2 startVec, Vector2 endVec) {
         List<Vector2> inters = new List<Vector2>();
         Vector2[] fullArray = new Vector2[6];
         fullArray[0] = startVec;

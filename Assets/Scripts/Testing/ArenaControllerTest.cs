@@ -52,14 +52,14 @@ public class ArenaControllerTest : MonoBehaviour {
     }
 
     void OnStartGame(GameMessage msg) {
-        ArenaCoordinator.RearrangeArena();
+        ArenaCoordinator.RearrangeArena(false);
     }
     void OnPlayerLeft(GameMessage msg) {
         ArenaCoordinator.RemoveField(msg.owner);
     }
     void OnArenaDestroyed(GameMessage msg) {
         ArenaCoordinator.RemoveField(msg.targetOwner);
-        ArenaCoordinator.RearrangeArena();
+        ArenaCoordinator.RearrangeArena(true);
     }
 
     void OnPlayerJoined(GameMessage msg) {
@@ -68,11 +68,11 @@ public class ArenaControllerTest : MonoBehaviour {
 
     void OnMatchEnd(GameMessage msg) {
         ///remove field, animate its destruction;
-        ArenaCoordinator.RemoveField(msg.owner);
+        //ArenaCoordinator.RemoveField(msg.owner);
         //drown all sheep which are swimming intantly:
 
         //wait for a delay, untill animations end (1f?) then Trigger a Rearrangement:
-        ArenaCoordinator.RearrangeArena();
+        //ArenaCoordinator.RearrangeArena(true);
     }
     void OnSceneReloaded(GameMessage msg) {
         Debug.Log("OnSceneLoad - Owners:" + OwnersCoordinator.GetOwners().Count);

@@ -97,6 +97,7 @@ public class EventName {
             public static string ArenaAnimating() { return "System_Environment_ArenaAnimating"; }
             public static string PlayfieldAnimated() { return "System_Environment_PlayfieldAnimated"; }
             public static string ArenaAnimated() { return "System_Environment_ArenaAnimated"; }
+            public static string ScrollScoresOut() { return "System_Environment_ScrollScoresOut"; }
             public static string CleanScene() { return "System_Environment_CleanScene"; }
             public static List<string> Get() { return new List<string> { Initialized(), EndMatch(), DestroyArena(), ArenaDestroyed(), ArenaAnimating(), PlayfieldAnimated(), ArenaAnimated(), CleanScene() }; }
         }
@@ -134,7 +135,7 @@ public class EventName {
             SwitchFakeController()}.ToList();    }
         } */
     public static List<string> Get() {
-        return new List<string> { }.Concat(UI.Get())
+        return new List<string> {}.Concat(UI.Get())
             .Concat(Editor.Get())
             .Concat(Input.Get())
             .Concat(System.Get())

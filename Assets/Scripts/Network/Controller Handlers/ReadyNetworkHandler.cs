@@ -15,7 +15,7 @@ public class ReadyNetworkHandler : MonoBehaviour {
             return;
         if (message["element"] != null)
             if (message["element"].ToString() == "ready-button") {
-                bool ready = (bool) (message["pressed"]);
+                bool ready = (bool)(message["pressed"]);
                 Owner readyOwner = OwnersCoordinator.GetOwner(from);
                 if (readyOwner == null)
                     return;
@@ -40,7 +40,8 @@ public class ReadyNetworkHandler : MonoBehaviour {
         foreach (Owner owner in OwnersCoordinator.GetOwners()) {
             owner.ready = false;
         }
-        EventCoordinator.TriggerEvent(EventName.Input.PlayersReady(), GameMessage.Write());
+        //EventCoordinator.TriggerEvent(EventName.Input.PlayersReady(), GameMessage.Write());
+        EventCoordinator.TriggerEvent(EventName.Input.StartGame(), GameMessage.Write());
         NetworkCoordinator.SendShowViewAll("match");
     }
 

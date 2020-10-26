@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cloud : BaseUnitMove {
-    /*     bool right;
-        public void SetDir(bool isDirRight){
-            right = isDirRight;
-        } */
+    Vector2 destination;
+    float speed;
 
-    public void StartFloating(float speed, Vector2 _destination) {
-        //Debug.Log("Startfloating");
-        SetDestination(_destination, false);
+    void Start() {
+        SetDestination(destination, true);
         MoveToDestination(speed, 0f);
+    }
+    public void StartFloating(float _speed, Vector2 _destination) {
+        destination = _destination;
+        speed = _speed;
     }
 
     public override void PostMoveAction() {

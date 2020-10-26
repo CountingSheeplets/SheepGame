@@ -28,7 +28,7 @@ public class CloudGenerator : MonoBehaviour {
 
     void Start() {
         EventCoordinator.StartListening(EventName.System.Sheep.Roam(), OnSpawnCloud);
-        SpawnStartingClouds();
+        EventCoordinator.StartListening(EventName.Input.StartGame(), SpawnStartingClouds);
     }
     private void OnDestroy() {
         EventCoordinator.StopListening(EventName.System.Sheep.Roam(), OnSpawnCloud);
@@ -51,7 +51,7 @@ public class CloudGenerator : MonoBehaviour {
                 }
     }
 
-    void SpawnStartingClouds() {
+    void SpawnStartingClouds(GameMessage msg) {
         for (int i = 0; i < 2; i++) {
             GameObject newCloud = Instantiate(cloudPrefab, transform);
             float sizeMultiplier = 1 + Random.Range(-sizeDelta, sizeDelta);

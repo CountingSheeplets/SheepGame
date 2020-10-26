@@ -23,8 +23,8 @@ public class PlayAgainNetworkHandler : MonoBehaviour {
                 }
                 if (TryRestart(GameMessage.Write())) {
                     AirConsole.instance.ShowAd();
-                    EventCoordinator.TriggerEvent(EventName.System.Environment.CleanScene(), GameMessage.Write());
-                    NetworkCoordinator.SendShowViewAll("menu");
+                    EventCoordinator.TriggerEvent(EventName.System.Environment.ScrollScoresOut(), GameMessage.Write());
+                    NetworkCoordinator.SendShowViewAll("loading");
                 };
                 Debug.Log("Ready:" + readyOwner);
             }
