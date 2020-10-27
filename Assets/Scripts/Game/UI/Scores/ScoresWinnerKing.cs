@@ -17,7 +17,7 @@ public class ScoresWinnerKing : MonoBehaviour {
         GameObject modelGo = KingFactory.TryCreateHeroModel(winnerProfile.owner, offsetTransform);
         KingModel model = modelGo.GetComponent<KingModel>();
         modelGo.transform.localPosition = Vector3.zero;
-        modelGo.transform.localScale *= 1.5f;
+        modelGo.transform.localScale *= 1.6f;
         //model.ChangeColor(winnerProfile.owner.teamId);
         model.SetHat(winnerProfile.selectedHat);
         model.SetScepter(winnerProfile.selectedScepter);
@@ -27,7 +27,7 @@ public class ScoresWinnerKing : MonoBehaviour {
         Animator anim = modelGo.GetComponent<Animator>();
         anim.SetFloat("dirX_blend", 1);
         anim.SetFloat("dirY_blend", 0);
-        anim.SetTrigger("straight");
+        anim.SetTrigger("stopWalk");
         Debug.Log("getFLoat:" + anim.GetFloat("dirX_blend"));
     }
 }

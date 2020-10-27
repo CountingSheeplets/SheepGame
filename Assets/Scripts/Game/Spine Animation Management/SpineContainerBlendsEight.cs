@@ -74,7 +74,7 @@ public class SpineContainerBlendsEight : MonoBehaviour, IAnimatableDirection {
         anim.ResetTrigger("straight");
         anim.ResetTrigger("fly");
     }
-    FacingDirection GetAnimEnum(Vector2 target) {
+    public FacingDirection GetAnimEnum(Vector2 target) {
         Vector2 direction = target - (Vector2)transform.position;
         float angle = 0;
         if (direction.magnitude > 0.05f) { //this fixes Idle dir keeping same as walking dir

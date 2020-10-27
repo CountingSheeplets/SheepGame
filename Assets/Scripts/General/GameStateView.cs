@@ -6,7 +6,11 @@ using UnityEngine.SceneManagement;
 public class GameStateView : Singleton<GameStateView> {
     [BitMask(typeof(GameState))]
     public GameState currentState;
-    public static GameState GetGameState() { return Instance.currentState; }
+    public static GameState GetGameState() {
+        if (Instance != null)
+            return Instance.currentState;
+        else return new GameState();
+    }
     bool intialStart = true;
     void Awake() {
         SceneManager.sceneLoaded += OnSceneLoading;

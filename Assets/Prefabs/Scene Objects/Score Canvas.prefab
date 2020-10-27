@@ -409,6 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offsetModelA: {fileID: 3887736428155033278}
   offsetModelB: {fileID: 250316358489678295}
+  scoreSheep: []
 --- !u!114 &8807727496134818649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,7 +681,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
+  m_fontSize: 71.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

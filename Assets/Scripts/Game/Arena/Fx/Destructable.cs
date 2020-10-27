@@ -36,11 +36,9 @@ public class Destructable : MonoBehaviour {
             playerColor = pl.owner.GetPlayerProfile().playerColor;
     }
     void OnDestroy() {
-        if (GameStateView.HasState(GameState.gameReloaded) || GameStateView.HasState(GameState.ended))
+        if (isClone)
             return;
-        if (isClone ||
-            GameStateView.HasState(GameState.ended)
-        )
+        if (GameStateView.HasState(GameState.gameReloaded) || GameStateView.HasState(GameState.ended))
             return;
         if (GameStateView.GetGameState() == 0)
             return;
