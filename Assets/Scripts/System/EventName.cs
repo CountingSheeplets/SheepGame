@@ -30,8 +30,9 @@ public class EventName {
         public class Network {
             public static string View() { return "View"; }
             public static string PlayerJoined() { return "PlayerJoined"; }
+            public static string PlayerRecalculate() { return "PlayerRecalculate"; }
             public static string PlayerLeft() { return "PlayerLeft"; }
-            public static List<string> Get() { return new List<string> { View(), PlayerJoined(), PlayerLeft() }; }
+            public static List<string> Get() { return new List<string> { View(), PlayerJoined(), PlayerLeft(), PlayerRecalculate() }; }
         }
         public static string SheepUpgrade() { return "Input_SheepUpgrade"; }
         public static string Swipe() { return "Input_Swipe"; }

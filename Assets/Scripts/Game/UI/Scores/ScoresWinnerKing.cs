@@ -14,9 +14,8 @@ public class ScoresWinnerKing : MonoBehaviour {
     }
     void OnScoresShow(GameMessage msg) {
         PlayerProfile winnerProfile = OwnersCoordinator.GetOwners().Select(x => x.GetPlayerProfile()).OrderByDescending(row => row.eliminatedPlace).FirstOrDefault();
-        GameObject modelGo = KingFactory.TryCreateHeroModel(winnerProfile.owner);
+        GameObject modelGo = KingFactory.TryCreateHeroModel(winnerProfile.owner, offsetTransform);
         KingModel model = modelGo.GetComponent<KingModel>();
-        modelGo.transform.parent = offsetTransform;
         modelGo.transform.localPosition = Vector3.zero;
         modelGo.transform.localScale *= 1.5f;
         //model.ChangeColor(winnerProfile.owner.teamId);

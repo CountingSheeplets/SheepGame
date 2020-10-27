@@ -6,10 +6,10 @@ public class KingFactory : Singleton<KingFactory> {
     public GameObject defaultModel;
     public GameObject kingUnitPrefab;
 
-    public static GameObject TryCreateHeroModel(Owner owner) {
+    public static GameObject TryCreateHeroModel(Owner owner, Transform parent) {
         GameObject newHero = CreateHeroModel(owner.teamId);
         //newHero.GetComponentInChildren<KingModel>().ChangeColor(PlayerProfileCoordinator.GetProfile(owner).playerColor);
-        newHero.transform.SetParent(owner.gameObject.transform);
+        newHero.transform.SetParent(parent);
         newHero.transform.localPosition = Vector3.zero;
         //newHero.GetComponent<Animator>().SetFloat("dirX_blend", 0);
         //newHero.GetComponent<Animator>().SetFloat("dirY_blend", -1);

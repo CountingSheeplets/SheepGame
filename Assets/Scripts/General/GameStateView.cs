@@ -8,7 +8,7 @@ public class GameStateView : Singleton<GameStateView> {
     public GameState currentState;
     public static GameState GetGameState() { return Instance.currentState; }
     bool intialStart = true;
-    void Start() {
+    void Awake() {
         SceneManager.sceneLoaded += OnSceneLoading;
         EventCoordinator.StartListening(EventName.Input.StartGame(), OnStartGame);
         EventCoordinator.StartListening(EventName.System.Environment.EndMatch(), OnEndGame);
@@ -58,10 +58,6 @@ public class GameStateView : Singleton<GameStateView> {
         FlagsHelper.Unset(ref currentState, GameState.firstOut);
     }
     void OnSceneLoading(Scene scene, LoadSceneMode mode) {
-        //if (!intialStart) {
         FlagsHelper.Set(ref currentState, GameState.gameReloaded);
-        //EventCoordinator.TriggerEvent(EventName.System.SceneLoaded(), GameMessage.Write().WithStringMessage(scene.name));
-        //}
-        //intialStart = false;
     }
 }

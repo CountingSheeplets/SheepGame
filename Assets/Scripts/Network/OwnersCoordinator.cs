@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using NDream.AirConsole;
-using TMPro;
 using UnityEngine;
 
 public class OwnersCoordinator : Singleton<OwnersCoordinator> {
     public List<Owner> owners = new List<Owner>();
-    public GameObject ownerTilePrefab;
-    public Transform ownerPanelContainer;
     int counter = 0;
     public static List<Owner> GetOwners() {
         return Instance.owners; //when getting this, it shoulnt be able to change (but only wont change if instance into a new List),else the original will also change...
@@ -20,13 +17,15 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
         Owner candidateOwner = Instance.owners.Where(x => x.ownerId == AirConsole.instance.GetUID(device_id)).FirstOrDefault();
         if (candidateOwner == null) {
             Debug.Log("didnt find owner, creating new one!");
-            GameObject go = Instantiate(Instance.ownerTilePrefab, Instance.ownerPanelContainer);
+            //GameObject go = Instantiate(Instance.ownerTilePrefab, Instance.ownerPanelContainer);
+            GameObject go = new GameObject();
+            go.transform.parent = Instance.transform;
             string nicknameOfJoined = AirConsole.instance.GetNickname(device_id);
             Owner newOwner = go.AddComponent<Owner>();
             Instance.owners.Add(newOwner);
             newOwner.Create(AirConsole.instance.GetUID(device_id), nicknameOfJoined, device_id);
             go.name = newOwner.ownerName;
-            go.GetComponentInChildren<TextMeshProUGUI>().text = newOwner.ownerName;
+            //go.GetComponentInChildren<TextMeshProUGUI>().text = newOwner.ownerName;
             return newOwner;
         } else {
             candidateOwner.deviceId = device_id;
@@ -61,13 +60,15 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
     public static Owner CreateEmptyOwner() {
         Instance.counter++;
         int device_id = Instance.counter;
-        GameObject go = Instantiate(Instance.ownerTilePrefab, Instance.ownerPanelContainer);
+        //GameObject go = Instantiate(Instance.ownerTilePrefab, Instance.ownerPanelContainer);
+        GameObject go = new GameObject();
+        go.transform.parent = Instance.transform;
         string nicknameOfJoined = Generate.RandomString(10);
         Owner newOwner = go.AddComponent<Owner>();
         Instance.owners.Add(newOwner);
         newOwner.Create(device_id.ToString(), nicknameOfJoined, device_id);
         go.name = newOwner.ownerName;
-        go.GetComponentInChildren<TextMeshProUGUI>().text = newOwner.ownerName;
+        //go.GetComponentInChildren<TextMeshProUGUI>().text = newOwner.ownerName;
         return newOwner;
     }
     public static Owner DisconnectOwner(int device_id) {
@@ -75,7 +76,7 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
         if (leftOwner == null)
             return null;
 
-        Debug.Log("DisconnectOwner GetGameState:" + (int) GameStateView.GetGameState());
+        Debug.Log("DisconnectOwner GetGameState:" + (int)GameStateView.GetGameState());
 
         if ((GameStateView.GetGameState() & GameState.started) != 0) {
             Debug.Log("disconnecting an owner..");

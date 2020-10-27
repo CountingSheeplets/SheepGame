@@ -7,13 +7,12 @@ using UnityEngine;
 
 public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 	//public List<int> premiumIds = new List<int>();
-	void Awake() {
+	void Start() {
 		if (AirConsole.instance == null)
 			return;
 		AirConsole.instance.onConnect += OnConnect;
 		AirConsole.instance.onPremium += OnPremium;
 		AirConsole.instance.onDisconnect += OnDisconnect;
-		EventCoordinator.StartListening(EventName.System.SceneLoaded(), OnSceneReloaded);
 	}
 	void OnConnect(int device_id) {
 		int count = OwnersCoordinator.GetOwners().Where(x => x.connected).ToList().Count;
@@ -32,8 +31,6 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 		Owner owner = OwnersCoordinator.TryCreateOwner(device_id);
 		if (owner) {
 			TrySetupFirstOwner();
-			//then add hero model to the Owner as Child:
-			KingFactory.TryCreateHeroModel(owner);
 			//then anounce the new owner
 			EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerJoined(), GameMessage.Write().WithOwner(owner));
 		} else
@@ -52,23 +49,13 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 			stayingOwner.ready = false;
 		}
 	}
-	void OnSceneReloaded(GameMessage msg) {
-		Debug.Log("OnSceneLoad - Owners:" + OwnersCoordinator.GetOwners().Count);
-		foreach (Owner owner in OwnersCoordinator.GetOwners()) {
-			Debug.Log("try trigger OnJoin for owner: " + owner);
-			if (owner.connected)
-				EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerJoined(), GameMessage.Write().WithOwner(owner));
-			else
-				Debug.Log("not connected: " + owner);
-		}
-	}
+
 	private void OnDestroy() {
 		if (AirConsole.instance != null) {
 			AirConsole.instance.onConnect -= OnConnect;
 			AirConsole.instance.onPremium -= OnPremium;
 			AirConsole.instance.onDisconnect -= OnDisconnect;
 		}
-		EventCoordinator.StopListening(EventName.System.SceneLoaded(), OnSceneReloaded);
 	}
 	void OnPremium(int device_id) {
 		//Debug.Log("On Premium (device " + device_id + ") \n \n");

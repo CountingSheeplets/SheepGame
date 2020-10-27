@@ -8,12 +8,17 @@ public class EventChain : MonoBehaviour {
         EventCoordinator.Attach(EventName.System.Environment.EndMatch(), OnEndMatch);
         EventCoordinator.Attach(EventName.System.Player.Eliminated(), OnPlayerEliminated);
         EventCoordinator.Attach(EventName.System.Environment.CleanScene(), OnSceneCleaned);
+        EventCoordinator.Attach(EventName.Input.Network.PlayerJoined(), PlayerRecalculate);
+        EventCoordinator.Attach(EventName.Input.Network.PlayerLeft(), PlayerRecalculate);
+
     }
     void OnDestroy() {
         EventCoordinator.Detach(EventName.Input.StartGame(), OnStartGame);
         EventCoordinator.Detach(EventName.System.Environment.EndMatch(), OnEndMatch);
         EventCoordinator.Detach(EventName.System.Player.Eliminated(), OnPlayerEliminated);
         EventCoordinator.Detach(EventName.System.Environment.CleanScene(), OnSceneCleaned);
+        EventCoordinator.Detach(EventName.Input.Network.PlayerJoined(), PlayerRecalculate);
+        EventCoordinator.Detach(EventName.Input.Network.PlayerLeft(), PlayerRecalculate);
     }
     void OnStartGame(GameMessage msg) {
         EventCoordinator.TriggerEvent(EventName.System.Environment.Initialized(), msg);
@@ -27,5 +32,8 @@ public class EventChain : MonoBehaviour {
     void OnSceneCleaned(GameMessage msg) {
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
+    }
+    void PlayerRecalculate(GameMessage msg) {
+        EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerRecalculate(), msg);
     }
 }

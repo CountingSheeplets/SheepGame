@@ -39,10 +39,14 @@ public class Destructable : MonoBehaviour {
         if (GameStateView.HasState(GameState.gameReloaded) || GameStateView.HasState(GameState.ended))
             return;
         if (isClone ||
-            ArenaCoordinator.Instance == null ||
-            GameStateView.HasState(GameState.ended) ||
-            GameStateView.GetGameState() == 0)
+            GameStateView.HasState(GameState.ended)
+        )
             return;
+        if (GameStateView.GetGameState() == 0)
+            return;
+        if (ArenaCoordinator.Instance == null)
+            return;
+
         CreateDebris();
         if (txToAddOnDeath == null)
             return;

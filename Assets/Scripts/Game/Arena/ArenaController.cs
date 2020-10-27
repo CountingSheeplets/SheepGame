@@ -15,7 +15,7 @@ public class ArenaController : MonoBehaviour {
             Owner owner = OwnersCoordinator.CreateEmptyOwner();
             if (owner) {
                 EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerJoined(), GameMessage.Write().WithOwner(owner));
-                KingFactory.TryCreateHeroModel(owner);
+
             }
         }
         if (Input.GetKeyDown(KeyCode.KeypadMinus)) {
@@ -40,8 +40,8 @@ public class ArenaController : MonoBehaviour {
         EventCoordinator.StartListening(EventName.Input.StartGame(), OnStartGame);
         EventCoordinator.StartListening(EventName.System.Environment.ArenaDestroyed(), OnArenaDestroyed);
         EventCoordinator.StartListening(EventName.System.Environment.EndMatch(), OnMatchEnd);
-        if (testScene)
-            EventCoordinator.StartListening(EventName.System.SceneLoaded(), OnSceneReloaded);
+        //if (testScene)
+        EventCoordinator.StartListening(EventName.System.SceneLoaded(), OnSceneReloaded);
     }
     void OnDestroy() {
         EventCoordinator.StopListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
@@ -49,8 +49,8 @@ public class ArenaController : MonoBehaviour {
         EventCoordinator.StopListening(EventName.Input.StartGame(), OnStartGame);
         EventCoordinator.StopListening(EventName.System.Environment.ArenaDestroyed(), OnArenaDestroyed);
         EventCoordinator.StopListening(EventName.System.Environment.EndMatch(), OnMatchEnd);
-        if (testScene)
-            EventCoordinator.StopListening(EventName.System.SceneLoaded(), OnSceneReloaded);
+        //if (testScene)
+        EventCoordinator.StopListening(EventName.System.SceneLoaded(), OnSceneReloaded);
     }
 
     void OnStartGame(GameMessage msg) {

@@ -5,15 +5,13 @@ using UnityEngine;
 using UnityEngine.UI;
 public class GridLayoutGroupHandler : MonoBehaviour {
     GridLayoutGroup gridLayoutGroup;
-    void Start() {
+    void Awake() {
         gridLayoutGroup = GetComponent<GridLayoutGroup>();
-        EventCoordinator.StartListening(EventName.Input.Network.PlayerJoined(), Regroup);
-        EventCoordinator.StartListening(EventName.Input.Network.PlayerLeft(), Regroup);
+        EventCoordinator.StartListening(EventName.Input.Network.PlayerRecalculate(), Regroup);
     }
 
     void OnDestroy() {
-        EventCoordinator.StopListening(EventName.Input.Network.PlayerJoined(), Regroup);
-        EventCoordinator.StopListening(EventName.Input.Network.PlayerLeft(), Regroup);
+        EventCoordinator.StopListening(EventName.Input.Network.PlayerRecalculate(), Regroup);
     }
 
     void Regroup(GameMessage msg) {

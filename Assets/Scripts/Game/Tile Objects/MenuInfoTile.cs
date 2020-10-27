@@ -8,15 +8,12 @@ public class MenuInfoTile : MonoBehaviour {
     public string upTo8Text = "";
     public TextMeshProUGUI textComponent;
 
-    void Start() {
-        EventCoordinator.StartListening(EventName.Input.Network.PlayerJoined(), OnChange);
-        EventCoordinator.StartListening(EventName.Input.Network.PlayerJoined(), OnChange);
-        EventCoordinator.StartListening(EventName.Input.Network.PlayerLeft(), OnChange);
+    void Awake() {
+        EventCoordinator.StartListening(EventName.Input.Network.PlayerRecalculate(), OnChange);
         textComponent.text = needMoreText;
     }
     private void OnDestroy() {
-        EventCoordinator.StopListening(EventName.Input.Network.PlayerJoined(), OnChange);
-        EventCoordinator.StopListening(EventName.Input.Network.PlayerLeft(), OnChange);
+        EventCoordinator.StopListening(EventName.Input.Network.PlayerRecalculate(), OnChange);
     }
     void OnChange(GameMessage msg) {
         int count = OwnersCoordinator.GetOwners().Where(x => x.connected).ToList().Count;
@@ -32,5 +29,6 @@ public class MenuInfoTile : MonoBehaviour {
             }
         }
         transform.SetAsLastSibling();
+        Debug.Log("last sibling");
     }
 }

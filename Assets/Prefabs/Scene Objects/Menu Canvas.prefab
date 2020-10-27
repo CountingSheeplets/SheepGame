@@ -150,8 +150,8 @@ GameObject:
   - component: {fileID: 3388916745176757918}
   - component: {fileID: 3388916745176757919}
   - component: {fileID: 3388916745176757916}
-  - component: {fileID: 8396266447033355373}
   - component: {fileID: 6420683481447884894}
+  - component: {fileID: 2963057954578749950}
   m_Layer: 5
   m_Name: Menu Canvas
   m_TagString: Untagged
@@ -239,23 +239,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8396266447033355373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3388916745176757917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49fe26bd1557e2742a4d496d31bd4603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _persistent: 1
-  owners: []
-  ownerTilePrefab: {fileID: 3073671230903088887, guid: 5cc2b7de37adb3e4c8fe589bc9f8859a,
-    type: 3}
-  ownerPanelContainer: {fileID: 3388916746056365653}
 --- !u!114 &6420683481447884894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +251,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a4ced8cd986ea4eb26165003154cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownerPanelContainer: {fileID: 3388916746056365653}
+--- !u!114 &2963057954578749950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3388916745176757917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e54d930f671b54fb8d0692891b1b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerPanelContainer: {fileID: 3388916746056365653}
+  ownerTilePrefab: {fileID: 3073671230903088887, guid: 5cc2b7de37adb3e4c8fe589bc9f8859a,
+    type: 3}
 --- !u!1 &3388916745191512840
 GameObject:
   m_ObjectHideFlags: 0

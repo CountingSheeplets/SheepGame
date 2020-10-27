@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundTrackController : MonoBehaviour {
-    void Start() {
+    void Awake() {
         EventCoordinator.StartListening(EventName.System.Player.Eliminated(), OnPlayerElimination);
         EventCoordinator.StartListening(EventName.Input.StartGame(), OnPlayerElimination);
         EventCoordinator.StartListening(EventName.UI.ShowScoreScreen(), OnShowScores);

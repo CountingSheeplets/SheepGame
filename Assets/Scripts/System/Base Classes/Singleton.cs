@@ -28,15 +28,16 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour {
             lock(Lock) {
                 if (_instance != null)
                     return _instance;
-                _instance = (T)FindObjectOfType(typeof(T));
+                _instance = (T)FindObjectOfType(typeof(Singleton<T>));
                 //Debug.Log($"Found an instance of [{nameof(Singleton)}<{typeof(T)}>]");
                 if (_instance != null) {
+                    //Debug.Log($"Found an instance of [{nameof(_instance)}<{typeof(T)}>]");
                     (_instance as Singleton<T>).OnInit();
                     return _instance;
                 }
                 //Debug.LogWarning($"[{nameof(Singleton)}<{typeof(T)}>] There should never be more than one {nameof(Singleton)} of type {typeof(T)} in the scene, but {FindObjectsOfType<T>()} were found. The first instance found will be used, and all others will be destroyed.");
-                (_instance as Singleton<T>).OnInit();
-                return _instance;
+                //(_instance as Singleton<T>).OnInit();
+                return null;
             }
 
             //Debug.Log($"[{nameof(Singleton)}<{typeof(T)}>] An instance is needed in the scene and no existing instances were found.");
