@@ -36,6 +36,7 @@ public class EventName {
         }
         public static string SheepUpgrade() { return "Input_SheepUpgrade"; }
         public static string Swipe() { return "Input_Swipe"; }
+        public static string Tap() { return "Input_Tap"; }
         public static string ChangeKingItem() { return "ChangeKingItem"; }
         public static string SetKingItem() { return "SetKingItem"; }
         public static string StartGame() { return "StartGame"; }
@@ -46,6 +47,7 @@ public class EventName {
                     StartGame(),
                     SheepUpgrade(),
                     Swipe(),
+                    Tap(),
                     ChangeKingItem(),
                     SetKingItem()
                 }.Concat(KingAbilities.Get())

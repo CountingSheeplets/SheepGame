@@ -24,6 +24,6 @@ public class OwnerTileController : MonoBehaviour {
     }
     void OnPlayerLeft(GameMessage msg) {
         PlayerOwnerTile tile = ownerPanelContainer.GetComponentsInChildren<PlayerOwnerTile>().Where(x => x.myOwner == msg.owner).FirstOrDefault();
-        Destroy(tile);
+        Destroy(tile.gameObject);
     }
 }

@@ -8,21 +8,21 @@ public class SheepThrow : MonoBehaviour {
     Playfield playfield;
     void Start() {
         playfield = GetComponent<Playfield>();
-        EventCoordinator.StartListening(EventName.Input.Swipe(), OnSwipe);
+        EventCoordinator.StartListening(EventName.Input.Tap(), OnTap);
         EventCoordinator.StartListening(EventName.System.Sheep.Spawned(), OnSpawn);
         EventCoordinator.StartListening(EventName.System.Sheep.Land(), OnLand);
         EventCoordinator.StartListening(EventName.System.Sheep.ReadyToLaunch(), OnReady);
         EventCoordinator.StartListening(EventName.System.Sheep.Kill(), OnKill);
     }
     void OnDestroy() {
-        EventCoordinator.StopListening(EventName.Input.Swipe(), OnSwipe);
+        EventCoordinator.StopListening(EventName.Input.Tap(), OnTap);
         EventCoordinator.StopListening(EventName.System.Sheep.Spawned(), OnSpawn);
         EventCoordinator.StopListening(EventName.System.Sheep.Land(), OnLand);
         EventCoordinator.StopListening(EventName.System.Sheep.ReadyToLaunch(), OnReady);
         EventCoordinator.StopListening(EventName.System.Sheep.Kill(), OnKill);
     }
 
-    void OnSwipe(GameMessage msg) {
+    void OnTap(GameMessage msg) {
         if (msg.owner.EqualsByValue(GetComponent<Owner>())) { //because this is input message
             if (sheepReadyToBeThrown) {
                 throwableSheep.Remove(sheepReadyToBeThrown);
@@ -78,7 +78,7 @@ public class SheepThrow : MonoBehaviour {
                 if (availableSheep.currentPlayfield != null) {
                     //Debug.Log("sheeprun:"+availableSheep.GetComponent<SheepRun>());
                     //Debug.Log(" at speed:"+SpeedBucket.GetRunSpeed(availableSheep.sheepType));
-                    availableSheep.GetComponent<SheepRun>().StartRunning(SpeedBucket.GetRunSpeed(availableSheep.sheepType), (Vector2) availableSheep.transform.parent.position);
+                    availableSheep.GetComponent<SheepRun>().StartRunning(SpeedBucket.GetRunSpeed(availableSheep.sheepType), (Vector2)availableSheep.transform.parent.position);
                 }
             }
         }

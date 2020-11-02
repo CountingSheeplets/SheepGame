@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Cloud : BaseUnitMove {
-    Vector2 destination;
+    Vector2 _destination;
     float speed;
 
     void Start() {
-        SetDestination(destination, true);
+        SetDestination(_destination, true);
         MoveToDestination(speed, 0f);
     }
-    public void StartFloating(float _speed, Vector2 _destination) {
-        destination = _destination;
+    public void StartFloating(float _speed, Vector2 newDestination) {
+        _destination = newDestination;
         speed = _speed;
     }
 
@@ -19,5 +19,4 @@ public class Cloud : BaseUnitMove {
         //Debug.Log("cloud float eneded, stopping at:"+(Vector2)(transform.position));
         Destroy(gameObject);
     }
-
 }

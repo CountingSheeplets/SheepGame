@@ -66,7 +66,7 @@ public class TestEvents : MonoBehaviour {
             Debug.Log("Fake throw sheep...random");
             Swipe newSwipe = new Swipe();
             //Debug.Log(newSwipe.ToString());
-            EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(OwnersCoordinator.GetRandomOwner()));
+            EventCoordinator.TriggerEvent(EventName.Input.Tap(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(OwnersCoordinator.GetRandomOwner()));
         }
         if (Input.GetKeyDown(KeyCode.Y)) {
             Debug.Log("Fake throw sheep...to a 0th Owner from random player");
@@ -74,7 +74,7 @@ public class TestEvents : MonoBehaviour {
             Owner randomOwner = OwnersCoordinator.GetRandomOwner();
             newSwipe.ToZeroPlayfield(randomOwner);
             //Debug.Log(newSwipe.ToString());
-            EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(randomOwner));
+            EventCoordinator.TriggerEvent(EventName.Input.Tap(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(randomOwner));
         }
         if (Input.GetKeyDown(KeyCode.KeypadMultiply)) {
             foreach (Owner owner in OwnersCoordinator.GetOwners()) {

@@ -21,7 +21,7 @@ public class ItemChangeHandler : MonoBehaviour {
 
     void OnChangeItem(GameMessage msg) {
         itemType = msg.kingItemType;
-        if (GetComponentInParent<Owner>().EqualsByValue(msg.owner)) {
+        if (GetComponentInParent<PlayerOwnerTile>().myOwner.EqualsByValue(msg.owner)) {
             currentItemIndex = msg.owner.GetPlayerProfile().GetSelectedItem(itemType);
             if (msg.intMessage > 0) {
                 currentItemIndex++;
@@ -44,7 +44,7 @@ public class ItemChangeHandler : MonoBehaviour {
     }
     void OnSetKingItem(GameMessage msg) {
         itemType = msg.kingItemType;
-        if (GetComponentInParent<Owner>().EqualsByValue(msg.owner)) {
+        if (GetComponentInParent<PlayerOwnerTile>().myOwner.EqualsByValue(msg.owner)) {
             currentItemIndex = Mathf.Clamp(msg.intMessage, 0, KingItemBucket.ItemCount(itemType) - 1);
             msg.owner.GetPlayerProfile().SelectItem(itemType, currentItemIndex);
             //change visuals only if requirements are met:

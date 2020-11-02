@@ -18,10 +18,15 @@ public class SwipeNetworkHandler : Singleton<SwipeNetworkHandler> {
                 return;
             if (!triggerOwner.GetPlayerProfile().isAlive)
                 return;
-            Debug.Log("from: " + from + "   msg:" + message);
+            //Debug.Log("from: " + from + "   msg:" + message);
             Swipe newSwipe = new Swipe(message);
-            Debug.Log(newSwipe.ToString());
-            EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(triggerOwner));
+            //Debug.Log(newSwipe.ToString());
+            if (message["clicked"].ToString() == "false") {
+                EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(triggerOwner));
+            }
+            if (message["clicked"].ToString() == "true") {
+                EventCoordinator.TriggerEvent(EventName.Input.Tap(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(triggerOwner));
+            }
         }
     }
     private void OnDestroy() {
