@@ -12,6 +12,7 @@ public class PlayerProfile {
     public Color playerColor;
     public Sprite playerAvatarImage;
     public Playfield playfield;
+    public int tutorialIndex = 1;
     int _selectedHat = 0;
     public int selectedHat {
         get { return _selectedHat; }

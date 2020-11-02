@@ -20,6 +20,7 @@ public class PersistentDataController : MonoBehaviour {
 	void OnShowScore(GameMessage msg) {
 		foreach (Owner owner in OwnersCoordinator.GetOwners()) {
 			Debug.Log("storing data for owner:" + owner);
+			owner.GetPlayerProfile().tutorialIndex = 0;
 			PersistentDataCoordinator.StoreData(owner);
 		}
 	}

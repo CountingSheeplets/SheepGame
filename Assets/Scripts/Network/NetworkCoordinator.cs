@@ -110,6 +110,12 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         json["value"] = colorHex;
         NetworkImportantCoordinator.SendImportant(deviceId, json);
     }
+    public static void SendTutorialIndex(PlayerProfile profile) {
+        JObject json = new JObject();
+        json["type"] = "tutorialIndex";
+        json["value"] = profile.tutorialIndex;
+        NetworkImportantCoordinator.SendImportant(profile.owner.deviceId, json);
+    }
     public static void SendName(int deviceId, string playerName) {
         JObject json = new JObject();
         json["type"] = "playerName";
