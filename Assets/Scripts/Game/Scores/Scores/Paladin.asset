@@ -18,5 +18,7 @@ MonoBehaviour:
     a single hit per match
   rewardDelta: 1
   wordDelta: most
+  X: 2
+  Y: most
   scoreType: 2
   icon: {fileID: 21300000, guid: 162fa016f45e9d945abd19c9139aba87, type: 3}

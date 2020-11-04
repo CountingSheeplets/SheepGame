@@ -17,5 +17,7 @@ MonoBehaviour:
   description: receive [X] crown[S] per [Y] opponent king elimination[S]
   rewardDelta: 1
   wordDelta: 
+  X: 1
+  Y: 1
   scoreType: 0
   icon: {fileID: 21300000, guid: b14e2194af3afd94dad68ad9c28833b4, type: 3}

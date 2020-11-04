@@ -75,13 +75,13 @@ public class PlayerCard : MonoBehaviour {
         }
     }
     void OnPlayerJoined(GameMessage msg) {
-        if ((GameStateView.GetGameState() & GameState.started) != 0)
+        if (GameStateView.HasState(GameState.started))
             if (owner.EqualsByValue(msg.owner)) {
                 disconnectedImage.SetActive(false);
             }
     }
     void OnPlayerLeft(GameMessage msg) {
-        if ((GameStateView.GetGameState() & GameState.started) != 0)
+        if (GameStateView.HasState(GameState.started))
             if (owner.EqualsByValue(msg.owner)) {
                 disconnectedImage.SetActive(true);
             }

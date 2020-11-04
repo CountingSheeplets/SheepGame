@@ -270,7 +270,7 @@ MonoBehaviour:
   emptySpacesBetweenFields: 3
   fenceFieldSubdivision: 3
   sheepSpawnCapBase: 5
-  sheepSpawnCapIncrement: 2
+  sheepSpawnCapIncrement: 1
   sheepSpawnPeriod: 1.5
   sheepSpawnUpgradeDecrement: 0.05
   sheepThrowStrength: 1

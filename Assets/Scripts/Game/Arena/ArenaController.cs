@@ -57,7 +57,8 @@ public class ArenaController : MonoBehaviour {
         ArenaCoordinator.RearrangeArena(false);
     }
     void OnPlayerLeft(GameMessage msg) {
-        ArenaCoordinator.RemoveField(msg.owner);
+        if (!GameStateView.HasState(GameState.started))
+            ArenaCoordinator.RemoveField(msg.owner);
     }
     void OnArenaDestroyed(GameMessage msg) {
         ArenaCoordinator.RemoveField(msg.targetOwner);
@@ -66,7 +67,8 @@ public class ArenaController : MonoBehaviour {
     }
 
     void OnPlayerJoined(GameMessage msg) {
-        ArenaCoordinator.GetOrCreateField(msg.owner);
+        if (!GameStateView.HasState(GameState.started))
+            ArenaCoordinator.GetOrCreateField(msg.owner);
     }
 
     void OnMatchEnd(GameMessage msg) {

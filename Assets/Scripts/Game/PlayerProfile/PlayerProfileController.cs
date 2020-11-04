@@ -31,7 +31,6 @@ public class PlayerProfileController : MonoBehaviour {
             profile = PlayerProfileCoordinator.AddProfile(msg.owner);
             profile.AddMoney(ConstantsBucket.StartingGold);
             EventCoordinator.TriggerEvent(EventName.System.Player.ProfileCreated(), GameMessage.Write().WithPlayerProfile(profile));
-            NetworkCoordinator.SendShowView(msg.owner.deviceId, "menu");
         }
         //send assigned data
         NetworkCoordinator.SendColor(msg.owner.deviceId, "#" + ColorUtility.ToHtmlStringRGBA(profile.playerColor).Substring(0, 6));
@@ -39,7 +38,8 @@ public class PlayerProfileController : MonoBehaviour {
     }
 
     void OnPlayerLeft(GameMessage msg) {
-        PlayerProfileCoordinator.RemoveProfile(msg.owner);
+        if (!GameStateView.HasState(GameState.started))
+            PlayerProfileCoordinator.RemoveProfile(msg.owner);
     }
     void OnPlayerDefeated(GameMessage msg) {
         msg.targetOwner.GetPlayerProfile().isAlive = false;

@@ -16,6 +16,8 @@ public class OwnerTileController : MonoBehaviour {
         EventCoordinator.StopListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
     }
     void OnPlayerJoined(GameMessage msg) {
+        if (GameStateView.HasState(GameState.started))
+            return;
         GameObject go = Instantiate(ownerTilePrefab, ownerPanelContainer);
         go.name = msg.owner.ownerName;
         go.GetComponent<PlayerOwnerTile>().SetOwner(msg.owner);
@@ -23,6 +25,8 @@ public class OwnerTileController : MonoBehaviour {
         KingFactory.TryCreateHeroModel(msg.owner, go.transform);
     }
     void OnPlayerLeft(GameMessage msg) {
+        if (GameStateView.HasState(GameState.started))
+            return;
         PlayerOwnerTile tile = ownerPanelContainer.GetComponentsInChildren<PlayerOwnerTile>().Where(x => x.myOwner == msg.owner).FirstOrDefault();
         Destroy(tile.gameObject);
     }

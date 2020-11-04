@@ -6,16 +6,18 @@ public class ScoreSheep : MonoBehaviour {
     float RotateSpeed = 0.2f;
     float _angle;
     Vector2 _centre;
-    float radius = 20f;
+    float radius = 35f;
     float width = 10f;
     float startingAngle;
 
     public int myIndex;
     public SpineContainerBlendsEight blendsEight;
     public Animator animator;
+    float screenWidth;
     void Start() {
         animator = GetComponent<Animator>();
         _centre = Vector2.zero;
+        screenWidth = this.gameObject.GetComponentInParent<RectTransform>().rect.width;
     }
     public void Setup(int i) {
         myIndex = i;
@@ -38,7 +40,7 @@ public class ScoreSheep : MonoBehaviour {
     }
 
     Vector2 GetPosition(float angle) {
-        return new Vector2(Mathf.Sin(angle) * width, Mathf.Cos(angle)) * radius;
+        return new Vector2(Mathf.Sin(angle) * width, Mathf.Cos(angle)) * radius * screenWidth / 1920f;
     }
 
     Vector3 PosInCircle(int index) {

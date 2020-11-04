@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "./static/css/main.498d002a.chunk.css",
-    "main.js": "./static/js/main.1d33372c.chunk.js",
-    "main.js.map": "./static/js/main.1d33372c.chunk.js.map",
+    "main.js": "./static/js/main.a74305e3.chunk.js",
+    "main.js.map": "./static/js/main.a74305e3.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.361533e7.js",
     "runtime-main.js.map": "./static/js/runtime-main.361533e7.js.map",
     "static/js/2.da104918.chunk.js": "./static/js/2.da104918.chunk.js",
     "static/js/2.da104918.chunk.js.map": "./static/js/2.da104918.chunk.js.map",
     "index.html": "./index.html",
-    "precache-manifest.6fb8e71223bdc1b4817e769308e98d83.js": "./precache-manifest.6fb8e71223bdc1b4817e769308e98d83.js",
+    "precache-manifest.c70bba3299d2461c74a4bce64240accc.js": "./precache-manifest.c70bba3299d2461c74a4bce64240accc.js",
     "service-worker.js": "./service-worker.js",
     "static/css/main.498d002a.chunk.css.map": "./static/css/main.498d002a.chunk.css.map",
     "static/media/AVYStutorial-01.png": "./static/media/AVYStutorial-01.ee0c41f2.png",
@@ -40,6 +40,6 @@
     "static/js/runtime-main.361533e7.js",
     "static/js/2.da104918.chunk.js",
     "static/css/main.498d002a.chunk.css",
-    "static/js/main.1d33372c.chunk.js"
+    "static/js/main.a74305e3.chunk.js"
   ]
 }

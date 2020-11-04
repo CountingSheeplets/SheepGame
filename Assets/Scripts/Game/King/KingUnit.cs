@@ -90,15 +90,11 @@ public class KingUnit : MonoBehaviour {
 
     void TryDie(Owner killer, Owner eliminated) {
         if (isVulnerable) {
-            //show die animation
-
-            //wait for animation to end
-
+            isVulnerable = false;
             //then remove king
             EventCoordinator.TriggerEvent(EventName.System.King.Killed(), GameMessage.Write().WithKingUnit(this).WithOwner(killer).WithTargetOwner(eliminated));
-            //Destroy(gameObject, 2f); //destroy GO after animations have played out
             Destroy(gameObject, 2f); //destroy this instantly, so that wouldnt interfere with other mechanics
-            //then with OnDestroy have death animations created via KingFactory
+            //show die animation
             Animator anim = GetComponentInChildren<Animator>();
             foreach (AnimatorControllerParameter parameter in anim.parameters) {
                 anim.ResetTrigger(parameter.name);

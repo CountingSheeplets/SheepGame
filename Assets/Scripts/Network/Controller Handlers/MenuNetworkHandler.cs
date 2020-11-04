@@ -15,14 +15,18 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 		AirConsole.instance.onDisconnect += OnDisconnect;
 	}
 	void OnConnect(int device_id) {
-		int count = OwnersCoordinator.GetOwners().Where(x => x.connected).ToList().Count;
-		Debug.Log("count " + count);
 		if (GameStateView.HasState(GameState.started)) {
+			Owner ownerRec = OwnersCoordinator.ReconnectOwner(device_id);
+			if (ownerRec != null) {
+				EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerJoined(), GameMessage.Write().WithOwner(ownerRec));
+				return;
+			}
 			Debug.LogWarning("New cannot join, game already started");
 			NetworkCoordinator.SendShowView(device_id, "in_game");
 			Debug.Log("started, sending to show in-game");
 			return;
 		}
+		int count = OwnersCoordinator.GetOwners().Where(x => x.connected).ToList().Count;
 		if (count > 7) {
 			NetworkCoordinator.SendShowView(device_id, "max_players");
 			Debug.Log("max");
@@ -31,7 +35,7 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 		Owner owner = OwnersCoordinator.TryCreateOwner(device_id);
 		if (owner) {
 			TrySetupFirstOwner();
-			//then anounce the new owner
+			NetworkCoordinator.SendShowView(device_id, "menu");
 			EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerJoined(), GameMessage.Write().WithOwner(owner));
 		} else
 			Debug.LogError("OnConnect returned null Owner!");
@@ -41,6 +45,9 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 		if (!owner)
 			Debug.LogWarning("OnDisconnect returned null Owner! Nothing to disconnect...");
 		EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerLeft(), GameMessage.Write().WithOwner(owner));
+		if (GameStateView.HasState(GameState.started)) {
+			return;
+		}
 		if (owner.IsFirstOwner) {
 			owner.IsFirstOwner = false;
 			TrySetupFirstOwner();

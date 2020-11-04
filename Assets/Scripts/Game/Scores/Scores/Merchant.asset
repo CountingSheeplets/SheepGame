@@ -17,5 +17,7 @@ MonoBehaviour:
   description: each [Y] coin[S] earned rewards with [X] crown[S]
   rewardDelta: 500
   wordDelta: 
+  X: 1
+  Y: 500
   scoreType: 1
   icon: {fileID: 21300000, guid: 480100f7598baaa4ea3c8ecb5768d1f4, type: 3}

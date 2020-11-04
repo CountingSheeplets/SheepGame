@@ -6,11 +6,11 @@ using UnityEngine;
 
 public class OwnersController : MonoBehaviour {
     void Start() {
-        EventCoordinator.StartListening(EventName.Input.StartGame(), OnStartGame);
+        //EventCoordinator.StartListening(EventName.Input.StartGame(), OnStartGame);
         EventCoordinator.StartListening(EventName.System.Environment.CleanScene(), OnCleanScene);
     }
     void OnDestroy() {
-        EventCoordinator.StopListening(EventName.Input.StartGame(), OnStartGame);
+        //EventCoordinator.StopListening(EventName.Input.StartGame(), OnStartGame);
         EventCoordinator.StopListening(EventName.System.Environment.CleanScene(), OnCleanScene);
     }
     void OnStartGame(GameMessage msg) {

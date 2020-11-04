@@ -9,17 +9,17 @@ public class SpineContainerBlendsFour : MonoBehaviour, IAnimatableDirection {
     SkeletonMecanim mecanim;
 
     public void SetInitialRandomDirection() {
-        if (anim == null) anim = GetComponent<Animator>();
-        if (mecanim == null) mecanim = GetComponent<SkeletonMecanim>();
-        Vector2 direction = Random.insideUnitCircle.normalized + (Vector2) transform.position;
+        if (anim == null)anim = GetComponent<Animator>();
+        if (mecanim == null)mecanim = GetComponent<SkeletonMecanim>();
+        Vector2 direction = Random.insideUnitCircle.normalized + (Vector2)transform.position;
         prevAngle = Vector2.SignedAngle(direction, Vector2.up);
         SetAnimatorDirections(direction);
     }
 
     public void WalkTo(Vector2 target) {
-        Debug.Log("WalkTo:" + target);
-        if (anim == null) anim = GetComponent<Animator>();
-        if (mecanim == null) mecanim = GetComponent<SkeletonMecanim>();
+        //Debug.Log("WalkTo:" + target);
+        if (anim == null)anim = GetComponent<Animator>();
+        if (mecanim == null)mecanim = GetComponent<SkeletonMecanim>();
         ResetAllTriggers();
         Vector2 prevDir = new Vector2(anim.GetFloat("dirX_blend"), anim.GetFloat("dirY_blend"));
         Vector2 newDir = SetAnimatorDirections(target);
@@ -41,7 +41,7 @@ public class SpineContainerBlendsFour : MonoBehaviour, IAnimatableDirection {
         SetAnimatorDirections(target);
     }
     public void Die() {
-        if (anim == null) anim = GetComponent<Animator>();
+        if (anim == null)anim = GetComponent<Animator>();
         anim.SetTrigger("die");
     }
     Vector2 SetAnimatorDirections(Vector2 target) {
@@ -79,7 +79,7 @@ public class SpineContainerBlendsFour : MonoBehaviour, IAnimatableDirection {
         anim.ResetTrigger("die");
     }
     FacingDirection GetAnimEnum(Vector2 target) {
-        Vector2 direction = target - (Vector2) transform.position;
+        Vector2 direction = target - (Vector2)transform.position;
         float angle = 0;
         if (direction.magnitude > 0.05f) { //this fixes Idle dir keeping same as walking dir
             angle = Vector2.SignedAngle(direction, Vector2.up);
@@ -93,7 +93,7 @@ public class SpineContainerBlendsFour : MonoBehaviour, IAnimatableDirection {
         FacingDirection dir = 0;
         for (int i = 0; i < 4; i++) {
             if (angle > i * 90f) {
-                dir = (FacingDirection) i;
+                dir = (FacingDirection)i;
             } else break;
         }
         return dir;

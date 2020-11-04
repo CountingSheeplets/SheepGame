@@ -7,9 +7,10 @@
     public string wordDelta;
     public ScoreType scoreType;
     public string icon;
-
+    public string X;
+    public string Y;
     public int total {
-        get { return (int) ((float) counter / (float) rewardDelta * (float) reward); }
+        get { return (int)((float)counter / (float)rewardDelta * (float)reward); }
     }
 
     public Score(ScoreScriptable score) {
@@ -19,7 +20,9 @@
         rewardDelta = score.rewardDelta;
         scoreType = score.scoreType;
         wordDelta = score.wordDelta;
-        icon = score.icon.ToString().Split(' ') [0];
+        X = score.X;
+        Y = score.Y;
+        icon = score.icon.ToString().Split(' ')[0];
     }
     public override string ToString() {
         return "name:" + scoreName +

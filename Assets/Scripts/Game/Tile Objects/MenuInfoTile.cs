@@ -16,6 +16,8 @@ public class MenuInfoTile : MonoBehaviour {
         EventCoordinator.StopListening(EventName.Input.Network.PlayerRecalculate(), OnChange);
     }
     void OnChange(GameMessage msg) {
+        if (GameStateView.HasState(GameState.started))
+            return;
         int count = OwnersCoordinator.GetOwners().Where(x => x.connected).ToList().Count;
         if (count <= 1) {
             textComponent.text = needMoreText;

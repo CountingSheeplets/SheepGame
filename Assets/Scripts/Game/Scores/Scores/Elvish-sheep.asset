@@ -17,5 +17,7 @@ MonoBehaviour:
   description: '[X] crown[S] per [Y] direct hits onto enemy kings'
   rewardDelta: 25
   wordDelta: 
+  X: 1
+  Y: 25
   scoreType: 1
   icon: {fileID: 21300000, guid: 36a1b14264185fb4a976358e19d7bcab, type: 3}

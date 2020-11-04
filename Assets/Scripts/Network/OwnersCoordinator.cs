@@ -14,36 +14,37 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
         return Instance.owners.Where(x => x.GetPlayerProfile().isAlive).ToList();
     }
     public static Owner TryCreateOwner(int device_id) {
-        Owner candidateOwner = Instance.owners.Where(x => x.ownerId == AirConsole.instance.GetUID(device_id)).FirstOrDefault();
-        if (candidateOwner == null) {
-            Debug.Log("didnt find owner, creating new one!");
-            //GameObject go = Instantiate(Instance.ownerTilePrefab, Instance.ownerPanelContainer);
-            GameObject go = new GameObject();
-            go.transform.parent = Instance.transform;
-            string nicknameOfJoined = AirConsole.instance.GetNickname(device_id);
-            Owner newOwner = go.AddComponent<Owner>();
-            Instance.owners.Add(newOwner);
-            newOwner.Create(AirConsole.instance.GetUID(device_id), nicknameOfJoined, device_id);
-            go.name = newOwner.ownerName;
-            //go.GetComponentInChildren<TextMeshProUGUI>().text = newOwner.ownerName;
-            return newOwner;
-        } else {
-            candidateOwner.deviceId = device_id;
-            candidateOwner.connected = true;
+        GameObject go = new GameObject();
+        go.transform.parent = Instance.transform;
+        string nicknameOfJoined = AirConsole.instance.GetNickname(device_id);
+        Owner newOwner = go.AddComponent<Owner>();
+        Instance.owners.Add(newOwner);
+        newOwner.Create(AirConsole.instance.GetUID(device_id), nicknameOfJoined, device_id);
+        go.name = newOwner.ownerName;
+        //go.GetComponentInChildren<TextMeshProUGUI>().text = newOwner.ownerName;
+        return newOwner;
+    }
+    public static Owner ReconnectOwner(int device_id) {
+        Owner recOwner = GetOwner(AirConsole.instance.GetUID(device_id));
+        Debug.Log(recOwner);
+        Debug.Log(recOwner.ownerId + "   GetUID: " + AirConsole.instance.GetUID(device_id));
+        if (recOwner != null) {
+            GetOwner(AirConsole.instance.GetUID(device_id)).deviceId = device_id;
+            //recOwner.deviceId = device_id;
+            //recOwner.connected = true;
+            OwnersCoordinator.GetOwner(device_id).connected = true;
             Debug.Log("Reconnect succesfull!");
-            if ((GameStateView.GetGameState() & GameState.started) != 0)
+            if (GameStateView.HasState(GameState.started)) {
                 if (OwnersCoordinator.GetOwner(device_id).GetPlayerProfile().isAlive)
                     NetworkCoordinator.SendShowView(device_id, "match");
                 else
                     NetworkCoordinator.SendShowView(device_id, "post");
-
-            else {
+            } else {
                 NetworkCoordinator.SendShowView(device_id, "menu");
             }
-            if (GameStateView.GetGameState() != GameState.started)
-                candidateOwner.gameObject.SetActive(true);
-            return candidateOwner;
+            return OwnersCoordinator.GetOwner(device_id);
         }
+        return null;
     }
     public static Owner GetOwner(int device_id) {
         return Instance.owners.Where(x => x.deviceId == device_id).FirstOrDefault();
@@ -78,10 +79,9 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
 
         Debug.Log("DisconnectOwner GetGameState:" + (int)GameStateView.GetGameState());
 
-        if ((GameStateView.GetGameState() & GameState.started) != 0) {
+        if (GameStateView.HasState(GameState.started)) {
             Debug.Log("disconnecting an owner..");
             leftOwner.connected = false;
-            leftOwner.gameObject.SetActive(false);
         } else {
             Debug.Log("destroying an owner..");
             Instance.owners.Remove(leftOwner);

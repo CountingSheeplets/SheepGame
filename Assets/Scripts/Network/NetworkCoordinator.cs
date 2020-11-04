@@ -30,6 +30,15 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         json["icon"] = upgrade.sheepTypeOutput.ToString();
         TrySend(deviceId, json);
     }
+    public static void SendUpgradeIcon(int deviceId, UpgradeProperty upgrade) {
+        JObject json = new JObject();
+        json["type"] = "currentUpgradeIcon";
+        if (upgrade != null)
+            json["icon"] = upgrade.sheepTypeOutput.ToString();
+        else
+            json["icon"] = "";
+        TrySend(deviceId, json);
+    }
     public static void SendKingItems(Owner owner) {
         JObject json = new JObject();
         PlayerProfile profile = owner.GetPlayerProfile();
@@ -165,6 +174,8 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
 
     public static bool SendProfile(PlayerProfile profile) {
         if (profile == null)
+            return false;
+        if (!profile.owner.connected)
             return false;
         if (!profile.isAlive) //also should be if(profile.isDirty)
             return false;
