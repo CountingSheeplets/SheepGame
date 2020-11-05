@@ -7,8 +7,8 @@ public class SheepFall : BaseUnitMove {
     SheepUnit sheep;
     SortingGroup sGroup;
     void Start() {
-        if (sheep == null) sheep = GetComponent<SheepUnit>();
-        if (!sGroup) sGroup = sheep.GetComponentInChildren<SortingGroup>();
+        if (sheep == null)sheep = GetComponent<SheepUnit>();
+        if (!sGroup)sGroup = sheep.GetComponentInChildren<SortingGroup>();
         EventCoordinator.StartListening(EventName.System.Sheep.Land(), OnLand);
     }
     void OnDestroy() {
@@ -22,7 +22,7 @@ public class SheepFall : BaseUnitMove {
         if (sGroup)
             sGroup.sortingOrder = -10;
         //move the transform to destination
-        MoveToDestination(speed, 1f, 0.25f);
+        MoveToDestination(speed, 0.5f, 0.15f);
         //fall animation;
         animator.Die();
     }
@@ -32,7 +32,7 @@ public class SheepFall : BaseUnitMove {
             if (GameStateView.GetGameState() != GameState.arenaAnimating) {
                 if (msg.playfield == null) {
                     SheepFly fly = GetComponent<SheepFly>();
-                    Vector2 fallDirection = fly.GetLocalMoveDir() / 10f + (Vector2) transform.position;
+                    Vector2 fallDirection = fly.GetLocalMoveDir() / 10f + (Vector2)transform.position;
                     if (fly != null)
                         this.StartFalling(SpeedBucket.GetFallSpeed(sheep.sheepType), fallDirection);
                     else

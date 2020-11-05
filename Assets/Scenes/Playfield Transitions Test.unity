@@ -559,6 +559,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8604118486627180563}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &762487278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2919956132876460910, guid: 94ec890c568fb2f45953c1e9b8666c34,
+    type: 3}
+  m_PrefabInstance: {fileID: 1188062942}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &762487282
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762487278}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: -200
+  m_TargetDisplay: 0
 --- !u!1 &817108756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,12 +1197,12 @@ PrefabInstance:
     - target: {fileID: 8519426809534698585, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1117.0001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8519426809534698585, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 558.50006
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8519426809534698585, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}

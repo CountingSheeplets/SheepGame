@@ -20,7 +20,7 @@ public class KingAttackController : MonoBehaviour {
         EventCoordinator.StopListening(EventName.System.King.Smashed(), OnSmashed);
     }
     void OnLand(GameMessage msg) {
-        if (playfield == null) playfield = GetComponentInParent<Playfield>();
+        if (playfield == null)playfield = GetComponentInParent<Playfield>();
         if (msg.playfield != null) {
             //Debug.Log(msg.playfield + " landed in my field: " + playfield);
             if (msg.playfield == playfield && playfield.owner.GetPlayerProfile().isAlive) {
@@ -55,7 +55,7 @@ public class KingAttackController : MonoBehaviour {
 
     void OnSmashed(GameMessage msg) {
         if (msg.owner.EqualsByValue(playfield.owner)) {
-            sheepInField = sheepInField.Where(item => item != null).ToList();
+            sheepInField = sheepInField.Where(item => item != null).Where(sheep => sheep.currentPlayfield == playfield).ToList();
             if (!kingCharge.isCharging)
                 ChargeNextTarget();
         }
@@ -65,7 +65,7 @@ public class KingAttackController : MonoBehaviour {
         Vector2 direction = (sheep.transform.localPosition - transform.localPosition).normalized;
         float sheepEffect = KnockDistanceBucket.GetKnockStrength(sheep.sheepType);
         float kingSizeEffect = Mathf.Sqrt(GoldRewardCoordinator.GetComboLevel(playfield.owner) + 1);
-        Vector2 destination = sheepEffect * kingSizeEffect * direction * ConstantsBucket.SheepKickStrength / 1f + (Vector2) fly.transform.position;
+        Vector2 destination = sheepEffect * kingSizeEffect * direction * ConstantsBucket.SheepKickStrength / 1f + (Vector2)fly.transform.position;
         float speed = SpeedBucket.GetFlySpeed(sheep.sheepType) / 3f;
         fly.sheep.lastHandler = playfield.owner;
         fly.StartFlying(speed, destination);

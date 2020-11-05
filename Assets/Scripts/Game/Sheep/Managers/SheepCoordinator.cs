@@ -43,7 +43,7 @@ public class SheepCoordinator : Singleton<SheepCoordinator> {
         return Instance.sheepStacks[owner].GetSheeps();
     }
     public static List<SheepUnit> GetSheeps() {
-        return new List<SheepUnit>(Instance.sheepStacks.SelectMany(y => y.Value.sheepSlots.Select(x => x.sheep)).ToList());
+        return new List<SheepUnit>(Instance.sheepStacks.SelectMany(y => y.Value.GetSheeps().ToList())); //Value.sheepSlots.Select(x => x.sheep)
     }
     public static void UpgradeSheep(SheepUnit sheep, SheepType newType) {
         sheep.sheepType = newType;

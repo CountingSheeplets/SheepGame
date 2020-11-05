@@ -33,9 +33,9 @@ public class SheepRoam : BaseUnitMove {
         }
     }
     Vector2 RoamTarget() {
-        Vector2 newVec = new Vector2(0, 1.5f * ConstantsBucket.PlayfieldTileSize);
+        Vector2 newVec = new Vector2(0, ConstantsBucket.PlayfieldSize / 3f);
         newVec = Quaternion.AngleAxis(Random.Range(0, 359), Vector3.forward) * newVec;
-        Vector2 targetPos = (Vector2) transform.position + newVec;
+        Vector2 targetPos = (Vector2)transform.position + newVec;
         if (sheep.currentPlayfield.fieldCorners.IsWithinField(targetPos, sheep.radius)) {
             //Debug.Log("taget vector ok, roaming to:"+newVec);
             return targetPos;

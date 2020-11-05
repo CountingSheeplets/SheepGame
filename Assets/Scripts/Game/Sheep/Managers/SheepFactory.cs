@@ -11,8 +11,8 @@ public class SheepFactory : Singleton<SheepFactory> {
         Playfield playfield = ArenaCoordinator.GetPlayfield(owner);
         GameObject newSheepGO = Instantiate(Instance.sheepPrefab);
         newSheepGO.name = "SheepUnit_" + Time.time.GetHashCode();
-        float rnd1 = Random.Range(-Mathf.FloorToInt(ConstantsBucket.GridSize / 2), Mathf.CeilToInt(ConstantsBucket.GridSize / 2)) * ConstantsBucket.PlayfieldTileSize;
-        float rnd2 = Random.Range(-Mathf.FloorToInt(ConstantsBucket.GridSize / 2), Mathf.CeilToInt(ConstantsBucket.GridSize / 2)) * ConstantsBucket.PlayfieldTileSize;
+        float rnd1 = Random.Range(-Mathf.FloorToInt(ConstantsBucket.PlayfieldSize), Mathf.CeilToInt(ConstantsBucket.PlayfieldSize)) / 2f;
+        float rnd2 = Random.Range(-Mathf.FloorToInt(ConstantsBucket.PlayfieldSize), Mathf.CeilToInt(ConstantsBucket.PlayfieldSize)) / 2f;
         newSheepGO.transform.parent = playfield.sheepParent;
         newSheepGO.transform.localPosition = new Vector2(rnd1, rnd2);
         newSheepGO.transform.localScale = new Vector3(1, 1, 1);

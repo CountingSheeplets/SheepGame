@@ -263,11 +263,9 @@ MonoBehaviour:
   playfieldFadeNoiseTiling: {x: 0.05, y: 0.05}
   playfieldFadeProportion: 1
   playfieldFloatTime: 1.5
-  playfieldGridSize: 5
-  playfieldTileSize: 0.6715
-  playfieldSpriteScale: {x: 5.5, y: 5.5}
+  playfieldSize: 3.5
   playfieldArrangeFloatSpeed: 5
-  emptySpacesBetweenFields: 3
+  emptySpacesBetweenFields: 2
   fenceFieldSubdivision: 3
   sheepSpawnCapBase: 5
   sheepSpawnCapIncrement: 1

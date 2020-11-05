@@ -8,7 +8,7 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
     public static Transform GetFxContainer { get { return Instance.deathFxContainer; } }
     public static Vector2 fieldSize {
         get {
-            float width = ConstantsBucket.GridSize * ConstantsBucket.PlayfieldTileSize;
+            float width = ConstantsBucket.PlayfieldSize;
             return new Vector2(width, width);
         }
     }
@@ -42,15 +42,11 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
             return hasPlayfield;
     }
     public static void RemoveField(Owner owner) {
-        //Debug.Log(owner);
-        //Debug.Log(playfields.Count);
         Playfield pl = Instance.playfields.Where(x => x.GetComponent<Owner>().EqualsByValue(owner)).FirstOrDefault();
 
         Instance.playfields.Remove(pl);
         if (pl != null)
             Destroy(pl.gameObject);
-        //Animate Arena Destruction
-
     }
 
     public static void RearrangeArena(bool doAnimate) {
@@ -65,15 +61,12 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
         } else {
             Instance.InstantArrangeFields(randomPreset);
         }
-        //Instance.RemoveVortexes();
-        //Instance.AddVortexes(randomPreset);
     }
     void ArrangeFields(ArenaPreset randomPreset) {
         List<PresetSocket> sockets = new List<PresetSocket>(randomPreset.playfieldSockets);
-        //Debug.Log("payfields:" + playfields.Count);
         List<Playfield> leftoverFields = new List<Playfield>(playfields);
         Playfield p = playfieldPrefab.GetComponent<Playfield>();
-        float fieldWidth = fieldSize.x + ConstantsBucket.EmptySpacesBetweenFields * ConstantsBucket.PlayfieldTileSize;
+        float fieldWidth = fieldSize.x + ConstantsBucket.EmptySpacesBetweenFields;
 
         for (int i = 0; i < playfields.Count; i++) {
             int rS = UnityEngine.Random.Range(0, sockets.Count - 1);
@@ -91,7 +84,7 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
         List<PresetSocket> sockets = new List<PresetSocket>(presetInput.playfieldSockets);
         List<Playfield> leftoverFields = new List<Playfield>(playfields);
         Playfield p = playfieldPrefab.GetComponent<Playfield>();
-        float fieldWidth = fieldSize.x + ConstantsBucket.EmptySpacesBetweenFields * ConstantsBucket.PlayfieldTileSize;
+        float fieldWidth = fieldSize.x + ConstantsBucket.EmptySpacesBetweenFields;
 
         for (int i = 0; i < playfields.Count; i++) {
             int rS = UnityEngine.Random.Range(0, sockets.Count - 1);
@@ -108,7 +101,7 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
 
     void AddVortexes(ArenaPreset randomPreset) {
         List<PresetSocket> vortexSockets = new List<PresetSocket>(randomPreset.vortexSockets);
-        float fieldWidth = fieldSize.x + ConstantsBucket.GridSize * ConstantsBucket.PlayfieldTileSize;
+        float fieldWidth = fieldSize.x + ConstantsBucket.PlayfieldSize;
         for (int i = 0; i < vortexSockets.Count; i++) {
             GameObject newVortex = Instantiate(vortexPrefab);
             newVortex.transform.parent = transform;
@@ -135,7 +128,6 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
             if (playfield.fieldCorners.IsWithinField(point))
                 return playfield;
         }
-        //Debug.Log("Not in any playfield");
         return null;
     }
     public static Playfield GetPlayfield(Owner owner) {

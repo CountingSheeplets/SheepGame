@@ -9,12 +9,12 @@ public class KingRoam : BaseUnitMove {
         king = GetComponent<KingUnit>();
         charge = GetComponent<KingCharge>();
         EventCoordinator.StartListening(EventName.System.Sheep.Roam(), OnRoam);
-        EventCoordinator.StartListening(EventName.System.Environment.ArenaAnimated(), ForceRoam);
+        EventCoordinator.StartListening(EventName.System.Environment.Initialized(), ForceRoam);
         EventCoordinator.StartListening(EventName.System.King.Smashed(), OnSmashed);
     }
     void OnDestroy() {
         EventCoordinator.StopListening(EventName.System.Sheep.Roam(), OnRoam);
-        EventCoordinator.StopListening(EventName.System.Environment.ArenaAnimated(), ForceRoam);
+        EventCoordinator.StopListening(EventName.System.Environment.Initialized(), ForceRoam);
         EventCoordinator.StopListening(EventName.System.King.Smashed(), OnSmashed);
     }
     public void StartWalking(Vector2 _destination) {
@@ -32,7 +32,7 @@ public class KingRoam : BaseUnitMove {
         if (charge.isCharging)
             return;
         if (!king.isRoaming && !king.GetIsUsingAbility()) {
-            float roll = Random.Range(0, 3f); //3x larger roll = 3x smaller probability
+            float roll = Random.Range(0, 0.5f); //3x larger roll = 3x smaller probability
             if (roll < msg.floatMessage) {
                 ForceRoam(GameMessage.Write());
             }
@@ -40,13 +40,14 @@ public class KingRoam : BaseUnitMove {
     }
     void ForceRoam(GameMessage msg) {
         Vector2 targetPosition = RoamTarget();
+        Debug.Log("roam to newVec: " + targetPosition);
         if (targetPosition != Vector2.zero)
             StartWalking(targetPosition);
     }
     Vector2 RoamTarget() {
-        Vector2 newVec = new Vector2(0, 1.5f * ConstantsBucket.PlayfieldTileSize);
+        Vector2 newVec = new Vector2(0, ConstantsBucket.PlayfieldSize / 4f);
         newVec = Quaternion.AngleAxis(Random.Range(0, 359), Vector3.forward) * newVec;
-        Vector2 targetPos = (Vector2) transform.position + newVec;
+        Vector2 targetPos = (Vector2)transform.position + newVec;
         if (king.myPlayfield.fieldCorners.IsWithinField(targetPos, king.GetRadius())) {
             return targetPos;
         } else {

@@ -20,14 +20,8 @@ public class ConstantsBucket : Singleton<ConstantsBucket> {
     public static float PlayfieldFloatTime { get { return Instance.playfieldFloatTime; } }
 
     [Header("Arena Generation")]
-    [SerializeField] int playfieldGridSize = 11;
-    public static int GridSize { get { return Instance.playfieldGridSize; } }
-
-    [SerializeField] float playfieldTileSize = 0.5f;
-    public static float PlayfieldTileSize { get { return Instance.playfieldTileSize; } }
-
-    [SerializeField] Vector2 playfieldSpriteScale = new Vector2(2.5f, 2.5f);
-    public static Vector2 PlayfieldSpriteScale { get { return Instance.playfieldSpriteScale; } }
+    [SerializeField] float playfieldSize = 3f;
+    public static float PlayfieldSize { get { return Instance.playfieldSize; } }
 
     [SerializeField] float playfieldArrangeFloatSpeed = 5f;
     public static float PlayfieldFloatSpeed { get { return Instance.playfieldArrangeFloatSpeed; } }

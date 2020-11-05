@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-
 public class PlayfieldKillUnitsOnDestroy : MonoBehaviour {
-    List<SheepUnit> sheepUnits;
     public Owner myOwner;
     bool trigger;
-    float killInterval = 1f;
     float progress = 0f;
     float destrucionTime;
     int counter = 0;
     int amount = 0;
+
+    List<OrderObject> orderedSheep = new List<OrderObject>();
+
     void Start() {
         EventCoordinator.StartListening(EventName.System.Environment.DestroyArena(), OnDestroyPlayfield);
         myOwner = GetComponent<Playfield>().owner;
@@ -18,10 +19,10 @@ public class PlayfieldKillUnitsOnDestroy : MonoBehaviour {
     void OnDestroyPlayfield(GameMessage msg) {
         if (!myOwner.EqualsByValue(msg.targetOwner))
             return;
-        sheepUnits = new List<SheepUnit>(GetComponentsInChildren<SheepUnit>());
-        amount = sheepUnits.Count;
+        foreach (SheepUnit unit in GetComponentsInChildren<SheepUnit>())orderedSheep.Add(new OrderObject(unit));
+        orderedSheep = OrderByDistance(orderedSheep, ConstantsBucket.PlayfieldSize);
+        amount = orderedSheep.Count;
         destrucionTime = msg.floatMessage;
-        killInterval = destrucionTime / amount;
         trigger = true;
         progress = 0f;
         counter = 0;
@@ -29,24 +30,39 @@ public class PlayfieldKillUnitsOnDestroy : MonoBehaviour {
 
     void Update() {
         if (trigger) {
-            if (progress > killInterval) {
-                counter++;
-                if (counter >= amount)
-                    trigger = false;
-                else {
-                    if (sheepUnits.Count > 0) {
-                        SkeletonRendererController.MakeSheepActive(sheepUnits[0]);
-                        SheepFall fall = sheepUnits[0].GetComponent<SheepFall>();
-                        if (fall != null)
-                            fall.StartFalling(SpeedBucket.GetFallSpeed(sheepUnits[0].sheepType), Vector2.zero);
-                        else
-                            EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(sheepUnits[0]));
-                    }
-                    progress = 0f;
-                    sheepUnits.RemoveAt(0);
+            if (counter >= amount) {
+                trigger = false;
+                return;
+            }
+            if (progress > orderedSheep[counter].timeWeight * destrucionTime) {
+                SheepUnit sheep = orderedSheep[counter].sheep;
+                if (sheep != null) {
+                    SkeletonRendererController.MakeSheepActive(sheep);
+                    SheepFall fall = sheep.GetComponent<SheepFall>();
+                    if (fall != null)
+                        fall.StartFalling(SpeedBucket.GetFallSpeed(sheep.sheepType), Vector2.zero);
+                    else
+                        EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(sheep));
                 }
+                counter++;
             }
             progress += Time.deltaTime;
+        }
+    }
+
+    List<OrderObject> OrderByDistance(List<OrderObject> inputList, float normalizeDistance) {
+        foreach (OrderObject obj in inputList) {
+            obj.timeWeight = obj.sheep.transform.localPosition.magnitude / normalizeDistance;
+        }
+        inputList = inputList.OrderBy(x => x.timeWeight).ToList();
+        return inputList;
+    }
+
+    class OrderObject {
+        public SheepUnit sheep;
+        public float timeWeight;
+        public OrderObject(SheepUnit _sheep) {
+            sheep = _sheep;
         }
     }
 }

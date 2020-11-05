@@ -30,7 +30,7 @@ public class PlayerCard : MonoBehaviour {
         EventCoordinator.StartListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
         EventCoordinator.StartListening(EventName.System.Player.PlayerCardsSorted(), OnSorted);
         EventCoordinator.StartListening(EventName.System.Player.Eliminated(), OnEliminated);
-        EventCoordinator.StartListening(EventName.System.Economy.GrassChanged(), OnGrassChanged);
+        //EventCoordinator.StartListening(EventName.System.Economy.GrassChanged(), OnGrassChanged);
         EventCoordinator.StartListening(EventName.System.Economy.GoldChanged(), OnGoldChanged);
         //init by copying ghost:
         myRectTr = GetComponent<RectTransform>();
@@ -45,7 +45,7 @@ public class PlayerCard : MonoBehaviour {
         EventCoordinator.StopListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
         EventCoordinator.StopListening(EventName.System.Player.PlayerCardsSorted(), OnSorted);
         EventCoordinator.StopListening(EventName.System.Player.Eliminated(), OnEliminated);
-        EventCoordinator.StopListening(EventName.System.Economy.GrassChanged(), OnGrassChanged);
+        //EventCoordinator.StopListening(EventName.System.Economy.GrassChanged(), OnGrassChanged);
         EventCoordinator.StopListening(EventName.System.Economy.GoldChanged(), OnGoldChanged);
         if (targetCardGhost.gameObject != null)
             Destroy(targetCardGhost.gameObject);
@@ -69,7 +69,7 @@ public class PlayerCard : MonoBehaviour {
             return;
         if (msg.owner == owner) {
             //Debug.Log("deltaFloat: " + msg.deltaFloat);
-            kingHealthFill.fillAmount = msg.targetFloatMessage / Mathf.Pow(ConstantsBucket.GridSize, 2);
+            kingHealthFill.fillAmount = msg.targetFloatMessage;
             //kingHealthText.text = Mathf.FloorToInt(msg.deltaFloat).ToString();
             //kingHealthText.GetComponent<Animator>().SetTrigger("Show");
         }

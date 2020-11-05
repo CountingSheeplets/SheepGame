@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SheepController : MonoBehaviour {
+public class SheepMatchEndController : MonoBehaviour {
     void Start() {
         EventCoordinator.StartListening(EventName.System.Environment.EndMatch(), OnEndMatch);
     }
@@ -13,7 +13,7 @@ public class SheepController : MonoBehaviour {
         List<SheepUnit> sheeps = new List<SheepUnit>(SheepCoordinator.GetSheeps());
         for (int i = 0; i < sheeps.Count; i++) {
             if (sheeps[i] != null)
-                if (sheeps[i].isSwimming || sheeps[i].isFlying)
+                if (sheeps[i].isSwimming || sheeps[i].isFlying || sheeps[i].isTrenching)
                     EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(sheeps[i]));
         }
     }

@@ -16,6 +16,7 @@ public class SheepFly : BaseUnitMove {
         sheep.isFlying = true;
         sheep.isReadyToFly = false;
         sheep.isTrenching = false;
+        sheep.currentPlayfield = null;
         SetDestination(_destination, false);
         MoveToDestination(speed, 1.5f);
         //run animation;

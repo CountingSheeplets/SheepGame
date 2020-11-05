@@ -40,7 +40,7 @@ public class SheepThrow : MonoBehaviour {
     void OnSpawn(GameMessage msg) {
         //Debug.Log("sheepSpawned:" + msg.sheepUnit);
         if (msg.sheepUnit) {
-            Debug.Log("msg.sheepUnit.owner:" + msg.sheepUnit.owner + " vs " + GetComponent<Owner>());
+            //Debug.Log("msg.sheepUnit.owner:" + msg.sheepUnit.owner + " vs " + GetComponent<Owner>());
             if (msg.sheepUnit.owner.EqualsByValue(GetComponent<Owner>())) {
                 throwableSheep.Add(msg.sheepUnit);
                 TryReadyNewSheep();
@@ -72,11 +72,11 @@ public class SheepThrow : MonoBehaviour {
     void TryReadyNewSheep() {
         if (!SheepIsReadying() && sheepReadyToBeThrown == null) {
             SheepUnit availableSheep = GetNextSheep();
-            Debug.Log("GetNextSheep:" + availableSheep);
+            //Debug.Log("GetNextSheep:" + availableSheep);
             if (availableSheep != null) {
-                Debug.Log("availableSheep.currentPlayfield:" + availableSheep.currentPlayfield);
+                //Debug.Log("availableSheep.currentPlayfield:" + availableSheep.currentPlayfield);
                 if (availableSheep.currentPlayfield != null) {
-                    Debug.Log("sheeprun:" + availableSheep.GetComponent<SheepRun>());
+                    //Debug.Log("sheeprun:" + availableSheep.GetComponent<SheepRun>());
                     //Debug.Log(" at speed:"+SpeedBucket.GetRunSpeed(availableSheep.sheepType));
                     availableSheep.GetComponent<SheepRun>().StartRunning(SpeedBucket.GetRunSpeed(availableSheep.sheepType), (Vector2)availableSheep.transform.parent.position);
                 }
@@ -90,11 +90,11 @@ public class SheepThrow : MonoBehaviour {
                 if (sheep.sheepType == SheepType.Trench) {
                     if (!sheep.isTrenching) {
                         sheep.isTrenching = true;
-                        Debug.Log("skipped cause trenching");
+                        //Debug.Log("skipped cause trenching");
                         continue;
                     }
                     if (sheep.isTrenching) {
-                        Debug.Log("trenching sheep not skipepd anymore");
+                        //Debug.Log("trenching sheep not skipepd anymore");
                         sheep.isTrenching = false;
                         return sheep;
                     }
