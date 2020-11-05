@@ -311,7 +311,7 @@ MonoBehaviour:
   maxPlayfieldGrass: 100
   maxPlayerCombo: 3
   baseGoldIncome: 1
-  goldIncomePeriod: 1
+  goldIncomePeriod: 2
   goldIncomeIncrement: 1
   tipLoopTimer: 10
 --- !u!114 &8604118487354306371

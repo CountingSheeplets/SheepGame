@@ -40,7 +40,7 @@ public class KingRoam : BaseUnitMove {
     }
     void ForceRoam(GameMessage msg) {
         Vector2 targetPosition = RoamTarget();
-        Debug.Log("roam to newVec: " + targetPosition);
+        //Debug.Log("roam to newVec: " + targetPosition);
         if (targetPosition != Vector2.zero)
             StartWalking(targetPosition);
     }

@@ -88,7 +88,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-8805687651440436761
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -174,7 +174,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-8770102162864869237
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -260,7 +260,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-8469028098057091840
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -346,7 +346,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-8324431400301891350
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -518,7 +518,7 @@ AnimationClip:
   m_Events: []
 --- !u!1101 &-7998357859963716583
 AnimatorStateTransition:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -569,7 +569,7 @@ AnimatorStateTransition:
 --- !u!1102 &-7913913724307123411
 AnimatorState:
   serializedVersion: 5
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -594,7 +594,7 @@ AnimatorState:
   m_TimeParameter: 
 --- !u!74 &-7906114542897169561
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -680,7 +680,7 @@ AnimationClip:
   m_Events: []
 --- !u!206 &-7848738846474809997
 BlendTree:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -767,7 +767,7 @@ BlendTree:
   m_BlendType: 2
 --- !u!74 &-7815735865550605495
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1086,7 +1086,7 @@ AnimationClip:
     messageOptions: 0
 --- !u!74 &-7209570515472574266
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1516,7 +1516,7 @@ AnimatorStateMachine:
   m_DefaultState: {fileID: 773573866448576248}
 --- !u!74 &-6320775041601050149
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1602,7 +1602,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-6219577082478815556
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1891,7 +1891,7 @@ AnimationClip:
 --- !u!1102 &-5857405992932751907
 AnimatorState:
   serializedVersion: 5
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2230,13 +2230,13 @@ AnimatorStateTransition:
   m_TransitionOffset: 0
   m_ExitTime: 0
   m_HasExitTime: 0
-  m_HasFixedDuration: 0
+  m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!74 &-5135335817856339687
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2408,7 +2408,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-4971106326056630455
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2580,7 +2580,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-4735669443586099596
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2694,7 +2694,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-4401519085151672041
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2819,7 +2819,7 @@ AnimatorStateMachine:
   m_DefaultState: {fileID: -6050404034896393544}
 --- !u!74 &-4321011650229313325
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2991,7 +2991,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-4181318827450299673
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3102,7 +3102,7 @@ AnimatorStateTransition:
   m_CanTransitionToSelf: 1
 --- !u!74 &-4173423633199433656
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3274,7 +3274,7 @@ AnimationClip:
   m_Events: []
 --- !u!1101 &-4011480898146723486
 AnimatorStateTransition:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3296,7 +3296,7 @@ AnimatorStateTransition:
   m_CanTransitionToSelf: 1
 --- !u!74 &-3813066899084997876
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3468,7 +3468,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-3726272845532037999
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3579,7 +3579,7 @@ AnimatorStateTransition:
   m_CanTransitionToSelf: 1
 --- !u!74 &-3626191232435752953
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3665,7 +3665,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-3595727288545064330
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3837,7 +3837,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-3392935095082074965
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4095,7 +4095,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-3070641885639107725
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4181,7 +4181,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-2916914309501904657
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4267,7 +4267,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-2723332070796489401
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4353,7 +4353,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-2704240415824047396
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4439,7 +4439,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-2668239178909612681
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4525,7 +4525,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-2638356141434957455
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4784,7 +4784,7 @@ AnimationClip:
 --- !u!1102 &-2348653468276560789
 AnimatorState:
   serializedVersion: 5
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4811,7 +4811,7 @@ AnimatorState:
   m_TimeParameter: 
 --- !u!74 &-2013564002769287727
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4897,7 +4897,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-1898925230647844231
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5069,7 +5069,7 @@ AnimationClip:
   m_Events: []
 --- !u!206 &-1629332446207710548
 BlendTree:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5547,7 +5547,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-637699159272611162
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5633,7 +5633,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &-283998334186784544
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5741,7 +5741,7 @@ AnimatorStateTransition:
   m_CanTransitionToSelf: 1
 --- !u!74 &-193711715255872620
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5864,55 +5864,55 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: dirX_blend
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: dirY_blend
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: clockwise
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: counterClockwise
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: die
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: fly
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: straight
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: stopFly
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -6014,7 +6014,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &57622123360012457
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6101,7 +6101,7 @@ AnimationClip:
 --- !u!1102 &107593026435936323
 AnimatorState:
   serializedVersion: 5
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6127,7 +6127,7 @@ AnimatorState:
   m_TimeParameter: 
 --- !u!206 &117268675427237083
 BlendTree:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6386,7 +6386,7 @@ AnimationClip:
   m_Events: []
 --- !u!1101 &392670951853663823
 AnimatorStateTransition:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6702,7 +6702,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &669275986677128170
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6789,7 +6789,7 @@ AnimationClip:
 --- !u!1102 &773573866448576248
 AnimatorState:
   serializedVersion: 5
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -6905,7 +6905,7 @@ AnimationClip:
   m_Events: []
 --- !u!206 &1015383185992133405
 BlendTree:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -7275,7 +7275,7 @@ AnimatorStateTransition:
   m_CanTransitionToSelf: 1
 --- !u!74 &1789868299779489260
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -7447,7 +7447,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &1856497331403163143
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -7533,7 +7533,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &2006089317335500303
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -7619,7 +7619,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &2039958193423387848
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -7730,7 +7730,7 @@ AnimatorStateTransition:
   m_CanTransitionToSelf: 1
 --- !u!206 &2096857582053930580
 BlendTree:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -7817,7 +7817,7 @@ BlendTree:
   m_BlendType: 2
 --- !u!74 &2200984487722456769
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -7989,7 +7989,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &2299313415097522481
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8162,7 +8162,7 @@ AnimationClip:
 --- !u!1102 &2681030839152036591
 AnimatorState:
   serializedVersion: 5
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8192,7 +8192,7 @@ AnimatorState:
   m_TimeParameter: 
 --- !u!74 &2718850393540098869
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8278,7 +8278,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &2768618115053943290
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8390,7 +8390,7 @@ AnimatorStateTransition:
 --- !u!1102 &2802356547959813452
 AnimatorState:
   serializedVersion: 5
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8539,7 +8539,7 @@ AnimationClip:
     messageOptions: 0
 --- !u!74 &3107745249349033660
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8653,7 +8653,7 @@ AnimatorStateMachine:
   m_DefaultState: {fileID: 2802356547959813452}
 --- !u!74 &3159395149108015068
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8739,7 +8739,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &3470160216323157720
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -8936,7 +8936,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &3683042663714113417
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -9281,7 +9281,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &4089343177759744015
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -9565,7 +9565,7 @@ AnimatorStateTransition:
 --- !u!1102 &4360662673277105690
 AnimatorState:
   serializedVersion: 5
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -9628,7 +9628,7 @@ BlendTree:
   m_BlendType: 0
 --- !u!206 &4745219331559660269
 BlendTree:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -9715,7 +9715,7 @@ BlendTree:
   m_BlendType: 2
 --- !u!74 &4751399436150749603
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -9923,7 +9923,7 @@ AnimationClip:
     messageOptions: 0
 --- !u!206 &4875144308014359625
 BlendTree:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10010,7 +10010,7 @@ BlendTree:
   m_BlendType: 2
 --- !u!74 &4981796002760324305
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10182,7 +10182,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &5077538995200868005
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10293,7 +10293,7 @@ AnimatorStateTransition:
   m_CanTransitionToSelf: 1
 --- !u!74 &5124773457385447107
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10404,7 +10404,7 @@ AnimatorStateTransition:
   m_CanTransitionToSelf: 1
 --- !u!74 &5253419758875558524
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10662,7 +10662,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &5817266162216070297
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10748,7 +10748,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &5820963358743888025
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10834,7 +10834,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &5866328641493551280
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10945,7 +10945,7 @@ AnimatorStateTransition:
   m_CanTransitionToSelf: 1
 --- !u!74 &6004682490299316778
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -11333,7 +11333,7 @@ AnimatorStateTransition:
   m_CanTransitionToSelf: 1
 --- !u!74 &6728413325638358364
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -11419,7 +11419,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &6770933005051057877
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -11505,7 +11505,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &6808890658748205583
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -11713,7 +11713,7 @@ AnimationClip:
     messageOptions: 0
 --- !u!74 &6897251743792768380
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -11799,7 +11799,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &6916411505297903820
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -11885,7 +11885,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &6918430776403288872
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -11971,7 +11971,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &6995739339329481301
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -12057,7 +12057,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &7026684549262105169
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -12351,7 +12351,7 @@ AnimationClip:
     messageOptions: 0
 --- !u!74 &7176031439172168115
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -12437,7 +12437,7 @@ AnimationClip:
   m_Events: []
 --- !u!1101 &7185190011209174994
 AnimatorStateTransition:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -12462,7 +12462,7 @@ AnimatorStateTransition:
   m_CanTransitionToSelf: 1
 --- !u!74 &7264355317265810890
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -12548,7 +12548,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &7495525853359503075
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -12720,7 +12720,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &7674076268840254330
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -12978,7 +12978,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &8168061408594527315
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13064,7 +13064,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &8325278857874361376
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13150,7 +13150,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &8339724093777809794
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13408,7 +13408,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &8506741351258166271
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13580,7 +13580,7 @@ AnimationClip:
   m_Events: []
 --- !u!74 &8629990628284460991
 AnimationClip:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}

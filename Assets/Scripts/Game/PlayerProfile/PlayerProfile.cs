@@ -83,7 +83,7 @@ public class PlayerProfile {
             SetNetworkDirty();
             return prevHitpoints - playfield.currentHitpoints;
         } else {
-            Debug.LogWarning("playfield = null, in player profile: " + owner);
+            //Debug.LogWarning("playfield = null, in player profile: " + owner);
             return 0;
         }
     }

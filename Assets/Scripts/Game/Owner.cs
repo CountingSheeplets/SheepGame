@@ -22,11 +22,10 @@ public class Owner : MonoBehaviour {
     public bool ready {
         get { return _ready; }
         set {
+            GetMyTile().Ready(value);
+            if (_ready != value)
+                NetworkCoordinator.SendConfirmReady(deviceId, value);
             _ready = value;
-            PlayerOwnerTile tile = GetComponent<PlayerOwnerTile>();
-            if (tile != null)
-                tile.Ready(value);
-            NetworkCoordinator.SendConfirmReady(deviceId, value);
         }
     }
     bool _playAgain = false;
@@ -39,6 +38,13 @@ public class Owner : MonoBehaviour {
                 row.SetPlayAgain();
             NetworkCoordinator.SendConfirmPlayAgain(deviceId, value);
         }
+    }
+    PlayerOwnerTile myTile = null;
+    public PlayerOwnerTile GetMyTile() {
+        if (myTile == null) {
+            myTile = FindObjectsOfType<PlayerOwnerTile>().Where(x => x.myOwner.EqualsByValue(this)).FirstOrDefault();
+        }
+        return myTile;
     }
 
     [BitMask(typeof(OwnerType))]
@@ -130,13 +136,13 @@ public class Owner : MonoBehaviour {
     //use this instead of override obj, cause that is needed still to compare same component!
     public bool EqualsByValue(Owner obj) {
         //Debug.Log("ReferenceEquals:null:"+ReferenceEquals(null, obj));
-        if (ReferenceEquals(null, obj)) return false;
+        if (ReferenceEquals(null, obj))return false;
         //Debug.Log("ReferenceEquals:this:"+ReferenceEquals(this, obj));
-        if (ReferenceEquals(this, obj)) return true;
+        if (ReferenceEquals(this, obj))return true;
         //Debug.Log("GetType():this:"+ReferenceEquals(this, obj));
-        if (obj.GetType() != this.GetType()) return false;
+        if (obj.GetType() != this.GetType())return false;
         Owner c = obj as Owner;
-        if ((System.Object) c == null) {
+        if ((System.Object)c == null) {
             //Debug.Log("obj is null, false");
             return false;
         }

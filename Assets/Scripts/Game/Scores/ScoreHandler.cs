@@ -34,7 +34,7 @@ public class ScoreHandler : MonoBehaviour {
                 ScoreCoordinator.IncreaseScoreCounter(msg.owner, ScoreName.Achievement.GetThatAction(), 1);
         }
 
-        ScoreCoordinator.IncreaseScoreCounter(msg.targetOwner, ScoreName.Counter.Merchant(), (int) msg.targetOwner.GetPlayerProfile().GetMoneyEarned());
+        ScoreCoordinator.IncreaseScoreCounter(msg.targetOwner, ScoreName.Counter.Merchant(), (int)msg.targetOwner.GetPlayerProfile().GetMoneyEarned());
         if (SheepCoordinator.GetSheeps(msg.targetOwner).Where(x => x.sheepType == SheepType.None).ToList().Count == 0)
             ScoreCoordinator.IncreaseScoreCounter(msg.targetOwner, ScoreName.Achievement.Education(), 1);
     }
@@ -55,10 +55,15 @@ public class ScoreHandler : MonoBehaviour {
             ScoreCoordinator.IncreaseScoreCounter(highestSmiter, ScoreName.Achievement.Paladin(), 1);
         }
         ScoreCoordinator.CalculateTier2TechCounts();
+        foreach (Owner owner in OwnersCoordinator.GetOwners()) {
+            int total = ScoreCoordinator.GetTotalPlayerScores(owner);
+            total = owner.GetPlayerProfile().isAlive ? total * 2 : total;
+            owner.GetPlayerProfile().SetCrowns(total);
+        }
     }
     void OnKingSmashed(GameMessage msg) {
         if (sheepsSmited.ContainsKey(msg.owner))
-            if (msg.sheepUnits.Count < sheepsSmited[msg.owner]) return;
+            if (msg.sheepUnits.Count < sheepsSmited[msg.owner])return;
 
         sheepsSmited[msg.owner] = msg.sheepUnits.Count;
     }

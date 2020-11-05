@@ -5,20 +5,21 @@ using UnityEngine;
 public class ScoreNetworkWriter : MonoBehaviour {
     List<Owner> eliminatedOwners = new List<Owner>();
     void Start() {
-        EventCoordinator.StartListening(EventName.System.Environment.EndMatch(), OnEndMatch);
+        EventCoordinator.StartListening(EventName.UI.ShowScoreScreen(), OnScoresShow);
         EventCoordinator.StartListening(EventName.System.Player.Eliminated(), OnEliminated);
     }
     void OnDestroy() {
-        EventCoordinator.StopListening(EventName.System.Environment.EndMatch(), OnEndMatch);
+        EventCoordinator.StopListening(EventName.UI.ShowScoreScreen(), OnScoresShow);
         EventCoordinator.StopListening(EventName.System.Player.Eliminated(), OnEliminated);
     }
-    void OnEndMatch(GameMessage msg) {
-        PlayerScores playerScores = ScoreCoordinator.GetPlayerScores(msg.owner);
-        int total = ScoreCoordinator.GetTotalPlayerScores(msg.owner);
-        msg.owner.GetPlayerProfile().SetCrowns(total);
-        Debug.Log("Sending winner Scores:::" + playerScores.ToString());
-        NetworkCoordinator.SendPlayerScores(msg.owner.deviceId, true, playerScores.scores, total);
-        Debug.Log("total score:" + total);
+    void OnScoresShow(GameMessage msg) {
+        foreach (Owner owner in OwnersCoordinator.GetOwners()) {
+            PlayerScores playerScores = ScoreCoordinator.GetPlayerScores(owner);
+            int total = ScoreCoordinator.GetTotalPlayerScores(owner);
+            Debug.Log("Sending winner Scores:::" + playerScores.ToString());
+            NetworkCoordinator.SendPlayerScores(owner.deviceId, owner.GetPlayerProfile().isAlive, playerScores.scores, total);
+            Debug.Log("total score:" + total);
+        }
     }
     void OnEliminated(GameMessage msg) {
         if (!eliminatedOwners.Contains(msg.targetOwner))

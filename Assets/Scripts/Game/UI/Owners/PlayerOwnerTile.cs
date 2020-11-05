@@ -7,7 +7,10 @@ public class PlayerOwnerTile : MonoBehaviour {
     public TextMeshProUGUI crownCountText;
     Animator animator;
     public void Ready(bool state) {
-        animator.SetTrigger("startLoop");
+        if (state)
+            animator.SetTrigger("startLoop");
+        else
+            animator.SetTrigger("stopLoop");
     }
     public void SetOwner(Owner owner) {
         myOwner = owner;
