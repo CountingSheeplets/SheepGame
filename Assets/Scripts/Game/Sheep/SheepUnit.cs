@@ -19,7 +19,7 @@ public class SheepUnit : MonoBehaviour {
     public bool isRoaming = false;
     public float radius = 0.5f;
     //[BitMask(typeof(SheepType))]
-    public SheepType sheepType;
+    public SheepType sheepType = SheepType.Base;
     bool _isTrenching = false;
     public delegate void OnStateChange(bool state);
     public OnStateChange onIsTrenchingChange;

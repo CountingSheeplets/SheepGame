@@ -63,6 +63,8 @@ public class UpgradeBucket : Singleton<UpgradeBucket> {
                 return "Shovel.Shovel";
             case SheepType.Tank:
                 return "Shield.Shield";
+            case SheepType.Base:
+                return " . ";
         }
         return "";
     }

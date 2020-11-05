@@ -56,7 +56,7 @@ public class SheepCoordinator : Singleton<SheepCoordinator> {
     }
     public class SheepSlot {
         public SheepUnit sheep = null;
-        public SheepType slotType = SheepType.None;
+        public SheepType slotType = SheepType.Base;
     }
     public class SheepStack {
         public List<SheepSlot> sheepSlots = new List<SheepSlot>();

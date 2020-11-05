@@ -81,7 +81,7 @@ MonoBehaviour:
   _persistent: 0
   flySpeeds:
   - speed: 2
-    sheepType: 0
+    sheepType: 8
   - speed: 3
     sheepType: 1
   - speed: 2
@@ -98,7 +98,7 @@ MonoBehaviour:
     sheepType: 7
   runSpeeds:
   - speed: 2
-    sheepType: 0
+    sheepType: 8
   - speed: 3
     sheepType: 1
   - speed: 2
@@ -115,7 +115,7 @@ MonoBehaviour:
     sheepType: 7
   roamSpeeds:
   - speed: 0.6
-    sheepType: 0
+    sheepType: 8
   - speed: 1
     sheepType: 1
   - speed: 0.5
@@ -132,7 +132,7 @@ MonoBehaviour:
     sheepType: 7
   swimSpeeds:
   - speed: 0.2
-    sheepType: 0
+    sheepType: 8
   - speed: 0.1
     sheepType: 1
   - speed: 0.2
@@ -149,7 +149,7 @@ MonoBehaviour:
     sheepType: 7
   knockbackSpeeds:
   - speed: 3
-    sheepType: 0
+    sheepType: 8
   - speed: 3
     sheepType: 1
   - speed: 3
@@ -166,7 +166,7 @@ MonoBehaviour:
     sheepType: 7
   fallSpeeds:
   - speed: 0.3
-    sheepType: 0
+    sheepType: 8
   - speed: 0.3
     sheepType: 1
   - speed: 0.3
@@ -200,7 +200,7 @@ MonoBehaviour:
     upgradeDisplayName: small and fast
     upgradeCodeName: SheepUpgrade_Small
     upgradeDescription: does everything faster and eats more grass
-    sheepTypeInput: 0
+    sheepTypeInput: 8
     sheepTypeOutput: 1
   - priceUpgrade: 0
     slot: 1
@@ -222,7 +222,7 @@ MonoBehaviour:
     upgradeDisplayName: armored
     upgradeCodeName: SheepUpgrade_Armored
     upgradeDescription: moves slower to launch location thus delaying a launch
-    sheepTypeInput: 0
+    sheepTypeInput: 8
     sheepTypeOutput: 4
   - priceUpgrade: 0
     slot: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
     upgradeCodeName: King_BuySheep
     upgradeDescription: None
     sheepTypeInput: 0
-    sheepTypeOutput: 0
+    sheepTypeOutput: 8
 --- !u!114 &8604118487354306396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,7 +297,7 @@ MonoBehaviour:
   attackAnimationClip: {fileID: -3818177995494078928, guid: 892bd7dc638408645a3f762096feb6f8,
     type: 2}
   headbutStarsTimer: 2
-  startingGold: 100
+  startingGold: 10
   playerColors:
   - {r: 0.23921569, g: 0.58431375, b: 0.80784315, a: 1}
   - {r: 0.8392157, g: 0.29803923, b: 0.4, a: 1}
@@ -399,7 +399,7 @@ MonoBehaviour:
   _persistent: 0
   strengths:
   - knockStrength: 1
-    sheepType: 0
+    sheepType: 8
   - knockStrength: 1.25
     sheepType: 1
   - knockStrength: 1.5

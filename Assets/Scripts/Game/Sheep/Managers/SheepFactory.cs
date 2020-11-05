@@ -23,18 +23,6 @@ public class SheepFactory : Singleton<SheepFactory> {
 
         GameObject newSheepModel = CreateSheepModel(owner, newSheepGO.transform);
 
-        //set random direction:
-        /*         SpineContainerEightDirWalk container = newSheepModel.GetComponent<SpineContainerEightDirWalk>();
-                SkeletonMecanim skMecanim = container.GetComponent<SkeletonMecanim>();
-                foreach (Spine.Slot slot in skMecanim.skeleton.Slots) {
-                    if (slot.Data.Name.Contains("Color")) {
-                        Color newColor = owner.GetPlayerProfile().playerColor;
-                        newColor.a = slot.GetColor().a;
-                        Debug.Log("setting color of component: " + slot.Data.Name + "  to:" + newColor);
-                        slot.SetColor(newColor);
-                    }
-                } */
-
         newSheepModel.GetComponent<SpineContainerBlendsEight>().SetInitialRandomDirection();
         return sheep;
     }

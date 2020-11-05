@@ -15,8 +15,9 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         JObject json = new JObject();
         json["type"] = "changeView";
         json["value"] = view;
+        json["deviceId"] = deviceId;
         Debug.Log("AirConsole-Send:" + json);
-        TrySend(deviceId, json);
+        NetworkImportantCoordinator.SendImportant(deviceId, json);
     }
     public static void SendShowViewAll(string view) {
         NetworkObject newNetObj = new NetworkObject("changeView", view);
