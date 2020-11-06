@@ -54,8 +54,11 @@ public class KingAttackController : MonoBehaviour {
     }
 
     void OnSmashed(GameMessage msg) {
+        if (playfield == null)playfield = GetComponentInParent<Playfield>();
         if (msg.owner.EqualsByValue(playfield.owner)) {
-            sheepInField = sheepInField.Where(item => item != null).Where(sheep => sheep.currentPlayfield == playfield).ToList();
+            foreach (SheepUnit sheep in msg.sheepUnits)
+                sheepInField.Remove(sheep);
+            //sheepInField = sheepInField.Where(item => item != null).Where(sheep => sheep.currentPlayfield == playfield).ToList();
             if (!kingCharge.isCharging)
                 ChargeNextTarget();
         }

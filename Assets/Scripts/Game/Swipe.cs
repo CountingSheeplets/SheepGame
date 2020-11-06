@@ -23,7 +23,7 @@ public class Swipe {
         rawVector = new Vector2((float)message["endPointCentered"][0], (float)message["endPointCentered"][1]); //ok?
         normalizedVector = rawVector.normalized; //ok?
         //initial = new Vector2(-(float)message["initial"][0], (float)message["initial"][1]); //ok? 
-        distance = 0.5f * rawVector.magnitude;
+        distance = 0.75f * rawVector.magnitude;
     }
     public Swipe() {
         //speed = Random.Range(10, 32); //ok?

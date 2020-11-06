@@ -20,8 +20,7 @@ public class KingSmash : MonoBehaviour {
     }
 
     void SendSheepFly(List<SheepUnit> sheeps) {
-
-        Debug.Log("sheeps: " + sheeps.Count);
+        Debug.Log("sheeps smashed: " + sheeps.Count);
         foreach (SheepUnit sheep in sheeps) {
             SheepFly fly = sheep.GetComponent<SheepFly>();
             Vector2 destination = GetDestinatinoVector(sheep.transform);

@@ -14,8 +14,8 @@ public class KingSmashTimer : MonoBehaviour {
 
     void Start() {
         smashTime = ConstantsBucket.SmashSpeed;
-        if (king == null) king = GetComponent<KingUnit>();
-        if (owner == null) owner = king.owner;
+        if (king == null)king = GetComponent<KingUnit>();
+        if (owner == null)owner = king.owner;
         EventCoordinator.StartListening(EventName.System.King.StartSmash(), OnStartSmash);
     }
     void OnDestroy() {
@@ -35,14 +35,19 @@ public class KingSmashTimer : MonoBehaviour {
             counter += Time.deltaTime;
         if (counter >= smashTime) {
             List<SheepUnit> sheepWithinRange = SheepCoordinator.GetSheepInField(king.myPlayfield)
-                .Where(x => !x.owner.EqualsByValue(king.owner))
+                .Where(x => !x.owner.EqualsByValue(king.owner) && x.sheepType != SheepType.Tank)
                 //.Where(x => (x.GetComponent<Transform>().position - transform.position).magnitude <= ConstantsBucket.KingSmiteRange)
-                .Where(x => x.sheepType != SheepType.Tank)
                 //.Where(x => !x.isReadyToFly)
                 .ToList();
-            EventCoordinator.TriggerEvent(EventName.System.King.Smashed(), smashMsg.WithSheepUnits(sheepWithinRange).WithCoordinates(king.transform.localPosition).WithOwner(owner));
+            string smashedSHeep = "";
+            foreach (SheepUnit sheep in SheepCoordinator.GetSheepInField(king.myPlayfield)
+                .Where(x => !x.owner.EqualsByValue(king.owner))) {
+                smashedSHeep += sheep.name;
+            }
+            //Debug.Log("sheep to smash: " + smashedSHeep);
             counter = 0f;
             king.StopUsingAbility();
+            EventCoordinator.TriggerEvent(EventName.System.King.Smashed(), smashMsg.WithSheepUnits(sheepWithinRange).WithCoordinates(king.transform.localPosition).WithOwner(king.owner));
         }
     }
 }

@@ -63,7 +63,7 @@ public class ScoreCoordinator : Singleton<ScoreCoordinator> {
         if (Instance.techTier2Counts.Count == 0)
             return;
         Owner highestTier2Upgrader = Instance.techTier2Counts.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
-        IncreaseScoreCounter(highestTier2Upgrader, ScoreName.Achievement.Baaah(), Instance.techTier2Counts[highestTier2Upgrader]);
+        IncreaseScoreCounter(highestTier2Upgrader, ScoreName.Achievement.Baaah(), 1);
     }
 
 }

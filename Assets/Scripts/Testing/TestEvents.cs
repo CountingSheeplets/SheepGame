@@ -113,12 +113,12 @@ public class TestEvents : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
             Debug.Log("first owner gets first upgrade....");
-            Owner upgrader = OwnersCoordinator.Instance.owners[0];
+            Owner upgrader = OwnersCoordinator.Instance.owners[1];
             EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType)0));
         }
         if (Input.GetKeyDown(KeyCode.Alpha2)) {
             Debug.Log("first owner gets first upgrade....");
-            Owner upgrader = OwnersCoordinator.Instance.owners[0];
+            Owner upgrader = OwnersCoordinator.Instance.owners[1];
             EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType)1));
         }
     }

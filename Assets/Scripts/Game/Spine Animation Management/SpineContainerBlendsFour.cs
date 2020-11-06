@@ -55,7 +55,6 @@ public class SpineContainerBlendsFour : MonoBehaviour, IAnimatableDirection {
         anim.SetTrigger("attack");
     }
     public void StopWalking() {
-        Debug.Log("stopWalk");
         anim.SetTrigger("stopWalk");
     }
     public void StopFlying() {

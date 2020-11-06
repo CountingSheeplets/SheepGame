@@ -25,7 +25,7 @@ public class PlayfieldSmiteHandler : MonoBehaviour {
         SelectRandomSprite();
         trigger = true;
         visibility = 1f;
-        Vector2 relativePosition = msg.coordinates / ConstantsBucket.PlayfieldSize; //     GridSize * 2.2f;
+        Vector2 relativePosition = msg.coordinates / ConstantsBucket.PlayfieldSize * 2f; //     GridSize * 2.2f;
         rend.material.SetVector("_SmashPosition", relativePosition);
         rend.material.SetFloat("_SmashCrackLevel", visibility);
     }

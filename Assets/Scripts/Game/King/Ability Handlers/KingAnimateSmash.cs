@@ -16,7 +16,8 @@ public class KingAnimateSmash : MonoBehaviour {
     }
     void OnStartSmash(GameMessage msg) {
         foreach (AnimatorControllerParameter parameter in anim.parameters) {
-            anim.ResetTrigger(parameter.name);
+            if (parameter.type == AnimatorControllerParameterType.Trigger)
+                anim.ResetTrigger(parameter.name);
         }
         if (msg.kingUnit == king) {
             anim.SetTrigger("smash");
