@@ -297,6 +297,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 3
   m_RendererPriority: 0
   m_Materials:
@@ -422,6 +423,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -591,7 +593,6 @@ MonoBehaviour:
   ownerId: 0
   deviceId: 0
   ownerName: 
-  isHero: 0
   teamId: 0
   connected: 0
   ownerType: 0
@@ -669,7 +670,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e30bd61c2b162479c49e09fa778c6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _persistent: 0
   grassDamageParticleFxPrefab: {fileID: 1349599891588174301, guid: 568eb5479fe4e534aa8b55dc813c9ed2,
     type: 3}
 --- !u!1001 &683977878859460573

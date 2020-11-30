@@ -10,6 +10,7 @@ public class SheepBounceHandler : MonoBehaviour {
         EventCoordinator.StopListening(EventName.System.Sheep.KingMissed(), OnMiss);
     }
     void OnMiss(GameMessage msg) {
+        if (msg.playfield == null)return;
         KingUnit king = KingCoordinator.GetKing(msg.playfield);
         if (msg.playfield != msg.sheepUnit.owner.GetPlayfield())
             if (msg.sheepUnit.sheepType == SheepType.Bouncy) {

@@ -11,12 +11,14 @@ public class KingChangeSize : MonoBehaviour {
     }
     public void StartIncreasingSize(int _steps) {
         targetScale = defaultScale * Mathf.Pow(1 + ConstantsBucket.KingHitRadiusIncrement, _steps);
-        GetComponent<BaseUnitMove>().SetScale();
+        if (GetComponent<BaseUnitMove>())
+            GetComponent<BaseUnitMove>().SetScale();
         StartCoroutine(IncreaseSize());
     }
     public void StartResetingSize() {
         targetScale = defaultScale;
-        GetComponent<BaseUnitMove>().SetScale();
+        if (GetComponent<BaseUnitMove>())
+            GetComponent<BaseUnitMove>().SetScale();
         StartCoroutine(IncreaseSize());
     }
     IEnumerator IncreaseSize() {
@@ -41,5 +43,5 @@ public class KingChangeSize : MonoBehaviour {
         yield return null;
     }
 
-    public virtual void PostScaleChangeAction() { }
+    public virtual void PostScaleChangeAction() {}
 }

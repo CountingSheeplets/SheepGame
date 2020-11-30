@@ -24,7 +24,7 @@ public class GoldRewardCoordinator : Singleton<GoldRewardCoordinator> {
         RewardGold(owner, GoldRewardBucket.SheepLandFieldFlat);
     }
     public static int GetComboMultiplier(Owner owner) {
-        return (int) (Mathf.Pow(2, GetComboLevel(owner)));
+        return (int)(Mathf.Pow(2, GetComboLevel(owner)));
     }
     public static void RewardOnKingKingHit(Owner owner) {
         int comboMult = GetComboMultiplier(owner);
@@ -43,10 +43,12 @@ public class GoldRewardCoordinator : Singleton<GoldRewardCoordinator> {
             bonus = GoldRewardBucket.GreedySheepBonusMoney;
         RewardGold(owner, GoldRewardBucket.SheepOtherPlayerThrow + bonus);
     }
-
     public static void RewardGold(PlayerProfile profile, float amount) {
+        RewardGold(profile, amount, null);
+    }
+    public static void RewardGold(PlayerProfile profile, float amount, Transform source) {
         float current = profile.AddMoney(amount); // * NoGrassMultipler(profile.owner));
-        EventCoordinator.TriggerEvent(EventName.System.Economy.GoldChanged(), GameMessage.Write().WithDeltaFloat(amount).WithTargetFloat(current).WithOwner(profile.owner));
+        EventCoordinator.TriggerEvent(EventName.System.Economy.GoldChanged(), GameMessage.Write().WithDeltaFloat(amount).WithTargetFloat(current).WithOwner(profile.owner).WithTransform(source));
     }
     public static void RewardGold(Owner owner, float amount) {
         RewardGold(owner.GetPlayerProfile(), amount); // * NoGrassMultipler(owner));

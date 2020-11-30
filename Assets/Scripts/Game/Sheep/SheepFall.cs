@@ -8,7 +8,7 @@ public class SheepFall : BaseUnitMove {
     SortingGroup sGroup;
     void Start() {
         if (sheep == null)sheep = GetComponent<SheepUnit>();
-        if (!sGroup)sGroup = sheep.GetComponentInChildren<SortingGroup>();
+        if (sGroup == null)sGroup = sheep.GetComponentInChildren<SortingGroup>();
         EventCoordinator.StartListening(EventName.System.Sheep.Land(), OnLand);
     }
     void OnDestroy() {
@@ -36,11 +36,12 @@ public class SheepFall : BaseUnitMove {
                     if (fly != null)
                         this.StartFalling(SpeedBucket.GetFallSpeed(sheep.sheepType), fallDirection);
                     else
-                        EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(sheep));
+                        this.StartFalling(SpeedBucket.GetFallSpeed(sheep.sheepType), Vector2.zero);
+                    //EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(sheep));
                 }
-            } else {
-                EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(sheep));
-            }
+            } //else {
+            //   EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(sheep));
+            //}
         }
     }
     public override void PostMoveAction() {
