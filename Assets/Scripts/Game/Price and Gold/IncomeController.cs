@@ -31,9 +31,9 @@ public class IncomeController : MonoBehaviour {
                 //your greedy sheep rewards:
                 foreach (SheepUnit sheep in greedySheep) {
                     if (!owner.EqualsByValue(sheep.owner))
-                        GoldRewardCoordinator.RewardGold(sheep.owner.GetPlayerProfile(), baseReward + 2, sheep.transform);
+                        GoldRewardCoordinator.RewardGold(sheep.owner.GetPlayerProfile(), baseReward + GoldRewardBucket.GreedySheepBonusMoney, sheep.transform);
                     else
-                        GoldRewardCoordinator.RewardGold(sheep.owner.GetPlayerProfile(), 2, sheep.transform);
+                        GoldRewardCoordinator.RewardGold(sheep.owner.GetPlayerProfile(), GoldRewardBucket.GreedySheepBonusMoney, sheep.transform);
                 }
             }
         }

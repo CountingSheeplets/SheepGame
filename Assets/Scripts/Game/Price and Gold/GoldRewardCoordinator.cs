@@ -20,28 +20,22 @@ public class GoldRewardCoordinator : Singleton<GoldRewardCoordinator> {
     public static void ResetCombo(Owner owner) {
         Instance.combos[owner] = 0;
     }
-    public static void RewardOnFieldLand(Owner owner) {
-        RewardGold(owner, GoldRewardBucket.SheepLandFieldFlat);
+    public static void RewardOnFieldLand(Owner owner, Transform tr) {
+        RewardGold(owner, GoldRewardBucket.SheepLandFieldFlat, tr);
     }
     public static int GetComboMultiplier(Owner owner) {
         return (int)(Mathf.Pow(2, GetComboLevel(owner)));
     }
-    public static void RewardOnKingKingHit(Owner owner) {
+    public static void RewardOnKingKingHit(Owner owner, Transform tr) {
         int comboMult = GetComboMultiplier(owner);
-        RewardGold(owner, GoldRewardBucket.SheepKingHitFlat * comboMult);
+        RewardGold(owner, GoldRewardBucket.SheepKingHitFlat * comboMult, tr);
         IncreaseCombo(owner);
     }
-    public static void RewardOnSelfThrow(Owner owner, bool isGreedy) {
-        float bonus = 0;
-        if (isGreedy)
-            bonus = GoldRewardBucket.GreedySheepBonusMoney;
-        RewardGold(owner, GoldRewardBucket.SheepSelfThrow + bonus);
+    public static void RewardOnSelfThrow(Owner owner, Transform tr) {
+        RewardGold(owner, GoldRewardBucket.SheepSelfThrow, tr);
     }
-    public static void RewardOnOtherThrow(Owner owner, bool isGreedy) {
-        float bonus = 0;
-        if (isGreedy)
-            bonus = GoldRewardBucket.GreedySheepBonusMoney;
-        RewardGold(owner, GoldRewardBucket.SheepOtherPlayerThrow + bonus);
+    public static void RewardOnOtherThrow(Owner owner, Transform tr) {
+        RewardGold(owner, GoldRewardBucket.SheepOtherPlayerThrow, tr);
     }
     public static void RewardGold(PlayerProfile profile, float amount) {
         RewardGold(profile, amount, null);
@@ -52,6 +46,9 @@ public class GoldRewardCoordinator : Singleton<GoldRewardCoordinator> {
     }
     public static void RewardGold(Owner owner, float amount) {
         RewardGold(owner.GetPlayerProfile(), amount); // * NoGrassMultipler(owner));
+    }
+    public static void RewardGold(Owner owner, float amount, Transform tr) {
+        RewardGold(owner.GetPlayerProfile(), amount, tr); // * NoGrassMultipler(owner));
     }
     /*     static float NoGrassMultipler(Owner owner) {
             if (owner.GetPlayerProfile().GetGrass() > 0) {

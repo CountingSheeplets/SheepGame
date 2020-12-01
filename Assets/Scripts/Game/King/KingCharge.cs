@@ -17,10 +17,10 @@ public class KingCharge : BaseUnitMove {
     void Awake() {
         king = GetComponent<KingUnit>();
         //attackAnimation = ConstantsBucket.AttackSpeed;
-        EventCoordinator.StartListening(EventName.System.King.Smashed(), OnSmashed);
+        EventCoordinator.StartListening(EventName.System.King.StartSmash(), OnSmashed);
     }
     void OnDestroy() {
-        EventCoordinator.StopListening(EventName.System.King.Smashed(), OnSmashed);
+        EventCoordinator.StopListening(EventName.System.King.StartSmash(), OnSmashed);
     }
     public void StartCharging(Vector2 _destination) {
         isCharging = true;

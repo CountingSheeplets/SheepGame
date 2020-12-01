@@ -4,8 +4,8 @@ using System.Linq;
 using UnityEngine;
 
 public class KingSmashTimer : MonoBehaviour {
-    public List<Vector2> destinations = new List<Vector2>();
-    public List<Vector2> initPos = new List<Vector2>();
+    //public List<Vector2> destinations = new List<Vector2>();
+    //public List<Vector2> initPos = new List<Vector2>();
     Owner owner;
     KingUnit king;
     float counter = 0f;
@@ -28,8 +28,8 @@ public class KingSmashTimer : MonoBehaviour {
         }
     }
     void Update() {
-        for (int i = 0; i < destinations.Count; i++)
-            Debug.DrawLine(initPos[i], destinations[i], king.owner.GetPlayerProfile().playerColor);
+        //for (int i = 0; i < destinations.Count; i++)
+        //    Debug.DrawLine(initPos[i], destinations[i], king.owner.GetPlayerProfile().playerColor);
 
         if (king.GetIsUsingAbility())
             counter += Time.deltaTime;
@@ -40,11 +40,10 @@ public class KingSmashTimer : MonoBehaviour {
                 //.Where(x => !x.isReadyToFly)
                 .ToList();
             string smashedSHeep = "";
-            foreach (SheepUnit sheep in SheepCoordinator.GetSheepInField(king.myPlayfield)
-                .Where(x => !x.owner.EqualsByValue(king.owner))) {
-                smashedSHeep += sheep.name;
+            foreach (SheepUnit sheep in sheepWithinRange) { //SheepCoordinator.GetSheepInField(king.myPlayfield).Where(x => !x.owner.EqualsByValue(king.owner))) {
+                smashedSHeep += sheep.name + "  ";
             }
-            //Debug.Log("sheep to smash: " + smashedSHeep);
+            Debug.Log("sheep found in field to smash: " + smashedSHeep);
             counter = 0f;
             king.StopUsingAbility();
             EventCoordinator.TriggerEvent(EventName.System.King.Smashed(), smashMsg.WithSheepUnits(sheepWithinRange).WithCoordinates(king.transform.localPosition).WithOwner(king.owner));

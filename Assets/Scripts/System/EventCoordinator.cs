@@ -40,21 +40,21 @@ public class EventCoordinator : Singleton<EventCoordinator> {
         }
     }
     public static void StopListening(string eventName, UnityAction<GameMessage> listener) {
-        if (Instance == null) return;
+        if (Instance == null)return;
         UnityGameEvent thisEvent = null;
         if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent)) {
             thisEvent.RemoveListener(listener);
         }
     }
     public static void Detach(string eventName, UnityAction<GameMessage> listener) {
-        if (Instance == null) return;
+        if (Instance == null)return;
         UnityGameEvent thisEvent = null;
         if (Instance.attachmentsDictionary.TryGetValue(eventName, out thisEvent)) {
             thisEvent.RemoveListener(listener);
         }
     }
     public static void TriggerEvent(string eventName, GameMessage message) {
-        if (Instance == null) return;
+        if (Instance == null)return;
         List<string> ignoreList = new List<string>();
         if (Instance.enableDebugging == true) {
             ignoreList.Add(EventName.System.Sheep.Roam());
@@ -74,6 +74,11 @@ public class EventCoordinator : Singleton<EventCoordinator> {
                     Debug.LogWarning("M:" + eventName + ": " + DebugHelper.PrintGameMessage(message));
             }
             thisEvent.Invoke(message);
+            /*             try {
+                            thisEvent.Invoke(message);
+                        } catch {
+                            Debug.LogError("EventCoordinator event.Invoke failed: " + eventName + "  <with message>:  " + DebugHelper.PrintGameMessage(message));
+                        } */
         }
         if (Instance.attachmentsDictionary.TryGetValue(eventName, out thisEvent)) {
             /*             if (Instance.enableDebugging == true){
@@ -81,6 +86,11 @@ public class EventCoordinator : Singleton<EventCoordinator> {
                                 Debug.LogWarning("A:"+eventName + ": " + message);
                         } */
             thisEvent.Invoke(message);
+            /*             try {
+                            thisEvent.Invoke(message);
+                        } catch {
+                            Debug.LogError("EventCoordinator attachment.Invoke failed: " + eventName + "  <with message>:  " + DebugHelper.PrintGameMessage(message));
+                        } */
         }
     }
     public static bool HasEvent(string eventName, UnityAction<GameMessage> listener) {

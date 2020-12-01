@@ -160,7 +160,7 @@ MonoBehaviour:
     sheepType: 4
   - speed: 3
     sheepType: 5
-  - speed: 0.5
+  - speed: 1
     sheepType: 6
   - speed: 3
     sheepType: 7
@@ -271,7 +271,7 @@ MonoBehaviour:
   sheepSpawnCapIncrement: 1
   sheepSpawnPeriod: 1.5
   sheepSpawnUpgradeDecrement: 0.05
-  sheepThrowStrength: 1
+  sheepThrowStrength: 0.1
   eatInterval: 1
   incrementalEatValue: 0.05
   roamInterval: 1
@@ -291,6 +291,7 @@ MonoBehaviour:
   smashEffectDelay: -0.2
   smashAnimationClip: {fileID: -1827790361219284835, guid: 892bd7dc638408645a3f762096feb6f8,
     type: 2}
+  smashFlyDistance: 3
   attackEffectDelay: 0
   attackAnimationClip: {fileID: -3818177995494078928, guid: 892bd7dc638408645a3f762096feb6f8,
     type: 2}

@@ -30,8 +30,23 @@ public class Swipe {
         float deltaX = Random.Range(-1f, 1f);
         float deltaY = Random.Range(-1f, 1f);
         normalizedVector = new Vector2(deltaX, deltaY).normalized; //ok?
+        angleEuler = (int)SignedAngleBetween(Vector2.up, normalizedVector);
         //initial = new Vector2(-(float)Random.Range(0f, 100f), (float)Random.Range(0f, 100f)); //ok? 
         distance = Random.Range(50f, 80f);
+    }
+    float SignedAngleBetween(Vector3 a, Vector3 b) {
+        // angle in [0,180]
+        Vector3 n = Vector3.forward;
+        float angle = Vector3.Angle(a, b);
+        float sign = Mathf.Sign(Vector3.Dot(n, Vector3.Cross(a, b)));
+
+        // angle in [-179,180]
+        float signed_angle = angle * sign;
+
+        // angle in [0,360] (not used but included here for completeness)
+        //float angle360 =  (signed_angle + 180) % 360;
+
+        return signed_angle;
     }
     public void ToZeroKing() {
         KingUnit king = KingCoordinator.GetKings()[0];

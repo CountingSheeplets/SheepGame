@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 public class KingSmash : MonoBehaviour {
     Owner owner;
-    public float flyDistance = 2f;
     KingUnit king;
     void Start() {
         if (king == null)king = GetComponent<KingUnit>();
@@ -20,18 +19,18 @@ public class KingSmash : MonoBehaviour {
     }
 
     void SendSheepFly(List<SheepUnit> sheeps) {
-        Debug.Log("sheeps smashed: " + sheeps.Count);
+        //Debug.Log("sheeps smashed: " + sheeps.Count);
         foreach (SheepUnit sheep in sheeps) {
             SheepFly fly = sheep.GetComponent<SheepFly>();
-            Vector2 destination = GetDestinatinoVector(sheep.transform);
+            Vector2 destination = GetDestinationVector(sheep.transform);
             sheep.lastHandler = king.owner;
             fly.StartFlying(SpeedBucket.GetKnockbackSpeed(sheep.sheepType), destination);
         }
     }
-    Vector2 GetDestinatinoVector(Transform sheepTr) {
+    Vector2 GetDestinationVector(Transform sheepTr) {
         Vector2 direction = (sheepTr.position - transform.position).normalized;
-        //Debug.Log("SMASH: king:"+transform.position+" sheep:"+sheepTr.position+"  dir:"+direction);
-        Vector2 destination = direction * flyDistance;
+        Debug.Log("SMASH: king:" + transform.position + " sheep:" + sheepTr.position + "  dir:" + direction);
+        Vector2 destination = direction * ConstantsBucket.SmashFlyDistance;
         return destination + (Vector2)sheepTr.position;
     }
 }

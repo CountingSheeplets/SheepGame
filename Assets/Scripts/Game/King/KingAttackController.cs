@@ -7,9 +7,11 @@ public class KingAttackController : MonoBehaviour {
     public Playfield playfield;
     public SheepUnit nextTarget = null;
     KingCharge kingCharge;
+    KingUnit kingUnit;
     float kingAttackDistance = 0.5f;
     void Start() {
         kingCharge = GetComponent<KingCharge>();
+        kingUnit = GetComponent<KingUnit>();
         kingCharge.animEndedCallback += OnAttackAnimationEnded;
         EventCoordinator.StartListening(EventName.System.Sheep.Land(), OnLand);
         EventCoordinator.StartListening(EventName.System.King.Smashed(), OnSmashed);
@@ -34,7 +36,7 @@ public class KingAttackController : MonoBehaviour {
                 if (!kingCharge.isCharging)
                     ChargeNextTarget();
                 else {
-                    Debug.Log("OnLand wont charge, because already charging");
+                    //Debug.Log("OnLand wont charge, because already charging");
                 }
             } else {
                 if (sheepInField.Contains(msg.sheepUnit)) {
@@ -75,6 +77,7 @@ public class KingAttackController : MonoBehaviour {
         sheep.ResetContainer();
     }
     void ChargeNextTarget() {
+        if (kingUnit.GetIsUsingAbility())return;
         if (sheepInField.Count == 0)
             //Debug.Log("nothing to charge at... Count = 0");
             return;

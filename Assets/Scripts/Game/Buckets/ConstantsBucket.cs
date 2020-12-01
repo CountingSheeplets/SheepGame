@@ -102,6 +102,9 @@ public class ConstantsBucket : Singleton<ConstantsBucket> {
     [SerializeField] AnimationClip smashAnimationClip;
     public static float SmashSpeed { get { return Instance.smashAnimationClip.length / (1f - Instance.smashEffectDelay); } }
 
+    [SerializeField] float smashFlyDistance = 3f;
+    public static float SmashFlyDistance { get { return Instance.smashFlyDistance; } }
+
     [SerializeField] float attackEffectDelay = 0f;
     [SerializeField] AnimationClip attackAnimationClip;
     public static float AttackSpeed { get { return Instance.attackAnimationClip.length / (2f - Instance.attackEffectDelay); } }
