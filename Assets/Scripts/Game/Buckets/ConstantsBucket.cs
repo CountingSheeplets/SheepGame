@@ -141,4 +141,14 @@ public class ConstantsBucket : Singleton<ConstantsBucket> {
     [Header("Other")]
     [SerializeField] public float tipLoopTimer = 10.0f;
     public static float TipLoopTimer { get { return Instance.tipLoopTimer; } }
+
+    [Header("Inputs")]
+    [SerializeField] public float swipeDistanceMin = 0.2f;
+    public static float SwipeDistanceMin { get { return Instance.swipeDistanceMin; } }
+
+    [SerializeField] public float swipeDistanceMax = 3.2f;
+    public static float SwipeDistanceMax { get { return Instance.swipeDistanceMax; } }
+
+    [SerializeField] public float swipeWheelDistMin = 0.1f;
+    public static float SwipeWheelDistMin { get { return Instance.swipeWheelDistMin; } }
 }

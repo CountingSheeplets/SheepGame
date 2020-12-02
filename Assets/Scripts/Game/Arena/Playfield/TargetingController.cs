@@ -23,6 +23,8 @@ public class TargetingController : MonoBehaviour {
     Vector2 startPos;
     bool tapDown = false;
 
+    Color myColor;
+    public Color insideWheelCol = Color.gray;
     void Start() {
         playfield = GetComponentInParent<Playfield>();
         indSprite = dirIndicator.GetComponentInChildren<SpriteRenderer>();
@@ -39,18 +41,19 @@ public class TargetingController : MonoBehaviour {
         EventCoordinator.StopListening(EventName.Input.StartGame(), OnStart);
     }
     void OnStart(GameMessage msg) {
-        crossSprite.color = playfield.owner.GetPlayerProfile().playerColor;
-        indSprite.color = playfield.owner.GetPlayerProfile().playerColor;
+        myColor = playfield.owner.GetPlayerProfile().playerColor;
+        crossSprite.color = myColor;
+        indSprite.color = myColor;
 
-        crossSprite.color = new Color(crossSprite.color.r, crossSprite.color.g, crossSprite.color.b, 0f);
-        indSprite.color = new Color(indSprite.color.r, indSprite.color.g, indSprite.color.b, 0f);
+        crossSprite.color = new Color(myColor.r, myColor.g, myColor.b, 0f);
+        indSprite.color = new Color(myColor.r, myColor.g, myColor.b, 0f);
     }
     void OnSwipe(GameMessage msg) {
         //Debug.Log("on swipe: " + playfield.owner + " vs " + msg.owner);
         if (playfield.owner.EqualsByValue(msg.owner)) {
             if (!tapDown) {
-                indSprite.color = new Color(indSprite.color.r, indSprite.color.g, indSprite.color.b, 1f);
-                crossSprite.color = new Color(crossSprite.color.r, crossSprite.color.g, crossSprite.color.b, 1f);
+                indSprite.color = new Color(myColor.r, indSprite.color.g, indSprite.color.b, 1f);
+                //crossSprite.color = new Color(myColor.r, myColor.g, myColor.b, 1f);
 
                 startPos = msg.swipe.normalizedVector * msg.swipe.distance * ConstantsBucket.SheepThrowStrength;
                 startRotation = Quaternion.Euler(0f, 0f, msg.swipe.angleEuler);
@@ -67,6 +70,13 @@ public class TargetingController : MonoBehaviour {
             triggerMove = true;
             triggerFade = false;
             progressMove = 0;
+            bool insideMin = !msg.swipe.isOverWheelMin;
+            dirIndicator.gameObject.SetActive(!insideMin);
+            if (insideMin) {
+                crossSprite.color = new Color(insideWheelCol.r, insideWheelCol.g, insideWheelCol.b, 1f);
+            } else {
+                crossSprite.color = new Color(myColor.r, myColor.g, myColor.b, 1f);
+            }
         }
     }
 
@@ -103,10 +113,10 @@ public class TargetingController : MonoBehaviour {
             progressFade += Time.deltaTime / timeToFade;
             if (progressFade <= 1f) {
                 indSprite.color = new Color(indSprite.color.r, indSprite.color.g, indSprite.color.b, 1f - progressFade);
-                crossSprite.color = new Color(crossSprite.color.r, crossSprite.color.g, crossSprite.color.b, 1f - progressFade);
+                crossSprite.color = new Color(myColor.r, myColor.g, myColor.b, 1f - progressFade);
             } else {
                 indSprite.color = new Color(indSprite.color.r, indSprite.color.g, indSprite.color.b, 0);
-                crossSprite.color = new Color(crossSprite.color.r, crossSprite.color.g, crossSprite.color.b, 0);
+                crossSprite.color = new Color(myColor.r, myColor.g, myColor.b, 0);
                 triggerFade = false;
                 progressFade = 0;
             }

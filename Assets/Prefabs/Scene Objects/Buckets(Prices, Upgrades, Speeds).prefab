@@ -315,6 +315,9 @@ MonoBehaviour:
   goldIncomePeriod: 2
   goldIncomeIncrement: 1
   tipLoopTimer: 10
+  swipeDistanceMin: 10
+  swipeDistanceMax: 120
+  swipeWheelDistMin: 0.12
 --- !u!114 &8604118487354306371
 MonoBehaviour:
   m_ObjectHideFlags: 0

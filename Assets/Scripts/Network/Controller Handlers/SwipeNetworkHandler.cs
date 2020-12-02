@@ -26,9 +26,9 @@ public class SwipeNetworkHandler : Singleton<SwipeNetworkHandler> {
             if (message["isDelta"].ToString() == "True") {
                 EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(triggerOwner));
             }
-            //if (message["isDelta"].ToString() == "False") {
-            //    EventCoordinator.TriggerEvent(EventName.Input.Tap(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(triggerOwner));
-            //}
+            if (message["isDelta"].ToString() == "False") {
+                EventCoordinator.TriggerEvent(EventName.Input.Tap(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(triggerOwner));
+            }
         }
     }
     void OnTap(int from, JToken message) {
