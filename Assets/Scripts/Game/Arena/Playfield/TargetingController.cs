@@ -21,6 +21,8 @@ public class TargetingController : MonoBehaviour {
     float timeToFade = 1.2f;
     Quaternion startRotation;
     Vector2 startPos;
+    bool tapDown = false;
+
     void Start() {
         playfield = GetComponentInParent<Playfield>();
         indSprite = dirIndicator.GetComponentInChildren<SpriteRenderer>();
@@ -46,7 +48,7 @@ public class TargetingController : MonoBehaviour {
     void OnSwipe(GameMessage msg) {
         //Debug.Log("on swipe: " + playfield.owner + " vs " + msg.owner);
         if (playfield.owner.EqualsByValue(msg.owner)) {
-            if (!triggerMove) {
+            if (!tapDown) {
                 indSprite.color = new Color(indSprite.color.r, indSprite.color.g, indSprite.color.b, 1f);
                 crossSprite.color = new Color(crossSprite.color.r, crossSprite.color.g, crossSprite.color.b, 1f);
 
@@ -55,9 +57,6 @@ public class TargetingController : MonoBehaviour {
 
                 targetDestination = startPos;
                 targetRotation = startRotation;
-
-                triggerMove = true;
-                triggerFade = false;
             } else {
                 startPos = transform.localPosition;
                 startRotation = dirIndicator.rotation;
@@ -65,6 +64,8 @@ public class TargetingController : MonoBehaviour {
                 targetDestination = msg.swipe.normalizedVector * msg.swipe.distance * ConstantsBucket.SheepThrowStrength;
                 targetRotation = Quaternion.Euler(0f, 0f, msg.swipe.angleEuler); //rot_z - defaultSpriteAngle);
             }
+            triggerMove = true;
+            triggerFade = false;
             progressMove = 0;
         }
     }
@@ -72,9 +73,14 @@ public class TargetingController : MonoBehaviour {
     void OnTap(GameMessage msg) {
         OnSwipe(msg);
         if (playfield.owner.EqualsByValue(msg.owner)) {
-            triggerFade = true;
-            progressFade = 0;
-            animator.SetTrigger("pop");
+            tapDown = msg.state;
+            if (!msg.state) {
+                animator.SetTrigger("pop");
+                triggerFade = true;
+                progressFade = 0;
+            } else {
+                animator.SetTrigger("default");
+            }
         }
     }
 

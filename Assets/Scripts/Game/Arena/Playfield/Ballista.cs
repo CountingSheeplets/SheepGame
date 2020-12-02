@@ -20,11 +20,13 @@ public class Ballista : MonoBehaviour {
         EventCoordinator.StartListening(EventName.System.Sheep.Launch(), OnSheepLaunch);
         EventCoordinator.StartListening(EventName.System.Sheep.ReadyToLaunch(), OnSheepReady);
         EventCoordinator.StartListening(EventName.Input.Swipe(), OnSwipe);
+        EventCoordinator.StartListening(EventName.Input.Tap(), OnTap);
     }
     void OnDestroy() {
         EventCoordinator.StopListening(EventName.System.Sheep.Launch(), OnSheepLaunch);
         EventCoordinator.StopListening(EventName.System.Sheep.ReadyToLaunch(), OnSheepReady);
         EventCoordinator.StopListening(EventName.Input.Swipe(), OnSwipe);
+        EventCoordinator.StopListening(EventName.Input.Tap(), OnTap);
     }
 
     void OnSheepLaunch(GameMessage msg) {
@@ -37,7 +39,9 @@ public class Ballista : MonoBehaviour {
             trigger = true;
         }
     }
-
+    void OnTap(GameMessage msg) {
+        OnSheepLaunch(msg);
+    }
     void OnSwipe(GameMessage msg) {
         //Debug.Log("on swipe: " + playfield.owner + " vs " + msg.owner);
         if (playfield.owner.EqualsByValue(msg.owner)) {

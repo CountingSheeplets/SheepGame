@@ -30,7 +30,7 @@ public class KingSmashPlayerCard : MonoBehaviour {
     }
 
     void OnMoneyChange(GameMessage msg) {
-        if (msg.owner.GetPlayerProfile().Buy(PriceName.King.Smash())) {
+        if (msg.owner.GetPlayerProfile().GetMoney() > PriceCoordinator.GetPrice(owner, PriceName.King.Smash())) {
             image.color = smashAvailable;
         } else
             image.color = smashNotAvailable;
