@@ -6,13 +6,13 @@ public class GoldRewardController : MonoBehaviour {
     float counter = 0;
     void Start() {
         EventCoordinator.StartListening(EventName.System.Sheep.Land(), OnSheepLand);
-        EventCoordinator.StartListening(EventName.System.Sheep.Launch(), OnSheepLaunch);
+        //EventCoordinator.StartListening(EventName.System.Sheep.Land(), OnSheepLaunch);
         EventCoordinator.StartListening(EventName.System.King.Hit(), OnKingHit);
         EventCoordinator.StartListening(EventName.System.Sheep.KingMissed(), OnKingMissed);
     }
     void OnDestroy() {
         EventCoordinator.StopListening(EventName.System.Sheep.Land(), OnSheepLand);
-        EventCoordinator.StopListening(EventName.System.Sheep.Launch(), OnSheepLaunch);
+        //EventCoordinator.StopListening(EventName.System.Sheep.Launch(), OnSheepLaunch);
         EventCoordinator.StopListening(EventName.System.King.Hit(), OnKingHit);
         EventCoordinator.StopListening(EventName.System.Sheep.KingMissed(), OnKingMissed);
     }
@@ -25,6 +25,8 @@ public class GoldRewardController : MonoBehaviour {
                 //reward for kicking sheep here:
                 //...
             }
+        } else {
+            GoldRewardCoordinator.RewardOnSheepElimination(msg.sheepUnit.lastHandler, msg.sheepUnit.transform);
         }
     }
     void OnSheepLaunch(GameMessage msg) {

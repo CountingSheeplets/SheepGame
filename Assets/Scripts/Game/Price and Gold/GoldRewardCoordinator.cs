@@ -37,6 +37,9 @@ public class GoldRewardCoordinator : Singleton<GoldRewardCoordinator> {
     public static void RewardOnOtherThrow(Owner owner, Transform tr) {
         RewardGold(owner, GoldRewardBucket.SheepOtherPlayerThrow, tr);
     }
+    public static void RewardOnSheepElimination(Owner owner, Transform tr) {
+        RewardGold(owner, GoldRewardBucket.SheepEliminated, tr);
+    }
     public static void RewardGold(PlayerProfile profile, float amount) {
         RewardGold(profile, amount, null);
     }

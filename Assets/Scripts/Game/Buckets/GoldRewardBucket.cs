@@ -19,6 +19,9 @@ public class GoldRewardBucket : Singleton<GoldRewardBucket> {
     [SerializeField] public float greedySheepBonusMoney = 2f;
     public static float GreedySheepBonusMoney { get { return Instance.greedySheepBonusMoney; } }
 
+    [SerializeField] public float sheepEliminated = 1f;
+    public static float SheepEliminated { get { return Instance.sheepEliminated; } }
+
     [Header("Multipliers")]
     [SerializeField] public float incomeMultiplierNoGrass = 0.5f;
     public static float IncomeMultiplierNoGrass { get { return Instance.incomeMultiplierNoGrass; } }
