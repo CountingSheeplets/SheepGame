@@ -24,12 +24,12 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         TrySendObjectAll(newNetObj);
     }
 
-    public static void SendUpgradeData(int deviceId, UpgradeProperty upgrade) {
+    public static void SendUpgradeData() {
         JObject json = new JObject();
         json["type"] = "upgradeData";
-        json["upgrade"] = JToken.FromObject(upgrade);
-        json["icon"] = upgrade.sheepTypeOutput.ToString();
-        TrySend(deviceId, json);
+        json["upgrade"] = JToken.FromObject(UpgradeBucket.GetUpgrades());
+        //json["icon"] = upgrade.sheepTypeOutput.ToString();
+        TrySendObjectAll(json);
     }
     public static void SendUpgradeIcon(int deviceId, UpgradeProperty upgrade) {
         JObject json = new JObject();
@@ -202,6 +202,11 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         if (AirConsole.instance != null) {
             JToken data = JToken.FromObject(networkObject.PrepairedNetworkObject());
             AirConsole.instance.Message(deviceId, data);
+        }
+    }
+    static void TrySendObjectAll(JObject json) {
+        if (AirConsole.instance != null) {
+            AirConsole.instance.Broadcast(json);
         }
     }
     static void TrySendObjectAll(NetworkObject networkObject) {

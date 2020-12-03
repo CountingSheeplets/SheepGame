@@ -374,6 +374,7 @@ GameObject:
   - component: {fileID: 6666286272336251124}
   - component: {fileID: 9161422630228465625}
   - component: {fileID: 3098356784123305128}
+  - component: {fileID: 8865038536096875995}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -488,6 +489,18 @@ MonoBehaviour:
   - {fileID: 2800000, guid: e85844b401822994b8f6b712419ef4b4, type: 3}
   - {fileID: 2800000, guid: 1b0ab3a33de721049a7b72cd93dcfe99, type: 3}
   - {fileID: 2800000, guid: d07b6061655479045b35168a99a21766, type: 3}
+--- !u!114 &8865038536096875995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6451136426159359089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1419ed521e896d84984a75f7404e9e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6538239470844576100
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,10 +548,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crosshair: {fileID: 5333448707016202033}
   dirIndicator: {fileID: 4378076706018921985}
-  indSprite: {fileID: 0}
-  crossSprite: {fileID: 0}
   animator: {fileID: 1579674423757151438}
   triggerMove: 0
+  insideWheelCol: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &6903003754823185118
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,7 +972,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 200
   m_Sprite: {fileID: 21300000, guid: 09419a8fc56ec474896b13bd499925ec, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5529412}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1104,9 +1116,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 854437c85b4111a4c9d53ab5d586f4aa, type: 3}
---- !u!1 &7903777884982416818 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7264911332029479535, guid: 854437c85b4111a4c9d53ab5d586f4aa,
+--- !u!4 &7903777884982416815 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7264911332029479538, guid: 854437c85b4111a4c9d53ab5d586f4aa,
     type: 3}
   m_PrefabInstance: {fileID: 683977878859460573}
   m_PrefabAsset: {fileID: 0}
@@ -1116,9 +1128,9 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 683977878859460573}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &7903777884982416815 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7264911332029479538, guid: 854437c85b4111a4c9d53ab5d586f4aa,
+--- !u!1 &7903777884982416818 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7264911332029479535, guid: 854437c85b4111a4c9d53ab5d586f4aa,
     type: 3}
   m_PrefabInstance: {fileID: 683977878859460573}
   m_PrefabAsset: {fileID: 0}

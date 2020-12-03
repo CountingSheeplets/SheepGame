@@ -14,9 +14,10 @@ public class EventName {
     public class Input {
         public class KingAbilities {
             public static string SpawnSheep() { return "KingAbilities_SpawnSheep"; }
+            public static string KingUpgrade() { return "KingAbilities_KingUpgrade"; }
             public static string BuyGrass() { return "KingAbilities_BuyLawn"; }
             public static string Smash() { return "KingAbilities_Smash"; }
-            public static List<string> Get() { return new List<string> { SpawnSheep(), BuyGrass(), Smash() }; }
+            public static List<string> Get() { return new List<string> { SpawnSheep(), KingUpgrade(), BuyGrass(), Smash() }; }
         }
         /*         public class SheepUpgrade{
                     public static string A() { return "SheepUpgrade_A"; }

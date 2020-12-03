@@ -31,6 +31,6 @@ public class MenuInfoTile : MonoBehaviour {
             }
         }
         transform.SetAsLastSibling();
-        Debug.Log("last sibling");
+        //Debug.Log("last sibling");
     }
 }

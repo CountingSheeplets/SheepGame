@@ -14,14 +14,14 @@ public class GrassDamageHandler : MonoBehaviour {
     }
 
     void OnSheepLand(GameMessage msg) {
-        if (msg.playfield != playfield) return;
-        Debug.Log("KingMissed");
+        if (msg.playfield != playfield)return;
+        //Debug.Log("KingMissed");
         float damage = 0f;
         if (msg.sheepUnit.lastHandler == playfield.owner) {
-            Debug.Log("lastHandler is same");
+            //Debug.Log("lastHandler is same");
             damage = DamageBucket.GetKickLandDamage(msg.sheepUnit.sheepType);
         } else {
-            Debug.Log("lastHandler not same!");
+            //Debug.Log("lastHandler not same!");
             damage = DamageBucket.GetBallistaLandDamage(msg.sheepUnit.sheepType);
         }
         if (damage > 0f) {

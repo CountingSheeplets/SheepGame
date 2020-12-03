@@ -197,46 +197,47 @@ MonoBehaviour:
   upgrades:
   - priceUpgrade: 0
     slot: 0
-    upgradeDisplayName: small and fast
+    upgradeDisplayName: mini sheep
     upgradeCodeName: SheepUpgrade_Small
-    upgradeDescription: does everything faster and eats more grass
+    upgradeDescription: does everything faster and eats more grass.
     sheepTypeInput: 8
     sheepTypeOutput: 1
   - priceUpgrade: 0
     slot: 1
     upgradeDisplayName: bouncy
     upgradeCodeName: SheepUpgrade_Bouncy
-    upgradeDescription: after landing anywhere on the enemy field bounces towards
-      the king
+    upgradeDescription: after landing anywhere on the opponents field bounces towards
+      the king.ing.
     sheepTypeInput: 1
     sheepTypeOutput: 2
   - priceUpgrade: 0
     slot: 0
-    upgradeDisplayName: Greedy
+    upgradeDisplayName: greedy
     upgradeCodeName: SheepUpgrade_Greedy
-    upgradeDescription: earns bonus gold on launch
+    upgradeDescription: earns bonus gold income and steals from opponents when in
+      their lands.nds.
     sheepTypeInput: 1
     sheepTypeOutput: 3
   - priceUpgrade: 0
     slot: 1
     upgradeDisplayName: armored
     upgradeCodeName: SheepUpgrade_Armored
-    upgradeDescription: moves slower to launch location thus delaying a launch
+    upgradeDescription: harder to knock out of the lands.
     sheepTypeInput: 8
     sheepTypeOutput: 4
   - priceUpgrade: 0
     slot: 0
     upgradeDisplayName: trench veteran
     upgradeCodeName: SheepUpgrade_Trench
-    upgradeDescription: before being thrown, it burrows underground postponing its
-      duty by a turn
+    upgradeDescription: digs in permanently, until knocked out with smash.
     sheepTypeInput: 4
     sheepTypeOutput: 5
   - priceUpgrade: 0
     slot: 1
-    upgradeDisplayName: Tank
+    upgradeDisplayName: tank
     upgradeCodeName: SheepUpgrade_Tank
-    upgradeDescription: moves very slow and cannot be Smashed
+    upgradeDescription: eats a ton. moves very slowly and very hard to knock away.
+      cannot be Smashed.
     sheepTypeInput: 4
     sheepTypeOutput: 6
   - priceUpgrade: 0

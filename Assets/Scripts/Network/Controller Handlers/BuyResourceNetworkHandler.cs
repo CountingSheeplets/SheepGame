@@ -19,7 +19,7 @@ public class BuyResourceNetworkHandler : MonoBehaviour {
         if (!triggerOwner.GetPlayerProfile().isAlive)
             return;
         if (message["element"].ToString().Contains("buySheep")) {
-            EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.SpawnSheep(), GameMessage.Write().WithOwner(triggerOwner));
+            EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.KingUpgrade(), GameMessage.Write().WithOwner(triggerOwner));
         }
         if (message["element"].ToString().Contains("buyGrass")) {
             EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.BuyGrass(), GameMessage.Write().WithOwner(triggerOwner));

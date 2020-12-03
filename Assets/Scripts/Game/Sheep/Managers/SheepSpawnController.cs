@@ -46,7 +46,7 @@ public class SheepSpawnController : MonoBehaviour {
         SheepCoordinator.IncreaseStacksSize(ConstantsBucket.SheepSpawnCapIncrement);
     }
     float GetSpawnRate(Owner owner) {
-        int level = SpawnRateCoordinator.GetSpawnRateLevel(owner);
+        int level = 0; //SpawnRateCoordinator.GetSpawnRateLevel(owner);
         float newNextSpawn = Random.Range(-scatterRandomBase, scatterRandomBase);
         return Time.time + (newNextSpawn + ConstantsBucket.SheepSpawnPeriod) * (Mathf.Pow(1 - ConstantsBucket.SheepSpawnUpgradeDecrement, level));
     }

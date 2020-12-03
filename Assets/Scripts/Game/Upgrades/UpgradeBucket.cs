@@ -4,6 +4,9 @@ using System.Linq;
 using UnityEngine;
 public class UpgradeBucket : Singleton<UpgradeBucket> {
     public List<UpgradeProperty> upgrades = new List<UpgradeProperty>();
+    public static List<UpgradeProperty> GetUpgrades() {
+        return Instance.upgrades;
+    }
     public static UpgradeProperty GetCurrentUpgrade(SheepUnit sheep) {
         if (sheep == null)return null;
         UpgradeProperty upgrade = Instance.upgrades

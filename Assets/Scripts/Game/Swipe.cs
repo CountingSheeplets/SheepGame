@@ -29,6 +29,7 @@ public class Swipe {
         float deltaY = Random.Range(-1f, 1f);
         normalizedVector = new Vector2(deltaX, deltaY).normalized;
         angleEuler = (int)SignedAngleBetween(Vector2.up, normalizedVector);
+        relativeDistance = ConstantsBucket.SwipeWheelDistMin * 2f;
         distance = Random.Range(50f, 80f);
     }
     float SignedAngleBetween(Vector3 a, Vector3 b) {

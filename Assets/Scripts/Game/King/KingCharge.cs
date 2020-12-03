@@ -27,7 +27,7 @@ public class KingCharge : BaseUnitMove {
         SetScale();
         SetDestination(_destination, true);
         king.isRoaming = true;
-        MoveToDestination(SpeedBucket.GetRunSpeed(SheepType.King), 0f);
+        MoveToDestination(KingSpeedCoordinator.GetMoveSpeed(king.owner), 0f);
         animator.WalkTo(_destination);
         //Debug.Log("charging started");
     }
