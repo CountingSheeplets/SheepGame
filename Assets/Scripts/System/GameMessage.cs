@@ -109,4 +109,9 @@ public class GameMessage {
         kingItemType = value;
         return this;
     }
+    public SheepType sheepType;
+    public GameMessage WithSheepType(SheepType value) {
+        sheepType = value;
+        return this;
+    }
 }

@@ -9,8 +9,8 @@ public class SheepUpgrade : MonoBehaviour {
     public int tier2UpgradeCount;
     Owner owner;
     void Start() {
-        if (sheepThrow == null) sheepThrow = GetComponent<SheepThrow>();
-        if (owner == null) owner = GetComponent<Playfield>().owner;
+        if (sheepThrow == null)sheepThrow = GetComponent<SheepThrow>();
+        if (owner == null)owner = GetComponent<Playfield>().owner;
         EventCoordinator.StartListening(EventName.Input.SheepUpgrade(), OnUpgrade);
         EventCoordinator.StartListening(EventName.System.Sheep.ReadyToLaunch(), OnReadyToLaunch);
     }
@@ -23,16 +23,16 @@ public class SheepUpgrade : MonoBehaviour {
             return;
         SheepUnit sheep = sheepThrow.sheepReadyToBeThrown;
         if (sheep != null) {
-            UpgradeProperty upgrade = new UpgradeProperty();
-            switch (msg.upgradeType) {
-                case UpgradeType.A:
-                    upgrade = UpgradeBucket.GetNextUpgradeA(sheep);
-                    break;
-                case UpgradeType.B:
-                    upgrade = UpgradeBucket.GetNextUpgradeB(sheep);
-                    break;
-            }
-            if (upgrade == null) return;
+            UpgradeProperty upgrade = UpgradeBucket.GetUpgradeByType(msg.owner, msg.sheepType);
+            /*             switch (msg.upgradeType) {
+                            case UpgradeType.A:
+                                upgrade = UpgradeBucket.GetNextUpgradeA(sheep);
+                                break;
+                            case UpgradeType.B:
+                                upgrade = UpgradeBucket.GetNextUpgradeB(sheep);
+                                break;
+                        } */
+            if (upgrade == null)return;
             if (msg.owner.GetPlayerProfile().Buy(upgrade.upgradeCodeName)) {
                 Debug.Log("upgrading to:" + upgrade.sheepTypeOutput.ToString());
                 SheepCoordinator.UpgradeSheep(sheep, upgrade.sheepTypeOutput);

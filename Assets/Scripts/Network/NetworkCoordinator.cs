@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using NDream.AirConsole;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
-
 public class NetworkCoordinator : Singleton<NetworkCoordinator> {
     public static void SendPlayerProfile(int deviceId, Dictionary<string, float> profileData) {
         NetworkObject newNetObj = new NetworkObject("playerProfile", profileData);
@@ -25,9 +25,15 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
     }
 
     public static void SendUpgradeData() {
+
         JObject json = new JObject();
         json["type"] = "upgradeData";
-        json["upgrade"] = JToken.FromObject(UpgradeBucket.GetUpgrades());
+        List<UpgradeProperty> props = UpgradeBucket.GetUpgrades();
+
+        json["upgrade"] = JsonConvert.SerializeObject(props);
+        /*         for (int i = 0; i < props.Count; i++) {
+                    json["upgrade"][i] = JToken.FromObject(props[i]);
+                } */
         //json["icon"] = upgrade.sheepTypeOutput.ToString();
         TrySendObjectAll(json);
     }
@@ -180,7 +186,7 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
             return false;
         if (!profile.isAlive) //also should be if(profile.isDirty)
             return false;
-        var data = new Dictionary<string, float> { { "health", profile.GetHealth() },
+        var data = new Dictionary<string, float> { //{ "health", profile.GetHealth() },
                 { "money", profile.GetMoney() },
                 { "grass", Mathf.FloorToInt(profile.GetGrass()) },
                 { "crowns", profile.GetCrowns() },

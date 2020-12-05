@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 public class UpgradeInfoNetworkHandler : MonoBehaviour {
-    Dictionary<Owner, UpgradeType> upgradeTypes = new Dictionary<Owner, UpgradeType>();
+    //Dictionary<Owner, UpgradeType> upgradeTypes = new Dictionary<Owner, UpgradeType>();
     void Awake() {
         if (AirConsole.instance != null)
             AirConsole.instance.onMessage += OnOpenUpgradeInfo;
@@ -39,7 +40,9 @@ public class UpgradeInfoNetworkHandler : MonoBehaviour {
                             }
                         } else { */
             if (message["element"].ToString() == "upgrade" && (bool)message["pressed"] == true) {
-                EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(triggerOwner).WithUpgradeType(upgradeTypes[triggerOwner]));
+                string upgradeToBuy = message["upgradeIndex"].ToString();
+                SheepType sheepType = (SheepType)Enum.Parse(typeof(SheepType), upgradeToBuy);
+                EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(triggerOwner).WithSheepType(sheepType));
                 //NetworkCoordinator.SendShowView(from, "match");
             }
         }

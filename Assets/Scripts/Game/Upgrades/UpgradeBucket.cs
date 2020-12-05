@@ -15,6 +15,14 @@ public class UpgradeBucket : Singleton<UpgradeBucket> {
         upgrade.priceUpgrade = PriceCoordinator.GetPrice(sheep.owner, upgrade.upgradeCodeName);
         return upgrade;
     }
+    public static UpgradeProperty GetUpgradeByType(Owner owner, SheepType sheepType) {
+        if (sheepType == SheepType.Base)return null;
+        UpgradeProperty upgrade = Instance.upgrades
+            .Where(x => x.sheepTypeOutput == sheepType).FirstOrDefault();
+        if (upgrade == null)return null; // Instance.upgrades[Instance.upgrades.Count - 1]; //select last (empty) upgrade
+        upgrade.priceUpgrade = PriceCoordinator.GetPrice(owner, upgrade.upgradeCodeName);
+        return upgrade;
+    }
     public static UpgradeProperty GetNextUpgradeA(SheepUnit sheep) {
         if (sheep == null)return null;
         UpgradeProperty upgrade = Instance.upgrades.Where(x => x.slot == UpgradeType.A)
@@ -90,6 +98,9 @@ public class UpgradeProperty {
     public string upgradeDescription;
     public SheepType sheepTypeInput;
     public SheepType sheepTypeOutput;
+    public string enumStringName {
+        get { return sheepTypeOutput.ToString(); }
+    }
     public UpgradeProperty() {
         upgradeDisplayName = "No Sheep...";
         upgradeDescription = "Need a sheep ready to be launched to upgrade";

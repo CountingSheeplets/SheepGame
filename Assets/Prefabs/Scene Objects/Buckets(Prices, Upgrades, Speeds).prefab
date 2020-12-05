@@ -242,9 +242,10 @@ MonoBehaviour:
     sheepTypeOutput: 6
   - priceUpgrade: 0
     slot: 0
-    upgradeDisplayName: None
+    upgradeDisplayName: nothing to upgrade :(
     upgradeCodeName: King_BuySheep
-    upgradeDescription: None
+    upgradeDescription: need a sheep ready to be launched to upgrade... or the sheep
+      is already at its max upgrade
     sheepTypeInput: 0
     sheepTypeOutput: 8
 --- !u!114 &8604118487354306396
@@ -386,6 +387,7 @@ MonoBehaviour:
   sheepSelfThrow: 1
   sheepOtherPlayerThrow: 1
   greedySheepBonusMoney: 1
+  sheepEliminated: 1
   incomeMultiplierNoGrass: 0.5
 --- !u!114 &9200212022206869629
 MonoBehaviour:
