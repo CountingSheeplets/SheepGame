@@ -1,47 +1,41 @@
 ﻿using UnityEngine;
 //true for Odd, false for even
-public class Vector3Bool
-{
+
+public class Vector3Bool {
     private bool _x;
-    public bool X{
-        get{return _x;}
-        set{_x = value;}
+    public bool X {
+        get { return _x; }
+        set { _x = value; }
     }
     private bool _y;
-    public bool Y{
-        get{return _y;}
-        set{_y = value;}
+    public bool Y {
+        get { return _y; }
+        set { _y = value; }
     }
     private bool _z;
-    public bool Z{
-        get{return _z;}
-        set{_z = value;}
+    public bool Z {
+        get { return _z; }
+        set { _z = value; }
     }
-    public Vector3Bool(bool x, bool y, bool z){
+    public Vector3Bool(bool x, bool y, bool z) {
         _x = x;
         _y = y;
         _z = z;
     }
-    public Vector3Bool(Vector3 vec3){
-        if (vec3.x % 2 == 0)
-        {
+    public Vector3Bool(Vector3 vec3) {
+        if (vec3.x % 2 == 0) {
             X = false;
-        } else
-        {
+        } else {
             X = true;
         }
-        if (vec3.y % 2 == 0)
-        {
+        if (vec3.y % 2 == 0) {
             Y = false;
-        } else
-        {
+        } else {
             Y = true;
         }
-        if (vec3.z % 2 == 0)
-        {
+        if (vec3.z % 2 == 0) {
             Z = false;
-        } else
-        {
+        } else {
             Z = true;
         }
     }

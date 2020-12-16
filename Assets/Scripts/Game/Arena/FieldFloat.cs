@@ -41,6 +41,8 @@ public class FieldFloat : MonoBehaviour {
     public void PostMoveAction() {
         //Debug.Log("float eneded, stopping at:" + (Vector2) (transform.position));
         playfield.isAnimating = false;
+        if (playfield.fieldCorners != null)
+            playfield.fieldCorners.Recenter(playfield.transform.position);
         EventCoordinator.TriggerEvent(EventName.System.Environment.PlayfieldAnimated(), GameMessage.Write().WithPlayfield(playfield));
     }
 }

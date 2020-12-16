@@ -43,7 +43,7 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
     }
     public static void RemoveField(Owner owner) {
         Playfield pl = Instance.playfields.Where(x => x.GetComponent<Owner>().EqualsByValue(owner)).FirstOrDefault();
-
+        Debug.Log("removing playfield: " + pl + " Owner: " + owner);
         Instance.playfields.Remove(pl);
         if (pl != null)
             Destroy(pl.gameObject);
@@ -67,15 +67,13 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
         List<Playfield> leftoverFields = new List<Playfield>(playfields);
         Playfield p = playfieldPrefab.GetComponent<Playfield>();
         float fieldWidth = fieldSize.x + ConstantsBucket.EmptySpacesBetweenFields;
-
+        Debug.Log("preset: " + randomPreset.gameObject.name);
         for (int i = 0; i < playfields.Count; i++) {
             int rS = UnityEngine.Random.Range(0, sockets.Count - 1);
             int rF = UnityEngine.Random.Range(0, leftoverFields.Count - 1);
             Vector2 offset = sockets[rS].transform.localPosition;
             FieldFloat pFloat = leftoverFields[rF].GetComponent<FieldFloat>();
             pFloat.StartFloating(ConstantsBucket.PlayfieldFloatSpeed, offset * fieldWidth);
-            if (leftoverFields[rF].fieldCorners != null)
-                leftoverFields[rF].fieldCorners.Recenter(offset * fieldWidth);
             leftoverFields.RemoveAt(rF);
             sockets.RemoveAt(rS);
         }
@@ -124,7 +122,8 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
     }
     public static Playfield GetPlayfield(Vector2 point) {
         foreach (Playfield playfield in Instance.playfields) {
-            playfield.fieldCorners.Recenter(playfield.transform.position);
+            if (GameStateView.HasState(GameState.arenaAnimating))
+                playfield.fieldCorners.Recenter(playfield.transform.position);
             if (playfield.fieldCorners.IsWithinField(point))
                 return playfield;
         }

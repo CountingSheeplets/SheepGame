@@ -61,7 +61,9 @@ public class ArenaController : MonoBehaviour {
             ArenaCoordinator.RemoveField(msg.owner);
     }
     void OnArenaDestroyed(GameMessage msg) {
-        ArenaCoordinator.RemoveField(msg.targetOwner);
+        foreach (Owner owner in msg.targetOwners) {
+            ArenaCoordinator.RemoveField(owner);
+        }
         if (ArenaCoordinator.GetPlayfields.Count > 1)
             ArenaCoordinator.RearrangeArena(true);
     }

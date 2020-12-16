@@ -39,9 +39,10 @@ public class PlayfieldKillUnitsOnDestroy : MonoBehaviour {
                 if (sheep != null) {
                     SkeletonRendererController.MakeSheepActive(sheep);
                     SheepFall fall = sheep.GetComponent<SheepFall>();
-                    if (fall != null)
-                        fall.StartFalling(SpeedBucket.GetFallSpeed(sheep.sheepType), Vector2.zero);
-                    else
+                    if (fall != null) {
+                        fall.transform.parent = SheepCoordinator.Instance.transform;
+                        fall.StartFalling(SpeedBucket.GetFallSpeed(sheep.sheepType), (Vector2)sheep.transform.position + FunctionsHelper.RandomVector2() * 1.5f);
+                    } else
                         EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(sheep));
                 }
                 counter++;

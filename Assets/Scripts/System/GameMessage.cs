@@ -44,6 +44,11 @@ public class GameMessage {
         targetOwner = value;
         return this;
     }
+    public List<Owner> targetOwners;
+    public GameMessage WithTargetOwners(List<Owner> value) {
+        targetOwners = value;
+        return this;
+    }
     public int intMessage;
     public GameMessage WithIntMessage(int value) {
         intMessage = value;

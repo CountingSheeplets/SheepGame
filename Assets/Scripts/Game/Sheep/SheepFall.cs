@@ -22,24 +22,22 @@ public class SheepFall : BaseUnitMove {
         if (sGroup)
             sGroup.sortingOrder = -10;
         //move the transform to destination
-        MoveToDestination(speed, 0.5f, 0.15f);
+        MoveToDestination(speed, 0.5f, 0.3f);
         //fall animation;
         animator.Die();
     }
     void OnLand(GameMessage msg) {
         //Debug.Log("OnLand:StartFalling:"+gameObject.name);
         if (msg.sheepUnit == sheep) {
-            if (GameStateView.GetGameState() != GameState.arenaAnimating) {
-                if (msg.playfield == null) {
-                    SheepFly fly = GetComponent<SheepFly>();
-                    Vector2 fallDirection = fly.GetLocalMoveDir() / 10f + (Vector2)transform.position;
-                    if (fly != null)
-                        this.StartFalling(SpeedBucket.GetFallSpeed(sheep.sheepType), fallDirection);
-                    else
-                        this.StartFalling(SpeedBucket.GetFallSpeed(sheep.sheepType), Vector2.zero);
-                    //EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(sheep));
-                }
-            } //else {
+            //if (GameStateView.GetGameState() != GameState.arenaAnimating) {
+            if (msg.playfield == null) {
+                SheepFly fly = GetComponent<SheepFly>();
+                Vector2 fallDirection = fly.GetLocalMoveDir() / 10f + (Vector2)transform.position;
+                if (fly == null)
+                    fallDirection = Vector2.zero;
+                this.StartFalling(SpeedBucket.GetFallSpeed(sheep.sheepType), fallDirection);
+            }
+            //} //else {
             //   EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(sheep));
             //}
         }

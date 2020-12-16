@@ -26,7 +26,7 @@ public class PlayfieldTerrainDestructionHandler : MonoBehaviour {
     void OnDestroyArena(GameMessage msg) {
         if (!owner.EqualsByValue(msg.targetOwner))
             return;
-        timeToDestroy = msg.floatMessage;
+        timeToDestroy = ConstantsBucket.PlayfieldFadeTime;
         trigger = true;
         visibility = 0f;
         rend.material.SetFloat("_CrackFill", 0);

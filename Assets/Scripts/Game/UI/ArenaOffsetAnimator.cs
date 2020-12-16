@@ -26,7 +26,7 @@ public class ArenaOffsetAnimator : MonoBehaviour {
         progress = 0;
     }
 
-    void Update() {
+    void FixedUpdate() {
         if (animateIn) {
             progress += Time.deltaTime * animSpeed;
             if (progress < 1f)

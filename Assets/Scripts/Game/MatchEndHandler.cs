@@ -13,7 +13,8 @@ public class MatchEndHandler : MonoBehaviour {
         ////Debug.Log("OnPostEliminated: state: " + GameState.ended);
         if (GameStateView.HasState(GameState.ended))
             return;
-        msg.targetOwner.GetPlayerProfile().isAlive = false;
+        foreach (Owner owner in msg.targetOwners)
+            owner.GetPlayerProfile().isAlive = false;
         List<Owner> owners = PlayerProfileCoordinator.GetAliveOwners();
         //Debug.Log("alive owners: " + owners.Count);
         if (owners.Count == 1)
