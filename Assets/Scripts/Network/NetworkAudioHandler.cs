@@ -11,8 +11,17 @@ public class NetworkAudioHandler : MonoBehaviour {
     private AudioMixerSnapshot fxOnlySnapshot;
     int musicState = 0;
     void Awake() {
-        if (AirConsole.instance != null)
+        if (AirConsole.instance != null) {
             AirConsole.instance.onMessage += OnAudioBtn;
+            AirConsole.instance.onAdShow += OnAdShow;
+            AirConsole.instance.onAdComplete += OnAdComplete;
+        }
+    }
+    void OnAdShow() {
+        mutedSnapshot.TransitionTo(.5f);
+    }
+    void OnAdComplete(bool wasShown) {
+        SetAudio();
     }
     void Start() {
         fullSnapshot = mixer.FindSnapshot("FullSnapshot");
@@ -59,6 +68,8 @@ public class NetworkAudioHandler : MonoBehaviour {
     private void OnDestroy() {
         if (AirConsole.instance != null) {
             AirConsole.instance.onMessage -= OnAudioBtn;
+            AirConsole.instance.onAdShow -= OnAdShow;
+            AirConsole.instance.onAdComplete -= OnAdComplete;
         }
     }
 }
