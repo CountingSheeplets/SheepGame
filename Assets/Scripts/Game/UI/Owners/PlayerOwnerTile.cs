@@ -6,7 +6,9 @@ public class PlayerOwnerTile : MonoBehaviour {
     public Owner myOwner;
     public TextMeshProUGUI crownCountText;
     Animator animator;
+    public GameObject readyTextGO;
     public void Ready(bool state) {
+        readyTextGO.SetActive(state);
         if (state)
             animator.SetTrigger("startLoop");
         else
@@ -18,7 +20,7 @@ public class PlayerOwnerTile : MonoBehaviour {
     void Start() {
         //myOwner = GetComponentInParent<Owner>();
         EventCoordinator.StartListening(EventName.System.Player.ProfileUpdate(), OnProfileUpdate);
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
     }
     void OnDestroy() {
         EventCoordinator.StopListening(EventName.System.Player.ProfileUpdate(), OnProfileUpdate);

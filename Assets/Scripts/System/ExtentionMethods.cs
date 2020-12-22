@@ -18,6 +18,14 @@ public static class ExtensionMethods {
             listToRemoveFrom.Remove(item);
         }
     }
+    //Clear all null values from the list
+    public static void DropNa<T>(this List<T> listToRemoveFrom) {
+        List<T> tmpList = new List<T>(listToRemoveFrom);
+        foreach (T item in tmpList) {
+            if (item == null)
+                listToRemoveFrom.Remove(item);
+        }
+    }
     //move element to last element in list
     public static void Move<T>(this List<T> list, int oldIndex, int newIndex) {
         T item = list[oldIndex];

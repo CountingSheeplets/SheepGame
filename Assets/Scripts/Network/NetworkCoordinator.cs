@@ -193,7 +193,7 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
                 { "permanentCrowns", profile.permanentCrownCount },
 
                 { "priceGrass", PriceCoordinator.GetPrice(profile.owner, PriceName.King.BuyGrass()) },
-                { "priceSheep", PriceCoordinator.GetPrice(profile.owner, PriceName.King.BuySheep()) },
+                { "priceSheep", PriceCoordinator.GetPrice(profile.owner, PriceName.King.Upgrade()) },
                 { "priceSmash", PriceCoordinator.GetPrice(profile.owner, PriceName.King.Smash()) },
                 { "priceUpgrade1", PriceCoordinator.GetPrice(profile.owner, UpgradeBucket.ToName(profile.playfield.GetComponent<SheepUpgrade>().typeA)) },
                 { "priceUpgrade2", PriceCoordinator.GetPrice(profile.owner, UpgradeBucket.ToName(profile.playfield.GetComponent<SheepUpgrade>().typeB)) }

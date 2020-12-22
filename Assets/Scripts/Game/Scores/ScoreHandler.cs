@@ -7,6 +7,7 @@ public class ScoreHandler : MonoBehaviour {
     int eliminiatedPlayerCount = 0;
     public Dictionary<Owner, int> sheepsSmited = new Dictionary<Owner, int>();
     void Start() {
+        EventCoordinator.StartListening(EventName.Input.StartGame(), OnGameStart);
         EventCoordinator.StartListening(EventName.System.Player.Eliminated(), OnPlayerDefeated);
         EventCoordinator.StartListening(EventName.System.Sheep.Launch(), OnSheepLaunch);
         EventCoordinator.StartListening(EventName.System.Sheep.Kill(), OnSheepKilled);
@@ -16,6 +17,7 @@ public class ScoreHandler : MonoBehaviour {
     }
 
     void OnDestroy() {
+        EventCoordinator.StopListening(EventName.Input.StartGame(), OnGameStart);
         EventCoordinator.StopListening(EventName.System.Player.Eliminated(), OnPlayerDefeated);
         EventCoordinator.StopListening(EventName.System.Sheep.Launch(), OnSheepLaunch);
         EventCoordinator.StopListening(EventName.System.Sheep.Kill(), OnSheepKilled);
@@ -62,9 +64,16 @@ public class ScoreHandler : MonoBehaviour {
         }
     }
     void OnKingSmashed(GameMessage msg) {
-        if (sheepsSmited.ContainsKey(msg.owner))
-            if (msg.sheepUnits.Count < sheepsSmited[msg.owner])return;
-
-        sheepsSmited[msg.owner] = msg.sheepUnits.Count;
+        List<Owner> owners = new List<Owner>(sheepsSmited.Keys);
+        foreach (Owner owner in owners) {
+            if (owner.EqualsByValue(msg.owner))
+                if (msg.sheepUnits.Count > sheepsSmited[owner])
+                    sheepsSmited[owner] = msg.sheepUnits.Count;
+        }
+    }
+    void OnGameStart(GameMessage msg) {
+        foreach (Owner owner in OwnersCoordinator.GetOwners()) {
+            sheepsSmited[owner] = 0;
+        }
     }
 }

@@ -15,8 +15,8 @@ MonoBehaviour:
   attributes:
   - attributeName: King_Smash
     priceBase:
-      basePrice: 1
-      increment: 1
+      basePrice: 10
+      increment: 10
       level: 0
   - attributeName: Player_KingElimGold
     priceBase:
@@ -41,7 +41,7 @@ MonoBehaviour:
   - attributeName: SheepUpgrade_Tank
     priceBase:
       basePrice: 30
-      increment: 5
+      increment: 10
       level: 0
   - attributeName: SheepUpgrade_Small
     priceBase:
@@ -50,21 +50,21 @@ MonoBehaviour:
       level: 0
   - attributeName: SheepUpgrade_Bouncy
     priceBase:
-      basePrice: 40
-      increment: 5
+      basePrice: 45
+      increment: 10
       level: 0
   - attributeName: SheepUpgrade_Greedy
     priceBase:
       basePrice: 55
-      increment: 5
+      increment: 10
       level: 0
   - attributeName: SheepUpgrade_Armored
     priceBase:
-      basePrice: 20
+      basePrice: 15
       increment: 5
       level: 0
   - attributeName: SheepUpgrade_Trench
     priceBase:
       basePrice: 35
-      increment: 5
+      increment: 10
       level: 0
