@@ -65,7 +65,7 @@ public class Owner : MonoBehaviour {
         ownerName = nm;
         ownerType = OwnerType.Player;
         deviceId = devId;
-        teamId = OwnersCoordinator.GetOwners().Count;
+        teamId = OwnersCoordinator.GetNewTeamId();
         if (IsPlayer())
             connected = true;
     }

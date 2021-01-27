@@ -28,6 +28,7 @@ public class OwnerTileController : MonoBehaviour {
         if (GameStateView.HasState(GameState.started))
             return;
         PlayerOwnerTile tile = ownerPanelContainer.GetComponentsInChildren<PlayerOwnerTile>().Where(x => x.myOwner == msg.owner).FirstOrDefault();
-        Destroy(tile.gameObject);
+        if (tile != null)
+            Destroy(tile.gameObject);
     }
 }

@@ -8,7 +8,7 @@ public class SheepModel : MonoBehaviour {
     int currentUpgade;
     public SheepUnit sheep;
     bool isSmall;
-    public Color color = Color.white;
+    //public Color color = Color.white;
     void Awake() {
         skMecanim = GetComponent<SkeletonMecanim>();
         DisableAllAttachments();
@@ -16,12 +16,14 @@ public class SheepModel : MonoBehaviour {
     }
 
     public void ChangeColor(int playerIndex) {
+        //sheep will be 'invisible' if teamId is wrong (0)
         sheep = GetComponentInParent<SheepUnit>();
         if (playerIndex > 0 && playerIndex < 9) {
             if (skMecanim != null) {
                 skMecanim.skeleton.SetSkin("Player" + playerIndex.ToString());
-                if (ConstantsBucket.PlayerColors.Count > playerIndex)
-                    color = ConstantsBucket.PlayerColors[playerIndex - 1];
+
+                //if (ConstantsBucket.PlayerColors.Count > playerIndex)
+                //    color = ConstantsBucket.PlayerColors[playerIndex - 1];
             }
         }
     }

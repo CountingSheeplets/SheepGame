@@ -15,6 +15,7 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 		AirConsole.instance.onDisconnect += OnDisconnect;
 	}
 	void OnConnect(int device_id) {
+		Owner owner = OwnersCoordinator.TryCreateOwner(device_id);
 		if (GameStateView.HasState(GameState.started)) {
 			Owner ownerRec = OwnersCoordinator.ReconnectOwner(device_id);
 			if (ownerRec != null) {
@@ -27,12 +28,11 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 			return;
 		}
 		int count = OwnersCoordinator.GetOwners().Where(x => x.connected).ToList().Count;
-		if (count > 7) {
+		if (count > 8) {
 			NetworkCoordinator.SendShowView(device_id, "max_players");
 			Debug.Log("max");
 			return;
 		}
-		Owner owner = OwnersCoordinator.TryCreateOwner(device_id);
 		if (owner) {
 			TrySetupFirstOwner();
 			NetworkCoordinator.SendShowView(device_id, "menu");

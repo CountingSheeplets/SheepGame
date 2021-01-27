@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc83a845adac8d845bdd16dec8e172b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _persistent: 0
+  _persistent: 1
   menuSoundTrack: {fileID: 8300000, guid: 823b1816dd78b0e488e02764c3e0085f, type: 3}
   scoreSoundTrack: {fileID: 8300000, guid: 9f132cae3afdc5d4b8286421723f6c77, type: 3}
   matchSoundTracks:

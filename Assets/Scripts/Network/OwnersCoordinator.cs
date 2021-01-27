@@ -5,13 +5,29 @@ using NDream.AirConsole;
 using UnityEngine;
 
 public class OwnersCoordinator : Singleton<OwnersCoordinator> {
+    void Awake() {
+        isIdUsed = new bool[ConstantsBucket.PlayerColors.Count];
+    }
     public List<Owner> owners = new List<Owner>();
     int counter = 0;
     public static List<Owner> GetOwners() {
         return Instance.owners; //when getting this, it shoulnt be able to change (but only wont change if instance into a new List),else the original will also change...
     }
+    public bool[] isIdUsed;
+    public static int GetNewTeamId() {
+        for (int i = 0; i < ConstantsBucket.PlayerColors.Count; i++) {
+            if (Instance.isIdUsed[i] == false) {
+                Instance.isIdUsed[i] = true;
+                return i + 1;
+            }
+        }
+        return 0;
+    }
+    public static void UnUseTeamId(int id) {
+        Instance.isIdUsed[id - 1] = false;
+    }
     public static List<Owner> GetOwnersAlive() {
-        return Instance.owners.Where(x => x.GetPlayerProfile().isAlive).ToList();
+        return Instance.owners.Where(x => x.GetPlayerProfile() != null).Where(x => x.GetPlayerProfile().isAlive).ToList();
     }
     public static Owner TryCreateOwner(int device_id) {
         GameObject go = new GameObject();
@@ -26,6 +42,8 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
     }
     public static Owner ReconnectOwner(int device_id) {
         Owner recOwner = GetOwner(AirConsole.instance.GetUID(device_id));
+        if (recOwner == null)return null;
+        if (recOwner.GetPlayerProfile() == null)return null;
         Debug.Log(recOwner);
         Debug.Log(recOwner.ownerId + "   GetUID: " + AirConsole.instance.GetUID(device_id));
         if (recOwner != null) {
@@ -84,6 +102,7 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
             leftOwner.connected = false;
         } else {
             Debug.Log("destroying an owner..");
+            UnUseTeamId(leftOwner.teamId);
             Instance.owners.Remove(leftOwner);
             Destroy(leftOwner.gameObject);
         }

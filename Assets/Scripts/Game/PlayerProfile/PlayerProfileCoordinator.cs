@@ -19,12 +19,6 @@ public class PlayerProfileCoordinator : Singleton<PlayerProfileCoordinator> {
     public static PlayerProfile AddProfile(Owner owner) {
         //Debug.Log("adding a profile");
         PlayerProfile profile = new PlayerProfile().Create(owner);
-        //assign data
-        if (ConstantsBucket.PlayerColors.Count > Instance.profiles.Count)
-            profile.playerColor = ConstantsBucket.PlayerColors[Instance.profiles.Count];
-        else
-            profile.playerColor = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
-
         Instance.profiles.Add(profile);
         GetPlayerAvatarIcon(owner);
         return profile;
@@ -32,6 +26,7 @@ public class PlayerProfileCoordinator : Singleton<PlayerProfileCoordinator> {
 
     public static PlayerProfile RemoveProfile(Owner owner) {
         PlayerProfile profile = GetProfile(owner);
+        PlayerColorCoordinator.UnUse(profile.playerColor);
         Instance.profiles.Remove(profile);
         return profile;
     }
