@@ -9,6 +9,8 @@ public class PlayerOwnerTile : MonoBehaviour {
     public GameObject readyTextGO;
     public void Ready(bool state) {
         readyTextGO.SetActive(state);
+        if (animator == null)
+            return;
         if (state)
             animator.SetTrigger("startLoop");
         else

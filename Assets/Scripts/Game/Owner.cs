@@ -22,9 +22,10 @@ public class Owner : MonoBehaviour {
     public bool ready {
         get { return _ready; }
         set {
-            GetMyTile().Ready(value);
-            if (_ready != value)
-                NetworkCoordinator.SendConfirmReady(deviceId, value);
+            if (!GameStateView.HasState(GameState.started))
+                GetMyTile().Ready(value);
+            //if (_ready != value)
+            NetworkCoordinator.SendConfirmReady(deviceId, value);
             _ready = value;
         }
     }
@@ -65,7 +66,6 @@ public class Owner : MonoBehaviour {
         ownerName = nm;
         ownerType = OwnerType.Player;
         deviceId = devId;
-        teamId = OwnersCoordinator.GetNewTeamId();
         if (IsPlayer())
             connected = true;
     }

@@ -28,6 +28,6 @@ public class ScoresWinnerKing : MonoBehaviour {
         anim.SetFloat("dirX_blend", 1);
         anim.SetFloat("dirY_blend", 0);
         anim.SetTrigger("stopWalk");
-        Debug.Log("getFLoat:" + anim.GetFloat("dirX_blend"));
+        //Debug.Log("getFLoat:" + anim.GetFloat("dirX_blend"));
     }
 }

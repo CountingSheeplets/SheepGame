@@ -11,6 +11,9 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
     public List<Owner> owners = new List<Owner>();
     int counter = 0;
     public static List<Owner> GetOwners() {
+        return Instance.owners.Where(x => x.GetPlayerProfile() != null).ToList();
+    }
+    public static List<Owner> GetOwnersAll() {
         return Instance.owners; //when getting this, it shoulnt be able to change (but only wont change if instance into a new List),else the original will also change...
     }
     public bool[] isIdUsed;
@@ -24,7 +27,11 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
         return 0;
     }
     public static void UnUseTeamId(int id) {
-        Instance.isIdUsed[id - 1] = false;
+        if (id > 0)
+            Instance.isIdUsed[id - 1] = false;
+    }
+    public static void ClearTeamIds() {
+        Instance.isIdUsed = new bool[ConstantsBucket.PlayerColors.Count];
     }
     public static List<Owner> GetOwnersAlive() {
         return Instance.owners.Where(x => x.GetPlayerProfile() != null).Where(x => x.GetPlayerProfile().isAlive).ToList();
@@ -34,8 +41,15 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
         go.transform.parent = Instance.transform;
         string nicknameOfJoined = AirConsole.instance.GetNickname(device_id);
         Owner newOwner = go.AddComponent<Owner>();
-        Instance.owners.Add(newOwner);
         newOwner.Create(AirConsole.instance.GetUID(device_id), nicknameOfJoined, device_id);
+        foreach (Owner owner in GetOwnersAll()) {
+            if (owner.deviceId == newOwner.deviceId) {
+                Destroy(go);
+                return owner;
+            }
+        }
+        Instance.owners.Add(newOwner);
+        newOwner.teamId = GetNewTeamId();
         go.name = newOwner.ownerName;
         //go.GetComponentInChildren<TextMeshProUGUI>().text = newOwner.ownerName;
         return newOwner;
@@ -72,7 +86,7 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
     }
     public static Owner GetRandomOwner() {
         if (Instance.owners.Count > 0) {
-            List<Owner> aliveOwners = new List<Owner>(Instance.owners.Where(x => x.GetPlayerProfile().isAlive && x.connected).ToList());
+            List<Owner> aliveOwners = new List<Owner>(GetOwners().Where(x => x.GetPlayerProfile().isAlive && x.connected).ToList());
             return aliveOwners[Random.Range(0, aliveOwners.Count)];
         } else return null;
     }
@@ -97,7 +111,7 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
 
         Debug.Log("DisconnectOwner GetGameState:" + (int)GameStateView.GetGameState());
 
-        if (GameStateView.HasState(GameState.started)) {
+        if (GameStateView.HasState(GameState.started) && leftOwner.GetPlayerProfile() != null) {
             Debug.Log("disconnecting an owner..");
             leftOwner.connected = false;
         } else {
@@ -109,7 +123,7 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
         return leftOwner;
     }
     public static bool ContainsActiveFirstOwner() {
-        foreach (Owner owner in Instance.owners) {
+        foreach (Owner owner in GetOwners()) {
             if (owner.IsFirstOwner)
                 return true;
         }

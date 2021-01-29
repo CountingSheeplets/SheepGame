@@ -41,7 +41,6 @@ public class ArenaController : MonoBehaviour {
         EventCoordinator.StartListening(EventName.System.Environment.ArenaDestroyed(), OnArenaDestroyed);
         EventCoordinator.StartListening(EventName.System.Environment.EndMatch(), OnMatchEnd);
         //if (testScene)
-        EventCoordinator.StartListening(EventName.System.SceneLoaded(), OnSceneReloaded);
     }
     void OnDestroy() {
         EventCoordinator.StopListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
@@ -50,7 +49,6 @@ public class ArenaController : MonoBehaviour {
         EventCoordinator.StopListening(EventName.System.Environment.ArenaDestroyed(), OnArenaDestroyed);
         EventCoordinator.StopListening(EventName.System.Environment.EndMatch(), OnMatchEnd);
         //if (testScene)
-        EventCoordinator.StopListening(EventName.System.SceneLoaded(), OnSceneReloaded);
     }
 
     void OnStartGame(GameMessage msg) {
@@ -76,15 +74,5 @@ public class ArenaController : MonoBehaviour {
     void OnMatchEnd(GameMessage msg) {
         //ArenaCoordinator.RemoveField(msg.owner);
         //ArenaCoordinator.RearrangeArena(true);
-    }
-    void OnSceneReloaded(GameMessage msg) {
-        Debug.Log("OnSceneLoad - Owners:" + OwnersCoordinator.GetOwners().Count);
-        foreach (Owner owner in OwnersCoordinator.GetOwners()) {
-            Debug.Log("try trigger OnJoin for owner: " + owner);
-            if (owner.connected)
-                EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerJoined(), GameMessage.Write().WithOwner(owner));
-            else
-                Debug.Log("not connected: " + owner);
-        }
     }
 }

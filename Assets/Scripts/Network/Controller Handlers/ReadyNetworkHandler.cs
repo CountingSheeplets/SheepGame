@@ -50,9 +50,6 @@ public class ReadyNetworkHandler : MonoBehaviour {
         //EventCoordinator.TriggerEvent(EventName.Input.PlayersReady(), GameMessage.Write());
         EventCoordinator.TriggerEvent(EventName.Input.StartGame(), GameMessage.Write());
         NetworkCoordinator.SendShowViewAll("match");
-        foreach (Owner owner in OwnersCoordinator.GetOwners()) {
-            owner.ready = false;
-        }
         return true;
     }
 

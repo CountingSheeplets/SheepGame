@@ -30,7 +30,6 @@ public class ScoreUIAnimationController : MonoBehaviour {
             counter += Time.deltaTime;
             if (counter > delay) {
                 EventCoordinator.TriggerEvent(EventName.System.Environment.CleanScene(), GameMessage.Write());
-                NetworkCoordinator.SendShowViewAll("menu");
                 endMatchTrigger = false;
             }
         }

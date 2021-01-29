@@ -14,13 +14,13 @@ public class ScoreScreenController : MonoBehaviour {
     }
 
     void OnScoresShow(GameMessage msg) {
-        Debug.Log("OnScore Screen stuff:");
+        //Debug.Log("OnScore Screen stuff:");
         scoreScreen.gameObject.SetActive(true);
         bool first = true;
         List<ScoreRow> scoreRows = new List<ScoreRow>();
-        Debug.Log("owners total: :" + OwnersCoordinator.GetOwners().Count);
+        //Debug.Log("owners total: :" + OwnersCoordinator.GetOwners().Count);
         foreach (Owner owner in OwnersCoordinator.GetOwners()) {
-            Debug.Log("scoring owner: :" + owner);
+            //Debug.Log("scoring owner: :" + owner);
             PlayerScores scores = ScoreCoordinator.GetPlayerScores(owner);
             GameObject newScoreRow = Instantiate(scoreRowPrefab, scoresContainer);
             //newScoreRow.transform.SetSiblingIndex(1);

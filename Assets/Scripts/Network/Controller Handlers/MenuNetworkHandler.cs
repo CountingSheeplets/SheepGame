@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 	//public List<int> premiumIds = new List<int>();
+	public List<Owner> waitLine = new List<Owner>();
+	public List<int> connectedIds = new List<int>();
 	void Start() {
 		if (AirConsole.instance == null)
 			return;
@@ -16,6 +18,9 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 	}
 	void OnConnect(int device_id) {
 		Owner owner = OwnersCoordinator.TryCreateOwner(device_id);
+		if (!connectedIds.Contains(device_id))
+			connectedIds.Add(device_id);
+		Debug.Log("Connecting: " + owner);
 		if (GameStateView.HasState(GameState.started)) {
 			Owner ownerRec = OwnersCoordinator.ReconnectOwner(device_id);
 			if (ownerRec != null) {
@@ -28,8 +33,9 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 			return;
 		}
 		int count = OwnersCoordinator.GetOwners().Where(x => x.connected).ToList().Count;
-		if (count > 8) {
+		if (count > 7) {
 			NetworkCoordinator.SendShowView(device_id, "max_players");
+			waitLine.Add(owner);
 			Debug.Log("max");
 			return;
 		}
@@ -42,8 +48,13 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 	}
 	void OnDisconnect(int device_id) {
 		Owner owner = OwnersCoordinator.DisconnectOwner(device_id);
-		if (!owner)
+		if (connectedIds.Contains(device_id))
+			connectedIds.Remove(device_id);
+		Debug.Log("Disconnecting: " + owner);
+		if (!owner) {
 			Debug.LogWarning("OnDisconnect returned null Owner! Nothing to disconnect...");
+			return;
+		}
 		EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerLeft(), GameMessage.Write().WithOwner(owner));
 		if (GameStateView.HasState(GameState.started)) {
 			return;
@@ -55,8 +66,21 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 		foreach (Owner stayingOwner in OwnersCoordinator.GetOwners()) {
 			stayingOwner.ready = false;
 		}
+		if (waitLine.Count > 0) {
+			Owner fromQueue = waitLine[0];
+			if (fromQueue) {
+				fromQueue.teamId = OwnersCoordinator.GetNewTeamId();
+				NetworkCoordinator.SendShowView(fromQueue.deviceId, "menu");
+				EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerJoined(), GameMessage.Write().WithOwner(fromQueue));
+			}
+			waitLine.Remove(fromQueue);
+		}
 	}
-
+	public static void ReloadAllConnected() {
+		foreach (int id in Instance.connectedIds) {
+			Instance.OnConnect(id);
+		}
+	}
 	private void OnDestroy() {
 		if (AirConsole.instance != null) {
 			AirConsole.instance.onConnect -= OnConnect;
@@ -95,6 +119,6 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 
 	void TrySetupFirstOwner() {
 		if (!OwnersCoordinator.ContainsActiveFirstOwner())
-			OwnersCoordinator.GetOwners().Where(x => x.IsPlayer()).FirstOrDefault().IsFirstOwner = true;
+			OwnersCoordinator.GetOwnersAll().Where(x => x.IsPlayer()).FirstOrDefault().IsFirstOwner = true;
 	}
 }

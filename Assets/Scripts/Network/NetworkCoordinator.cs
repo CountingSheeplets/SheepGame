@@ -20,8 +20,11 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         NetworkImportantCoordinator.SendImportant(deviceId, json);
     }
     public static void SendShowViewAll(string view) {
-        NetworkObject newNetObj = new NetworkObject("changeView", view);
-        TrySendObjectAll(newNetObj);
+        //NetworkObject newNetObj = new NetworkObject("changeView", view);
+        //TrySendObjectAll(newNetObj);
+        foreach (Owner owner in OwnersCoordinator.GetOwners()) {
+            SendShowView(owner.deviceId, view);
+        }
     }
 
     public static void SendUpgradeData() {
