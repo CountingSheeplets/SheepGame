@@ -6,7 +6,7 @@ public class SheepTrenchingController : MonoBehaviour {
     SheepUnit sheep;
     public GameObject blob;
     public GameObject front;
-    GameObject model;
+    public GameObject model;
     bool colorIsSet = false;
     void Start() {
         if (sheep == null)sheep = GetComponentInParent<SheepUnit>();
@@ -25,7 +25,7 @@ public class SheepTrenchingController : MonoBehaviour {
         if (colorIsSet)
             return;
         if (model != null && blob != null) {
-            blob.GetComponent<SpriteRenderer>().color = model.GetComponent<SheepUnit>().owner.GetPlayerProfile().playerColor;
+            blob.GetComponent<SpriteRenderer>().color = sheep.owner.GetPlayerProfile().playerColor;
             colorIsSet = true;
         }
     }

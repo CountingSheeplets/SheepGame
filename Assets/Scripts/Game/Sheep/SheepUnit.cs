@@ -26,6 +26,8 @@ public class SheepUnit : MonoBehaviour {
     public bool isTrenching {
         get { return _isTrenching; }
         set {
+            if (_isTrenching == value)
+                return;
             _isTrenching = value;
             if (onIsTrenchingChange != null)
                 onIsTrenchingChange(_isTrenching);
