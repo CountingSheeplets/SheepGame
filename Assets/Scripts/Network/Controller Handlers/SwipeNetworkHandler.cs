@@ -27,7 +27,7 @@ public class SwipeNetworkHandler : Singleton<SwipeNetworkHandler> {
                 EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(triggerOwner));
             }
             if (message["isDelta"].ToString() == "False") {
-                EventCoordinator.TriggerEvent(EventName.Input.Tap(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(triggerOwner));
+                //EventCoordinator.TriggerEvent(EventName.Input.Tap(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(triggerOwner));
             }
         }
     }

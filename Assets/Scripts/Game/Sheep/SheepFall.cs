@@ -24,6 +24,7 @@ public class SheepFall : BaseUnitMove {
         //move the transform to destination
         MoveToDestination(speed, 0.5f, 0.3f);
         //fall animation;
+        sheep.isTrenching = false;
         animator.Die();
     }
     void OnLand(GameMessage msg) {

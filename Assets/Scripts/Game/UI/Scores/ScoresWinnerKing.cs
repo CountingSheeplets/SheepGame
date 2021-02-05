@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+//using UnityEngine.Rendering;
 public class ScoresWinnerKing : MonoBehaviour {
 
     public Transform offsetTransform;
+    //SortingGroup sGroup;
 
     void Start() {
         EventCoordinator.StartListening(EventName.UI.ShowScoreScreen(), OnScoresShow);
@@ -16,6 +18,7 @@ public class ScoresWinnerKing : MonoBehaviour {
         PlayerProfile winnerProfile = OwnersCoordinator.GetOwners().Select(x => x.GetPlayerProfile()).OrderByDescending(row => row.eliminatedPlace).FirstOrDefault();
         GameObject modelGo = KingFactory.TryCreateHeroModel(winnerProfile.owner, offsetTransform);
         KingModel model = modelGo.GetComponent<KingModel>();
+        //if (sGroup == null)sGroup = model.GetComponentInChildren<SortingGroup>();
         modelGo.transform.localPosition = Vector3.zero;
         modelGo.transform.localScale *= 1.6f;
         //model.ChangeColor(winnerProfile.owner.teamId);
@@ -28,6 +31,8 @@ public class ScoresWinnerKing : MonoBehaviour {
         anim.SetFloat("dirX_blend", 1);
         anim.SetFloat("dirY_blend", 0);
         anim.SetTrigger("stopWalk");
+        //if (sGroup)
+        //    sGroup.sortingOrder = 200;
         //Debug.Log("getFLoat:" + anim.GetFloat("dirX_blend"));
     }
 }

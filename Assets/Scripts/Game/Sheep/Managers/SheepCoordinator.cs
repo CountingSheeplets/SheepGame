@@ -30,9 +30,10 @@ public class SheepCoordinator : Singleton<SheepCoordinator> {
     public static List<SheepUnit> GetSheepInField(Playfield playfield) {
         //if this seems slow, could be faster to do via playfield.GetComponentInChildren<SheepUnit>()
         List<SheepUnit> sheeps = new List<SheepUnit>();
-        foreach (SheepUnit sheep in GetSheeps()) {
-            if (sheep.currentPlayfield == playfield)
+        foreach (SheepUnit sheep in GetSheepsAll()) {
+            if (sheep.currentPlayfield == playfield) {
                 sheeps.Add(sheep);
+            }
         }
         return sheeps;
     }
@@ -42,8 +43,10 @@ public class SheepCoordinator : Singleton<SheepCoordinator> {
             return new List<SheepUnit>();
         return Instance.sheepStacks[owner].GetSheeps();
     }
-    public static List<SheepUnit> GetSheeps() {
-        return new List<SheepUnit>(Instance.sheepStacks.SelectMany(y => y.Value.GetSheeps().ToList())); //Value.sheepSlots.Select(x => x.sheep)
+    public static List<SheepUnit> GetSheepsAll() {
+        List<SheepUnit> output = new List<SheepUnit>(Instance.sheepStacks.SelectMany(y => y.Value.GetSheeps().ToList())); //Value.sheepSlots.Select(x => x.sheep)
+        //return new List<SheepUnit>(Instance.sheepStacks.SelectMany(y => y.Value.GetSheeps().ToList())); //Value.sheepSlots.Select(x => x.sheep)
+        return output;
     }
     public static void UpgradeSheep(SheepUnit sheep, SheepType newType) {
         sheep.sheepType = newType;
@@ -72,18 +75,28 @@ public class SheepCoordinator : Singleton<SheepCoordinator> {
             return GetNextSlot().slotType;
         }
         public int GetNextIndex() {
-            if (currentIndex + 1 < sheepSlots.Count)
-                return currentIndex + 1;
-            return 0;
+            List<bool> empties = GetEmpties();
+
+            int thisIndex = currentIndex;
+            for (int i = 0; i < sheepSlots.Count; i++) {
+                thisIndex++;
+                if (thisIndex + 1 > sheepSlots.Count)
+                    thisIndex = 0;
+
+                if (empties[thisIndex])
+                    return thisIndex;
+            }
+            return 999;
         }
         public void SetNewSheep(SheepUnit newSheep) {
-            sheepSlots[GetNextIndex()].sheep = newSheep;
-            currentIndex++;
+            int index = GetNextIndex();
+            sheepSlots[index].sheep = newSheep;
+            currentIndex = index;
             if (currentIndex >= sheepSlots.Count)
                 currentIndex = 0;
         }
         public List<SheepUnit> GetSheeps() {
-            return sheepSlots.Select(x => x.sheep).Where(x => x != null).ToList();
+            return new List<SheepUnit>(sheepSlots.Select(x => x.sheep).Where(x => x != null).ToList());
         }
         public SheepSlot GetSlot(SheepUnit sheep) {
             return sheepSlots.Where(x => x.sheep == sheep).FirstOrDefault();
@@ -100,6 +113,9 @@ public class SheepCoordinator : Singleton<SheepCoordinator> {
         public void IncreaseStackSize(int delta) {
             for (int i = 0; i < delta; i++)
                 sheepSlots.Add(new SheepSlot());
+        }
+        public List<bool> GetEmpties() {
+            return sheepSlots.Select(x => x.sheep == null).ToList();
         }
     }
 }

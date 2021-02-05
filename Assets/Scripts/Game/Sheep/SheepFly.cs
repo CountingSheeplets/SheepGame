@@ -23,6 +23,7 @@ public class SheepFly : BaseUnitMove {
         animator.FlyTo(_destination);
         if (sGroup)
             sGroup.sortingOrder = 200;
+        sheep.ResetContainer();
     }
 
     public override void PostMoveAction() {

@@ -31,13 +31,11 @@ public class TargetingController : MonoBehaviour {
         crossSprite = crosshair.GetComponentInChildren<SpriteRenderer>();
         EventCoordinator.StartListening(EventName.Input.Tap(), OnTap);
         EventCoordinator.StartListening(EventName.Input.Swipe(), OnSwipe);
-        //EventCoordinator.StartListening(EventName.System.Sheep.Launch(), OnLaunch);
         EventCoordinator.StartListening(EventName.Input.StartGame(), OnStart);
     }
     void OnDestroy() {
         EventCoordinator.StopListening(EventName.Input.Tap(), OnTap);
         EventCoordinator.StopListening(EventName.Input.Swipe(), OnSwipe);
-        //EventCoordinator.StopListening(EventName.System.Sheep.Launch(), OnLaunch);
         EventCoordinator.StopListening(EventName.Input.StartGame(), OnStart);
     }
     void OnStart(GameMessage msg) {
@@ -69,6 +67,7 @@ public class TargetingController : MonoBehaviour {
             }
             triggerMove = true;
             triggerFade = false;
+            Debug.Log("swipe sets triggerFade = false");
             progressMove = 0;
             bool insideMin = !msg.swipe.isOverWheelMin;
             dirIndicator.gameObject.SetActive(!insideMin);
@@ -85,11 +84,13 @@ public class TargetingController : MonoBehaviour {
         if (playfield.owner.EqualsByValue(msg.owner)) {
             tapDown = msg.state;
             if (!msg.state) {
+                Debug.Log("trigger fade + pop animation, triggerFade = true");
                 animator.SetTrigger("pop");
                 triggerFade = true;
                 progressFade = 0;
             } else {
                 animator.SetTrigger("default");
+                Debug.Log("OnTap default animation");
             }
         }
     }

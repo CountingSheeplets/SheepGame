@@ -32,7 +32,7 @@ public class BaseUnitMove : MonoBehaviour {
     public void SetDestination(Vector2 _destination, bool _isLocal) {
         isLocal = _isLocal;
         trueDestination = _destination;
-        localMoveDirection = _destination - (Vector2) transform.position;
+        localMoveDirection = _destination - (Vector2)transform.position;
     }
     public void MoveToDestination(float speed, float _midScale, float _endScale) {
         endScale = _endScale;
@@ -40,7 +40,7 @@ public class BaseUnitMove : MonoBehaviour {
     }
     public void MoveToDestination(float speed, float _midScale) {
         if (animator == null)
-            animator = GetComponentInChildren<IAnimatableDirection>();
+            animator = GetComponentInChildren<IAnimatableDirection>(true);
         midScale = _midScale;
         moveSpeed = speed;
         distanceTraveled = 0f;
@@ -62,9 +62,9 @@ public class BaseUnitMove : MonoBehaviour {
         Vector2 initialPos;
         Vector2 moveDir;
 
-        totalDistance = ((Vector2) (transform.position) - trueDestination).magnitude;
-        initialPos = (Vector2) (transform.position);
-        moveDir = (trueDestination - (Vector2) (transform.position)).normalized;
+        totalDistance = ((Vector2)(transform.position) - trueDestination).magnitude;
+        initialPos = (Vector2)(transform.position);
+        moveDir = (trueDestination - (Vector2)(transform.position)).normalized;
         while (distanceTraveled < totalDistance && !isMoving) {
             //adjust size by distance
             if (impactScale) {
@@ -98,9 +98,9 @@ public class BaseUnitMove : MonoBehaviour {
         yield return new WaitForFixedUpdate();
         isMoving = false;
         //calculate parameters for movement:
-        initialPos = (Vector2) (transform.localPosition);
-        parentPosition = (Vector2) transform.parent.transform.position;
-        localDestination = trueDestination - (Vector2) transform.parent.transform.position;
+        initialPos = (Vector2)(transform.localPosition);
+        parentPosition = (Vector2)transform.parent.transform.position;
+        localDestination = trueDestination - (Vector2)transform.parent.transform.position;
         float progress = 0f;
         float distance = (initialPos - localDestination).magnitude;
         while (progress < 1f && !isMoving) {
@@ -131,5 +131,5 @@ public class BaseUnitMove : MonoBehaviour {
     public void StopMove() {
         isMoving = true;
     }
-    public virtual void PostMoveAction() { }
+    public virtual void PostMoveAction() {}
 }

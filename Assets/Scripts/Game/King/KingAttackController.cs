@@ -74,7 +74,6 @@ public class KingAttackController : MonoBehaviour {
         float speed = SpeedBucket.GetFlySpeed(sheep.sheepType) / 3f;
         fly.sheep.lastHandler = playfield.owner;
         fly.StartFlying(speed, destination);
-        sheep.ResetContainer();
     }
     void ChargeNextTarget() {
         if (kingUnit.GetIsUsingAbility())return;

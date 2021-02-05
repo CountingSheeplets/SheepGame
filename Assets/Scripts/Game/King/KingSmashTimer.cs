@@ -39,11 +39,19 @@ public class KingSmashTimer : MonoBehaviour {
                 //.Where(x => (x.GetComponent<Transform>().position - transform.position).magnitude <= ConstantsBucket.KingSmiteRange)
                 //.Where(x => !x.isReadyToFly)
                 .ToList();
+            List<SheepUnit> sheepInField = SheepCoordinator.GetSheepInField(king.myPlayfield);
+            //Debug.Log("total sheepInField:" + sheepInField.Count);
+            List<SheepUnit> myOwnShwwp = sheepInField.Where(x => x.owner.EqualsByValue(king.owner)).ToList();
+            //Debug.Log("total myOwnShwwp:" + myOwnShwwp.Count);
+            List<SheepUnit> sheepByOwner = sheepInField.Where(x => !x.owner.EqualsByValue(king.owner)).ToList();
+            //Debug.Log("total sheepByOwner:" + sheepByOwner.Count);
+            List<SheepUnit> correctSheer = sheepByOwner.Where(x => x.sheepType != SheepType.Tank).ToList();
+            //Debug.Log("total correctSheer:" + correctSheer.Count);
             string smashedSHeep = "";
             foreach (SheepUnit sheep in sheepWithinRange) { //SheepCoordinator.GetSheepInField(king.myPlayfield).Where(x => !x.owner.EqualsByValue(king.owner))) {
                 smashedSHeep += sheep.name + "  ";
             }
-            Debug.Log("sheep found in field to smash: " + smashedSHeep);
+            //Debug.Log("sheep found in field to smash: " + smashedSHeep);
             counter = 0f;
             king.StopUsingAbility();
             EventCoordinator.TriggerEvent(EventName.System.King.Smashed(), smashMsg.WithSheepUnits(sheepWithinRange).WithCoordinates(king.transform.localPosition).WithOwner(king.owner));

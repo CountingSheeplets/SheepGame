@@ -147,7 +147,8 @@ public class Owner : MonoBehaviour {
             return false;
         }
         // Debug.Log("passed all, proper checking..."+((ownerType & c.ownerType) != 0 && ownerName == c.ownerName && teamId == c.teamId)+" vs "+c);
-        return ((ownerType & c.ownerType) != 0 && ownerName == c.ownerName && teamId == c.teamId);
+        //return ((ownerType & c.ownerType) != 0 && ownerName == c.ownerName && teamId == c.teamId);
+        return (ownerName == c.ownerName && teamId == c.teamId);
     }
     //are these needed?:
     public bool IsInListByType(List<Owner> list) {
