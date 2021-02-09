@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemChangeHandler : MonoBehaviour {
-    //public GameObject currentItemGO;
-    KingItemType itemType;
-
     /*     [StringInList(typeof(PropertyDrawersHelper), "AllEventNames")]
         public string changeItemEventName; */
 
@@ -20,45 +17,47 @@ public class ItemChangeHandler : MonoBehaviour {
     }
 
     void OnChangeItem(GameMessage msg) {
-        itemType = msg.kingItemType;
         if (GetComponentInParent<PlayerOwnerTile>().myOwner.EqualsByValue(msg.owner)) {
-            currentItemIndex = msg.owner.GetPlayerProfile().GetSelectedItem(itemType);
+            currentItemIndex = msg.owner.GetPlayerProfile().GetSeenItem(msg.kingItemType);
             if (msg.intMessage > 0) {
                 currentItemIndex++;
-                if (currentItemIndex >= KingItemBucket.ItemCount(itemType))
+                if (currentItemIndex >= KingItemBucket.ItemCount(msg.kingItemType))
                     currentItemIndex = 0;
             }
             if (msg.intMessage < 0) {
                 currentItemIndex--;
                 if (currentItemIndex < 0)
-                    currentItemIndex = KingItemBucket.ItemCount(itemType) - 1;
+                    currentItemIndex = KingItemBucket.ItemCount(msg.kingItemType) - 1;
             }
-            msg.owner.GetPlayerProfile().SelectItem(itemType, currentItemIndex);
-            //change visuals only if requirements are met:
-            if (KingItemBucket.IsItemAvailable(msg.owner, currentItemIndex, itemType)) {
-                ChangeItemTo(currentItemIndex);
+            msg.owner.GetPlayerProfile().SeeItem(msg.kingItemType, currentItemIndex);
+            //change the item only if requirements are met:
+            if (KingItemBucket.IsItemAvailable(msg.owner, currentItemIndex, msg.kingItemType)) {
+                msg.owner.GetPlayerProfile().SelectItem(msg.kingItemType, currentItemIndex);
+                ChangeItemTo(currentItemIndex, msg.kingItemType);
             } else {
                 Debug.Log("requirements not met!: " + currentItemIndex);
             }
         }
     }
     void OnSetKingItem(GameMessage msg) {
-        itemType = msg.kingItemType;
         if (GetComponentInParent<PlayerOwnerTile>().myOwner.EqualsByValue(msg.owner)) {
-            currentItemIndex = Mathf.Clamp(msg.intMessage, 0, KingItemBucket.ItemCount(itemType) - 1);
-            msg.owner.GetPlayerProfile().SelectItem(itemType, currentItemIndex);
+            currentItemIndex = Mathf.Clamp(msg.intMessage, 0, KingItemBucket.ItemCount(msg.kingItemType) - 1);
             //change visuals only if requirements are met:
-            if (KingItemBucket.IsItemAvailable(msg.owner, msg.owner.GetPlayerProfile().selectedHat, itemType)) {
-                ChangeItemTo(currentItemIndex);
+            msg.owner.GetPlayerProfile().SeeItem(msg.kingItemType, currentItemIndex);
+            if (KingItemBucket.IsItemAvailable(msg.owner, msg.owner.GetPlayerProfile().selectedHat, msg.kingItemType)) {
+                msg.owner.GetPlayerProfile().SelectItem(msg.kingItemType, currentItemIndex);
+                ChangeItemTo(currentItemIndex, msg.kingItemType);
             } else {
                 Debug.Log("requirements not met!: " + msg.owner.GetPlayerProfile().selectedHat);
             }
         }
     }
-    void ChangeItemTo(int index) {
+    void ChangeItemTo(int index, KingItemType itemType) {
         if (itemType == KingItemType.hat)
             GetComponent<KingModel>().SetHat(index);
-        if (itemType == KingItemType.scepter)
+        if (itemType == KingItemType.scepter) {
+            Debug.Log("changing scepter to i:" + index);
             GetComponent<KingModel>().SetScepter(index);
+        }
     }
 }

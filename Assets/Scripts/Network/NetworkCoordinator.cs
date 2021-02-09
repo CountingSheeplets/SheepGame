@@ -56,15 +56,15 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         json["permanentCrownCount"] = profile.permanentCrownCount;
 
         JObject hatJson = new JObject();
-        hatJson["ID"] = profile.selectedHat;
-        KingItem hat = KingItemBucket.GetItem(profile.selectedHat, KingItemType.hat);
+        hatJson["ID"] = profile.seenHat;
+        KingItem hat = KingItemBucket.GetItem(profile.seenHat, KingItemType.hat);
         hatJson["itemName"] = hat.itemName;
         hatJson["spriteName"] = hat.spriteName;
         Debug.Log("sending hat spriteName: " + hatJson["spriteName"]);
 
         JObject hCrownsJson = new JObject();
         hCrownsJson["required"] = hat.crownRequirement;
-        hCrownsJson["requirementMet"] = KingItemBucket.IsCrownRequirementMet(owner, profile.selectedHat, KingItemType.hat);
+        hCrownsJson["requirementMet"] = KingItemBucket.IsCrownRequirementMet(owner, profile.seenHat, KingItemType.hat);
         hatJson["crowns"] = hCrownsJson;
 
         JObject hPremiumJson = new JObject();
@@ -72,20 +72,20 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         hPremiumJson["requirementMet"] = KingItemBucket.IsPremiumRequirementMet(owner, hat);
         hatJson["premium"] = hPremiumJson;
 
-        hatJson["unlocked"] = KingItemBucket.IsItemAvailable(owner, profile.selectedHat, KingItemType.hat);
+        hatJson["unlocked"] = KingItemBucket.IsItemAvailable(owner, profile.seenHat, KingItemType.hat);
 
         json["newHat"] = hatJson;
 
         JObject scepterJson = new JObject();
-        scepterJson["ID"] = profile.selectedScepter;
-        KingItem scepter = KingItemBucket.GetItem(profile.selectedScepter, KingItemType.scepter);
+        scepterJson["ID"] = profile.seenScepter;
+        KingItem scepter = KingItemBucket.GetItem(profile.seenScepter, KingItemType.scepter);
         scepterJson["itemName"] = scepter.itemName;
         scepterJson["spriteName"] = scepter.spriteName;
         Debug.Log("sending scepter spriteName: " + scepterJson["spriteName"]);
 
         JObject sCrownsJson = new JObject();
         sCrownsJson["required"] = scepter.crownRequirement;
-        sCrownsJson["requirementMet"] = KingItemBucket.IsCrownRequirementMet(owner, profile.selectedScepter, KingItemType.scepter);
+        sCrownsJson["requirementMet"] = KingItemBucket.IsCrownRequirementMet(owner, profile.seenScepter, KingItemType.scepter);
         scepterJson["crowns"] = sCrownsJson;
 
         JObject sPremiumJson = new JObject();
@@ -93,7 +93,7 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         sPremiumJson["requirementMet"] = KingItemBucket.IsPremiumRequirementMet(owner, scepter);
         scepterJson["premium"] = sPremiumJson;
 
-        scepterJson["unlocked"] = KingItemBucket.IsItemAvailable(owner, profile.selectedScepter, KingItemType.scepter);
+        scepterJson["unlocked"] = KingItemBucket.IsItemAvailable(owner, profile.seenScepter, KingItemType.scepter);
 
         json["newScepter"] = scepterJson;
         TrySend(owner.deviceId, json);

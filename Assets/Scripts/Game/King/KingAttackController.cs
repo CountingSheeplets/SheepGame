@@ -77,10 +77,9 @@ public class KingAttackController : MonoBehaviour {
     }
     void ChargeNextTarget() {
         if (kingUnit.GetIsUsingAbility())return;
-        if (sheepInField.Count == 0)
-            //Debug.Log("nothing to charge at... Count = 0");
-            return;
         sheepInField.DropNa();
+        if (sheepInField.Count == 0)
+            return;
         if (sheepInField.Count == 1)
             nextTarget = sheepInField[0];
         else

@@ -530,6 +530,11 @@ PrefabInstance:
       propertyPath: m_AspectRatio
       value: 0.8885385
       objectReference: {fileID: 0}
+    - target: {fileID: 5432022831012731762, guid: 3d5459cc99ba68d43ab069d09123308c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7306109438679984462, guid: 3d5459cc99ba68d43ab069d09123308c,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -1301,6 +1306,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _persistent: 0
   isUsed: 
+--- !u!1 &884691104 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2919956132876460910, guid: 94ec890c568fb2f45953c1e9b8666c34,
+    type: 3}
+  m_PrefabInstance: {fileID: 1024110095}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &884691108
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884691104}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: -50
+  m_TargetDisplay: 0
 --- !u!1001 &916169999
 PrefabInstance:
   m_ObjectHideFlags: 0

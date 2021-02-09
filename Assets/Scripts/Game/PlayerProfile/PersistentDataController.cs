@@ -29,6 +29,8 @@ public class PersistentDataController : MonoBehaviour {
 	}
 	void OnStartGame(GameMessage msg) {
 		foreach (Owner owner in OwnersCoordinator.GetOwners()) {
+			owner.GetPlayerProfile().SeeItem(KingItemType.hat, owner.GetPlayerProfile().selectedHat);
+			owner.GetPlayerProfile().SeeItem(KingItemType.scepter, owner.GetPlayerProfile().selectedScepter);
 			PersistentDataCoordinator.StoreData(owner);
 		}
 	}

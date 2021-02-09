@@ -29,6 +29,22 @@ public class PlayerProfile {
             _selectedScepter = value;
         }
     }
+    int _seenHat = 0;
+    public int seenHat {
+        get { return _seenHat; }
+        set {
+            SetNetworkDirty();
+            _seenHat = value;
+        }
+    }
+    int _seenScepter = 0;
+    public int seenScepter {
+        get { return _seenScepter; }
+        set {
+            SetNetworkDirty();
+            _seenScepter = value;
+        }
+    }
     public void SelectItem(KingItemType itemType, int index) {
         switch (itemType) {
             case KingItemType.hat:
@@ -39,12 +55,31 @@ public class PlayerProfile {
                 break;
         }
     }
+    public void SeeItem(KingItemType itemType, int index) {
+        switch (itemType) {
+            case KingItemType.hat:
+                seenHat = index;
+                break;
+            case KingItemType.scepter:
+                seenScepter = index;
+                break;
+        }
+    }
     public int GetSelectedItem(KingItemType itemType) {
         switch (itemType) {
             case KingItemType.hat:
                 return selectedHat;
             case KingItemType.scepter:
                 return selectedScepter;
+        }
+        return 0;
+    }
+    public int GetSeenItem(KingItemType itemType) {
+        switch (itemType) {
+            case KingItemType.hat:
+                return seenHat;
+            case KingItemType.scepter:
+                return seenScepter;
         }
         return 0;
     }
