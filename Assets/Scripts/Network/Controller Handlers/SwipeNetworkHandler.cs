@@ -23,12 +23,7 @@ public class SwipeNetworkHandler : Singleton<SwipeNetworkHandler> {
             //Debug.Log("from: " + from + "   msg:" + message);
             Swipe newSwipe = new Swipe(message);
             //Debug.Log(newSwipe.ToString());
-            if (message["isDelta"].ToString() == "True") {
-                EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(triggerOwner));
-            }
-            if (message["isDelta"].ToString() == "False") {
-                //EventCoordinator.TriggerEvent(EventName.Input.Tap(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(triggerOwner));
-            }
+            EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(triggerOwner));
         }
     }
     void OnTap(int from, JToken message) {
@@ -44,11 +39,11 @@ public class SwipeNetworkHandler : Singleton<SwipeNetworkHandler> {
             //Debug.Log("from: " + from + "   msg:" + message);
             Swipe newSwipe = new Swipe(message);
             //Debug.Log(newSwipe.ToString());
-            if (message["clicked"].ToString() == "False") {
-                EventCoordinator.TriggerEvent(EventName.Input.Tap(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(triggerOwner).WithState(false));
-            }
             if (message["clicked"].ToString() == "True") {
                 EventCoordinator.TriggerEvent(EventName.Input.Tap(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(triggerOwner).WithState(true));
+            }
+            if (message["clicked"].ToString() == "False") {
+                EventCoordinator.TriggerEvent(EventName.Input.Tap(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(triggerOwner).WithState(false));
             }
         }
     }
