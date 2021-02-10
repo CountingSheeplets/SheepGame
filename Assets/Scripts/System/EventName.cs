@@ -4,8 +4,9 @@ using System.Linq;
 public class EventName {
     public class UI {
         public static string ShowScoreScreen() { return "UI_ShowScoreScreen"; }
+        public static string ScoreScreenShown() { return "UI_ScoreScreenShown"; }
         public static string ShowCooldownNotReady() { return "ShowCooldownNotReady"; }
-        public static List<string> Get() { return new List<string> { ShowScoreScreen(), ShowCooldownNotReady() }; }
+        public static List<string> Get() { return new List<string> { ShowScoreScreen(), ScoreScreenShown(), ShowCooldownNotReady() }; }
     }
     public class Editor {
         public static string None() { return null; }

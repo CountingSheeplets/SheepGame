@@ -17,7 +17,7 @@ public class IncomeController : MonoBehaviour {
     }
 
     void Update() {
-        if (!GameStateView.HasState(GameState.started) || !GameStateView.HasState(GameState.ended))
+        if (!GameStateView.HasState(GameState.started) || GameStateView.HasState(GameState.ended))
             return;
         counter += Time.deltaTime;
         if (counter > ConstantsBucket.GoldIncomePeriod) {

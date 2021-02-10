@@ -44,6 +44,7 @@ public class ArenaOffsetAnimator : MonoBehaviour {
             else {
                 arenaTr.position = Vector3.Lerp(startPos, scorePosition, 1f);
                 animateOut = false;
+                EventCoordinator.TriggerEvent(EventName.UI.ScoreScreenShown(), GameMessage.Write());
             }
         }
     }

@@ -38,7 +38,7 @@ public class Destructable : MonoBehaviour {
     void OnDestroy() {
         if (isClone)
             return;
-        if (GameStateView.HasState(GameState.gameReloaded) || GameStateView.HasState(GameState.ended))
+        if (GameStateView.HasState(GameState.gameReloaded)) // || GameStateView.HasState(GameState.ended))
             return;
         if (GameStateView.GetGameState() == 0)
             return;
