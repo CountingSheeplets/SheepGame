@@ -1,39 +1,15 @@
 // Upgrade NOTE: upgraded instancing buffer 'PerDrawSprite' to new syntax.
 
-// Upgrade NOTE: upgraded instancing buffer 'PerDrawSprite' to new syntax.
-
 #ifndef SHADER_SHARED_INCLUDED
 #define SHADER_SHARED_INCLUDED
 
 #if defined(USE_LWRP)
-#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+#include "Packages/com.unity.render-pipelines.lightweight/ShaderLibrary/Core.hlsl"
 #elif defined(USE_URP)
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 #else
 #include "UnityCG.cginc"
 #endif
-
-#ifdef UNITY_INSTANCING_ENABLED
-
-    UNITY_INSTANCING_BUFFER_START(PerDrawSprite)
-        // SpriteRenderer.Color while Non-Batched/Instanced.
-        fixed4 unity_SpriteRendererColorArray[UNITY_INSTANCED_ARRAY_SIZE];
-        // this could be smaller but that's how bit each entry is regardless of type
-        float4 unity_SpriteFlipArray[UNITY_INSTANCED_ARRAY_SIZE];
-    UNITY_INSTANCING_BUFFER_END(PerDrawSprite)
-
-    #define _RendererColor unity_SpriteRendererColorArray[unity_InstanceID]
-    #define _Flip unity_SpriteFlipArray[unity_InstanceID]
-
-#endif // instancing
-
-CBUFFER_START(UnityPerDrawSprite)
-#ifndef UNITY_INSTANCING_ENABLED
-    fixed4 _RendererColor;
-    float4 _Flip;
-#endif
-    float _EnableExternalAlpha;
-CBUFFER_END
 
 ////////////////////////////////////////
 // Space functions
@@ -98,7 +74,10 @@ inline half3 calculateWorldNormal(float3 normal)
 #if defined(_NORMALMAP)
 
 uniform sampler2D _BumpMap;
+
+#if !defined(USE_LWRP) && !defined(USE_URP)
 uniform half _BumpScale;
+#endif
 
 half3 UnpackScaleNormal(half4 packednormal, half bumpScale)
 {
@@ -249,7 +228,9 @@ inline fixed4 calculatePixel(fixed4 texureColor) : SV_Target
 
 #if defined(_ALPHA_CLIP)
 
+#if !defined(USE_LWRP) && !defined(USE_URP)
 uniform fixed _Cutoff;
+#endif
 
 #define ALPHA_CLIP(pixel, color) clip((pixel.a * color.a) - _Cutoff);
 
@@ -263,7 +244,9 @@ uniform fixed _Cutoff;
 // Color functions
 //
 
+#if !defined(USE_LWRP) && !defined(USE_URP)
 uniform fixed4 _Color;
+#endif
 
 inline fixed4 calculateVertexColor(fixed4 color)
 {
@@ -272,10 +255,12 @@ inline fixed4 calculateVertexColor(fixed4 color)
 
 #if defined(_COLOR_ADJUST)
 
+#if !defined(USE_LWRP) && !defined(USE_URP)
 uniform float _Hue;
 uniform float _Saturation;
 uniform float _Brightness;
 uniform fixed4 _OverlayColor;
+#endif
 
 float3 rgb2hsv(float3 c)
 {
@@ -376,14 +361,11 @@ inline fixed4 applyFog(fixed4 pixel, float fogCoordOrFactorAtLWRP)
 
 uniform sampler2D _MainTex;
 
-#if ETC1_EXTERNAL_ALPHA
-//External alpha texture for ETC1 compression
-uniform sampler2D _AlphaTex;
-#endif //ETC1_EXTERNAL_ALPHA
-
 #if _TEXTURE_BLEND
 uniform sampler2D _BlendTex;
+#if !defined(USE_LWRP) && !defined(USE_URP)
 uniform float _BlendAmount;
+#endif
 
 inline fixed4 calculateBlendedTexturePixel(float2 texcoord)
 {
@@ -401,11 +383,6 @@ inline fixed4 calculateTexturePixel(float2 texcoord)
 	pixel = tex2D(_MainTex, texcoord);
 #endif // !_TEXTURE_BLEND
 
-#if ETC1_EXTERNAL_ALPHA
-    fixed4 alpha = tex2D (_AlphaTex, texcoord);
-    pixel.a = lerp (pixel.a, alpha.r, _EnableExternalAlpha);
-#endif
-
 #if defined(_COLOR_ADJUST)
 	pixel = adjustColor(pixel);
 #endif // _COLOR_ADJUST
@@ -413,11 +390,14 @@ inline fixed4 calculateTexturePixel(float2 texcoord)
 	return pixel;
 }
 
+#if !defined(USE_LWRP) && !defined(USE_URP)
 uniform fixed4 _MainTex_ST;
+#endif
 
 inline float2 calculateTextureCoord(float4 texcoord)
 {
 	return TRANSFORM_TEX(texcoord, _MainTex);
 }
+
 
 #endif // SHADER_SHARED_INCLUDED

@@ -41,6 +41,7 @@ namespace Spine.Unity {
 	[ExecuteInEditMode]
 	#endif
 	[AddComponentMenu("Spine/SkeletonAnimation")]
+	[HelpURL("http://esotericsoftware.com/spine-unity#SkeletonAnimation-Component")]
 	public class SkeletonAnimation : SkeletonRenderer, ISkeletonAnimation, IAnimationStateComponent {
 
 		#region IAnimationStateComponent
@@ -52,12 +53,20 @@ namespace Spine.Unity {
 		/// This is the Spine.AnimationState object of this SkeletonAnimation. You can control animations through it.
 		/// Note that this object, like .skeleton, is not guaranteed to exist in Awake. Do all accesses and caching to it in Start</summary>
 		public Spine.AnimationState AnimationState { get { return this.state; } }
+		private bool wasUpdatedAfterInit = true;
 		#endregion
 
 		#region Bone Callbacks ISkeletonAnimation
+		protected event UpdateBonesDelegate _BeforeApply;
 		protected event UpdateBonesDelegate _UpdateLocal;
 		protected event UpdateBonesDelegate _UpdateWorld;
 		protected event UpdateBonesDelegate _UpdateComplete;
+
+		/// <summary>
+		/// Occurs before the animations are applied.
+		/// Use this callback when you want to change the skeleton state before animations are applied on top.
+		/// </summary>
+		public event UpdateBonesDelegate BeforeApply { add { _BeforeApply += value; } remove { _BeforeApply -= value; } }
 
 		/// <summary>
 		/// Occurs after the animations are applied and before world space values are resolved.
@@ -149,13 +158,12 @@ namespace Spine.Unity {
 		public override void Initialize (bool overwrite) {
 			if (valid && !overwrite)
 				return;
-
 			base.Initialize(overwrite);
 
 			if (!valid)
 				return;
-
 			state = new Spine.AnimationState(skeletonDataAsset.GetAnimationStateData());
+			wasUpdatedAfterInit = false;
 
 			if (!string.IsNullOrEmpty(_animationName)) {
 				var animationObject = skeletonDataAsset.GetSkeletonData(false).FindAnimation(_animationName);
@@ -182,13 +190,33 @@ namespace Spine.Unity {
 
 		/// <summary>Progresses the AnimationState according to the given deltaTime, and applies it to the Skeleton. Use Time.deltaTime to update manually. Use deltaTime 0 to update without progressing the time.</summary>
 		public void Update (float deltaTime) {
-			if (!valid)
+			if (!valid || state == null)
 				return;
 
+			wasUpdatedAfterInit = true;
+			if (updateMode < UpdateMode.OnlyAnimationStatus)
+				return;
+			UpdateAnimationStatus(deltaTime);
+
+			if (updateMode == UpdateMode.OnlyAnimationStatus)
+				return;
+			ApplyAnimation();
+		}
+
+		protected void UpdateAnimationStatus (float deltaTime) {
 			deltaTime *= timeScale;
 			skeleton.Update(deltaTime);
 			state.Update(deltaTime);
-			state.Apply(skeleton);
+		}
+
+		protected void ApplyAnimation () {
+			if (_BeforeApply != null)
+				_BeforeApply(this);
+
+			if (updateMode != UpdateMode.OnlyEventTimelines)
+				state.Apply(skeleton);
+			else
+				state.ApplyEventTimelinesOnly(skeleton);
 
 			if (_UpdateLocal != null)
 				_UpdateLocal(this);
@@ -205,6 +233,11 @@ namespace Spine.Unity {
 			}
 		}
 
+		public override void LateUpdate () {
+			// instantiation can happen from Update() after this component, leading to a missing Update() call.
+			if (!wasUpdatedAfterInit) Update(0);
+			base.LateUpdate();
+		}
 	}
 
 }

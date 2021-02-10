@@ -46,6 +46,10 @@
 #define NEW_PREFERENCES_SETTINGS_PROVIDER
 #endif
 
+#if UNITY_2017_1_OR_NEWER
+#define BUILT_IN_SPRITE_MASK_COMPONENT
+#endif
+
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
@@ -93,7 +97,7 @@ namespace Spine.Unity.Editor {
 
 #region Initialization
 		static SpineEditorUtilities () {
-			Initialize();
+			EditorApplication.delayCall += Initialize; // delayed so that AssetDatabase is ready.
 		}
 
 		static void Initialize () {
@@ -189,6 +193,62 @@ namespace Spine.Unity.Editor {
 			}
 		}
 
+		public static void ReloadSkeletonDataAssetAndComponent (SkeletonRenderer component) {
+			if (component == null) return;
+			ReloadSkeletonDataAsset(component.skeletonDataAsset);
+			ReinitializeComponent(component);
+		}
+
+		public static void ReloadSkeletonDataAssetAndComponent (SkeletonGraphic component) {
+			if (component == null) return;
+			ReloadSkeletonDataAsset(component.skeletonDataAsset);
+			// Reinitialize.
+			ReinitializeComponent(component);
+		}
+
+		public static void ReloadSkeletonDataAsset (SkeletonDataAsset skeletonDataAsset) {
+			if (skeletonDataAsset != null) {
+				foreach (AtlasAssetBase aa in skeletonDataAsset.atlasAssets) {
+					if (aa != null) aa.Clear();
+				}
+				skeletonDataAsset.Clear();
+			}
+			skeletonDataAsset.GetSkeletonData(true);
+		}
+
+		public static void ReinitializeComponent (SkeletonRenderer component) {
+			if (component == null) return;
+			if (!SkeletonDataAssetIsValid(component.SkeletonDataAsset)) return;
+
+			var stateComponent = component as IAnimationStateComponent;
+			AnimationState oldAnimationState = null;
+			if (stateComponent != null) {
+				oldAnimationState = stateComponent.AnimationState;
+			}
+
+			component.Initialize(true); // implicitly clears any subscribers
+
+			if (oldAnimationState != null) {
+				stateComponent.AnimationState.AssignEventSubscribersFrom(oldAnimationState);
+			}
+
+		#if BUILT_IN_SPRITE_MASK_COMPONENT
+			SpineMaskUtilities.EditorAssignSpriteMaskMaterials(component);
+		#endif
+			component.LateUpdate();
+		}
+
+		public static void ReinitializeComponent (SkeletonGraphic component) {
+			if (component == null) return;
+			if (!SkeletonDataAssetIsValid(component.SkeletonDataAsset)) return;
+			component.Initialize(true);
+			component.LateUpdate();
+		}
+
+		public static bool SkeletonDataAssetIsValid (SkeletonDataAsset asset) {
+			return asset != null && asset.GetSkeletonData(quiet: true) != null;
+		}
+
 		public static bool IssueWarningsForUnrecommendedTextureSettings(string texturePath)
 		{
 			TextureImporter texImporter = (TextureImporter)TextureImporter.GetAtPath(texturePath);
@@ -217,6 +277,7 @@ namespace Spine.Unity.Editor {
 			static Dictionary<int, GameObject> skeletonRendererTable = new Dictionary<int, GameObject>();
 			static Dictionary<int, SkeletonUtilityBone> skeletonUtilityBoneTable = new Dictionary<int, SkeletonUtilityBone>();
 			static Dictionary<int, BoundingBoxFollower> boundingBoxFollowerTable = new Dictionary<int, BoundingBoxFollower>();
+			static Dictionary<int, BoundingBoxFollowerGraphic> boundingBoxFollowerGraphicTable = new Dictionary<int, BoundingBoxFollowerGraphic>();
 
 #if NEWPLAYMODECALLBACKS
 			internal static void IconsOnPlaymodeStateChanged (PlayModeStateChange stateChange) {
@@ -226,6 +287,7 @@ namespace Spine.Unity.Editor {
 				skeletonRendererTable.Clear();
 				skeletonUtilityBoneTable.Clear();
 				boundingBoxFollowerTable.Clear();
+				boundingBoxFollowerGraphicTable.Clear();
 
 #if NEWHIERARCHYWINDOWCALLBACKS
 				EditorApplication.hierarchyChanged -= IconsOnChanged;
@@ -249,6 +311,7 @@ namespace Spine.Unity.Editor {
 				skeletonRendererTable.Clear();
 				skeletonUtilityBoneTable.Clear();
 				boundingBoxFollowerTable.Clear();
+				boundingBoxFollowerGraphicTable.Clear();
 
 				SkeletonRenderer[] arr = Object.FindObjectsOfType<SkeletonRenderer>();
 				foreach (SkeletonRenderer r in arr)
@@ -261,6 +324,10 @@ namespace Spine.Unity.Editor {
 				BoundingBoxFollower[] bbfArr = Object.FindObjectsOfType<BoundingBoxFollower>();
 				foreach (BoundingBoxFollower bbf in bbfArr)
 					boundingBoxFollowerTable[bbf.gameObject.GetInstanceID()] = bbf;
+
+				BoundingBoxFollowerGraphic[] bbfgArr = Object.FindObjectsOfType<BoundingBoxFollowerGraphic>();
+				foreach (BoundingBoxFollowerGraphic bbf in bbfgArr)
+					boundingBoxFollowerGraphicTable[bbf.gameObject.GetInstanceID()] = bbf;
 			}
 
 			internal static void IconsOnGUI (int instanceId, Rect selectionRect) {
@@ -286,6 +353,16 @@ namespace Spine.Unity.Editor {
 					r.x -= 26;
 					if (boundingBoxFollowerTable[instanceId] != null) {
 						if (boundingBoxFollowerTable[instanceId].transform.childCount == 0)
+							r.x += 13;
+						r.y += 2;
+						r.width = 13;
+						r.height = 13;
+						GUI.DrawTexture(r, Icons.boundingBox);
+					}
+				} else if (boundingBoxFollowerGraphicTable.ContainsKey(instanceId)) {
+					r.x -= 26;
+					if (boundingBoxFollowerGraphicTable[instanceId] != null) {
+						if (boundingBoxFollowerGraphicTable[instanceId].transform.childCount == 0)
 							r.x += 13;
 						r.y += 2;
 						r.width = 13;
