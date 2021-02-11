@@ -1381,7 +1381,7 @@ PrefabInstance:
     - target: {fileID: 8604118487354306396, guid: 38139f4f48e2af14ea01a365c7f32b03,
         type: 3}
       propertyPath: startingGold
-      value: 100
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38139f4f48e2af14ea01a365c7f32b03, type: 3}
@@ -1515,27 +1515,27 @@ PrefabInstance:
     - target: {fileID: 8519426809534698585, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8519426809534698585, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8519426809534698585, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1655.9999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8519426809534698585, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 827.99994
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8519426809534698585, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -27.600006
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94ec890c568fb2f45953c1e9b8666c34, type: 3}
@@ -2235,7 +2235,6 @@ GameObject:
   - component: {fileID: 1492470320}
   - component: {fileID: 1492470321}
   - component: {fileID: 1492470322}
-  - component: {fileID: 1492470323}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -2380,18 +2379,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 0
---- !u!114 &1492470323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1492470312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d74e5ca51d7ae8943b54a046a826894f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1705232089
 GameObject:
   m_ObjectHideFlags: 0
@@ -2670,8 +2657,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7403221088168266536, guid: ce06ed963c00e8e44852c63a77ac704a,
         type: 3}
-    m_RemovedComponents:
-    - {fileID: 2463484813543074635, guid: 5f6e4c9fb6c47844daf933edff06fc8b, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f6e4c9fb6c47844daf933edff06fc8b, type: 3}
 --- !u!4 &1946995377 stripped
 Transform:

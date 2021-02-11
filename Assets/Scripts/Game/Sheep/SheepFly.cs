@@ -38,6 +38,19 @@ public class SheepFly : BaseUnitMove {
         sheep.currentPlayfield = newPlayfield;
         if (sheep.sheepType == SheepType.Trench && newPlayfield != null)
             sheep.isTrenching = true;
+        if (newPlayfield != null)
+            if (sheep.sheepType == SheepType.Bouncy && !sheep.bounced) {
+                KingUnit king = KingCoordinator.GetKing(newPlayfield);
+                float distance = (king.transform.position - sheep.transform.position).magnitude;
+                if (distance > king.GetRadius() + ConstantsBucket.HitRange) {
+                    sheep.bounced = true;
+                    Vector3 offset = (king.transform.position - sheep.transform.position).normalized * king.GetRadius() / 2f;
+                    Vector3 flyTarg = king.transform.position - offset;
+                    StartFlying(SpeedBucket.GetFlySpeed(sheep.sheepType), flyTarg);
+                    sheep.ResetContainer();
+                    return;
+                }
+            }
         sheep.ResetContainer();
         EventCoordinator.TriggerEvent(EventName.System.Sheep.Land(), GameMessage.Write().WithSheepUnit(GetComponent<SheepUnit>()).WithPlayfield(newPlayfield));
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class SheepUnit : MonoBehaviour {
     public Owner owner;
     public Owner lastHandler;
+    public bool bounced;
     public bool canBeThrown {
         get {
             //Debug.Log("isReadying:" + isReadying + "  isReadyToFly:" + isReadyToFly + "   isFlying:" + isFlying + "   " + isSwimming);

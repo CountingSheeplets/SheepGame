@@ -87,7 +87,14 @@ public class KingAttackController : MonoBehaviour {
         //Debug.Log("charge at sheep: " + nextTarget + " sheep playfield: " + nextTarget.currentPlayfield);
         if (nextTarget != null) {
             sheepInField.Remove(nextTarget);
-            Vector3 stopOffset = (nextTarget.transform.localPosition - transform.localPosition).normalized * kingAttackDistance;
+            Vector3 tPos = nextTarget.transform.localPosition;
+            Vector3 mPos = transform.localPosition;
+            Vector3 stopOffset = tPos - mPos;
+            if ((tPos - mPos).magnitude > kingAttackDistance)
+                stopOffset = (tPos - mPos).normalized * kingAttackDistance;
+            if ((tPos - mPos).magnitude == 0) {
+                stopOffset = (new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0)).normalized * 0.01f;
+            }
             kingCharge.StartCharging(nextTarget.transform.position - stopOffset);
         } // else Debug.Log("nothing to charge at... nextTarget = null");
     }

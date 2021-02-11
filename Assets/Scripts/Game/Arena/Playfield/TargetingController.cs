@@ -54,12 +54,15 @@ public class TargetingController : MonoBehaviour {
             if (!isTouching)
                 InitialMarkerMove(msg.swipe);
             ChangeMarkerState(msg.state);
+            SetGrayColor();
         }
     }
     void OnSwipe(GameMessage msg) {
         if (playfield.owner.EqualsByValue(msg.owner)) {
-            if (isTouching)
+            if (isTouching) {
                 MoveMarker(msg.swipe);
+                SetGrayColor();
+            }
         }
     }
     void InitialMarkerMove(Swipe swipe) {
@@ -84,9 +87,6 @@ public class TargetingController : MonoBehaviour {
         progressMove = 0;
         isInsideBlockRange = !swipe.isOverWheelMin;
         dirIndicator.gameObject.SetActive(!isInsideBlockRange);
-
-        //gray color handling:
-        SetGrayColor();
     }
 
     void ChangeMarkerState(bool isDown) {
