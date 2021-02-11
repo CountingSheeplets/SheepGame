@@ -44,11 +44,11 @@ public class ItemChangeHandler : MonoBehaviour {
             currentItemIndex = Mathf.Clamp(msg.intMessage, 0, KingItemBucket.ItemCount(msg.kingItemType) - 1);
             //change visuals only if requirements are met:
             msg.owner.GetPlayerProfile().SeeItem(msg.kingItemType, currentItemIndex);
-            if (KingItemBucket.IsItemAvailable(msg.owner, msg.owner.GetPlayerProfile().selectedHat, msg.kingItemType)) {
+            if (KingItemBucket.IsItemAvailable(msg.owner, currentItemIndex, msg.kingItemType)) {
                 msg.owner.GetPlayerProfile().SelectItem(msg.kingItemType, currentItemIndex);
                 ChangeItemTo(currentItemIndex, msg.kingItemType);
             } else {
-                Debug.Log("requirements not met!: " + msg.owner.GetPlayerProfile().selectedHat);
+                Debug.Log("requirements not met!: " + currentItemIndex);
             }
         }
     }

@@ -10,6 +10,8 @@ public class KingItemChangeNetworkHandler : MonoBehaviour {
             AirConsole.instance.onMessage += OnButtonClick;
     }
     void OnButtonClick(int from, JToken message) {
+        if (GameStateView.HasState(GameState.started))
+            return;
         Owner triggerOwner = OwnersCoordinator.GetOwner(from);
         if (triggerOwner == null)
             return;
@@ -21,14 +23,14 @@ public class KingItemChangeNetworkHandler : MonoBehaviour {
             EventCoordinator.TriggerEvent(EventName.Input.ChangeKingItem(),
                 GameMessage.Write()
                 .WithOwner(triggerOwner)
-                .WithIntMessage((int) message["value"])
+                .WithIntMessage((int)message["value"])
                 .WithKingItemType(KingItemType.hat));
         }
         if (message["element"].ToString().Contains("changeScepter")) {
             EventCoordinator.TriggerEvent(EventName.Input.ChangeKingItem(),
                 GameMessage.Write()
                 .WithOwner(triggerOwner)
-                .WithIntMessage((int) message["value"])
+                .WithIntMessage((int)message["value"])
                 .WithKingItemType(KingItemType.scepter));
         }
     }
