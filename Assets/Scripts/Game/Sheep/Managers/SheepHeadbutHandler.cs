@@ -25,6 +25,8 @@ public class SheepHeadbutHandler : MonoBehaviour {
             Debug.Log("msg.sheepUnit == null");
             return;
         }
+        if (!msg.sheepUnit.lastHandler.GetPlayerProfile().isAlive)
+            return;
         if (king == msg.sheepUnit.lastHandler.GetKing())
             return;
         float distance = (king.transform.position - msg.sheepUnit.transform.position).magnitude;
