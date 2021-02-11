@@ -52,6 +52,10 @@ public class ScoreHandler : MonoBehaviour {
         ScoreCoordinator.IncreaseScoreCounter(msg.owner, ScoreName.Counter.Elvish(), 1);
     }
     void OnMatchEnd(GameMessage msg) {
+        ScoreCoordinator.IncreaseScoreCounter(msg.owner, ScoreName.Counter.Merchant(), (int)msg.owner.GetPlayerProfile().GetMoneyEarned());
+        if (SheepCoordinator.GetSheeps(msg.owner).Where(x => x.sheepType == SheepType.None).ToList().Count == 0)
+            ScoreCoordinator.IncreaseScoreCounter(msg.owner, ScoreName.Achievement.Education(), 1);
+
         if (sheepsSmited.Count > 0) {
             Owner highestSmiter = sheepsSmited.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
             ScoreCoordinator.IncreaseScoreCounter(highestSmiter, ScoreName.Achievement.Paladin(), 1);

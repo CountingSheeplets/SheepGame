@@ -26,7 +26,6 @@ public class SheepUpgradeFxSpawner : MonoBehaviour {
     }
     void SetColor(GameObject fx, Color color) {
         foreach (ParticleSystem pt in fx.GetComponentsInChildren<ParticleSystem>()) {
-            Debug.Log("color: " + color);
             pt.GetComponent<Renderer>().material.SetColor("_TintColor", color);
         }
     }

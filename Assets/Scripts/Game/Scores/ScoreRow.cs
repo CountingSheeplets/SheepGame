@@ -35,7 +35,7 @@ public class ScoreRow : MonoBehaviour {
             GameObject newIconOnStrip = Instantiate(scoreIconPrefab, Vector3.zero, Quaternion.identity, iconLocations[i]);
             newIconOnStrip.transform.localPosition = Vector3.zero;
             newIconOnStrip.GetComponent<Image>().sprite = GetIcon(scoreIcons[i]);
-            newIconOnStrip.transform.localScale *= 0.9f;
+            newIconOnStrip.transform.localScale *= 0.80f;
         }
     }
 
@@ -46,7 +46,7 @@ public class ScoreRow : MonoBehaviour {
     }
     public Sprite GetIcon(string name) {
         foreach (Sprite sprite in scoreStripeIcons) {
-            string iconName = sprite.ToString().Split(' ') [0];
+            string iconName = sprite.ToString().Split(' ')[0];
             if (iconName == name)
                 return sprite;
         }

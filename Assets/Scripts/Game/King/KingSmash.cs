@@ -29,7 +29,7 @@ public class KingSmash : MonoBehaviour {
     }
     Vector2 GetDestinationVector(Transform sheepTr) {
         Vector2 direction = (sheepTr.position - transform.position).normalized;
-        Debug.Log("SMASH: king:" + transform.position + " sheep:" + sheepTr.position + "  dir:" + direction);
+        //Debug.Log("SMASH: king:" + transform.position + " sheep:" + sheepTr.position + "  dir:" + direction);
         Vector2 destination = direction * ConstantsBucket.SmashFlyDistance;
         return destination + (Vector2)sheepTr.position;
     }

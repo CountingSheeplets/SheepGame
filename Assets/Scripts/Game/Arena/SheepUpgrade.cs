@@ -24,17 +24,9 @@ public class SheepUpgrade : MonoBehaviour {
         SheepUnit sheep = sheepThrow.sheepReadyToBeThrown;
         if (sheep != null) {
             UpgradeProperty upgrade = UpgradeBucket.GetUpgradeByType(msg.owner, msg.sheepType);
-            /*             switch (msg.upgradeType) {
-                            case UpgradeType.A:
-                                upgrade = UpgradeBucket.GetNextUpgradeA(sheep);
-                                break;
-                            case UpgradeType.B:
-                                upgrade = UpgradeBucket.GetNextUpgradeB(sheep);
-                                break;
-                        } */
             if (upgrade == null)return;
             if (msg.owner.GetPlayerProfile().Buy(upgrade.upgradeCodeName)) {
-                Debug.Log("upgrading to:" + upgrade.sheepTypeOutput.ToString());
+                //Debug.Log("upgrading to:" + upgrade.sheepTypeOutput.ToString());
                 SheepCoordinator.UpgradeSheep(sheep, upgrade.sheepTypeOutput);
                 if (upgrade.sheepTypeOutput != (SheepType.Small) && upgrade.sheepTypeOutput != (SheepType.Armored)) {
                     tier2UpgradeCount++;

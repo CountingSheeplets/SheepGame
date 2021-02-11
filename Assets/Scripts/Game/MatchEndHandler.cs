@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class MatchEndHandler : MonoBehaviour {
     void Start() {
-        EventCoordinator.StartListening(EventName.System.Environment.ArenaDestroyed(), OnPostEliminated);
+        EventCoordinator.StartListening(EventName.System.Environment.ArenaDestroyed(), OnArenaDestroyed);
     }
     void OnDestroy() {
-        EventCoordinator.StopListening(EventName.System.Environment.ArenaDestroyed(), OnPostEliminated);
+        EventCoordinator.StopListening(EventName.System.Environment.ArenaDestroyed(), OnArenaDestroyed);
     }
-    void OnPostEliminated(GameMessage msg) {
+    void OnArenaDestroyed(GameMessage msg) {
         ////Debug.Log("OnPostEliminated: state: " + GameState.ended);
         if (GameStateView.HasState(GameState.ended))
             return;

@@ -34,7 +34,7 @@ public class SheepThrow : MonoBehaviour {
                 sheepReadyToBeThrown = null;
             } else {
                 //show animation/sign that no sheep ready to be thrown
-                Debug.Log("no sheep could be found that is ready to be thrown!");
+                //Debug.Log("no sheep could be found that is ready to be thrown!");
             }
             TryReadyNewSheep();
         }
