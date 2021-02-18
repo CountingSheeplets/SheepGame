@@ -24,7 +24,7 @@ public class SheepThrow : MonoBehaviour {
 
     void OnTap(GameMessage msg) {
         if (msg.owner.EqualsByValue(GetComponent<Owner>())) { //because this is input message
-            if (msg.state)return;
+            if (msg.state != 0)return;
             if (!msg.swipe.isOverWheelMin)return;
             if (sheepReadyToBeThrown) {
                 throwableSheep.Remove(sheepReadyToBeThrown);

@@ -19,10 +19,11 @@ public class NameListDrawer : PropertyDrawer {
         System.Text.StringBuilder selectedPointButtonSb = new System.Text.StringBuilder();
 
         if (SelectedIndexed.Count == 0) {
-            selectedPointButtonSb.Append("No events selected.");
+            selectedPointButtonSb.Append("Select events to ignore.");
         } else {
+            selectedPointButtonSb.Append("Ignored:");
             foreach (int i in SelectedIndexed) {
-                selectedPointButtonSb.Append($"{i}, ");
+                selectedPointButtonSb.Append($"{i},");
             }
         }
 

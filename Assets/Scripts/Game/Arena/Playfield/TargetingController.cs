@@ -53,7 +53,7 @@ public class TargetingController : MonoBehaviour {
         if (playfield.owner.EqualsByValue(msg.owner)) {
             if (!isTouching)
                 InitialMarkerMove(msg.swipe);
-            ChangeMarkerState(msg.state);
+            ChangeMarkerState(msg.state != 0);
             SetGrayColor();
         }
     }

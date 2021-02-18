@@ -12,6 +12,11 @@ public class EventCoordinator : Singleton<EventCoordinator> {
     [NameList(typeof(PropertyDrawersHelper), "AllEventNames")]
 #endif
     public SettableNameList ignoreEvents;
+    public bool showAttachedEvents;
+#if UNITY_EDITOR
+    [NameList(typeof(PropertyDrawersHelper), "AllEventNames")]
+#endif
+    public SettableNameList ignoreAttachedEvents;
 
     protected override void OnInit() {
         if (eventDictionary == null) {
@@ -65,7 +70,8 @@ public class EventCoordinator : Singleton<EventCoordinator> {
         if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent)) {
             if (Instance.enableDebugging == true) {
                 if (!Instance.ignoreEvents.list.Contains(eventName))
-                    Debug.LogWarning("M:" + eventName + ": " + DebugHelper.PrintGameMessage(message));
+                    //Debug.LogWarning("M:" + eventName + ": " + DebugHelper.PrintGameMessage(message));
+                    Debug.LogWarning("M:" + eventName + ": " + message);
             }
             thisEvent.Invoke(message);
             /*             try {
@@ -75,9 +81,9 @@ public class EventCoordinator : Singleton<EventCoordinator> {
                         } */
         }
         if (Instance.attachmentsDictionary.TryGetValue(eventName, out thisEvent)) {
-            if (Instance.enableDebugging == true) {
-                if (!Instance.ignoreEvents.list.Contains(eventName))
-                    Debug.LogWarning("M:" + eventName + ": " + DebugHelper.PrintGameMessage(message));
+            if (Instance.showAttachedEvents && Instance.enableDebugging) {
+                if (!Instance.ignoreAttachedEvents.list.Contains(eventName))
+                    Debug.LogWarning("M:" + eventName + ": " + message);
             }
             thisEvent.Invoke(message);
             /*             try {
