@@ -952,7 +952,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1181831209
 GameObject:
@@ -1199,7 +1199,7 @@ PrefabInstance:
     - target: {fileID: 8519426809534698585, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 55.266666
       objectReference: {fileID: 0}
     - target: {fileID: 8519426809534698585, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}
@@ -1535,6 +1535,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _persistent: 1
   enableDebugging: 1
+  ignoreEvents:
+    list:
+    - Input_Swipe
+    - Economy_GrassChanged
+    - Economy_GoldChanged
+    - Economy_EatGrass
+    - Economy_ComboChanged
+    - System_Sheep_Spawned
+    - System_Sheep_ReadyToLaunch
+    - System_Sheep_Roam
+    - System_ProfileUpdate
+    - System_PlayerCardsSorted
+    indexes: 06000000130000001400000015000000160000001e00000022000000240000003200000033000000
 --- !u!4 &1558080267
 Transform:
   m_ObjectHideFlags: 0
@@ -2114,7 +2127,7 @@ PrefabInstance:
     - target: {fileID: 3388916745176757921, guid: a9d297f84595cd8469a91d3a67ab0c04,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3388916745176757921, guid: a9d297f84595cd8469a91d3a67ab0c04,
         type: 3}
@@ -2594,7 +2607,7 @@ PrefabInstance:
     - target: {fileID: 401176324264949984, guid: 3d5459cc99ba68d43ab069d09123308c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 401176324264949984, guid: 3d5459cc99ba68d43ab069d09123308c,
         type: 3}

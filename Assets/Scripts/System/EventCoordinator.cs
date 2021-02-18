@@ -7,6 +7,12 @@ public class EventCoordinator : Singleton<EventCoordinator> {
 
     private Dictionary<string, UnityGameEvent> eventDictionary;
     private Dictionary<string, UnityGameEvent> attachmentsDictionary;
+
+#if UNITY_EDITOR
+    [NameList(typeof(PropertyDrawersHelper), "AllEventNames")]
+#endif
+    public SettableNameList ignoreEvents;
+
     protected override void OnInit() {
         if (eventDictionary == null) {
             eventDictionary = new Dictionary<string, UnityGameEvent>();
@@ -55,22 +61,10 @@ public class EventCoordinator : Singleton<EventCoordinator> {
     }
     public static void TriggerEvent(string eventName, GameMessage message) {
         if (Instance == null)return;
-        List<string> ignoreList = new List<string>();
-        if (Instance.enableDebugging == true) {
-            ignoreList.Add(EventName.System.Sheep.Roam());
-            ignoreList.Add(EventName.System.Economy.EatGrass());
-            ignoreList.Add(EventName.System.Player.PlayerCardsSorted());
-            ignoreList.Add(EventName.System.Player.ProfileUpdate());
-            ignoreList.Add(EventName.System.Economy.GrassChanged());
-            ignoreList.Add(EventName.System.Economy.GoldChanged());
-            ignoreList.Add(EventName.System.Sheep.Spawned());
-            //ignoreList.Add(EventName.Input.Swipe());
-            ignoreList.Add(EventName.System.Sheep.ReadyToLaunch());
-        }
         UnityGameEvent thisEvent = null;
         if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent)) {
             if (Instance.enableDebugging == true) {
-                if (!ignoreList.Contains(eventName))
+                if (!Instance.ignoreEvents.list.Contains(eventName))
                     Debug.LogWarning("M:" + eventName + ": " + DebugHelper.PrintGameMessage(message));
             }
             thisEvent.Invoke(message);
@@ -81,10 +75,10 @@ public class EventCoordinator : Singleton<EventCoordinator> {
                         } */
         }
         if (Instance.attachmentsDictionary.TryGetValue(eventName, out thisEvent)) {
-            /*             if (Instance.enableDebugging == true){
-                            if(!ignoreList.Contains(eventName))
-                                Debug.LogWarning("A:"+eventName + ": " + message);
-                        } */
+            if (Instance.enableDebugging == true) {
+                if (!Instance.ignoreEvents.list.Contains(eventName))
+                    Debug.LogWarning("M:" + eventName + ": " + DebugHelper.PrintGameMessage(message));
+            }
             thisEvent.Invoke(message);
             /*             try {
                             thisEvent.Invoke(message);

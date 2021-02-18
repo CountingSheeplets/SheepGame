@@ -127,7 +127,7 @@ public class EventName {
                 //MapLayoutChanged(),
                 //NextScene(), LoadScene(),s
                 SceneLoaded()
-            }.Concat(Economy.Get()).Concat(King.Get()).Concat(Sheep.Get()).Concat(Cooldown.Get()).Concat(Environment.Get()).Concat(Booster.Get()).ToList();
+            }.Concat(Economy.Get()).Concat(King.Get()).Concat(Sheep.Get()).Concat(Cooldown.Get()).Concat(Environment.Get()).Concat(Player.Get()).Concat(Booster.Get()).ToList();
         }
     }
     public class AI {
