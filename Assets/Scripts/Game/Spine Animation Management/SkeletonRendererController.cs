@@ -4,7 +4,7 @@ using Spine.Unity;
 using UnityEngine;
 
 public class SkeletonRendererController : Singleton<SkeletonRendererController> {
-    public List<SkeletonMecanim> passivemEchanimsList = new List<SkeletonMecanim>();
+    public List<SkeletonMecanim> passiveMechanimsList = new List<SkeletonMecanim>();
     public List<SkeletonMecanim> activeMecanimSetsListA = new List<SkeletonMecanim>();
     public List<SkeletonMecanim> activeMecanimSetsListB = new List<SkeletonMecanim>();
     public HashSet<SkeletonMecanim> passiveMecanims = new HashSet<SkeletonMecanim>();
@@ -22,14 +22,19 @@ public class SkeletonRendererController : Singleton<SkeletonRendererController> 
         }
     }
     void Start() {
+        if (!ConstantsBucket.UseAnimFrameSkipping) {
+            this.enabled = false;
+            return;
+        }
         for (int i = 0; i < subdivisions; i++)
             activeMecanimSets.Add(new HashSet<SkeletonMecanim>());
     }
     public static void MakeSheepActive(SkeletonMecanim mecanim) {
+        if (!ConstantsBucket.UseAnimFrameSkipping)return;
         if (Instance.passiveMecanims.Contains(mecanim))
             Instance.passiveMecanims.Remove(mecanim);
-        if (Instance.passivemEchanimsList.Contains(mecanim))
-            Instance.passivemEchanimsList.Remove(mecanim);
+        if (Instance.passiveMechanimsList.Contains(mecanim))
+            Instance.passiveMechanimsList.Remove(mecanim);
         if (Instance.ContainsInSets(mecanim))
             return;
         int smallest = Instance.GetSmallestSet();
@@ -41,15 +46,18 @@ public class SkeletonRendererController : Singleton<SkeletonRendererController> 
         mecanim.enabled = true;
     }
     public static void MakeSheepActive(SheepUnit sheep) {
+        if (!ConstantsBucket.UseAnimFrameSkipping)return;
+
         SkeletonMecanim mecanim = sheep.GetComponentInChildren<SkeletonMecanim>();
         if (mecanim != null) {
             MakeSheepActive(mecanim);
         }
     }
     public static void MakeSheepIdle(SkeletonMecanim mecanim) {
+        if (!ConstantsBucket.UseAnimFrameSkipping)return;
         RemoveFromSets(mecanim);
         Instance.passiveMecanims.Add(mecanim);
-        Instance.passivemEchanimsList.Add(mecanim);
+        Instance.passiveMechanimsList.Add(mecanim);
         mecanim.enabled = false;
     }
     void Update() {

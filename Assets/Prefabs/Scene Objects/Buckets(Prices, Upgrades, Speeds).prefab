@@ -334,14 +334,14 @@ MonoBehaviour:
   tips:
   - try hitting an opponents king multiple times in succession to build up combo
     multiplier
-  - your sheep at an opponents field will eat their grass and produce gold for you
-  - if your sheep lands outside of a land-mass, she will suffer a sad fate
+  - your sheep at an opponents field will eat their grass
+  - if your sheep lands outside of land, she will suffer a sad fate
   - each time your sheep lands on opponents field, she tramples some grass
   - if you got no more grass left, a single hit at your king will eliminate you
   - the sheep spawn automatically, up to a cap. the cap increases each time a player
     is eliminated
-  - you can upgrade a sheep while she is waiting in the balista ready to launch
-  - upgrade your sheep into a Trench Veteran if you are having trouble staying them
+  - you can upgrade a sheep while she is waiting in the ballista ready to launch
+  - upgrade your sheep into a Trench Veteran if you are having trouble of them staying
     on opponents land
   - need more coins? upgrade a sheep to Greedy and send it to opponents land. she
     steals gold income
@@ -349,11 +349,11 @@ MonoBehaviour:
     ballista, or the sheep there is maxed out
   - 'some upgrades have cons as well as pros, for example: tough, but slow'
   - Tank sheep are immune to King's Smash ability
-  - use king's Smash ability to knock all opponent sheep away
-  - as you earn more crowns in matches, you will automatically unlock fancier crowns
-    and staves
-  - some king's crowns and staves are available for Hero subscribers only. these
-    are marked with hero icon locks
+  - use kuse King's Smash ability to knock all opponent sheep away
+  - as you earn more crowns in matches, you will automatically unlock fancier items
+    for your King
+  - some King items are available for Hero subscribers only. these are marked with
+    hero icon locks
   - sheep with some upgrades are immune to king's Smash or Attack
   - every time you replant grass the cost doubles! use this ability wisely!
   - bigger king, knocks sheep further. king gets bigger each time his sheep hit opponents,

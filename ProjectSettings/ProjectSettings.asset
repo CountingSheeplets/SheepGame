@@ -126,8 +126,10 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.5
-  preloadedAssets: []
+  bundleVersion: 1.0
+  preloadedAssets:
+  - {fileID: 9198241363911740042, guid: 109eb8610fffb47418bbc9415866b6c6, type: 3}
+  - {fileID: 2608349506529783468, guid: 29b981d98d1f499439270ba28259c18c, type: 3}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -319,12 +321,12 @@ PlayerSettings:
   openGLRequireES31AEP: 0
   openGLRequireES32: 0
   m_TemplateCustomTags:
-    PROGRESS_BAR_BACKGROUND_COLOR: 
-    PROGRESS_BAR_COLOR: 
-    PROGRESS_BAR_HEIGHT: 
-    PROGRESS_BAR_OFFSET_LEFT: 
-    PROGRESS_BAR_OFFSET_TOP: 
-    PROGRESS_BAR_WIDTH: 
+    PROGRESS_BAR_BACKGROUND_COLOR: rgba(76, 197, 234, 1)
+    PROGRESS_BAR_COLOR: rgba(115, 158, 88, 1)
+    PROGRESS_BAR_HEIGHT: 2%
+    PROGRESS_BAR_OFFSET_LEFT: 0%
+    PROGRESS_BAR_OFFSET_TOP: 97%
+    PROGRESS_BAR_WIDTH: 100%
   mobileMTRendering:
     Android: 1
     iPhone: 1
@@ -552,7 +554,7 @@ PlayerSettings:
   blurSplashScreenBackground: 1
   spritePackerPolicy: 
   webGLMemorySize: 16
-  webGLExceptionSupport: 3
+  webGLExceptionSupport: 0
   webGLNameFilesAsHashes: 0
   webGLDataCaching: 1
   webGLDebugSymbols: 0
@@ -580,7 +582,8 @@ PlayerSettings:
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
-  managedStrippingLevel: {}
+  managedStrippingLevel:
+    WebGL: 2
   incrementalIl2cppBuild: {}
   allowUnsafeCode: 0
   useDeterministicCompilation: 1

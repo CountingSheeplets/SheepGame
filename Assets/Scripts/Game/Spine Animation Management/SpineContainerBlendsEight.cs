@@ -61,11 +61,11 @@ public class SpineContainerBlendsEight : MonoBehaviour, IAnimatableDirection {
         return Vector2.Angle(v1, v2) * sign;
     }
     void OnDestroy() {
-        //if (!GameStateView.HasState(GameState.ended))
         SkeletonRendererController.RemoveFromSets(mecanim);
     }
     void ResetAllTriggers() {
-        SkeletonRendererController.MakeSheepActive(mecanim);
+        if (ConstantsBucket.UseAnimFrameSkipping)
+            SkeletonRendererController.MakeSheepActive(mecanim);
         //mecanim.enabled = true;
         anim.ResetTrigger("stopWalk");
         anim.ResetTrigger("stopFly");
