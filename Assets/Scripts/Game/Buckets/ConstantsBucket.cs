@@ -32,6 +32,9 @@ public class ConstantsBucket : Singleton<ConstantsBucket> {
     [SerializeField] float fenceFieldSubdivision = 2;
     public static float FenceFieldSubdivision { get { return Instance.fenceFieldSubdivision; } }
 
+    [SerializeField] float arenaOffsetX = 0.8f;
+    public static float ArenaOffsetX { get { return Instance.arenaOffsetX; } }
+
     [Header("Sheep")]
     [SerializeField] int sheepSpawnCapBase = 10;
     public static int SheepSpawnCapBase { get { return Instance.sheepSpawnCapBase; } }

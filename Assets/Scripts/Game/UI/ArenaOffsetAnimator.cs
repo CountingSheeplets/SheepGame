@@ -9,9 +9,13 @@ public class ArenaOffsetAnimator : MonoBehaviour {
     public float progress = 0;
     public float animSpeed = 1f;
     Vector3 startPos;
-    Vector3 matchPosition = new Vector3(0.8f, 0f, 0f);
-    Vector3 scorePosition = new Vector3(0.8f, 10f, 0f);
+    Vector3 matchPosition;
+    Vector3 scorePosition;
     void Start() {
+        matchPosition = new Vector3(ConstantsBucket.ArenaOffsetX, 0f, 0f);
+        scorePosition = new Vector3(ConstantsBucket.ArenaOffsetX, 10f, 0f);
+        arenaTr.localPosition = new Vector3(ConstantsBucket.ArenaOffsetX, -10f, 0f);
+
         EventCoordinator.StartListening(EventName.Input.StartGame(), OnStartGame);
         EventCoordinator.StartListening(EventName.System.Environment.EndMatch(), OnEndMatch);
     }
