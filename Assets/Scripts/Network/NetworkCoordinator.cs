@@ -38,6 +38,11 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
                     json["upgrade"][i] = JToken.FromObject(props[i]);
                 } */
         //json["icon"] = upgrade.sheepTypeOutput.ToString();
+        string test = "";
+        foreach (UpgradeProperty prop in props) {
+            test += prop.enumStringName;
+        }
+        Debug.Log("enumStringName: " + test);
         TrySendObjectAll(json);
     }
     public static void SendUpgradeIcon(int deviceId, UpgradeProperty upgrade) {

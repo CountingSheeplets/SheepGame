@@ -8,9 +8,11 @@ public class ScoreScreenController : MonoBehaviour {
     public GameObject scoreRowPrefab;
     public Transform scoreScreen;
     public Transform scoresContainer;
-
+    float height;
     void Start() {
         EventCoordinator.StartListening(EventName.UI.ShowScoreScreen(), OnScoresShow);
+        height = scoresContainer.GetComponent<RectTransform>().rect.height / 8f;
+        Debug.Log("height" + height);
     }
 
     void OnScoresShow(GameMessage msg) {
@@ -26,20 +28,22 @@ public class ScoreScreenController : MonoBehaviour {
             //newScoreRow.transform.SetSiblingIndex(1);
 
             newScoreRow.name = "ScoreRow:" + owner.ownerName;
-            ScoreRow row = newScoreRow.GetComponent<ScoreRow>();
+            ScoreRow row = newScoreRow.GetComponentInChildren<ScoreRow>();
             scoreRows.Add(row);
             row.InitScoreRow(owner.ownerName, owner.GetPlayerProfile().playerColor, scores);
             row.eliminatedPlace = owner.GetPlayerProfile().eliminatedPlace;
+            Rect re = row.transform.parent.GetComponent<RectTransform>().rect;
+            row.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(re.width, height);
         }
         scoreRows = scoreRows.OrderByDescending(row => row.eliminatedPlace).ToList();
         for (int i = 0; i < scoreRows.Count; i++) {
             if (first) {
-                scoreRows[i].transform.SetSiblingIndex(i + 1);
+                scoreRows[i].transform.parent.SetSiblingIndex(i + 1);
                 scoreRows[i].GetComponent<AspectRatioFitter>().aspectRatio -= 3;
                 scoreRows[i].winnerX2.SetActive(true);
                 first = false;
             } else {
-                scoreRows[i].transform.SetSiblingIndex(i + 2);
+                scoreRows[i].transform.parent.SetSiblingIndex(i + 2);
             }
             //Debug.Log("row eliminated: "+scoreRows[i].eliminatedPlace+ "  "+scoreRows[i].playerName);
             //Debug.Log("get index: "+scoreRows[i].transform.GetSiblingIndex());

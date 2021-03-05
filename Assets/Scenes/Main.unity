@@ -538,7 +538,7 @@ PrefabInstance:
     - target: {fileID: 7145397544952531509, guid: 3d5459cc99ba68d43ab069d09123308c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7306109438679984462, guid: 3d5459cc99ba68d43ab069d09123308c,
         type: 3}
@@ -1378,11 +1378,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Buckets(Prices, Upgrades, Speeds)
       objectReference: {fileID: 0}
-    - target: {fileID: 8604118487354306396, guid: 38139f4f48e2af14ea01a365c7f32b03,
-        type: 3}
-      propertyPath: startingGold
-      value: 500
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38139f4f48e2af14ea01a365c7f32b03, type: 3}
 --- !u!1001 &1024110095
@@ -1520,17 +1515,17 @@ PrefabInstance:
     - target: {fileID: 8519426809534698585, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 2550
       objectReference: {fileID: 0}
     - target: {fileID: 8519426809534698585, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 85
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8519426809534698585, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1275
       objectReference: {fileID: 0}
     - target: {fileID: 8519426809534698585, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}
@@ -2176,10 +2171,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 1
-  enableDebugging: 0
+  enableDebugging: 1
   ignoreEvents:
-    list: []
-    indexes: 
+    list:
+    - PlayerJoined
+    - Economy_ComboChanged
+    - System_King_Smashed
+    - System_Sheep_KingMissed
+    indexes: 0f000000160000001b00000021000000
   showAttachedEvents: 0
   ignoreAttachedEvents:
     list: []
@@ -2707,7 +2706,7 @@ PrefabInstance:
     - target: {fileID: 8668415122482646954, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2a31d511c4f4064d9f2a5444f6dea8f, type: 3}

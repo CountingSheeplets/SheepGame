@@ -32,6 +32,7 @@ public class PlayerCard : MonoBehaviour {
         EventCoordinator.StartListening(EventName.System.Player.Eliminated(), OnEliminated);
         //EventCoordinator.StartListening(EventName.System.Economy.GrassChanged(), OnGrassChanged);
         EventCoordinator.StartListening(EventName.System.Economy.GoldChanged(), OnGoldChanged);
+        EventCoordinator.StartListening(EventName.UI.ShowScoreScreen(), OnScoresShow);
         //init by copying ghost:
         myRectTr = GetComponent<RectTransform>();
         ghostRectTr = targetCardGhost.GetComponent<RectTransform>();
@@ -47,8 +48,12 @@ public class PlayerCard : MonoBehaviour {
         EventCoordinator.StopListening(EventName.System.Player.Eliminated(), OnEliminated);
         //EventCoordinator.StopListening(EventName.System.Economy.GrassChanged(), OnGrassChanged);
         EventCoordinator.StopListening(EventName.System.Economy.GoldChanged(), OnGoldChanged);
+        EventCoordinator.StopListening(EventName.UI.ShowScoreScreen(), OnScoresShow);
         if (targetCardGhost.gameObject != null)
             Destroy(targetCardGhost.gameObject);
+    }
+    void OnScoresShow(GameMessage msg) {
+        Destroy(this.gameObject, 3f);
     }
     void OnGoldChanged(GameMessage msg) {
         if (isEliminated)

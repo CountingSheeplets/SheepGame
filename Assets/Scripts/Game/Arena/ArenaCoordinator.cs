@@ -85,7 +85,7 @@ public class ArenaCoordinator : Singleton<ArenaCoordinator> {
         for (int i = 0; i < playfields.Count; i++) {
             int rS = UnityEngine.Random.Range(0, sockets.Count);
             int rF = UnityEngine.Random.Range(0, leftoverFields.Count);
-            Vector2 offset = sockets[rS].transform.localPosition + new Vector3(ConstantsBucket.ArenaOffsetX, 0, 0);
+            Vector2 offset = sockets[rS].transform.localPosition;
             FieldFloat pFloat = leftoverFields[rF].GetComponent<FieldFloat>();
             pFloat.transform.localPosition = offset * fieldWidth;
             if (leftoverFields[rF].fieldCorners != null) {

@@ -269,6 +269,7 @@ MonoBehaviour:
   playfieldArrangeFloatSpeed: 5
   emptySpacesBetweenFields: 2
   fenceFieldSubdivision: 3
+  arenaOffsetX: 0.8
   sheepSpawnCapBase: 5
   sheepSpawnCapIncrement: 1
   sheepSpawnPeriod: 1.5
@@ -298,7 +299,7 @@ MonoBehaviour:
   attackAnimationClip: {fileID: -3818177995494078928, guid: 892bd7dc638408645a3f762096feb6f8,
     type: 2}
   headbutStarsTimer: 2
-  startingGold: 10
+  startingGold: 20
   playerColors:
   - {r: 0.23921569, g: 0.58431375, b: 0.80784315, a: 1}
   - {r: 0.8392157, g: 0.29803923, b: 0.4, a: 1}
@@ -315,6 +316,7 @@ MonoBehaviour:
   goldIncomePeriod: 2
   goldIncomeIncrement: 1
   tipLoopTimer: 10
+  useAnimFrameSkipping: 0
   swipeDistanceMin: 10
   swipeDistanceMax: 120
   swipeWheelDistMin: 0.12
