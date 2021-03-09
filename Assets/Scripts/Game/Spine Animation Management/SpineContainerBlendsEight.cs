@@ -56,8 +56,9 @@ public class SpineContainerBlendsEight : MonoBehaviour, IAnimatableDirection {
     public void StopFlying() {
         anim.SetTrigger("stopFly");
     }
-    float GetAngle(Vector2 v1, Vector2 v2) {
-        var sign = Mathf.Sign(v1.x * v2.y - v1.y * v2.x);
+    float GetAngle(Vector2 v2, Vector2 v1) {
+        Vector2 vec1Rotated90 = new Vector2(-v1.y, v1.x);
+        float sign = (Vector2.Dot(vec1Rotated90, v2) < 0) ? -1.0f : 1.0f;
         return Vector2.Angle(v1, v2) * sign;
     }
     void OnDestroy() {
@@ -66,7 +67,6 @@ public class SpineContainerBlendsEight : MonoBehaviour, IAnimatableDirection {
     void ResetAllTriggers() {
         if (ConstantsBucket.UseAnimFrameSkipping)
             SkeletonRendererController.MakeSheepActive(mecanim);
-        //mecanim.enabled = true;
         anim.ResetTrigger("stopWalk");
         anim.ResetTrigger("stopFly");
         anim.ResetTrigger("clockwise");
@@ -83,16 +83,10 @@ public class SpineContainerBlendsEight : MonoBehaviour, IAnimatableDirection {
         } else {
             angle = prevAngle;
         }
+        angle += 22.5f;
         if (angle < 0)
             angle += 360f;
-        angle += 22.5f;
-        FacingDirection dir = 0;
-        for (int i = 0; i < 8; i++) {
-            if (angle > i * 45f) {
-                dir = (FacingDirection)i;
-            } else break;
-        }
-        //Debug.Log("Output Dir Name:"+dir.ToString());
+        FacingDirection dir = (FacingDirection)Mathf.FloorToInt(angle / 45f);
         return dir;
     }
     public Vector2 EnumToAnimVec(FacingDirection dir) {

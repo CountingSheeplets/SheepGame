@@ -62,6 +62,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -86,6 +87,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!95 &6759887895922138629
 Animator:
   serializedVersion: 3
@@ -121,6 +123,7 @@ MonoBehaviour:
   initialSkinName: Player1
   initialFlipX: 0
   initialFlipY: 0
+  updateWhenInvisible: 2
   separatorSlotNames: []
   zSpacing: 0
   useClipping: 1
@@ -129,7 +132,7 @@ MonoBehaviour:
   clearStateOnDisable: 0
   tintBlack: 0
   singleSubmesh: 0
-  fixDrawOrder: 1
+  fixDrawOrder: 0
   addNormals: 0
   calculateTangents: 0
   maskInteraction: 0
@@ -140,6 +143,7 @@ MonoBehaviour:
   disableRenderingOnOverride: 1
   translator:
     autoReset: 1
+    useCustomMixMode: 1
     layerMixModes: 01000000
     layerBlendModes: 01000000
 --- !u!114 &3559431874477606315
@@ -155,7 +159,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sheep: {fileID: 0}
-  color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &3024923897151508153
 MonoBehaviour:
   m_ObjectHideFlags: 0

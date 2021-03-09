@@ -101,6 +101,7 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
         Instance.owners.Add(newOwner);
         newOwner.Create(device_id.ToString(), nicknameOfJoined, device_id);
         go.name = newOwner.ownerName;
+        newOwner.teamId = Instance.counter;
         //go.GetComponentInChildren<TextMeshProUGUI>().text = newOwner.ownerName;
         return newOwner;
     }

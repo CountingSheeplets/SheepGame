@@ -7,6 +7,7 @@ public class SpineContainerBlendsFour : MonoBehaviour, IAnimatableDirection {
     public float prevAngle;
     public Animator anim;
     SkeletonMecanim mecanim;
+    Color color;
 
     public void SetInitialRandomDirection() {
         if (anim == null)anim = GetComponent<Animator>();
@@ -17,7 +18,6 @@ public class SpineContainerBlendsFour : MonoBehaviour, IAnimatableDirection {
     }
 
     public void WalkTo(Vector2 target) {
-        //Debug.Log("WalkTo:" + target);
         if (anim == null)anim = GetComponent<Animator>();
         if (mecanim == null)mecanim = GetComponent<SkeletonMecanim>();
         ResetAllTriggers();
@@ -60,8 +60,9 @@ public class SpineContainerBlendsFour : MonoBehaviour, IAnimatableDirection {
     public void StopFlying() {
         anim.SetTrigger("stopFly");
     }
-    float GetAngle(Vector2 v1, Vector2 v2) {
-        var sign = Mathf.Sign(v1.x * v2.y - v1.y * v2.x);
+    float GetAngle(Vector2 v2, Vector2 v1) {
+        Vector2 vec1Rotated90 = new Vector2(-v1.y, v1.x);
+        float sign = (Vector2.Dot(vec1Rotated90, v2) < 0) ? -1.0f : 1.0f;
         return Vector2.Angle(v1, v2) * sign;
     }
     void OnDestroy() {
@@ -86,15 +87,10 @@ public class SpineContainerBlendsFour : MonoBehaviour, IAnimatableDirection {
         } else {
             angle = prevAngle;
         }
+        angle += 45f;
         if (angle < 0)
             angle += 360f;
-        angle += 45f;
-        FacingDirection dir = 0;
-        for (int i = 0; i < 4; i++) {
-            if (angle > i * 90f) {
-                dir = (FacingDirection)i;
-            } else break;
-        }
+        FacingDirection dir = (FacingDirection)Mathf.FloorToInt(angle / 90f);
         return dir;
     }
     public Vector2 EnumToAnimVec(FacingDirection dir) {
