@@ -65,5 +65,12 @@ public class ScoreCoordinator : Singleton<ScoreCoordinator> {
         Owner highestTier2Upgrader = Instance.techTier2Counts.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
         IncreaseScoreCounter(highestTier2Upgrader, ScoreName.Achievement.Baaah(), 1);
     }
-
+    public static string GetStringAllPlayerScores() {
+        string output = "PlayerScorePrint:";
+        foreach (KeyValuePair<Owner, PlayerScores> pair in Instance.scores) {
+            output += "\nPlayer: " + pair.Key.ToString();
+            output += " Scores: " + pair.Value.ToString();
+        }
+        return output;
+    }
 }

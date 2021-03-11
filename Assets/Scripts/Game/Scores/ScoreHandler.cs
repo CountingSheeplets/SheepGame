@@ -37,7 +37,7 @@ public class ScoreHandler : MonoBehaviour {
         }
 
         ScoreCoordinator.IncreaseScoreCounter(msg.targetOwner, ScoreName.Counter.Merchant(), (int)msg.targetOwner.GetPlayerProfile().GetMoneyEarned());
-        if (SheepCoordinator.GetSheeps(msg.targetOwner).Where(x => x.sheepType == SheepType.None).ToList().Count == 0)
+        if (SheepCoordinator.GetSheeps(msg.targetOwner).Where(x => x.sheepType == SheepType.Base).ToList().Count == 0)
             ScoreCoordinator.IncreaseScoreCounter(msg.targetOwner, ScoreName.Achievement.Education(), 1);
     }
 
@@ -53,12 +53,13 @@ public class ScoreHandler : MonoBehaviour {
     }
     void OnMatchEnd(GameMessage msg) {
         ScoreCoordinator.IncreaseScoreCounter(msg.owner, ScoreName.Counter.Merchant(), (int)msg.owner.GetPlayerProfile().GetMoneyEarned());
-        if (SheepCoordinator.GetSheeps(msg.owner).Where(x => x.sheepType == SheepType.None).ToList().Count == 0)
+        if (SheepCoordinator.GetSheeps(msg.owner).Where(x => x.sheepType == SheepType.Base).ToList().Count == 0)
             ScoreCoordinator.IncreaseScoreCounter(msg.owner, ScoreName.Achievement.Education(), 1);
 
         if (sheepsSmited.Count > 0) {
             Owner highestSmiter = sheepsSmited.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
-            ScoreCoordinator.IncreaseScoreCounter(highestSmiter, ScoreName.Achievement.Paladin(), 1);
+            if (sheepsSmited[highestSmiter] > 0)
+                ScoreCoordinator.IncreaseScoreCounter(highestSmiter, ScoreName.Achievement.Paladin(), 1);
         }
         ScoreCoordinator.CalculateTier2TechCounts();
         foreach (Owner owner in OwnersCoordinator.GetOwners()) {
@@ -66,6 +67,7 @@ public class ScoreHandler : MonoBehaviour {
             total = owner.GetPlayerProfile().isAlive ? total * 2 : total;
             owner.GetPlayerProfile().SetCrowns(total);
         }
+        Debug.Log(ScoreCoordinator.GetStringAllPlayerScores());
     }
     void OnKingSmashed(GameMessage msg) {
         List<Owner> owners = new List<Owner>(sheepsSmited.Keys);

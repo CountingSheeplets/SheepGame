@@ -44,7 +44,8 @@ public class CardCanvasCoordinator : Singleton<CardCanvasCoordinator> {
 
     public static void Sort() {
         Transform[] countOrdered = Instance.cards.
-        OrderByDescending(pair => pair.Key.GetPlayerProfile().GetMoneyEarned())
+        OrderByDescending(pair => pair.Key.GetPlayerProfile().isAlive).
+        ThenByDescending(pair => pair.Key.GetPlayerProfile().GetMoneyEarned())
             .Select(pair => pair.Value.targetCardGhost)
             .ToArray();
         for (int i = 0; i < countOrdered.Length; i++) {

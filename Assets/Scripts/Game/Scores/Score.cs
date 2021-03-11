@@ -26,11 +26,11 @@
     }
     public override string ToString() {
         return "name:" + scoreName +
+            " counter:" + counter +
             " total:" + total +
             " reward:" + reward +
-            " rewardDelta:" + rewardDelta +
-            " scoreType:" + scoreType +
-            " wordDelta:" + wordDelta +
-            " icon:" + icon;
+            " rewardDelta:" + rewardDelta;
+        //" wordDelta:" + wordDelta +
+        //" icon:" + icon;
     }
 }
