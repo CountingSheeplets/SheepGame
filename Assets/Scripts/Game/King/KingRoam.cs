@@ -31,6 +31,7 @@ public class KingRoam : BaseUnitMove {
     void OnRoam(GameMessage msg) {
         if (charge.isCharging)
             return;
+        if (GameStateView.HasState(GameState.arenaAnimating))return;
         if (!king.isRoaming && !king.GetIsUsingAbility()) {
             float roll = Random.Range(0, 0.5f); //3x larger roll = 3x smaller probability
             if (roll < msg.floatMessage) {

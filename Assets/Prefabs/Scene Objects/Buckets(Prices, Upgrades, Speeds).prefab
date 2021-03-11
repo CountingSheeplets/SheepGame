@@ -278,7 +278,7 @@ MonoBehaviour:
   eatInterval: 1
   incrementalEatValue: 0.05
   roamInterval: 1
-  roamProbability: 0.05
+  roamProbability: 0.1
   hitRange: 0.15
   hitDamage: 7
   smallUpgradeShrinkSize: 0.7

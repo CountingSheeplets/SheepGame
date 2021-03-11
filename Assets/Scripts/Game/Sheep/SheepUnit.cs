@@ -40,10 +40,13 @@ public class SheepUnit : MonoBehaviour {
     }
 
     public void ResetContainer() {
-        if (isFlying || isSwimming)
+        if (isFlying || isSwimming) {
             transform.parent = SheepCoordinator.Instance.transform;
-        else
-        if (currentPlayfield != null)
+            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, 0);
+        } else
+        if (currentPlayfield != null) {
             transform.parent = currentPlayfield.sheepParent;
+            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, 0);
+        }
     }
 }

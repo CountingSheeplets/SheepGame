@@ -18,7 +18,7 @@ public class Destructable : MonoBehaviour {
         if (debrisParticles == null)
             return;
         GameObject newDebris = Instantiate(debrisParticles);
-        newDebris.transform.position = transform.position;
+        newDebris.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.5f);
         newDebris.transform.rotation = transform.rotation;
         newDebris.transform.parent = ArenaCoordinator.GetFxContainer;
         ParticleSystemRenderer[] systems = newDebris.GetComponentsInChildren<ParticleSystemRenderer>();
@@ -54,7 +54,7 @@ public class Destructable : MonoBehaviour {
         GameObject newTempObj = Instantiate(gameObject, ArenaCoordinator.GetFxContainer);
         newTempObj.GetComponent<Destructable>().isClone = true;
         newTempObj.name = gameObject.name + ("(TempDeathFX)");
-        newTempObj.transform.position = transform.position;
+        newTempObj.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.5f);
         newTempObj.transform.localScale = new Vector3(transform.lossyScale.x, transform.lossyScale.y, 1);
 
         DeathFx fx = newTempObj.AddComponent(txToAddOnDeath.GetType())as DeathFx;

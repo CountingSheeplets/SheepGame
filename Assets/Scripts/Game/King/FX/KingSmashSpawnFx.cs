@@ -15,7 +15,7 @@ public class KingSmashSpawnFx : MonoBehaviour {
             return;
         GameObject newFx = Instantiate(smashFxPrefab, transform);
         newFx.transform.localPosition = Vector3.zero;
-        newFx.transform.SetParent(msg.kingUnit.myPlayfield.transform);
+        newFx.transform.SetParent(ArenaCoordinator.GetFxContainer);
         Destroy(newFx, 2f);
     }
 }

@@ -36,7 +36,7 @@ public class KingFactory : Singleton<KingFactory> {
         model.SetHat(hat);
         model.SetScepter(scept);
         newKingModelGO.transform.SetParent(newKingGO.transform);
-        newKingModelGO.transform.localPosition = Vector3.zero;
+        newKingModelGO.transform.localPosition = new Vector3(0, 0, -0.05f);
         model.GetComponent<SpineContainerBlendsFour>().SetInitialRandomDirection();
         return newKing;
     }

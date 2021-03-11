@@ -22,6 +22,7 @@ public class SheepRoam : BaseUnitMove {
     void OnRoam(GameMessage msg) {
         if (sheep == null)
             sheep = GetComponent<SheepUnit>();
+        if (GameStateView.HasState(GameState.arenaAnimating))return;
         if (!sheep.isSwimming && !sheep.isReadying && !sheep.isReadyToFly && !sheep.isFlying && !sheep.isRoaming && !sheep.isTrenching) {
             float roll = Random.Range(0, 1f);
             if (roll < msg.floatMessage) {
