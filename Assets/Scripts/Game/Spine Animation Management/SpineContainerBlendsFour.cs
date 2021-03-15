@@ -8,7 +8,7 @@ public class SpineContainerBlendsFour : MonoBehaviour, IAnimatableDirection {
     public Animator anim;
     SkeletonMecanim mecanim;
     Color color;
-
+    //string ownerName = "";
     public void SetInitialRandomDirection() {
         if (anim == null)anim = GetComponent<Animator>();
         if (mecanim == null)mecanim = GetComponent<SkeletonMecanim>();
@@ -21,16 +21,22 @@ public class SpineContainerBlendsFour : MonoBehaviour, IAnimatableDirection {
         if (anim == null)anim = GetComponent<Animator>();
         if (mecanim == null)mecanim = GetComponent<SkeletonMecanim>();
         ResetAllTriggers();
+        //if (ownerName == "")
+        //ownerName = GetComponentInParent<KingUnit>().owner.ownerName;
+
         Vector2 prevDir = new Vector2(anim.GetFloat("dirX_blend"), anim.GetFloat("dirY_blend"));
         Vector2 newDir = SetAnimatorDirections(target);
         float turn = GetAngle(prevDir, newDir);
         if (turn > 0) {
             anim.SetTrigger("clockwise");
+            //Debug.Log("clockwise:" + ownerName);
         } else {
             if (turn < 0) {
                 anim.SetTrigger("counterClockwise");
+                //Debug.Log("counterClockwise:" + ownerName);
             } else {
                 anim.SetTrigger("straight");
+                //Debug.Log("straight:" + ownerName);
             }
         }
     }
@@ -46,6 +52,7 @@ public class SpineContainerBlendsFour : MonoBehaviour, IAnimatableDirection {
     }
     Vector2 SetAnimatorDirections(Vector2 target) {
         Vector2 newDir = EnumToAnimVec(GetAnimEnum(target));
+        //Debug.Log("setting dir_blend: " + newDir + " : " + ownerName);
         anim.SetFloat("dirX_blend", newDir.x);
         anim.SetFloat("dirY_blend", newDir.y);
         return newDir;
