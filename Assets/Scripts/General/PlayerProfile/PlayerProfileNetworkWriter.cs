@@ -24,10 +24,8 @@ public class PlayerProfileNetworkWriter : MonoBehaviour {
                 if (GameStateView.HasState(GameState.started)) {
                     if (NetworkCoordinator.SendProfile(profile)) {
                         EventCoordinator.TriggerEvent(EventName.System.Player.ProfileUpdate(), GameMessage.Write().WithPlayerProfile(profile).WithOwner(owner));
-                        CardCanvasCoordinator.Sort();
-                        EventCoordinator.TriggerEvent(EventName.System.Player.PlayerCardsSorted(), GameMessage.Write());
-                    } else {
-                        //Debug.Log("Cant Send... profile not found or player is dead for owner: "+owner);
+                        if (CardCanvasCoordinator.Sort())
+                            EventCoordinator.TriggerEvent(EventName.System.Player.PlayerCardsSorted(), GameMessage.Write());
                     }
                 } else {
                     NetworkCoordinator.SendKingItems(owner);

@@ -9,6 +9,7 @@ public class CardCanvasCoordinator : Singleton<CardCanvasCoordinator> {
     public Transform realCardContainer;
 
     public Dictionary<Owner, PlayerCard> cards = new Dictionary<Owner, PlayerCard>();
+    public List<Transform> cardList = new List<Transform>();
 
     public static PlayerCard CreateCard(Owner owner) {
         if (Instance.cards.ContainsKey(owner))
@@ -24,12 +25,14 @@ public class CardCanvasCoordinator : Singleton<CardCanvasCoordinator> {
         PlayerCard newCard = newCardGO.GetComponent<PlayerCard>();
         newCard.targetCardGhost = newCardGhost.transform;
         Instance.cards.Add(owner, newCard);
+        Instance.cardList.Add(newCard.GetComponent<Transform>());
         newCard.owner = owner;
         return newCard;
     }
     public static void RemovePlayerCard(Owner owner) {
         if (Instance.cards.ContainsKey(owner)) {
             Destroy(Instance.cards[owner].gameObject);
+            Instance.cardList.Remove(Instance.cards[owner].GetComponent<Transform>());
             Instance.cards.Remove(owner);
         }
         //Instance.ClearInvalidCards();
@@ -37,19 +40,23 @@ public class CardCanvasCoordinator : Singleton<CardCanvasCoordinator> {
 
     public void ClearInvalidCards() {
         foreach (Owner owner in cards.Keys) {
-            if (!owner.IsInListByType(OwnersCoordinator.GetOwners()))
+            if (!owner.IsInListByType(OwnersCoordinator.GetOwners())) {
                 RemovePlayerCard(owner);
+            }
         }
     }
 
-    public static void Sort() {
-        Transform[] countOrdered = Instance.cards.
+    public static bool Sort() {
+        List<Transform> countOrdered = Instance.cards.
         OrderByDescending(pair => pair.Key.GetPlayerProfile().isAlive).
         ThenByDescending(pair => pair.Key.GetPlayerProfile().GetMoneyEarned())
             .Select(pair => pair.Value.targetCardGhost)
-            .ToArray();
-        for (int i = 0; i < countOrdered.Length; i++) {
-            countOrdered[i].SetSiblingIndex(i);
-        }
+            .ToList();
+        bool sorted = !countOrdered.SequenceEqual(Instance.cardList);
+        if (sorted)
+            for (int i = 0; i < countOrdered.Count; i++) {
+                countOrdered[i].SetSiblingIndex(i);
+            }
+        return sorted;
     }
 }
