@@ -118,7 +118,7 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 	}
 
 	void TrySetupFirstOwner() {
-		if (!OwnersCoordinator.ContainsActiveFirstOwner())
+		if (!OwnersCoordinator.ContainsActiveFirstOwner() && OwnersCoordinator.GetOwnersAll().Count > 0)
 			OwnersCoordinator.GetOwnersAll().Where(x => x.IsPlayer()).FirstOrDefault().IsFirstOwner = true;
 	}
 }

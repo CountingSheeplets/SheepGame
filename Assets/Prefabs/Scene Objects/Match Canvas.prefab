@@ -115,6 +115,7 @@ MonoBehaviour:
   playerCardGhostPrefab: {fileID: 6597710923660625007, guid: ad0d6ba5b051f3f4c819baa333b5cc92,
     type: 3}
   realCardContainer: {fileID: 401176324033673753}
+  cardList: []
 --- !u!1 &401176324033673752
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,6 +622,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4655257666914097823}
   - component: {fileID: 2135789005873200070}
+  - component: {fileID: 6037741799295273170}
   m_Layer: 5
   m_Name: Gold Numbers Panel
   m_TagString: Untagged
@@ -659,6 +661,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a87cb089114d4854bb58d5851641c737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6037741799295273170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3583436633056680211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b354c219522c645a71cd8f8e24568e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
   numberPrefab: {fileID: 8173126362664095815, guid: e140a6da29005bf4cafa53e9ba9b8807,
     type: 3}
 --- !u!1 &7145397544952531509

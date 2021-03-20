@@ -10,6 +10,8 @@ public class PlusGold : MonoBehaviour {
     public Image icon;
     public Animator animator;
 
+    public Transform animTransform;
+
     public void Setup(PlayerProfile profile, float amount) {
         playerColor = profile.playerColor;
 
@@ -20,7 +22,12 @@ public class PlusGold : MonoBehaviour {
         animator.SetFloat("seed", Random.Range(0f, 3f));
 
         transform.position = transform.position + new Vector3(Random.Range(-0.1f, 0.1f), 0, 0);
-        Destroy(gameObject, 0.66f);
+        StartCoroutine(SleepObject(0.66f));
+    }
+
+    IEnumerator SleepObject(float delay) {
+        yield return new WaitForSeconds(delay);
+        GoldNumbersFactory.HideObject(this);
     }
 
 }
