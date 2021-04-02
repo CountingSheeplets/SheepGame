@@ -75,8 +75,13 @@ public class Owner : MonoBehaviour {
     public KingUnit GetKing() {
         return KingCoordinator.GetKing(this);
     }
+    private Playfield _playfield;
     public Playfield GetPlayfield() {
-        return ArenaCoordinator.GetPlayfield(this);
+        if (_playfield != null)
+            return _playfield;
+        else
+            _playfield = ArenaCoordinator.GetPlayfield(this);
+        return _playfield;
     }
     public PlayerProfile GetPlayerProfile() {
         return PlayerProfileCoordinator.GetProfile(this);

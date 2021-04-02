@@ -45,6 +45,7 @@ public class SheepFall : BaseUnitMove {
     }
     public override void PostMoveAction() {
         //Debug.Log("post falling, splat at:" + (Vector2) (transform.position));
+        sheep.isSwimming = false;
 
         //GetComponent<SheepUnit>().isSwimming = false; //uncomment this, if unit would not die, but do smth else
         EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(GetComponent<SheepUnit>()));

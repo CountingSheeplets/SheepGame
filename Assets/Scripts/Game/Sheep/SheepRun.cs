@@ -23,7 +23,6 @@ public class SheepRun : BaseUnitMove {
         //animator.FadeIn(destination, AnimatorContainer.Animation.Idle);
         animator.StopWalking();
 
-        //trigger Land game event
         sheep.isReadying = false;
         Playfield playfield = sheep.currentPlayfield;
         EventCoordinator.TriggerEvent(EventName.System.Sheep.ReadyToLaunch(), GameMessage.Write().WithSheepUnit(GetComponent<SheepUnit>()).WithPlayfield(playfield));

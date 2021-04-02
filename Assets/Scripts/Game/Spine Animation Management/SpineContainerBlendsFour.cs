@@ -72,11 +72,7 @@ public class SpineContainerBlendsFour : MonoBehaviour, IAnimatableDirection {
         float sign = (Vector2.Dot(vec1Rotated90, v2) < 0) ? -1.0f : 1.0f;
         return Vector2.Angle(v1, v2) * sign;
     }
-    void OnDestroy() {
-        //SkeletonRendererController.RemoveFromSets(mecanim);
-    }
     void ResetAllTriggers() {
-        //SkeletonRendererController.MakeSheepActive(mecanim);
         anim.ResetTrigger("smash");
         anim.ResetTrigger("stopWalk");
         anim.ResetTrigger("clockwise");

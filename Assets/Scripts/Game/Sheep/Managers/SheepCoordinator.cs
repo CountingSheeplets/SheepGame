@@ -18,7 +18,6 @@ public class SheepCoordinator : Singleton<SheepCoordinator> {
     public static SheepUnit SpawnSheep(Owner owner) {
         SheepUnit sheep = SheepFactory.CreateSheep(owner, Instance.sheepStacks[owner].GetNextType());
         Instance.sheepStacks[owner].SetNewSheep(sheep);
-        //SkeletonRendererController.MakeSheepActive(sheep);
         return sheep;
     }
     public static void DestroySheep(SheepUnit sheep) {

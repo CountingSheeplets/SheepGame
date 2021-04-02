@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-//vis tiek sukuria modelį
-//nesukuria particle
-
 //karaliaus deatch galima turėt žvaigždelių field particle effektą
 
 public class Destructable : MonoBehaviour {
@@ -14,6 +11,7 @@ public class Destructable : MonoBehaviour {
     public DeathFx txToAddOnDeath;
     public bool isClone = false;
     public Color playerColor = Color.white;
+    DestructableUnit dUnit;
     void CreateDebris() {
         if (debrisParticles == null)
             return;
@@ -31,6 +29,8 @@ public class Destructable : MonoBehaviour {
         Destroy(newDebris, 1f);
     }
     void Start() {
+        dUnit = GetComponentInParent<DestructableUnit>();
+        dUnit.sheepDestroyCallback += OnDestroy;
         Playfield pl = transform.GetComponentInParent<Playfield>();
         if (pl != null)
             playerColor = pl.owner.GetPlayerProfile().playerColor;
@@ -48,7 +48,6 @@ public class Destructable : MonoBehaviour {
         CreateDebris();
         if (txToAddOnDeath == null)
             return;
-        Debug.Log("dead, creating fx...");
         isClone = true;
 
         GameObject newTempObj = Instantiate(gameObject, ArenaCoordinator.GetFxContainer);

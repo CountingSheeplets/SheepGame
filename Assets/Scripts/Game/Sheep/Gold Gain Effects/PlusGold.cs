@@ -27,7 +27,7 @@ public class PlusGold : MonoBehaviour {
 
     IEnumerator SleepObject(float delay) {
         yield return new WaitForSeconds(delay);
-        GoldNumbersFactory.HideObject(this.gameObject);
+        GoldNumbersFactory.DestroyGoldNumber(this.gameObject);
     }
 
 }

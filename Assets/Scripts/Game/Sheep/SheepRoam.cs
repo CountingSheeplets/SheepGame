@@ -20,7 +20,7 @@ public class SheepRoam : BaseUnitMove {
         animator.WalkTo(_destination);
     }
     void OnRoam(GameMessage msg) {
-        if (sheep == null)
+        if (sheep == null && gameObject.activeSelf)
             sheep = GetComponent<SheepUnit>();
         if (GameStateView.HasState(GameState.arenaAnimating))return;
         if (!sheep.isSwimming && !sheep.isReadying && !sheep.isReadyToFly && !sheep.isFlying && !sheep.isRoaming && !sheep.isTrenching) {

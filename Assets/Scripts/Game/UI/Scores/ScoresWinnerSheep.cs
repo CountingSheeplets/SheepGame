@@ -31,7 +31,7 @@ public class ScoresWinnerSheep : MonoBehaviour {
     }
 
     Transform CreateSheep(Owner owner) {
-        GameObject sheepModelGO_A = SheepFactory.CreateSheepModel(owner, sheepPanel);
+        GameObject sheepModelGO_A = SheepFactory.CreateSheepModel(owner, sheepPanel).gameObject;
         sheepModelGO_A.transform.localScale = Vector3.one * 10f * width / 1920f;
         sheepModelGO_A.AddComponent<ScoreSheep>();
         return sheepModelGO_A.transform;

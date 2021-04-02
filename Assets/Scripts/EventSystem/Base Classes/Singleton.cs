@@ -28,7 +28,7 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour {
             lock(Lock) {
                 if (_instance != null)
                     return _instance;
-                _instance = (T)FindObjectOfType(typeof(Singleton<T>));
+                _instance = (T)FindObjectOfType(typeof(Singleton<T>)); //typeof(Singleton<T>));
                 //Debug.Log($"Found an instance of [{nameof(Singleton)}<{typeof(T)}>]");
                 if (_instance != null) {
                     //Debug.Log($"Found an instance of [{nameof(_instance)}<{typeof(T)}>]");
@@ -60,13 +60,15 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour {
             DontDestroyOnLoad(gameObject);
 #endif
         }
-        T tempInstance = Instance;
+        T tempInstance = (T)Instance;
         if (tempInstance != this) {
+            //Debug.Log("Destroying: this type: " + this.GetType() + " inst: " + tempInstance.GetType());
 #if UNITY_EDITOR
-            if (EditorApplication.isPlaying)
-                Destroy(gameObject);
+            if (EditorApplication.isPlaying) {
+                Destroy(this);
+            }
 #else 
-            Destroy(gameObject);
+            Destroy(this);
 #endif
         }
         OnAwake();

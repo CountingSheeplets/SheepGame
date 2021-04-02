@@ -37,7 +37,6 @@ public class PlayfieldKillUnitsOnDestroy : MonoBehaviour {
             if (progress > orderedSheep[counter].timeWeight * destrucionTime) {
                 SheepUnit sheep = orderedSheep[counter].sheep;
                 if (sheep != null) {
-                    SkeletonRendererController.MakeSheepActive(sheep);
                     SheepFall fall = sheep.GetComponent<SheepFall>();
                     if (fall != null) {
                         fall.transform.parent = SheepCoordinator.Instance.transform;

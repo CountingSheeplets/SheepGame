@@ -2,15 +2,28 @@
 using System.Collections.Generic;
 using Spine.Unity;
 using UnityEngine;
-
-public class SheepFactory : Singleton<SheepFactory> {
-    public GameObject sheepPrefab;
+using UnityEngine.Rendering;
+public class SheepFactory : PersistentFactory {
     public GameObject sheepModel;
 
+    private static SheepFactory _instance;
+    public static SheepFactory Instance {
+        get {
+            if (_instance != null)
+                return _instance;
+            _instance = FindObjectOfType(typeof(SheepFactory))as SheepFactory;
+            return _instance;
+        }
+    }
+
     public static SheepUnit CreateSheep(Owner owner, SheepType sheepType) {
-        Playfield playfield = ArenaCoordinator.GetPlayfield(owner);
-        GameObject newSheepGO = Instantiate(Instance.sheepPrefab);
-        newSheepGO.name = "SheepUnit_" + Time.time.GetHashCode();
+        Playfield playfield = owner.GetPlayfield();
+        GameObject newSheepGO = Instance.GetOrCreateItem();
+        if (!newSheepGO.name.Contains("SheepUnit"))
+            newSheepGO.name = "SheepUnit_" + newSheepGO.name;
+        SortingGroup sGroup = newSheepGO.GetComponentInChildren<SortingGroup>();
+        if (sGroup)
+            sGroup.sortingOrder = 100;
         float rnd1 = Random.Range(-Mathf.FloorToInt(ConstantsBucket.PlayfieldSize), Mathf.CeilToInt(ConstantsBucket.PlayfieldSize)) / 2f;
         float rnd2 = Random.Range(-Mathf.FloorToInt(ConstantsBucket.PlayfieldSize), Mathf.CeilToInt(ConstantsBucket.PlayfieldSize)) / 2f;
         newSheepGO.transform.parent = playfield.sheepParent;
@@ -20,29 +33,43 @@ public class SheepFactory : Singleton<SheepFactory> {
         sheep.owner = owner;
         sheep.currentPlayfield = playfield;
         sheep.sheepType = sheepType;
-
-        GameObject newSheepModel = CreateSheepModel(owner, newSheepGO.transform);
-
-        newSheepModel.GetComponent<SpineContainerBlendsEight>().SetInitialRandomDirection();
+        SheepModel model = newSheepGO.GetComponentInChildren<SheepModel>();
+        if (model == null)
+            model = CreateSheepModel(owner, newSheepGO.transform);
+        else
+            SetupSheepModel(model, owner, newSheepGO.transform);
+        model.GetComponent<SpineContainerBlendsEight>().SetInitialRandomDirection();
         return sheep;
     }
-    public static GameObject CreateSheepModel(Owner owner, Transform parent) {
-        GameObject newSheepModel = Instantiate(Instance.sheepModel);
+    public static SheepModel CreateSheepModel(Owner owner, Transform parent) {
+        GameObject newSheepModel = Instantiate(((SheepFactory)Instance).sheepModel);
+        SheepModel model = newSheepModel.GetComponent<SheepModel>();
         Vector3 modelScale = newSheepModel.transform.localScale;
         newSheepModel.transform.parent = parent;
         newSheepModel.transform.localPosition = Vector3.zero;
         newSheepModel.transform.localScale = modelScale;
         //set model properties:
-        newSheepModel.GetComponentInChildren<SheepModel>().ChangeColor(owner.teamId);
-        newSheepModel.GetComponentInChildren<SheepModel>().EnabeUpgradeSlot();
-        return newSheepModel;
+        model.ChangeColor(owner.teamId);
+        model.EnabeUpgradeSlot();
+        return model;
+    }
+
+    static void SetupSheepModel(SheepModel model, Owner owner, Transform parent) {
+        GameObject newSheepModel = model.gameObject;
+        Vector3 modelScale = newSheepModel.transform.localScale;
+        newSheepModel.transform.parent = parent;
+        newSheepModel.transform.localPosition = Vector3.zero;
+        newSheepModel.transform.localScale = modelScale;
+        //set model properties:
+        model.ChangeColor(owner.teamId);
+        model.EnabeUpgradeSlot();
     }
 
     public static void DestroySheep(SheepUnit sheep) {
         if (Instance == null)
             return;
-        if (sheep != null)
-            Destroy(sheep.gameObject);
+        Instance.HideObject(sheep.gameObject);
+        sheep.TrigSheepDestroy();
     }
 
 }

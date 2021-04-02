@@ -1399,7 +1399,6 @@ GameObject:
   - component: {fileID: 1492470317}
   - component: {fileID: 1492470314}
   - component: {fileID: 1492470318}
-  - component: {fileID: 1492470319}
   - component: {fileID: 1492470320}
   - component: {fileID: 1492470321}
   - component: {fileID: 1492470323}
@@ -1461,8 +1460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be43d5ca0b112a242951979f3307f37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _persistent: 0
-  sheepPrefab: {fileID: 6195520508007395971, guid: df46430e556633045a77f7dd556bb858,
+  itemPrefab: {fileID: 6195520508007395971, guid: df46430e556633045a77f7dd556bb858,
     type: 3}
   sheepModel: {fileID: 9198241363911740042, guid: 109eb8610fffb47418bbc9415866b6c6,
     type: 3}
@@ -1490,24 +1488,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 133345fdf17b0de43b702997bb274f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1492470319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1492470312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48ac7b4a3aa14d446af360926ed446ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _persistent: 0
-  passiveMechanimsList: []
-  activeMecanimSetsListA: []
-  activeMecanimSetsListB: []
-  subdivisions: 2
-  currentStep: 0
 --- !u!114 &1492470320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1573,7 +1553,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1558080265}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14b0203a2e03ada4d979d297902bd264, type: 3}
   m_Name: 

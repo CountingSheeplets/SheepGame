@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SheepUnit : MonoBehaviour {
+public class SheepUnit : DestructableUnit {
     public Owner owner;
     public Owner lastHandler;
     public bool bounced;
@@ -38,7 +38,9 @@ public class SheepUnit : MonoBehaviour {
                 }
         }
     }
-
+    private void OnDestroy() {
+        Debug.Log("sheep destroyed");
+    }
     public void ResetContainer() {
         if (isFlying || isSwimming) {
             transform.parent = SheepCoordinator.Instance.transform;

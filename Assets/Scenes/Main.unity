@@ -2299,8 +2299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be43d5ca0b112a242951979f3307f37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _persistent: 0
-  sheepPrefab: {fileID: 6195520508007395971, guid: df46430e556633045a77f7dd556bb858,
+  itemPrefab: {fileID: 6195520508007395971, guid: df46430e556633045a77f7dd556bb858,
     type: 3}
   sheepModel: {fileID: 9198241363911740042, guid: 109eb8610fffb47418bbc9415866b6c6,
     type: 3}
