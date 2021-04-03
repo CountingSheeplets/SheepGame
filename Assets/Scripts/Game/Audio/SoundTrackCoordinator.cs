@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundTrackCoordinator : Singleton<SoundTrackCoordinator> {
 
@@ -13,14 +14,11 @@ public class SoundTrackCoordinator : Singleton<SoundTrackCoordinator> {
     float loadDelay = 2f;
     public float targetPitchDown = 0.7f;
     public float targetVolumeDown = 0.05f;
-    float normalVolume = 0.5f;
-    AudioSource[] _players = new AudioSource[2];
-    AudioSource[] players {
-        get {
-            if (Instance._players[0] == null)
-                Instance._players = Instance.GetComponents<AudioSource>();
-            return Instance._players;
-        }
+    float normalVolume = 0.4f;
+    public AudioSource[] players;
+    public AudioMixer mixer;
+    public static AudioMixer GetMixer() {
+        return Instance.mixer;
     }
     void Awake() {
         normalVolume = Instance.players[0].volume;
@@ -49,6 +47,7 @@ public class SoundTrackCoordinator : Singleton<SoundTrackCoordinator> {
         Instance.players[Instance.flip].PlayScheduled(AudioSettings.dspTime + delayTime);
         Instance.players[Instance.flip].pitch = 1f;
         Instance.players[Instance.flip].volume = Instance.normalVolume;
+        Debug.Log("ScheduleAndPlay:" + clip + "  time:" + AudioSettings.dspTime + delayTime + "  flip:" + Instance.flip);
         Instance.flip = 1 - Instance.flip;
         Instance.players[Instance.flip].SetScheduledEndTime(AudioSettings.dspTime + delayTime);
         Instance.StartToneDown(Instance.players[Instance.flip], delayTime);

@@ -528,6 +528,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 953e44363a945db4a80a2a6ec386cf53, type: 3}
   targetPitchDown: 0.7
   targetVolumeDown: 0.05
+  players:
+  - {fileID: 1787212550244447860}
+  - {fileID: 4128965592407676718}
 --- !u!114 &5596483061446291789
 MonoBehaviour:
   m_ObjectHideFlags: 0

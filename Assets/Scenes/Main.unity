@@ -1520,7 +1520,7 @@ PrefabInstance:
     - target: {fileID: 8519426809534698585, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 85
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8519426809534698585, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}
@@ -2175,10 +2175,13 @@ MonoBehaviour:
   ignoreEvents:
     list:
     - PlayerJoined
+    - Economy_GrassChanged
+    - Economy_GoldChanged
     - Economy_ComboChanged
     - System_King_Smashed
     - System_Sheep_KingMissed
-    indexes: 0f000000160000001b00000021000000
+    - System_Sheep_ReadyToLaunch
+    indexes: 0f0000001300000014000000160000001b0000002100000022000000
   showAttachedEvents: 0
   ignoreAttachedEvents:
     list: []
@@ -2660,7 +2663,7 @@ PrefabInstance:
     - target: {fileID: 579641167050141947, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 579641167050141947, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
         type: 3}
@@ -2702,11 +2705,32 @@ PrefabInstance:
       propertyPath: Loop
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1787212550244447860, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4128965592407676718, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
         type: 3}
       propertyPath: Loop
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4128965592407676718, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6177877605501106164, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275888690483693523, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
+        type: 3}
+      propertyPath: mixer
+      value: 
+      objectReference: {fileID: 24100000, guid: baaa865aa35950f4b921e4893e9ad07b,
+        type: 2}
     - target: {fileID: 8275888690483693523, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
         type: 3}
       propertyPath: matchSoundTracks.Array.size
