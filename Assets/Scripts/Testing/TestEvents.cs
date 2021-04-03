@@ -117,14 +117,16 @@ public class TestEvents : MonoBehaviour {
             EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType)Random.Range(0, 2)));
         }
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
-            Debug.Log("first owner gets first upgrade....");
+            Debug.Log("second owner gets first upgrade....");
             Owner upgrader = OwnersCoordinator.Instance.owners[1];
-            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType)0));
+            SheepType sType = SheepType.Small;
+            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithSheepType(sType));
         }
         if (Input.GetKeyDown(KeyCode.Alpha2)) {
-            Debug.Log("first owner gets first upgrade....");
+            Debug.Log("second owner gets second upgrade....");
             Owner upgrader = OwnersCoordinator.Instance.owners[1];
-            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithUpgradeType((UpgradeType)1));
+            SheepType sType = SheepType.Bouncy;
+            EventCoordinator.TriggerEvent(EventName.Input.SheepUpgrade(), GameMessage.Write().WithOwner(upgrader).WithSheepType(sType));
         }
     }
 

@@ -33,7 +33,7 @@ public class PersistentFactory : MonoBehaviour {
     public void HideObject(GameObject obj) {
         unusedItems.Add(obj);
         usedItems.Remove(obj);
-        obj.transform.parent = transform;
+        obj.transform.SetParent(transform);
         obj.SetActive(false);
     }
 }

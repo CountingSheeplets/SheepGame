@@ -18,7 +18,6 @@ public class ScoreNetworkWriter : MonoBehaviour {
             int total = ScoreCoordinator.GetTotalPlayerScores(owner);
             //Debug.Log("Sending winner Scores:::" + playerScores.ToString());
             NetworkCoordinator.SendPlayerScores(owner.deviceId, owner.GetPlayerProfile().isAlive, playerScores.scores, total);
-            //Debug.Log("total score:" + total);
         }
     }
     void OnEliminated(GameMessage msg) {
@@ -28,9 +27,7 @@ public class ScoreNetworkWriter : MonoBehaviour {
             PlayerScores playerScores = ScoreCoordinator.GetPlayerScores(owner);
             int total = ScoreCoordinator.GetTotalPlayerScores(owner);
             owner.GetPlayerProfile().SetCrowns(total);
-            Debug.Log("Sending Scores:::" + playerScores.ToString());
             NetworkCoordinator.SendPlayerScores(owner.deviceId, false, playerScores.scores, total);
-            Debug.Log("total score:" + total);
         }
     }
 }

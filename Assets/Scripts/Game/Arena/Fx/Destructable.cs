@@ -15,7 +15,6 @@ public class Destructable : MonoBehaviour {
     public FxType fxType;
     void CreateDebris() {
         GameObject newDebris = ExplosionFactory.GetOrCreateFx(fxType, 1f);
-        Debug.Log("Destroying:" + gameObject.name);
         newDebris.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.5f);
         newDebris.transform.rotation = transform.rotation;
         newDebris.transform.parent = ArenaCoordinator.GetFxContainer;

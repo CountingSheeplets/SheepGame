@@ -5,13 +5,15 @@ using UnityEngine.UI;
 public class OwnerTileResizer : MonoBehaviour {
     public float _height;
     GridLayoutGroup layout;
-    void Start() {
+    void Awake() {
         layout = GetComponent<GridLayoutGroup>();
         Resize(GameMessage.Write());
         EventCoordinator.StartListening(EventName.Input.Network.PlayerJoined(), Resize);
         EventCoordinator.StartListening(EventName.Input.ChangeKingItem(), Resize);
     }
-
+    void OnApplicationFocus(bool hasFocus) {
+        Resize(GameMessage.Write());
+    }
     void Resize(GameMessage msg) {
         float height = this.gameObject.GetComponent<RectTransform>().rect.height;
         if (height == _height)

@@ -33,7 +33,7 @@ public class PlayerScores {
     public override string ToString() {
         string output = "Scores:";
         foreach (Score score in scores) {
-            output += " |||" + score.ToString();
+            output += "\n|||" + score.ToString();
         }
         return output;
     }

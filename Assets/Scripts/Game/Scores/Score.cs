@@ -25,7 +25,7 @@
         icon = score.icon.ToString().Split(' ')[0];
     }
     public override string ToString() {
-        return "name:" + scoreName +
+        return scoreName +
             " counter:" + counter +
             " total:" + total +
             " reward:" + reward +

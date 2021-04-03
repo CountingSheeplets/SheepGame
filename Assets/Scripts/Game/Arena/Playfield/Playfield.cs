@@ -23,14 +23,21 @@ public class Playfield : MonoBehaviour {
     void Start() {
         fieldCorners = new FieldCorners(ArenaCoordinator.fieldSize);
         EventCoordinator.StartListening(EventName.Input.StartGame(), OnStart);
+        EventCoordinator.StartListening(EventName.System.Player.Eliminated(), OnPlayerDefeated);
     }
     void OnDestroy() {
         EventCoordinator.StopListening(EventName.Input.StartGame(), OnStart);
+        EventCoordinator.StopListening(EventName.System.Player.Eliminated(), OnPlayerDefeated);
+    }
+    void OnPlayerDefeated(GameMessage msg) {
+        if (!msg.owner.EqualsByValue(owner))return;
         if (ScoreCoordinator.Instance == null) {
             Debug.Log("ScoreCoordinator.Instance is null!");
             return;
         } else {
-            ScoreCoordinator.SetTechTier2Counts(owner, GetComponent<SheepUpgrade>().tier2UpgradeCount);
+            int upgCount = GetComponent<SheepUpgrade>().tier2UpgradeCount;
+            if (upgCount > 0)
+                ScoreCoordinator.SetTechTier2Counts(owner, upgCount);
         }
     }
     void OnStart(GameMessage msg) {

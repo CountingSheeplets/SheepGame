@@ -55,20 +55,21 @@ public class ScoreCoordinator : Singleton<ScoreCoordinator> {
         return scoresDict;
     }
     public static void SetTechTier2Counts(Owner owner, int techCount) {
-        if (owner)
-            if (Instance)
-                Instance.techTier2Counts[owner] = techCount;
+        if (owner != null)
+            Instance.techTier2Counts[owner] = techCount;
     }
     public static void CalculateTier2TechCounts() {
         if (Instance.techTier2Counts.Count == 0)
             return;
         Owner highestTier2Upgrader = Instance.techTier2Counts.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
+        Debug.Log(highestTier2Upgrader);
         IncreaseScoreCounter(highestTier2Upgrader, ScoreName.Achievement.Baaah(), 1);
+        Debug.Log(Instance.techTier2Counts.Count);
     }
     public static string GetStringAllPlayerScores() {
         string output = "PlayerScorePrint:";
         foreach (KeyValuePair<Owner, PlayerScores> pair in Instance.scores) {
-            output += "\nPlayer: " + pair.Key.ToString();
+            output += "\n\nPlayer: " + pair.Key.ToString();
             output += " Scores: " + pair.Value.ToString();
         }
         return output;
