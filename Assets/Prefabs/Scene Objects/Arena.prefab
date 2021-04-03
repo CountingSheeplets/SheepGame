@@ -3034,6 +3034,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2463484812774144844}
   - component: {fileID: 7540017644225568967}
+  - component: {fileID: 4224919204437363083}
   m_Layer: 0
   m_Name: FX Container
   m_TagString: Untagged
@@ -3068,6 +3069,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 0
+--- !u!114 &4224919204437363083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2463484812774144847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d11ad599d0bdf4d4fb4f310d9b12f321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosions:
+  - fxType: 0
+    prefab: {fileID: 1349599891588174301, guid: 3de132ef9f74ea744a4f77763c5d40f4,
+      type: 3}
+  - fxType: 1
+    prefab: {fileID: 1349599891588174301, guid: 3de132ef9f74ea744a4f77763c5d40f4,
+      type: 3}
+  - fxType: 2
+    prefab: {fileID: 1349599891588174301, guid: 568eb5479fe4e534aa8b55dc813c9ed2,
+      type: 3}
+  - fxType: 3
+    prefab: {fileID: 8402401706779306179, guid: bd9134a84f5fa424dab92025d7482e74,
+      type: 3}
 --- !u!1 &2463484812783351287
 GameObject:
   m_ObjectHideFlags: 0

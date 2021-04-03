@@ -38,9 +38,7 @@ public class SheepUnit : DestructableUnit {
                 }
         }
     }
-    private void OnDestroy() {
-        Debug.Log("sheep destroyed");
-    }
+    private void OnDestroy() {}
     public void ResetContainer() {
         if (isFlying || isSwimming) {
             transform.parent = SheepCoordinator.Instance.transform;

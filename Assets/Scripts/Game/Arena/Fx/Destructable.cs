@@ -12,10 +12,10 @@ public class Destructable : MonoBehaviour {
     public bool isClone = false;
     public Color playerColor = Color.white;
     DestructableUnit dUnit;
+    public FxType fxType;
     void CreateDebris() {
-        if (debrisParticles == null)
-            return;
-        GameObject newDebris = Instantiate(debrisParticles);
+        GameObject newDebris = ExplosionFactory.GetOrCreateFx(fxType, 1f);
+        Debug.Log("Destroying:" + gameObject.name);
         newDebris.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.5f);
         newDebris.transform.rotation = transform.rotation;
         newDebris.transform.parent = ArenaCoordinator.GetFxContainer;
@@ -25,17 +25,20 @@ public class Destructable : MonoBehaviour {
             if (sGroup)
                 system.sortingOrder = sGroup.sortingOrder + 1;
         }
-        newDebris.gameObject.name = gameObject.name + ("(ParticleFX)");
-        Destroy(newDebris, 1f);
     }
     void Start() {
         dUnit = GetComponentInParent<DestructableUnit>();
-        dUnit.sheepDestroyCallback += OnDestroy;
+        if (dUnit)
+            dUnit.sheepDestroyCallback += OnDestroyEvent;
         Playfield pl = transform.GetComponentInParent<Playfield>();
         if (pl != null)
             playerColor = pl.owner.GetPlayerProfile().playerColor;
     }
     void OnDestroy() {
+        if (dUnit)
+            dUnit.sheepDestroyCallback -= OnDestroyEvent;
+    }
+    void OnDestroyEvent() {
         if (isClone)
             return;
         if (GameStateView.HasState(GameState.gameReloaded)) // || GameStateView.HasState(GameState.ended))
