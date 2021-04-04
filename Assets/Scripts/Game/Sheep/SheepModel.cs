@@ -7,9 +7,10 @@ public class SheepModel : MonoBehaviour {
     SkeletonMecanim skMecanim;
     int currentUpgade;
     public SheepUnit sheep;
-    bool isSmall;
+    Vector3 modelScale;
     //public Color color = Color.white;
     void Awake() {
+        modelScale = transform.localScale;
         skMecanim = GetComponent<SkeletonMecanim>();
         DisableAllAttachments();
         EventCoordinator.StartListening(EventName.System.Sheep.Upgraded(), OnUpgrade);
@@ -40,20 +41,17 @@ public class SheepModel : MonoBehaviour {
         string attachment = UpgradeBucket.GetAttachmentSlot(sheep.sheepType).Split('.')[1];
         //Debug.Log(slot + "   " + attachment);
         if (slot == "Small") {
-            transform.localScale = transform.localScale * ConstantsBucket.SmallUpgradeShrinkSize;
-            isSmall = true;
+            transform.localScale = modelScale * ConstantsBucket.SmallUpgradeShrinkSize;
             return;
+        } else {
+            transform.localScale = modelScale;
         }
         if (skMecanim != null)
             if (slot != " ") {
-                if (isSmall) {
-                    isSmall = false;
-                    transform.localScale = transform.localScale / ConstantsBucket.SmallUpgradeShrinkSize;
-                }
                 skMecanim.skeleton.SetAttachment(slot, attachment);
             }
     }
-    void DisableAllAttachments() {
+    public void DisableAllAttachments() {
         skMecanim.skeleton.SetAttachment("Divine", null);
         skMecanim.skeleton.SetAttachment("Crown", null);
         skMecanim.skeleton.SetAttachment("Shovel", null);

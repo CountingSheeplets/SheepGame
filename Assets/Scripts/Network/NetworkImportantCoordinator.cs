@@ -50,7 +50,7 @@ public class NetworkImportantCoordinator : Singleton<NetworkImportantCoordinator
     public static void TryConfirmImportantReceived(JToken json) {
         string hash = json["token"].ToString();
         if (Instance.hashes.Contains(hash)) {
-            Debug.Log("important message confirmation received: " + hash);
+            //Debug.Log("important message confirmation received: " + hash);
             Instance.importantUnsent.Remove(hash);
             Instance.hashes.Remove(hash);
         } else
@@ -59,7 +59,7 @@ public class NetworkImportantCoordinator : Singleton<NetworkImportantCoordinator
     static string GetToken(JObject json) {
         string token = "sheep" + json.ToString() + "_!-" + Time.time;
         string hash = CryptoHelper.md5(token);
-        Debug.Log("token:" + token + " hash: " + hash);
+        //Debug.Log("token:" + token + " hash: " + hash);
         return hash;
     }
     public static bool IsImportantUnsent() {

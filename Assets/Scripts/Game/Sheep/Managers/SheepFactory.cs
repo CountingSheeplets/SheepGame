@@ -44,13 +44,7 @@ public class SheepFactory : PersistentFactory {
     public static SheepModel CreateSheepModel(Owner owner, Transform parent) {
         GameObject newSheepModel = Instantiate(((SheepFactory)Instance).sheepModel);
         SheepModel model = newSheepModel.GetComponent<SheepModel>();
-        Vector3 modelScale = newSheepModel.transform.localScale;
-        newSheepModel.transform.parent = parent;
-        newSheepModel.transform.localPosition = Vector3.zero;
-        newSheepModel.transform.localScale = modelScale;
-        //set model properties:
-        model.ChangeColor(owner.teamId);
-        model.EnabeUpgradeSlot();
+        SetupSheepModel(model, owner, parent);
         return model;
     }
 
@@ -62,6 +56,7 @@ public class SheepFactory : PersistentFactory {
         newSheepModel.transform.localScale = modelScale;
         //set model properties:
         model.ChangeColor(owner.teamId);
+        model.DisableAllAttachments();
         model.EnabeUpgradeSlot();
     }
 
