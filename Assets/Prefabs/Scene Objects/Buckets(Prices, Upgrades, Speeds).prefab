@@ -88,11 +88,11 @@ MonoBehaviour:
     sheepType: 2
   - speed: 2
     sheepType: 3
-  - speed: 1.3
+  - speed: 1.5
     sheepType: 4
   - speed: 2
     sheepType: 5
-  - speed: 1.8
+  - speed: 1.5
     sheepType: 6
   - speed: 2
     sheepType: 7
@@ -105,11 +105,11 @@ MonoBehaviour:
     sheepType: 2
   - speed: 2
     sheepType: 3
-  - speed: 0.5
+  - speed: 1.5
     sheepType: 4
   - speed: 2
     sheepType: 5
-  - speed: 0.3
+  - speed: 1.5
     sheepType: 6
   - speed: 1
     sheepType: 7
@@ -152,11 +152,11 @@ MonoBehaviour:
     sheepType: 8
   - speed: 3
     sheepType: 1
-  - speed: 3
+  - speed: 4
     sheepType: 2
   - speed: 3
     sheepType: 3
-  - speed: 3
+  - speed: 2
     sheepType: 4
   - speed: 3
     sheepType: 5
@@ -207,7 +207,7 @@ MonoBehaviour:
     upgradeDisplayName: bouncy
     upgradeCodeName: SheepUpgrade_Bouncy
     upgradeDescription: after landing anywhere on the opponents field bounces towards
-      the king.ing.
+      the king.
     sheepTypeInput: 1
     sheepTypeOutput: 2
   - priceUpgrade: 0
@@ -215,7 +215,7 @@ MonoBehaviour:
     upgradeDisplayName: greedy
     upgradeCodeName: SheepUpgrade_Greedy
     upgradeDescription: earns bonus gold income and steals from opponents when in
-      their lands.nds.
+      their lands.
     sheepTypeInput: 1
     sheepTypeOutput: 3
   - priceUpgrade: 0
@@ -234,7 +234,7 @@ MonoBehaviour:
     sheepTypeOutput: 5
   - priceUpgrade: 0
     slot: 1
-    upgradeDisplayName: tank
+    upgradeDisplayName: knight
     upgradeCodeName: SheepUpgrade_Tank
     upgradeDescription: eats a ton. moves very slowly and very hard to knock away.
       cannot be Smashed.
@@ -360,6 +360,8 @@ MonoBehaviour:
   - every time you replant grass the cost doubles! use this ability wisely!
   - bigger king, knocks sheep further. king gets bigger each time his sheep hit opponents,
     shrinks when he gets hit himself
+  translations: []
+  shuffledTips: []
 --- !u!114 &8604118487354306370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,11 +419,11 @@ MonoBehaviour:
     sheepType: 2
   - knockStrength: 1
     sheepType: 3
-  - knockStrength: 0.75
+  - knockStrength: 0.7
     sheepType: 4
   - knockStrength: 0
     sheepType: 5
-  - knockStrength: 0.5
+  - knockStrength: 0.4
     sheepType: 6
   - knockStrength: 0
     sheepType: 7
@@ -451,7 +453,7 @@ MonoBehaviour:
     sheepType: 4
   - damage: 1
     sheepType: 5
-  - damage: 4
+  - damage: 3
     sheepType: 6
   kickDamages:
   - damage: 0
