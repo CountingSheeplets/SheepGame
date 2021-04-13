@@ -1,5 +1,7 @@
-﻿public class Score {
+﻿[System.Serializable]
+public class Score {
     public string scoreName;
+    public string displayName;
     public int reward;
     public string description;
     public int counter;
@@ -12,9 +14,21 @@
     public int total {
         get { return (int)((float)counter / (float)rewardDelta * (float)reward); }
     }
-
+    public Score(Score score) {
+        scoreName = score.scoreName;
+        displayName = score.scoreName;
+        reward = score.reward;
+        description = score.description;
+        rewardDelta = score.rewardDelta;
+        scoreType = score.scoreType;
+        wordDelta = score.wordDelta;
+        X = score.X;
+        Y = score.Y;
+        icon = score.icon.ToString().Split(' ')[0];
+    }
     public Score(ScoreScriptable score) {
         scoreName = score.scoreName;
+        displayName = score.scoreName;
         reward = score.reward;
         description = score.description;
         rewardDelta = score.rewardDelta;

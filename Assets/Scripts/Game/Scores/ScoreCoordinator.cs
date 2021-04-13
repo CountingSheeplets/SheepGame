@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class ScoreCoordinator : Singleton<ScoreCoordinator> {
     public List<ScoreScriptable> defaultScores = new List<ScoreScriptable>();
+    [SerializeField]
+    public PlayerScores translatedScores;
 
     public Dictionary<Owner, PlayerScores> scores = new Dictionary<Owner, PlayerScores>();
 
     Dictionary<Owner, int> techTier2Counts = new Dictionary<Owner, int>();
     public static void AddPlayerScore(Owner owner) {
         //if(!Instance.scores.ContainsKey(owner))
-        Instance.scores.Add(owner, new PlayerScores(Instance.defaultScores));
+        Instance.scores.Add(owner, new PlayerScores(Instance.translatedScores));
         //else Debug.Log("already contains owner for PlayerScores!");
     }
     public static void RemovePlayerScore(Owner owner) {

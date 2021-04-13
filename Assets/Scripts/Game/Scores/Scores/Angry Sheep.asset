@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreName: Angry sheep
   reward: 1
-  description: receive [X] crown[S] per [Y] opponent king elimination[S]
+  description: receive [X] crown per [Y] opponent king elimination
   rewardDelta: 1
   wordDelta: 
   X: 1

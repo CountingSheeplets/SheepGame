@@ -10,7 +10,6 @@ public class TipsBucket : Singleton<TipsBucket> {
     int currentTip = 0;
     List<int> order = new List<int>();
     string baseStr = "tip_";
-    int range = 18;
 
     void Start() {
         AirConsole.instance.onReady += OnReady;
@@ -19,10 +18,11 @@ public class TipsBucket : Singleton<TipsBucket> {
         string lang = AirConsole.instance.GetLanguage();
         Debug.Log("Language: " + lang);
         Debug.Log("tip1:" + AirConsole.instance.GetTranslation("tip_1"));
-        for (int i = 0; i < range; i++) {
+        for (int i = 0; i < tips.Count; i++) {
             string inp = baseStr + (i + 1).ToString();
             string welcomeScreenTranslated = AirConsole.instance.GetTranslation(inp);
-            Debug.Log("INP:" + inp + "  tr:" + welcomeScreenTranslated);
+            if (welcomeScreenTranslated == "")
+                welcomeScreenTranslated = tips[i];
             translations.Add(welcomeScreenTranslated);
         }
         shuffledTips = translations.Shuffle<string>();

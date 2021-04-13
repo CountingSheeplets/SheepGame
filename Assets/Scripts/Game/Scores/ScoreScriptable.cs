@@ -9,6 +9,7 @@ public class ScoreScriptable : ScriptableObject {
 #endif
     [SerializeField]
     public string scoreName;
+    public string displayName;
     public int reward;
     public string description;
     public int rewardDelta;

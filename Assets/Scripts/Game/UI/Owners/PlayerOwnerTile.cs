@@ -8,6 +8,7 @@ public class PlayerOwnerTile : MonoBehaviour {
     Animator animator;
     public GameObject readyTextGO;
     public void Ready(bool state) {
+        readyTextGO.GetComponentInChildren<TextMeshProUGUI>().text = TranslationsHandler.GetReadyTranslation() + "!";
         readyTextGO.SetActive(state);
         if (animator == null)
             return;
@@ -20,7 +21,6 @@ public class PlayerOwnerTile : MonoBehaviour {
         myOwner = owner;
     }
     void Start() {
-        //myOwner = GetComponentInParent<Owner>();
         EventCoordinator.StartListening(EventName.System.Player.ProfileUpdate(), OnProfileUpdate);
         animator = GetComponentInChildren<Animator>();
     }

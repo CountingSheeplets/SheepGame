@@ -15,7 +15,7 @@ MonoBehaviour:
   scoreName: Get that action
   reward: 2
   description: '[Y] per match, each player who eliminated at least one opponent king
-    will get [X] crown[S]'
+    will get [X] crowns'
   rewardDelta: 1
   wordDelta: once
   X: 2

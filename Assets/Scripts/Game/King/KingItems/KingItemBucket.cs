@@ -4,9 +4,9 @@ using System.Linq;
 using UnityEngine;
 public class KingItemBucket : Singleton<KingItemBucket> {
     [SerializeField]
-    List<KingItem> kingHats = new List<KingItem>();
+    public List<KingItem> kingHats = new List<KingItem>();
     [SerializeField]
-    List<KingItem> kingScepters = new List<KingItem>();
+    public List<KingItem> kingScepters = new List<KingItem>();
     void Start() {
         kingHats = CSVReader.GetHats();
         kingScepters = CSVReader.GetScepters();
