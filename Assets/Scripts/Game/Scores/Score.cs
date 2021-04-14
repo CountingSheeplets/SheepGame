@@ -16,7 +16,7 @@ public class Score {
     }
     public Score(Score score) {
         scoreName = score.scoreName;
-        displayName = score.scoreName;
+        displayName = score.displayName;
         reward = score.reward;
         description = score.description;
         rewardDelta = score.rewardDelta;
@@ -43,7 +43,9 @@ public class Score {
             " counter:" + counter +
             " total:" + total +
             " reward:" + reward +
-            " rewardDelta:" + rewardDelta;
+            " wordDelta:" + wordDelta +
+            " displayName:" + displayName +
+            " description:" + description;
         //" wordDelta:" + wordDelta +
         //" icon:" + icon;
     }

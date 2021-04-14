@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9e6e0a4441d79097aa272609caae1222",
+    "revision": "643b60c2bbfe9b3f49f840b124d4e148",
     "url": "./index.html"
   },
   {
-    "revision": "e44f83b5befcc005ca6f",
-    "url": "./static/css/main.5acb6829.chunk.css"
+    "revision": "ca1d01048bd008c0cea2",
+    "url": "./static/css/main.1db2dd21.chunk.css"
   },
   {
     "revision": "7c4ec33c6bd21b189f3e",
     "url": "./static/js/2.c56e00f5.chunk.js"
   },
   {
-    "revision": "e44f83b5befcc005ca6f",
-    "url": "./static/js/main.7c306a4d.chunk.js"
+    "revision": "ca1d01048bd008c0cea2",
+    "url": "./static/js/main.3fad8873.chunk.js"
   },
   {
     "revision": "9657e5a9578426b09182",
@@ -36,8 +36,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./static/media/CROWNS_46.d9d76972.png"
   },
   {
-    "revision": "b3ed728be9cb645e89b1be33ef5f4832",
-    "url": "./static/media/NerisBlack.b3ed728b.otf"
+    "revision": "98f0cacc6bb63b64b98aac7cac082d27",
+    "url": "./static/media/NotoSans-Bold.98f0cacc.ttf"
   },
   {
     "revision": "50954f148eeb8b01ba234dc2c5d8024a",

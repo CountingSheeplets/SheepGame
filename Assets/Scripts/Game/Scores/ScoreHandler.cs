@@ -67,7 +67,6 @@ public class ScoreHandler : MonoBehaviour {
             total = owner.GetPlayerProfile().isAlive ? total * 2 : total;
             owner.GetPlayerProfile().SetCrowns(total);
         }
-        Debug.Log(ScoreCoordinator.GetStringAllPlayerScores());
     }
     void OnKingSmashed(GameMessage msg) {
         List<Owner> owners = new List<Owner>(sheepsSmited.Keys);

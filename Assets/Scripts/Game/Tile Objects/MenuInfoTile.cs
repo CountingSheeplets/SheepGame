@@ -4,13 +4,11 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 public class MenuInfoTile : MonoBehaviour {
-    public string needMoreText = "";
-    public string upTo8Text = "";
     public TextMeshProUGUI textComponent;
 
     void Awake() {
         EventCoordinator.StartListening(EventName.Input.Network.PlayerRecalculate(), OnChange);
-        textComponent.text = needMoreText;
+        textComponent.text = TranslationsHandler.GetInfoTileMoreTr();
     }
     private void OnDestroy() {
         EventCoordinator.StopListening(EventName.Input.Network.PlayerRecalculate(), OnChange);
@@ -20,17 +18,16 @@ public class MenuInfoTile : MonoBehaviour {
             return;
         int count = OwnersCoordinator.GetOwners().Where(x => x.connected).ToList().Count;
         if (count <= 1) {
-            textComponent.text = needMoreText;
+            textComponent.text = TranslationsHandler.GetInfoTileMoreTr();
             gameObject.SetActive(true);
         } else {
             if (count < 8) {
-                textComponent.text = upTo8Text;
+                textComponent.text = TranslationsHandler.GetInfoTileNeedTr();
                 gameObject.SetActive(true);
             } else {
                 gameObject.SetActive(false);
             }
         }
         transform.SetAsLastSibling();
-        //Debug.Log("last sibling");
     }
 }

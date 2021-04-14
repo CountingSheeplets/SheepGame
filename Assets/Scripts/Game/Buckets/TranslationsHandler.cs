@@ -4,7 +4,7 @@ using NDream.AirConsole;
 using UnityEngine;
 
 public class TranslationsHandler : Singleton<TranslationsHandler> {
-    string ready = "ready";
+    public string ready = "ready";
     public static string GetReadyTranslation() {
         if (Instance.ready != null)
             return Instance.ready.ToLower();
@@ -16,6 +16,18 @@ public class TranslationsHandler : Singleton<TranslationsHandler> {
             return Instance.achievements.ToLower();
         else return "achievements";
     }
+    string info_tile_more = "more people - more fun! up to 8 players can join";
+    public static string GetInfoTileMoreTr() {
+        if (Instance.info_tile_more != null)
+            return Instance.info_tile_more;
+        else return "more people - more fun! up to 8 players can join";
+    }
+    string info_tile_need = "need at least 2 players to be able to play. best - 5 players";
+    public static string GetInfoTileNeedTr() {
+        if (Instance.info_tile_need != null)
+            return Instance.info_tile_need;
+        else return "need at least 2 players to be able to play. best - 5 players";
+    }
     void Start() {
         AirConsole.instance.onReady += OnReady;
     }
@@ -25,9 +37,12 @@ public class TranslationsHandler : Singleton<TranslationsHandler> {
         }
     }
     void OnReady(string code) {
+        Debug.Log("OnReady:" + AirConsole.instance._translations);
         //single word translations, which are somewhere in UI
         Instance.ready = AirConsole.instance.GetTranslation("ready");
         Instance.achievements = AirConsole.instance.GetTranslation("achievements");
+        Instance.info_tile_more = AirConsole.instance.GetTranslation("info_tile_more");
+        Instance.info_tile_need = AirConsole.instance.GetTranslation("info_tile_need");
         //upgrades
         for (int i = 0; i < UpgradeBucket.GetUpgrades().Count; i++) {
             string idTitle = UpgradeBucket.Instance.upgrades[i].upgradeCodeName + "_Title";
@@ -59,13 +74,14 @@ public class TranslationsHandler : Singleton<TranslationsHandler> {
         ScoreCoordinator.Instance.translatedScores = new PlayerScores(ScoreCoordinator.Instance.defaultScores);
         for (int i = 0; i < ScoreCoordinator.Instance.translatedScores.scores.Count; i++) {
             Score scoreScriptable = ScoreCoordinator.Instance.translatedScores.scores[i];
-            string idScore = scoreScriptable.scoreName.ToLower().Replace(" ", "_") + "_";
+            string idScore = scoreScriptable.scoreName.ToLower().Replace(" ", "_").Replace(".", "").Replace("-", "_") + "_";
             string trTitle = AirConsole.instance.GetTranslation(idScore + "title");
             string trDesc = AirConsole.instance.GetTranslation(idScore + "desc");
             string trDelta = AirConsole.instance.GetTranslation(idScore + "delta");
             if (trTitle != null)ScoreCoordinator.Instance.translatedScores.scores[i].displayName = trTitle;
             if (trDesc != null)ScoreCoordinator.Instance.translatedScores.scores[i].description = trDesc;
             if (trDelta != null)ScoreCoordinator.Instance.translatedScores.scores[i].wordDelta = trDelta;
+            if (trDelta != null)ScoreCoordinator.Instance.translatedScores.scores[i].Y = trDelta;
         }
     }
 }

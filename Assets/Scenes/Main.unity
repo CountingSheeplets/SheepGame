@@ -234,6 +234,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 53b23ee4775c706439c21b1656b97707, type: 2}
   - {fileID: 11400000, guid: af5e61e4706df3d4ea10538411d9d2b2, type: 2}
   - {fileID: 11400000, guid: 5f2b1d2fe4a799f468a73179cc5cfcd2, type: 2}
+  translatedScores:
+    scores: []
 --- !u!4 &197822000
 Transform:
   m_ObjectHideFlags: 0
@@ -732,6 +734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 0
+  ready: ready
 --- !u!114 &438182124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1534,7 +1537,7 @@ PrefabInstance:
     - target: {fileID: 8519426809534698585, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 8519426809534698585, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}
@@ -1589,6 +1592,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1618779269220098742, guid: a9d297f84595cd8469a91d3a67ab0c04,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1697831630217664540, guid: a9d297f84595cd8469a91d3a67ab0c04,
         type: 3}
@@ -1843,7 +1851,7 @@ PrefabInstance:
     - target: {fileID: 9088303096562551686, guid: a9d297f84595cd8469a91d3a67ab0c04,
         type: 3}
       propertyPath: m_fontSize
-      value: 14.15
+      value: 14.65
       objectReference: {fileID: 0}
     - target: {fileID: 9088303096562551686, guid: a9d297f84595cd8469a91d3a67ab0c04,
         type: 3}

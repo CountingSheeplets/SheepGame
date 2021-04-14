@@ -12,22 +12,17 @@ public class ScoreCoordinator : Singleton<ScoreCoordinator> {
 
     Dictionary<Owner, int> techTier2Counts = new Dictionary<Owner, int>();
     public static void AddPlayerScore(Owner owner) {
-        //if(!Instance.scores.ContainsKey(owner))
         Instance.scores.Add(owner, new PlayerScores(Instance.translatedScores));
-        //else Debug.Log("already contains owner for PlayerScores!");
     }
     public static void RemovePlayerScore(Owner owner) {
         if (Instance.scores.ContainsKey(owner))
             Instance.scores.Remove(owner);
-        //else Debug.Log("no Such PlayerScores!");
     }
 
     public static void IncreaseScoreCounter(Owner owner, string scoreName, int amount) {
-        //Debug.Log("IncreaseScoreCounter");
         Score score = GetPlayerScore(owner, scoreName);
         if (score != null) {
             score.counter += amount;
-            //Debug.Log("increasing score of: "+scoreName+" for player: "+owner);
         }
     }
     public static int GetTotalPlayerScores(Owner owner) {
