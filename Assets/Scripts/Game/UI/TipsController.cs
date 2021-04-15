@@ -11,7 +11,8 @@ public class TipsController : MonoBehaviour {
         tipText = GetComponent<TextMeshProUGUI>();
         EventCoordinator.StartListening(EventName.Input.StartGame(), OnGameStart);
         EventCoordinator.StartListening(EventName.System.SceneLoaded(), OnReady);
-        AirConsole.instance.onReady += OnReady;
+        if (AirConsole.instance != null)
+            AirConsole.instance.onReady += OnReady;
     }
     void OnDestroy() {
         EventCoordinator.StopListening(EventName.Input.StartGame(), OnGameStart);

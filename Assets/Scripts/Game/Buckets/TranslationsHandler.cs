@@ -6,27 +6,31 @@ using UnityEngine;
 public class TranslationsHandler : Singleton<TranslationsHandler> {
     public string ready = "ready";
     public static string GetReadyTranslation() {
-        if (Instance.ready != null)
-            return Instance.ready.ToLower();
-        else return "ready";
+        if (Instance)
+            if (Instance.ready != null)
+                return Instance.ready.ToLower();
+        return "ready";
     }
     string achievements = "achievements";
     public static string GetAchievementsTranslation() {
-        if (Instance.achievements != null)
-            return Instance.achievements.ToLower();
-        else return "achievements";
+        if (Instance)
+            if (Instance.achievements != null)
+                return Instance.achievements.ToLower();
+        return "achievements";
     }
     string info_tile_more = "more people - more fun! up to 8 players can join";
     public static string GetInfoTileMoreTr() {
-        if (Instance.info_tile_more != null)
-            return Instance.info_tile_more;
-        else return "more people - more fun! up to 8 players can join";
+        if (Instance)
+            if (Instance.info_tile_more != null)
+                return Instance.info_tile_more;
+        return "more people - more fun! up to 8 players can join";
     }
     string info_tile_need = "need at least 2 players to be able to play. best - 5 players";
     public static string GetInfoTileNeedTr() {
-        if (Instance.info_tile_need != null)
-            return Instance.info_tile_need;
-        else return "need at least 2 players to be able to play. best - 5 players";
+        if (Instance)
+            if (Instance.info_tile_need != null)
+                return Instance.info_tile_need;
+        return "need at least 2 players to be able to play. best - 5 players";
     }
     void Start() {
         AirConsole.instance.onReady += OnReady;

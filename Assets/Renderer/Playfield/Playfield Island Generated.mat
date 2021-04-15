@@ -72,6 +72,19 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _AlphaClip: 0
     - _Blend: 0
@@ -88,6 +101,7 @@ Material:
     - _GrassFill: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
+    - _OutlineEdgeThickness: 0
     - _QueueOffset: 0
     - _RandomSeed: 2
     - _ReceiveShadows: 1
@@ -109,8 +123,10 @@ Material:
     - _GrassColor: {r: 0.6039216, g: 0.8117648, b: 0.4627451, a: 1}
     - _GrassOffset: {r: 0, g: 0, b: 0, a: 0}
     - _MudColor: {r: 0.7764707, g: 0.6156863, b: 0.4313726, a: 1}
+    - _PlayerColor: {r: 1, g: 0.2571417, b: 0.1666666, a: 1}
     - _SmashPosition: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_BuildTextureStacks: []
 --- !u!114 &7804406690591672336
 MonoBehaviour:
   m_ObjectHideFlags: 11

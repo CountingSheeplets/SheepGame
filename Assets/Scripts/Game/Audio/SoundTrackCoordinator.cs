@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class SoundTrackCoordinator : Singleton<SoundTrackCoordinator> {
 
@@ -16,7 +15,6 @@ public class SoundTrackCoordinator : Singleton<SoundTrackCoordinator> {
     public float targetVolumeDown = 0.05f;
     float normalVolume = 0.4f;
     public AudioSource[] players;
-    int playCount = 1;
 
     void Awake() {
         normalVolume = Instance.players[0].volume;
@@ -27,7 +25,7 @@ public class SoundTrackCoordinator : Singleton<SoundTrackCoordinator> {
         ScheduleAndPlay(Instance.menuSoundTrack, 0.5f);
     }
     public static void PlayScores() {
-        Instance.ScheduledPlay(Instance.scoreSoundTrack, 0.2f);
+        ScheduleAndPlay(Instance.scoreSoundTrack, 0.5f);
     }
     public static void PlayNext() {
         ScheduleAndPlay(Instance.randomizedList[Instance.matchTrackIndex]);
@@ -41,28 +39,13 @@ public class SoundTrackCoordinator : Singleton<SoundTrackCoordinator> {
         ScheduleAndPlay(clip, Instance.loadDelay);
     }
     static void ScheduleAndPlay(AudioClip clip, float delayTime) {
-        Instance.playCount++;
+        Instance.players[Instance.flip].clip = clip;
+        Instance.players[Instance.flip].PlayScheduled(AudioSettings.dspTime + delayTime);
+        Instance.players[Instance.flip].pitch = 1f;
+        Instance.players[Instance.flip].volume = Instance.normalVolume;
         Instance.flip = 1 - Instance.flip;
-        Instance.ScheduledPlay(clip, delayTime);
-        Instance.StartCoroutine(Instance.LoopPlayer(clip, delayTime));
-        //Debug.Log("ScheduleAndPlay:" + clip + "  time:" + AudioSettings.dspTime + delayTime + "  flip:" + (1 - Instance.flip));
-        Instance.players[1 - Instance.flip].SetScheduledEndTime(AudioSettings.dspTime + delayTime);
-        Instance.StartToneDown(Instance.players[1 - Instance.flip], delayTime);
-    }
-    public void ScheduledPlay(AudioClip clip, float delayTime) {
-        players[Instance.flip].clip = clip;
-        players[Instance.flip].PlayScheduled(AudioSettings.dspTime + delayTime);
-        players[Instance.flip].pitch = 1f;
-        players[Instance.flip].volume = normalVolume;
-    }
-    IEnumerator LoopPlayer(AudioClip clip, float delayTime) {
-        int initialCount = playCount;
-        float length = (clip.samples * 1f) / clip.frequency;
-        yield return new WaitForSecondsRealtime(length + delayTime - 0.08f);
-        if (initialCount == playCount) {
-            ScheduledPlay(clip, 0);
-            StartCoroutine(LoopPlayer(clip, 0));
-        }
+        Instance.players[Instance.flip].SetScheduledEndTime(AudioSettings.dspTime + delayTime);
+        Instance.StartToneDown(Instance.players[Instance.flip], delayTime);
     }
     public void StartToneDown(AudioSource source, float timeToDie) {
         StartCoroutine(ToneDown(source, timeToDie));
