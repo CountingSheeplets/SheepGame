@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+#pragma warning disable 0414
 //idea for upgrade: this could be composite, made out of generic MessagePage or smth like it, whithin which would contain isSet states and other things if needed;
 public class GameMessage : BaseMessage {
     public static GameMessage Write() {

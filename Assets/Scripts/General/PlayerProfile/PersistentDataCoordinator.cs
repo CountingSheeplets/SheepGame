@@ -24,7 +24,6 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
     }
 
     public static void RequestData(Owner owner) {
-        Debug.Log("RequestData");
         if (AirConsole.instance != null) {
             AirConsole.instance.RequestPersistentData(new List<string>() { owner.ownerId });
             Instance.requestedNames.Add(owner.ownerId);
@@ -36,10 +35,10 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
         string match = "";
         string[] names = Instance.requestedNames.ToArray();
         foreach (string request in names) {
-            Debug.Log("OnReceivedData: request!: " + request);
-            Debug.Log("OnReceivedData: data!: " + receivedToken);
+            //Debug.Log("OnReceivedData: request!: " + request);
+            //Debug.Log("OnReceivedData: data!: " + receivedToken);
             if (receivedToken[request].IsNullOrEmpty()) {
-                Debug.Log("OnReceivedData: IsNullOrEmpty()!: " + receivedToken);
+                //Debug.Log("OnReceivedData: IsNullOrEmpty()!: " + receivedToken);
                 continue;
             }
             match = request;
@@ -50,11 +49,11 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
                 continue;
             Owner owner = OwnersCoordinator.GetOwner(data["ownerID"].ToString());
             if (owner) {
-                Debug.Log("OnReceivedData: contains all data!: " + data);
+                //Debug.Log("OnReceivedData: contains all data!: " + data);
                 PlayerProfile profile = owner.GetPlayerProfile();
                 if (profile != null)
                     if (HasReceivedTrueData(owner, data)) {
-                        Debug.Log("OnReceivedData: data is true!");
+                        //Debug.Log("OnReceivedData: data is true!");
                         if (!data["coinCount"].IsNullOrEmpty())
                             profile.permanentCrownCount = (int)data["coinCount"];
                         if (!data["selectedHat"].IsNullOrEmpty())
@@ -75,7 +74,7 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
                             .WithKingItemType(KingItemType.scepter));
                         EventCoordinator.TriggerEvent(EventName.System.Player.ProfileUpdate(), GameMessage.Write().WithPlayerProfile(profile).WithOwner(owner));
                         NetworkCoordinator.SendTutorialIndex(profile);
-                        Debug.Log("data received and loaded!");
+                        Debug.Log("data received and loaded!:" + match);
                     }
             }
             if (match != "")

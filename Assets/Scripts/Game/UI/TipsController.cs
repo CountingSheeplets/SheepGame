@@ -7,20 +7,25 @@ public class TipsController : MonoBehaviour {
     TextMeshProUGUI tipText;
     float counter;
     bool ready = false;
-    void Start() {
+    void Awake() {
         tipText = GetComponent<TextMeshProUGUI>();
         EventCoordinator.StartListening(EventName.Input.StartGame(), OnGameStart);
+        EventCoordinator.StartListening(EventName.System.SceneLoaded(), OnReady);
         AirConsole.instance.onReady += OnReady;
     }
     void OnDestroy() {
         EventCoordinator.StopListening(EventName.Input.StartGame(), OnGameStart);
+        EventCoordinator.StopListening(EventName.System.SceneLoaded(), OnReady);
         if (AirConsole.instance != null)
             AirConsole.instance.onReady -= OnReady;
     }
     void OnGameStart(GameMessage msg) {
         gameObject.SetActive(false);
     }
-    void OnReady(string input) {
+    void OnReady(GameMessage msg) {
+        OnReady();
+    }
+    void OnReady(string input = "") {
         ready = true;
     }
     void Update() {

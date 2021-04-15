@@ -248,7 +248,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &235690573
 PrefabInstance:
@@ -315,7 +315,7 @@ PrefabInstance:
     - target: {fileID: 401176324264949984, guid: 3d5459cc99ba68d43ab069d09123308c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 401176324264949984, guid: 3d5459cc99ba68d43ab069d09123308c,
         type: 3}
@@ -697,7 +697,6 @@ GameObject:
   m_Component:
   - component: {fileID: 438182120}
   - component: {fileID: 438182124}
-  - component: {fileID: 438182121}
   m_Layer: 0
   m_Name: Network
   m_TagString: Untagged
@@ -721,20 +720,6 @@ Transform:
   m_Father: {fileID: 817108758}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &438182121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 438182119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28e7acadbf64d5e45b807ff2ce76c3b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _persistent: 0
-  ready: ready
 --- !u!114 &438182124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1427,7 +1412,7 @@ PrefabInstance:
     - target: {fileID: 8519426809139762809, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8519426809139762809, guid: 94ec890c568fb2f45953c1e9b8666c34,
         type: 3}
@@ -1656,7 +1641,7 @@ PrefabInstance:
     - target: {fileID: 3388916745176757921, guid: a9d297f84595cd8469a91d3a67ab0c04,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3388916745176757921, guid: a9d297f84595cd8469a91d3a67ab0c04,
         type: 3}
@@ -1901,6 +1886,94 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3388916745865165959, guid: a9d297f84595cd8469a91d3a67ab0c04, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a9d297f84595cd8469a91d3a67ab0c04, type: 3}
+--- !u!1 &1063017085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1063017086}
+  - component: {fileID: 1063017087}
+  - component: {fileID: 1063017088}
+  m_Layer: 0
+  m_Name: Translations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1063017086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063017085}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 69.21374, y: 153.8158, z: -47.9375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1063017087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063017085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dae50f79c84aed48a24606063f1944b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 1
+  tips:
+  - try hitting an opponents king multiple times in succession to build up combo
+    multiplier
+  - your sheep at an opponents field will eat their grass
+  - if your sheep lands outside of land, she will suffer a sad fate
+  - each time your sheep lands on opponents field, she tramples some grass
+  - if you got no more grass left, a single hit at your king will eliminate you
+  - the sheep spawn automatically, up to a cap. the cap increases each time a player
+    is eliminated
+  - you can upgrade a sheep while she is waiting in the ballista ready to launch
+  - upgrade your sheep into a Trench Veteran if you are having trouble of them staying
+    on opponents land
+  - need more coins? upgrade a sheep to Greedy and send it to opponents land. she
+    steals gold income
+  - there are two choices to upgrade into, unless there is no sheep waiting on the
+    ballista, or the sheep there is maxed out
+  - 'some upgrades have cons as well as pros, for example: tough, but slow'
+  - Tank sheep are immune to King's Smash ability
+  - use kuse King's Smash ability to knock all opponent sheep away
+  - as you earn more crowns in matches, you will automatically unlock fancier items
+    for your King
+  - some King items are available for Hero subscribers only. these are marked with
+    hero icon locks
+  - sheep with some upgrades are immune to king's Smash or Attack
+  - every time you replant grass the cost doubles! use this ability wisely!
+  - bigger king, knocks sheep further. king gets bigger each time his sheep hit opponents,
+    shrinks when he gets hit himself
+  translations: []
+  shuffledTips: []
+--- !u!114 &1063017088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063017085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e7acadbf64d5e45b807ff2ce76c3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  ready: ready
 --- !u!1 &1067208987
 GameObject:
   m_ObjectHideFlags: 0
@@ -2016,7 +2089,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1146439172
 MonoBehaviour:
@@ -2196,14 +2269,30 @@ MonoBehaviour:
   enableDebugging: 1
   ignoreEvents:
     list:
+    - Input_Swipe
+    - Input_Tap
+    - View
     - PlayerJoined
+    - PlayerRecalculate
     - Economy_GrassChanged
     - Economy_GoldChanged
+    - Economy_EatGrass
     - Economy_ComboChanged
+    - System_King_ReceivedDamage
+    - System_King_Spawned
     - System_King_Smashed
+    - System_King_SmashReset
+    - System_King_Killed
+    - System_Sheep_Spawned
+    - System_Sheep_Launch
+    - System_Sheep_Land
     - System_Sheep_KingMissed
     - System_Sheep_ReadyToLaunch
-    indexes: 0f0000001300000014000000160000001b0000002100000022000000
+    - System_Sheep_Kill
+    - System_Sheep_Roam
+    - System_ProfileUpdate
+    - System_PlayerCardsSorted
+    indexes: 06000000070000000e0000000f0000001100000013000000140000001500000016000000170000001a0000001b0000001c0000001d0000001e0000001f00000020000000210000002200000023000000240000003200000033000000
   showAttachedEvents: 0
   ignoreAttachedEvents:
     list: []
@@ -2220,7 +2309,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1470963685
 MonoBehaviour:
@@ -2246,7 +2335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fd0800972ced049a04c5378234502c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _persistent: 1
+  _persistent: 0
   currentState: 0
 --- !u!1 &1492470312
 GameObject:
@@ -2670,7 +2759,7 @@ PrefabInstance:
     - target: {fileID: 579641167050141947, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 579641167050141947, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
         type: 3}

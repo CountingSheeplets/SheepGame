@@ -7,7 +7,8 @@ public class KingItemBucket : Singleton<KingItemBucket> {
     public List<KingItem> kingHats = new List<KingItem>();
     [SerializeField]
     public List<KingItem> kingScepters = new List<KingItem>();
-    void Start() {
+    protected override void OnAwake() {
+        CSVReader.Read();
         kingHats = CSVReader.GetHats();
         kingScepters = CSVReader.GetScepters();
         kingHats = kingHats.OrderBy(x => x.crownRequirement).ToList();

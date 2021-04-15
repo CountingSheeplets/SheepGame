@@ -11,9 +11,8 @@ public class GameStateView : Singleton<GameStateView> {
             return Instance.currentState;
         else return new GameState();
     }
-    bool intialStart = true;
     void Awake() {
-        SceneManager.sceneLoaded += OnSceneLoading;
+        //SceneManager.sceneLoaded += OnSceneLoading;
         EventCoordinator.StartListening(EventName.Input.StartGame(), OnStartGame);
         EventCoordinator.StartListening(EventName.System.Environment.EndMatch(), OnEndGame);
         EventCoordinator.StartListening(EventName.System.Environment.ArenaAnimating(), OnArenaAnimating);
@@ -22,7 +21,7 @@ public class GameStateView : Singleton<GameStateView> {
         EventCoordinator.StartListening(EventName.System.SceneLoaded(), OnSceneLoaded);
     }
     void OnDestroy() {
-        SceneManager.sceneLoaded -= OnSceneLoading;
+        //SceneManager.sceneLoaded -= OnSceneLoading;
         EventCoordinator.StopListening(EventName.Input.StartGame(), OnStartGame);
         EventCoordinator.StopListening(EventName.System.Environment.EndMatch(), OnEndGame);
         EventCoordinator.StopListening(EventName.System.Environment.ArenaAnimating(), OnArenaAnimating);
@@ -60,8 +59,9 @@ public class GameStateView : Singleton<GameStateView> {
         FlagsHelper.Unset(ref currentState, GameState.ended);
         FlagsHelper.Unset(ref currentState, GameState.arenaAnimating);
         FlagsHelper.Unset(ref currentState, GameState.firstOut);
+        FlagsHelper.Set(ref currentState, GameState.gameReloaded);
     }
     void OnSceneLoading(Scene scene, LoadSceneMode mode) {
-        FlagsHelper.Set(ref currentState, GameState.gameReloaded);
+        //FlagsHelper.Set(ref currentState, GameState.gameReloaded);
     }
 }

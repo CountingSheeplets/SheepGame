@@ -11,6 +11,9 @@ public class ScoreCoordinator : Singleton<ScoreCoordinator> {
     public Dictionary<Owner, PlayerScores> scores = new Dictionary<Owner, PlayerScores>();
 
     Dictionary<Owner, int> techTier2Counts = new Dictionary<Owner, int>();
+    void Awake() {
+        Instance.translatedScores = new PlayerScores(Instance.defaultScores);
+    }
     public static void AddPlayerScore(Owner owner) {
         Instance.scores.Add(owner, new PlayerScores(Instance.translatedScores));
     }

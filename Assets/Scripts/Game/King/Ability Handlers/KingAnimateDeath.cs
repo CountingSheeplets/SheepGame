@@ -36,7 +36,7 @@ public class KingAnimateDeath : MonoBehaviour {
         //Debug.Log("my owner: " + owner);
         anim.SetTrigger("die");
         trigger = true;
-        List<BaseUnitMove> moves = new List<BaseUnitMove>(GetComponentsInParent<BaseUnitMove>().Where(x => !(x is FieldFloat)));
+        List<BaseUnitMove> moves = new List<BaseUnitMove>(GetComponentsInParent<BaseUnitMove>());
         foreach (BaseUnitMove move in moves) {
             Destroy(move);
         }

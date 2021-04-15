@@ -70,7 +70,7 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
                 if (OwnersCoordinator.GetOwner(device_id).GetPlayerProfile().isAlive)
                     NetworkCoordinator.SendShowView(device_id, "match");
                 else
-                    NetworkCoordinator.SendShowView(device_id, "post");
+                    NetworkCoordinator.SendShowView(device_id, "in_game");
             } else {
                 NetworkCoordinator.SendShowView(device_id, "menu");
             }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 [System.Serializable]
 public class PlayerProfile {
     public bool isAlive = true;
@@ -201,12 +202,18 @@ public class PlayerProfile {
 
     public IEnumerator DisplayUrlPicture(string url) {
         // Coint a download of the given URL
-        WWW www = new WWW(url);
+        UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(url);
 
         // Wait for download to complete
-        yield return www;
-
-        // assign texture
-        playerAvatarImage = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0, 0));
+        yield return uwr.SendWebRequest();
+        // Check if downloaded succesfully
+        if (uwr.result != UnityWebRequest.Result.Success) {
+            Debug.Log(uwr.error);
+        } else {
+            // Get downloaded asset bundle
+            var texture = DownloadHandlerTexture.GetContent(uwr);
+            // assign texture
+            playerAvatarImage = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0, 0));
+        }
     }
 }

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8604118487354306397}
   - component: {fileID: 8604118487354306398}
   - component: {fileID: 8604118487354306396}
-  - component: {fileID: 8604118487354306371}
   - component: {fileID: 8604118487354306370}
   - component: {fileID: 5902129969623488959}
   - component: {fileID: 9200212022206869629}
@@ -320,48 +319,6 @@ MonoBehaviour:
   swipeDistanceMin: 10
   swipeDistanceMax: 120
   swipeWheelDistMin: 0.12
---- !u!114 &8604118487354306371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8604118487354306394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dae50f79c84aed48a24606063f1944b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _persistent: 0
-  tips:
-  - try hitting an opponents king multiple times in succession to build up combo
-    multiplier
-  - your sheep at an opponents field will eat their grass
-  - if your sheep lands outside of land, she will suffer a sad fate
-  - each time your sheep lands on opponents field, she tramples some grass
-  - if you got no more grass left, a single hit at your king will eliminate you
-  - the sheep spawn automatically, up to a cap. the cap increases each time a player
-    is eliminated
-  - you can upgrade a sheep while she is waiting in the ballista ready to launch
-  - upgrade your sheep into a Trench Veteran if you are having trouble of them staying
-    on opponents land
-  - need more coins? upgrade a sheep to Greedy and send it to opponents land. she
-    steals gold income
-  - there are two choices to upgrade into, unless there is no sheep waiting on the
-    ballista, or the sheep there is maxed out
-  - 'some upgrades have cons as well as pros, for example: tough, but slow'
-  - Tank sheep are immune to King's Smash ability
-  - use kuse King's Smash ability to knock all opponent sheep away
-  - as you earn more crowns in matches, you will automatically unlock fancier items
-    for your King
-  - some King items are available for Hero subscribers only. these are marked with
-    hero icon locks
-  - sheep with some upgrades are immune to king's Smash or Attack
-  - every time you replant grass the cost doubles! use this ability wisely!
-  - bigger king, knocks sheep further. king gets bigger each time his sheep hit opponents,
-    shrinks when he gets hit himself
-  translations: []
-  shuffledTips: []
 --- !u!114 &8604118487354306370
 MonoBehaviour:
   m_ObjectHideFlags: 0

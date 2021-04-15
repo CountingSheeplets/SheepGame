@@ -22,10 +22,11 @@ public class Owner : MonoBehaviour {
     public bool ready {
         get { return _ready; }
         set {
-            if (!GameStateView.HasState(GameState.started))
+            if (!GameStateView.HasState(GameState.started)) {
                 GetMyTile().Ready(value);
-            //if (_ready != value)
-            NetworkCoordinator.SendConfirmReady(deviceId, value);
+                //if (_ready != value)
+                NetworkCoordinator.SendConfirmReady(deviceId, value);
+            }
             _ready = value;
         }
     }

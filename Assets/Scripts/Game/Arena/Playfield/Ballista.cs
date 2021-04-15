@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Ballista : MonoBehaviour {
-    float defaultSpriteAngle = 90f;
     SheepThrow sheepThrow;
     Playfield playfield;
     SpriteRenderer rend;

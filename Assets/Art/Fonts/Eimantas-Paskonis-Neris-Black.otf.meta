@@ -8,10 +8,12 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Neris
   fontNames:
   - Neris
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {instanceID: 0}
+  - {fileID: 12800000, guid: 3130b11c26527604bab8f45a0909fdfd, type: 3}
+  - {fileID: 12800000, guid: 516be5dd854a4e4488e69c2e17e24b80, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

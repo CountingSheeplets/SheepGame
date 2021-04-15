@@ -34,15 +34,12 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         List<UpgradeProperty> props = UpgradeBucket.GetUpgrades();
 
         json["upgrade"] = JsonConvert.SerializeObject(props);
-        /*         for (int i = 0; i < props.Count; i++) {
-                    json["upgrade"][i] = JToken.FromObject(props[i]);
-                } */
-        //json["icon"] = upgrade.sheepTypeOutput.ToString();
-        string test = "";
-        foreach (UpgradeProperty prop in props) {
-            test += prop.enumStringName;
-        }
-        Debug.Log("enumStringName: " + test);
+
+        /*         string test = "";
+                foreach (UpgradeProperty prop in props) {
+                    test += prop.enumStringName;
+                }
+                Debug.Log("enumStringName: " + test); */
         TrySendObjectAll(json);
     }
     public static void SendUpgradeIcon(int deviceId, UpgradeProperty upgrade) {
@@ -65,7 +62,7 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         KingItem hat = KingItemBucket.GetItem(profile.seenHat, KingItemType.hat);
         hatJson["itemName"] = hat.itemName;
         hatJson["spriteName"] = hat.spriteName;
-        Debug.Log("sending hat spriteName: " + hatJson["spriteName"]);
+        //Debug.Log("sending hat spriteName: " + hatJson["spriteName"]);
 
         JObject hCrownsJson = new JObject();
         hCrownsJson["required"] = hat.crownRequirement;
@@ -86,7 +83,7 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         KingItem scepter = KingItemBucket.GetItem(profile.seenScepter, KingItemType.scepter);
         scepterJson["itemName"] = scepter.itemName;
         scepterJson["spriteName"] = scepter.spriteName;
-        Debug.Log("sending scepter spriteName: " + scepterJson["spriteName"]);
+        //Debug.Log("sending scepter spriteName: " + scepterJson["spriteName"]);
 
         JObject sCrownsJson = new JObject();
         sCrownsJson["required"] = scepter.crownRequirement;

@@ -12,12 +12,13 @@ public class TipsBucket : Singleton<TipsBucket> {
     string baseStr = "tip_";
 
     void Start() {
+        EventCoordinator.StartListening(EventName.System.SceneLoaded(), OnReady);
         AirConsole.instance.onReady += OnReady;
     }
-    public void OnReady(string code) {
-        string lang = AirConsole.instance.GetLanguage();
-        Debug.Log("Language: " + lang);
-        Debug.Log("tip1:" + AirConsole.instance.GetTranslation("tip_1"));
+    void OnReady(GameMessage msg) {
+        OnReady();
+    }
+    public void OnReady(string code = "") {
         for (int i = 0; i < tips.Count; i++) {
             string inp = baseStr + (i + 1).ToString();
             string welcomeScreenTranslated = AirConsole.instance.GetTranslation(inp);
@@ -34,6 +35,7 @@ public class TipsBucket : Singleton<TipsBucket> {
         return Instance.shuffledTips[Instance.currentTip];
     }
     void OnDestroy() {
+        EventCoordinator.StopListening(EventName.System.SceneLoaded(), OnReady);
         if (AirConsole.instance != null) {
             AirConsole.instance.onReady -= OnReady;
         }

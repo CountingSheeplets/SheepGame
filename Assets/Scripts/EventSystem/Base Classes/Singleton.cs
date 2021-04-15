@@ -65,10 +65,10 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour {
             //Debug.Log("Destroying: this type: " + this.GetType() + " inst: " + tempInstance.GetType());
 #if UNITY_EDITOR
             if (EditorApplication.isPlaying) {
-                Destroy(this);
+                Destroy(this.gameObject);
             }
 #else 
-            Destroy(this);
+            Destroy(this.gameObject);
 #endif
         }
         OnAwake();

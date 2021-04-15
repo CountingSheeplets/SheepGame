@@ -26,7 +26,7 @@ public class UpgradeNetworkWriter : MonoBehaviour {
         }
     }
     void OnPlayerJoined(GameMessage msg) {
-        if (!GameStateView.HasState(GameState.started))
+        if (!GameStateView.HasState(GameState.started) || !msg.owner.GetPlayerProfile().isAlive)
             return;
         Playfield pl = msg.owner.GetPlayfield();
         SheepUnit sheep = pl.GetComponent<SheepThrow>().sheepReadyToBeThrown;

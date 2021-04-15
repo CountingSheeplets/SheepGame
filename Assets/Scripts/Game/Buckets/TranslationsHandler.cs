@@ -30,14 +30,20 @@ public class TranslationsHandler : Singleton<TranslationsHandler> {
     }
     void Start() {
         AirConsole.instance.onReady += OnReady;
+        EventCoordinator.StartListening(EventName.System.SceneLoaded(), OnReady);
     }
     void OnDestroy() {
         if (AirConsole.instance != null) {
             AirConsole.instance.onReady -= OnReady;
         }
+        EventCoordinator.StopListening(EventName.System.SceneLoaded(), OnReady);
     }
-    void OnReady(string code) {
-        Debug.Log("OnReady:" + AirConsole.instance._translations);
+    void OnReady(GameMessage msg) {
+        OnReady();
+    }
+    void OnReady(string code = "") {
+        string lang = AirConsole.instance.GetLanguage();
+        Debug.Log("Language: " + lang);
         //single word translations, which are somewhere in UI
         Instance.ready = AirConsole.instance.GetTranslation("ready");
         Instance.achievements = AirConsole.instance.GetTranslation("achievements");
@@ -59,7 +65,6 @@ public class TranslationsHandler : Singleton<TranslationsHandler> {
             string idItem = KingItemBucket.Instance.kingHats[i].spriteName;
             string trItem = AirConsole.instance.GetTranslation(idItem);
             if (trItem != null) {
-                Debug.Log(idItem + "-id, tr item:" + trItem + ":");
                 KingItemBucket.Instance.kingHats[i].itemName = trItem;
             }
         }
@@ -71,7 +76,6 @@ public class TranslationsHandler : Singleton<TranslationsHandler> {
                 KingItemBucket.Instance.kingScepters[i].itemName = trItem;
         }
         //scores
-        ScoreCoordinator.Instance.translatedScores = new PlayerScores(ScoreCoordinator.Instance.defaultScores);
         for (int i = 0; i < ScoreCoordinator.Instance.translatedScores.scores.Count; i++) {
             Score scoreScriptable = ScoreCoordinator.Instance.translatedScores.scores[i];
             string idScore = scoreScriptable.scoreName.ToLower().Replace(" ", "_").Replace(".", "").Replace("-", "_") + "_";

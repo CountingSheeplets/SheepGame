@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GoldRewardController : MonoBehaviour {
-    float counter = 0;
     void Start() {
         EventCoordinator.StartListening(EventName.System.Sheep.Land(), OnSheepLand);
         //EventCoordinator.StartListening(EventName.System.Sheep.Land(), OnSheepLaunch);

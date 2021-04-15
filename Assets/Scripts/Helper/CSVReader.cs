@@ -4,7 +4,7 @@ using UnityEngine;
 public class CSVReader : Singleton<CSVReader> {
     List<KingItem> hats = new List<KingItem>();
     List<KingItem> scepters = new List<KingItem>();
-    void Awake() {
+    void ReadFiles() {
         //Debug.Log("Read the CSV file");
         TextAsset DataCSV = Resources.Load<TextAsset>("RewardData");
         string[] line = DataCSV.text.Split(new char[] { '\n' });
@@ -24,12 +24,9 @@ public class CSVReader : Singleton<CSVReader> {
             if (itemType == "scepter")
                 scepters.Add(kingItem);
         }
-
-        //Debug.Log("CSVReader hats Count : " + hats.Count);
-        //Debug.Log("CSVReader scepters Count : " + scepters.Count);
-        /*         foreach (KingItem kingItem in items) {
-                    //Debug.Log("Nom: " + kingItem.Nom + ", Pays: " + kingItem.Pays + ", Superficie: " + kingItem.Superficie + ", Population: " + kingItem.Population + ", C-Population: " + kingItem.CroissancePopulation + ", PIB: " + kingItem.PIB + ", C-PIB: " + kingItem.CroissancePIB + ", Langue: " + kingItem.Langue + ", Religion: " + kingItem.Religion);
-                } */
+    }
+    public static void Read() {
+        Instance.ReadFiles();
     }
     public static List<KingItem> GetHats() {
         return Instance.hats;

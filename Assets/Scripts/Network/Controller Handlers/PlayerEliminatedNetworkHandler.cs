@@ -16,7 +16,7 @@ public class PlayerEliminatedNetworkHandler : MonoBehaviour {
         NetworkCoordinator.SendKingItems(msg.targetOwner);
     }
     void OnPostWin(GameMessage msg) {
-        NetworkCoordinator.SendShowView(msg.owner.deviceId, "post");
+        NetworkCoordinator.SendShowViewAll("post");
         NetworkCoordinator.SendKingItems(msg.owner);
     }
 }
