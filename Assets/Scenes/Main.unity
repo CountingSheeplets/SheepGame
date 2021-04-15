@@ -2822,11 +2822,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24100000, guid: baaa865aa35950f4b921e4893e9ad07b,
         type: 2}
-    - target: {fileID: 8275888690483693523, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
-        type: 3}
-      propertyPath: matchSoundTracks.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 8668415122482646954, guid: e2a31d511c4f4064d9f2a5444f6dea8f,
         type: 3}
       propertyPath: m_Name
