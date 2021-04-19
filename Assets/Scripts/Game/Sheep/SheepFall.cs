@@ -15,7 +15,6 @@ public class SheepFall : BaseUnitMove {
         EventCoordinator.StopListening(EventName.System.Sheep.Land(), OnLand);
     }
     public void StartFalling(float speed, Vector2 _destination) {
-        //Debug.Log("StartFalling");
         SetDestination(_destination, false);
         sheep.isSwimming = true;
         //change layer to be behind all
@@ -28,9 +27,7 @@ public class SheepFall : BaseUnitMove {
         animator.Die();
     }
     void OnLand(GameMessage msg) {
-        //Debug.Log("OnLand:StartFalling:"+gameObject.name);
         if (msg.sheepUnit == sheep) {
-            //if (GameStateView.GetGameState() != GameState.arenaAnimating) {
             if (msg.playfield == null) {
                 SheepFly fly = GetComponent<SheepFly>();
                 Vector2 fallDirection = fly.GetLocalMoveDir() / 10f + (Vector2)transform.position;
@@ -38,16 +35,10 @@ public class SheepFall : BaseUnitMove {
                     fallDirection = Vector2.zero;
                 this.StartFalling(SpeedBucket.GetFallSpeed(sheep.sheepType), fallDirection);
             }
-            //} //else {
-            //   EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(sheep));
-            //}
         }
     }
     public override void PostMoveAction() {
-        //Debug.Log("post falling, splat at:" + (Vector2) (transform.position));
         sheep.isSwimming = false;
-
-        //GetComponent<SheepUnit>().isSwimming = false; //uncomment this, if unit would not die, but do smth else
         EventCoordinator.TriggerEvent(EventName.System.Sheep.Kill(), GameMessage.Write().WithSheepUnit(GetComponent<SheepUnit>()));
     }
 }

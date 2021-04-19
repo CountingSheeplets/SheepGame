@@ -65,6 +65,12 @@ public class SheepFactory : PersistentFactory {
             return;
         Instance.HideObject(sheep.gameObject);
         sheep.TrigSheepDestroy();
+        sheep.isReadying = false;
+        sheep.isReadyToFly = false;
+        sheep.isFlying = false;
+        sheep.isSwimming = false;
+        sheep.isRoaming = false;
+        sheep.isTrenching = false;
     }
 
 }

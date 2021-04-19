@@ -31,6 +31,7 @@ public class SheepThrow : MonoBehaviour {
                 sheepReadyToBeThrown.lastHandler = msg.owner;
                 EventCoordinator.TriggerEvent(EventName.System.Sheep.Launch(), msg.WithSheepUnit(sheepReadyToBeThrown).WithPlayfield(sheepReadyToBeThrown.currentPlayfield).WithOwner(msg.owner));
                 sheepReadyToBeThrown.currentPlayfield = null;
+                Debug.Log("Launched, nulling:" + sheepReadyToBeThrown);
                 sheepReadyToBeThrown = null;
             } else {
                 //show animation/sign that no sheep ready to be thrown
@@ -66,6 +67,7 @@ public class SheepThrow : MonoBehaviour {
     void OnReady(GameMessage msg) {
         if (msg.sheepUnit != null) {
             if (msg.sheepUnit.currentPlayfield == GetComponent<Playfield>()) {
+                Debug.Log("OnReady:" + sheepReadyToBeThrown);
                 sheepReadyToBeThrown = msg.sheepUnit;
                 sheepReadyToBeThrown.isReadyToFly = true;
             }
@@ -106,11 +108,7 @@ public class SheepThrow : MonoBehaviour {
         }
         return null;
     }
-    /*     void ReorderTrenchSheep() {
-            //put trench sheep to last
-            List<SheepUnit> tempList = throwableSheep.OrderBy(sheep => sheep.sheepType == SheepType.Trench).ToList();
-            throwableSheep = new List<SheepUnit>(tempList);
-        } */
+
     bool SheepIsReadying() {
         foreach (SheepUnit sheep in throwableSheep) {
             if (sheep.isReadying)

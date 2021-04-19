@@ -34,7 +34,7 @@ public class TipsController : MonoBehaviour {
             counter += Time.deltaTime;
         if (counter > ConstantsBucket.TipLoopTimer) {
             counter = 0;
-            tipText.text = "Tip: " + TipsBucket.GetNextTip();
+            tipText.text = TipsBucket.GetNextTip();
         }
     }
 }

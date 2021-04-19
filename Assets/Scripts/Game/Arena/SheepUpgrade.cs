@@ -21,11 +21,9 @@ public class SheepUpgrade : MonoBehaviour {
     void OnUpgrade(GameMessage msg) {
         if (!owner.EqualsByValue(msg.owner))
             return;
-        Debug.Log("OnUpgrade: " + owner);
         SheepUnit sheep = sheepThrow.sheepReadyToBeThrown;
         if (sheep != null) {
             UpgradeProperty upgrade = UpgradeBucket.GetUpgradeByType(msg.owner, msg.sheepType);
-            Debug.Log("upgrade: " + upgrade);
             if (upgrade == null)return;
 
             if (msg.owner.GetPlayerProfile().Buy(upgrade.upgradeCodeName)) {
