@@ -8,6 +8,11 @@ public class KingModel : MonoBehaviour {
     int _scepterIndex;
     public int ScepterIndex { get { return _scepterIndex; } }
     SkeletonMecanim skMecanim;
+    Vector3 _playerTileScale = new Vector3(0.1f, 0.1f, 0.1f);
+    public Vector3 playerTileScale {
+        get { return _playerTileScale; }
+        set { _playerTileScale = value; }
+    }
     void Awake() {
         skMecanim = GetComponent<SkeletonMecanim>();
     }

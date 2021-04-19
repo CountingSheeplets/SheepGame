@@ -43,39 +43,40 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
             }
             match = request;
             JToken data = receivedToken[match][Instance.key];
-            if (data.IsNullOrEmpty())
-                continue;
-            if (!data.ContainsPlayerData())
-                continue;
-            Owner owner = OwnersCoordinator.GetOwner(data["ownerID"].ToString());
+            Owner owner = OwnersCoordinator.GetOwner(match);
             if (owner) {
-                //Debug.Log("OnReceivedData: contains all data!: " + data);
                 PlayerProfile profile = owner.GetPlayerProfile();
-                if (profile != null)
-                    if (HasReceivedTrueData(owner, data)) {
-                        //Debug.Log("OnReceivedData: data is true!");
-                        if (!data["coinCount"].IsNullOrEmpty())
-                            profile.permanentCrownCount = (int)data["coinCount"];
-                        if (!data["selectedHat"].IsNullOrEmpty())
-                            profile.selectedHat = (int)data["selectedHat"];
-                        if (!data["selectedScepter"].IsNullOrEmpty())
-                            profile.selectedScepter = (int)data["selectedScepter"];
-                        if (!data["tutorialIndex"].IsNullOrEmpty())
-                            if (!owner.ownerName.ToLower().Contains("guest"))
-                                profile.tutorialIndex = (int)data["tutorialIndex"];
+                if (profile != null) {
+                    if (!data.IsNullOrEmpty()) {
+                        if (data.ContainsPlayerData()) {
+                            //Debug.Log("OnReceivedData: contains all data!: " + data);
+                            if (HasReceivedTrueData(owner, data)) {
+                                //Debug.Log("OnReceivedData: data is true!");
+                                if (!data["coinCount"].IsNullOrEmpty())
+                                    profile.permanentCrownCount = (int)data["coinCount"];
+                                if (!data["selectedHat"].IsNullOrEmpty())
+                                    profile.selectedHat = (int)data["selectedHat"];
+                                if (!data["selectedScepter"].IsNullOrEmpty())
+                                    profile.selectedScepter = (int)data["selectedScepter"];
+                                if (!data["tutorialIndex"].IsNullOrEmpty())
+                                    if (!owner.ownerName.ToLower().Contains("guest"))
+                                        profile.tutorialIndex = (int)data["tutorialIndex"];
 
-                        EventCoordinator.TriggerEvent(EventName.Input.SetKingItem(), GameMessage.Write()
-                            .WithOwner(owner)
-                            .WithIntMessage(profile.selectedHat)
-                            .WithKingItemType(KingItemType.hat));
-                        EventCoordinator.TriggerEvent(EventName.Input.SetKingItem(), GameMessage.Write()
-                            .WithOwner(owner)
-                            .WithIntMessage(profile.selectedScepter)
-                            .WithKingItemType(KingItemType.scepter));
-                        EventCoordinator.TriggerEvent(EventName.System.Player.ProfileUpdate(), GameMessage.Write().WithPlayerProfile(profile).WithOwner(owner));
-                        NetworkCoordinator.SendTutorialIndex(profile);
-                        Debug.Log("data received and loaded!:" + match);
+                                EventCoordinator.TriggerEvent(EventName.Input.SetKingItem(), GameMessage.Write()
+                                    .WithOwner(owner)
+                                    .WithIntMessage(profile.selectedHat)
+                                    .WithKingItemType(KingItemType.hat));
+                                EventCoordinator.TriggerEvent(EventName.Input.SetKingItem(), GameMessage.Write()
+                                    .WithOwner(owner)
+                                    .WithIntMessage(profile.selectedScepter)
+                                    .WithKingItemType(KingItemType.scepter));
+                                EventCoordinator.TriggerEvent(EventName.System.Player.ProfileUpdate(), GameMessage.Write().WithPlayerProfile(profile).WithOwner(owner));
+                                Debug.Log("data received and loaded!:" + match);
+                            }
+                        }
                     }
+                    NetworkCoordinator.SendTutorialIndex(profile);
+                }
             }
             if (match != "")
                 Instance.requestedNames.Remove(match);

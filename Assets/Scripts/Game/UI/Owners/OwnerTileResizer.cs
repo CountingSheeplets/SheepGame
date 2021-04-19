@@ -23,5 +23,9 @@ public class OwnerTileResizer : MonoBehaviour {
         layout.spacing = new Vector2(height / 50, height / 50);
         Vector2 newSize = new Vector2(height / 2.7f - layout.spacing.x, height / 3.3f - layout.spacing.y);
         layout.cellSize = newSize;
+        foreach (KingModel m in GetComponentsInChildren<KingModel>()) {
+            m.transform.localPosition = Vector3.zero;
+            m.transform.localScale = m.GetComponent<KingModel>().playerTileScale;
+        }
     }
 }

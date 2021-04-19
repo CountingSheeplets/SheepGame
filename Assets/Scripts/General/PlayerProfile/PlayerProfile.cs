@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 public class PlayerProfile {
     public bool isAlive = true;
     public int eliminatedPlace = 10;
-    bool _isPremium = true;
+    bool _isPremium = false;
     public bool isPremium { get { return _isPremium; } }
     public void SetPremium() { _isPremium = true; }
     public Owner owner;

@@ -75,7 +75,7 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         hatJson["premium"] = hPremiumJson;
 
         hatJson["unlocked"] = KingItemBucket.IsItemAvailable(owner, profile.seenHat, KingItemType.hat);
-
+        Debug.Log("sending hPremiumJson: " + hPremiumJson);
         json["newHat"] = hatJson;
 
         JObject scepterJson = new JObject();
