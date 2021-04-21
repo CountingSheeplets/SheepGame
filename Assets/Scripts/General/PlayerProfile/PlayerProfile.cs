@@ -155,7 +155,7 @@ public class PlayerProfile {
         SetNetworkDirty();
         return money;
     }
-    public int _permanentCrownCount = 0;
+    int _permanentCrownCount = 0;
     public int permanentCrownCount {
         get { return _permanentCrownCount; }
         set {
@@ -164,7 +164,7 @@ public class PlayerProfile {
         }
     }
 
-    public int crownCount;
+    int crownCount;
     public int GetCrowns() {
         return crownCount;
     }
