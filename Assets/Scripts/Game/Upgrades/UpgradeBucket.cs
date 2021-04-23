@@ -105,4 +105,12 @@ public class UpgradeProperty {
         upgradeDisplayName = "No Sheep...";
         upgradeDescription = "Need a sheep ready to be launched to upgrade";
     }
+
+    public override string ToString() {
+        return "UpgradeProperty(): \n" +
+            "upgradeCodeName=" + upgradeCodeName + " \n" +
+            "upgradeDisplayName=" + upgradeDisplayName + " \n" +
+            "enumStringName=" + enumStringName + " \n" +
+            "in->out=" + sheepTypeInput + " -> " + sheepTypeOutput + " \n";
+    }
 }

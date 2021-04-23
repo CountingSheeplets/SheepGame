@@ -37,9 +37,9 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
 
         /*         string test = "";
                 foreach (UpgradeProperty prop in props) {
-                    test += prop.enumStringName;
+                    test += "\n" + prop;
                 }
-                Debug.Log("enumStringName: " + test); */
+                Debug.Log("UpgradeProperty prop in props: \n" + test); */
         TrySendObjectAll(json);
     }
     public static void SendUpgradeIcon(int deviceId, UpgradeProperty upgrade) {
