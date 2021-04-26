@@ -67,9 +67,10 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
             OwnersCoordinator.GetOwner(device_id).connected = true;
             Debug.Log("Reconnect succesfull!");
             if (GameStateView.HasState(GameState.started)) {
-                if (OwnersCoordinator.GetOwner(device_id).GetPlayerProfile().isAlive)
+                if (OwnersCoordinator.GetOwner(device_id).GetPlayerProfile().isAlive) {
                     NetworkCoordinator.SendShowView(device_id, "match");
-                else
+                    NetworkCoordinator.SendUpgradeData();
+                } else
                     NetworkCoordinator.SendShowView(device_id, "in_game");
             } else {
                 NetworkCoordinator.SendShowView(device_id, "menu");

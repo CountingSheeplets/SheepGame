@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "./static/css/main.1db2dd21.chunk.css",
-    "main.js": "./static/js/main.d6646fcf.chunk.js",
-    "main.js.map": "./static/js/main.d6646fcf.chunk.js.map",
+    "main.js": "./static/js/main.03262b35.chunk.js",
+    "main.js.map": "./static/js/main.03262b35.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.361533e7.js",
     "runtime-main.js.map": "./static/js/runtime-main.361533e7.js.map",
     "static/js/2.c56e00f5.chunk.js": "./static/js/2.c56e00f5.chunk.js",
     "static/js/2.c56e00f5.chunk.js.map": "./static/js/2.c56e00f5.chunk.js.map",
     "index.html": "./index.html",
-    "precache-manifest.a9ab94c601998fcfbf955140986c71c4.js": "./precache-manifest.a9ab94c601998fcfbf955140986c71c4.js",
+    "precache-manifest.667ae2c9811bc2e9ff39ad92133924da.js": "./precache-manifest.667ae2c9811bc2e9ff39ad92133924da.js",
     "service-worker.js": "./service-worker.js",
     "static/css/main.1db2dd21.chunk.css.map": "./static/css/main.1db2dd21.chunk.css.map",
     "static/media/CROWNS_25.png": "./static/media/CROWNS_25.c3522d6d.png",
@@ -27,6 +27,6 @@
     "static/js/runtime-main.361533e7.js",
     "static/js/2.c56e00f5.chunk.js",
     "static/css/main.1db2dd21.chunk.css",
-    "static/js/main.d6646fcf.chunk.js"
+    "static/js/main.03262b35.chunk.js"
   ]
 }

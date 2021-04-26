@@ -71,6 +71,6 @@ public class SheepFactory : PersistentFactory {
         sheep.isSwimming = false;
         sheep.isRoaming = false;
         sheep.isTrenching = false;
+        sheep.bounced = false;
     }
-
 }

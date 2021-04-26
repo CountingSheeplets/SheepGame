@@ -352,7 +352,7 @@ MonoBehaviour:
   sheepSelfThrow: 1
   sheepOtherPlayerThrow: 1
   greedySheepBonusMoney: 1
-  sheepEliminated: 1
+  sheepEliminated: 3
   incomeMultiplierNoGrass: 0.5
 --- !u!114 &9200212022206869629
 MonoBehaviour:
