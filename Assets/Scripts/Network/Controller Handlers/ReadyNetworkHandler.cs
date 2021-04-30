@@ -35,7 +35,9 @@ public class ReadyNetworkHandler : MonoBehaviour {
     bool TryStart(Owner readyingOwner) {
         int count = OwnersCoordinator.GetOwners().Where(x => x.connected).ToList().Count;
         if (count < 2)
-            return false;
+            if (GameStateView.HasState(GameState.ended)) {
+                return true;
+            } else return false;
         foreach (Owner owner in OwnersCoordinator.GetOwners()) {
             if (owner.EqualsByValue(readyingOwner))
                 continue;

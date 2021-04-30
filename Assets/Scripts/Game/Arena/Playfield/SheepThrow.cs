@@ -31,7 +31,6 @@ public class SheepThrow : MonoBehaviour {
                 sheepReadyToBeThrown.lastHandler = msg.owner;
                 EventCoordinator.TriggerEvent(EventName.System.Sheep.Launch(), msg.WithSheepUnit(sheepReadyToBeThrown).WithPlayfield(sheepReadyToBeThrown.currentPlayfield).WithOwner(msg.owner));
                 sheepReadyToBeThrown.currentPlayfield = null;
-                Debug.Log("Launched, nulling:" + sheepReadyToBeThrown);
                 sheepReadyToBeThrown = null;
             } else {
                 //show animation/sign that no sheep ready to be thrown

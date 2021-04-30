@@ -14,7 +14,7 @@ public class ComboText : MonoBehaviour {
         EventCoordinator.StopListening(EventName.System.Economy.ComboChanged(), OnComboChanged);
     }
     void OnComboChanged(GameMessage msg) {
-        if (owner == null) owner = GetComponentInParent<PlayerCard>().owner;
+        if (owner == null)owner = GetComponentInParent<PlayerCard>().owner;
         if (owner.EqualsByValue(msg.owner)) {
             if (msg.intMessage > 1) {
                 animator.SetTrigger("pop");

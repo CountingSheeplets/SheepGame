@@ -13,12 +13,13 @@ public class SheepHeadbutHandler : MonoBehaviour {
 
     void OnLand(GameMessage msg) {
         if (msg.playfield == null) {
+            if (!msg.sheepUnit.lastHandler.EqualsByValue(msg.sheepUnit.owner))
+                return;
             EventCoordinator.TriggerEvent(EventName.System.Sheep.KingMissed(), GameMessage.Write().WithSheepUnit(msg.sheepUnit).WithOwner(msg.sheepUnit.lastHandler).WithPlayfield(msg.playfield));
             return;
         }
         KingUnit king = KingCoordinator.GetKing(msg.playfield);
         if (king == null) {
-            //Debug.Log("king == null");
             return;
         }
         if (msg.sheepUnit == null) {

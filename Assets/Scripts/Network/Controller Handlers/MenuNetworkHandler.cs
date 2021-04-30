@@ -29,7 +29,6 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 			}
 			Debug.LogWarning("New cannot join, game already started");
 			NetworkCoordinator.SendShowView(device_id, "in_game");
-			Debug.Log("started, sending to show in-game");
 			return;
 		}
 		int count = OwnersCoordinator.GetOwners().Where(x => x.connected).ToList().Count;
@@ -46,7 +45,7 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 		} else
 			Debug.LogError("OnConnect returned null Owner!");
 	}
-	void OnDisconnect(int device_id) {
+	public void OnDisconnect(int device_id) {
 		Owner owner = OwnersCoordinator.DisconnectOwner(device_id);
 		if (connectedIds.Contains(device_id))
 			connectedIds.Remove(device_id);
@@ -89,8 +88,8 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 		}
 	}
 	void OnPremium(int device_id) {
-		//Debug.Log("On Premium (device " + device_id + ") \n \n");
-		//premiumIds.Add(device_id);
+		Debug.Log("On Premium (device " + device_id + ") \n \n" + OwnersCoordinator.GetOwner(device_id));
+		PremiumCoordinator.AddPremium(device_id);
 		OwnersCoordinator.GetOwner(device_id).GetPlayerProfile().SetPremium();
 	}
 	//unused::::

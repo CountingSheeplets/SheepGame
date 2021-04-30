@@ -98,6 +98,7 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         scepterJson["unlocked"] = KingItemBucket.IsItemAvailable(owner, profile.seenScepter, KingItemType.scepter);
 
         json["newScepter"] = scepterJson;
+        Debug.Log("sending kingItems: " + json);
         TrySend(owner.deviceId, json);
         profile.CleanNetworkDirty();
     }

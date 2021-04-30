@@ -44,20 +44,13 @@ public class GoldRewardCoordinator : Singleton<GoldRewardCoordinator> {
         RewardGold(profile, amount, null);
     }
     public static void RewardGold(PlayerProfile profile, float amount, Transform source) {
-        float current = profile.AddMoney(amount); // * NoGrassMultipler(profile.owner));
+        float current = profile.AddMoney(amount);
         EventCoordinator.TriggerEvent(EventName.System.Economy.GoldChanged(), GameMessage.Write().WithDeltaFloat(amount).WithTargetFloat(current).WithOwner(profile.owner).WithTransform(source));
     }
     public static void RewardGold(Owner owner, float amount) {
-        RewardGold(owner.GetPlayerProfile(), amount); // * NoGrassMultipler(owner));
+        RewardGold(owner.GetPlayerProfile(), amount);
     }
     public static void RewardGold(Owner owner, float amount, Transform tr) {
-        RewardGold(owner.GetPlayerProfile(), amount, tr); // * NoGrassMultipler(owner));
+        RewardGold(owner.GetPlayerProfile(), amount, tr);
     }
-    /*     static float NoGrassMultipler(Owner owner) {
-            if (owner.GetPlayerProfile().GetGrass() > 0) {
-                return 1f;
-            } else {
-                return GoldRewardBucket.IncomeMultiplierNoGrass;
-            }
-        } */
 }

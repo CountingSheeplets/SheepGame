@@ -62,16 +62,20 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
         Debug.Log(recOwner.ownerId + "   GetUID: " + AirConsole.instance.GetUID(device_id));
         if (recOwner != null) {
             GetOwner(AirConsole.instance.GetUID(device_id)).deviceId = device_id;
-            //recOwner.deviceId = device_id;
-            //recOwner.connected = true;
             OwnersCoordinator.GetOwner(device_id).connected = true;
             Debug.Log("Reconnect succesfull!");
             if (GameStateView.HasState(GameState.started)) {
                 if (OwnersCoordinator.GetOwner(device_id).GetPlayerProfile().isAlive) {
                     NetworkCoordinator.SendShowView(device_id, "match");
                     NetworkCoordinator.SendUpgradeData();
-                } else
-                    NetworkCoordinator.SendShowView(device_id, "in_game");
+                }
+
+                if (GameStateView.HasState(GameState.ended)) {
+                    PlayerScores playerScores = ScoreCoordinator.GetPlayerScores(recOwner);
+                    int total = ScoreCoordinator.GetTotalPlayerScores(recOwner);
+                    NetworkCoordinator.SendPlayerScores(recOwner.deviceId, OwnersCoordinator.GetOwner(device_id).GetPlayerProfile().isAlive, playerScores.scores, total);
+                    NetworkCoordinator.SendShowView(device_id, "post");
+                }
             } else {
                 NetworkCoordinator.SendShowView(device_id, "menu");
             }
@@ -114,10 +118,8 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
         Debug.Log("DisconnectOwner GetGameState:" + (int)GameStateView.GetGameState());
 
         if (GameStateView.HasState(GameState.started) && leftOwner.GetPlayerProfile() != null) {
-            Debug.Log("disconnecting an owner..");
             leftOwner.connected = false;
         } else {
-            Debug.Log("destroying an owner..");
             UnUseTeamId(leftOwner.teamId);
             Instance.owners.Remove(leftOwner);
             Destroy(leftOwner.gameObject);

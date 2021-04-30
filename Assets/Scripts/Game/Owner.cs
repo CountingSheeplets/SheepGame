@@ -20,7 +20,7 @@ public class Owner : MonoBehaviour {
         }
     }
     public bool ready {
-        get { return _ready; }
+        get { return connected ? _ready : true; }
         set {
             if (!GameStateView.HasState(GameState.started)) {
                 GetMyTile().Ready(value);

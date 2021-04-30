@@ -8,7 +8,10 @@ public class PlayerProfile {
     public int eliminatedPlace = 10;
     bool _isPremium = false;
     public bool isPremium { get { return _isPremium; } }
-    public void SetPremium() { _isPremium = true; }
+    public void SetPremium() {
+        Debug.Log("SetPremium()");
+        _isPremium = true;
+    }
     public Owner owner;
     public Color playerColor;
     public Sprite playerAvatarImage;
