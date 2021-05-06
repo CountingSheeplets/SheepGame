@@ -4,6 +4,7 @@ using NDream.AirConsole;
 using UnityEngine;
 
 public class TranslationsHandler : Singleton<TranslationsHandler> {
+    bool translationsReady = false;
     public string ready = "ready";
     public static string GetReadyTranslation() {
         if (Instance)
@@ -35,17 +36,26 @@ public class TranslationsHandler : Singleton<TranslationsHandler> {
     void Start() {
         AirConsole.instance.onReady += OnReady;
         EventCoordinator.StartListening(EventName.System.SceneLoaded(), OnReady);
+        EventCoordinator.StartListening(EventName.Input.Network.PlayerJoined(), OnJoined);
     }
     void OnDestroy() {
         if (AirConsole.instance != null) {
             AirConsole.instance.onReady -= OnReady;
         }
         EventCoordinator.StopListening(EventName.System.SceneLoaded(), OnReady);
+        EventCoordinator.StopListening(EventName.Input.Network.PlayerJoined(), OnJoined);
     }
     void OnReady(GameMessage msg) {
         OnReady();
+        NetworkCoordinator.SendTranslationsReady();
+    }
+    void OnJoined(GameMessage msg) {
+        Debug.Log("tr: " + translationsReady);
+        if (translationsReady)
+            NetworkCoordinator.SendTranslationsReady(msg.owner.deviceId);
     }
     void OnReady(string code = "") {
+        translationsReady = true;
         string lang = AirConsole.instance.GetLanguage();
         Debug.Log("Language: " + lang);
         //single word translations, which are somewhere in UI
@@ -91,5 +101,6 @@ public class TranslationsHandler : Singleton<TranslationsHandler> {
             if (trDelta != null)ScoreCoordinator.Instance.translatedScores.scores[i].wordDelta = trDelta;
             if (trDelta != null)ScoreCoordinator.Instance.translatedScores.scores[i].Y = trDelta;
         }
+        NetworkCoordinator.SendTranslationsReady();
     }
 }

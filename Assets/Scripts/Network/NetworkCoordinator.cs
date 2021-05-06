@@ -11,13 +11,23 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
     }
 
     public static void SendShowView(int deviceId, string view) {
-        //NetworkObject newNetObj = new NetworkObject("changeView", view);
         JObject json = new JObject();
         json["type"] = "changeView";
         json["value"] = view;
         json["deviceId"] = deviceId;
-        //Debug.Log("AirConsole-Send:" + json);
         NetworkImportantCoordinator.SendImportant(deviceId, json);
+    }
+    public static void SendTranslationsReady() {
+        JObject json = new JObject();
+        json["type"] = "translationsReady";
+        json["value"] = true;
+        TrySendObjectAll(json);
+    }
+    public static void SendTranslationsReady(int deviceId) {
+        JObject json = new JObject();
+        json["type"] = "translationsReady";
+        json["value"] = true;
+        TrySend(deviceId, json);
     }
     public static void SendShowViewAll(string view) {
         //NetworkObject newNetObj = new NetworkObject("changeView", view);
@@ -75,7 +85,7 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         hatJson["premium"] = hPremiumJson;
 
         hatJson["unlocked"] = KingItemBucket.IsItemAvailable(owner, profile.seenHat, KingItemType.hat);
-        Debug.Log("sending hPremiumJson: " + hPremiumJson);
+        //Debug.Log("sending hPremiumJson: " + hPremiumJson);
         json["newHat"] = hatJson;
 
         JObject scepterJson = new JObject();
@@ -98,7 +108,7 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         scepterJson["unlocked"] = KingItemBucket.IsItemAvailable(owner, profile.seenScepter, KingItemType.scepter);
 
         json["newScepter"] = scepterJson;
-        Debug.Log("sending kingItems: " + json);
+        //Debug.Log("sending kingItems: " + json);
         TrySend(owner.deviceId, json);
         profile.CleanNetworkDirty();
     }

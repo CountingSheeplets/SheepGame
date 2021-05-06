@@ -53,8 +53,9 @@ public class NetworkImportantCoordinator : Singleton<NetworkImportantCoordinator
             //Debug.Log("important message confirmation received: " + hash);
             Instance.importantUnsent.Remove(hash);
             Instance.hashes.Remove(hash);
-        } else
-            Debug.Log("no such hash: " + hash);
+        } else {
+            //Debug.Log("no such hash: " + hash);
+        }
     }
     static string GetToken(JObject json) {
         string token = "sheep" + json.ToString() + "_!-" + Time.time;

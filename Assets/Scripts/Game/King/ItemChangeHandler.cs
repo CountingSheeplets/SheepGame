@@ -56,7 +56,6 @@ public class ItemChangeHandler : MonoBehaviour {
         if (itemType == KingItemType.hat)
             GetComponent<KingModel>().SetHat(index);
         if (itemType == KingItemType.scepter) {
-            Debug.Log("changing scepter to i:" + index);
             GetComponent<KingModel>().SetScepter(index);
         }
     }

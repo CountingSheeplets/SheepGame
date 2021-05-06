@@ -11,12 +11,11 @@ public class PremiumCoordinator : Singleton<PremiumCoordinator> {
         }
     }
     public static bool IsPremium(int id) {
-        Debug.Log(Instance.premium_ids.ToString());
-        string ids = "premiums: ";
-        foreach (int i in Instance.premium_ids) {
-            ids += i.ToString() + "; ";
-        }
-        Debug.Log(ids);
+        /*         string ids = "premiums: ";
+                foreach (int i in Instance.premium_ids) {
+                    ids += i.ToString() + "; ";
+                }
+                Debug.Log(ids); */
         if (Instance.premium_ids.Contains(id))
             return true;
         return false;
