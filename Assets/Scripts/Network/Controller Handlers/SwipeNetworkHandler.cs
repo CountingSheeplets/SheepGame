@@ -27,6 +27,7 @@ public class SwipeNetworkHandler : Singleton<SwipeNetworkHandler> {
         }
     }
     void OnTap(int from, JToken message) {
+        if (GameStateView.HasState(GameState.ended))return;
         if (message["element"].ToString() == "tap") {
             //Debug.Log("clicked.ToString():" + message["clicked"].ToString());
             Owner triggerOwner = OwnersCoordinator.GetOwner(from);

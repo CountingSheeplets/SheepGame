@@ -12,7 +12,6 @@ public class SheepCoordinator : Singleton<SheepCoordinator> {
         else {
             Instance.sheepStacks[owner] = new SheepStack();
         }
-        //Debug.Log("stack size " + Instance.sheepStacks[owner].sheepSlots.Count);
     }
 
     public static SheepUnit SpawnSheep(Owner owner) {

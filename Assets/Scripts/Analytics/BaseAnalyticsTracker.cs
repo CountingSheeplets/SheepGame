@@ -22,7 +22,7 @@ public class BaseAnalyticsTracker : MonoBehaviour {
         AnalyticsResult result
             = AnalyticsEvent.Custom(eventName, parameters);
         if (result == AnalyticsResult.Ok) {
-            Debug.Log("Analytics dispatch success: " + eventName);
+            //Debug.Log("Analytics dispatch success: " + eventName);
             return true;
         } else {
             return false;

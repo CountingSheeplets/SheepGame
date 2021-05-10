@@ -13,12 +13,13 @@ public class KingSpeedCoordinator : Singleton<KingSpeedCoordinator> {
     public static int IncreaseLevel(Owner owner) {
         if (Instance.kingUpgradeLevels.ContainsKey(owner)) {
             Instance.kingUpgradeLevels[owner]++;
+            SetAnimationSpeed(owner, GetSpeedScale(owner));
             return Instance.kingUpgradeLevels[owner];
         } else {
             Instance.kingUpgradeLevels.Add(owner, 1);
+            SetAnimationSpeed(owner, GetSpeedScale(owner));
             return 1;
         }
-        SetAnimationSpeed(owner, GetSpeedScale(owner));
     }
 
     public static float GetMoveSpeed(Owner owner) {

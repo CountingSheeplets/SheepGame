@@ -9,7 +9,6 @@ public class PlayerProfile {
     bool _isPremium = false;
     public bool isPremium { get { return _isPremium; } }
     public void SetPremium() {
-        Debug.Log("SetPremium()");
         _isPremium = true;
     }
     public Owner owner;
@@ -101,7 +100,6 @@ public class PlayerProfile {
         if (playfield != null)
             return playfield.GetGrass();
         else {
-            //Debug.LogWarning("playfield = null, in player profile: "+owner);   //Sort() calls this
             return 0;
         }
     }
@@ -111,7 +109,6 @@ public class PlayerProfile {
             SetNetworkDirty();
             return adjustedAmount;
         } else {
-            Debug.LogWarning("playfield = null, in player profile: " + owner);
             return 0;
         }
     }
@@ -122,7 +119,6 @@ public class PlayerProfile {
             SetNetworkDirty();
             return prevHitpoints - playfield.currentHitpoints;
         } else {
-            //Debug.LogWarning("playfield = null, in player profile: " + owner);
             return 0;
         }
     }
@@ -132,7 +128,6 @@ public class PlayerProfile {
         if (kingUnit != null)
             return kingUnit.GetHealth;
         else {
-            //Debug.LogWarning("kingUnit = null, in player profile: "+owner);   //Sort() calls this
             return 0;
         }
     }
@@ -188,7 +183,7 @@ public class PlayerProfile {
             SetNetworkDirty();
             return true;
         }
-        Debug.Log("Cannto buy [" + priceName + "], not anough money. Need [" + price + "], Have [" + GetMoney() + "]");
+        //Debug.Log("Cannto buy [" + priceName + "], not anough money. Need [" + price + "], Have [" + GetMoney() + "]");
         return false;
     }
     public int highScore;

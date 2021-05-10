@@ -17,8 +17,8 @@ public class PlayerScores {
     }
 
     public Score GetScore(string scoreName) {
-        if (scores.Count == 0)
-            Debug.Log("check defaultScores if scriptables are in the list in ScoreCoordinator !");
+        //if (scores.Count == 0)
+        //    Debug.Log("check defaultScores if scriptables are in the list in ScoreCoordinator !");
         foreach (Score score in scores) {
             if (score.scoreName == scoreName) {
                 return score;

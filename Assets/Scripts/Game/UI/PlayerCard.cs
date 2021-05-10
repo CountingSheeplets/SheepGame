@@ -73,10 +73,7 @@ public class PlayerCard : MonoBehaviour {
         if (isEliminated)
             return;
         if (msg.owner == owner) {
-            //Debug.Log("deltaFloat: " + msg.deltaFloat);
             kingHealthFill.fillAmount = msg.targetFloatMessage;
-            //kingHealthText.text = Mathf.FloorToInt(msg.deltaFloat).ToString();
-            //kingHealthText.GetComponent<Animator>().SetTrigger("Show");
         }
     }
     void OnPlayerJoined(GameMessage msg) {

@@ -30,7 +30,8 @@ public class KingAnimateDeath : MonoBehaviour {
             return;
         }
         foreach (AnimatorControllerParameter parameter in anim.parameters) {
-            anim.ResetTrigger(parameter.name);
+            if (parameter.type == AnimatorControllerParameterType.Trigger)
+                anim.ResetTrigger(parameter.name);
         }
         //Debug.Log("king received the owner: " + msg.targetOwner);
         //Debug.Log("my owner: " + owner);

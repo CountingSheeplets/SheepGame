@@ -28,7 +28,6 @@ public class SheepSpawnController : MonoBehaviour {
                     if (!SheepSpawnCapCoordinator.IsCapped(owner)) {
                         SpawnNewSheep(owner);
                     }
-                    //Debug.Log("Time: " + Time.time + "  spawn:  " + nextSpawn[owner] + " d: " + (nextSpawn[owner] - Time.time));
                 }
             }
         }

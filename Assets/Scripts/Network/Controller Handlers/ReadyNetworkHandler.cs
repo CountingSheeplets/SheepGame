@@ -42,7 +42,6 @@ public class ReadyNetworkHandler : MonoBehaviour {
             if (owner.EqualsByValue(readyingOwner))
                 continue;
             if (owner.ready == false) {
-                Debug.Log("player not ready:" + owner);
                 return false;
             }
         }

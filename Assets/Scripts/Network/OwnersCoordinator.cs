@@ -58,12 +58,9 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
         Owner recOwner = GetOwner(AirConsole.instance.GetUID(device_id));
         if (recOwner == null)return null;
         if (recOwner.GetPlayerProfile() == null)return null;
-        Debug.Log(recOwner);
-        Debug.Log(recOwner.ownerId + "   GetUID: " + AirConsole.instance.GetUID(device_id));
         if (recOwner != null) {
             GetOwner(AirConsole.instance.GetUID(device_id)).deviceId = device_id;
             OwnersCoordinator.GetOwner(device_id).connected = true;
-            Debug.Log("Reconnect succesfull!");
             if (GameStateView.HasState(GameState.started)) {
                 if (OwnersCoordinator.GetOwner(device_id).GetPlayerProfile().isAlive) {
                     NetworkCoordinator.SendShowView(device_id, "match");
@@ -98,7 +95,6 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
     public static Owner CreateEmptyOwner() {
         Instance.counter++;
         int device_id = Instance.counter;
-        //GameObject go = Instantiate(Instance.ownerTilePrefab, Instance.ownerPanelContainer);
         GameObject go = new GameObject();
         go.transform.parent = Instance.transform;
         string nicknameOfJoined = Generate.RandomString(10);
@@ -107,15 +103,12 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
         newOwner.Create(device_id.ToString(), nicknameOfJoined, device_id);
         go.name = newOwner.ownerName;
         newOwner.teamId = Instance.counter;
-        //go.GetComponentInChildren<TextMeshProUGUI>().text = newOwner.ownerName;
         return newOwner;
     }
     public static Owner DisconnectOwner(int device_id) {
         Owner leftOwner = GetOwner(device_id);
         if (leftOwner == null)
             return null;
-
-        Debug.Log("DisconnectOwner GetGameState:" + (int)GameStateView.GetGameState());
 
         if (GameStateView.HasState(GameState.started) && leftOwner.GetPlayerProfile() != null) {
             leftOwner.connected = false;

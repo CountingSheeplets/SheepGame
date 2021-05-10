@@ -16,7 +16,6 @@ public class ScoreNetworkWriter : MonoBehaviour {
         foreach (Owner owner in OwnersCoordinator.GetOwners()) {
             PlayerScores playerScores = ScoreCoordinator.GetPlayerScores(owner);
             int total = ScoreCoordinator.GetTotalPlayerScores(owner);
-            //Debug.Log("Sending winner Scores:::" + playerScores.ToString());
             NetworkCoordinator.SendPlayerScores(owner.deviceId, owner.GetPlayerProfile().isAlive, playerScores.scores, total);
         }
     }

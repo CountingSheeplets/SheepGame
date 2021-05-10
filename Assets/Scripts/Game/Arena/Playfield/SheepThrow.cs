@@ -66,7 +66,6 @@ public class SheepThrow : MonoBehaviour {
     void OnReady(GameMessage msg) {
         if (msg.sheepUnit != null) {
             if (msg.sheepUnit.currentPlayfield == GetComponent<Playfield>()) {
-                Debug.Log("OnReady:" + sheepReadyToBeThrown);
                 sheepReadyToBeThrown = msg.sheepUnit;
                 sheepReadyToBeThrown.isReadyToFly = true;
             }

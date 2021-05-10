@@ -39,7 +39,6 @@ public class SheepModel : MonoBehaviour {
         if (sheep == null)return;
         string slot = UpgradeBucket.GetAttachmentSlot(sheep.sheepType).Split('.')[0];
         string attachment = UpgradeBucket.GetAttachmentSlot(sheep.sheepType).Split('.')[1];
-        //Debug.Log(slot + "   " + attachment);
         if (slot == "Small") {
             transform.localScale = modelScale * ConstantsBucket.SmallUpgradeShrinkSize;
             return;

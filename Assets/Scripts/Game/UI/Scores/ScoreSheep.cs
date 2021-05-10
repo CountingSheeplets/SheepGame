@@ -33,8 +33,6 @@ public class ScoreSheep : MonoBehaviour {
         Vector2 nextOffset = GetPosition(startingAngle + _angle + 1.5f);
         transform.localPosition = _centre + offset;
         Vector2 newDir = blendsEight.EnumToAnimVec(blendsEight.GetAnimEnum(nextOffset));
-        //if (myIndex == 0)
-        //    Debug.Log("dif: " + blendsEight.GetAnimEnum(nextOffset) + "   newdir: " + nextOffset);
         animator.SetFloat("dirX_blend", (newDir).x);
         animator.SetFloat("dirY_blend", (newDir).y);
     }

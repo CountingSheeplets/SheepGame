@@ -34,7 +34,7 @@ public class NetworkImportantCoordinator : Singleton<NetworkImportantCoordinator
         List<string> toRemove = new List<string>();
         foreach (KeyValuePair<string, JObject> pair in Instance.importantUnsent) {
             pair.Value["attempts"] = (int)pair.Value["attempts"] - 1;
-            Debug.Log("sending important to: " + (int)pair.Value["deviceId"] + "  msg:: " + pair.Value + " atempts left: " + (int)pair.Value["attempts"]);
+            //Debug.Log("sending important to: " + (int)pair.Value["deviceId"] + "  msg:: " + pair.Value + " atempts left: " + (int)pair.Value["attempts"]);
             if ((int)pair.Value["attempts"] >= 0) {
                 NetworkCoordinator.TrySend((int)pair.Value["deviceId"], pair.Value);
             } else {
@@ -42,7 +42,7 @@ public class NetworkImportantCoordinator : Singleton<NetworkImportantCoordinator
             }
         }
         foreach (string key in toRemove) {
-            Debug.Log("important out of attempts: " + (int)Instance.importantUnsent[key]["deviceId"] + "  msg:: " + Instance.importantUnsent[key] + " atempts left: " + (int)Instance.importantUnsent[key]["attempts"]);
+            //Debug.Log("important out of attempts: " + (int)Instance.importantUnsent[key]["deviceId"] + "  msg:: " + Instance.importantUnsent[key] + " atempts left: " + (int)Instance.importantUnsent[key]["attempts"]);
             Instance.importantUnsent.Remove(key);
             Instance.hashes.Remove(key);
         }

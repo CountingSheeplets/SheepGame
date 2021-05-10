@@ -31,7 +31,6 @@ public class ArenaController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.KeypadEnter)) {
             if (!GameStateView.HasState(GameState.started))
                 EventCoordinator.TriggerEvent(EventName.Input.StartGame(), GameMessage.Write());
-            //EventCoordinator.TriggerEvent(EventName.Input.PlayersReady(), GameMessage.Write());
         }
     }
     void Awake() {
@@ -40,7 +39,6 @@ public class ArenaController : MonoBehaviour {
         EventCoordinator.StartListening(EventName.Input.StartGame(), OnStartGame);
         EventCoordinator.StartListening(EventName.System.Environment.ArenaDestroyed(), OnArenaDestroyed);
         EventCoordinator.StartListening(EventName.System.Environment.EndMatch(), OnMatchEnd);
-        //if (testScene)
     }
     void OnDestroy() {
         EventCoordinator.StopListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
@@ -48,7 +46,6 @@ public class ArenaController : MonoBehaviour {
         EventCoordinator.StopListening(EventName.Input.StartGame(), OnStartGame);
         EventCoordinator.StopListening(EventName.System.Environment.ArenaDestroyed(), OnArenaDestroyed);
         EventCoordinator.StopListening(EventName.System.Environment.EndMatch(), OnMatchEnd);
-        //if (testScene)
     }
 
     void OnStartGame(GameMessage msg) {

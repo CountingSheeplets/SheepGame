@@ -17,12 +17,8 @@ public class PlayerProfileController : MonoBehaviour {
     }
 
     void OnInitialized(GameMessage msg) {
-        //On start game - Modify all profiles to include King and Playfield
-        Debug.Log("OnInitialized");
         foreach (Owner owner in OwnersCoordinator.GetOwners())
             owner.GetPlayerProfile().Modify(owner.GetKing(), owner.GetPlayfield());
-        foreach (Owner owner in OwnersCoordinator.GetOwners())
-            Debug.Log(owner.GetPlayerProfile().Print());
     }
 
     void OnPlayerJoined(GameMessage msg) {

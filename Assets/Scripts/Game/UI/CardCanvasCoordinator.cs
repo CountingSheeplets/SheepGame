@@ -31,11 +31,11 @@ public class CardCanvasCoordinator : Singleton<CardCanvasCoordinator> {
     }
     public static void RemovePlayerCard(Owner owner) {
         if (Instance.cards.ContainsKey(owner)) {
+            if (Instance.cards[owner] == null)return;
             Destroy(Instance.cards[owner].gameObject);
             Instance.cardList.Remove(Instance.cards[owner].GetComponent<Transform>());
             Instance.cards.Remove(owner);
         }
-        //Instance.ClearInvalidCards();
     }
 
     public void ClearInvalidCards() {

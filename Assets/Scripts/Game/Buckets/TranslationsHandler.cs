@@ -50,14 +50,12 @@ public class TranslationsHandler : Singleton<TranslationsHandler> {
         NetworkCoordinator.SendTranslationsReady();
     }
     void OnJoined(GameMessage msg) {
-        Debug.Log("tr: " + translationsReady);
         if (translationsReady)
             NetworkCoordinator.SendTranslationsReady(msg.owner.deviceId);
     }
     void OnReady(string code = "") {
         translationsReady = true;
         string lang = AirConsole.instance.GetLanguage();
-        Debug.Log("Language: " + lang);
         //single word translations, which are somewhere in UI
         Instance.ready = AirConsole.instance.GetTranslation("ready");
         Instance.achievements = AirConsole.instance.GetTranslation("achievements");

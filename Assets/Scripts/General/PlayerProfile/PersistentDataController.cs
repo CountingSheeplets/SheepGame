@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class PersistentDataController : MonoBehaviour {
 	void Awake() {
-		//Debug.Log("PersistentDataController.Start");
 		AirConsole.instance.onPersistentDataStored += OnDataStored;
 		AirConsole.instance.onPersistentDataLoaded += OnDataLoaded;
 		EventCoordinator.StartListening(EventName.System.Player.ProfileCreated(), OnProfileCreated);
@@ -14,12 +13,10 @@ public class PersistentDataController : MonoBehaviour {
 		EventCoordinator.StartListening(EventName.Input.StartGame(), OnStartGame);
 	}
 	void OnProfileCreated(GameMessage msg) {
-		//Debug.Log("OnProfileCreated");
 		PersistentDataCoordinator.RequestData(msg.playerProfile.owner);
 	}
 	void OnShowScore(GameMessage msg) {
 		foreach (Owner owner in OwnersCoordinator.GetOwners()) {
-			Debug.Log("storing data for owner:" + owner);
 			if (owner.ownerName.ToLower().Contains("guest"))
 				owner.GetPlayerProfile().tutorialIndex = 1;
 			else

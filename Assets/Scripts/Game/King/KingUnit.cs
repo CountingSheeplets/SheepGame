@@ -75,7 +75,6 @@ public class KingUnit : MonoBehaviour {
             return _model = GetComponentInChildren<KingModel>();
     }
     void Start() {
-        //Debug.Log("pre sclae:"+transform.localScale);
         EventCoordinator.StartListening(EventName.System.King.Hit(), OnHit);
     }
     void OnDestroy() {
@@ -97,7 +96,8 @@ public class KingUnit : MonoBehaviour {
             //show die animation
             Animator anim = GetComponentInChildren<Animator>();
             foreach (AnimatorControllerParameter parameter in anim.parameters) {
-                anim.ResetTrigger(parameter.name);
+                if (parameter.type == AnimatorControllerParameterType.Trigger)
+                    anim.ResetTrigger(parameter.name);
             }
             anim.SetTrigger("die");
         }

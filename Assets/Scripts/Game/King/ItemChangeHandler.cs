@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemChangeHandler : MonoBehaviour {
-    /*     [StringInList(typeof(PropertyDrawersHelper), "AllEventNames")]
-        public string changeItemEventName; */
-
     int currentItemIndex = 0; //0 = default
     void Start() {
         EventCoordinator.StartListening(EventName.Input.ChangeKingItem(), OnChangeItem);
@@ -34,8 +31,6 @@ public class ItemChangeHandler : MonoBehaviour {
             if (KingItemBucket.IsItemAvailable(msg.owner, currentItemIndex, msg.kingItemType)) {
                 msg.owner.GetPlayerProfile().SelectItem(msg.kingItemType, currentItemIndex);
                 ChangeItemTo(currentItemIndex, msg.kingItemType);
-            } else {
-                Debug.Log("requirements not met!: " + currentItemIndex);
             }
         }
     }
@@ -47,8 +42,6 @@ public class ItemChangeHandler : MonoBehaviour {
             if (KingItemBucket.IsItemAvailable(msg.owner, currentItemIndex, msg.kingItemType)) {
                 msg.owner.GetPlayerProfile().SelectItem(msg.kingItemType, currentItemIndex);
                 ChangeItemTo(currentItemIndex, msg.kingItemType);
-            } else {
-                Debug.Log("requirements not met!: " + currentItemIndex);
             }
         }
     }

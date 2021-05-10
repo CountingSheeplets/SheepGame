@@ -19,7 +19,6 @@ public class OwnerTileResizer : MonoBehaviour {
         if (height == _height)
             return;
         _height = height;
-        Debug.Log("Resizing...:height:" + height);
         layout.spacing = new Vector2(height / 50, height / 50);
         Vector2 newSize = new Vector2(height / 2.7f - layout.spacing.x, height / 3.3f - layout.spacing.y);
         layout.cellSize = newSize;

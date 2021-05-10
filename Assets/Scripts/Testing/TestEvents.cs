@@ -6,6 +6,7 @@ using Newtonsoft.Json.Linq;
 using UnityEngine;
 public class TestEvents : MonoBehaviour {
     void Update() {
+        if (!EventCoordinator.Instance.enableDebugging)return;
         if (Input.GetKeyDown(KeyCode.D)) {
             List<Owner> aliveOwners = new List<Owner>(OwnersCoordinator.GetOwners().Where(x => x.GetPlayerProfile().isAlive).ToList());
             if (aliveOwners.Count > 1) {

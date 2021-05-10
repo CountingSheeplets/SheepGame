@@ -347,12 +347,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 0
-  sheepLandFieldFlat: 2
-  sheepKingHitFlat: 3
+  sheepLandFieldFlat: 1
+  sheepKingHitFlat: 4
   sheepSelfThrow: 1
   sheepOtherPlayerThrow: 1
   greedySheepBonusMoney: 1
-  sheepEliminated: 3
+  sheepEliminated: 2
   incomeMultiplierNoGrass: 0.5
 --- !u!114 &9200212022206869629
 MonoBehaviour:

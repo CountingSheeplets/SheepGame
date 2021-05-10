@@ -12,7 +12,6 @@ public class ControllerViewMenuHandler : MonoBehaviour {
 
     void OnSceneReloaded(GameMessage msg) {
         MenuNetworkHandler.ReloadAllConnected();
-        //Debug.Log("OnSceneLoad - Owners:" + OwnersCoordinator.GetOwnersAll().Count);
         foreach (Owner owner in OwnersCoordinator.GetOwners()) {
             owner.ready = false;
         }

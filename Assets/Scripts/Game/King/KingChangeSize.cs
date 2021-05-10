@@ -22,7 +22,6 @@ public class KingChangeSize : MonoBehaviour {
         StartCoroutine(IncreaseSize());
     }
     IEnumerator IncreaseSize() {
-        //Debug.Log("IncreaseSize");
         Vector3 myScale = transform.localScale;
         float startTime = Time.time;
         float timePassed = 0f;
@@ -32,14 +31,12 @@ public class KingChangeSize : MonoBehaviour {
             float k = timePassed / ConstantsBucket.KingScaleChangeTime;
 
             float easedK = Easing.Elastic.InOut(k);
-            //Debug.Log(k+"  "+easedK);
             transform.localScale = Vector3.Lerp(myScale, targetScale, easedK);
 
             yield return null;
         }
         transform.localScale = targetScale;
         PostScaleChangeAction();
-        //Debug.Log("IncreaseSize done!");
         yield return null;
     }
 

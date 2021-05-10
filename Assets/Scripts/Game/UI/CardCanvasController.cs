@@ -22,7 +22,7 @@ public class CardCanvasController : MonoBehaviour {
         CardCanvasCoordinator.CreateCard(msg.owner);
     }
     void OnPlayerLeft(GameMessage msg) {
-        if ((GameStateView.GetGameState() & GameState.started) == 0) {
+        if (!GameStateView.HasState(GameState.started) && !GameStateView.HasState(GameState.ended)) {
             CardCanvasCoordinator.RemovePlayerCard(msg.owner);
         }
     }

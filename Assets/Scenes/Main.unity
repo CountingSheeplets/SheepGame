@@ -2381,7 +2381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _persistent: 1
-  enableDebugging: 1
+  enableDebugging: 0
   ignoreEvents:
     list:
     - Input_Swipe

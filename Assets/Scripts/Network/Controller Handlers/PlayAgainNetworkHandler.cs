@@ -26,21 +26,18 @@ public class PlayAgainNetworkHandler : MonoBehaviour {
                     EventCoordinator.TriggerEvent(EventName.System.Environment.ScrollScoresOut(), GameMessage.Write());
                     NetworkCoordinator.SendShowViewAll("loading");
                 };
-                Debug.Log("Ready:" + readyOwner);
             }
     }
     bool TryRestart(GameMessage msg) {
         foreach (Owner owner in OwnersCoordinator.GetOwners()) {
             if (owner.connected)
                 if (owner.playAgain == false) {
-                    Debug.Log("player not ready to restart:" + owner);
                     return false;
                 }
         }
         foreach (Owner owner in OwnersCoordinator.GetOwners()) {
             owner.playAgain = false;
         }
-        Debug.Log("players ready. restarting...");
         return true;
     }
     private void OnDestroy() {

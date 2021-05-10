@@ -42,7 +42,6 @@ public class Ballista : MonoBehaviour {
         OnSheepLaunch(msg);
     }
     void OnSwipe(GameMessage msg) {
-        //Debug.Log("on swipe: " + playfield.owner + " vs " + msg.owner);
         if (playfield.owner.EqualsByValue(msg.owner)) {
             //transform.rotation = Quaternion.Euler(0f, 0f, msg.swipe.angleEuler);
             targetRotation = Quaternion.Euler(0f, 0f, msg.swipe.angleEuler); //rot_z - defaultSpriteAngle);

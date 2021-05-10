@@ -17,7 +17,6 @@ public class PlayerProfileCoordinator : Singleton<PlayerProfileCoordinator> {
     }
 
     public static PlayerProfile AddProfile(Owner owner) {
-        //Debug.Log("adding a profile");
         PlayerProfile profile = new PlayerProfile().Create(owner);
         Instance.profiles.Add(profile);
         GetPlayerAvatarIcon(owner);

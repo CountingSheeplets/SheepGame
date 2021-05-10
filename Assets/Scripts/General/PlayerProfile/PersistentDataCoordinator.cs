@@ -27,7 +27,6 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
         if (AirConsole.instance != null) {
             AirConsole.instance.RequestPersistentData(new List<string>() { owner.ownerId });
             Instance.requestedNames.Add(owner.ownerId);
-            Debug.Log("RequestData:" + owner.ownerId);
         }
     }
 
@@ -35,21 +34,16 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
         string match = "";
         string[] names = Instance.requestedNames.ToArray();
         foreach (string request in names) {
-            //Debug.Log("OnReceivedData: request!: " + request);
             //Debug.Log("OnReceivedData: data!: " + receivedToken);
-            if (receivedToken[request].IsNullOrEmpty()) {
-                //Debug.Log("OnReceivedData: IsNullOrEmpty()!: " + receivedToken);
-                continue;
-            }
             match = request;
-            JToken data = receivedToken[match][Instance.key];
             Owner owner = OwnersCoordinator.GetOwner(match);
             if (owner) {
                 PlayerProfile profile = owner.GetPlayerProfile();
                 if (profile != null) {
-                    if (!data.IsNullOrEmpty()) {
+                    if (!receivedToken[request].IsNullOrEmpty()) {
+                        JToken data = receivedToken[match][Instance.key];
+                        if (data.IsNullOrEmpty())continue;
                         if (data.ContainsPlayerData()) {
-                            //Debug.Log("OnReceivedData: contains all data!: " + data);
                             if (HasReceivedTrueData(owner, data)) {
                                 //Debug.Log("OnReceivedData: data is true!");
                                 if (!data["coinCount"].IsNullOrEmpty())
@@ -71,7 +65,6 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
                                     .WithIntMessage(profile.selectedScepter)
                                     .WithKingItemType(KingItemType.scepter));
                                 EventCoordinator.TriggerEvent(EventName.System.Player.ProfileUpdate(), GameMessage.Write().WithPlayerProfile(profile).WithOwner(owner));
-                                Debug.Log("data received and loaded!:" + match);
                             }
                         }
                     }
@@ -96,14 +89,12 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
     static void TryStore(JObject json, Owner owner) {
         if (AirConsole.instance != null) {
             AirConsole.instance.StorePersistentData(Instance.key, json, owner.ownerId);
-            Debug.Log("AirConsole.instance.StorePersistentData:" + json);
         }
     }
     public static void DeleteAllStoredData() {
         if (AirConsole.instance != null) {
             foreach (Owner owner in OwnersCoordinator.GetOwners())
                 AirConsole.instance.StorePersistentData(Instance.key, "", owner.ownerId);
-            Debug.Log("AirConsole.instance.StorePersistentData:" + "deleted");
         }
     }
 }

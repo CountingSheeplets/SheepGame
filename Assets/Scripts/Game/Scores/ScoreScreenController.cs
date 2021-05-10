@@ -12,7 +12,6 @@ public class ScoreScreenController : MonoBehaviour {
     void Start() {
         EventCoordinator.StartListening(EventName.UI.ShowScoreScreen(), OnScoresShow);
         height = scoresContainer.GetComponent<RectTransform>().rect.height / 8f;
-        Debug.Log("height" + height);
     }
 
     void OnScoresShow(GameMessage msg) {
