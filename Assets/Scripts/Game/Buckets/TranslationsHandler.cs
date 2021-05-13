@@ -19,6 +19,13 @@ public class TranslationsHandler : Singleton<TranslationsHandler> {
                 return Instance.achievements.ToLower();
         return "achievements";
     }
+    string disconnected = "disconnected";
+    public static string GetDisconnectedTranslation() {
+        if (Instance)
+            if (Instance.disconnected != null)
+                return Instance.disconnected.ToLower();
+        return "disconnected";
+    }
     string info_tile_more = "more people - more fun! up to 8 players can join";
     public static string GetInfoTileMoreTr() {
         if (Instance)
@@ -59,6 +66,7 @@ public class TranslationsHandler : Singleton<TranslationsHandler> {
         //single word translations, which are somewhere in UI
         Instance.ready = AirConsole.instance.GetTranslation("ready");
         Instance.achievements = AirConsole.instance.GetTranslation("achievements");
+        Instance.disconnected = AirConsole.instance.GetTranslation("disconnected");
         Instance.info_tile_more = AirConsole.instance.GetTranslation("info_tile_more");
         Instance.info_tile_need = AirConsole.instance.GetTranslation("info_tile_need");
         //upgrades

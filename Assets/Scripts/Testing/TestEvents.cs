@@ -96,6 +96,11 @@ public class TestEvents : MonoBehaviour {
                 ScoreCoordinator.IncreaseScoreCounter(owner, ScoreName.Counter.Shepherd(), 300);
             }
         }
+        if (Input.GetKeyDown(KeyCode.F12)) {
+            foreach (Owner owner in OwnersCoordinator.GetOwners()) {
+                owner.GetPlayerProfile().permanentCrownCount += 5;
+            }
+        }
         if (Input.GetKeyDown(KeyCode.F10)) {
             EventCoordinator.TriggerEvent(EventName.System.Environment.ScrollScoresOut(), GameMessage.Write());
             Debug.Log("Scene Cleaning done.");
