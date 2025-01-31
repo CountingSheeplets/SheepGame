@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ArenaController : MonoBehaviour {
     public bool testScene = false;
     void Update() {
         if (!EventCoordinator.Instance.enableDebugging)return;
-        if (Input.GetKeyDown(KeyCode.KeypadPlus)) {
+        if (Keyboard.current.numpadPlusKey.wasPressedThisFrame) {
             if (GameStateView.HasState(GameState.started)) {
                 Debug.LogWarning("New cannot join, game already started");
                 return;
@@ -18,7 +19,7 @@ public class ArenaController : MonoBehaviour {
 
             }
         }
-        if (Input.GetKeyDown(KeyCode.KeypadMinus)) {
+        if (Keyboard.current.minusKey.wasPressedThisFrame) {
             Owner owner = OwnersCoordinator.GetRandomOwner();
             OwnersCoordinator.DisconnectOwner(owner.deviceId);
             if (!owner)
@@ -28,7 +29,7 @@ public class ArenaController : MonoBehaviour {
                 stayingOwner.ready = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.KeypadEnter)) {
+        if (Keyboard.current.numpadEnterKey.wasPressedThisFrame) {
             if (!GameStateView.HasState(GameState.started))
                 EventCoordinator.TriggerEvent(EventName.Input.StartGame(), GameMessage.Write());
         }

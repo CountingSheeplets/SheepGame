@@ -7,9 +7,9 @@ public static class PlayerProfileFactory {
         PlayerProfile newProfile = new PlayerProfile();
         newProfile.owner = owner;
         newProfile.playerColor = PlayerColorCoordinator.UseFirstUnused();
-        if (PremiumCoordinator.IsPremium(owner.deviceId)) {
-            newProfile.SetPremium();
-        }
+        //if (PremiumCoordinator.IsPremium(owner.deviceId)) {
+        //    newProfile.SetPremium();
+        //}
         return newProfile;
     }
     public static PlayerProfile Modify(this PlayerProfile profile, KingUnit kingUnit, Playfield playfield) {

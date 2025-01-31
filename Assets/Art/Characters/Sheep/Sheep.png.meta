@@ -228,7 +228,7 @@ TextureImporter:
       213: 1687071915289888249
     second: mounth 8
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -249,6 +249,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -257,9 +258,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -287,6 +288,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1924,6 +1926,82 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Crown: -3203779722032322926
+      Helmet: 4821343164171663738
+      Layer 2: 200392633122980083
+      PEG: -2185619649955946486
+      Shovel: -2549507888115256439
+      Textures/ears_1: -1637369169932517536
+      Textures/ears_2: 2659649451936297666
+      Textures/ears_3: -201118208470803306
+      Textures/ears_4: -2919743816676963473
+      Textures/ears_5: -2662700095754693663
+      Textures/eye_2: 3505060659892108975
+      Textures/eyes_1: 6912324858969378755
+      Textures/eyes_3: -3522439700107786923
+      Textures/fleece _5: -1751011502300327746
+      Textures/fleece_ 1: 1449830084822693833
+      Textures/fleece_ 3: 7484565319518489525
+      Textures/fleece_ 4: 6714524057631646520
+      Textures/gogles 3: 5898699266779894085
+      Textures/gogles_1: -2433832251797741210
+      Textures/googles_2: 6113624165122600951
+      Textures/head_1: 6298550198647581307
+      Textures/head_2: -3016502570816407283
+      Textures/head_3: -7699449796876529389
+      Textures/head_4: -7124477513447410817
+      Textures/head_5: -2355514170347870177
+      Textures/mounth_1: -278858411673250839
+      Textures/mounth_2: -2180709465085836876
+      Textures/mounth_3: 1385309562888226963
+      Textures/pegs back_1: -8337581853981567655
+      Textures/pegs back_4: 1582243546670662088
+      Textures/pegs front_5: -3704595690091286754
+      Textures/pegs_3: 3022125052023405273
+      Textures/pegs_back_2: 70228141349228377
+      Textures/pegs_back_5: 7701573115616144587
+      Textures/pegs_front_1: -3475806283185422566
+      Textures/pegs_front_2: 5204970657779879371
+      Textures/pegs_front_4: 4133567592868026623
+      Textures/tail_base_1: -8816720462717844250
+      Textures/tail_base_2: 5791506404413713934
+      Textures/tail_base_3: -403551004353134861
+      Textures/tail_base_4: -6664564887178238124
+      Textures/tail_base_5: -4337030822395059699
+      Textures/tail_fleece_1: -3646508914301593046
+      Textures/tail_fleece_2: -4910908694878268035
+      Textures/tail_fleece_3: 786195729057654864
+      Textures/tail_fleece_4: -8720644497389128152
+      Textures/tail_fleece_5: 3546909865252251271
+      ears 1: -4728721253902144480
+      ears 2: 4382811542498245308
+      ears 6: 240441472045998513
+      ears 7: 4822357733966000
+      ears 8: -6189489654783782998
+      eyes 1: -3745660758430607102
+      eyes 2: 2366506329529954501
+      eyes 8: 4451002234831682673
+      gogles 2: 4643736533846122740
+      gogles 8: 3749564131117014725
+      googles 1: -3324150859009128973
+      head 1: 958397443826488198
+      head 6: 8159215451613031108
+      head 7: -8157926789784121703
+      head8: 1194792242832747535
+      mounth 1: -208924763572707120
+      mounth 2: 7283421134515773754
+      mounth 8: 1687071915289888249
+      tail base 1: 4942576127103837276
+      tail base 2: 6869295945736809084
+      tail base 6: -4755993523394009329
+      tail base 7: 8923911070727846443
+      tail base 8: -2288170169846086034
+      tail fleece 1: -179794129966830459
+      tail fleece 2: -8114478573601088075
+      tail fleece 6: -2386561377931051344
+      tail fleece 7: -652724159216830717
+      tail fleece 8: -782932062844282071
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

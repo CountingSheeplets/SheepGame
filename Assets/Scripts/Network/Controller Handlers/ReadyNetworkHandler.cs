@@ -5,10 +5,13 @@ using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 public class ReadyNetworkHandler : MonoBehaviour {
-    void Awake() {
+    void Start() {
         if (AirConsole.instance != null)
             AirConsole.instance.onMessage += OnReady;
         EventCoordinator.StartListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
+    }
+    void Awake() {
+
     }
     void OnPlayerLeft(GameMessage msg) {
         foreach (Owner owner in OwnersCoordinator.GetOwners()) {
