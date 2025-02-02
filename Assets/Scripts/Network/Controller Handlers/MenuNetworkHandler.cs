@@ -1,22 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using NDream.AirConsole;
-using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 	//public List<int> premiumIds = new List<int>();
 	public List<Owner> waitLine = new List<Owner>();
 	public List<int> connectedIds = new List<int>();
-	void Start() {
+	/*void Start() {
 		if (AirConsole.instance == null)
 			return;
 		AirConsole.instance.onConnect += OnConnect;
 		AirConsole.instance.onPremium += OnPremium;
 		AirConsole.instance.onDisconnect += OnDisconnect;
-	}
-	void OnConnect(int device_id) {
+	}*/
+	/*void OnConnect(int device_id) {
 		Owner owner = OwnersCoordinator.TryCreateOwner(device_id);
 		if (!connectedIds.Contains(device_id))
 			connectedIds.Add(device_id);
@@ -76,14 +74,14 @@ public class MenuNetworkHandler : Singleton<MenuNetworkHandler> {
 		foreach (int id in Instance.connectedIds) {
 			Instance.OnConnect(id);
 		}
-	}
-	private void OnDestroy() {
+	}*/
+	/*private void OnDestroy() {
 		if (AirConsole.instance != null) {
 			AirConsole.instance.onConnect -= OnConnect;
 			AirConsole.instance.onPremium -= OnPremium;
 			AirConsole.instance.onDisconnect -= OnDisconnect;
 		}
-	}
+	}*/
 	void OnPremium(int device_id) {
 		PremiumCoordinator.AddPremium(device_id);
 		OwnersCoordinator.GetOwner(device_id).GetPlayerProfile().SetPremium();

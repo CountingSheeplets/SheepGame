@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using NDream.AirConsole;
+//using NDream.AirConsole;
 using UnityEngine;
 
 public class OwnersCoordinator : Singleton<OwnersCoordinator> {
@@ -39,9 +39,9 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
     public static Owner TryCreateOwner(int device_id) {
         GameObject go = new GameObject();
         go.transform.parent = Instance.transform;
-        string nicknameOfJoined = AirConsole.instance.GetNickname(device_id);
+        //string nicknameOfJoined = AirConsole.instance.GetNickname(device_id);
         Owner newOwner = go.AddComponent<Owner>();
-        newOwner.Create(AirConsole.instance.GetUID(device_id), nicknameOfJoined, device_id);
+        //newOwner.Create(AirConsole.instance.GetUID(device_id), nicknameOfJoined, device_id);
         foreach (Owner owner in GetOwnersAll()) {
             if (owner.deviceId == newOwner.deviceId) {
                 Destroy(go);
@@ -54,7 +54,7 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
         //go.GetComponentInChildren<TextMeshProUGUI>().text = newOwner.ownerName;
         return newOwner;
     }
-    public static Owner ReconnectOwner(int device_id) {
+    /*public static Owner ReconnectOwner(int device_id) {
         Owner recOwner = GetOwner(AirConsole.instance.GetUID(device_id));
         if (recOwner == null)return null;
         if (recOwner.GetPlayerProfile() == null)return null;
@@ -79,7 +79,7 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
             return OwnersCoordinator.GetOwner(device_id);
         }
         return null;
-    }
+    }*/
     public static Owner GetOwner(int device_id) {
         return Instance.owners.Where(x => x.deviceId == device_id).FirstOrDefault();
     }
@@ -97,7 +97,9 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
         int device_id = Instance.counter;
         GameObject go = new GameObject();
         go.transform.parent = Instance.transform;
-        string nicknameOfJoined = Generate.RandomString(10);
+        string nicknameOfJoined = RandNameBucket.GetRandPlayerName();
+        if(nicknameOfJoined == "")
+            nicknameOfJoined = Generate.RandomString(10);
         Owner newOwner = go.AddComponent<Owner>();
         Instance.owners.Add(newOwner);
         newOwner.Create(device_id.ToString(), nicknameOfJoined, device_id);

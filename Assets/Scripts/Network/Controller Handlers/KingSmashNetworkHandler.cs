@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using NDream.AirConsole;
+/*using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 public class KingSmashNetworkHandler : MonoBehaviour {
@@ -27,4 +27,4 @@ public class KingSmashNetworkHandler : MonoBehaviour {
             AirConsole.instance.onMessage -= OnButtonClick;
         }
     }
-}
+}*/

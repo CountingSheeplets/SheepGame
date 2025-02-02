@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using NDream.AirConsole;
+/*using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 
@@ -10,7 +10,7 @@ public class BuyResourceNetworkHandler : MonoBehaviour {
             AirConsole.instance.onMessage += OnButtonClick;
     }
     void OnButtonClick(int from, JToken message) {
-        /*         if (message["data"] != null){ */
+        //         if (message["data"] != null){ 
         Owner triggerOwner = OwnersCoordinator.GetOwner(from);
         if (triggerOwner == null)
             return;
@@ -24,7 +24,7 @@ public class BuyResourceNetworkHandler : MonoBehaviour {
         if (message["element"].ToString().Contains("buyGrass")) {
             EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.BuyGrass(), GameMessage.Write().WithOwner(triggerOwner));
         }
-        /*         } */
+        //         } 
     }
 
     private void OnDestroy() {
@@ -32,4 +32,4 @@ public class BuyResourceNetworkHandler : MonoBehaviour {
             AirConsole.instance.onMessage -= OnButtonClick;
         }
     }
-}
+}*/

@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using NDream.AirConsole;
 using TMPro;
 using UnityEngine;
 public class TipsController : MonoBehaviour {
@@ -11,14 +10,14 @@ public class TipsController : MonoBehaviour {
         tipText = GetComponent<TextMeshProUGUI>();
         EventCoordinator.StartListening(EventName.Input.StartGame(), OnGameStart);
         EventCoordinator.StartListening(EventName.System.SceneLoaded(), OnReady);
-        if (AirConsole.instance != null)
-            AirConsole.instance.onReady += OnReady;
+        //if (AirConsole.instance != null)
+        //    AirConsole.instance.onReady += OnReady;
     }
     void OnDestroy() {
         EventCoordinator.StopListening(EventName.Input.StartGame(), OnGameStart);
         EventCoordinator.StopListening(EventName.System.SceneLoaded(), OnReady);
-        if (AirConsole.instance != null)
-            AirConsole.instance.onReady -= OnReady;
+        //if (AirConsole.instance != null)
+        //    AirConsole.instance.onReady -= OnReady;
     }
     void OnGameStart(GameMessage msg) {
         gameObject.SetActive(false);

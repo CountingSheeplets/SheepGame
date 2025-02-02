@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ControllerViewMenuHandler : MonoBehaviour {
-    void Start() {
+    /*void Start() {
         EventCoordinator.StartListening(EventName.System.SceneLoaded(), OnSceneReloaded);
     }
     void OnDestroy() {
@@ -15,5 +15,5 @@ public class ControllerViewMenuHandler : MonoBehaviour {
         foreach (Owner owner in OwnersCoordinator.GetOwners()) {
             owner.ready = false;
         }
-    }
+    }*/
 }

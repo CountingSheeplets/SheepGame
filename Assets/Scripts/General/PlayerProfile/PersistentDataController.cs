@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using NDream.AirConsole;
-using Newtonsoft.Json.Linq;
+//using NDream.AirConsole;
+//using Newtonsoft.Json.Linq;
 using UnityEngine;
 
-public class PersistentDataController : MonoBehaviour {
+/*public class PersistentDataController : MonoBehaviour {
 	void Awake() {
 		AirConsole.instance.onPersistentDataStored += OnDataStored;
 		AirConsole.instance.onPersistentDataLoaded += OnDataLoaded;
@@ -46,4 +46,4 @@ public class PersistentDataController : MonoBehaviour {
 		EventCoordinator.StopListening(EventName.UI.ShowScoreScreen(), OnShowScore);
 		EventCoordinator.StopListening(EventName.Input.StartGame(), OnStartGame);
 	}
-}
+}*/

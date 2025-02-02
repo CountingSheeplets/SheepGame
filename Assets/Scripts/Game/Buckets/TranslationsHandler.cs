@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using NDream.AirConsole;
 using UnityEngine;
 
 public class TranslationsHandler : Singleton<TranslationsHandler> {
@@ -41,26 +40,26 @@ public class TranslationsHandler : Singleton<TranslationsHandler> {
         return "need at least 2 players to be able to play. best - 5 players";
     }
     void Start() {
-        AirConsole.instance.onReady += OnReady;
+        //AirConsole.instance.onReady += OnReady;
         EventCoordinator.StartListening(EventName.System.SceneLoaded(), OnReady);
         EventCoordinator.StartListening(EventName.Input.Network.PlayerJoined(), OnJoined);
     }
     void OnDestroy() {
-        if (AirConsole.instance != null) {
-            AirConsole.instance.onReady -= OnReady;
-        }
+        //if (AirConsole.instance != null) {
+        //    AirConsole.instance.onReady -= OnReady;
+        //}
         EventCoordinator.StopListening(EventName.System.SceneLoaded(), OnReady);
         EventCoordinator.StopListening(EventName.Input.Network.PlayerJoined(), OnJoined);
     }
     void OnReady(GameMessage msg) {
-        OnReady();
-        NetworkCoordinator.SendTranslationsReady();
+        //OnReady();
+        //NetworkCoordinator.SendTranslationsReady();
     }
     void OnJoined(GameMessage msg) {
-        if (translationsReady)
-            NetworkCoordinator.SendTranslationsReady(msg.owner.deviceId);
+        //if (translationsReady)
+         //   NetworkCoordinator.SendTranslationsReady(msg.owner.deviceId);
     }
-    void OnReady(string code = "") {
+    /*void OnReady(string code = "") {
         translationsReady = true;
         string lang = AirConsole.instance.GetLanguage();
         //single word translations, which are somewhere in UI
@@ -108,5 +107,5 @@ public class TranslationsHandler : Singleton<TranslationsHandler> {
             if (trDelta != null)ScoreCoordinator.Instance.translatedScores.scores[i].Y = trDelta;
         }
         NetworkCoordinator.SendTranslationsReady();
-    }
+    }*/
 }

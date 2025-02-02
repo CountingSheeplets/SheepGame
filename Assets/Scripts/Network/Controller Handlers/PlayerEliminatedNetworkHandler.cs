@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerEliminatedNetworkHandler : MonoBehaviour {
-    void Start() {
+    /*void Start() {
         EventCoordinator.StartListening(EventName.System.Player.PostElimination(), OnPostEliminated);
         EventCoordinator.StartListening(EventName.System.Environment.EndMatch(), OnPostWin);
     }
@@ -18,5 +18,5 @@ public class PlayerEliminatedNetworkHandler : MonoBehaviour {
     void OnPostWin(GameMessage msg) {
         NetworkCoordinator.SendShowViewAll("post");
         NetworkCoordinator.SendKingItems(msg.owner);
-    }
+    }*/
 }

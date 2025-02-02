@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using NDream.AirConsole;
+/*using NDream.AirConsole;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
@@ -45,11 +45,11 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
 
         json["upgrade"] = JsonConvert.SerializeObject(props);
 
-        /*         string test = "";
-                foreach (UpgradeProperty prop in props) {
-                    test += "\n" + prop;
-                }
-                Debug.Log("UpgradeProperty prop in props: \n" + test); */
+        //        string test = "";
+        //        foreach (UpgradeProperty prop in props) {
+         //           test += "\n" + prop;
+         //       }
+          //      Debug.Log("UpgradeProperty prop in props: \n" + test);
         TrySendObjectAll(json);
     }
     public static void SendUpgradeIcon(int deviceId, UpgradeProperty upgrade) {
@@ -178,7 +178,8 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         json["deviceId"] = deviceId;
         TrySend(deviceId, json);
     }
-    ////**************************
+ 
+
     public static void SendConfirmPlayAgain(int deviceId, bool value) {
         JObject json = new JObject();
         json["type"] = "playAgain";
@@ -241,4 +242,4 @@ public class NetworkCoordinator : Singleton<NetworkCoordinator> {
         if (AirConsole.instance != null)
             AirConsole.instance.Message(deviceId, json);
     }
-}
+}*/

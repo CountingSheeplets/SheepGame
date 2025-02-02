@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using NDream.AirConsole;
-using Newtonsoft.Json.Linq;
+//using NDream.AirConsole;
+//using Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class TestEvents : MonoBehaviour {
@@ -112,10 +112,10 @@ public class TestEvents : MonoBehaviour {
             Owner smasher = OwnersCoordinator.GetRandomOwner();
             EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.Smash(), GameMessage.Write().WithOwner(smasher));
         }
-        if (Keyboard.current.f4Key.wasPressedThisFrame) {
+        /*if (Keyboard.current.f4Key.wasPressedThisFrame) {
             Debug.Log("clear all current owner data....");
             PersistentDataCoordinator.DeleteAllStoredData();
-        }
+        }*/
 
         ///upgrades:
         if (Keyboard.current.uKey.wasPressedThisFrame) {

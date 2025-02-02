@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using NDream.AirConsole;
+/*using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 
@@ -39,4 +39,4 @@ public class KingItemChangeNetworkHandler : MonoBehaviour {
             AirConsole.instance.onMessage -= OnButtonClick;
         }
     }
-}
+}*/

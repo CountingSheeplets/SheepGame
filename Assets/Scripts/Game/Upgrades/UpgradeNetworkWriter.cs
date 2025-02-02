@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradeNetworkWriter : MonoBehaviour {
+/*public class UpgradeNetworkWriter : MonoBehaviour {
     void Start() {
         EventCoordinator.StartListening(EventName.Input.Network.PlayerJoined(), OnPlayerJoined);
         EventCoordinator.StartListening(EventName.System.Sheep.ReadyToLaunch(), OnReadyToLaunch);
@@ -39,4 +39,4 @@ public class UpgradeNetworkWriter : MonoBehaviour {
         NetworkCoordinator.SendUpgradeButtons(msg.sheepUnit.owner.deviceId, null);
         NetworkCoordinator.SendUpgradeIcon(msg.sheepUnit.owner.deviceId, null);
     }
-}
+}*/

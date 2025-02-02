@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+﻿/*using Newtonsoft.Json.Linq;
 public static class JsonExtensions {
     public static bool IsNullOrEmpty(this JToken token) {
         return (token == null) ||
@@ -14,4 +14,4 @@ public static class JsonExtensions {
             (token["selectedHat"] != null) &&
             (token["selectedScepter"] != null);
     }
-}
+}*/

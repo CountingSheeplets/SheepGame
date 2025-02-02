@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using NDream.AirConsole;
-using Newtonsoft.Json.Linq;
 
 public class ControllerView : Singleton<ControllerView>
 {
@@ -10,11 +8,11 @@ public class ControllerView : Singleton<ControllerView>
     public static Dictionary<int, string> previousViewStates = new Dictionary<int, string>();
     void Start()
     {
-        if(AirConsole.instance != null)
-            AirConsole.instance.onMessage += OnViewMessage;
+       // if(AirConsole.instance != null)
+        //    AirConsole.instance.onMessage += OnViewMessage;
     }
 
-    void OnViewMessage(int from, JToken message)
+    /*void OnViewMessage(int from, JToken message)
     {
         if (message["element"] != null)
         {
@@ -37,5 +35,5 @@ public class ControllerView : Singleton<ControllerView>
         {
             AirConsole.instance.onMessage -= OnViewMessage;
         }
-    }
+    }*/
 }

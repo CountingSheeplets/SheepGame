@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 5902129969623488959}
   - component: {fileID: 9200212022206869629}
   - component: {fileID: 6570848659858667099}
+  - component: {fileID: 4772914454106284334}
+  - component: {fileID: 2437576038277076214}
   m_Layer: 0
   m_Name: Buckets(Prices, Upgrades, Speeds)
   m_TagString: Untagged
@@ -35,6 +37,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -316,8 +319,8 @@ MonoBehaviour:
   goldIncomeIncrement: 1
   tipLoopTimer: 10
   useAnimFrameSkipping: 0
-  swipeDistanceMin: 10
-  swipeDistanceMax: 120
+  swipeDistanceMin: 8
+  swipeDistanceMax: 10
   swipeWheelDistMin: 0.12
 --- !u!114 &8604118487354306370
 MonoBehaviour:
@@ -444,3 +447,35 @@ MonoBehaviour:
     sheepType: 6
   - damage: 1
     sheepType: 7
+--- !u!114 &4772914454106284334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604118487354306394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85400d28653779428f27382d33c36c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 0
+  Small: {fileID: 21300000, guid: cb97f66cdcdfa6849b3642009c811f86, type: 3}
+  Bouncy: {fileID: 21300000, guid: 09c74f9facd481244939559003a27313, type: 3}
+  Greedy: {fileID: 21300000, guid: c0c35cc7eb04faa46937f5c6b671475e, type: 3}
+  Armored: {fileID: 21300000, guid: f1be855351a665d46b7bdec161f934e9, type: 3}
+  Trench: {fileID: 21300000, guid: 1566f29c867f16148b9c3ffa1e14a203, type: 3}
+  Tank: {fileID: 21300000, guid: 7402428d9849ec64db0aa11a64a85264, type: 3}
+  None: {fileID: 21300000, guid: e7f4a3b056af8a24383bc5dd068dd633, type: 3}
+--- !u!114 &2437576038277076214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604118487354306394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 797a31ae5cb4bf8478ef3b5fadc69fb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

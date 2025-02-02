@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using NDream.AirConsole;
+/*using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 public class UpgradeInfoNetworkHandler : MonoBehaviour {
@@ -38,7 +38,7 @@ public class UpgradeInfoNetworkHandler : MonoBehaviour {
                                 //send to show view for info:
                                 NetworkCoordinator.SendShowView(from, "upgrade");
                             }
-                        } else { */
+                        } else { 
             if (message["element"].ToString() == "upgrade" && (bool)message["pressed"] == true) {
                 string upgradeToBuy = message["upgradeIndex"].ToString();
                 SheepType sheepType = (SheepType)Enum.Parse(typeof(SheepType), upgradeToBuy);
@@ -53,4 +53,4 @@ public class UpgradeInfoNetworkHandler : MonoBehaviour {
             AirConsole.instance.onMessage -= OnOpenUpgradeInfo;
         }
     }
-}
+}*/

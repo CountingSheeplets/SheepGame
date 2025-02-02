@@ -1,10 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using NDream.AirConsole;
-using Newtonsoft.Json.Linq;
 using UnityEngine;
 
-public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
+/*public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
     string key = "sheepGameData";
     public List<string> requestedNames = new List<string>();
     public bool IsRequestedNamesEmpty {
@@ -99,4 +97,4 @@ public class PersistentDataCoordinator : Singleton<PersistentDataCoordinator> {
                 AirConsole.instance.StorePersistentData(Instance.key, "", owner.ownerId);
         }
     }
-}
+}*/

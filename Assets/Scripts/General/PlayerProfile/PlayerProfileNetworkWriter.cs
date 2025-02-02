@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using NDream.AirConsole;
 using UnityEngine;
 
 public class PlayerProfileNetworkWriter : MonoBehaviour {
-    float counter;
+    /*float counter;
     void FixedUpdate() {
         counter += Time.deltaTime;
         if (counter > ConstantsBucket.ProfileUpdateInterval) {
@@ -16,8 +15,8 @@ public class PlayerProfileNetworkWriter : MonoBehaviour {
     }
 
     void TrySendProfile(Owner owner) {
-        if (AirConsole.instance == null)
-            return;
+       // if (AirConsole.instance == null)
+        //    return;
         PlayerProfile profile = owner.GetPlayerProfile();
         if (profile != null)
             if (profile.IsNetworkDirty() && !GameStateView.HasState(GameState.ended)) {
@@ -31,5 +30,5 @@ public class PlayerProfileNetworkWriter : MonoBehaviour {
                     NetworkCoordinator.SendKingItems(owner);
                 }
             }
-    }
+    }*/
 }

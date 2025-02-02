@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using NDream.AirConsole;
-using Newtonsoft.Json.Linq;
+//using NDream.AirConsole;
+//using Newtonsoft.Json.Linq;
 using UnityEngine;
 
-public class NetworkImportantCoordinator : Singleton<NetworkImportantCoordinator> {
+/*public class NetworkImportantCoordinator : Singleton<NetworkImportantCoordinator> {
     public int defaultAttemptCount = 5;
     Dictionary<string, JObject> importantUnsent = new Dictionary<string, JObject>();
     public HashSet<string> hashes = new HashSet<string>();
@@ -69,4 +69,4 @@ public class NetworkImportantCoordinator : Singleton<NetworkImportantCoordinator
         }
         return false;
     }
-}
+}*/

@@ -87,7 +87,7 @@ public class ControllerInputDemo : MonoBehaviour {
         }
         //EventCoordinator.TriggerEvent(EventName.Input.PlayersReady(), GameMessage.Write());
         EventCoordinator.TriggerEvent(EventName.Input.StartGame(), GameMessage.Write());
-        NetworkCoordinator.SendShowViewAll("match");
+        //NetworkCoordinator.SendShowViewAll("match");
         return true;
     }
 

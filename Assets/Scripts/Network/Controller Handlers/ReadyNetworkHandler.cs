@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using NDream.AirConsole;
+/*using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 public class ReadyNetworkHandler : MonoBehaviour {
@@ -63,4 +63,4 @@ public class ReadyNetworkHandler : MonoBehaviour {
         }
         EventCoordinator.StopListening(EventName.Input.Network.PlayerLeft(), OnPlayerLeft);
     }
-}
+}*/

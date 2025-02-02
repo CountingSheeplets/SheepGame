@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Newtonsoft.Json.Linq;
+//using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 public class Swipe {
@@ -23,14 +23,14 @@ public class Swipe {
         relativeDistance = Mathf.Clamp(rawVector.magnitude, 0f, 1f);
         distance = normalizedVector.magnitude * ConstantsBucket.SwipeDistanceMax + ConstantsBucket.SwipeDistanceMin;
     }
-    public Swipe(JToken message) {
+    /*public Swipe(JToken message) {
         angleEuler = (int)message["rotationEuler"];
         rawVector = new Vector2((float)message["endPointCentered"][0], (float)message["endPointCentered"][1]); //ok?
         normalizedVector = rawVector.normalized;
         elementWidth = (int)message["elementWidth"];
         relativeDistance = Mathf.Clamp(rawVector.magnitude / elementWidth, 0f, 1f);
         distance = relativeDistance * ConstantsBucket.SwipeDistanceMax + ConstantsBucket.SwipeDistanceMin;
-    }
+    }*/
     public Swipe() {
         float deltaX = Random.Range(-1f, 1f);
         float deltaY = Random.Range(-1f, 1f);

@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using NDream.AirConsole;
-using Newtonsoft.Json.Linq;
 using UnityEngine;
 public class OwnersController : MonoBehaviour {
     void Start() {
@@ -23,7 +21,7 @@ public class OwnersController : MonoBehaviour {
     }
     void OnSceneClean(GameMessage message) {
         foreach (Owner owner in OwnersCoordinator.GetOwners().Where(x => !x.connected).ToList()) {
-            MenuNetworkHandler.Instance.OnDisconnect(owner.deviceId);
+            //MenuNetworkHandler.Instance.OnDisconnect(owner.deviceId);
         }
     }
 }

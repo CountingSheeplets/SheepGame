@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using NDream.AirConsole;
-using Newtonsoft.Json.Linq;
 
 public class BackButtonHandler : MonoBehaviour
 {
@@ -19,7 +17,7 @@ public class BackButtonHandler : MonoBehaviour
             string prev = ControllerView.previousViewStates[msg.owner.deviceId];
             if(prev == "upgrade")
                 viewToSet = "match";
-            NetworkCoordinator.SendShowView(msg.owner.deviceId, viewToSet);
+            //NetworkCoordinator.SendShowView(msg.owner.deviceId, viewToSet);
         }
     }
 

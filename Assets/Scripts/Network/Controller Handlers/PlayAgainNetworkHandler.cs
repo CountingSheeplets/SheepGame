@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using NDream.AirConsole;
+/*using NDream.AirConsole;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 public class PlayAgainNetworkHandler : MonoBehaviour {
@@ -45,4 +45,4 @@ public class PlayAgainNetworkHandler : MonoBehaviour {
             AirConsole.instance.onMessage -= OnReady;
         }
     }
-}
+}*/

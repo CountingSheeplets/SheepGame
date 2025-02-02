@@ -14,7 +14,7 @@ public class Owner : MonoBehaviour {
         get { return _isFirstOwner; }
         set {
             if (_isFirstOwner != value) {
-                NetworkCoordinator.SendFirstOwner(deviceId, value);
+                //NetworkCoordinator.SendFirstOwner(deviceId, value);
                 _isFirstOwner = value;
             }
         }
@@ -25,7 +25,7 @@ public class Owner : MonoBehaviour {
             if (!GameStateView.HasState(GameState.started)) {
                 GetMyTile().Ready(value);
                 //if (_ready != value)
-                NetworkCoordinator.SendConfirmReady(deviceId, value);
+                //NetworkCoordinator.SendConfirmReady(deviceId, value);
             }
             _ready = value;
         }
@@ -38,7 +38,7 @@ public class Owner : MonoBehaviour {
             ScoreRow row = FindObjectsOfType<ScoreRow>().Where(x => x.playerName.text == ownerName).FirstOrDefault();
             if (row != null)
                 row.SetPlayAgain();
-            NetworkCoordinator.SendConfirmPlayAgain(deviceId, value);
+            //NetworkCoordinator.SendConfirmPlayAgain(deviceId, value);
         }
     }
     PlayerOwnerTile myTile = null;

@@ -16,7 +16,7 @@ public class ScoreNetworkWriter : MonoBehaviour {
         foreach (Owner owner in OwnersCoordinator.GetOwners()) {
             PlayerScores playerScores = ScoreCoordinator.GetPlayerScores(owner);
             int total = ScoreCoordinator.GetTotalPlayerScores(owner);
-            NetworkCoordinator.SendPlayerScores(owner.deviceId, owner.GetPlayerProfile().isAlive, playerScores.scores, total);
+            //NetworkCoordinator.SendPlayerScores(owner.deviceId, owner.GetPlayerProfile().isAlive, playerScores.scores, total);
         }
     }
     void OnEliminated(GameMessage msg) {
@@ -26,7 +26,7 @@ public class ScoreNetworkWriter : MonoBehaviour {
             PlayerScores playerScores = ScoreCoordinator.GetPlayerScores(owner);
             int total = ScoreCoordinator.GetTotalPlayerScores(owner);
             owner.GetPlayerProfile().SetCrowns(total);
-            NetworkCoordinator.SendPlayerScores(owner.deviceId, false, playerScores.scores, total);
+            //NetworkCoordinator.SendPlayerScores(owner.deviceId, false, playerScores.scores, total);
         }
     }
 }

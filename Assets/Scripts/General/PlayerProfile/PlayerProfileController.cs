@@ -29,8 +29,8 @@ public class PlayerProfileController : MonoBehaviour {
             EventCoordinator.TriggerEvent(EventName.System.Player.ProfileCreated(), GameMessage.Write().WithPlayerProfile(profile));
         }
         //send assigned data
-        NetworkCoordinator.SendColor(msg.owner.deviceId, "#" + ColorUtility.ToHtmlStringRGBA(profile.playerColor).Substring(0, 6));
-        NetworkCoordinator.SendName(msg.owner.deviceId, profile.owner.ownerName);
+        //NetworkCoordinator.SendColor(msg.owner.deviceId, "#" + ColorUtility.ToHtmlStringRGBA(profile.playerColor).Substring(0, 6));
+        //NetworkCoordinator.SendName(msg.owner.deviceId, profile.owner.ownerName);
     }
 
     void OnPlayerLeft(GameMessage msg) {

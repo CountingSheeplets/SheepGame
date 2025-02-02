@@ -1,17 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using NDream.AirConsole;
-using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 public class SwipeNetworkHandler : Singleton<SwipeNetworkHandler> {
     void Awake() {
-        if (AirConsole.instance != null) {
+        /*if (AirConsole.instance != null) {
             AirConsole.instance.onMessage += OnSwipe;
             AirConsole.instance.onMessage += OnTap;
-        }
+        }*/
     }
-    void OnSwipe(int from, JToken message) {
+    /*void OnSwipe(int from, JToken message) {
         if (message["element"].ToString() == "swipe") {
             Owner triggerOwner = OwnersCoordinator.GetOwner(from);
             if (triggerOwner == null)
@@ -53,5 +51,5 @@ public class SwipeNetworkHandler : Singleton<SwipeNetworkHandler> {
             AirConsole.instance.onMessage -= OnSwipe;
             AirConsole.instance.onMessage -= OnTap;
         }
-    }
+    }*/
 }

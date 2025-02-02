@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using NDream.AirConsole;
-using Newtonsoft.Json.Linq;
+//using NDream.AirConsole;
+//using Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
-public class NetworkAudioHandler : MonoBehaviour {
+/*public class NetworkAudioHandler : MonoBehaviour {
     public AudioMixer mixer;
     private AudioMixerSnapshot mutedSnapshot;
     private AudioMixerSnapshot fullSnapshot;
@@ -72,4 +72,4 @@ public class NetworkAudioHandler : MonoBehaviour {
             AirConsole.instance.onAdComplete -= OnAdComplete;
         }
     }
-}
+}*/
