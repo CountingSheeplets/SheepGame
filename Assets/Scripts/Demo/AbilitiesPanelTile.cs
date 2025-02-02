@@ -15,7 +15,9 @@ public class AbilitiesPanelTile : MonoBehaviour
     public Animator upgradeAActivation;
     public Animator upgradeBActivation;
 
+    public Image upgradeABackground;
     public Image upgradeA;
+    public Image upgradeBBackground;
     public Image upgradeB;
 
     public TextMeshProUGUI growGrassCost;
@@ -26,6 +28,8 @@ public class AbilitiesPanelTile : MonoBehaviour
     
     public void SetOwner(Owner _owner) {
         owner = _owner;
+        upgradeABackground.color = owner.GetPlayerProfile().playerColor;
+        upgradeBBackground.color = owner.GetPlayerProfile().playerColor;
     }
 
     void Start()

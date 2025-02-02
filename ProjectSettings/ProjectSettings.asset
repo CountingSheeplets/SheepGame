@@ -332,6 +332,7 @@ PlayerSettings:
   openGLRequireES31AEP: 0
   openGLRequireES32: 0
   m_TemplateCustomTags:
+    HIDE_FULL_SCREEN_BUTTON: 
     PROGRESS_BAR_BACKGROUND_COLOR: rgba(76, 197, 234, 1)
     PROGRESS_BAR_COLOR: rgba(115, 158, 88, 1)
     PROGRESS_BAR_HEIGHT: 2%
@@ -585,10 +586,10 @@ PlayerSettings:
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: PROJECT:AirConsole-2020
+  webGLTemplate: PROJECT:Better2020
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
-  webGLCompressionFormat: 1
+  webGLCompressionFormat: 2
   webGLWasmArithmeticExceptions: 1
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
@@ -718,7 +719,13 @@ PlayerSettings:
   windowsGamepadBackendHint: 0
   cloudProjectId: 5e63a61a-cdea-4730-8b60-9f39c3adf443
   framebufferDepthMemorylessMode: 0
-  qualitySettingsNames: []
+  qualitySettingsNames:
+  - Very Low
+  - Low
+  - Medium
+  - High
+  - Very High
+  - Ultra
   projectName: sheepdom
   organizationId: katukai
   cloudEnabled: 0

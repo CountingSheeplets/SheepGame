@@ -11,7 +11,6 @@ public class ControllerInputDemo : MonoBehaviour {
     public SheepType typeA;
     public SheepType typeB;
     Swipe newSwipe;
-    //Vector2 stickValue;
 
     void Start() {
         EventCoordinator.StartListening(EventName.System.Sheep.ReadyToLaunch(), OnReadyToLaunch);
@@ -100,5 +99,18 @@ public class ControllerInputDemo : MonoBehaviour {
         if (upgB != null)
             typeB = upgB.sheepTypeOutput;
         else typeB = 0;
+    }
+
+    public void OnChangeHatNext() {
+        EventCoordinator.TriggerEvent(EventName.Input.ChangeKingItem(), GameMessage.Write().WithKingItemType(KingItemType.hat).WithIntMessage(1).WithOwner(playerOwner));
+    }
+    public void OnChangeHatPrevious() {
+        EventCoordinator.TriggerEvent(EventName.Input.ChangeKingItem(), GameMessage.Write().WithKingItemType(KingItemType.hat).WithIntMessage(-1).WithOwner(playerOwner));
+    }
+    public void OnChangeScepterNext() {
+        EventCoordinator.TriggerEvent(EventName.Input.ChangeKingItem(), GameMessage.Write().WithKingItemType(KingItemType.scepter).WithIntMessage(1).WithOwner(playerOwner));
+    }
+    public void OnChangeScepterPrevious() {
+        EventCoordinator.TriggerEvent(EventName.Input.ChangeKingItem(), GameMessage.Write().WithKingItemType(KingItemType.scepter).WithIntMessage(-1).WithOwner(playerOwner));
     }
 }

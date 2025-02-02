@@ -28,10 +28,10 @@ public class ItemChangeHandler : MonoBehaviour {
             }
             msg.owner.GetPlayerProfile().SeeItem(msg.kingItemType, currentItemIndex);
             //change the item only if requirements are met:
-            if (KingItemBucket.IsItemAvailable(msg.owner, currentItemIndex, msg.kingItemType)) {
+            //if (KingItemBucket.IsItemAvailable(msg.owner, currentItemIndex, msg.kingItemType)) {
                 msg.owner.GetPlayerProfile().SelectItem(msg.kingItemType, currentItemIndex);
                 ChangeItemTo(currentItemIndex, msg.kingItemType);
-            }
+            //}
         }
     }
     void OnSetKingItem(GameMessage msg) {

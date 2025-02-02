@@ -82,19 +82,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _persistent: 0
   flySpeeds:
-  - speed: 2
+  - speed: 4
     sheepType: 8
-  - speed: 3
+  - speed: 6
     sheepType: 1
-  - speed: 2
+  - speed: 5
     sheepType: 2
-  - speed: 2
+  - speed: 5
     sheepType: 3
-  - speed: 1.5
+  - speed: 3
     sheepType: 4
-  - speed: 2
+  - speed: 4
     sheepType: 5
-  - speed: 1.5
+  - speed: 3
     sheepType: 6
   - speed: 2
     sheepType: 7
@@ -479,3 +479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797a31ae5cb4bf8478ef3b5fadc69fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _persistent: 0
+  PlayerNames: []
+  UsedNames: []
+  UnusedNames: []
