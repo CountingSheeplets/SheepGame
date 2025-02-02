@@ -16,7 +16,6 @@ public class ArenaController : MonoBehaviour {
             Owner owner = OwnersCoordinator.CreateEmptyOwner();
             if (owner) {
                 EventCoordinator.TriggerEvent(EventName.Input.Network.PlayerJoined(), GameMessage.Write().WithOwner(owner));
-
             }
         }
         if (Keyboard.current.minusKey.wasPressedThisFrame) {

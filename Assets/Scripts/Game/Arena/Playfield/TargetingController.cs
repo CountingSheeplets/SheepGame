@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class TargetingController : MonoBehaviour {
     Playfield playfield;
@@ -26,6 +27,10 @@ public class TargetingController : MonoBehaviour {
     Color myColor;
     public Color insideWheelCol = Color.gray;
     Color colorToSet;
+
+    float fadeTimeout = 1f;
+    bool triggerTimeout = false;
+
     void Start() {
         playfield = GetComponentInParent<Playfield>();
         indSprite = dirIndicator.GetComponentInChildren<SpriteRenderer>();
@@ -51,18 +56,25 @@ public class TargetingController : MonoBehaviour {
 
     void OnTap(GameMessage msg) {
         if (playfield.owner.EqualsByValue(msg.owner)) {
-            if (!isTouching)
-                InitialMarkerMove(msg.swipe);
-            ChangeMarkerState(msg.state != 0);
-            SetGrayColor();
+            //if (!isTouching)
+            //    InitialMarkerMove(msg.swipe);
+            //ChangeMarkerState(msg.state != 0);
+            animator.SetTrigger("pop");
+            //SetGrayColor();
         }
     }
     void OnSwipe(GameMessage msg) {
         if (playfield.owner.EqualsByValue(msg.owner)) {
-            if (isTouching) {
-                MoveMarker(msg.swipe);
-                SetGrayColor();
+            //if (isTouching) {
+            MoveMarker(msg.swipe);
+            SetGrayColor();
+            if(msg.swipe.rawVector.magnitude > 0f) {
+                fadeTimeout = 1f;
+                FullyShow();
+            } else {
+                triggerTimeout = true;
             }
+            //}
         }
     }
     void InitialMarkerMove(Swipe swipe) {
@@ -80,7 +92,7 @@ public class TargetingController : MonoBehaviour {
         startPos = transform.localPosition;
         startRotation = dirIndicator.rotation;
 
-        targetDestination = swipe.normalizedVector * swipe.distance * ConstantsBucket.SheepThrowStrength;
+        targetDestination = swipe.rawVector * ConstantsBucket.SwipeDistanceMax;
         targetRotation = Quaternion.Euler(0f, 0f, swipe.angleEuler); //rot_z - defaultSpriteAngle);
         triggerMove = true;
 
@@ -104,7 +116,10 @@ public class TargetingController : MonoBehaviour {
         progressFade = 0;
     }
     void FullyShow() {
+        if (triggerFade)
+            animator.SetTrigger("default");
         triggerFade = false;
+        triggerTimeout = false;
         progressFade = 0;
         UpdateFadeState();
     }
@@ -121,6 +136,12 @@ public class TargetingController : MonoBehaviour {
                 triggerMove = false;
                 progressMove = 0;
             }
+        }
+        if (!triggerFade && triggerTimeout)
+            fadeTimeout -= Time.deltaTime;
+        if (fadeTimeout <= 0) {
+            fadeTimeout = 1f;
+            StartFading();
         }
 
         if (triggerFade) {

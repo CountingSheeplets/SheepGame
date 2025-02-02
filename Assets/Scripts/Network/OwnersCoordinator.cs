@@ -105,6 +105,19 @@ public class OwnersCoordinator : Singleton<OwnersCoordinator> {
         newOwner.teamId = Instance.counter;
         return newOwner;
     }
+    public static Owner DisconnectOwner(Owner leftOwner) {
+        if (leftOwner == null)
+            return null;
+
+        if (GameStateView.HasState(GameState.started) && leftOwner.GetPlayerProfile() != null) {
+            leftOwner.connected = false;
+        } else {
+            UnUseTeamId(leftOwner.teamId);
+            Instance.owners.Remove(leftOwner);
+            Destroy(leftOwner.gameObject);
+        }
+        return leftOwner;
+    }
     public static Owner DisconnectOwner(int device_id) {
         Owner leftOwner = GetOwner(device_id);
         if (leftOwner == null)

@@ -15,7 +15,14 @@ public class Swipe {
             return relativeDistance > ConstantsBucket.SwipeWheelDistMin;
         }
     }
-
+    public Swipe(Vector2 controllerValue) {
+        rawVector = controllerValue; //ok?
+        normalizedVector = rawVector.normalized;
+        angleEuler = (int)SignedAngleBetween(Vector2.up, normalizedVector);
+        elementWidth = (int)1;
+        relativeDistance = Mathf.Clamp(rawVector.magnitude, 0f, 1f);
+        distance = normalizedVector.magnitude * ConstantsBucket.SwipeDistanceMax + ConstantsBucket.SwipeDistanceMin;
+    }
     public Swipe(JToken message) {
         angleEuler = (int)message["rotationEuler"];
         rawVector = new Vector2((float)message["endPointCentered"][0], (float)message["endPointCentered"][1]); //ok?
