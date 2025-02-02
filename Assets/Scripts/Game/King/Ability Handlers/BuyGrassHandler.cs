@@ -15,6 +15,9 @@ public class BuyGrassHandler : MonoBehaviour {
         if (profile.Buy(PriceName.King.BuyGrass())) {
             profile.FillGrass();
             PriceCoordinator.IncreaseLevel(msg.owner, PriceName.King.BuyGrass());
+            EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.BoughtGrass(), GameMessage.Write().WithOwner(msg.owner));
+        } else {
+            EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.NotBoughtGrass(), GameMessage.Write().WithOwner(msg.owner));
         }
     }
 }

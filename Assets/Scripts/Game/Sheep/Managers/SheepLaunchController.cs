@@ -12,7 +12,8 @@ public class SheepLaunchController : MonoBehaviour {
     void OnLaunch(GameMessage msg) {
         SheepUnit sheep = msg.sheepUnit;
         SheepFly fly = sheep.gameObject.GetComponent<SheepFly>();
-        Vector2 destination = msg.swipe.normalizedVector * msg.swipe.distance * ConstantsBucket.SheepThrowStrength + (Vector2)fly.transform.position;
+        //Vector2 destination = msg.swipe.normalizedVector * msg.swipe.distance * ConstantsBucket.SheepThrowStrength + (Vector2)fly.transform.position;
+        Vector2 destination = msg.coordinates;// + (Vector2)fly.transform.position;
         float speed = SpeedBucket.GetFlySpeed(sheep.sheepType);
         fly.StartFlying(speed, destination);
         sheep.ResetContainer();

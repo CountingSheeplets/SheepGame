@@ -8,21 +8,21 @@ public class SheepThrow : MonoBehaviour {
     Playfield playfield;
     void Start() {
         playfield = GetComponent<Playfield>();
-        EventCoordinator.StartListening(EventName.Input.Tap(), OnTap);
+        EventCoordinator.StartListening(EventName.Input.TargetMarked(), OnTargetMarked);
         EventCoordinator.StartListening(EventName.System.Sheep.Spawned(), OnSpawn);
         EventCoordinator.StartListening(EventName.System.Sheep.Land(), OnLand);
         EventCoordinator.StartListening(EventName.System.Sheep.ReadyToLaunch(), OnReady);
         EventCoordinator.StartListening(EventName.System.Sheep.Kill(), OnKill);
     }
     void OnDestroy() {
-        EventCoordinator.StopListening(EventName.Input.Tap(), OnTap);
+        EventCoordinator.StopListening(EventName.Input.TargetMarked(), OnTargetMarked);
         EventCoordinator.StopListening(EventName.System.Sheep.Spawned(), OnSpawn);
         EventCoordinator.StopListening(EventName.System.Sheep.Land(), OnLand);
         EventCoordinator.StopListening(EventName.System.Sheep.ReadyToLaunch(), OnReady);
         EventCoordinator.StopListening(EventName.System.Sheep.Kill(), OnKill);
     }
 
-    void OnTap(GameMessage msg) {
+    void OnTargetMarked(GameMessage msg) {
         if (msg.owner.EqualsByValue(GetComponent<Owner>())) { //because this is input message
             if (msg.state != 0)return;
             if (!msg.swipe.isOverWheelMin)return;

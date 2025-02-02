@@ -27,6 +27,11 @@ public class KingSmashHandler : MonoBehaviour {
                 .WithOwner(msg.owner)
                 .WithKingUnit(king)
             );
+        } else {
+            EventCoordinator.TriggerEvent(EventName.System.King.NotStartSmash(),
+                GameMessage.Write()
+                .WithOwner(msg.owner)
+            );
         }
         //Debug.Log("smashers: " + smashers.Count + "  alive:" + PlayerProfileCoordinator.GetAliveOwners().Count);
         /*         if (smashers.Count >= PlayerProfileCoordinator.GetAliveOwners().Count) {

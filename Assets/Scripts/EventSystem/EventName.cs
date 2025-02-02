@@ -15,10 +15,20 @@ public class EventName {
     public class Input {
         public class KingAbilities {
             public static string SpawnSheep() { return "KingAbilities_SpawnSheep"; }
+
             public static string KingUpgrade() { return "KingAbilities_KingUpgrade"; }
+            public static string KingUpgraded() { return "KingAbilities_KingUpgraded"; }
+            public static string KingNotUpgraded() { return "KingAbilities_KingNotUpgraded"; }
+
             public static string BuyGrass() { return "KingAbilities_BuyLawn"; }
+            public static string BoughtGrass() { return "KingAbilities_BoughtGrass"; }
+            public static string NotBoughtGrass() { return "KingAbilities_NotBoughtGrass"; }
+
             public static string Smash() { return "KingAbilities_Smash"; }
-            public static List<string> Get() { return new List<string> { SpawnSheep(), KingUpgrade(), BuyGrass(), Smash() }; }
+            public static List<string> Get() { return new List<string> { SpawnSheep(),
+                KingUpgrade(), KingUpgraded(), KingNotUpgraded(),
+                BuyGrass(), BoughtGrass(), NotBoughtGrass(),
+                Smash() }; }
         }
         /*         public class SheepUpgrade{
                     public static string A() { return "SheepUpgrade_A"; }
@@ -39,6 +49,8 @@ public class EventName {
         public static string SheepUpgrade() { return "Input_SheepUpgrade"; }
         public static string Swipe() { return "Input_Swipe"; }
         public static string Tap() { return "Input_Tap"; }
+        public static string TargetMarked() { return "Input_TargetMarked"; }
+
         public static string ChangeKingItem() { return "ChangeKingItem"; }
         public static string SetKingItem() { return "SetKingItem"; }
         public static string StartGame() { return "StartGame"; }
@@ -50,6 +62,7 @@ public class EventName {
                     SheepUpgrade(),
                     Swipe(),
                     Tap(),
+                    TargetMarked(),
                     ChangeKingItem(),
                     SetKingItem()
                 }.Concat(KingAbilities.Get())
@@ -75,13 +88,18 @@ public class EventName {
         }
         public class King {
             public static string Spawned() { return "System_King_Spawned"; }
+
             public static string StartSmash() { return "System_King_StartSmash"; }
+            public static string NotStartSmash() { return "System_King_NotStartSmash"; }
             public static string Smashed() { return "System_King_Smashed"; }
             public static string SmashReset() { return "System_King_SmashReset"; }
+
             public static string Killed() { return "System_King_Killed"; }
             public static string Hit() { return "System_King_Hit"; }
             public static string ReceivedDamage() { return "System_King_ReceivedDamage"; }
-            public static List<string> Get() { return new List<string> { ReceivedDamage(), StartSmash(), Hit(), Spawned(), Smashed(), SmashReset(), Killed() }; }
+            public static List<string> Get() { return new List<string> { ReceivedDamage(),
+                StartSmash(), NotStartSmash(),
+                Hit(), Spawned(), Smashed(), SmashReset(), Killed() }; }
         }
         public class Sheep {
             public static string Spawned() { return "System_Sheep_Spawned"; }
@@ -91,8 +109,15 @@ public class EventName {
             public static string ReadyToLaunch() { return "System_Sheep_ReadyToLaunch"; }
             public static string Kill() { return "System_Sheep_Kill"; }
             public static string Roam() { return "System_Sheep_Roam"; }
+
             public static string Upgraded() { return "System_Sheep_Upgraded"; }
-            public static List<string> Get() { return new List<string> { Spawned(), Launch(), Land(), KingMissed(), ReadyToLaunch(), Kill(), Roam(), Upgraded() }; }
+            public static string NotUpgraded() { return "System_Sheep_NotUpgraded"; }
+
+            public static List<string> Get() {
+                return new List<string> { Spawned(), Launch(), Land(), KingMissed(), ReadyToLaunch(), Kill(), Roam(),
+                Upgraded(), NotUpgraded()
+            };
+            }
         }
         public class Environment {
             public static string Initialized() { return "System_Environment_Initialized"; }

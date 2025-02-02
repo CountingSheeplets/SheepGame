@@ -11,10 +11,11 @@ public class ControllerInputDemo : MonoBehaviour {
     public SheepType typeA;
     public SheepType typeB;
     Swipe newSwipe;
-    Vector2 stickValue;
+    //Vector2 stickValue;
 
     void Start() {
         EventCoordinator.StartListening(EventName.System.Sheep.ReadyToLaunch(), OnReadyToLaunch);
+        newSwipe = new Swipe();
     }
     void OnDestroy() {
         EventCoordinator.StopListening(EventName.System.Sheep.ReadyToLaunch(), OnReadyToLaunch);
@@ -30,13 +31,7 @@ public class ControllerInputDemo : MonoBehaviour {
         if (!GameStateView.HasState(GameState.started)) return;
         // The given InputValue is only valid for the duration of the callback. Storing the InputValue references somewhere and calling Get<T>() later does not work correctly.
         Vector2 v = value.Get<Vector2>();
-        if(stickValue == Vector2.zero) {
-            newSwipe = new Swipe(v);
-            EventCoordinator.TriggerEvent(EventName.Input.Tap(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(playerOwner));
-            stickValue = v;
-            return;
-        }
-        stickValue = v;
+        //stickValue = v;
         newSwipe = new Swipe(v);
         //Debug.Log(newSwipe.ToString());
         EventCoordinator.TriggerEvent(EventName.Input.Swipe(), GameMessage.Write().WithSwipe(newSwipe).WithOwner(playerOwner));

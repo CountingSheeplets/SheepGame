@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class TargetingController : MonoBehaviour {
     Playfield playfield;
@@ -22,7 +21,7 @@ public class TargetingController : MonoBehaviour {
     float timeToFade = 1.2f;
     Quaternion startRotation;
     Vector2 startPos;
-    bool isTouching = false;
+
     bool isInsideBlockRange = false;
     Color myColor;
     public Color insideWheelCol = Color.gray;
@@ -61,6 +60,7 @@ public class TargetingController : MonoBehaviour {
             //ChangeMarkerState(msg.state != 0);
             animator.SetTrigger("pop");
             //SetGrayColor();
+            EventCoordinator.TriggerEvent(EventName.Input.TargetMarked(), GameMessage.Write().WithSwipe(msg.swipe).WithOwner(msg.owner).WithCoordinates(transform.position));
         }
     }
     void OnSwipe(GameMessage msg) {
@@ -102,7 +102,6 @@ public class TargetingController : MonoBehaviour {
     }
 
     void ChangeMarkerState(bool isDown) {
-        isTouching = isDown;
         if (!isDown) {
             animator.SetTrigger("pop");
             StartFading();

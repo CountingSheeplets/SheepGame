@@ -26,12 +26,12 @@ public class TranslationsHandler : Singleton<TranslationsHandler> {
                 return Instance.disconnected.ToLower();
         return "disconnected";
     }
-    string info_tile_more = "more people - more fun! up to 8 players can join";
+    string info_tile_more = "more players - more fun! push A on your controller to join!";
     public static string GetInfoTileMoreTr() {
         if (Instance)
             if (Instance.info_tile_more != null)
                 return Instance.info_tile_more;
-        return "more people - more fun! up to 8 players can join";
+        return "more players - more fun! push A on your controller to join!";
     }
     string info_tile_need = "need at least 2 players to be able to play. best - 5 players";
     public static string GetInfoTileNeedTr() {

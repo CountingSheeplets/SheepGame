@@ -16,7 +16,10 @@ public class KingUpgradeHandler : MonoBehaviour {
             int level = KingSpeedCoordinator.IncreaseLevel(msg.owner);
             PriceCoordinator.IncreaseLevel(msg.owner, PriceName.King.Upgrade());
             //Debug.Log("level: " + level);
+            EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.KingUpgraded(), GameMessage.Write().WithOwner(msg.owner));
             //EventCoordinator.TriggerEvent(EventName.System.Sheep.Spawned(), GameMessage.Write().WithSheepUnit(sheep));
+        } else {
+            EventCoordinator.TriggerEvent(EventName.Input.KingAbilities.KingNotUpgraded(), GameMessage.Write().WithOwner(msg.owner));
         }
     }
 }

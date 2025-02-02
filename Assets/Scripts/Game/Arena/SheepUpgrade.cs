@@ -33,6 +33,8 @@ public class SheepUpgrade : MonoBehaviour {
                     tier2UpgradeCount++;
                 }
                 EventCoordinator.TriggerEvent(EventName.System.Sheep.Upgraded(), msg.WithSheepUnit(sheep));
+            } else {
+                EventCoordinator.TriggerEvent(EventName.System.Sheep.NotUpgraded(), msg.WithSheepUnit(sheep));
             }
         }
     }
